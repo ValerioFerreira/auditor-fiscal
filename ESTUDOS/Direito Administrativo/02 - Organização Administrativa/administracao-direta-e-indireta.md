@@ -36,8 +36,7 @@
 
 ## Controle (tutela) x hierarquia
 
-- Entre administração direta e indireta **não há hierarquia (subordinação)**, e sim **vinculação**: a direta exerce **controle finalístico (tutela, supervisão ministerial)**, **nos limites da lei**, para verificar se a entidade cumpre as finalidades para as quais foi criada. Regra: **autonomia**; controle é exceção.
-- → ver princípios da **tutela** e da **especialidade** em `../03 - Princípios da Administração Pública/principios-implicitos.md`.
+- Entre administração direta e indireta há **vinculação** (tutela ou controle finalístico), e **não hierarquia** → princípios da **tutela** e da **especialidade** em `../03 - Princípios da Administração Pública/principios-implicitos.md`.
 
 ## Pegadinhas CEBRASPE
 

@@ -20,7 +20,7 @@
 | **Jurídica** | Hans **Kelsen** | **Norma jurídica pura**, sem fundamento sociológico/político. Normas **fundantes** (superiores) x **fundadas** (inferiores). Dois sentidos: **lógico-jurídico** (norma fundamental hipotética, pressuposta) e **jurídico-positivo** (constituição positivada, norma suprema). |
 | **Culturalista** | J. H. **Meirelles Teixeira** | Manifestação da **cultura** de um povo; **"Constituição total"**: síntese das concepções sociológica, política e jurídica. Como objeto cultural, não é pura realidade (fato), nem puro ideal, nem puro valor — é síntese desses aspectos; é condicionada pela cultura e também a condiciona. |
 | **Normativa** | Konrad **Hesse** | **Força normativa da Constituição**: em conflito com a realidade, a Constituição pode prevalecer (oposição a Lassalle). Sua eficácia depende de o conteúdo ser compatível com a realidade, da **práxis** e da **"vontade de Constituição"**. |
-| **Constituição dúctil** | Gustavo **Zagrebelsky** | **Maleável**, reflete o **pluralismo**; limita-se a assegurar as **condições básicas da vida em comum**, sem impor um projeto fechado. |
+| **Constituição dúctil** (suave) | Gustavo **Zagrebelsky** | **Maleável**, reflete o **pluralismo**; limita-se a assegurar as **condições básicas da vida em comum**, sem impor um projeto fechado: é um **projeto em construção**. |
 | **Estrutural** | **José Afonso da Silva** | Constituição como estrutura, com: **forma** (complexo de normas **escritas ou costumeiras**); **conteúdo** (conduta humana motivada pelas relações sociais); **fim** (realização dos valores da comunidade); **causa criadora e recriadora** (o poder que emana do povo). |
 
 ## Regras e princípios

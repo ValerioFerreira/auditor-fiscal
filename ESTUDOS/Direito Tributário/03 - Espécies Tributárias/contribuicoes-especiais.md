@@ -9,9 +9,7 @@
 
 ## Característica essencial: finalidade
 
-- São **tributos finalísticos**: a **destinação** do produto da arrecadação integra sua natureza.
-- A análise **só do fato gerador é insuficiente** para identificá-las (exceção ao art. 4º, II, do CTN).
-- Desvio de finalidade **previsto na própria lei** compromete a validade da exigência; desvio na **execução orçamentária** (ou DRU) não gera direito à restituição (STF).
+- São **tributos finalísticos**: a **destinação** do produto da arrecadação integra sua natureza → exceção ao art. 4º, II, do CTN e efeitos do desvio de finalidade em `../02 - Tributo/natureza-juridica-e-classificacao.md`.
 
 ## Competência
 

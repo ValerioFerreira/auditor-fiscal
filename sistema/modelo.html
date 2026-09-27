@@ -1,0 +1,1168 @@
+<title>Estudos · Auditor Fiscal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..700&family=Public+Sans:ital,wght@0,400..700;1,400..700&display=swap">
+<style>
+/* ---------- Tokens: tema claro (padrão) ---------- */
+:root {
+  color-scheme: light;
+  --paper: #fbfbfc;
+  --panel: #f2f3f6;
+  --raised: #ffffff;
+  --hover: #eceef3;
+  --ink: #1b1e25;
+  --ink-2: #474e5c;
+  --ink-3: #6b7282;
+  --rule: #e1e4ea;
+  --rule-2: #cfd4dd;
+  --accent: #2b3f7a;
+  --accent-soft: #dde3f3;
+  --marker: #ffe45c;
+  --marker-cur: #ffb02e;
+  --star: #d4960a;
+  --ok: #1d7a3a;
+  --ok-soft: #e2f3e7;
+  --err: #c0271e;
+  --err-soft: #fbe5e3;
+  --warn-bg: #fff6df;
+  --warn-bd: #efd28a;
+  --info-bg: #edf2fb;
+  --info-bd: #c3d3ee;
+  --law-bg: #f5f5f1;
+  --law-bd: #dedcd2;
+  --trap-bg: #fcedf1;
+  --trap-bd: #eec3d1;
+  --div-bg: #f1edfb;
+  --div-bd: #d5c9f0;
+  --m1: #0b7285;
+  --m2: #b45309;
+  --m3: #3f4fc4;
+  --m4: #a3174f;
+  --m5: #2f7d32;
+  --m6: #7b3fa0;
+  --m7: #66781a;
+  --m8: #b3361e;
+  --ctrl: #5f6b7d;
+  --on-m: #ffffff;
+  --shadow: 0 1px 2px rgb(20 24 33 / 6%), 0 10px 30px rgb(20 24 33 / 10%);
+  --font-ui: "Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Literata", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, Cambria, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
+  --font-read: var(--font-serif);
+  --fs: 17px;
+  --col: 36;
+  --measure: calc(var(--fs) * var(--col));
+  --top-h: 60px;
+  --side-w: 290px;
+}
+/* ---------- Tema escuro (sistema ou escolha do visualizador) ---------- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]):not([data-leitura="light"]):not([data-leitura="sepia"]) {
+    color-scheme: dark;
+    --paper: #111318; --panel: #171a20; --raised: #1c2028; --hover: #232833;
+    --ink: #e8eaef; --ink-2: #b7bdc9; --ink-3: #8d95a5; --rule: #272c36; --rule-2: #353c49;
+    --accent: #a8b8ff; --accent-soft: #28304a; --marker: #6f5c00; --marker-cur: #b3730a; --star: #f2c14e;
+    --ok: #62c880; --ok-soft: #16301f; --err: #ff8074; --err-soft: #3a1815;
+    --warn-bg: #2a2412; --warn-bd: #5b4a1a; --info-bg: #151f33; --info-bd: #2b3d63;
+    --law-bg: #1a1c21; --law-bd: #31353f; --trap-bg: #2a1720; --trap-bd: #58293d;
+    --div-bg: #211b33; --div-bd: #41356a;
+    --m1: #52c3d6; --m2: #f1a650; --m3: #9aa6ff; --m4: #f36f9f; --m5: #71c575; --m6: #c897e8;
+    --m7: #b9cc5e; --m8: #f38c70; --ctrl: #9aa6b8; --on-m: #0d0f14;
+    --shadow: 0 1px 2px rgb(0 0 0 / 40%), 0 12px 32px rgb(0 0 0 / 45%);
+  }
+}
+:root[data-leitura="dark"],
+:root[data-theme="dark"]:not([data-leitura="light"]):not([data-leitura="sepia"]) {
+  color-scheme: dark;
+  --paper: #111318; --panel: #171a20; --raised: #1c2028; --hover: #232833;
+  --ink: #e8eaef; --ink-2: #b7bdc9; --ink-3: #8d95a5; --rule: #272c36; --rule-2: #353c49;
+  --accent: #a8b8ff; --accent-soft: #28304a; --marker: #6f5c00; --marker-cur: #b3730a; --star: #f2c14e;
+  --ok: #62c880; --ok-soft: #16301f; --err: #ff8074; --err-soft: #3a1815;
+  --warn-bg: #2a2412; --warn-bd: #5b4a1a; --info-bg: #151f33; --info-bd: #2b3d63;
+  --law-bg: #1a1c21; --law-bd: #31353f; --trap-bg: #2a1720; --trap-bd: #58293d;
+  --div-bg: #211b33; --div-bd: #41356a;
+  --m1: #52c3d6; --m2: #f1a650; --m3: #9aa6ff; --m4: #f36f9f; --m5: #71c575; --m6: #c897e8;
+  --m7: #b9cc5e; --m8: #f38c70; --ctrl: #9aa6b8; --on-m: #0d0f14;
+  --shadow: 0 1px 2px rgb(0 0 0 / 40%), 0 12px 32px rgb(0 0 0 / 45%);
+}
+/* ---------- Tema sépia (escolha do leitor) ---------- */
+:root[data-leitura="sepia"] {
+  color-scheme: light;
+  --paper: #f5eedf; --panel: #ede3cf; --raised: #fbf7ee; --hover: #e7dcc5;
+  --ink: #3a2f23; --ink-2: #5c4d3c; --ink-3: #7c6b56; --rule: #e0d3ba; --rule-2: #d2c2a4;
+  --accent: #6b3f16; --accent-soft: #eadcc2; --marker: #f6d44a; --marker-cur: #f0a52b;
+  --warn-bg: #f9ecc9; --warn-bd: #e3c67f; --info-bg: #efe7d6; --info-bd: #d8c9aa;
+  --law-bg: #efe6d4; --law-bd: #d9cbb0; --trap-bg: #f6e2dc; --trap-bd: #e4bfb3;
+  --div-bg: #ece3e8; --div-bd: #d6c3cf;
+}
+:root[data-fonte="sans"] { --font-read: var(--font-ui); }
+:root[data-largura="ampla"] { --col: 46; }
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 400 15px/1.5 var(--font-ui); }
+[hidden] { display: none !important; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+.sr { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.pular { position: fixed; left: 16px; top: -60px; z-index: 90; padding: 10px 14px; border-radius: 8px; background: var(--ink); color: var(--paper); font-weight: 600; text-decoration: none; }
+.pular:focus { top: calc(10px + env(safe-area-inset-top, 0px)); }
+kbd { font: 500 11px/1 var(--font-mono); padding: 3px 6px; border: 1px solid var(--rule-2); border-bottom-width: 2px; border-radius: 5px; color: var(--ink-3); background: var(--raised); }
+
+/* Cor da matéria: cada elemento com c-* herda --m */
+.c-m1 { --m: var(--m1); } .c-m2 { --m: var(--m2); } .c-m3 { --m: var(--m3); } .c-m4 { --m: var(--m4); }
+.c-m5 { --m: var(--m5); } .c-m6 { --m: var(--m6); } .c-m7 { --m: var(--m7); } .c-m8 { --m: var(--m8); }
+.c-ctrl { --m: var(--ctrl); }
+.aba { display: inline-grid; place-items: center; min-width: 3.2em; height: 1.6em; padding: 0 .5em; border-radius: 3px; background: var(--m, var(--ctrl)); color: var(--on-m); font: 700 10.5px/1 var(--font-ui); letter-spacing: .08em; flex: none; }
+
+/* ---------- Barra superior ---------- */
+.topo { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; display: flex; align-items: center; gap: 10px; height: var(--top-h); padding-inline: 16px; background: var(--paper); background: color-mix(in srgb, var(--paper) 90%, transparent); -webkit-backdrop-filter: saturate(1.3) blur(10px); backdrop-filter: saturate(1.3) blur(10px); border-bottom: 1px solid var(--rule); }
+.bt-icone { display: inline-grid; place-items: center; width: 38px; height: 38px; border: 0; border-radius: 9px; background: none; color: var(--ink-2); cursor: pointer; flex: none; }
+.bt-icone:hover { background: var(--hover); color: var(--ink); }
+.bt-menu { display: none; }
+.marca { display: flex; flex-direction: column; justify-content: center; gap: 3px; width: calc(var(--side-w) - 26px); flex: none; text-decoration: none; color: var(--ink); }
+.marca-nome { font: 650 20px/1 var(--font-serif); letter-spacing: -.01em; }
+.marca-sub { font: 700 10px/1 var(--font-ui); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); }
+.busca { position: relative; flex: 1 1 auto; max-width: 640px; min-width: 0; margin: 0; }
+.busca input { width: 100%; height: 40px; padding: 0 44px 0 40px; border: 1px solid var(--rule-2); border-radius: 10px; background: var(--raised); color: var(--ink); font: 400 15px/1 var(--font-ui); outline: none; transition: border-color .15s, box-shadow .15s; -webkit-appearance: none; appearance: none; }
+.busca input::placeholder { color: var(--ink-3); }
+.busca input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.busca input::-webkit-search-cancel-button, .busca input::-webkit-search-decoration { -webkit-appearance: none; display: none; }
+.busca-ico { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--ink-3); pointer-events: none; }
+.busca-kbd { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); pointer-events: none; }
+.busca input:not(:placeholder-shown) ~ .busca-kbd, .busca input:focus ~ .busca-kbd { display: none; }
+.bt-limpar { position: absolute; right: 4px; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; }
+.acoes-topo { display: flex; align-items: center; gap: 4px; margin-left: auto; flex: none; }
+.bt-topo { display: inline-flex; align-items: center; gap: 7px; height: 38px; padding: 0 12px; border: 0; border-radius: 9px; background: none; color: var(--ink-2); font: 600 13.5px/1 var(--font-ui); text-decoration: none; cursor: pointer; white-space: nowrap; }
+.bt-topo:hover, .bt-topo[aria-current="page"], .bt-topo[aria-expanded="true"] { background: var(--hover); color: var(--ink); }
+.bt-aa { font: 600 16px/1 var(--font-serif); padding: 0 13px; }
+
+/* ---------- Grade: menu lateral + conteúdo ---------- */
+.grade { display: grid; grid-template-columns: var(--side-w) minmax(0, 1fr); align-items: start; }
+.lateral { position: sticky; top: calc(var(--top-h) + env(safe-area-inset-top, 0px)); height: calc(100vh - var(--top-h) - env(safe-area-inset-top, 0px)); height: calc(100dvh - var(--top-h) - env(safe-area-inset-top, 0px)); overflow-y: auto; overscroll-behavior: contain; padding: 18px 12px 40px; background: var(--panel); border-right: 1px solid var(--rule); font-size: 14px; scrollbar-width: thin; }
+.nav-topo { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 8px; color: var(--ink-2); font-weight: 600; text-decoration: none; }
+.nav-topo:hover, .nav-tema:hover { background: var(--hover); color: var(--ink); }
+.nav-topo[aria-current="page"] { background: var(--raised); color: var(--ink); box-shadow: 0 0 0 1px var(--rule); }
+.nav-n { margin-left: auto; font: 600 12px/1 var(--font-ui); color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.nav-rot { margin: 22px 10px 6px; font: 700 10.5px/1 var(--font-ui); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+.nav-mat + .nav-mat { margin-top: 2px; }
+.nav-mat-cab { display: flex; align-items: center; gap: 10px; width: 100%; padding: 8px 10px; border: 0; border-radius: 8px; background: none; color: var(--ink); font: 650 14px/1.25 var(--font-ui); text-align: left; cursor: pointer; }
+.nav-mat-cab:hover { background: var(--hover); }
+.nav-mat-cab svg { margin-left: auto; width: 16px; height: 16px; color: var(--ink-3); transition: transform .15s; }
+.nav-mat-cab[aria-expanded="false"] svg { transform: rotate(-90deg); }
+.nav-mat-corpo { margin: 2px 0 10px 27px; padding-left: 10px; border-left: 1px solid var(--rule-2); }
+.nav-assunto { display: flex; gap: 7px; align-items: baseline; margin: 12px 10px 4px; font: 650 11px/1.3 var(--font-ui); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+.nav-assunto:first-child { margin-top: 6px; }
+.nav-assunto .num { color: var(--m); font-variant-numeric: tabular-nums; }
+.nav-tema { display: block; padding: 6px 10px; border-radius: 7px; color: var(--ink-2); line-height: 1.35; text-decoration: none; }
+.nav-tema[aria-current="page"] { color: var(--ink); font-weight: 650; background: color-mix(in srgb, var(--m) 13%, transparent); }
+.nav-favs { list-style: none; margin: 0; padding: 0; }
+.nav-favs .nav-tema { display: flex; gap: 9px; align-items: baseline; }
+.ponto { width: 8px; height: 8px; border-radius: 50%; background: var(--m); flex: none; transform: translateY(-1px); }
+.nav-pe { margin: 26px 10px 0; font: 500 12px/1.5 var(--font-ui); color: var(--ink-3); }
+.principal { min-width: 0; padding: 32px 16px 110px; outline: none; }
+.veu { position: fixed; inset: 0; z-index: 55; background: rgb(10 12 16 / 40%); }
+
+/* ---------- Documento ---------- */
+.doc { max-width: 1140px; margin: 0 auto; }
+.doc-cab { max-width: 780px; margin-bottom: 26px; }
+.migalhas { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font: 600 13px/1.3 var(--font-ui); color: var(--ink-3); }
+.migalhas .sep { opacity: .6; }
+.doc-tit-linha { display: flex; align-items: flex-start; gap: 16px; margin: 14px 0 8px; }
+.doc-tit { flex: 1 1 auto; margin: 0; font: 650 clamp(28px, 3.3vw, 40px)/1.14 var(--font-serif); letter-spacing: -.018em; text-wrap: balance; }
+.doc-resumo { margin: 0 0 12px; font: 400 17px/1.5 var(--font-ui); color: var(--ink-2); text-wrap: pretty; }
+.doc-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 0; font: 500 13px/1.4 var(--font-ui); color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.selo { display: inline-flex; align-items: center; gap: 6px; padding: 3px 9px; border-radius: 999px; font: 600 12px/1.3 var(--font-ui); text-decoration: none; }
+.selo-pend { background: var(--warn-bg); color: var(--ink-2); box-shadow: inset 0 0 0 1px var(--warn-bd); }
+.bt-fav { display: inline-flex; align-items: center; gap: 7px; flex: none; height: 36px; margin-top: 4px; padding: 0 12px; border: 1px solid var(--rule-2); border-radius: 9px; background: var(--raised); color: var(--ink-2); font: 600 13px/1 var(--font-ui); cursor: pointer; }
+.bt-fav:hover { color: var(--ink); border-color: var(--ink-3); }
+.bt-fav[aria-pressed="true"] { color: var(--ink); }
+.bt-fav[aria-pressed="true"] svg { fill: var(--star); stroke: var(--star); }
+.doc-grade { display: grid; grid-template-columns: minmax(0, 1fr); gap: 56px; }
+.toc { display: none; }
+.toc-rot { margin: 0 0 10px; font: 700 10.5px/1 var(--font-ui); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+.toc-lista { list-style: none; margin: 0; padding: 0; border-left: 1px solid var(--rule); font: 500 13px/1.4 var(--font-ui); }
+.toc-lista a { display: block; margin-left: -1px; padding: 5px 0 5px 14px; border-left: 2px solid transparent; color: var(--ink-3); text-decoration: none; }
+.toc-lista .toc-n3 a { padding-left: 26px; font-size: 12.5px; }
+.toc-lista a:hover { color: var(--ink); }
+.toc-lista a.ativo { color: var(--ink); border-left-color: var(--m); font-weight: 650; }
+.toc-movel { max-width: var(--measure); margin: 0 0 26px; border: 1px solid var(--rule); border-radius: 10px; background: var(--raised); font-size: var(--fs); }
+.toc-movel summary { padding: 11px 14px; cursor: pointer; font: 650 14px/1.2 var(--font-ui); color: var(--ink-2); }
+.toc-movel .toc-lista { margin: 0 14px 12px; }
+@media (min-width: 1300px) {
+  .doc-grade { grid-template-columns: minmax(0, 1fr) 230px; }
+  .toc { display: block; position: sticky; top: calc(var(--top-h) + 28px + env(safe-area-inset-top, 0px)); max-height: calc(100vh - var(--top-h) - 56px); overflow-y: auto; padding-bottom: 12px; scrollbar-width: thin; }
+  .toc-movel { display: none; }
+}
+
+/* Texto do tema */
+.doc-corpo { font-family: var(--font-read); font-size: var(--fs); line-height: 1.72; font-optical-sizing: auto; overflow-wrap: break-word; }
+.doc-corpo > * { max-width: var(--measure); }
+.doc-corpo > .tabela, .doc-corpo > .codigo { max-width: 100%; }
+.doc-corpo [data-b], .doc-corpo h2, .doc-corpo h3 { scroll-margin-top: calc(var(--top-h) + 28px + env(safe-area-inset-top, 0px)); }
+.doc-corpo h2 { margin: 2.1em 0 .55em; font: 650 1.44em/1.25 var(--font-serif); letter-spacing: -.012em; text-wrap: balance; }
+.doc-corpo > h2:first-child { margin-top: .2em; }
+.doc-corpo h3 { margin: 1.7em 0 .45em; font: 650 1.15em/1.3 var(--font-serif); text-wrap: balance; }
+.doc-corpo h4 { margin: 1.6em 0 .4em; font: 700 .8em/1.3 var(--font-ui); letter-spacing: .07em; text-transform: uppercase; color: var(--ink-2); }
+.doc-corpo p { margin: 0 0 .85em; }
+.doc-corpo ul, .doc-corpo ol { margin: 0 0 1em; padding-left: 1.4em; }
+.doc-corpo li { margin: .3em 0; padding-left: .15em; }
+.doc-corpo li > p { margin: 0; }
+.doc-corpo li > ul, .doc-corpo li > ol { margin: .3em 0 .15em; }
+.doc-corpo ul > li::marker { color: var(--m); }
+.doc-corpo ol > li::marker { color: var(--m); font-family: var(--font-ui); font-weight: 650; font-size: .88em; font-variant-numeric: tabular-nums; }
+.doc-corpo strong { font-weight: 650; }
+.doc-corpo code { padding: .08em .35em; border-radius: 4px; background: var(--panel); font: 500 .84em/1 var(--font-mono); }
+.doc-corpo hr { height: 1px; margin: 2.2em 0; border: 0; background: var(--rule); }
+.tabela { margin: 1.2em 0 1.7em; overflow-x: auto; border: 1px solid var(--rule); border-radius: 10px; background: var(--raised); -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
+.tabela table { width: 100%; border-collapse: collapse; font-size: .9em; line-height: 1.5; }
+.tabela th { padding: .75em .95em; border-bottom: 1px solid var(--rule); background: var(--panel); color: var(--ink-2); font: 650 .82em/1.35 var(--font-ui); letter-spacing: .02em; text-align: left; vertical-align: bottom; }
+.tabela td { min-width: 8.5em; padding: .72em .95em; border-top: 1px solid var(--rule); vertical-align: top; }
+.tabela tbody tr:first-child td { border-top: 0; }
+.tabela tbody tr:hover td { background: var(--hover); }
+.codigo { margin: 1.2em 0 1.7em; overflow-x: auto; border: 1px solid var(--rule); border-radius: 10px; background: var(--raised); }
+.codigo pre { margin: 0; padding: 1.1em 1.3em; font: 400 .8em/1.65 var(--font-mono); color: var(--ink); }
+.codigo code { padding: 0; background: none; font: inherit; }
+.nota { margin: 1.3em 0 1.5em; padding: .95em 1.15em; border: 1px solid var(--nota-bd, var(--rule)); border-radius: 10px; background: var(--nota-bg, var(--panel)); }
+.nota > :last-child { margin-bottom: 0; }
+.nota-alerta { --nota-bg: var(--warn-bg); --nota-bd: var(--warn-bd); }
+.nota-peg { --nota-bg: var(--trap-bg); --nota-bd: var(--trap-bd); }
+.nota-info, .nota-ligacao { --nota-bg: var(--info-bg); --nota-bd: var(--info-bd); }
+.nota-div { --nota-bg: var(--div-bg); --nota-bd: var(--div-bd); }
+.nota-lei { --nota-bg: var(--law-bg); --nota-bd: var(--law-bd); position: relative; padding-left: 2.6em; font-family: var(--font-serif); }
+.nota-lei::before { content: "§"; position: absolute; left: .9em; top: .72em; font: 600 1.25em/1 var(--font-serif); color: var(--ink-3); }
+.nota-meta { --nota-bg: transparent; font: 500 .84em/1.55 var(--font-ui); color: var(--ink-2); }
+.xref { padding: .04em .34em; border-radius: 4px; background: color-mix(in srgb, var(--m) 10%, transparent); color: var(--m); font-weight: 600; text-decoration: none; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.xref:hover { background: color-mix(in srgb, var(--m) 18%, transparent); text-decoration: underline; text-underline-offset: 3px; }
+.xref[data-sig]::before { content: attr(data-sig); margin-right: .4em; padding: .12em .32em; border-radius: 3px; background: var(--m); color: var(--on-m); font: 700 .66em/1 var(--font-ui); letter-spacing: .08em; vertical-align: .14em; }
+.vd { display: inline-block; padding: .04em .42em; border-radius: 4px; font: 700 .7em/1.5 var(--font-ui); letter-spacing: .07em; vertical-align: .12em; }
+.vd-E { background: var(--err-soft); color: var(--err); }
+.vd-C { background: var(--ok-soft); color: var(--ok); }
+.est { display: inline-block; padding: 0 .55em; border: 1px dashed var(--rule-2); border-radius: 999px; color: var(--ink-3); font: 600 .7em/1.7 var(--font-ui); letter-spacing: .03em; white-space: nowrap; vertical-align: .1em; }
+mark { padding: 0 .06em; border-radius: 2px; background: var(--marker); color: inherit; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+mark.atual { background: var(--marker-cur); box-shadow: 0 0 0 2px var(--marker-cur); }
+.alvo { animation: alvo 1.8s ease-out; border-radius: 6px; }
+@keyframes alvo { 0%, 35% { background: color-mix(in srgb, var(--marker) 70%, transparent); } 100% { background: transparent; } }
+
+/* Pegadinhas: coluna de gabarito C/E */
+.peg-lista { display: grid; gap: .55em; margin: .7em 0 1.4em; padding: 0 !important; list-style: none; }
+.peg { display: grid; grid-template-columns: 1.8em minmax(0, 1fr); gap: .75em; align-items: start; margin: 0 !important; padding: .72em .95em .72em .8em !important; border: 1px solid var(--rule); border-radius: 10px; background: var(--raised); line-height: 1.6; }
+.peg-v { display: grid; place-items: center; width: 1.8em; height: 1.8em; margin-top: .05em; border-radius: 50%; font: 700 .78em/1 var(--font-ui); }
+.peg-E .peg-v { background: var(--err-soft); color: var(--err); box-shadow: inset 0 0 0 1.5px var(--err); }
+.peg-E .peg-v::before { content: "E"; }
+.peg-C .peg-v { background: var(--ok-soft); color: var(--ok); box-shadow: inset 0 0 0 1.5px var(--ok); }
+.peg-C .peg-v::before { content: "C"; }
+.peg-n .peg-v { color: var(--ink-3); box-shadow: inset 0 0 0 1.5px var(--rule-2); }
+.peg-n .peg-v::before { content: "i"; font: italic 600 1.15em/1 var(--font-serif); }
+.peg-c { min-width: 0; }
+.peg-x { display: block; margin-top: .2em; color: var(--ink-2); font-size: .92em; }
+.peg-ir { display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 8px; color: var(--ink-3); }
+.peg-ir:hover { background: var(--hover); color: var(--ink); }
+
+/* Rodapé do tema */
+.citado { max-width: var(--measure-cab, 780px); margin: 56px 0 0; padding-top: 22px; border-top: 1px solid var(--rule); }
+.citado-tit { margin: 0 0 10px; font: 700 10.5px/1 var(--font-ui); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+.citado ul { display: flex; flex-wrap: wrap; gap: 8px 10px; margin: 0; padding: 0; list-style: none; font: 15px/1.6 var(--font-ui); }
+.doc-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; max-width: 780px; margin-top: 40px; }
+.viz { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; border: 1px solid var(--rule); border-radius: 12px; background: var(--raised); text-decoration: none; }
+.viz:hover { border-color: var(--rule-2); background: var(--hover); }
+.viz-prox { grid-column: 2; text-align: right; }
+.viz-rot { font: 650 12px/1.2 var(--font-ui); color: var(--ink-3); }
+.viz-tit { font: 650 16px/1.3 var(--font-serif); color: var(--ink); }
+.viz-mat { font: 500 12.5px/1.3 var(--font-ui); color: var(--m); }
+
+/* ---------- Busca ---------- */
+.res, .pegs { max-width: 900px; margin: 0 auto; }
+.rotulo { margin: 0; font: 700 11px/1.2 var(--font-ui); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
+.res-tit, .pegs-tit { margin: 8px 0 6px; font: 650 clamp(26px, 3.2vw, 36px)/1.18 var(--font-serif); letter-spacing: -.015em; overflow-wrap: anywhere; text-wrap: balance; }
+.res-sum { margin: 0; color: var(--ink-2); font-size: 15.5px; }
+.res-ops { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin: 16px 0 0; }
+.op { display: inline-flex; align-items: center; gap: 8px; font: 600 13.5px/1 var(--font-ui); color: var(--ink-2); cursor: pointer; }
+.op input { width: 16px; height: 16px; margin: 0; accent-color: var(--accent); }
+.dica { font: 500 13px/1.4 var(--font-ui); color: var(--ink-3); }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 26px; }
+.chip { display: inline-flex; align-items: center; gap: 8px; height: 34px; padding: 0 13px 0 8px; border: 1px solid var(--rule-2); border-radius: 999px; background: var(--raised); color: var(--ink-2); font: 600 13px/1 var(--font-ui); cursor: pointer; }
+.chip-todas { padding-left: 13px; }
+.chip:hover { border-color: var(--ink-3); color: var(--ink); }
+.chip[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+.chip .n { opacity: .72; font-variant-numeric: tabular-nums; }
+.res-grupo { margin-bottom: 34px; }
+.res-gtit, .peg-mat-tit { display: flex; align-items: center; gap: 10px; margin: 0 0 4px; padding-bottom: 10px; border-bottom: 2px solid var(--m); font: 650 18px/1.25 var(--font-serif); }
+.res-gtit .n, .peg-mat-tit .n { margin-left: auto; font: 600 12.5px/1 var(--font-ui); color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.res-doc { padding: 16px 0 12px; border-bottom: 1px solid var(--rule); }
+.res-doc-tit { font: 650 19px/1.3 var(--font-serif); color: var(--ink); text-decoration: none; }
+.res-doc-tit:hover { text-decoration: underline; text-underline-offset: 3px; }
+.res-doc-meta { margin: 4px 0 0; font: 500 13px/1.3 var(--font-ui); color: var(--ink-3); }
+.res-trechos { display: grid; gap: 2px; margin: 10px 0 0; padding: 0; list-style: none; }
+.trecho { display: block; margin: 0 -12px; padding: 9px 12px; border-radius: 9px; text-decoration: none; }
+.trecho:hover, .trecho:focus-visible { background: var(--hover); }
+.trecho-sec { display: block; margin-bottom: 3px; font: 650 11px/1.3 var(--font-ui); letter-spacing: .05em; text-transform: uppercase; color: var(--m); }
+.trecho-txt { font: 400 15.5px/1.6 var(--font-read); color: var(--ink-2); }
+.res-mais { margin: 6px 0 0; padding: 7px 0; border: 0; background: none; color: var(--accent); font: 650 13.5px/1 var(--font-ui); cursor: pointer; }
+.res-mais:hover { text-decoration: underline; }
+.vazio { margin-top: 28px; padding: 22px 24px; border: 1px dashed var(--rule-2); border-radius: 12px; color: var(--ink-2); }
+.vazio p { margin: 0 0 6px; }
+
+/* ---------- Pegadinhas (página) ---------- */
+.peg-mat { margin-bottom: 40px; }
+.peg-tema { margin-top: 22px; }
+.peg-tema-tit { margin: 0 0 8px; font: 650 12px/1.3 var(--font-ui); letter-spacing: .06em; text-transform: uppercase; }
+.peg-tema-tit a { color: var(--ink-2); text-decoration: none; }
+.peg-tema-tit a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.pegs .peg-lista { font: 400 16px/1.6 var(--font-read); }
+.pegs .peg { grid-template-columns: 1.8em minmax(0, 1fr) auto; }
+
+/* ---------- Início ---------- */
+.inicio { max-width: 1140px; margin: 0 auto; }
+.ini-tit { margin: 10px 0 10px; font: 650 clamp(34px, 4.4vw, 52px)/1.06 var(--font-serif); letter-spacing: -.025em; }
+.ini-lede { max-width: 62ch; margin: 0; font: 400 17px/1.55 var(--font-ui); color: var(--ink-2); }
+.ini-atalhos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 14px; margin: 30px 0 46px; }
+.atalho { display: flex; flex-direction: column; gap: 6px; min-width: 0; padding: 18px 20px; border: 1px solid var(--rule); border-radius: 14px; background: var(--raised); color: var(--ink); text-decoration: none; transition: border-color .15s, transform .15s; }
+a.atalho:hover { border-color: var(--rule-2); transform: translateY(-1px); }
+.atalho-rot { display: flex; align-items: center; gap: 8px; font: 700 11px/1.2 var(--font-ui); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-3); }
+.atalho-tit { font: 650 19px/1.3 var(--font-serif); text-wrap: balance; }
+.atalho-sub { font: 500 13.5px/1.45 var(--font-ui); color: var(--ink-2); }
+.atalho-favs { display: flex; flex-direction: column; gap: 2px; margin: 4px -8px 0; padding: 0; list-style: none; }
+.atalho-favs a { display: flex; align-items: baseline; gap: 9px; padding: 5px 8px; border-radius: 7px; font: 600 15px/1.35 var(--font-serif); text-decoration: none; }
+.atalho-favs a:hover { background: var(--hover); }
+.gabarito { display: inline-flex; gap: 5px; }
+.gabarito span { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; font: 700 11px/1 var(--font-ui); }
+.gabarito .g-E { background: var(--err-soft); color: var(--err); box-shadow: inset 0 0 0 1.5px var(--err); }
+.gabarito .g-C { background: var(--ok-soft); color: var(--ok); box-shadow: inset 0 0 0 1.5px var(--ok); }
+.ini-materias { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 470px), 1fr)); gap: 44px 56px; }
+.mat-cab { display: flex; align-items: center; gap: 12px; margin-bottom: 4px; padding-bottom: 12px; border-bottom: 2px solid var(--m); }
+.mat-cab h2 { margin: 0; font: 650 23px/1.2 var(--font-serif); letter-spacing: -.01em; }
+.mat-n { margin-left: auto; font: 600 12.5px/1 var(--font-ui); color: var(--ink-3); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.assuntos { margin: 0; padding: 0; list-style: none; }
+.assunto { padding: 14px 0 8px; }
+.assunto + .assunto { border-top: 1px solid var(--rule); }
+.assunto-cab { display: flex; align-items: baseline; gap: 9px; margin: 0 0 4px; font: 650 11.5px/1.3 var(--font-ui); letter-spacing: .07em; text-transform: uppercase; color: var(--ink-2); }
+.assunto-cab .num { color: var(--m); font-variant-numeric: tabular-nums; }
+.temas { margin: 0; padding: 0; list-style: none; }
+.tema { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 12px; margin: 0 -10px; padding: 8px 10px; border-radius: 9px; color: var(--ink); text-decoration: none; }
+.tema:hover { background: var(--hover); }
+.tema-t { font: 600 16.5px/1.35 var(--font-serif); }
+.tema-r { grid-column: 1; font: 400 13.5px/1.45 var(--font-ui); color: var(--ink-3); }
+.tema-marcas { grid-column: 2; grid-row: 1 / span 2; align-self: center; display: flex; gap: 6px; color: var(--ink-3); }
+.tema-marcas .fav svg { width: 15px; height: 15px; fill: var(--star); stroke: var(--star); }
+.tema-marcas .pend { width: 8px; height: 8px; border-radius: 50%; background: var(--warn-bd); }
+.ini-ctrl { margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--rule); }
+.ini-ctrl ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; padding: 0; list-style: none; }
+.ini-ctrl a { display: inline-block; padding: 7px 12px; border: 1px solid var(--rule); border-radius: 8px; background: var(--raised); color: var(--ink-2); font: 600 13.5px/1.2 var(--font-ui); text-decoration: none; }
+.ini-ctrl a:hover { border-color: var(--rule-2); color: var(--ink); }
+
+/* ---------- Painel de ajustes e barra de ocorrências ---------- */
+.ajustes { position: fixed; z-index: 70; top: calc(var(--top-h) + 8px + env(safe-area-inset-top, 0px)); right: 16px; width: min(350px, calc(100vw - 32px)); padding: 16px 18px 14px; border: 1px solid var(--rule-2); border-radius: 14px; background: var(--raised); box-shadow: var(--shadow); font-size: 13.5px; }
+.aj-linha { display: grid; gap: 8px; padding: 10px 0; }
+.aj-linha + .aj-linha { border-top: 1px solid var(--rule); }
+.aj-cab { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.aj-rot { font: 650 12px/1.2 var(--font-ui); color: var(--ink-2); }
+.seg { display: flex; padding: 3px; border-radius: 10px; background: var(--panel); }
+.seg button { flex: 1 1 0; min-width: 0; height: 32px; padding: 0 6px; border: 0; border-radius: 7px; background: none; color: var(--ink-2); font: 600 13px/1 var(--font-ui); cursor: pointer; }
+.seg button[aria-checked="true"] { background: var(--raised); color: var(--ink); box-shadow: 0 1px 2px rgb(0 0 0 / 12%), 0 0 0 1px var(--rule); }
+.seg button:disabled { opacity: .4; cursor: default; }
+.seg output { display: grid; place-items: center; flex: 1.2 1 0; font: 600 13px/1 var(--font-ui); color: var(--ink); font-variant-numeric: tabular-nums; }
+.chave { position: relative; width: 44px; height: 26px; border: 0; border-radius: 999px; background: var(--rule-2); cursor: pointer; transition: background .15s; flex: none; }
+.chave span { position: absolute; top: 3px; left: 3px; width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 1px 2px rgb(0 0 0 / 25%); transition: transform .15s; }
+.chave[aria-checked="true"] { background: var(--accent); }
+.chave[aria-checked="true"] span { transform: translateX(18px); }
+.aj-dica { margin: 8px 0 0; font: 500 12.5px/1.5 var(--font-ui); color: var(--ink-3); }
+.achados { position: fixed; z-index: 50; left: 50%; bottom: calc(18px + env(safe-area-inset-bottom, 0px)); display: flex; align-items: center; gap: 2px; max-width: calc(100vw - 32px); padding: 5px 5px 5px 14px; border: 1px solid var(--rule-2); border-radius: 13px; background: var(--raised); box-shadow: var(--shadow); font: 500 13.5px/1 var(--font-ui); transform: translateX(-50%); }
+.ach-termo { overflow: hidden; max-width: 34vw; color: var(--ink); font-weight: 650; text-overflow: ellipsis; white-space: nowrap; }
+.ach-cont { min-width: 64px; padding: 0 8px; color: var(--ink-3); text-align: center; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.ach-cima svg { transform: rotate(180deg); }
+
+/* ---------- Telas menores e modo foco ---------- */
+@media (min-width: 720px) { .principal { padding-inline: 40px; } }
+@media (min-width: 1480px) { .principal { padding-inline: 60px; } }
+@media (max-width: 1099px) { .marca { width: auto; padding-right: 8px; } }
+@media (max-width: 959px) {
+  .grade { grid-template-columns: minmax(0, 1fr); }
+  .bt-menu { display: inline-grid; margin-left: -6px; }
+  .bt-peg span { display: none; }
+  .bt-peg { padding: 0 10px; }
+}
+@media (max-width: 959px) {
+  .lateral { position: fixed; z-index: 60; top: 0; bottom: 0; left: 0; width: min(88vw, 330px); height: auto; padding-top: calc(18px + env(safe-area-inset-top, 0px)); padding-bottom: calc(28px + env(safe-area-inset-bottom, 0px)); border-right: 1px solid var(--rule); box-shadow: var(--shadow); transform: translateX(-102%); transition: transform .2s ease; visibility: hidden; }
+  body.menu-aberto .lateral { transform: none; visibility: visible; }
+}
+body.foco .grade { grid-template-columns: minmax(0, 1fr); }
+body.foco .bt-menu { display: inline-grid; margin-left: -6px; }
+body.foco .lateral { position: fixed; z-index: 60; top: 0; bottom: 0; left: 0; width: min(88vw, 330px); height: auto; padding-top: calc(18px + env(safe-area-inset-top, 0px)); padding-bottom: calc(28px + env(safe-area-inset-bottom, 0px)); box-shadow: var(--shadow); transform: translateX(-102%); transition: transform .2s ease; visibility: hidden; }
+body.foco.menu-aberto .lateral { transform: none; visibility: visible; }
+body.foco .marca { width: auto; }
+body.foco .doc { max-width: 800px; }
+:root[data-largura="ampla"] body.foco .doc { max-width: 980px; }
+body.foco .doc-grade { grid-template-columns: minmax(0, 1fr); }
+body.foco .toc { display: none; }
+@media (max-width: 640px) {
+  :root { --top-h: 56px; }
+  .topo { gap: 6px; padding-inline: 12px; }
+  .marca-sub, .busca-kbd { display: none; }
+  .marca-nome { font-size: 18px; }
+  .busca input { font-size: 16px; padding-right: 38px; }
+  .bt-peg { display: none; }
+  .principal { padding-top: 22px; }
+  .doc-tit-linha { gap: 10px; }
+  .bt-fav { justify-content: center; width: 40px; height: 40px; margin-top: 0; padding: 0; }
+  .bt-fav span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .doc-corpo p, .doc-corpo li { -webkit-hyphens: auto; hyphens: auto; }
+  .doc-nav { grid-template-columns: minmax(0, 1fr); }
+  .viz-prox { grid-column: 1; }
+  .ach-termo { max-width: 28vw; }
+}
+@media (max-width: 380px) { .marca { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+@media print {
+  .topo, .lateral, .toc, .toc-movel, .achados, .doc-nav, .bt-fav, .citado, .ajustes, .veu, .pular { display: none !important; }
+  .grade { display: block; }
+  .principal { padding: 0; }
+  body { background: #fff; color: #000; }
+  .doc-corpo { font-size: 11pt; }
+  .tabela, .peg, .nota { break-inside: avoid; }
+}
+</style>
+<noscript><p style="padding:24px;font:16px system-ui,sans-serif">Ative o JavaScript para usar o sistema de estudos.</p></noscript>
+<a class="pular" href="#" data-pular>Pular para o conteúdo</a>
+<header class="topo">
+  <button class="bt-icone bt-menu" id="ui-menu" type="button" aria-label="Abrir menu de matérias" aria-controls="ui-lateral" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  <a class="marca" href="#inicio" aria-label="Início"><span class="marca-nome">Estudos</span><span class="marca-sub">Auditor Fiscal</span></a>
+  <form class="busca" id="ui-form" role="search" autocomplete="off">
+    <label class="sr" for="ui-q">Buscar em todo o material</label>
+    <svg class="busca-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+    <input id="ui-q" type="search" placeholder="Buscar em todo o material" enterkeyhint="search" spellcheck="false" autocapitalize="off">
+    <kbd class="busca-kbd" aria-hidden="true">/</kbd>
+    <button class="bt-icone bt-limpar" id="ui-limpar" type="button" aria-label="Limpar busca" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg></button>
+  </form>
+  <div class="acoes-topo">
+    <a class="bt-topo bt-peg" id="ui-peg" href="#pegadinhas" title="Pegadinhas CEBRASPE"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7.5" r="2.75"/><circle cx="7" cy="16.5" r="2.75"/><path d="M13 7.5h7M13 16.5h7"/></svg><span>Pegadinhas</span></a>
+    <button class="bt-topo bt-aa" id="ui-bt-ajustes" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="ui-ajustes" title="Ajustes de leitura"><span aria-hidden="true">Aa</span><span class="sr">Ajustes de leitura</span></button>
+  </div>
+</header>
+<div class="grade">
+  <nav class="lateral" id="ui-lateral" aria-label="Matérias e temas"></nav>
+  <main class="principal" id="ui-principal" tabindex="-1"><div id="ui-vista"></div></main>
+</div>
+<div class="veu" id="ui-veu" hidden></div>
+<div class="ajustes" id="ui-ajustes" role="dialog" aria-label="Ajustes de leitura" hidden>
+  <div class="aj-linha"><span class="aj-rot" id="aj-r-tema">Tema</span>
+    <div class="seg" role="radiogroup" aria-labelledby="aj-r-tema">
+      <button type="button" role="radio" data-aj="tema" data-val="auto">Auto</button>
+      <button type="button" role="radio" data-aj="tema" data-val="light">Claro</button>
+      <button type="button" role="radio" data-aj="tema" data-val="sepia">Sépia</button>
+      <button type="button" role="radio" data-aj="tema" data-val="dark">Escuro</button>
+    </div></div>
+  <div class="aj-linha"><span class="aj-rot">Tamanho do texto</span>
+    <div class="seg">
+      <button type="button" data-aj="tam" data-val="-1" aria-label="Diminuir texto">A−</button>
+      <output id="ui-aj-tam" aria-live="polite">17 px</output>
+      <button type="button" data-aj="tam" data-val="1" aria-label="Aumentar texto">A+</button>
+    </div></div>
+  <div class="aj-linha"><span class="aj-rot" id="aj-r-fonte">Fonte do texto</span>
+    <div class="seg" role="radiogroup" aria-labelledby="aj-r-fonte">
+      <button type="button" role="radio" data-aj="fonte" data-val="serif">Serifada</button>
+      <button type="button" role="radio" data-aj="fonte" data-val="sans">Sem serifa</button>
+    </div></div>
+  <div class="aj-linha"><span class="aj-rot" id="aj-r-larg">Largura da coluna</span>
+    <div class="seg" role="radiogroup" aria-labelledby="aj-r-larg">
+      <button type="button" role="radio" data-aj="largura" data-val="normal">Normal</button>
+      <button type="button" role="radio" data-aj="largura" data-val="ampla">Ampla</button>
+    </div></div>
+  <div class="aj-linha"><div class="aj-cab"><span class="aj-rot" id="aj-r-foco">Modo foco</span>
+    <button type="button" class="chave" role="switch" aria-checked="false" aria-labelledby="aj-r-foco" data-aj="foco"><span></span></button></div>
+    <p class="aj-dica">Esconde o menu e o índice da página. Tecla <kbd>/</kbd> abre a busca a qualquer momento.</p></div>
+</div>
+<div class="achados" id="ui-achados" role="region" aria-label="Ocorrências da busca neste tema" hidden>
+  <span class="ach-termo" id="ui-ach-termo"></span>
+  <span class="ach-cont" id="ui-ach-cont" aria-live="polite"></span>
+  <button class="bt-icone ach-cima" id="ui-ach-ant" type="button" aria-label="Ocorrência anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+  <button class="bt-icone" id="ui-ach-prox" type="button" aria-label="Próxima ocorrência"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+  <button class="bt-icone" id="ui-ach-fechar" type="button" aria-label="Fechar destaques"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg></button>
+</div>
+<script id="dados" type="application/json">__DADOS_JSON__</script>
+<script>
+(() => {
+  'use strict';
+  const D = JSON.parse(document.getElementById('dados').textContent);
+  document.documentElement.lang = 'pt-BR';
+
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const plural = (n, um, varios) => `${n.toLocaleString('pt-BR')} ${n === 1 ? um : varios}`;
+  const guarda = {
+    ler(k, padrao) { try { const v = localStorage.getItem('estudos.' + k); return v === null ? padrao : JSON.parse(v); } catch (e) { return padrao; } },
+    gravar(k, v) { try { localStorage.setItem('estudos.' + k, JSON.stringify(v)); } catch (e) { /* armazenamento indisponível */ } }
+  };
+  const ICO = {
+    casa: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11 12 4.5 20 11"/><path d="M6.5 9.5v10h11v-10"/></svg>',
+    peg: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7.5" r="2.75"/><circle cx="7" cy="16.5" r="2.75"/><path d="M13 7.5h7M13 16.5h7"/></svg>',
+    estrela: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.8l2.5 5.1 5.6.8-4.05 3.95.96 5.58L12 16.6l-5.01 2.63.96-5.58L3.9 9.7l5.6-.8z"/></svg>',
+    seta: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>',
+    ir: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7"/><path d="M9 7h8v8"/></svg>',
+    livro: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 5.5a2 2 0 0 1 2-2h13v13.5h-13a2 2 0 0 0-2 2z"/><path d="M4.5 19a2 2 0 0 0 2 2h13v-4"/></svg>'
+  };
+
+  // ---------- Dados ----------
+  const docs = D.docs;
+  const MAT = Object.create(null);
+  D.materias.forEach(m => { MAT[m.id] = m; });
+  MAT[D.controle.id] = D.controle;
+  const posicao = Object.create(null);
+  const vizinhos = Object.create(null);
+  [D.ordem, D.controle.temas].forEach((lista, g) => lista.forEach((id, i) => {
+    posicao[id] = g * 100000 + i;
+    vizinhos[id] = [lista[i - 1] || null, lista[i + 1] || null];
+  }));
+  const nomeCurto = m => m.nome.replace(/^Direito\s+/, '').replace(/ da base$/, '').split(' ')[0];
+
+  // ---------- Busca: normalização sem acentos ----------
+  const MARCAS = /[̀-ͯ]/g;
+  const norm = s => s.normalize('NFD').replace(MARCAS, '').toLowerCase();
+  function preparar(s) {
+    const n = norm(s);
+    if (n.length === s.length) return { n, mapa: null };
+    let saida = '';
+    const mapa = [];
+    for (let i = 0; i < s.length; i++) {
+      const c = norm(s[i]);
+      for (let k = 0; k < c.length; k++) { saida += c[k]; mapa.push(i); }
+    }
+    mapa.push(s.length);
+    return { n: saida, mapa };
+  }
+  const INDICE = D.indice.map(([d, b, s, t]) => Object.assign({ d, b, s, t }, preparar(t)));
+  Object.keys(docs).forEach(id => INDICE.push(Object.assign({ d: id, b: 0, s: '', t: docs[id].titulo, titulo: true }, preparar(docs[id].titulo))));
+  const LETRA = /[\p{L}\p{N}]/u;
+  function faixas(n, termos, exata, todos) {
+    const achadas = [];
+    for (const t of termos) {
+      let i = n.indexOf(t), algum = false;
+      while (i !== -1) {
+        const f = i + t.length;
+        if (!exata || ((i === 0 || !LETRA.test(n[i - 1])) && (f >= n.length || !LETRA.test(n[f])))) { achadas.push([i, f]); algum = true; }
+        i = n.indexOf(t, i + 1);
+      }
+      if (todos && !algum) return null;
+    }
+    if (!achadas.length) return null;
+    achadas.sort((a, b) => a[0] - b[0] || b[1] - a[1]);
+    const unidas = [achadas[0].slice()];
+    for (let k = 1; k < achadas.length; k++) {
+      const u = unidas[unidas.length - 1], a = achadas[k];
+      if (a[0] <= u[1]) u[1] = Math.max(u[1], a[1]); else unidas.push(a.slice());
+    }
+    return unidas;
+  }
+  function termosDe(q) {
+    const saida = [], re = /"([^"]+)"|(\S+)/g;
+    let m;
+    while ((m = re.exec(q))) {
+      let t = norm((m[1] || m[2]).trim());
+      if (!m[1]) t = t.replace(/^[^\p{L}\p{N}§º]+|[^\p{L}\p{N}§º]+$/gu, '');
+      if (t.length >= 2 && !saida.includes(t)) saida.push(t);
+    }
+    return saida;
+  }
+  function realcar(t, fs, mapa, ini = 0, fim = t.length) {
+    let h = '', p = ini;
+    for (let [a, b] of fs) {
+      if (mapa) { a = mapa[a]; b = mapa[b]; }
+      if (b <= ini || a >= fim) continue;
+      a = Math.max(a, ini); b = Math.min(b, fim);
+      h += esc(t.slice(p, a)) + '<mark>' + esc(t.slice(a, b)) + '</mark>';
+      p = b;
+    }
+    return h + esc(t.slice(p, fim));
+  }
+  function recorte(e, fs, max = 250) {
+    const t = e.t;
+    if (t.length <= max) return realcar(t, fs, e.mapa);
+    const inicio = e.mapa ? e.mapa[fs[0][0]] : fs[0][0];
+    let ini = Math.max(0, inicio - Math.round(max * 0.3));
+    if (ini > 0) { const sp = t.indexOf(' ', ini); if (sp !== -1 && sp < inicio) ini = sp + 1; }
+    let fim = Math.min(t.length, ini + max);
+    if (fim < t.length) { const sp = t.lastIndexOf(' ', fim); if (sp > inicio + 20) fim = sp; }
+    return (ini > 0 ? '… ' : '') + realcar(t, fs, e.mapa, ini, fim) + (fim < t.length ? ' …' : '');
+  }
+
+  // ---------- Estado ----------
+  const vista = $('#ui-vista'), lateral = $('#ui-lateral'), principal = $('#ui-principal');
+  const campo = $('#ui-q'), btLimpar = $('#ui-limpar'), painel = $('#ui-ajustes'), btAjustes = $('#ui-bt-ajustes');
+  const btMenu = $('#ui-menu'), veu = $('#ui-veu'), barra = $('#ui-achados'), btPeg = $('#ui-peg');
+  const topo = $('.topo');
+  const busca = { q: '', exata: false, filtro: 'todas', termos: [] };
+  let rota = null, rotaAntesDaBusca = null, pegFiltro = 'todas';
+  let favoritos = guarda.ler('favoritos', []).filter(id => docs[id]);
+  let marcas = [], marcaAtual = -1, titulosDoc = [], secaoAtualId = null, secaoAtual = '';
+
+  // ---------- Ajustes de leitura ----------
+  const TAMANHOS = [15, 16, 17, 18, 20, 22];
+  const aj = Object.assign({ tema: 'auto', tam: 2, fonte: 'serif', largura: 'normal', foco: false }, guarda.ler('ajustes', {}));
+  if (!(aj.tam >= 0 && aj.tam < TAMANHOS.length)) aj.tam = 2;
+  function aplicarAjustes() {
+    const r = document.documentElement;
+    if (aj.tema === 'auto') r.removeAttribute('data-leitura'); else r.setAttribute('data-leitura', aj.tema);
+    r.setAttribute('data-fonte', aj.fonte);
+    r.setAttribute('data-largura', aj.largura);
+    r.style.setProperty('--fs', TAMANHOS[aj.tam] + 'px');
+    document.body.classList.toggle('foco', !!aj.foco);
+    $$('[data-aj]', painel).forEach(b => {
+      const k = b.dataset.aj;
+      if (k === 'tam') b.disabled = b.dataset.val === '-1' ? aj.tam === 0 : aj.tam === TAMANHOS.length - 1;
+      else if (k === 'foco') b.setAttribute('aria-checked', String(!!aj.foco));
+      else b.setAttribute('aria-checked', String(aj[k] === b.dataset.val));
+    });
+    $('#ui-aj-tam').textContent = TAMANHOS[aj.tam] + ' px';
+  }
+  painel.addEventListener('click', e => {
+    const b = e.target.closest('[data-aj]');
+    if (!b) return;
+    const k = b.dataset.aj;
+    if (k === 'tam') aj.tam = Math.max(0, Math.min(TAMANHOS.length - 1, aj.tam + Number(b.dataset.val)));
+    else if (k === 'foco') { aj.foco = !aj.foco; if (!aj.foco) fecharMenu(); }
+    else aj[k] = b.dataset.val;
+    guarda.gravar('ajustes', aj);
+    aplicarAjustes();
+  });
+  function abrirAjustes() {
+    painel.hidden = false;
+    btAjustes.setAttribute('aria-expanded', 'true');
+    const b = $('[data-aj][aria-checked="true"]', painel) || $('button', painel);
+    if (b) b.focus();
+  }
+  function fecharAjustes(devolverFoco) {
+    if (painel.hidden) return;
+    painel.hidden = true;
+    btAjustes.setAttribute('aria-expanded', 'false');
+    if (devolverFoco) btAjustes.focus();
+  }
+  btAjustes.addEventListener('click', () => (painel.hidden ? abrirAjustes() : fecharAjustes(true)));
+  document.addEventListener('pointerdown', e => {
+    if (!painel.hidden && !painel.contains(e.target) && !btAjustes.contains(e.target)) fecharAjustes(false);
+  });
+
+  // ---------- Menu lateral ----------
+  function abrirMenu() { document.body.classList.add('menu-aberto'); veu.hidden = false; btMenu.setAttribute('aria-expanded', 'true'); }
+  function fecharMenu() { document.body.classList.remove('menu-aberto'); veu.hidden = true; btMenu.setAttribute('aria-expanded', 'false'); }
+  btMenu.addEventListener('click', () => (document.body.classList.contains('menu-aberto') ? fecharMenu() : abrirMenu()));
+  veu.addEventListener('click', fecharMenu);
+
+  function linkTemaNav(id) {
+    return `<a class="nav-tema" href="#${id}" data-doc="${id}">${esc(docs[id].titulo)}</a>`;
+  }
+  function renderLateral() {
+    const fechadas = new Set(guarda.ler('fechadas', []));
+    let h = `<a class="nav-topo" href="#inicio" data-rota="inicio">${ICO.casa}<span>Início</span></a>
+      <a class="nav-topo" href="#pegadinhas" data-rota="pegadinhas">${ICO.peg}<span>Pegadinhas</span><span class="nav-n">${D.pegadinhas.length}</span></a>
+      <div id="ui-nav-favs"></div>
+      <p class="nav-rot">Matérias</p>`;
+    for (const m of D.materias) {
+      const aberta = !fechadas.has(m.id);
+      h += `<div class="nav-mat c-${m.cor}" data-mat="${m.id}">
+        <button class="nav-mat-cab" type="button" aria-expanded="${aberta}"><span class="aba">${esc(m.sigla)}</span><span>${esc(m.nome)}</span>${ICO.seta}</button>
+        <div class="nav-mat-corpo"${aberta ? '' : ' hidden'}>`;
+      for (const a of m.assuntos) {
+        if (a.nome) h += `<p class="nav-assunto">${a.num ? `<span class="num">${esc(a.num)}</span>` : ''}${esc(a.nome)}</p>`;
+        h += a.temas.map(linkTemaNav).join('');
+      }
+      h += '</div></div>';
+    }
+    const c = D.controle, abertaCtrl = !fechadas.has(c.id);
+    h += `<p class="nav-rot">Controle</p>
+      <div class="nav-mat c-${c.cor}" data-mat="${c.id}">
+        <button class="nav-mat-cab" type="button" aria-expanded="${abertaCtrl}"><span class="aba">${esc(c.sigla)}</span><span>${esc(c.nome)}</span>${ICO.seta}</button>
+        <div class="nav-mat-corpo"${abertaCtrl ? '' : ' hidden'}>${c.temas.map(linkTemaNav).join('')}</div>
+      </div>
+      <p class="nav-pe">Base ${esc(D.meta.versao)} · atualizada em ${esc(D.meta.data)}</p>`;
+    lateral.innerHTML = h;
+    renderFavoritosLateral();
+  }
+  function renderFavoritosLateral() {
+    const caixa = $('#ui-nav-favs');
+    if (!caixa) return;
+    caixa.innerHTML = favoritos.length ? `<p class="nav-rot">Favoritos</p><ul class="nav-favs">${favoritos.map(id =>
+      `<li><a class="nav-tema c-${MAT[docs[id].materia].cor}" href="#${id}" data-doc="${id}"><span class="ponto"></span><span>${esc(docs[id].titulo)}</span></a></li>`).join('')}</ul>` : '';
+    marcarAtivo();
+  }
+  function abrirGrupo(g, abrir, salvar) {
+    $('.nav-mat-cab', g).setAttribute('aria-expanded', String(abrir));
+    $('.nav-mat-corpo', g).hidden = !abrir;
+    if (salvar) {
+      const f = new Set(guarda.ler('fechadas', []));
+      if (abrir) f.delete(g.dataset.mat); else f.add(g.dataset.mat);
+      guarda.gravar('fechadas', [...f]);
+    }
+  }
+  lateral.addEventListener('click', e => {
+    const cab = e.target.closest('.nav-mat-cab');
+    if (cab) abrirGrupo(cab.closest('.nav-mat'), cab.getAttribute('aria-expanded') !== 'true', true);
+  });
+  function marcarAtivo() {
+    $$('[aria-current]', lateral).forEach(a => a.removeAttribute('aria-current'));
+    btPeg.removeAttribute('aria-current');
+    if (!rota) return;
+    if (rota.v === 'doc') {
+      $$(`[data-doc="${rota.doc}"]`, lateral).forEach(a => a.setAttribute('aria-current', 'page'));
+      const alvo = $(`.nav-mat [data-doc="${rota.doc}"]`, lateral);
+      if (!alvo) return;
+      const grupo = alvo.closest('.nav-mat');
+      if (grupo && $('.nav-mat-corpo', grupo).hidden) abrirGrupo(grupo, true, false);
+      const lr = lateral.getBoundingClientRect(), ar = alvo.getBoundingClientRect();
+      if (ar.top < lr.top + 40 || ar.bottom > lr.bottom - 20) lateral.scrollTop += ar.top - lr.top - lr.height / 2;
+    } else {
+      const a = $(`[data-rota="${rota.v}"]`, lateral);
+      if (a) a.setAttribute('aria-current', 'page');
+      if (rota.v === 'pegadinhas') btPeg.setAttribute('aria-current', 'page');
+    }
+  }
+
+  // ---------- Favoritos ----------
+  function botaoFav(id) {
+    const on = favoritos.includes(id);
+    return `<button class="bt-fav" type="button" data-fav="${id}" aria-pressed="${on}">${ICO.estrela}<span>${on ? 'Favorito' : 'Favoritar'}</span></button>`;
+  }
+  function alternarFavorito(id) {
+    const i = favoritos.indexOf(id);
+    if (i >= 0) favoritos.splice(i, 1); else favoritos.push(id);
+    guarda.gravar('favoritos', favoritos);
+    $$(`[data-fav="${id}"]`).forEach(b => {
+      const on = favoritos.includes(id);
+      b.setAttribute('aria-pressed', String(on));
+      b.lastElementChild.textContent = on ? 'Favorito' : 'Favoritar';
+    });
+    renderFavoritosLateral();
+  }
+
+  // ---------- Rotas ----------
+  function lerRota(hash) {
+    let t = (hash || '').replace(/^#/, '');
+    try { t = decodeURIComponent(t); } catch (e) { /* mantém */ }
+    if (!t || t === 'inicio') return { v: 'inicio' };
+    if (t === 'busca') return { v: 'busca' };
+    if (t === 'pegadinhas') return { v: 'pegadinhas' };
+    const [id, secao] = t.split('~');
+    if (docs[id]) return { v: 'doc', doc: id, secao: secao || null };
+    return { v: 'inicio' };
+  }
+  const token = r => (r.v === 'doc' ? r.doc + (r.secao ? '~' + r.secao : '') : r.v);
+  function ir(r, { substituir = false, op = {} } = {}) {
+    rota = r;
+    renderizar(r, op);
+    try {
+      const h = '#' + token(r);
+      if (location.hash !== h) history[substituir ? 'replaceState' : 'pushState'](null, '', h);
+    } catch (e) { /* histórico indisponível */ }
+  }
+  function aoMudarEndereco() {
+    let r = lerRota(location.hash);
+    if (r.v === 'busca' && !busca.q.trim()) r = { v: 'inicio' };
+    if (rota && token(r) === token(rota)) return;
+    rota = r;
+    renderizar(r, {});
+  }
+  window.addEventListener('popstate', aoMudarEndereco);
+  window.addEventListener('hashchange', aoMudarEndereco);
+  function renderizar(r, op) {
+    fecharMenu();
+    fecharAjustes(false);
+    if (r.v !== 'doc') { fecharBarra(); titulosDoc = []; }
+    if (r.v === 'doc') renderDoc(r.doc, Object.assign({ secao: r.secao }, op));
+    else if (r.v === 'busca') renderBusca();
+    else if (r.v === 'pegadinhas') renderPegadinhas();
+    else renderInicio();
+    marcarAtivo();
+  }
+
+  // ---------- Início ----------
+  function renderInicio() {
+    document.title = 'Estudos · Auditor Fiscal';
+    const ult = guarda.ler('ultimo', null);
+    const u = ult && docs[ult.d] ? ult : null;
+    const hora = new Date().getHours();
+    const saudacao = hora < 5 ? 'Boa noite' : hora < 12 ? 'Bom dia' : hora < 18 ? 'Boa tarde' : 'Boa noite';
+    const nE = D.pegadinhas.filter(p => p.v === 'E').length, nC = D.pegadinhas.filter(p => p.v === 'C').length;
+    let atalhos = '';
+    if (u) {
+      const d = docs[u.d], m = MAT[d.materia];
+      atalhos += `<a class="atalho c-${m.cor}" href="#${u.d}" data-continuar="1"><span class="atalho-rot">${ICO.livro} Continuar lendo</span>
+        <span class="atalho-tit">${esc(d.titulo)}</span><span class="atalho-sub">${esc(m.nome)}${u.s ? ' · em ' + esc(u.s) : ''}</span></a>`;
+    } else if (D.ordem.length) {
+      const d = docs[D.ordem[0]], m = MAT[d.materia];
+      atalhos += `<a class="atalho c-${m.cor}" href="#${D.ordem[0]}"><span class="atalho-rot">${ICO.livro} Comece por aqui</span>
+        <span class="atalho-tit">${esc(d.titulo)}</span><span class="atalho-sub">${esc(m.nome)}</span></a>`;
+    }
+    atalhos += `<a class="atalho" href="#pegadinhas"><span class="atalho-rot">${ICO.peg} Revisão rápida</span>
+      <span class="atalho-tit">${plural(D.pegadinhas.length, 'pegadinha', 'pegadinhas')} CEBRASPE</span>
+      <span class="atalho-sub"><span class="gabarito"><span class="g-E">E</span></span> ${plural(nE, 'item errado', 'itens errados')}${nC ? ` · ${plural(nC, 'item certo', 'itens certos')}` : ''} · todas as matérias</span></a>`;
+    if (favoritos.length) {
+      atalhos += `<div class="atalho"><span class="atalho-rot">${ICO.estrela} Favoritos</span><ul class="atalho-favs">${favoritos.map(id =>
+        `<li><a class="c-${MAT[docs[id].materia].cor}" href="#${id}"><span class="ponto"></span>${esc(docs[id].titulo)}</a></li>`).join('')}</ul></div>`;
+    }
+    const materias = D.materias.map(m => {
+      const n = m.assuntos.reduce((s, a) => s + a.temas.length, 0);
+      return `<section class="mat c-${m.cor}"><header class="mat-cab"><span class="aba">${esc(m.sigla)}</span><h2>${esc(m.nome)}</h2><span class="mat-n">${plural(n, 'tema', 'temas')}</span></header>
+        <ol class="assuntos">${m.assuntos.map(a => `<li class="assunto">${a.nome ? `<p class="assunto-cab">${a.num ? `<span class="num">${esc(a.num)}</span>` : ''}${esc(a.nome)}</p>` : ''}
+          <ul class="temas">${a.temas.map(id => {
+            const d = docs[id];
+            const marcasTema = (favoritos.includes(id) ? `<span class="fav" title="Favorito">${ICO.estrela}</span>` : '') + (d.status === '🔶' ? '<span class="pend" title="Com pendência em acompanhamento"></span>' : '');
+            return `<li><a class="tema" href="#${id}"><span class="tema-t">${esc(d.titulo)}</span>${d.resumo ? `<span class="tema-r">${d.resumo}</span>` : ''}${marcasTema ? `<span class="tema-marcas">${marcasTema}</span>` : ''}</a></li>`;
+          }).join('')}</ul></li>`).join('')}</ol></section>`;
+    }).join('');
+    vista.innerHTML = `<div class="inicio">
+      <header><p class="rotulo">Base ${esc(D.meta.versao)} · atualizada em ${esc(D.meta.data)}</p>
+        <h1 class="ini-tit">${saudacao}.</h1>
+        <p class="ini-lede">${plural(D.ordem.length, 'tema', 'temas')} em ${plural(D.materias.length, 'matéria', 'matérias')}. Busque qualquer palavra no campo do topo ou escolha um tema abaixo.</p></header>
+      <div class="ini-atalhos">${atalhos}</div>
+      <div class="ini-materias">${materias}</div>
+      <section class="ini-ctrl c-ctrl"><p class="rotulo">Controle da base</p><ul>${D.controle.temas.map(id => `<li><a href="#${id}">${esc(docs[id].titulo)}</a></li>`).join('')}</ul></section>
+    </div>`;
+    window.scrollTo(0, 0);
+  }
+
+  // ---------- Tema (documento) ----------
+  const tocHtml = (d, id) => '<ol class="toc-lista">' + d.toc.map(t => `<li class="toc-n${t.n}"><a href="#${id}~${t.id}" data-sec="${t.id}">${esc(t.t)}</a></li>`).join('') + '</ol>';
+  function cartaoVizinho(id, lado) {
+    const d = docs[id], m = MAT[d.materia];
+    return `<a class="viz viz-${lado} c-${m.cor}" href="#${id}"><span class="viz-rot">${lado === 'ant' ? '← Anterior' : 'Próximo →'}</span>
+      <span class="viz-tit">${esc(d.titulo)}</span><span class="viz-mat">${esc(m.nome)}${d.assunto ? ' · ' + esc(d.assunto) : ''}</span></a>`;
+  }
+  function renderDoc(id, op) {
+    const d = docs[id], m = MAT[d.materia];
+    const [ant, prox] = vizinhos[id] || [null, null];
+    const minutos = Math.max(1, Math.round(d.palavras / 180));
+    const nSecoes = d.toc.filter(t => t.n === 2).length;
+    const citado = d.citadoEm.map(c => {
+      const dc = docs[c], mc = MAT[dc.materia];
+      return `<li><a class="xref c-${mc.cor}" href="#${c}"${dc.materia !== d.materia ? ` data-sig="${esc(mc.sigla)}"` : ''}>${esc(dc.titulo)}</a></li>`;
+    }).join('');
+    document.title = `${d.titulo} · Estudos`;
+    vista.innerHTML = `<div class="doc c-${m.cor}">
+      <header class="doc-cab">
+        <nav class="migalhas" aria-label="Localização"><span class="aba">${esc(m.sigla)}</span><span>${esc(m.nome)}</span>${d.assunto ? `<span class="sep">›</span><span>${esc(d.assunto)}</span>` : ''}</nav>
+        <div class="doc-tit-linha"><h1 class="doc-tit">${esc(d.titulo)}</h1>${botaoFav(id)}</div>
+        ${d.resumo ? `<p class="doc-resumo">${d.resumo}</p>` : ''}
+        <p class="doc-meta"><span>≈ ${plural(minutos, 'minuto', 'minutos')} de leitura</span><span>${plural(nSecoes, 'seção', 'seções')}</span>${d.status === '🔶' ? '<a class="selo selo-pend" href="#controle.pendencias">Com pendência em acompanhamento</a>' : ''}</p>
+      </header>
+      ${d.toc.length > 2 ? `<details class="toc-movel"><summary>Nesta página</summary>${tocHtml(d, id)}</details>` : ''}
+      <div class="doc-grade">
+        <article class="doc-corpo" id="ui-artigo">${d.html}</article>
+        ${d.toc.length ? `<aside class="toc" aria-label="Nesta página"><p class="toc-rot">Nesta página</p>${tocHtml(d, id)}</aside>` : ''}
+      </div>
+      ${citado ? `<section class="citado"><h2 class="citado-tit">Citado em</h2><ul>${citado}</ul></section>` : ''}
+      ${ant || prox ? `<nav class="doc-nav" aria-label="Temas vizinhos">${ant ? cartaoVizinho(ant, 'ant') : ''}${prox ? cartaoVizinho(prox, 'prox') : ''}</nav>` : ''}
+    </div>`;
+    const artigo = $('#ui-artigo');
+    titulosDoc = $$('h2[id], h3[id]', artigo);
+    secaoAtualId = null;
+    marcas = [];
+    marcaAtual = -1;
+    const bloco = b => (b ? $(`[data-b="${b}"]`, artigo) : null);
+    let rolou = false;
+    if (op.termos && op.termos.length) {
+      marcas = destacar(artigo, op.termos, op.exata);
+      if (marcas.length) {
+        const alvo = bloco(op.b);
+        const k = alvo ? marcas.findIndex(mk => alvo.contains(mk)) : -1;
+        barra.hidden = false;
+        $('#ui-ach-termo').textContent = '“' + op.rotulo + '”';
+        irMarca(k >= 0 ? k : 0, true);
+        rolou = true;
+      } else fecharBarra();
+    } else fecharBarra();
+    if (!rolou && op.b) { const el = bloco(op.b); if (el) { el.scrollIntoView({ block: 'center' }); piscar(el); rolou = true; } }
+    if (!rolou && op.secao) {
+      const h = artigo.querySelector('#' + (window.CSS && CSS.escape ? CSS.escape(op.secao) : op.secao));
+      if (h) { h.scrollIntoView({ block: 'start' }); rolou = true; }
+    }
+    if (!rolou && typeof op.y === 'number') { window.scrollTo(0, op.y); rolou = true; }
+    if (!rolou) window.scrollTo(0, 0);
+    espiar();
+    salvarPosicao();
+  }
+  function piscar(el) {
+    el.classList.remove('alvo');
+    void el.offsetWidth;
+    el.classList.add('alvo');
+    setTimeout(() => el.classList.remove('alvo'), 1900);
+  }
+  function alturaTopo() { return topo.getBoundingClientRect().bottom; }
+  function espiar() {
+    if (!titulosDoc.length) return;
+    const limite = alturaTopo() + 40;
+    let atual = titulosDoc[0];
+    for (const h of titulosDoc) { if (h.getBoundingClientRect().top <= limite) atual = h; else break; }
+    if (atual.id === secaoAtualId) return;
+    secaoAtualId = atual.id;
+    secaoAtual = atual.textContent;
+    $$('.toc-lista a', vista).forEach(a => a.classList.toggle('ativo', a.dataset.sec === atual.id));
+  }
+  function salvarPosicao() {
+    if (!rota || rota.v !== 'doc') return;
+    guarda.gravar('ultimo', { d: rota.doc, y: Math.round(window.scrollY), s: secaoAtual || '' });
+  }
+  let quadro = 0, tSalvar = 0;
+  window.addEventListener('scroll', () => {
+    if (!rota || rota.v !== 'doc') return;
+    if (!quadro) quadro = requestAnimationFrame(() => { quadro = 0; espiar(); });
+    clearTimeout(tSalvar);
+    tSalvar = setTimeout(salvarPosicao, 350);
+  }, { passive: true });
+
+  // ---------- Destaques da busca dentro do tema ----------
+  function destacar(raiz, termos, exata) {
+    const it = document.createTreeWalker(raiz, NodeFilter.SHOW_TEXT, {
+      acceptNode: n => (n.nodeValue.trim() && !n.parentNode.closest('mark')) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
+    });
+    const nos = [];
+    while (it.nextNode()) nos.push(it.currentNode);
+    const saida = [];
+    for (const no of nos) {
+      const s = no.nodeValue, { n, mapa } = preparar(s);
+      const fs = faixas(n, termos, exata, false);
+      if (!fs) continue;
+      const frag = document.createDocumentFragment();
+      let p = 0;
+      for (let [a, b] of fs) {
+        if (mapa) { a = mapa[a]; b = mapa[b]; }
+        if (a > p) frag.append(s.slice(p, a));
+        const mk = document.createElement('mark');
+        mk.textContent = s.slice(a, b);
+        frag.append(mk);
+        saida.push(mk);
+        p = b;
+      }
+      if (p < s.length) frag.append(s.slice(p));
+      no.parentNode.replaceChild(frag, no);
+    }
+    return saida;
+  }
+  function irMarca(i, imediato) {
+    if (!marcas.length) return;
+    if (marcaAtual >= 0 && marcas[marcaAtual]) marcas[marcaAtual].classList.remove('atual');
+    marcaAtual = ((i % marcas.length) + marcas.length) % marcas.length;
+    const mk = marcas[marcaAtual];
+    mk.classList.add('atual');
+    mk.scrollIntoView({ block: 'center', behavior: imediato ? 'auto' : 'smooth' });
+    $('#ui-ach-cont').textContent = `${marcaAtual + 1} de ${marcas.length}`;
+  }
+  function fecharBarra() {
+    barra.hidden = true;
+    marcas.forEach(mk => { if (mk.parentNode) mk.replaceWith(document.createTextNode(mk.textContent)); });
+    const artigo = $('#ui-artigo');
+    if (artigo && marcas.length) artigo.normalize();
+    marcas = [];
+    marcaAtual = -1;
+  }
+  $('#ui-ach-ant').addEventListener('click', () => irMarca(marcaAtual - 1));
+  $('#ui-ach-prox').addEventListener('click', () => irMarca(marcaAtual + 1));
+  $('#ui-ach-fechar').addEventListener('click', fecharBarra);
+
+  // ---------- Busca ----------
+  function pesquisar() {
+    const termos = termosDe(busca.q);
+    busca.termos = termos;
+    if (!termos.length) return null;
+    const porDoc = new Map();
+    let total = 0;
+    for (const e of INDICE) {
+      const fs = faixas(e.n, termos, busca.exata, true);
+      if (!fs) continue;
+      let r = porDoc.get(e.d);
+      if (!r) { r = { d: e.d, itens: [], total: 0, titulo: null }; porDoc.set(e.d, r); }
+      r.total += fs.length;
+      total += fs.length;
+      if (e.titulo) r.titulo = { e, fs }; else r.itens.push({ e, fs });
+    }
+    return { porDoc, total };
+  }
+  function renderBusca() {
+    const q = busca.q.trim();
+    document.title = `Busca: ${q} · Estudos`;
+    const res = pesquisar();
+    const cab = `<header><p class="rotulo">Busca em todo o material</p><h1 class="res-tit">“${esc(q)}”</h1>`;
+    const opcoes = `<div class="res-ops"><label class="op"><input type="checkbox" id="ui-exata"${busca.exata ? ' checked' : ''}> Palavra exata</label>
+      <span class="dica">A busca ignora acentos e maiúsculas. Use aspas para uma expressão exata.</span></div>`;
+    if (!res) {
+      vista.innerHTML = `<section class="res">${cab}<p class="res-sum">Digite ao menos duas letras.</p></header></section>`;
+      window.scrollTo(0, 0);
+      return;
+    }
+    const grupos = [];
+    for (const m of D.materias.concat([D.controle])) {
+      const lista = [...res.porDoc.values()].filter(r => docs[r.d].materia === m.id);
+      if (!lista.length) continue;
+      lista.sort((a, b) => (b.titulo ? 1 : 0) - (a.titulo ? 1 : 0) || b.total - a.total || posicao[a.d] - posicao[b.d]);
+      grupos.push({ m, lista, total: lista.reduce((s, r) => s + r.total, 0) });
+    }
+    if (busca.filtro !== 'todas' && !grupos.some(g => g.m.id === busca.filtro)) busca.filtro = 'todas';
+    if (!grupos.length) {
+      vista.innerHTML = `<section class="res">${cab}<p class="res-sum">Nenhuma menção encontrada.</p>${opcoes}</header>
+        <div class="vazio"><p>Confira a grafia ou tente uma parte da palavra (ex.: <em>tribut</em> encontra tributo, tributário e tributação).</p>
+        ${busca.exata ? '<p>Desmarque <strong>Palavra exata</strong> para achar também variações.</p>' : ''}</div></section>`;
+      window.scrollTo(0, 0);
+      return;
+    }
+    const chips = `<div class="chips" role="group" aria-label="Filtrar por matéria">
+      <button class="chip chip-todas" type="button" data-filtro="todas" aria-pressed="${busca.filtro === 'todas'}">Todas <span class="n">${res.total}</span></button>
+      ${grupos.map(g => `<button class="chip c-${g.m.cor}" type="button" data-filtro="${g.m.id}" aria-pressed="${busca.filtro === g.m.id}" title="${esc(g.m.nome)}"><span class="aba">${esc(g.m.sigla)}</span>${esc(nomeCurto(g.m))} <span class="n">${g.total}</span></button>`).join('')}</div>`;
+    let corpo = '';
+    for (const g of grupos) {
+      if (busca.filtro !== 'todas' && busca.filtro !== g.m.id) continue;
+      corpo += `<section class="res-grupo c-${g.m.cor}"><h2 class="res-gtit"><span class="aba">${esc(g.m.sigla)}</span>${esc(g.m.nome)}<span class="n">${plural(g.total, 'menção', 'menções')}</span></h2>`;
+      for (const r of g.lista) {
+        const d = docs[r.d];
+        const tit = r.titulo ? realcar(d.titulo, r.titulo.fs, r.titulo.e.mapa) : esc(d.titulo);
+        const ocultos = r.itens.length - 3;
+        corpo += `<article class="res-doc"><a class="res-doc-tit" href="#${r.d}" data-busca="1">${tit}</a>
+          <p class="res-doc-meta">${d.assunto ? esc(d.assunto) + ' · ' : ''}${plural(r.total, 'menção', 'menções')}</p>
+          ${r.itens.length ? `<ol class="res-trechos">${r.itens.map((it, k) => `<li${k >= 3 ? ' hidden' : ''}><a class="trecho" href="#${r.d}" data-busca="1" data-b="${it.e.b}">${it.e.s ? `<span class="trecho-sec">${esc(it.e.s)}</span>` : ''}<span class="trecho-txt">${recorte(it.e, it.fs)}</span></a></li>`).join('')}</ol>` : ''}
+          ${ocultos > 0 ? `<button class="res-mais" type="button" data-mais="1">Mostrar mais ${plural(ocultos, 'trecho', 'trechos')}</button>` : ''}
+        </article>`;
+      }
+      corpo += '</section>';
+    }
+    vista.innerHTML = `<section class="res">${cab}<p class="res-sum">${plural(res.total, 'menção', 'menções')} em ${plural(res.porDoc.size, 'tema', 'temas')}</p>${opcoes}${chips}</header>${corpo}</section>`;
+    window.scrollTo(0, 0);
+  }
+  vista.addEventListener('change', e => {
+    if (e.target.id === 'ui-exata') { busca.exata = e.target.checked; renderBusca(); }
+  });
+  vista.addEventListener('click', e => {
+    const chip = e.target.closest('[data-filtro]');
+    if (chip && rota && rota.v === 'busca') { busca.filtro = chip.dataset.filtro; renderBusca(); return; }
+    const pchip = e.target.closest('[data-pegfiltro]');
+    if (pchip) { pegFiltro = pchip.dataset.pegfiltro; renderPegadinhas(); return; }
+    const mais = e.target.closest('[data-mais]');
+    if (mais) {
+      const art = mais.closest('.res-doc');
+      $$('li[hidden]', art).forEach(li => { li.hidden = false; });
+      mais.remove();
+      return;
+    }
+    const fav = e.target.closest('[data-fav]');
+    if (fav) alternarFavorito(fav.dataset.fav);
+  });
+  let tBusca = 0;
+  function executarBusca() {
+    busca.q = campo.value;
+    if (!busca.q.trim()) {
+      if (rota && rota.v === 'busca') ir(rotaAntesDaBusca || { v: 'inicio' }, { substituir: true });
+      return;
+    }
+    if (rota && rota.v === 'busca') renderBusca();
+    else { rotaAntesDaBusca = rota; busca.filtro = 'todas'; ir({ v: 'busca' }); }
+  }
+  campo.addEventListener('input', () => {
+    btLimpar.hidden = !campo.value;
+    clearTimeout(tBusca);
+    tBusca = setTimeout(executarBusca, 150);
+  });
+  $('#ui-form').addEventListener('submit', e => { e.preventDefault(); clearTimeout(tBusca); executarBusca(); });
+  btLimpar.addEventListener('click', () => { campo.value = ''; btLimpar.hidden = true; clearTimeout(tBusca); executarBusca(); campo.focus(); });
+  campo.addEventListener('keydown', e => {
+    if (e.key === 'ArrowDown' && rota && rota.v === 'busca') {
+      const p = $('a[data-busca]', vista);
+      if (p) { e.preventDefault(); p.focus(); }
+    }
+  });
+  vista.addEventListener('keydown', e => {
+    if (!rota || rota.v !== 'busca' || (e.key !== 'ArrowDown' && e.key !== 'ArrowUp')) return;
+    const itens = $$('a[data-busca]', vista).filter(a => a.offsetParent !== null);
+    const i = itens.indexOf(document.activeElement);
+    if (i < 0) return;
+    e.preventDefault();
+    if (e.key === 'ArrowUp' && i === 0) { campo.focus(); return; }
+    itens[Math.max(0, Math.min(itens.length - 1, i + (e.key === 'ArrowDown' ? 1 : -1)))].focus();
+  });
+
+  // ---------- Pegadinhas ----------
+  function renderPegadinhas() {
+    document.title = 'Pegadinhas · Estudos';
+    const porDoc = new Map();
+    D.pegadinhas.forEach(p => { if (!porDoc.has(p.d)) porDoc.set(p.d, []); porDoc.get(p.d).push(p); });
+    const contagem = {};
+    D.pegadinhas.forEach(p => { const m = docs[p.d].materia; contagem[m] = (contagem[m] || 0) + 1; });
+    const comItens = D.materias.filter(m => contagem[m.id]);
+    if (pegFiltro !== 'todas' && !contagem[pegFiltro]) pegFiltro = 'todas';
+    const chips = `<div class="chips" role="group" aria-label="Filtrar por matéria">
+      <button class="chip chip-todas" type="button" data-pegfiltro="todas" aria-pressed="${pegFiltro === 'todas'}">Todas <span class="n">${D.pegadinhas.length}</span></button>
+      ${comItens.map(m => `<button class="chip c-${m.cor}" type="button" data-pegfiltro="${m.id}" aria-pressed="${pegFiltro === m.id}" title="${esc(m.nome)}"><span class="aba">${esc(m.sigla)}</span>${esc(nomeCurto(m))} <span class="n">${contagem[m.id]}</span></button>`).join('')}</div>`;
+    let corpo = '';
+    for (const m of comItens) {
+      if (pegFiltro !== 'todas' && pegFiltro !== m.id) continue;
+      corpo += `<section class="peg-mat c-${m.cor}"><h2 class="peg-mat-tit"><span class="aba">${esc(m.sigla)}</span>${esc(m.nome)}<span class="n">${plural(contagem[m.id], 'item', 'itens')}</span></h2>`;
+      for (const id of D.ordem) {
+        if (docs[id].materia !== m.id || !porDoc.has(id)) continue;
+        corpo += `<div class="peg-tema"><h3 class="peg-tema-tit"><a href="#${id}">${esc(docs[id].titulo)}</a></h3><ul class="peg-lista">${porDoc.get(id).map(p => {
+          const k = p.h.lastIndexOf('</li>');
+          return p.h.slice(0, k) + `<a class="peg-ir" href="#${id}" data-b="${p.b}" title="Ver no tema">${ICO.ir}<span class="sr">Ver no tema</span></a>` + p.h.slice(k);
+        }).join('')}</ul></div>`;
+      }
+      corpo += '</section>';
+    }
+    vista.innerHTML = `<section class="pegs"><header><p class="rotulo">Revisão rápida</p><h1 class="pegs-tit">Pegadinhas CEBRASPE</h1>
+      <p class="res-sum">Todas as pegadinhas da base, por matéria e tema. A bolinha mostra o gabarito: <span class="gabarito"><span class="g-E">E</span></span> errado, <span class="gabarito"><span class="g-C">C</span></span> certo.</p>${chips}</header>${corpo}</section>`;
+    window.scrollTo(0, 0);
+  }
+
+  // ---------- Navegação por links internos ----------
+  document.addEventListener('click', e => {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    e.preventDefault();
+    if (a.hasAttribute('data-pular')) { principal.focus(); return; }
+    const alvo = a.getAttribute('href');
+    if (a.dataset.sec && rota && rota.v === 'doc') {
+      const h = $('#ui-artigo') && $('#ui-artigo').querySelector('#' + (window.CSS && CSS.escape ? CSS.escape(a.dataset.sec) : a.dataset.sec));
+      if (h) h.scrollIntoView({ block: 'start', behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      const det = a.closest('details');
+      if (det) det.open = false;
+      try { history.replaceState(null, '', alvo); } catch (err) { /* sem histórico */ }
+      return;
+    }
+    const r = lerRota(alvo);
+    const op = {};
+    if (a.dataset.busca) { op.termos = busca.termos; op.exata = busca.exata; op.rotulo = busca.q.trim(); }
+    if (a.dataset.b) op.b = Number(a.dataset.b);
+    if (a.dataset.continuar) { const u = guarda.ler('ultimo', null); if (u && u.d === r.doc) op.y = u.y; }
+    ir(r, { op });
+  });
+
+  // ---------- Teclado ----------
+  document.addEventListener('keydown', e => {
+    const digitando = e.target.closest && e.target.closest('input, textarea, select, [contenteditable="true"]');
+    if ((e.key === '/' && !digitando) || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k')) {
+      e.preventDefault();
+      fecharMenu();
+      campo.focus();
+      campo.select();
+      return;
+    }
+    if (e.key === 'Escape') {
+      if (!painel.hidden) fecharAjustes(true);
+      else if (document.body.classList.contains('menu-aberto')) fecharMenu();
+      else if (e.target === campo) { if (campo.value) { campo.value = ''; btLimpar.hidden = true; executarBusca(); } else campo.blur(); }
+      else if (!barra.hidden) fecharBarra();
+      return;
+    }
+    if (!barra.hidden && !digitando && (e.key === 'F3' || (e.key === 'Enter' && !e.target.closest('a, button')))) {
+      e.preventDefault();
+      irMarca(marcaAtual + (e.shiftKey ? -1 : 1));
+    }
+  });
+
+  // ---------- Início ----------
+  aplicarAjustes();
+  renderLateral();
+  rota = lerRota(location.hash);
+  if (rota.v === 'busca') rota = { v: 'inicio' };
+  renderizar(rota, {});
+})();
+</script>

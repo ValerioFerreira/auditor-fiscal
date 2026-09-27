@@ -57,6 +57,13 @@ Estilo: máxima densidade de conhecimento com mínima redundância. Use tabelas 
 4. Dúvidas ou pontos para eu confirmar.
 Não reproduza o conteúdo armazenado na resposta.
 
+## Sistema de leitura (web)
+- Gerador: `sistema/gerar.py` (sem dependências). Interface: `sistema/modelo.html`. Saídas, fora do git: `Estudos.html` na raiz (abre com duplo clique) e `sistema/publicar/Estudos.html` (cópia para a página privada).
+- Ao fim de toda sessão que alterar `ESTUDOS/`, rode `python sistema/gerar.py` e corrija os avisos (referência quebrada ou markdown não convertido) antes de encerrar.
+- Depois, republique a página privada no mesmo endereço: Artifact com `url` = https://claude.ai/artifact/PisxCfGReAw65f64LP8WVh e `file_path` = `sistema/publicar/Estudos.html` (em outra conversa, leia a versão publicada antes de republicar).
+- A ordem de matérias e temas no sistema vem de `_CONTROLE/assuntos-estudados.md`: mantenha a tabela na ordem pedagógica. Matéria nova: acrescente sigla e cor em `MATERIAS`, no início de `gerar.py`.
+- Pegadinhas são lidas das seções cujo título contém "Pegadinha" e das citações que começam com "Pegadinha:". Mantenha o formato `"Afirmação" → **ERRADO** (explicação)` para o gabarito C/E aparecer.
+
 ## Contexto atual
 - Banca de referência: CEBRASPE (concurso-alvo ainda não confirmado; ver pendências).
-- Há pendências 🔴 abertas em `_CONTROLE/pendencias.md`. Não as resolva sem a minha resposta.
+- Pendências 🔴 em `_CONTROLE/pendencias.md` só se resolvem com a minha resposta (nenhuma aberta em 27/09/2026).

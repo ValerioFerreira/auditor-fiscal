@@ -45,7 +45,7 @@
 ## Controle ou tutela
 
 - Controle da administração direta sobre as entidades da indireta para garantir que cumpram as **finalidades** para as quais foram criadas (ligado à **especialidade**).
-- **Não há hierarquia** entre direta e indireta: o controle é **excepcional**, **nos limites da lei**; a regra é a **autonomia**.
+- **Não há hierarquia (subordinação)** entre direta e indireta, e sim **vinculação**: o controle é **excepcional**, **nos limites da lei**; a regra é a **autonomia**.
 - Sinônimos: **supervisão ministerial**, **controle finalístico**.
 
 | Autotutela | Tutela |

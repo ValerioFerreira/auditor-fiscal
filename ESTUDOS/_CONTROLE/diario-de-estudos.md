@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v001** (26/09/2026)
+> Versão atual da base: **v002** (27/09/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -22,3 +22,10 @@
 ### Direito Administrativo
 - Regime jurídico administrativo; administração direta e indireta (órgãos, entidades); princípios expressos (LIMPE) e implícitos.
 - **Principais enriquecimentos:** Lei 9.784/99 (art. 2º, delegação/avocação, motivação, anulação e decadência); SVs 3, 5, 13 e 21; greve de servidor (MIs, RE 693.456, ARE 654.432); encampação x caducidade; devolução de valores recebidos de boa-fé (STJ, Temas 531 e 1.009).
+
+## 27/09/2026 — Respostas às pendências e organização (v002)
+
+- **Sem conteúdo novo de estudo.**
+- **Pendências 🔴 resolvidas:** as quatro da carga inicial (duas afirmações desconsideradas, uma reescrita confirmada e uma correção mantida).
+- **Reorganização:** três sobreposições consolidadas, sem perda de conteúdo (finalidade das contribuições especiais; tutela; constituição dúctil).
+- **Organização:** criado o sistema web de leitura da base (`Estudos.html` na raiz do projeto, com cópia numa página privada).

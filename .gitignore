@@ -2,3 +2,9 @@
 *.zip
 *.docx
 Resumos.txt
+
+# Saídas do sistema de leitura (recriadas por: python sistema/gerar.py)
+Estudos.html
+sistema/publicar/
+__pycache__/
+.claude/launch.json

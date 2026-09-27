@@ -97,7 +97,7 @@
 | Sistema | **Principiológica/aberta** (predominam princípios; exige concretização legislativa) → CF/88 x **Preceitual** (predominam regras concretas) |
 | **Plástica** | Termo com dois sentidos: (i) sinônimo de **flexível** (Pinto Ferreira); (ii) constituição cujas normas têm conteúdo aberto, que se adapta às oscilações políticas e sociais pela legislação (Raul Machado Horta) |
 | **Expansiva** | Amplia temas e direitos em relação às anteriores → CF/88 (Raul Machado Horta) |
-| **Dúctil (suave)** | Assegura as condições para uma vida comunitária plural; projeto em construção (Zagrebelsky) |
+| **Dúctil (suave)** | Zagrebelsky → ver `conceito-e-concepcoes.md` |
 
 ## Pegadinhas CEBRASPE
 

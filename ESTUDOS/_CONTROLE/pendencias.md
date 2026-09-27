@@ -2,10 +2,7 @@
 
 ## 🔴 Confirmar com você (intenção do resumo original)
 
-1. **Tributário — espécies tributárias.** O resumo dizia: "todas (exceto contrib de melhoria) são majoritariamente categorizadas como contribuições especiais". Como escrito, está incorreto (impostos, taxas e empréstimos compulsórios não são contribuições especiais). Na base, registrei que a **teoria pentapartida é a majoritária (STF)**. Você quis dizer isso ou era outra ideia do seu material?
-2. **Tributário — "vinculantes".** No bloco final do arquivo, estava "Impostos — são vinculantes" e "Taxas — não são vinculantes". Pela lei é o inverso (impostos **não vinculados**; taxas **vinculadas**), como você mesmo havia escrito no início. Corrigi. Se "vinculante" tinha outro sentido no seu material, me diga.
-3. **Tributário — contribuições.** O trecho "se a nova finalidade for constitucional, há somente a substituição do tributo" foi reescrito conforme a doutrina (finalidade integra a natureza; desvio de finalidade na lei invalida a exigência). Confirme se o seu material dizia algo diferente.
-4. **Constitucional — Constituição inglesa.** Seu resumo diz que ela "não se pode dizer flexível". A doutrina majoritária a classifica como **juridicamente flexível e politicamente estável**. Registrei as duas ideias. Seu material/professor sustenta expressamente que ela não é flexível?
+*Nenhuma pendência aberta.* As quatro pendências da carga inicial foram resolvidas por você em 27/09/2026 (ver `alteracoes.md`, v002).
 
 ## 🟠 Acompanhar (jurisprudência/legislação em aberto)
 
