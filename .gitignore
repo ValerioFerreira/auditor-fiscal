@@ -4,7 +4,10 @@
 ENTRADA/
 
 # Saídas do sistema de leitura (recriadas por: python sistema/gerar.py)
-Estudos.html
-sistema/publicar/
+site/
+sistema/pagina-privada/
 __pycache__/
 .claude/launch.json
+
+# Vínculo local com o projeto da Vercel (criado pela CLI)
+.vercel/

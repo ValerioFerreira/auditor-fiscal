@@ -72,9 +72,11 @@ Estilo: máxima densidade de conhecimento com mínima redundância. Use tabelas 
 Não reproduza o conteúdo armazenado na resposta.
 
 ## Sistema de leitura (web)
-- Gerador: `sistema/gerar.py` (sem dependências). Interface: `sistema/modelo.html`. Saídas, fora do git: `Estudos.html` na raiz (abre com duplo clique) e `sistema/publicar/Estudos.html` (cópia para a página privada).
+- Gerador: `sistema/gerar.py` (sem dependências; mantenha compatível com Python 3.9, porque o build da Vercel usa o `python3` da imagem de build). Interface: `sistema/modelo.html`. Saídas, fora do git: `site/index.html` (o site: localhost, Vercel e duplo clique) e `sistema/pagina-privada/Estudos.html` (a mesma página sem o esqueleto HTML, para a página privada).
 - Regenerar: `python sistema/gerar.py`. Corrija os avisos (referência quebrada ou markdown não convertido) antes de encerrar.
-- Republicar a página privada no mesmo endereço: Artifact com `url` = https://claude.ai/artifact/PisxCfGReAw65f64LP8WVh e `file_path` = `sistema/publicar/Estudos.html` (em outra conversa, leia a versão publicada antes de republicar).
+- Ver localmente: `python sistema/gerar.py --servir` gera e serve o site em http://localhost:8765/. No navegador do Claude, use o servidor `estudos` de `.claude/launch.json` (arquivo local, fora do git), que roda o mesmo comando.
+- Republicar a página privada no mesmo endereço: Artifact com `url` = https://claude.ai/artifact/PisxCfGReAw65f64LP8WVh e `file_path` = `sistema/pagina-privada/Estudos.html` (em outra conversa, leia a versão publicada antes de republicar).
+- Vercel: `vercel.json` (build `python3 sistema/gerar.py`, publica só `site/`) e `.vercelignore` (sobem só `ESTUDOS/`, `sistema/` e `vercel.json`). O projeto na Vercel ainda não foi criado; os passos estão no `README.md`.
 - A ordem de matérias e temas no sistema vem de `_CONTROLE/assuntos-estudados.md`: mantenha a tabela na ordem pedagógica. Matéria nova: acrescente sigla e cor em `MATERIAS`, no início de `gerar.py`.
 - Pegadinhas são lidas das seções cujo título contém "Pegadinha" e das citações que começam com "Pegadinha:". Mantenha o formato `"Afirmação" → **ERRADO** (explicação)` para o gabarito C/E aparecer.
 

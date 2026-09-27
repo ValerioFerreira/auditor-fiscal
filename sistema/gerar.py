@@ -2,15 +2,20 @@
 """Gera o sistema de leitura da base ESTUDOS a partir dos arquivos .md.
 
 Uso (na raiz do projeto):
-    python sistema/gerar.py              gera Estudos.html e sistema/publicar/Estudos.html
+    python sistema/gerar.py              gera o site (site/index.html) e a cópia da página privada
+    python sistema/gerar.py --servir     gera e serve o site em http://localhost:8765/
     python sistema/gerar.py --verificar  só confere a base (referências e formatação)
 
-Não depende de nenhum pacote externo. A ordem das matérias e dos temas vem de
-ESTUDOS/_CONTROLE/assuntos-estudados.md; o que não estiver lá entra em ordem alfabética.
+Não depende de nenhum pacote externo. Mantenha o código compatível com Python 3.9: o build da
+Vercel (vercel.json) roda este script com o python3 da imagem de build. A ordem das matérias e
+dos temas vem de ESTUDOS/_CONTROLE/assuntos-estudados.md; o que não estiver lá entra em ordem
+alfabética.
 """
 from __future__ import annotations
 
+import functools
 import html
+import http.server
 import json
 import posixpath
 import re
@@ -23,8 +28,10 @@ PASTA_SISTEMA = Path(__file__).resolve().parent
 RAIZ = PASTA_SISTEMA.parent
 BASE = RAIZ / "ESTUDOS"
 MODELO = PASTA_SISTEMA / "modelo.html"
-SAIDA_LOCAL = RAIZ / "Estudos.html"
-SAIDA_PUBLICAR = PASTA_SISTEMA / "publicar" / "Estudos.html"
+PASTA_SITE = RAIZ / "site"
+SAIDA_SITE = PASTA_SITE / "index.html"
+SAIDA_PAGINA_PRIVADA = PASTA_SISTEMA / "pagina-privada" / "Estudos.html"
+PORTA_LOCAL = 8765
 MARCADOR_DADOS = "__DADOS_JSON__"
 
 CONTROLE = "_CONTROLE"
@@ -693,17 +700,71 @@ class Base:
 
 # ----------------------------------------------------------------------------- saída
 
+DESCRICAO = ("Base de estudos para Auditor Fiscal: matérias, temas, busca em todo o material "
+             "e pegadinhas CEBRASPE.")
+# Ícone da aba: um livro com as abas coloridas das quatro primeiras matérias.
+ICONE_SVG = (
+    "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'>"
+    "<rect x='20' y='4' width='10' height='5' rx='1.5' fill='#0b7285'/>"
+    "<rect x='20' y='10' width='10' height='5' rx='1.5' fill='#b45309'/>"
+    "<rect x='20' y='16' width='10' height='5' rx='1.5' fill='#3f4fc4'/>"
+    "<rect x='20' y='22' width='10' height='5' rx='1.5' fill='#a3174f'/>"
+    "<rect x='2' y='2' width='22' height='28' rx='3.5' fill='#2b3f7a'/>"
+    "<rect x='7' y='9' width='12' height='2.5' rx='1.25' fill='#fff'/>"
+    "<rect x='7' y='14.5' width='9' height='2.5' rx='1.25' fill='#fff' fill-opacity='.65'/>"
+    "</svg>"
+)
+
+
 def montar_paginas(dados: dict) -> tuple[str, str]:
+    """Devolve (página completa do site, página sem esqueleto HTML para a página privada)."""
     modelo = MODELO.read_text(encoding="utf-8")
     if MARCADOR_DADOS not in modelo:
         raise SystemExit(f"O modelo {MODELO.name} não contém o marcador {MARCADOR_DADOS}.")
     bruto = json.dumps(dados, ensure_ascii=False, separators=(",", ":"))
     bruto = bruto.replace("</", "<\\/").replace("<!--", "<\\!--")
     pagina = modelo.replace(MARCADOR_DADOS, bruto)
-    local = ('<!doctype html>\n<html lang="pt-BR">\n<head>\n<meta charset="utf-8">\n'
-             '<meta name="viewport" content="width=device-width, initial-scale=1, '
-             'viewport-fit=cover">\n' + pagina + "\n</html>\n")
-    return local, pagina
+    icone = "data:image/svg+xml," + (ICONE_SVG.replace("#", "%23")
+                                     .replace("<", "%3C").replace(">", "%3E"))
+    site = ('<!doctype html>\n<html lang="pt-BR">\n<head>\n<meta charset="utf-8">\n'
+            '<meta name="viewport" content="width=device-width, initial-scale=1, '
+            'viewport-fit=cover">\n'
+            f'<meta name="description" content="{esc(DESCRICAO)}">\n'
+            '<meta name="robots" content="noindex, nofollow">\n'
+            f'<link rel="icon" href="{icone}">\n' + pagina + "\n</html>\n")
+    return site, pagina
+
+
+def escrever(caminho: Path, texto: str) -> None:
+    caminho.parent.mkdir(parents=True, exist_ok=True)
+    # open() em vez de write_text(newline=...), que só existe a partir do Python 3.10
+    with open(caminho, "w", encoding="utf-8", newline="\n") as f:
+        f.write(texto)
+
+
+class Manipulador(http.server.SimpleHTTPRequestHandler):
+    """Serve a pasta site/ sem cache: a página regenerada aparece ao recarregar."""
+
+    def end_headers(self) -> None:
+        self.send_header("Cache-Control", "no-cache")
+        super().end_headers()
+
+
+def servir(porta: int) -> int:
+    manipulador = functools.partial(Manipulador, directory=str(PASTA_SITE))
+    try:
+        servidor = http.server.ThreadingHTTPServer(("127.0.0.1", porta), manipulador)
+    except OSError:
+        print(f"\nA porta {porta} já está em uso: o site pode já estar no ar em "
+              f"http://localhost:{porta}/")
+        return 1
+    print(f"\nSite no ar em http://localhost:{porta}/ (Ctrl+C para parar)", flush=True)
+    with servidor:
+        try:
+            servidor.serve_forever()
+        except KeyboardInterrupt:
+            print("\nServidor parado.")
+    return 0
 
 
 def main(argv: list[str]) -> int:
@@ -723,19 +784,22 @@ def main(argv: list[str]) -> int:
     print(f"Índice de busca: {len(dados['indice'])} trechos · Pegadinhas: "
           f"{len(dados['pegadinhas'])} (E {tipos.get('E', 0)}, C {tipos.get('C', 0)}, "
           f"observações {tipos.get('obs', 0)})")
-    if "--verificar" not in argv:
-        local, publicar = montar_paginas(dados)
-        SAIDA_LOCAL.write_text(local, encoding="utf-8", newline="\n")
-        SAIDA_PUBLICAR.parent.mkdir(parents=True, exist_ok=True)
-        SAIDA_PUBLICAR.write_text(publicar, encoding="utf-8", newline="\n")
-        print(f"Gerado: {SAIDA_LOCAL.name} ({len(local.encode('utf-8')) // 1024} KB) e "
-              f"{SAIDA_PUBLICAR.relative_to(RAIZ).as_posix()}")
+    verificar = "--verificar" in argv
+    if not verificar:
+        site, pagina_privada = montar_paginas(dados)
+        escrever(SAIDA_SITE, site)
+        escrever(SAIDA_PAGINA_PRIVADA, pagina_privada)
+        print(f"Gerado: {SAIDA_SITE.relative_to(RAIZ).as_posix()} "
+              f"({len(site.encode('utf-8')) // 1024} KB) e "
+              f"{SAIDA_PAGINA_PRIVADA.relative_to(RAIZ).as_posix()}")
     if base.avisos:
         print(f"\n{len(base.avisos)} aviso(s):")
         for a in base.avisos:
             print("  -", a)
     else:
         print("Nenhum aviso: todas as referências resolvem e não sobrou markdown sem conversão.")
+    if "--servir" in argv and not verificar:
+        return servir(PORTA_LOCAL)
     return 0
 
 

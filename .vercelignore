@@ -1,0 +1,7 @@
+# Só vai para a Vercel o necessário para o build (python3 sistema/gerar.py -> site/).
+# Os resumos brutos (ENTRADA/), os .zip/.docx e o resto ficam só neste computador.
+/*
+!ESTUDOS
+!sistema
+!vercel.json
+sistema/pagina-privada
