@@ -29,3 +29,4 @@
 - **Pendências 🔴 resolvidas:** as quatro da carga inicial (duas afirmações desconsideradas, uma reescrita confirmada e uma correção mantida).
 - **Reorganização:** três sobreposições consolidadas, sem perda de conteúdo (finalidade das contribuições especiais; tutela; constituição dúctil).
 - **Organização:** criado o sistema web de leitura da base (`Estudos.html` na raiz do projeto, com cópia numa página privada).
+- **Fluxo de trabalho:** novos resumos entram pela pasta `ENTRADA/` ou pelo chat; commit ao fim de cada sessão; pendência 🟡 "Persistência da base" resolvida (base em disco, com git).

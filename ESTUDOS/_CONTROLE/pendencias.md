@@ -11,7 +11,6 @@
 
 ## 🟡 Organização / fluxo de trabalho
 
-- **Persistência da base:** os arquivos criados no chat não ficam salvos entre conversas. Definir o fluxo (padrão proposto: você reenvia o ZIP mais recente junto com cada novo resumo).
 - **Concurso-alvo e data-base do edital:** saber qual concurso (e se a banca é mesmo CEBRASPE) ajuda a priorizar legislação estadual/municipal e a decidir como tratar a transição PIS/COFINS → CBS.
 - **Datas originais dos estudos:** não informadas no arquivo inicial.
 - Termo "eficácia prospectiva" (sinônimo de eficácia contida no seu material): mantido; não é a nomenclatura mais usual (Temer: "redutível ou restringível").

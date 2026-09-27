@@ -2,6 +2,7 @@
 *.zip
 *.docx
 Resumos.txt
+ENTRADA/
 
 # Saídas do sistema de leitura (recriadas por: python sistema/gerar.py)
 Estudos.html

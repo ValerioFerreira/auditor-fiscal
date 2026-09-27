@@ -15,6 +15,13 @@ Você é gestor e curador de uma base de conhecimento cumulativa para concursos.
 ## Fluxo para cada novo resumo
 Receber → identificar a matéria → identificar os assuntos → localizar o conteúdo existente → decompor em informações independentes → validar cada uma (CORRETA / CORRETA, MAS INCOMPLETA / IMPRECISA / INCORRETA / DEPENDE DO CONTEXTO) → corrigir → enriquecer (só o que agrega valor para a prova) → identificar relações → integrar → eliminar duplicações → reorganizar se necessário → atualizar o _CONTROLE → me informar.
 
+## Entrada de novos resumos
+- Eu salvo os resumos em `ENTRADA/`, na raiz do projeto: `.txt` ou `.md` de preferência (`.docx`, `.pdf` e fotos também valem). Também posso colar o resumo direto no chat.
+- Quando eu pedir (ex.: "processe a entrada"), leia todos os arquivos de `ENTRADA/`, menos `LEIA-ME.txt` e a pasta `processados/`. Vários arquivos na mesma sessão geram uma única versão.
+- Se o nome do arquivo ou o texto trouxer a data do estudo (ex.: `2026-09-28 Direito Tributário.txt`), use-a no diário; senão, use a data da sessão. Se a matéria não estiver clara, pergunte.
+- No início de cada sessão, se houver arquivos esperando em `ENTRADA/`, me avise.
+- Depois de incorporar, mova cada arquivo para `ENTRADA/processados/`, com a data na frente do nome (`AAAA-MM-DD - nome original`). `ENTRADA/` fica fora do git (material bruto).
+
 ## Legislação e jurisprudência
 - Priorize o texto constitucional e legal **vigente**. Diferencie lei, doutrina, jurisprudência consolidada e entendimento minoritário.
 - Se houver risco de alteração recente (Reforma Tributária: EC 132/2023, LC 214/2025, LC 227/2026; mudanças de entendimento do STF/STJ), **pesquise na web** antes de consolidar.
@@ -50,6 +57,13 @@ Estilo: máxima densidade de conhecimento com mínima redundância. Use tabelas 
 - `alteracoes.md`: tabela por matéria (classificação | como estava | como ficou). Legenda: INCORRETA, IMPRECISA, INCOMPLETA, DIVERGÊNCIA, CONFIRMADA, REORGANIZAÇÃO.
 - **Versão:** incremente a cada sessão (v001 → v002...) no topo do diário e de assuntos-estudados.
 
+## Fechamento de cada sessão
+1. Atualize o `_CONTROLE` (com a versão nova).
+2. Regenere o sistema de leitura, sem avisos, e republique a página privada (ver "Sistema de leitura").
+3. Mova os arquivos processados de `ENTRADA/` para `ENTRADA/processados/`.
+4. Faça o commit de todas as mudanças, com a mensagem `Base ESTUDOS vNNN — resumo curto` (autorizado por mim em 27/09/2026).
+5. Responda conforme a seção abaixo.
+
 ## Resposta ao final de cada sessão (breve)
 1. Matéria identificada.
 2. Assuntos incorporados.
@@ -59,8 +73,8 @@ Não reproduza o conteúdo armazenado na resposta.
 
 ## Sistema de leitura (web)
 - Gerador: `sistema/gerar.py` (sem dependências). Interface: `sistema/modelo.html`. Saídas, fora do git: `Estudos.html` na raiz (abre com duplo clique) e `sistema/publicar/Estudos.html` (cópia para a página privada).
-- Ao fim de toda sessão que alterar `ESTUDOS/`, rode `python sistema/gerar.py` e corrija os avisos (referência quebrada ou markdown não convertido) antes de encerrar.
-- Depois, republique a página privada no mesmo endereço: Artifact com `url` = https://claude.ai/artifact/PisxCfGReAw65f64LP8WVh e `file_path` = `sistema/publicar/Estudos.html` (em outra conversa, leia a versão publicada antes de republicar).
+- Regenerar: `python sistema/gerar.py`. Corrija os avisos (referência quebrada ou markdown não convertido) antes de encerrar.
+- Republicar a página privada no mesmo endereço: Artifact com `url` = https://claude.ai/artifact/PisxCfGReAw65f64LP8WVh e `file_path` = `sistema/publicar/Estudos.html` (em outra conversa, leia a versão publicada antes de republicar).
 - A ordem de matérias e temas no sistema vem de `_CONTROLE/assuntos-estudados.md`: mantenha a tabela na ordem pedagógica. Matéria nova: acrescente sigla e cor em `MATERIAS`, no início de `gerar.py`.
 - Pegadinhas são lidas das seções cujo título contém "Pegadinha" e das citações que começam com "Pegadinha:". Mantenha o formato `"Afirmação" → **ERRADO** (explicação)` para o gabarito C/E aparecer.
 
