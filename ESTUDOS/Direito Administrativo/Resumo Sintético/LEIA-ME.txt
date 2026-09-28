@@ -1,0 +1,15 @@
+RESUMO SINTÉTICO — Direito Administrativo
+
+Coloque aqui os seus resumos sintéticos desta matéria, um arquivo por parte.
+
+1. Formato: .txt ou .md, salvo em UTF-8 (o padrão do Bloco de Notas).
+2. Nome: comece pelo número da ordem. Exemplos:
+     01 - Tributo e espécies.txt
+     02 - Taxas.txt
+     03.md
+   O sistema junta os arquivos na ordem dos números, sem alterar o texto,
+   na aba "Resumo sintético" da página da matéria.
+3. Depois de salvar, gere o site de novo (python sistema/gerar.py)
+   ou peça ao Claude.
+
+Este arquivo (LEIA-ME) não aparece no site.

@@ -39,3 +39,31 @@
 
 - Classificações → `classificacao-das-constituicoes.md`
 - Hierarquia (Kelsen) → `hierarquia-das-normas.md`
+
+## Mapa mental
+
+- Conceito: organização do poder, competências, forma de governo e direitos fundamentais
+- Conceito ideal (Canotilho)
+  - Escrita
+  - Sistema de direitos fundamentais individuais
+  - Separação dos poderes
+  - Sistema democrático formal
+- Concepções
+  - Sociológica — Lassalle
+    - Soma dos fatores reais de poder
+    - Constituição escrita divergente é "folha de papel"
+  - Política — Schmitt
+    - Decisão política fundamental
+    - Constituição x leis constitucionais
+  - Jurídica — Kelsen
+    - Norma pura: fundantes x fundadas
+    - Sentido lógico-jurídico x jurídico-positivo
+  - Culturalista — Meirelles Teixeira
+    - "Constituição total": síntese das concepções
+  - Normativa — Hesse
+    - Força normativa e "vontade de Constituição"
+    - Opõe-se a Lassalle
+  - Dúctil — Zagrebelsky
+    - Maleável e pluralista: projeto em construção
+  - Estrutural — José Afonso da Silva
+    - Forma (escrita ou costumeira), conteúdo, fim e causa criadora

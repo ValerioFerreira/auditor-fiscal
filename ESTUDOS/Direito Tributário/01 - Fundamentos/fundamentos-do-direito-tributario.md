@@ -40,3 +40,23 @@
 
 - Hierarquia LC x LO → `Direito Constitucional/01 - Teoria da Constituição/hierarquia-das-normas.md`
 - Tarifa x taxa → `../03 - Espécies Tributárias/taxas.md`
+
+## Mapa mental
+
+- Natureza: ramo do **direito público**
+  - Relação vertical: Estado (sujeito ativo) x particular (sujeito passivo)
+  - Supremacia e indisponibilidade do interesse público
+- Receitas públicas
+  - **Originárias**: exploração do patrimônio público; regime de direito privado
+    - Ex.: aluguéis de bens públicos, tarifas/preços públicos, dividendos de estatais
+  - **Derivadas**: constrangimento do patrimônio particular; poder de império
+    - Ex.: tributos, multas, reparações de guerra
+  - Multa é receita derivada, mas **não é tributo**
+- CTN (Lei 5.172/1966)
+  - Editado como **lei ordinária**
+  - Recepcionado com **status de lei complementar** (CF/67 e CF/88)
+    - Matérias do art. 146: normas gerais, conflitos de competência, limitações ao poder de tributar
+  - Nessas matérias, só é alterado por **LC** (ex.: LC 104/2001, LC 118/2005, LC 227/2026)
+- Princípios da EC 132/2023
+  - Art. 145, §3º: simplicidade, transparência, justiça tributária, cooperação e defesa do meio ambiente
+  - Art. 145, §4º: atenuar efeitos regressivos

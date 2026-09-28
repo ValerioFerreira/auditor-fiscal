@@ -16,3 +16,11 @@
 
 - Elementos limitativos x socioideológicos → `../01 - Teoria da Constituição/estrutura-e-elementos.md`
 - Constituição-garantia x dirigente → `../01 - Teoria da Constituição/classificacao-das-constituicoes.md`
+
+## Mapa mental
+
+- Gerações ou dimensões (os direitos se acumulam)
+  - 1ª: civis e políticos → liberdade; abstenção do Estado
+  - 2ª: sociais, econômicos e culturais → igualdade; prestações positivas
+  - 3ª: difusos e coletivos → fraternidade; titularidade coletiva
+  - 4ª e seguintes: sem consenso (Bonavides: democracia, informação, pluralismo)

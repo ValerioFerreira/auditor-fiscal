@@ -68,3 +68,29 @@
 - Greve de servidor (art. 37, VII) → `Direito Administrativo/03 - Princípios da Administração Pública/principios-implicitos.md` (Continuidade)
 - ADCT e eficácia exaurida → `estrutura-e-elementos.md`
 - ADO e mandado de injunção — a estudar
+
+## Mapa mental
+
+- Regras x princípios (Alexy)
+  - Regras: tudo ou nada; conflito resolvido na validade
+  - Princípios: mandamentos de otimização; ponderação
+- Premissa
+  - Toda norma constitucional produz efeitos
+  - Eficácia jurídica x eficácia social (efetividade)
+- Classificação de José Afonso da Silva
+  - Plena: direta, imediata e integral; não pode ser restringida
+  - Contida: direta, imediata e possivelmente não integral
+    - Restrita por lei, por outra norma constitucional ou por conceitos indeterminados
+    - Sem lei restritiva, produz todos os efeitos
+    - Ex.: art. 5º, XIII
+  - Limitada: indireta, mediata e reduzida; depende de lei
+    - Institutivas (impositivas ou facultativas)
+    - Programáticas (saúde, educação)
+    - Efeito negativo e vinculativo (ADO e mandado de injunção)
+    - Ex.: art. 37, VII
+- Outras classificações
+  - Maria Helena Diniz: absoluta, plena, relativa restringível, relativa complementável
+  - Uadi Lammêgo Bulos: eficácia exaurida (ADCT)
+- Densidade normativa
+  - Alta → tende à eficácia plena
+  - Baixa → tende à eficácia limitada

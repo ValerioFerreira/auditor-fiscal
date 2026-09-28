@@ -75,3 +75,33 @@
 - Espécies e natureza jurídica → `natureza-juridica-e-classificacao.md`
 - Medidas provisórias (processo legislativo) — Direito Constitucional (a estudar)
 - Princípio da legalidade tributária (Limitações ao poder de tributar) — a estudar
+
+## Mapa mental
+
+- Definição legal (CTN, art. 3º)
+  - Prestação **pecuniária**: nem *in natura*, nem *in labore*
+  - **Compulsória**: nasce da lei (afasta a tarifa)
+  - Em moeda ou valor nela exprimível → dação de **imóveis** (art. 156, XI)
+  - **Não é sanção** de ato ilícito
+  - **Instituída em lei**
+  - Cobrança por atividade **plenamente vinculada** (art. 142, p.ú.)
+- Formas de pagamento
+  - Art. 162: moeda, cheque ou vale postal; estampilha, papel selado ou processo mecânico, se previstos em lei
+  - Dação em pagamento só de **bens imóveis**, na forma da lei do ente
+- Não é sanção de ato ilícito
+  - Multa não é tributo
+  - Obrigação principal abrange tributo **e** penalidade pecuniária (art. 113, §1º)
+  - Obrigação acessória descumprida vira principal quanto à multa (art. 113, §3º)
+  - *Pecunia non olet* (art. 118): tributa-se renda de origem ilícita (HC 77.530)
+- Legalidade
+  - Regra: lei ordinária
+  - Exigem LC: empréstimo compulsório, impostos e contribuições residuais, IGF; IBS e CBS (LC 214/2025)
+  - MP institui e majora tributos, salvo matéria de LC
+    - Impostos: efeitos no exercício seguinte só se convertida em lei até o fim do ano (exceto II, IE, IPI, IOF e imposto de guerra)
+  - Decreto não institui tributo
+  - Alíquotas por ato do Executivo: II, IE, IPI e IOF; CIDE-combustíveis; ICMS monofásico (convênio)
+  - Atualização monetária da base de cálculo não é majoração (art. 97, §2º; Súmula 160 do STJ)
+- Três "vinculações"
+  - Cobrança vinculada → todos os tributos
+  - Tributo vinculado → taxas e contribuição de melhoria
+  - Arrecadação vinculada → empréstimo compulsório e contribuições

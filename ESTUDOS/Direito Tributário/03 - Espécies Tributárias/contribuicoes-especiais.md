@@ -64,3 +64,28 @@
 - Contribuições sociais e previdenciárias → `contribuicoes-sociais-e-previdenciarias.md`
 - Taxas (iluminação pública não pode ser taxa) → `taxas.md`
 - Finalidade como critério de natureza jurídica → `../02 - Tributo/natureza-juridica-e-classificacao.md`
+
+## Mapa mental
+
+- Espécies (CF, arts. 149 e 149-A)
+  - Sociais
+  - CIDE
+  - Corporativas (categorias profissionais ou econômicas)
+  - COSIP
+- Finalidade integra a natureza (tributos finalísticos)
+- Competência
+  - Sociais, CIDE e corporativas: **exclusiva da União**
+  - RPPS: cada ente para o seu regime; instituição **obrigatória** ("instituirão")
+  - COSIP: Municípios e DF
+- Regras comuns às sociais e à CIDE (art. 149, §2º)
+  - Não incidem sobre receitas de **exportação**
+  - Incidem também sobre a **importação**
+  - Alíquotas **ad valorem** ou **específicas**
+- CIDE
+  - Intervenção do Estado na economia (finalidade extrafiscal)
+  - CIDE-combustíveis: alíquota reduzida e restabelecida por ato do Executivo, sem anterioridade anual
+- COSIP (art. 149-A; CTN, art. 82-A)
+  - Custeio, expansão e melhoria da iluminação pública + monitoramento de logradouros (EC 132)
+  - Pode ser cobrada na fatura de energia elétrica
+  - Tributo **sui generis** (RE 573.675): contribuintes consumidores de energia; alíquotas progressivas
+  - Existe porque a iluminação pública não pode ser taxa (SV 41)

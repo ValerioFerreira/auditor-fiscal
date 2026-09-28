@@ -63,3 +63,32 @@
 - Teorias das contas → `teorias-das-contas.md`
 - Plano de contas → `plano-de-contas.md`
 - Capital a integralizar (redutora do PL) → `../02 - Patrimônio/capital.md`
+
+## Mapa mental
+
+- Conta: qualifica e quantifica os elementos patrimoniais e de resultado
+  - Elementos: título, data, histórico, débito, crédito, saldo
+  - Razonete (conta em T): débito à esquerda, crédito à direita
+- Partidas dobradas (Luca Pacioli, 1494)
+  - A todo débito corresponde um crédito de igual valor
+  - Toda operação tem origem e aplicação de recursos
+- Natureza das contas
+  - Devedoras: Ativo e Despesas
+  - Credoras: Passivo, PL e Receitas
+  - Redutoras: natureza inversa à do grupo
+  - Débito não significa aumento: depende da natureza da conta
+- Contas redutoras
+  - Do ativo: depreciação acumulada, perdas estimadas com créditos de liquidação duvidosa
+  - Do PL: capital a integralizar, ações em tesouraria, prejuízos acumulados
+  - Da receita: devoluções e abatimentos sobre vendas
+- Estabilidade do saldo
+  - Estáveis: Caixa (devedora), Capital social (credora)
+  - Instáveis: Lucros ou Prejuízos Acumulados
+  - Saldo credor de Caixa → presunção de omissão de receitas (IR)
+- Sintéticas x analíticas
+  - Sintéticas: consolidam saldos
+  - Analíticas: recebem os lançamentos
+- Agrupamento (Lei 6.404, art. 176, §2º)
+  - Contas semelhantes podem ser agrupadas
+  - Pequenos saldos agregados até 10% do grupo, indicando a natureza
+  - Vedadas designações genéricas ("diversas contas", "contas-correntes")

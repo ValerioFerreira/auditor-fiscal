@@ -10,18 +10,26 @@ Não depende de nenhum pacote externo. Mantenha o código compatível com Python
 Vercel (vercel.json) roda este script com o python3 da imagem de build. A ordem das matérias e
 dos temas vem de ESTUDOS/_CONTROLE/assuntos-estudados.md; o que não estiver lá entra em ordem
 alfabética.
+
+Além do texto de cada tema, o gerador monta, por matéria:
+- o resumo geral (todos os temas em sequência, dividido em páginas de tamanho fixo);
+- o mapa mental de cada tema (seção "## Mapa mental", que sai do texto do tema);
+- o resumo sintético (arquivos .txt/.md da pasta "Resumo Sintético", na ordem dos números);
+- a data do último resumo (seções "### Matéria" do diário de estudos).
 """
 from __future__ import annotations
 
 import functools
+import hashlib
 import html
 import http.server
 import json
+import math
 import posixpath
 import re
 import sys
 import unicodedata
-from datetime import datetime
+from datetime import date, datetime
 from pathlib import Path
 
 PASTA_SISTEMA = Path(__file__).resolve().parent
@@ -36,6 +44,10 @@ MARCADOR_DADOS = "__DADOS_JSON__"
 
 CONTROLE = "_CONTROLE"
 ORDEM_CONTROLE = ["diario-de-estudos", "assuntos-estudados", "pendencias", "alteracoes"]
+PASTA_SINTETICO = "Resumo Sintético"
+TITULO_MAPA = "mapa mental"
+# Tamanho de uma página do resumo geral, em caracteres de texto (cerca de uma folha A4).
+CARACTERES_POR_PAGINA = 3000
 
 # Sigla (aba colorida) e cor de cada matéria. Uma matéria nova recebe sigla automática e a
 # próxima cor livre; acrescente-a aqui para fixar sigla e cor.
@@ -69,6 +81,10 @@ def esc(s: str) -> str:
 
 def recuo(linha: str) -> int:
     return len(linha) - len(linha.lstrip(" "))
+
+
+def resumo_hash(texto: str) -> str:
+    return hashlib.sha1(texto.encode("utf-8")).hexdigest()[:10]
 
 
 # ----------------------------------------------------------------------------- blocos
@@ -228,6 +244,27 @@ def ler_lista(linhas: list[str], i: int) -> tuple[dict, int]:
     return {"t": "ol" if ordenada else "ul", "inicio": inicio, "itens": itens}, i
 
 
+RE_H12 = re.compile(r"^(#{1,2})\s+(.*?)\s*#*\s*$")
+
+
+def separar_mapa(texto: str) -> tuple[str, str | None]:
+    """Tira do tema a seção '## Mapa mental' e a devolve à parte (texto, mapa)."""
+    linhas = texto.splitlines()
+    ini = None
+    for i, linha in enumerate(linhas):
+        m = RE_H12.match(linha)
+        if m and len(m.group(1)) == 2 and sem_acentos(m.group(2)).strip().lower() == TITULO_MAPA:
+            ini = i
+            break
+    if ini is None:
+        return texto, None
+    fim = next((j for j in range(ini + 1, len(linhas)) if RE_H12.match(linhas[j])), len(linhas))
+    resto = linhas[:ini] + linhas[fim:]
+    while resto and not resto[-1].strip():
+        resto.pop()
+    return "\n".join(resto) + "\n", "\n".join(linhas[ini + 1:fim])
+
+
 # ----------------------------------------------------------------------------- inline
 
 RE_CODIGO = re.compile(r"(`+)(.+?)\1")
@@ -238,6 +275,7 @@ RE_ITALICO = re.compile(r"(?<![*\w])\*(?=[^\s*])(.+?)(?<=[^\s*])\*(?![*\w])")
 RE_A_ESTUDAR = re.compile(r"\(a estudar\)|(?<=— )a estudar\b")
 RE_PEGADINHA = re.compile(r"^(?P<s>.*?)\s*→\s*\*\*(?P<v>CERTO|ERRADO)\*\*(?P<x>.*)$")
 RE_ROTULO_PEGADINHA = re.compile(r"^(?:⚠️?\s*)?Pegadinha:\s*", re.I)
+RE_VAZOU = re.compile(r"\*\*|`|\|\s*-{3,}|\]\(|^#{1,6}\s")
 SELO_A_ESTUDAR = '<span class="est">a estudar</span>'
 
 
@@ -292,20 +330,31 @@ def classificar_citacao(texto: str, anterior: dict | None) -> str:
 # ----------------------------------------------------------------------------- renderização
 
 class Renderizador:
-    """Converte os blocos de um documento em HTML, índice de busca e pegadinhas."""
+    """Converte os blocos de um documento em HTML, índice de busca e pegadinhas.
+
+    Os arquivos do resumo sintético são do estudante e entram como estão: não geram avisos,
+    ligações "Citado em" nem itens na página de pegadinhas.
+    """
 
     def __init__(self, base: "Base", doc: dict):
         self.base = base
         self.doc = doc
+        self.bruto = doc.get("tipo") == "sint"
         self.n = 0
         self.toc: list[dict] = []
         self.ids: set[str] = set()
         self.indice: list[list] = []
         self.pegadinhas: list[dict] = []
+        self.ns_titulo: set[int] = set()
+        self.ns_peg: set[int] = set()
         self.h2 = self.h3 = None
         self.peg_h2 = self.peg_h3 = False
         self.titulo: str | None = None
         self.palavras = 0
+
+    def aviso(self, msg: str) -> None:
+        if not self.bruto:
+            self.base.aviso(self.doc, msg)
 
     # -- inline
     def inline(self, md: str, registrar: bool = True) -> str:
@@ -327,6 +376,7 @@ class Renderizador:
 
     def codigo(self, conteudo: str, registrar: bool) -> str:
         c = conteudo.strip()
+        registrar = registrar and not self.bruto
         if c.endswith(".md") or c.endswith("/"):
             alvo = self.base.resolver(c, self.doc)
             if alvo:
@@ -335,7 +385,7 @@ class Renderizador:
                     self.base.ligar(self.doc, destino)
                 return self.base.link(destino, rotulo, self.doc)
             if c.endswith(".md") and registrar:
-                self.base.aviso(self.doc, f"referência não encontrada: `{c}`")
+                self.aviso(f"referência não encontrada: `{c}`")
         return f"<code>{html.escape(c, quote=False)}</code>"
 
     # -- índice
@@ -352,7 +402,8 @@ class Renderizador:
         return self.n
 
     # -- blocos
-    def blocos(self, blocos: list[dict], prof: int = 0) -> str:
+    def blocos(self, blocos: list[dict], prof: int = 0, lista: bool = False):
+        """HTML dos blocos; com lista=True, uma parte por bloco de primeiro nível."""
         partes, anterior = [], None
         for b in blocos:
             t = b["t"]
@@ -371,7 +422,8 @@ class Renderizador:
             elif t == "regua":
                 partes.append("<hr>")
             anterior = b
-        return "\n".join(p for p in partes if p)
+        partes = [p for p in partes if p]
+        return partes if lista else "\n".join(partes)
 
     def titulo_html(self, b: dict) -> str:
         conteudo = self.inline(b["texto"])
@@ -393,6 +445,7 @@ class Renderizador:
         if nivel <= 3:
             self.toc.append({"id": hid, "n": nivel, "t": texto})
         n = self.novo()
+        self.ns_titulo.add(n)
         self.indexar(n, texto)
         return f'<h{nivel} id="{hid}" data-b="{n}">{conteudo}</h{nivel}>'
 
@@ -428,6 +481,7 @@ class Renderizador:
 
     def item_pegadinha(self, item: list[dict]) -> str:
         n = self.novo()
+        self.ns_peg.add(n)
         if item and item[0]["t"] == "p":
             v, corpo = self.corpo_pegadinha(item[0]["texto"], True)
             resto = item[1:]
@@ -437,7 +491,8 @@ class Renderizador:
         if resto:
             corpo += self.blocos(resto, 1)
         li = self.li_pegadinha(v, n, corpo)
-        self.pegadinhas.append({"d": self.doc["id"], "b": n, "v": v, "h": li})
+        if not self.bruto:
+            self.pegadinhas.append({"d": self.doc["id"], "b": n, "v": v, "h": li})
         return li
 
     def citacao(self, b: dict, prof: int, anterior: dict | None) -> str:
@@ -446,9 +501,11 @@ class Renderizador:
         n_inicio = self.n + 1
         interno = self.blocos(b["blocos"], prof + 1)
         if tipo == "peg" and prof == 0 and primeiro:
+            self.ns_peg.add(n_inicio)
             v, corpo = self.corpo_pegadinha(RE_ROTULO_PEGADINHA.sub("", primeiro), False)
-            self.pegadinhas.append({"d": self.doc["id"], "b": n_inicio, "v": v,
-                                    "h": self.li_pegadinha(v, n_inicio, corpo)})
+            if not self.bruto:
+                self.pegadinhas.append({"d": self.doc["id"], "b": n_inicio, "v": v,
+                                        "h": self.li_pegadinha(v, n_inicio, corpo)})
         return f'<blockquote class="nota nota-{tipo}">{interno}</blockquote>'
 
     def tabela(self, b: dict) -> str:
@@ -467,8 +524,8 @@ class Renderizador:
         corpo = []
         for linha in b["linhas"]:
             if len(linha) != ncol:
-                self.base.aviso(self.doc, f"linha de tabela com {len(linha)} colunas "
-                                          f"(esperadas {ncol}): {linha[0][:50]}")
+                self.aviso(f"linha de tabela com {len(linha)} colunas (esperadas {ncol}): "
+                           f"{linha[0][:50]}")
             linha = (linha + [""] * ncol)[:ncol]
             corpo.append(linha_html([celula("td", c, k) for k, c in enumerate(linha)]))
         return (f'<div class="tabela"><table><thead>{cab}</thead>'
@@ -479,6 +536,79 @@ class Renderizador:
         self.indexar(n, re.sub(r"\s+", " ", b["texto"]).strip())
         return (f'<div class="codigo"><pre data-b="{n}"><code>'
                 f'{html.escape(b["texto"], quote=False)}</code></pre></div>')
+
+    def texto_simples(self, texto: str) -> list[str]:
+        """Arquivo .txt: um parágrafo por bloco separado por linha em branco, quebras mantidas."""
+        partes = []
+        for par in re.split(r"\n[ \t]*\n", texto.strip("\n")):
+            if not par.strip():
+                continue
+            n = self.novo()
+            self.indexar(n, re.sub(r"\s+", " ", par).strip())
+            partes.append(f'<p class="txt" data-b="{n}">{html.escape(par.rstrip(), quote=False)}</p>')
+        return partes
+
+
+# ----------------------------------------------------------------------------- mapa mental
+
+PALAVRAS_VAZIAS = set(
+    "a o e as os um uma uns umas de da do das dos em no na nos nas ao aos por pelo pela pelos "
+    "pelas para pra com sem sob sobre que se ou nem mas como mais menos ja nao sim ser so sua "
+    "seu suas seus lhe isso esta este essa esse entre ate apos quando onde qual quais cada toda "
+    "todo todas todos outro outra outros outras ha ex etc".split())
+
+
+def tokens(texto: str) -> set[str]:
+    saida = set()
+    for t in re.findall(r"[a-z0-9]+", sem_acentos(texto).lower()):
+        if len(t) < 2 or t in PALAVRAS_VAZIAS:
+            continue
+        if len(t) > 4 and t.endswith("s"):
+            t = t[:-1]
+        saida.add(t[:6])
+    return saida
+
+
+def ligar_mapa(nos: list[dict], r: Renderizador) -> None:
+    """Liga cada nó do mapa ao trecho do tema que mais se parece com ele (campo "b")."""
+    entradas = [(n, secao, tokens(texto)) for _, n, secao, texto in r.indice]
+    if not entradas:
+        return
+    df: dict[str, int] = {}
+    for _, _, ts in entradas:
+        for t in ts:
+            df[t] = df.get(t, 0) + 1
+    idf = {t: math.log(1 + len(entradas) / c) for t, c in df.items()}
+    fracas = re.compile(r"^(base legal|relac|pegadinha)")
+
+    def melhor(proprios: set[str], contexto: set[str], ramo: bool) -> int | None:
+        nota_max, escolhido = 0.0, None
+        for n, secao, ts in entradas:
+            nota = sum(idf[t] for t in proprios & ts)
+            if not nota:
+                continue
+            nota += 0.3 * sum(idf[t] for t in (contexto - proprios) & ts)
+            nota /= 1 + len(ts) / 30  # trecho curto e certeiro vence trecho longo e genérico
+            if n in r.ns_titulo:
+                nota *= 1.5 if ramo else 1.1
+            if n in r.ns_peg:
+                nota *= 0.6
+            if fracas.match(sem_acentos(secao).lower()):
+                nota *= 0.4
+            if nota > nota_max:
+                nota_max, escolhido = nota, n
+        return escolhido if nota_max >= 0.8 else None
+
+    def visitar(no: dict, contexto: set[str]) -> None:
+        proprios = tokens(texto_de_html(no["t"]))
+        b = melhor(proprios, contexto, bool(no.get("c")))
+        if b:
+            no["b"] = b
+        for filho in no.get("c", []):
+            visitar(filho, contexto | proprios)
+
+    for no in nos:
+        visitar(no, set())
 
 
 # ----------------------------------------------------------------------------- base
@@ -502,6 +632,37 @@ def ler_assuntos(caminho: Path) -> tuple[list[str], dict]:
     return ordem, tabela
 
 
+def ler_ultimos_resumos(texto: str) -> dict[str, str]:
+    """Data (ISO) do resumo mais recente de cada matéria, pelas seções '### Matéria' do diário.
+
+    A data é a da sessão ('## DD/MM/AAAA — ...'), ou a que estiver no próprio '### ' (ex.:
+    '### Direito Tributário (estudo de 28/09/2026)').
+    """
+    ultimos: dict[str, str] = {}
+    sessao = None
+    for linha in texto.splitlines():
+        m = re.match(r"^##\s+(\d{2})/(\d{2})/(\d{4})\b", linha)
+        if m:
+            sessao = f"{m.group(3)}-{m.group(2)}-{m.group(1)}"
+            continue
+        if linha.startswith("## "):
+            sessao = None
+            continue
+        m = re.match(r"^###\s+(.+?)\s*$", linha)
+        if m and sessao:
+            titulo = m.group(1)
+            d = re.search(r"(\d{2})/(\d{2})/(\d{4})", titulo)
+            quando = f"{d.group(3)}-{d.group(2)}-{d.group(1)}" if d else sessao
+            nome = chave_materia(re.split(r"\s+[(—–-]\s*", titulo)[0])
+            if quando > ultimos.get(nome, ""):
+                ultimos[nome] = quando
+    return ultimos
+
+
+def chave_materia(nome: str) -> str:
+    return re.sub(r"\s+", " ", sem_acentos(nome).lower()).strip()
+
+
 def titulo_do_md(texto: str) -> str | None:
     for linha in texto.splitlines():
         m = re.match(r"^#\s+(.*?)\s*#*\s*$", linha)
@@ -517,11 +678,28 @@ def sigla_automatica(nome: str) -> str:
     return p if len(p) <= 6 else p[:4]
 
 
+def chave_sintetico(p: Path) -> tuple:
+    m = re.match(r"^\s*(\d+)", p.stem)
+    return (0, int(m.group(1)), p.name.lower()) if m else (1, 0, p.name.lower())
+
+
+def peso_parte(parte: str) -> int:
+    """Espaço aproximado que um bloco ocupa na página, em caracteres de texto."""
+    peso = len(texto_de_html(parte)) + 60
+    peso += 45 * parte.count("<tr") + 25 * parte.count("<li")
+    if re.match(r"<h[2-6]", parte):
+        peso += 120
+    if parte.startswith('<div class="codigo"'):
+        peso += 30 * parte.count("\n")
+    return peso
+
+
 class Base:
     def __init__(self):
         self.avisos: list[str] = []
         self.docs: list[dict] = []
         self.controle: list[dict] = []
+        self.sinteticos: list[dict] = []
         self.por_caminho: dict[str, dict] = {}
         self.por_nome: dict[str, list[dict]] = {}
         self.por_pasta: dict[str, list[dict]] = {}
@@ -529,6 +707,7 @@ class Base:
         self.materia_por_id: dict[str, dict] = {}
         self.citado_em: dict[str, set[str]] = {}
         self.versao, self.data = "v???", ""
+        self.ultimos: dict[str, str] = {}
 
     def aviso(self, doc: dict, msg: str) -> None:
         linha = f"{doc['caminho']}: {msg}"
@@ -573,17 +752,33 @@ class Base:
         ordem_materias, tabela = ler_assuntos(BASE / CONTROLE / "assuntos-estudados.md")
         diario = BASE / CONTROLE / "diario-de-estudos.md"
         if diario.exists():
+            texto_diario = diario.read_text(encoding="utf-8")
             m = re.search(r"Versão atual da base:\s*\*\*(v\d+)\*\*\s*\((\d{2}/\d{2}/\d{4})\)",
-                          diario.read_text(encoding="utf-8"))
+                          texto_diario)
             if m:
                 self.versao, self.data = m.group(1), m.group(2)
+            self.ultimos = ler_ultimos_resumos(texto_diario)
 
         cores_livres = list(CORES_LIVRES)
         materias: dict[str, dict] = {}
+
+        def materia(nome: str) -> dict:
+            if nome not in materias:
+                sigla, cor = MATERIAS.get(nome, (None, None))
+                if cor is None:
+                    sigla = sigla_automatica(nome)
+                    cor = cores_livres.pop(0) if cores_livres else "ctrl"
+                pos = ordem_materias.index(nome) if nome in ordem_materias else 1000
+                materias[nome] = {"id": slug(nome), "nome": nome, "sigla": sigla, "cor": cor,
+                                  "_ordem": (pos, nome)}
+            return materias[nome]
+
         brutos = []
         for p in sorted(BASE.rglob("*.md")):
             rel = p.relative_to(BASE).as_posix()
             partes = rel.split("/")
+            if len(partes) > 2 and partes[1] == PASTA_SINTETICO:
+                continue
             texto = p.read_text(encoding="utf-8")
             arquivo = partes[-1]
             nome = arquivo[:-3]
@@ -594,18 +789,16 @@ class Base:
                 pasta = "/".join(partes[1:-1])
                 if len(partes) > 3:
                     self.avisos.append(f"{rel}: pasta aninhada demais; exibida como '{pasta}'")
-            if materia_nome not in materias and partes[0] != CONTROLE:
-                sigla, cor = MATERIAS.get(materia_nome, (None, None))
-                if cor is None:
-                    sigla = sigla_automatica(materia_nome)
-                    cor = cores_livres.pop(0) if cores_livres else "ctrl"
-                materias[materia_nome] = {"id": slug(materia_nome), "nome": materia_nome,
-                                          "sigla": sigla, "cor": cor}
+                materia(materia_nome)
             mid = "controle" if partes[0] == CONTROLE else slug(materia_nome)
             num = re.match(r"^(\d+)\s*-\s*(.+)$", posixpath.basename(pasta)) if pasta else None
             chave = tabela.get((materia_nome, pasta, arquivo))
+            md_mapa = None
+            if mid != "controle":
+                texto, md_mapa = separar_mapa(texto)
             doc = {
                 "id": f"{mid}.{slug(nome)}",
+                "tipo": "ctrl" if mid == "controle" else "tema",
                 "caminho": rel,
                 "materia": mid,
                 "materiaNome": materia_nome,
@@ -616,21 +809,28 @@ class Base:
                 "resumo_md": chave[1] if chave else "",
                 "status": chave[2] if chave else "",
                 "md": texto,
+                "md_mapa": md_mapa,
+                "hash": resumo_hash(texto),
             }
             if not titulo_do_md(texto):
                 self.aviso(doc, "arquivo sem título (# ...) na primeira seção")
             if not texto.strip():
                 self.aviso(doc, "arquivo vazio")
+            if mid != "controle" and md_mapa is None:
+                self.aviso(doc, "tema sem mapa mental (seção '## Mapa mental')")
             ordem_arquivo = chave[0] if chave else 10 ** 6
             if mid == "controle":
                 pos = ORDEM_CONTROLE.index(nome) if nome in ORDEM_CONTROLE else len(ORDEM_CONTROLE)
                 doc["_ordem"] = (pos, nome)
             else:
-                pos_m = (ordem_materias.index(materia_nome) if materia_nome in ordem_materias
-                         else 1000)
                 n_pasta = int(num.group(1)) if num else 999
-                doc["_ordem"] = (pos_m, materia_nome, n_pasta, pasta, ordem_arquivo, nome)
+                doc["_ordem"] = materias[materia_nome]["_ordem"] + (n_pasta, pasta, ordem_arquivo,
+                                                                     nome)
             brutos.append(doc)
+
+        for pasta in sorted(BASE.iterdir()):
+            if pasta.is_dir() and pasta.name != CONTROLE and (pasta / PASTA_SINTETICO).is_dir():
+                self.carregar_sintetico(materia(pasta.name), pasta / PASTA_SINTETICO)
 
         self.materia_por_id = {m["id"]: m for m in materias.values()}
         self.materia_por_id["controle"] = {"id": "controle", "nome": "Controle da base",
@@ -642,52 +842,114 @@ class Base:
             self.por_nome.setdefault(posixpath.basename(d["caminho"]), []).append(d)
             self.por_pasta.setdefault(d["pasta"], []).append(d)
 
-        vistas = []
-        for d in self.docs:
-            if d["materia"] not in vistas:
-                vistas.append(d["materia"])
-        for mid in vistas:
-            m = dict(self.materia_por_id[mid])
+        for mb in sorted(materias.values(), key=lambda x: x["_ordem"]):
+            m = {k: v for k, v in mb.items() if k != "_ordem"}
             assuntos: list[dict] = []
-            for d in (x for x in self.docs if x["materia"] == mid):
+            for d in (x for x in self.docs if x["materia"] == m["id"]):
                 if not assuntos or assuntos[-1]["pasta"] != d["pasta"]:
                     assuntos.append({"pasta": d["pasta"], "num": d["assuntoNum"],
                                      "nome": d["assuntoNome"], "temas": []})
                 assuntos[-1]["temas"].append(d["id"])
             m["assuntos"] = [{k: a[k] for k in ("num", "nome", "temas")} for a in assuntos]
+            m["sintetico"] = [d["id"] for d in self.sinteticos if d["materia"] == m["id"]]
+            m["ultimo"] = self.ultimos.get(chave_materia(m["nome"]))
             self.materias.append(m)
+
+    def carregar_sintetico(self, materia: dict, pasta: Path) -> None:
+        """Arquivos do resumo sintético: .txt e .md, na ordem do número no início do nome."""
+        rel_pasta = pasta.relative_to(BASE).as_posix()
+        for p in sorted(pasta.iterdir(), key=chave_sintetico):
+            if not p.is_file() or p.name.upper().startswith("LEIA-ME"):
+                continue
+            doc = {"caminho": f"{rel_pasta}/{p.name}"}
+            if p.suffix.lower() not in (".txt", ".md"):
+                self.aviso(doc, "formato não lido no resumo sintético (use .txt ou .md)")
+                continue
+            dados = p.read_bytes()
+            try:
+                texto = dados.decode("utf-8-sig")
+            except UnicodeDecodeError:
+                texto = dados.decode("cp1252", errors="replace")
+                self.aviso(doc, "arquivo não está em UTF-8; lido como Windows-1252 (confira os "
+                                "acentos e salve em UTF-8)")
+            texto = texto.replace("\r\n", "\n").replace("\r", "\n")
+            if not texto.strip():
+                self.aviso(doc, "arquivo vazio")
+                continue
+            m = re.match(r"^\s*(\d+)", p.stem)
+            if not m:
+                self.aviso(doc, "nome sem número no início: entra depois dos numerados")
+            nome = re.sub(r"^\s*\d+\s*[-–—._)]*\s*", "", p.stem).strip()
+            mid = materia["id"]
+            doc.update({
+                "id": f"{mid}.sint.{slug(p.stem)}",
+                "tipo": "sint",
+                "materia": mid,
+                "materiaNome": materia["nome"],
+                "pasta": rel_pasta,
+                "assuntoNum": m.group(1) if m else "",
+                "assuntoNome": PASTA_SINTETICO,
+                "titulo": nome or (f"Parte {m.group(1)}" if m else p.stem),
+                "resumo_md": "",
+                "status": "",
+                "formato": p.suffix.lower()[1:],
+                "md": texto,
+                "md_mapa": None,
+                "hash": resumo_hash(texto),
+            })
+            self.sinteticos.append(doc)
 
     # -- renderização e checagens
     def renderizar(self) -> dict:
         indice, pegadinhas, saida = [], [], {}
-        todos = self.docs + self.controle
+        todos = self.docs + self.controle + self.sinteticos
+        n_nos = 0
         for d in todos:
             r = Renderizador(self, d)
-            corpo = r.blocos(ler_blocos(d["md"].splitlines()))
+            if d["tipo"] == "sint" and d["formato"] == "txt":
+                partes = r.texto_simples(d["md"])
+            else:
+                partes = r.blocos(ler_blocos(d["md"].splitlines()), lista=True)
             resumo = Renderizador(self, d).inline(d["resumo_md"], False) if d["resumo_md"] else ""
-            d.update(html=corpo, toc=r.toc, palavras=r.palavras, resumo=resumo,
-                     titulo=r.titulo or d["titulo"])
+            titulo = d["titulo"] if d["tipo"] == "sint" and d["formato"] == "txt" else (
+                r.titulo or d["titulo"])
+            d.update(partes=partes, toc=r.toc, palavras=r.palavras, resumo=resumo, titulo=titulo)
+            if d["md_mapa"] is not None:
+                d["mapa"] = self.arvore_mapa(d, d["md_mapa"])
+                ligar_mapa(d["mapa"], r)
+                n_nos += contar_nos(d["mapa"])
             indice.extend(r.indice)
-            if d["materia"] != "controle":
+            if d["tipo"] == "tema":
                 pegadinhas.extend(r.pegadinhas)
+        self.n_nos = n_nos
+        brutos = {d["id"] for d in self.sinteticos}
         for e in indice:
-            vazou = re.search(r"\*\*|`|\|\s*-{3,}|\]\(|^#{1,6}\s", e[3])
-            if vazou:
+            vazou = RE_VAZOU.search(e[3])
+            if vazou and e[0] not in brutos:
                 d = next(x for x in todos if x["id"] == e[0])
                 self.aviso(d, f"marcação markdown não convertida ({vazou.group(0)!r}): "
                               f"{e[3][:70]}")
         ordem = [d["id"] for d in self.docs]
+        for m in self.materias:
+            m["geral"] = self.paginar([d for d in self.docs if d["materia"] == m["id"]])
         for d in todos:
             citantes = self.citado_em.get(d["id"], set())
-            saida[d["id"]] = {
-                "titulo": d["titulo"], "materia": d["materia"], "assunto": d["assuntoNome"],
-                "num": d["assuntoNum"], "resumo": d["resumo"], "status": d["status"],
-                "caminho": d["caminho"], "palavras": d["palavras"], "toc": d["toc"],
-                "citadoEm": [x for x in ordem if x in citantes], "html": d["html"],
+            item = {
+                "titulo": d["titulo"], "tipo": d["tipo"], "materia": d["materia"],
+                "assunto": d["assuntoNome"], "num": d["assuntoNum"], "resumo": d["resumo"],
+                "status": d["status"], "caminho": d["caminho"], "palavras": d["palavras"],
+                "toc": d["toc"], "citadoEm": [x for x in ordem if x in citantes],
+                "hash": d["hash"], "partes": d["partes"],
             }
+            if "mapa" in d:
+                item["mapa"] = d["mapa"]
+            if "pag" in d:
+                item["pag"] = d["pag"]
+            saida[d["id"]] = item
         return {
             "meta": {"versao": self.versao, "data": self.data,
-                     "gerado": datetime.now().strftime("%d/%m/%Y %H:%M")},
+                     "gerado": datetime.now().strftime("%d/%m/%Y %H:%M"),
+                     "hoje": date.today().isoformat()},
             "materias": self.materias,
             "controle": dict(self.materia_por_id["controle"],
                              temas=[d["id"] for d in self.controle]),
@@ -697,11 +959,83 @@ class Base:
             "pegadinhas": pegadinhas,
         }
 
+    def arvore_mapa(self, doc: dict, md: str) -> list[dict]:
+        r = Renderizador(self, doc)
+
+        def nos_da_lista(bloco: dict) -> list[dict]:
+            nos = []
+            for item in bloco["itens"]:
+                rotulo = " ".join(b["texto"] for b in item if b["t"] == "p")
+                no = {"t": r.inline(rotulo, False)}
+                if RE_VAZOU.search(texto_de_html(no["t"])):
+                    self.aviso(doc, f"mapa mental: marcação não convertida em '{rotulo[:60]}'")
+                filhos = [f for b in item if b["t"] in ("ul", "ol") for f in nos_da_lista(b)]
+                if filhos:
+                    no["c"] = filhos
+                nos.append(no)
+            return nos
+
+        nos = []
+        for b in ler_blocos(md.splitlines()):
+            if b["t"] in ("ul", "ol"):
+                nos.extend(nos_da_lista(b))
+            else:
+                self.aviso(doc, "mapa mental: só listas com '-' são lidas; o resto foi ignorado")
+        if not nos:
+            self.aviso(doc, "mapa mental vazio")
+        return nos
+
+    @staticmethod
+    def paginar(temas: list[dict]) -> dict:
+        """Divide o resumo geral da matéria em páginas, sem quebrar blocos.
+
+        Cada página começa num bloco; um título nunca fica sozinho no fim da página, e um tema
+        que começaria no último quinto de uma página passa para a seguinte.
+        """
+        itens = []  # (tema, k, peso, prende_ao_proximo); k = -1 é o cabeçalho do tema
+        for d in temas:
+            itens.append((d["id"], -1, 200, True))
+            for k, parte in enumerate(d["partes"]):
+                itens.append((d["id"], k, peso_parte(parte), bool(re.match(r"<h[2-6]", parte))))
+        if not itens:
+            return {"paginas": 0, "quebras": [], "hash": ""}
+        inicios, atual = [0], 0
+        for i, (_, k, peso, _) in enumerate(itens):
+            cheia = atual + peso > CARACTERES_POR_PAGINA
+            tema_no_fim = k == -1 and atual > 0.8 * CARACTERES_POR_PAGINA
+            if atual > 0 and (cheia or tema_no_fim):
+                j = i
+                while j - 1 > inicios[-1] and itens[j - 1][3]:
+                    j -= 1
+                inicios.append(j)
+                atual = sum(x[2] for x in itens[j:i])
+            atual += peso
+        pagina_de = []
+        p = 0
+        for i in range(len(itens)):
+            if p < len(inicios) and i == inicios[p]:
+                p += 1
+            pagina_de.append(p)
+        faixa: dict[str, list[int]] = {}
+        for (tid, _, _, _), pg in zip(itens, pagina_de):
+            faixa.setdefault(tid, [pg, pg])[1] = pg
+        for d in temas:
+            d["pag"] = faixa[d["id"]]
+        return {
+            "paginas": len(inicios),
+            "quebras": [[itens[i][0], itens[i][1]] for i in inicios],
+            "hash": resumo_hash("".join(d["hash"] for d in temas)),
+        }
+
+
+def contar_nos(nos: list[dict]) -> int:
+    return sum(1 + contar_nos(n.get("c", [])) for n in nos)
+
 
 # ----------------------------------------------------------------------------- saída
 
-DESCRICAO = ("Base de estudos para Auditor Fiscal: matérias, temas, busca em todo o material "
-             "e pegadinhas CEBRASPE.")
+DESCRICAO = ("Base de estudos para Auditor Fiscal: resumos por matéria e por tópico, mapas "
+             "mentais, busca em todo o material e pegadinhas CEBRASPE.")
 # Ícone da aba: um livro com as abas coloridas das quatro primeiras matérias.
 ICONE_SVG = (
     "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'>"
@@ -784,6 +1118,13 @@ def main(argv: list[str]) -> int:
     print(f"Índice de busca: {len(dados['indice'])} trechos · Pegadinhas: "
           f"{len(dados['pegadinhas'])} (E {tipos.get('E', 0)}, C {tipos.get('C', 0)}, "
           f"observações {tipos.get('obs', 0)})")
+    com_mapa = sum(1 for d in base.docs if d.get("mapa"))
+    print(f"Mapas mentais: {com_mapa} de {n_temas} temas ({base.n_nos} ramos) · "
+          f"Resumo sintético: {len(base.sinteticos)} arquivo(s)")
+    print("Resumo geral: " + " · ".join(
+        f"{m['sigla']} {m['geral']['paginas']} págs. (último resumo: "
+        f"{'/'.join(reversed(m['ultimo'].split('-'))) if m['ultimo'] else 'sem registro'})"
+        for m in base.materias))
     verificar = "--verificar" in argv
     if not verificar:
         site, pagina_privada = montar_paginas(dados)

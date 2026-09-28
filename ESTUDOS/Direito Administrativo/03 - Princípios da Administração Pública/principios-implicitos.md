@@ -164,3 +164,48 @@
 - Eficácia limitada (art. 37, VII) → `Direito Constitucional/01 - Teoria da Constituição/eficacia-e-aplicabilidade-das-normas.md`
 - Atos administrativos (anulação, revogação, convalidação) e serviços públicos/concessões — a estudar
 - Processo administrativo fiscal (SV 21) → `Direito Tributário/03 - Espécies Tributárias/taxas.md`
+
+## Mapa mental
+
+- Vários estão expressos na Lei 9.784/99, art. 2º
+- Razoabilidade e proporcionalidade
+  - Limitam a discricionariedade: proibição de excesso
+  - Adequação, necessidade e proporcionalidade em sentido estrito
+  - Controle de legalidade, não de mérito
+- Autotutela
+  - Anulação: ato ilegal; efeitos ex tunc; Administração e Judiciário
+  - Revogação: ato inconveniente; efeitos ex nunc; só a Administração
+  - Súmulas 346 e 473 do STF
+  - Decadência de 5 anos para atos favoráveis, salvo má-fé (art. 54)
+  - Convalidação de defeitos sanáveis (art. 55)
+  - SV 3: contraditório no TCU, salvo concessão inicial de aposentadoria
+- Tutela (controle finalístico)
+  - Sobre a indireta, sem hierarquia, nos limites da lei
+- Motivação
+  - Fundamentos de fato e de direito (art. 50)
+  - Exceção: exoneração ad nutum
+  - Motivos determinantes: o motivo declarado vincula
+  - Motivação aliunde admitida
+- Continuidade do serviço público
+  - Greve de servidor: Lei 7.783/89 (MIs 670, 708 e 712); desconto dos dias parados
+  - Greve vedada: segurança pública e militares
+  - Exceção do contrato não cumprido só após 2 meses de atraso
+  - Encampação (interesse público, lei e indenização) x caducidade (inadimplemento, decreto)
+  - Interrupção válida: emergência ou aviso prévio
+- Contraditório e ampla defesa
+  - Art. 5º, LV: litigantes e acusados
+  - SV 5: PAD sem advogado é válido
+  - SV 21: recurso sem depósito prévio
+- Segurança jurídica e proteção à confiança
+  - Veda a aplicação retroativa de nova interpretação
+  - Erro de interpretação da lei → sem devolução (Tema 531)
+  - Erro operacional → devolução, salvo boa-fé objetiva (Tema 1.009)
+- Hierarquia
+  - Delegação e avocação (Lei 9.784/99)
+  - Indelegáveis: atos normativos, recursos e competência exclusiva ("NO-RE-CE")
+- Outros princípios
+  - Especialidade
+  - Intranscendência subjetiva das sanções
+  - Precaução (Súmula 618 do STJ)
+  - Presunção de legitimidade: relativa
+  - Sindicabilidade, responsividade, subsidiariedade e consensualidade

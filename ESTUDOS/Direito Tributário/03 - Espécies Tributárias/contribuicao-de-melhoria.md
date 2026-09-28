@@ -37,3 +37,21 @@
 ## Relações com outros assuntos
 
 - Tributos vinculados → `../02 - Tributo/natureza-juridica-e-classificacao.md`
+
+## Mapa mental
+
+- Conceito (CF, art. 145, III; CTN, art. 81)
+  - Tributo vinculado a **obra pública** que gera **valorização imobiliária**
+  - Evita o enriquecimento sem causa
+  - Competência comum: o ente que realizou a obra
+- Fato gerador
+  - É a **valorização decorrente da obra**, não a obra em si
+  - Recapeamento (manutenção) não gera contribuição (STF)
+- Limites (CTN, art. 81)
+  - Total: **despesa realizada** com a obra
+  - Individual: **acréscimo de valor** de cada imóvel
+  - Custo rateado proporcionalmente à valorização
+  - Continuam valendo pelo CTN (a CF/88 não os repete)
+- Requisitos da lei (CTN, art. 82)
+  - Edital prévio: memorial, orçamento, parcela financiada, zona beneficiada, fator de absorção
+  - Prazo de impugnação não inferior a 30 dias

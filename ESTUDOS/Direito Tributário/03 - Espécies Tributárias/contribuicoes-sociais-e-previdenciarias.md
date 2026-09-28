@@ -70,3 +70,31 @@
 
 - Visão geral e regras comuns → `contribuicoes-especiais.md`
 - Seguridade social (Direito Previdenciário/Constitucional) — a estudar
+
+## Mapa mental
+
+- Classificação
+  - De seguridade social (CF, art. 195, I a V)
+  - Residuais (art. 195, §4º): lei complementar, não cumulativas, FG e BC distintos
+  - Sociais gerais: ex.: salário-educação
+- Seguridade social (art. 194): saúde, previdência e assistência social
+- Bases do art. 195
+  - I, "a": folha e rendimentos do trabalho, mesmo sem vínculo
+  - I, "b": receita ou faturamento → COFINS (PIS: art. 239)
+  - I, "c": lucro → CSLL
+  - II: trabalhador e segurados; não incide sobre aposentadoria e pensão do RGPS
+  - III: concursos de prognósticos
+  - IV: importador → PIS/COFINS-Importação
+  - V: bens e serviços → **CBS** (LC 214/2025)
+- Transição da Reforma (EC 132/2023)
+  - 2026: ano de teste (CBS 0,9% e IBS 0,1%)
+  - A partir de 2027: CBS plena; extinção do PIS e da COFINS
+- Contribuições previdenciárias
+  - Destinação exclusiva aos benefícios do RGPS (art. 167, XI); caráter contributivo
+  - RGPS: não incide sobre benefícios; aposentado que volta a trabalhar contribui
+  - RPPS: incide sobre inativos no que exceder o teto do RGPS (ADI 3.105)
+- EC 103/2019 (servidores)
+  - Alíquotas progressivas no RPPS
+  - Com déficit atuarial: inativos contribuem sobre o que superar o salário mínimo (§1º-A)
+  - Contribuição extraordinária só no âmbito da União (§§1º-B e 1º-C)
+  - ⚠️ STF: maioria pela inconstitucionalidade, julgamento não concluído

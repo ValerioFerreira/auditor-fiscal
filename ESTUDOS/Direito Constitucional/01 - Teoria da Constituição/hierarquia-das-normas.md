@@ -83,3 +83,34 @@ decretos regulamentares, portarias, instruções normativas...
 - CTN com status de LC → `Direito Tributário/01 - Fundamentos/fundamentos-do-direito-tributario.md`
 - Poder regulamentar — Direito Administrativo (a estudar)
 - Processo legislativo e poder constituinte — a estudar
+
+## Mapa mental
+
+- Pirâmide
+  - Constituição + tratados de DH do art. 5º, §3º
+  - Tratados de DH pelo rito comum: supralegais
+  - Normas primárias, sem hierarquia entre si
+  - Normas secundárias (infralegais)
+- Normas constitucionais
+  - Originárias x derivadas: sem hierarquia (unidade da Constituição)
+  - Originárias não podem ser inconstitucionais; emendas podem
+  - Bachof ("normas constitucionais inconstitucionais"): rejeitada pelo STF (ADI 815)
+- Tratados internacionais
+  - DH pelo rito do §3º (cada Casa, 2 turnos, 3/5): equivalentes a EC
+  - DH pelo rito comum: supralegais (RE 466.343; SV 25)
+  - Demais tratados: lei ordinária
+  - Com status de EC: Nova York, Marraqueche, Convenção contra o Racismo
+- Normas primárias
+  - LC, LO, lei delegada, MP, decreto legislativo, resolução, decreto autônomo, tratados comuns
+  - LC x LO: sem hierarquia (RE 377.457)
+    - Diferem na matéria e no quórum (absoluta x simples)
+    - LC em matéria de LO: materialmente ordinária
+    - LO em matéria de LC: inconstitucionalidade formal
+  - Leis dos entes: sem hierarquia; valem as competências
+  - Regimentos de tribunais e resoluções do CNJ e do CNMP: primários (ADC 12)
+- Normas secundárias
+  - Decretos regulamentares, portarias, instruções normativas
+  - Não criam direitos nem obrigações
+- Decreto autônomo x regulamentar
+  - Autônomo (art. 84, VI): organização da administração federal; extinção de cargos vagos; delegável
+  - Regulamentar (art. 84, IV): fiel execução da lei

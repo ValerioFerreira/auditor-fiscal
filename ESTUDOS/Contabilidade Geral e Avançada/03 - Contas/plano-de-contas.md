@@ -18,3 +18,14 @@
 ## Relações com outros assuntos
 
 - Contas sintéticas e analíticas → `contas-e-partidas-dobradas.md`
+
+## Mapa mental
+
+- Conceito: contas, diretrizes e normas que uniformizam os registros
+- Características
+  - Flexível
+  - Peculiar a cada entidade
+- Componentes
+  - Elenco de contas (título e código)
+  - Manual de contas (função e funcionamento)
+  - Modelos de demonstrações padronizadas

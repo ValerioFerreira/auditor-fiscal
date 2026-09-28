@@ -53,3 +53,28 @@
 ## Relações com outros assuntos
 
 - Patrimônio → `../02 - Patrimônio/patrimonio.md`
+
+## Mapa mental
+
+- Natureza: ciência social (aplicada)
+- Objeto, objetivo e finalidade
+  - Objeto: o **patrimônio**
+  - Objetivo: **informações úteis** para a tomada de decisões
+  - Finalidade: **controlar** o patrimônio
+- Azienda = patrimônio + gestão
+- Funções
+  - Administrativa: controle, por meio da escrituração
+  - Econômica: apuração do resultado (rédito)
+- Técnicas contábeis
+  - Escrituração
+  - Demonstrações contábeis
+  - Auditoria
+  - Análise das demonstrações
+- Usuários
+  - Internos: administradores, gestores
+  - Externos: investidores, credores, Fisco, empregados, clientes
+- Relatórios para fins gerais (CPC 00 — R2)
+  - Usuários primários: investidores e credores, existentes e potenciais
+  - Não trazem todas as informações de que eles precisam
+  - Não mostram o valor da entidade, mas ajudam a estimá-lo
+  - Reguladores e público podem usá-los, mas não são o foco

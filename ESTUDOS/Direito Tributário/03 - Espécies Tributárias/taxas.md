@@ -143,3 +143,49 @@
 - Direito de petição e certidões → `Direito Administrativo/03 - Princípios da Administração Pública/principios-expressos.md` (Publicidade)
 - Poder de polícia — Direito Administrativo (a estudar)
 - Competências legislativas da União (art. 22) — Direito Constitucional (a estudar)
+
+## Mapa mental
+
+- Conceito
+  - Tributo **vinculado** e retributivo, com referibilidade individual
+  - Fatos geradores (CF, art. 145, II; CTN, art. 77)
+    - Exercício regular do **poder de polícia**
+    - Utilização efetiva ou potencial de **serviço público específico e divisível**
+- Competência
+  - **Comum**: cada ente no âmbito de suas atribuições (CTN, art. 80)
+  - Exercício facultativo (LRF, art. 11: a sanção só alcança impostos)
+- Taxa de serviço (CTN, art. 79)
+  - Utilização efetiva: usou
+  - Utilização potencial: só se de **utilização compulsória** e em **efetivo funcionamento**
+  - Específico: sabe-se **qual** serviço
+  - Divisível: sabe-se **quem** usou
+  - Uti singuli → taxa; uti universi → impostos
+  - Exemplos (STF)
+    - Coleta de lixo domiciliar: taxa válida (SV 19)
+    - Limpeza de logradouros e segurança pública: impostos
+    - Iluminação pública: não pode ser taxa → COSIP (SV 41)
+    - Bombeiros estaduais: taxa válida (Tema 1.282, 2025)
+    - Taxa municipal de combate a incêndio: inconstitucional (Tema 16)
+    - Perícias no processo fiscal: taxa possível, proporcional ao custo (ADI 6.145)
+    - Impugnação, recurso e certidões: sem taxa (CF, art. 5º, XXXIV; ADPF 1.029)
+    - Carnês e guias de recolhimento: taxa inconstitucional
+  - Custas, taxa judiciária e emolumentos
+    - Taxa judiciária precisa de limite sobre o valor da causa (Súmula 667)
+- Taxa de polícia (CTN, art. 78)
+  - Exercício **regular**: órgão competente, nos limites da lei
+  - Não existe taxa de polícia "potencial"
+  - Não exige visita: basta órgão estruturado e em funcionamento (Tema 217)
+  - Válidas: licença de localização, TCFA (IBAMA), CVM, anúncios, TFRM (proporcional ao custo)
+  - Inválidas por invadir competência da União: postes (ADPF 512), torres e antenas (Tema 919), vistoria em veículos (ADPF 1.028)
+- Base de cálculo e valor
+  - Razoável equivalência com o **custo** da atividade
+  - Não pode ser própria de imposto (CF, art. 145, §2º; CTN, art. 77, p.ú.)
+  - Pode usar **elementos** da base de imposto, sem identidade integral (SV 29)
+    - Ex.: metragem do imóvel na taxa de lixo
+  - Tipo de atividade: pode; número de empregados: não pode
+  - Capital da empresa: vedado; faixas de patrimônio líquido (CVM): admitidas (Súmula 665)
+- Taxa x tarifa
+  - Taxa: tributo, lei, compulsória, direito público, receita derivada
+  - Tarifa: contrato, facultativa, direito privado, receita originária
+  - Súmula 545: exigência de autorização orçamentária superada
+  - Tarifas: água e esgoto, energia, telefonia, pedágio (ADI 800)

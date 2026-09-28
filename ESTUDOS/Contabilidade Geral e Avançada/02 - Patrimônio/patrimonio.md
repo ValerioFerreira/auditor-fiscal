@@ -68,3 +68,30 @@
 
 - Tipos de capital → `capital.md`
 - Contas patrimoniais → `../03 - Contas/contas-e-partidas-dobradas.md`
+
+## Mapa mental
+
+- Conceito: bens, direitos e obrigações avaliados em moeda
+  - Elementos positivos (Ativo): bens + direitos
+  - Elementos negativos (Passivo): obrigações
+- Definições do CPC 00 (R2)
+  - Ativo: recurso econômico presente, controlado, resultante de eventos passados
+  - Passivo: obrigação presente de transferir recurso econômico
+  - PL: participação residual nos ativos, após deduzir os passivos
+  - A R2 trocou a "expectativa" pelo **potencial** de gerar benefícios
+- Classificação dos bens
+  - Função: numerários, de venda, de renda, de uso
+  - Natureza: tangíveis e intangíveis
+- Sinônimos
+  - Ativo: patrimônio bruto, capital aplicado, aplicações de recursos
+  - Passivo exigível: capital de terceiros, recursos de terceiros
+  - PL: situação líquida, capital próprio, passivo não exigível
+  - "Investimentos" também é subgrupo do Ativo Não Circulante
+- Equação fundamental: **A = P + PL**
+  - Ativo e Passivo são sempre ≥ 0; o PL pode ser positivo, nulo ou negativo
+  - O PL nunca supera o Ativo
+- Situações líquidas
+  - Positiva (A > P): superavitária
+  - Nula (A = P): compensada
+  - Negativa (A < P): passivo a descoberto
+  - Extremos: P = 0 → A = PL; A = 0 → PL = −P

@@ -38,3 +38,25 @@
 - Eficácia exaurida (ADCT) → `eficacia-e-aplicabilidade-das-normas.md`
 - Rigidez → `classificacao-das-constituicoes.md`
 - Direitos fundamentais → `../02 - Direitos e Garantias Fundamentais/teoria-geral-dos-direitos-fundamentais.md`
+
+## Mapa mental
+
+- Estrutura da CF/88
+  - Preâmbulo
+    - Não é norma nem parâmetro de controle
+    - Não é de reprodução obrigatória (ADI 2.076)
+    - Valor interpretativo
+  - Parte dogmática: arts. 1º a 250
+  - ADCT
+    - Formalmente constitucional, com a mesma hierarquia
+    - Alterável por EC e parâmetro de controle
+    - Muitas normas com eficácia exaurida
+- Elementos (José Afonso da Silva)
+  - Orgânicos: estrutura do Estado e do poder
+  - Limitativos: direitos individuais e políticos, exceto os sociais
+  - Socioideológicos: direitos sociais, ordem econômica e ordem social
+  - De estabilização: controle, intervenção, estados de defesa e de sítio, emendas
+  - Formais de aplicabilidade: preâmbulo, ADCT, art. 5º, §1º
+- Supremacia
+  - Material: pelo conteúdo (toda constituição)
+  - Formal: decorre da **rigidez** → controle de constitucionalidade

@@ -57,3 +57,26 @@
 
 - Princípios → pasta `../03 - Princípios da Administração Pública/`
 - Organização administrativa → `../02 - Organização Administrativa/administracao-direta-e-indireta.md`
+
+## Mapa mental
+
+- Direito público x privado
+  - Público: relações verticais; supremacia e indisponibilidade
+  - Privado: relações horizontais; autonomia da vontade
+  - Estatais: direito privado com regime híbrido (CF, art. 173, §1º)
+- Regime jurídico administrativo: prerrogativas + sujeições
+- Supremacia do interesse público → prerrogativas
+  - Presunção de legitimidade, imperatividade e autoexecutoriedade
+  - Cláusulas exorbitantes
+  - Poder de polícia
+  - Intervenção na propriedade
+  - Restrições ao particular dependem de lei
+- Indisponibilidade do interesse público → sujeições
+  - Legalidade, concurso, licitação, motivação, prestação de contas
+  - Poder-dever de agir
+  - Inalienabilidade dos direitos concernentes a interesses públicos
+  - Bens afetados são inalienáveis; desafetados podem ser alienados na forma da lei
+- Interesse primário x secundário
+  - Primário: da sociedade (prevalece)
+  - Secundário: do Estado como pessoa jurídica; legítimo se coincidir com o primário
+- Relativização: acordos e transações (consensualidade)

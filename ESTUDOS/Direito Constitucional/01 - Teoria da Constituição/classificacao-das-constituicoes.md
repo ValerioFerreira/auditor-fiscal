@@ -111,3 +111,42 @@
 
 - Tratados de DH com status de EC → `hierarquia-das-normas.md`
 - Poder constituinte e cláusulas pétreas — a estudar
+
+## Mapa mental
+
+- CF/88 em resumo
+  - Promulgada, escrita e codificada
+  - Dogmática eclética
+  - Rígida (super-rígida para Alexandre de Moraes)
+  - Formal, analítica e normativa
+  - Dirigente, social, principiológica e expansiva
+- Origem
+  - Outorgadas: 1824, 1937, 1967/1969
+  - Promulgadas: 1891, 1934, 1946, 1988
+  - Cesaristas: plebiscito ou referendo só para ratificar
+  - Pactuadas: pacto entre forças rivais (Magna Carta)
+- Forma
+  - Escritas: codificadas ou legais (pluritextuais)
+  - Não escritas: costumeiras (Inglaterra)
+  - Divergência: CF/88 pluritextual? Em prova, escrita e codificada
+- Modo de elaboração
+  - Dogmáticas: ortodoxas ou ecléticas (CF/88)
+  - Históricas: formadas pelas tradições (Inglaterra)
+- Estabilidade
+  - Imutáveis, super-rígidas, rígidas, semirrígidas (1824) e flexíveis
+  - Rígidas são sempre escritas
+  - Rigidez ≠ estabilidade; flexível ≠ instável
+- Conteúdo e extensão
+  - Material x formal (CF/88: formal)
+  - Analítica (CF/88) x sintética (EUA)
+- Correspondência com a realidade (Loewenstein)
+  - Normativas: regulam o poder de fato
+  - Nominais: pretendem, mas não conseguem
+  - Semânticas: só formalizam o poder existente
+- Função e finalidade
+  - Constituição-lei, constituição-fundamento, constituição-quadro
+  - Garantia x dirigente (CF/88) x balanço
+- Outros critérios
+  - Liberal x social; heteroconstituição x autoconstituição
+  - Principiológica x preceitual
+  - Plástica (dois sentidos), expansiva e dúctil

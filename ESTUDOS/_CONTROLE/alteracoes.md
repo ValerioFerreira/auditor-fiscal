@@ -86,3 +86,12 @@
 | Classificação | Como estava | Como ficou |
 |---|---|---|
 | REORGANIZAÇÃO | Tutela (controle finalístico) explicada em dois arquivos | Texto completo em `Direito Administrativo/03 - Princípios da Administração Pública/principios-implicitos.md` (acrescido "vinculação, e não subordinação"); remissão de uma linha em `Direito Administrativo/02 - Organização Administrativa/administracao-direta-e-indireta.md` |
+
+## v003 — 28/09/2026 (mapas mentais e pastas do resumo sintético)
+
+### Todas as matérias
+
+| Classificação | Como estava | Como ficou |
+|---|---|---|
+| REORGANIZAÇÃO | Temas sem mapa mental | Seção `## Mapa mental` no fim de cada um dos 25 temas, feita só com o conteúdo do próprio tema; o texto dos temas não mudou |
+| REORGANIZAÇÃO | Sem lugar para o resumo sintético | Pasta `Resumo Sintético` em cada matéria, com instruções em `LEIA-ME.txt`; os arquivos serão seus e entram no sistema sem alteração |

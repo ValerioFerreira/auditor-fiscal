@@ -6,7 +6,8 @@ Base de conhecimento para o concurso de Auditor Fiscal (banca de referência: CE
 
 | Pasta ou arquivo | O que é |
 | --- | --- |
-| `ESTUDOS/` | A base: uma pasta por matéria, temas em Markdown e `_CONTROLE/` (diário, assuntos, pendências e alterações) |
+| `ESTUDOS/` | A base: uma pasta por matéria, temas em Markdown (cada um termina com o seu mapa mental) e `_CONTROLE/` (diário, assuntos, pendências e alterações) |
+| `ESTUDOS/<matéria>/Resumo Sintético/` | Seus resumos sintéticos, numerados (`01 - ...`, `02 - ...`), em .txt ou .md; o site os junta na ordem, sem alterar o texto |
 | `ENTRADA/` | Onde entram os resumos novos (fora do git; ver `ENTRADA/LEIA-ME.txt`) |
 | `sistema/` | O gerador do site (`gerar.py`) e a interface (`modelo.html`) |
 | `site/` | O site gerado (`index.html`), recriado a cada geração (fora do git) |
@@ -20,6 +21,13 @@ python sistema/gerar.py --servir
 ```
 
 Gera o site e o serve em http://localhost:8765/ (Ctrl+C para parar). Sem servidor, dá para abrir `site/index.html` com dois cliques.
+
+## O que o site oferece
+
+- **Início:** as disciplinas lado a lado, cada uma com a data do último resumo, o progresso de leitura e o botão para abrir a página dela. Dá para ordenar pela data do último resumo, para ver o que está há mais tempo sem revisão.
+- **Página da disciplina:** resumo geral (todos os tópicos em sequência, dividido em páginas), resumos por tópico, mapa mental geral, mapas por tópico (cada ramo leva ao trecho do resumo), resumo sintético e marcações.
+- **Leitura:** botão Lido em cada tópico; no resumo geral, "Marcar lido" pergunta até qual página você leu e mostra a porcentagem. Marca-texto em 4 cores: selecione um trecho e escolha a cor.
+- **Onde ficam suas marcações:** no navegador em que você lê. Computador, celular, localhost e Vercel guardam cada um as suas. Para levar de um para outro, use Aa → Exportar e, no outro, Aa → Importar.
 
 ## Publicar na Vercel
 

@@ -66,3 +66,32 @@
 ## Relações com outros assuntos
 
 - Detalhamento de cada espécie → pasta `03 - Espécies Tributárias/`
+
+## Mapa mental
+
+- Natureza jurídica (CTN, art. 4º)
+  - Determinada pelo **fato gerador**
+  - Irrelevantes: denominação e destinação legal da arrecadação
+  - Doutrina e STF: binômio **fato gerador + base de cálculo**
+- Ressalva pós-CF/88
+  - A destinação **importa** em empréstimos compulsórios e contribuições especiais (tributos finalísticos)
+  - Desvio de finalidade na **própria lei** → invalida a contribuição
+  - Desvio na execução orçamentária (ou DRU) → não invalida nem gera restituição
+- Fato gerador: vinculado x não vinculado
+  - Vinculados (atuação estatal): taxas e contribuição de melhoria → retributivos
+  - Não vinculados: impostos (art. 16) → contributivos
+  - Empréstimo compulsório e contribuições: depende da lei instituidora
+- Arrecadação: vinculada x não vinculada
+  - Vinculada: empréstimo compulsório (art. 148, p.ú.) e contribuições especiais
+  - Impostos: vinculação **vedada** (art. 167, IV)
+  - Taxas: sem destinação vinculada, salvo custas e emolumentos (art. 98, §2º; ADI 6.145)
+- Teorias das espécies
+  - Bipartida: impostos e taxas
+  - Tripartida: + contribuição de melhoria → **CTN (art. 5º)** e art. 145 da CF
+  - Quadripartida: impostos, taxas, contribuições e empréstimos compulsórios
+  - **Pentapartida**: + empréstimos compulsórios e contribuições especiais → **majoritária e adotada pelo STF**
+- As 5 espécies (quadro-resumo)
+  - Impostos: competência privativa, mais residual e extraordinária da União; lei ordinária
+  - Taxas e contribuição de melhoria: competência comum; lei ordinária
+  - Empréstimo compulsório: exclusivo da União, por **lei complementar**
+  - Contribuições especiais: União (regra); RPPS: todos os entes; COSIP: Municípios e DF

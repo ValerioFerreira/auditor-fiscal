@@ -53,3 +53,23 @@
 ## Relações com outros assuntos
 
 - Regime jurídico das estatais → `../01 - Regime Jurídico Administrativo/regime-juridico-administrativo.md`
+
+## Mapa mental
+
+- Administração direta
+  - Entidades políticas: União, Estados, DF e Municípios
+  - Órgãos: centros de competência sem personalidade (desconcentração)
+    - Personalidade judiciária para defender prerrogativas (Súmula 525 do STJ)
+- Órgãos quanto à posição (Hely Lopes Meirelles)
+  - Independentes: Presidência, Casas Legislativas, Tribunais, MP, Tribunais de Contas
+  - Autônomos: Ministérios, Secretarias de Estado, AGU
+  - Superiores: gabinetes, departamentos, coordenadorias
+  - Subalternos: mera execução
+- Administração indireta (descentralização)
+  - Autarquia: direito público; **criada** por lei; atividades típicas de Estado
+  - Fundação pública: direito público ou privado; interesse social
+  - Empresa pública: direito privado; capital 100% público; qualquer forma societária
+  - Sociedade de economia mista: direito privado; maioria votante pública; S.A.
+  - Lei cria a autarquia e autoriza as demais (CF, art. 37, XIX)
+- Tutela, não hierarquia
+  - Vinculação (controle finalístico) e especialidade

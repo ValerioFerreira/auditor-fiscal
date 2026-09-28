@@ -21,3 +21,19 @@
 ## Relações com outros assuntos
 
 - Natureza devedora/credora → `contas-e-partidas-dobradas.md`
+
+## Mapa mental
+
+- Personalista: cada conta é uma "pessoa"
+  - Agentes consignatários: contas de bens
+  - Agentes correspondentes: direitos e obrigações
+  - Proprietários: PL, receitas e despesas
+- Materialista: só existem os elementos materiais
+  - Integrais: bens, direitos e obrigações
+  - Diferenciais: PL, receitas e despesas
+- Patrimonialista (teoria atual)
+  - Patrimoniais: bens, direitos, obrigações e PL
+  - De resultado: receitas e despesas, encerradas a cada exercício
+- Contas de compensação
+  - Fora do ativo e do passivo
+  - Atos que podem afetar o patrimônio: avais, fianças, garantias, bens em consignação

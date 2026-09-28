@@ -71,3 +71,34 @@
 - Princípios implícitos → `principios-implicitos.md`
 - Taxas e direito de petição/certidões → `Direito Tributário/03 - Espécies Tributárias/taxas.md`
 - MP, estado de defesa e de sítio — Direito Constitucional (a estudar)
+
+## Mapa mental
+
+- LIMPE (CF, art. 37, caput): administração direta e indireta de todos os Poderes e entes
+- Legalidade
+  - Administração: só o que a lei permite
+  - Particular: tudo o que a lei não proíbe
+  - Reserva legal e juridicidade
+  - Restrições excepcionais: MP, estado de defesa e estado de sítio
+- Impessoalidade
+  - Finalidade e isonomia
+  - Vedação à promoção pessoal (art. 37, §1º)
+  - Imputação ao órgão
+  - Impedimento e suspeição (Lei 9.784/99)
+- Moralidade
+  - Ética, boa-fé e probidade
+  - Aferida no conteúdo do ato, sem provar a intenção
+  - Improbidade exige dolo (Lei 14.230/2021)
+  - Ação popular mesmo sem prejuízo material
+  - Nepotismo
+    - Vedação independe de lei (RE 579.951; ADC 12)
+    - SV 13: até o 3º grau, inclusive o nepotismo cruzado
+    - Cargos políticos: em regra fora da SV 13, salvo fraude
+- Publicidade
+  - Requisito de **eficácia**, não de validade
+  - Petição e certidões sem taxas (art. 5º, XXXIV)
+  - Exceções: intimidade e informações sigilosas
+  - Transparência ativa x passiva (LAI)
+- Eficiência (EC 19/1998)
+  - Resultados com qualidade, rapidez e menor custo
+  - Avaliação especial para estabilidade; periódica pode levar à perda do cargo

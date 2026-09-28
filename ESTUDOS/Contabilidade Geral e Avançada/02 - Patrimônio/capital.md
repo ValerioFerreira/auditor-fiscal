@@ -35,3 +35,19 @@
 
 - Patrimônio e equação patrimonial → `patrimonio.md`
 - Contas redutoras → `../03 - Contas/contas-e-partidas-dobradas.md`
+
+## Mapa mental
+
+- Capital x patrimônio
+  - Capital: recursos aportados pelos proprietários
+  - Patrimônio: bens, direitos e obrigações
+- Próprio x de terceiros
+  - Capital próprio = PL
+  - Capital de terceiros = passivo exigível
+  - Capital total à disposição = total do Ativo
+- Etapas do capital social
+  - Autorizado: limite do estatuto para aumentar sem reforma (Lei 6.404, art. 168)
+  - Subscrito: o que os sócios se comprometeram a integralizar
+  - A integralizar: ainda não entregue → **redutora do PL**
+  - Integralizado (realizado): o que efetivamente ingressou
+  - Subscrito − a integralizar = integralizado (art. 182)

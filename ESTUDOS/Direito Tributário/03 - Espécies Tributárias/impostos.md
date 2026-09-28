@@ -25,3 +25,17 @@
 - Vinculação (FG x arrecadação) → `../02 - Tributo/natureza-juridica-e-classificacao.md`
 - Taxa não pode ter base de cálculo própria de imposto → `taxas.md`
 - Impostos em espécie e competência — a estudar
+
+## Mapa mental
+
+- Conceito (CTN, art. 16)
+  - Fato gerador independe de atividade estatal específica
+  - Tributo **não vinculado**: manifestação de riqueza do contribuinte
+- Instituição
+  - Lei ordinária (regra)
+  - Lei complementar: impostos residuais e IGF
+- Não afetação (CF, art. 167, IV)
+  - Vinculação da receita é **vedada**, não apenas dispensada
+  - Exceções constitucionais: repartição de receitas, saúde, educação, administração tributária, garantias
+- Custeiam serviços gerais (**uti universi**)
+  - Segurança pública, limpeza de logradouros, defesa nacional

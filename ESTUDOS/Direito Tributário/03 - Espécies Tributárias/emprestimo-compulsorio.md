@@ -57,3 +57,25 @@
 
 - Arrecadação vinculada → `../02 - Tributo/natureza-juridica-e-classificacao.md`
 - Anterioridade (Limitações ao poder de tributar) — a estudar
+
+## Mapa mental
+
+- Natureza
+  - **É tributo** (pentapartida; CF, art. 148)
+  - Súmula 418 do STF superada (doutrina: EC 18/1965; STF: EC 1/1969, RE 111.954)
+- Instituição
+  - Competência **exclusiva da União**
+  - Só por **lei complementar** → nem MP, nem lei ordinária
+- Hipóteses (art. 148)
+  - I: calamidade pública ou guerra externa (ou sua iminência) → exceção à anterioridade anual e à nonagesimal
+  - II: investimento público urgente e de relevante interesse nacional → observa as duas anterioridades
+  - Não recepcionada: absorção temporária de poder aquisitivo (CTN, art. 15, III)
+- Situação autorizadora ≠ fato gerador
+  - O fato gerador é definido pela LC instituidora (vinculado ou não)
+- Destinação e restituição
+  - Recursos vinculados à despesa que fundamentou a instituição (art. 148, p.ú.)
+  - A lei fixa prazo e condições de resgate (CTN, art. 15, p.ú.)
+  - Devolução na mesma espécie (em dinheiro)
+- Plano Collor (1990)
+  - Doutrina: empréstimo compulsório inconstitucional (hipótese não recepcionada + MP)
+  - O STF não o declarou sob esse fundamento: é raciocínio doutrinário

@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v002** (27/09/2026)
+> Versão atual da base: **v003** (28/09/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -30,3 +30,10 @@
 - **Reorganização:** três sobreposições consolidadas, sem perda de conteúdo (finalidade das contribuições especiais; tutela; constituição dúctil).
 - **Organização:** criado o sistema web de leitura da base (`site/index.html`, com cópia numa página privada), pronto para publicar na Vercel.
 - **Fluxo de trabalho:** novos resumos entram pela pasta `ENTRADA/` ou pelo chat; commit ao fim de cada sessão; pendência 🟡 "Persistência da base" resolvida (base em disco, com git).
+
+## 28/09/2026 — Mapas mentais e página de cada disciplina (v003)
+
+- **Sem conteúdo novo de estudo:** a data do último resumo de cada matéria continua a de 26/09/2026.
+- **Mapas mentais:** cada tema ganhou a seção "Mapa mental" (25 mapas, 554 ramos), feita só com o conteúdo do próprio tema. O sistema junta os mapas de cada matéria num mapa geral e liga cada ramo ao trecho do resumo.
+- **Resumo sintético:** criada a pasta `Resumo Sintético` em cada matéria, para os seus resumos sintéticos numerados (01, 02, 03...), que o sistema junta na ordem, sem alterar o texto.
+- **Sistema de leitura:** página própria para cada disciplina (resumo geral dividido em páginas, resumos por tópico, mapa mental geral e por tópico, resumo sintético e marcações), botão Lido, porcentagem de leitura do resumo geral, marca-texto em 4 cores e ordenação das disciplinas pela data do último resumo.
