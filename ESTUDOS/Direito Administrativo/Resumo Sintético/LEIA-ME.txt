@@ -1,18 +1,21 @@
 RESUMO SINTÉTICO — Direito Administrativo
 
 Cada arquivo desta pasta é uma parte do resumo sintético desta matéria:
-01 - AAAA-MM-DD.txt, 02 - AAAA-MM-DD.txt... (o número dá a ordem).
+01 - AAAA-MM-DD.md (ou .txt), 02 - ... (o número dá a ordem). Imagens de
+uma parte ficam ao lado dela ("01 - AAAA-MM-DD - imagem 1.jpg").
 
 Como acrescentar uma parte:
 1. No computador, rode na pasta do projeto: python sistema/gerar.py --servir
 2. Abra http://localhost:8765/, entre na matéria, aba "Resumo sintético".
-3. Cole o texto no campo "Adicionar ao resumo sintético" e clique em
-   "Salvar e juntar". O texto é salvo aqui, sem nenhuma alteração, como a
-   próxima parte, e o site é gerado de novo.
-Outra forma: cole o texto no chat e peça ao Claude para juntar.
+3. Envie o arquivo .docx (recomendado: mantém negrito, tabelas e imagens;
+   no Google Docs, Arquivo > Fazer download > Microsoft Word) ou cole o
+   texto, e clique em "Salvar e juntar". A parte é salva aqui, sem
+   alteração no conteúdo, e o site é gerado de novo.
+Outra forma: mande o arquivo ou o texto ao Claude e peça para juntar.
 
-No site, as partes aparecem juntas, na ordem. Só a numeração dos itens
-("1.", "1)", "1 -" no começo da linha) é refeita, em sequência única na
-matéria inteira; os arquivos daqui não mudam.
+No site, as partes aparecem juntas, na ordem. Só a numeração dos títulos
+é refeita: o nível principal (1, 2, 3...) segue em sequência na matéria
+inteira, e os subníveis (1.1, 1.2...) acompanham o título em que estão.
+Listas internas não mudam. Os arquivos daqui não são alterados.
 
 Este arquivo (LEIA-ME) não aparece no site.

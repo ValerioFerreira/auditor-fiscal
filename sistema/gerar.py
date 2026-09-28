@@ -15,16 +15,18 @@ Além do texto de cada tema, o gerador monta, por matéria:
 - o resumo geral (todos os temas em sequência, dividido em páginas de tamanho fixo);
 - o mapa mental de cada tema (seção "## Mapa mental", que sai do texto do tema);
 - o resumo sintético (arquivos .txt/.md da pasta "Resumo Sintético", na ordem dos números): o
-  texto entra como está; só a numeração dos itens ("1.", "1)", "1 -" no começo da linha) é
-  refeita na exibição, em sequência única na matéria inteira;
+  texto entra como está; só a numeração dos títulos ("1.", "1.1") é refeita na exibição, em
+  sequência única na matéria inteira (ver `renumerar`);
 - a data do último resumo (seções "### Matéria" do diário de estudos).
 
 Com --servir, o site aberto em http://localhost:8765/ também recebe novas partes do resumo
-sintético (formulário da aba "Resumo sintético"): o texto é salvo sem alteração como a próxima
-parte da matéria e o site é gerado de novo.
+sintético (formulário da aba "Resumo sintético"): um .docx (convertido em .md com a mesma
+formatação) ou texto colado (.txt), salvos sem alteração no conteúdo como a próxima parte da
+matéria; em seguida o site é gerado de novo.
 """
 from __future__ import annotations
 
+import base64
 import functools
 import hashlib
 import html
@@ -53,7 +55,7 @@ CONTROLE = "_CONTROLE"
 ORDEM_CONTROLE = ["diario-de-estudos", "assuntos-estudados", "pendencias", "alteracoes"]
 PASTA_SINTETICO = "Resumo Sintético"
 ROTA_SINTETICO = "/__estudos/sintetico"
-LIMITE_SINTETICO = 2_000_000  # bytes por parte enviada pelo site
+LIMITE_SINTETICO = 40_000_000  # bytes por parte enviada pelo site (.docx vem em base64)
 TITULO_MAPA = "mapa mental"
 # Tamanho de uma página do resumo geral, em caracteres de texto (cerca de uma folha A4).
 CARACTERES_POR_PAGINA = 3000
@@ -285,6 +287,9 @@ RE_A_ESTUDAR = re.compile(r"\(a estudar\)|(?<=— )a estudar\b")
 RE_PEGADINHA = re.compile(r"^(?P<s>.*?)\s*→\s*\*\*(?P<v>CERTO|ERRADO)\*\*(?P<x>.*)$")
 RE_ROTULO_PEGADINHA = re.compile(r"^(?:⚠️?\s*)?Pegadinha:\s*", re.I)
 RE_VAZOU = re.compile(r"\*\*|`|\|\s*-{3,}|\]\(|^#{1,6}\s")
+RE_IMAGEM_MD = re.compile(r"!\[([^\]]*)\]\(([^)\n]+)\)")
+TIPOS_IMAGEM = {".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png",
+                ".gif": "image/gif", ".webp": "image/webp"}
 SELO_A_ESTUDAR = '<span class="est">a estudar</span>'
 
 
@@ -373,6 +378,11 @@ class Renderizador:
             guardados.append(h)
             return f"\x00{len(guardados) - 1}\x00"
 
+        if self.bruto:  # resumo sintético: imagens, "\*" literal e quebras de linha do .docx
+            md = RE_IMAGEM_MD.sub(lambda m: guardar(self.imagem(m.group(1), m.group(2))), md)
+            md = re.sub(r"\\([\\`*_{}\[\]()#+\-.!|>])",
+                        lambda m: guardar(html.escape(m.group(1), quote=False)), md)
+            md = md.replace("<br>", guardar("<br>"))
         s = RE_CODIGO.sub(lambda m: guardar(self.codigo(m.group(2), registrar)), md)
         s = html.escape(s, quote=False)
         s = RE_VEREDITO.sub(
@@ -382,6 +392,17 @@ class Renderizador:
         s = RE_ITALICO.sub(r"<em>\1</em>", s)
         s = RE_A_ESTUDAR.sub(SELO_A_ESTUDAR, s)
         return re.sub(r"\x00(\d+)\x00", lambda m: guardados[int(m.group(1))], s)
+
+    def imagem(self, alt: str, arquivo: str) -> str:
+        """Imagem do resumo sintético, embutida na página (o site é um arquivo só)."""
+        pasta = self.doc.get("pasta_abs")
+        caminho = (pasta / arquivo).resolve() if pasta else None
+        tipo = TIPOS_IMAGEM.get(caminho.suffix.lower()) if caminho else None
+        if not tipo or caminho.parent != pasta.resolve() or not caminho.is_file():
+            self.base.aviso(self.doc, f"imagem não encontrada: {arquivo}")
+            return f"[imagem não encontrada: {html.escape(arquivo, quote=False)}]"
+        dados = base64.b64encode(caminho.read_bytes()).decode("ascii")
+        return f'<img src="data:{tipo};base64,{dados}" alt="{esc(alt)}">'
 
     def codigo(self, conteudo: str, registrar: bool) -> str:
         c = conteudo.strip()
@@ -692,16 +713,23 @@ def chave_sintetico(p: Path) -> tuple:
     return (0, int(m.group(1)), p.name.lower()) if m else (1, 0, p.name.lower())
 
 
-# Item numerado no começo da linha: "1. texto", "1) texto" ou "1 - texto" (não "1.1", "10.000").
-RE_ITEM_NUMERADO = re.compile(r"^(\d{1,3})(?=(?:[.)]|\s*[-–—])\s)")
+# Título numerado no começo da linha, com um ou dois níveis: "1. Taxas", "**1. Taxas**",
+# "### 1.2. Base de cálculo", "1.1– Regime", "1.Atos". Não pega "1.1.1", "10.000", "1ª" nem "10%".
+RE_NUM_TITULO = re.compile(
+    r"^(?P<pre>#{1,6}[ \t]+(?:\*\*)?|\*\*)?(?P<a>\d{1,3})(?:\.(?P<b>[1-9]\d?))?(?![\d.]*\d)"
+    r"(?![/,%ºª°])")
 
 
-def renumerar(texto: str, proximo: int) -> tuple[str, int]:
-    """Refaz a numeração dos itens em sequência única, na ordem em que aparecem.
+def renumerar(texto: str, estado: dict, markdown: bool) -> str:
+    """Refaz a numeração dos títulos em sequência única, na ordem em que aparecem.
 
     O resumo sintético é uma colagem de resumos soltos, e a numeração recomeça no meio
-    ("1, 2, 3, 1..."). Só o número muda; o resto de cada linha fica igual. Devolve o texto e o
-    próximo número, para a sequência continuar no arquivo seguinte da mesma matéria.
+    ("1, 2, 3, 1..."). O nível principal segue em sequência na matéria inteira; o subnível
+    (1.1, 1.2...) acompanha o título principal em que está e recomeça em cada um. O mesmo título
+    com o mesmo número repetido logo em seguida é continuação (mantém o número; os subtítulos
+    seguem). Só os números mudam; o resto da linha fica igual. `estado` guarda os contadores entre os arquivos da
+    matéria. Em Markdown, "1. item" sem negrito é item de lista (fica como está); título é o que
+    vem em negrito, em "#" ou escapado ("1\\.").
     """
     linhas = texto.split("\n")
     em_codigo = False
@@ -709,27 +737,280 @@ def renumerar(texto: str, proximo: int) -> tuple[str, int]:
         if RE_CERCA.match(linha):
             em_codigo = not em_codigo
             continue
-        m = None if em_codigo else RE_ITEM_NUMERADO.match(linha)
-        if m:
-            linhas[i] = str(proximo) + linha[m.end(1):]
-            proximo += 1
-    return "\n".join(linhas), proximo
+        m = None if em_codigo else RE_NUM_TITULO.match(linha)
+        if not m:
+            continue
+        resto = linha[m.end():]
+        if m.group("b") is None:
+            separador = re.match(r"(\\?\.|\))\s*\S|\s*[-–—]\s", resto)
+            if not separador or (markdown and not m.group("pre") and not resto.startswith("\\")):
+                continue
+            nome = (m.group("a"), nucleo_titulo(resto))
+            if nome[1] and nome == estado.get("titulo"):
+                # O mesmo título, com o mesmo número, repetido logo em seguida (colagem feita em
+                # duas vezes): é continuação dele; os subtítulos seguem de onde pararam.
+                linhas[i] = linha[:m.start("a")] + str(estado["a"]) + resto
+                continue
+            estado["a"] = estado.get("a", 0) + 1
+            estado["b"] = 0
+            estado["titulo"] = nome
+            linhas[i] = linha[:m.start("a")] + str(estado["a"]) + resto
+        else:
+            if not re.match(r"\.?\s*[-–—]?\s*\S", resto):
+                continue
+            estado["a"] = max(estado.get("a", 0), 1)
+            estado["b"] = estado.get("b", 0) + 1
+            linhas[i] = linha[:m.start("a")] + f"{estado['a']}.{estado['b']}" + resto
+    return "\n".join(linhas)
+
+
+def nucleo_titulo(resto: str) -> str:
+    """Nome do título sem número, marcas e complementos, para reconhecer um título repetido."""
+    texto = re.sub(r"^\\?[.)]?\s*[-–—]?\s*", "", resto)
+    texto = re.split(r"<br>|\(", texto)[0]
+    texto = re.sub(r"[*_\\#`]", "", texto)
+    return re.sub(r"\s+", " ", sem_acentos(texto).lower()).strip(" .:-–—")
 
 
 def pastas_das_materias() -> dict[str, Path]:
     return {slug(p.name): p for p in sorted(BASE.iterdir()) if p.is_dir() and p.name != CONTROLE}
 
 
-def salvar_sintetico(pasta_materia: Path, texto: str) -> Path:
-    """Grava o texto, exatamente como veio, como a próxima parte do resumo sintético."""
-    pasta = pasta_materia / PASTA_SINTETICO
-    pasta.mkdir(exist_ok=True)
+def proxima_parte(pasta: Path) -> str:
+    """Nome-base da próxima parte do resumo sintético: "NN - AAAA-MM-DD"."""
     numeros = [int(m.group(1)) for p in pasta.iterdir() if p.is_file()
                for m in [re.match(r"^\s*(\d+)", p.stem)] if m]
-    caminho = pasta / f"{max(numeros, default=0) + 1:02d} - {date.today().isoformat()}.txt"
-    with open(caminho, "x", encoding="utf-8", newline="") as f:
-        f.write(texto)
+    return f"{max(numeros, default=0) + 1:02d} - {date.today().isoformat()}"
+
+
+def salvar_sintetico(pasta_materia: Path, texto: str = "", docx: bytes = b"") -> Path:
+    """Grava a próxima parte do resumo sintético, sem alterar o conteúdo.
+
+    Texto colado vira .txt exatamente como veio. Um .docx vira .md com a mesma formatação
+    (negrito, títulos, listas, tabelas), e as imagens dele ficam ao lado, como arquivos.
+    """
+    pasta = pasta_materia / PASTA_SINTETICO
+    pasta.mkdir(exist_ok=True)
+    nome = proxima_parte(pasta)
+    if not docx:
+        caminho = pasta / f"{nome}.txt"
+        with open(caminho, "x", encoding="utf-8", newline="") as f:
+            f.write(texto)
+        return caminho
+    blocos, midias = docx_para_blocos(docx)
+    md = gravar_midias("\n\n".join(b for b, _ in blocos), midias, pasta, nome)
+    caminho = pasta / f"{nome}.md"
+    with open(caminho, "x", encoding="utf-8", newline="\n") as f:
+        f.write(md + "\n")
     return caminho
+
+
+def gravar_midias(md: str, midias: dict, pasta: Path, nome: str) -> str:
+    """Salva as imagens usadas no texto ao lado dele e troca as marcas pelos nomes dos arquivos."""
+    usadas = [rid for rid in midias if f"](§{rid}§)" in md]
+    for k, rid in enumerate(usadas, 1):
+        extensao, dados = midias[rid]
+        arquivo = f"{nome} - imagem {k}{extensao}"
+        (pasta / arquivo).write_bytes(dados)
+        md = md.replace(f"](§{rid}§)", f"]({arquivo})")
+    return md
+
+
+# ----------------------------------------------------------------------------- .docx → Markdown
+
+W_NS = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
+R_NS = "{http://schemas.openxmlformats.org/officeDocument/2006/relationships}"
+A_NS = "{http://schemas.openxmlformats.org/drawingml/2006/main}"
+EXTENSOES_IMAGEM = {".jpg", ".jpeg", ".png", ".gif", ".webp"}
+
+
+def _md_escapar(texto: str) -> str:
+    return texto.replace("\\", "\\\\").replace("*", "\\*").replace("`", "\\`").replace("|", "\\|")
+
+
+def _md_trechos(trechos: list) -> str:
+    """Junta trechos (texto, negrito, itálico) em Markdown, com as marcas fora dos espaços."""
+    unidos: list = []
+    for texto, negrito, italico in trechos:
+        if unidos and unidos[-1][1:] == (negrito, italico):
+            unidos[-1] = (unidos[-1][0] + texto, negrito, italico)
+        else:
+            unidos.append((texto, negrito, italico))
+    saida = []
+    for texto, negrito, italico in unidos:
+        for k, pedaco in enumerate(texto.split("\n")):
+            if k:
+                saida.append("<br>")
+            miolo = pedaco.strip()
+            if not miolo or not (negrito or italico):
+                saida.append(_md_escapar(pedaco))
+                continue
+            marca = ("**" if negrito else "") + ("*" if italico else "")
+            ini = pedaco[:len(pedaco) - len(pedaco.lstrip())]
+            fim = pedaco[len(pedaco.rstrip()):]
+            saida.append(f"{ini}{marca}{_md_escapar(miolo)}{marca[::-1]}{fim}")
+    return "".join(saida)
+
+
+def docx_para_blocos(dados: bytes) -> tuple[list, dict]:
+    """Converte um .docx em blocos Markdown [(markdown, texto puro)] e imagens {id: (ext, bytes)}.
+
+    Só usa a biblioteca padrão. Mantém negrito, itálico, títulos, listas (com a numeração que o
+    Word mostra), tabelas, quebras de linha e imagens; cores e fontes não são levadas.
+    """
+    import xml.etree.ElementTree as ET
+    import zipfile
+    from io import BytesIO
+
+    W = W_NS
+    pacote = zipfile.ZipFile(BytesIO(dados))
+    nomes = set(pacote.namelist())
+    documento = ET.fromstring(pacote.read("word/document.xml"))
+    estilos = {}
+    if "word/styles.xml" in nomes:
+        for s in ET.fromstring(pacote.read("word/styles.xml")).iter(W + "style"):
+            n = s.find(W + "name")
+            estilos[s.get(W + "styleId")] = n.get(W + "val") if n is not None else ""
+    niveis_de, abstrato_de = {}, {}
+    if "word/numbering.xml" in nomes:
+        numeracao = ET.fromstring(pacote.read("word/numbering.xml"))
+        for a in numeracao.iter(W + "abstractNum"):
+            niveis = {}
+            for lvl in a.iter(W + "lvl"):
+                ini, fmt = lvl.find(W + "start"), lvl.find(W + "numFmt")
+                niveis[int(lvl.get(W + "ilvl"))] = (
+                    int(ini.get(W + "val")) if ini is not None else 1,
+                    fmt.get(W + "val") if fmt is not None else "bullet")
+            niveis_de[a.get(W + "abstractNumId")] = niveis
+        for n in numeracao.iter(W + "num"):
+            abstrato_de[n.get(W + "numId")] = n.find(W + "abstractNumId").get(W + "val")
+    relacoes = {}
+    if "word/_rels/document.xml.rels" in nomes:
+        for r in ET.fromstring(pacote.read("word/_rels/document.xml.rels")):
+            relacoes[r.get("Id")] = r.get("Target")
+    midias, contadores = {}, {}
+
+    def trechos_do(elemento) -> list:
+        trechos = []
+        for r in elemento.iter(W + "r"):
+            rpr = r.find(W + "rPr")
+
+            def ligado(tag: str) -> bool:
+                e = rpr.find(W + tag) if rpr is not None else None
+                return e is not None and e.get(W + "val") not in ("0", "false")
+
+            negrito, italico = ligado("b"), ligado("i")
+            for filho in r:
+                if filho.tag == W + "t":
+                    trechos.append((filho.text or "", negrito, italico))
+                elif filho.tag == W + "tab":
+                    trechos.append(("\t", negrito, italico))
+                elif filho.tag in (W + "br", W + "cr"):
+                    trechos.append(("\n", False, False))
+            for blip in r.iter(A_NS + "blip"):
+                rid = blip.get(R_NS + "embed")
+                alvo = relacoes.get(rid, "")
+                if alvo and "word/" + alvo in nomes:
+                    midias[rid] = (Path(alvo).suffix.lower() or ".png", pacote.read("word/" + alvo))
+                    trechos.append((f"\x02{rid}\x02", False, False))
+        return trechos
+
+    def em_markdown(trechos: list) -> str:
+        md = _md_trechos(trechos)
+        md = re.sub(r"\x02([^\x02]+)\x02", lambda m: f"![imagem](§{m.group(1)}§)", md)
+        while md.endswith("<br>"):
+            md = md[:-4].rstrip()
+        return md
+
+    def rotulo_lista(num_id: str, nivel: int) -> str:
+        niveis = niveis_de.get(abstrato_de.get(num_id, ""), {})
+        inicio, formato = niveis.get(nivel, (1, "bullet"))
+        c = contadores.setdefault(num_id, {})
+        c[nivel] = c.get(nivel, inicio - 1) + 1
+        for k in [k for k in c if k > nivel]:
+            del c[k]
+        v = c[nivel]
+        if formato == "decimal":
+            return f"{v}."
+        if formato in ("lowerLetter", "upperLetter"):
+            letra = chr(96 + v) if formato == "lowerLetter" else chr(64 + v)
+            return f"- {letra})"
+        return "-"
+
+    blocos = []
+    for el in documento.find(W + "body"):
+        if el.tag == W + "p":
+            ppr = el.find(W + "pPr")
+            estilo, lista = "", None
+            if ppr is not None:
+                ps = ppr.find(W + "pStyle")
+                if ps is not None:
+                    estilo = estilos.get(ps.get(W + "val"), ps.get(W + "val") or "").lower()
+                npr = ppr.find(W + "numPr")
+                if npr is not None and npr.find(W + "numId") is not None:
+                    num_id = npr.find(W + "numId").get(W + "val")
+                    ilvl = npr.find(W + "ilvl")
+                    if num_id != "0":
+                        lista = (num_id, int(ilvl.get(W + "val")) if ilvl is not None else 0)
+            trechos = trechos_do(el)
+            puro = "".join(t for t, _, _ in trechos).replace("\n", " ").strip()
+            titulo = re.match(r"(?:heading|título|titulo)\s*(\d)", estilo)
+            if titulo and puro:
+                nivel = min(6, max(2, int(titulo.group(1))))
+                blocos.append(("#" * nivel + " " + em_markdown([(t, False, i) for t, _, i in trechos]),
+                               puro))
+            elif lista and puro:
+                recuo = "    " * lista[1]
+                blocos.append((f"{recuo}{rotulo_lista(*lista)} {em_markdown(trechos)}", puro))
+            elif puro or "\x02" in "".join(t for t, _, _ in trechos):
+                md = em_markdown(trechos)
+                if re.match(r"(\d{1,9}[.)]|[-+>#]|\|)\s", md):  # não virar lista ou título por acaso
+                    md = re.sub(r"^(\d{1,9})([.)])", r"\1\\\2", md) if md[0].isdigit() else "\\" + md
+                blocos.append((md, puro))
+            else:
+                blocos.append(("", ""))
+        elif el.tag == W + "tbl":
+            linhas = []
+            for tr in el.findall(W + "tr"):
+                celulas = []
+                for tc in tr.findall(W + "tc"):
+                    partes = [em_markdown(trechos_do(p)) for p in tc.findall(W + "p")]
+                    celulas.append("<br>".join(x for x in partes if x.strip()).replace("\n", " "))
+                linhas.append(celulas)
+            puro = " ".join(re.sub(r"<br>|\\", " ", c) for ln in linhas for c in ln)
+            if len(linhas) == 1 and len(linhas[0]) == 1:  # tabela de uma célula é um quadro de destaque
+                blocos.append(("> " + linhas[0][0].replace("<br>", "\n> "), puro))
+            elif linhas:
+                n = max(len(ln) for ln in linhas)
+                md = ["| " + " | ".join((ln + [""] * n)[:n]) + " |" for ln in linhas]
+                md.insert(1, "|" + "---|" * n)
+                blocos.append(("\n".join(md), puro))
+    # Uma linha em branco entre blocos, nenhuma entre itens seguidos da mesma lista.
+    juntos, anterior_lista = [], False
+    for md, puro in blocos:
+        if not md.strip():
+            anterior_lista = False
+            if juntos and juntos[-1][0] != "":
+                juntos.append(("", ""))
+            continue
+        eh_lista = bool(re.match(r"\s*(-|\d+\.)\s", md)) and not md.startswith("\\")
+        if juntos and juntos[-1][0] != "" and not (eh_lista and anterior_lista):
+            juntos.append(("", ""))
+        juntos.append((md, puro))
+        anterior_lista = eh_lista
+    while juntos and juntos[-1][0] == "":
+        juntos.pop()
+    saida, atual = [], []
+    for md, puro in juntos:  # itens de lista seguidos ficam num bloco só
+        if md == "":
+            if atual:
+                saida.append(("\n".join(m for m, _ in atual), " ".join(p for _, p in atual)))
+                atual = []
+        else:
+            atual.append((md, puro))
+    if atual:
+        saida.append(("\n".join(m for m, _ in atual), " ".join(p for _, p in atual)))
+    return saida, midias
 
 
 def peso_parte(parte: str) -> int:
@@ -907,9 +1188,11 @@ class Base:
     def carregar_sintetico(self, materia: dict, pasta: Path) -> None:
         """Arquivos do resumo sintético: .txt e .md, na ordem do número no início do nome."""
         rel_pasta = pasta.relative_to(BASE).as_posix()
-        proximo = 1
+        numeracao: dict = {}
         for p in sorted(pasta.iterdir(), key=chave_sintetico):
             if not p.is_file() or p.name.upper().startswith("LEIA-ME"):
+                continue
+            if p.suffix.lower() in EXTENSOES_IMAGEM:  # imagens usadas pelas partes .md
                 continue
             doc = {"caminho": f"{rel_pasta}/{p.name}"}
             if p.suffix.lower() not in (".txt", ".md"):
@@ -935,9 +1218,10 @@ class Base:
             rotulo = " · ".join(x for x in (parte, "" if data else nome,
                                             f"adicionada em {'/'.join(reversed(data.split('-')))}"
                                             if data else "") if x)
-            exibido, proximo = renumerar(texto, proximo)
+            exibido = renumerar(texto, numeracao, p.suffix.lower() == ".md")
             mid = materia["id"]
             doc.update({
+                "pasta_abs": pasta,
                 "id": f"{mid}.sint.{slug(p.stem)}",
                 "tipo": "sint",
                 "materia": mid,
@@ -1200,16 +1484,25 @@ class Manipulador(http.server.SimpleHTTPRequestHandler):
             return
         try:
             pedido = json.loads(self.rfile.read(tamanho).decode("utf-8"))
-            materia, texto = pedido["materia"], pedido["texto"]
-        except (ValueError, KeyError, TypeError):
+            materia, texto = pedido["materia"], pedido.get("texto", "")
+            docx = base64.b64decode(pedido["docx"]) if pedido.get("docx") else b""
+        except (ValueError, KeyError, TypeError, AttributeError):
             self.responder(400, {"ok": False, "erro": "pedido inválido"})
             return
         pasta = pastas_das_materias().get(materia) if isinstance(materia, str) else None
-        if pasta is None or not isinstance(texto, str) or not texto.strip():
+        if pasta is None or not isinstance(texto, str) or not (texto.strip() or docx):
             self.responder(400, {"ok": False, "erro": "disciplina desconhecida ou texto vazio"})
             return
+        if docx:
+            try:
+                blocos, _ = docx_para_blocos(docx)
+            except Exception:
+                blocos = []
+            if not any(md.strip() for md, _ in blocos):
+                self.responder(400, {"ok": False, "erro": "não consegui ler o arquivo .docx"})
+                return
         with TRAVA_GERACAO:
-            caminho = salvar_sintetico(pasta, texto)
+            caminho = salvar_sintetico(pasta, texto, docx)
             rel = caminho.relative_to(BASE).as_posix()
             print(f"Resumo sintético: parte salva em ESTUDOS/{rel}", flush=True)
             try:

@@ -331,6 +331,8 @@ body.sem-lateral .bt-menu { display: none !important; }
 .doc-corpo h4 { margin: 1.6em 0 .4em; font: 700 .8em/1.3 var(--font-ui); letter-spacing: .07em; text-transform: uppercase; color: var(--ink-2); }
 .doc-corpo p { margin: 0 0 .85em; }
 .doc-corpo p.txt { white-space: pre-wrap; }
+.doc-corpo img { display: block; max-width: min(100%, 640px); height: auto; margin: .4em 0; border-radius: 8px; }
+.doc-corpo p, .doc-corpo li { overflow-wrap: anywhere; }
 .doc-corpo ul, .doc-corpo ol { margin: 0 0 1em; padding-left: 1.4em; }
 .doc-corpo li { margin: .3em 0; padding-left: .15em; }
 .doc-corpo li > p { margin: 0; }
@@ -435,6 +437,9 @@ body.com-caneta .leitura { cursor: text; }
 .s-add-lista { margin: 0; padding-left: 1.2em; font: 400 14px/1.6 var(--font-ui); color: var(--ink-2); }
 .s-add-area { display: block; width: 100%; min-height: 220px; padding: 12px 14px; border: 1px solid var(--rule-2); border-radius: 10px; background: var(--paper); color: var(--ink); font: 400 14px/1.55 var(--font-mono); resize: vertical; }
 .s-add-area:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.s-add-arq { display: grid; gap: 8px; padding: 12px 14px; border: 1px dashed var(--rule-2); border-radius: 10px; background: var(--paper); font: 400 13.5px/1.5 var(--font-ui); color: var(--ink-2); }
+.s-add-arq input { max-width: 100%; font: 500 13.5px/1.3 var(--font-ui); color: var(--ink); }
+.s-add-ou { margin: 14px 0 8px; font: 600 13px/1.3 var(--font-ui); color: var(--ink-3); }
 .s-add-bts { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 12px; }
 .s-add-st { margin: 8px 0 0; font: 600 13px/1.4 var(--font-ui); color: var(--ink-2); }
 .s-add-st:empty { display: none; }
@@ -1687,7 +1692,7 @@ body.foco .toc { display: none; }
         `<a class="bt bt-p" href="#${m.id}_topicos">Abrir</a>`)}
       ${card(ICO.mapa, 'Mapa mental geral', plural(ramos, 'ramo', 'ramos'), 'Os mapas de todos os tópicos reunidos num só, por assunto. Clique num ramo para ver o trecho do resumo.', '', `<a class="bt bt-p" href="#${m.id}_mapa">Abrir</a>`)}
       ${card(ICO.mapa, 'Mapas por tópico', plural(ts.length, 'mapa', 'mapas'), 'Um mapa para cada tópico, ligado ao resumo daquele tópico.', '', `<a class="bt bt-p" href="#${m.id}_mapas">Abrir</a>`)}
-      ${card(ICO.camadas, 'Resumo sintético', nS ? plural(nS, 'parte', 'partes') : 'Ainda vazio', nS ? 'Seus resumos sintéticos juntados na ordem, com a numeração dos itens em sequência.' : 'Na aba, você cola cada parte nova; o sistema junta todas na ordem e acerta a numeração dos itens.', '', `<a class="bt bt-p" href="#${m.id}_sintetico">Abrir</a>`)}
+      ${card(ICO.camadas, 'Resumo sintético', nS ? plural(nS, 'parte', 'partes') : 'Ainda vazio', nS ? 'Seus resumos sintéticos juntados na ordem, com a numeração dos títulos em sequência.' : 'Na aba, você cola cada parte nova; o sistema junta todas na ordem e acerta a numeração dos títulos.', '', `<a class="bt bt-p" href="#${m.id}_sintetico">Abrir</a>`)}
       ${card(ICO.caneta, 'Marcações', plural(nm.total, 'marcação', 'marcações'), 'Os trechos que você marcou com o marca-texto, por cor.',
         `<ul class="sw-lista">${[1, 2, 3, 4].map(c => `<li><span class="sw sw-${c}"></span>${CORES[c]}<strong>${nm[c]}</strong></li>`).join('')}</ul>`,
         `<a class="bt bt-p" href="#${m.id}_marcas">Abrir</a>`)}
@@ -1865,7 +1870,7 @@ body.foco .toc { display: none; }
   $('#ui-dg-marcar').addEventListener('click', () => { if (matAtual) dialogoLidoGeral(matAtual); });
 
   // ---------- Resumo sintético ----------
-  // As partes são juntadas na ordem e só a numeração dos itens é refeita (no gerador). Com o
+  // As partes são juntadas na ordem e só a numeração dos títulos é refeita (no gerador). Com o
   // site aberto por "python sistema/gerar.py --servir", esta aba também grava partes novas.
   const ROTA_SINTETICO = '/__estudos/sintetico';
   let servidorLocal = null;
@@ -1888,19 +1893,31 @@ body.foco .toc { display: none; }
         <ul class="s-add-lista"><li>no computador, abra o site com <code>python sistema/gerar.py --servir</code> (endereço http://localhost:8765/) e cole o texto nesta aba; ou</li>
         <li>cole o texto no chat e peça ao Claude para juntar ao resumo sintético de ${esc(m.nome)}.</li></ul>`;
     }
-    const nome = `${String(proximaParte(m)).padStart(2, '0')} - ${hojeISO()}.txt`;
+    const nome = `${String(proximaParte(m)).padStart(2, '0')} - ${hojeISO()}`;
     return `<h3 class="s-add-t">Adicionar ao resumo sintético</h3>
-      <p class="s-add-txt">Cole abaixo a nova parte. Ela é salva exatamente como está, em <code>${esc(pastaSintetico(m))}/${nome}</code>, e entra depois das anteriores. No site, a numeração dos itens continua a das partes anteriores.</p>
-      <textarea class="s-add-area" id="ui-s-txt" rows="12" spellcheck="false" placeholder="Cole aqui o novo resumo sintético de ${esc(m.nome)}">${esc(guarda.ler('rascunhoSint.' + m.id, ''))}</textarea>
+      <p class="s-add-txt">A nova parte é salva sem nenhuma alteração em <code>${esc(pastaSintetico(m))}</code>, como <code>${nome}</code>, e entra depois das anteriores. No site, a numeração dos títulos continua a das partes anteriores.</p>
+      <label class="s-add-arq"><span><strong>Arquivo .docx</strong> (recomendado: mantém negrito, tabelas e imagens). No Google Docs: Arquivo → Fazer download → Microsoft Word (.docx).</span>
+        <input type="file" id="ui-s-arq" accept=".docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document"></label>
+      <p class="s-add-ou">ou cole o texto (sem formatação):</p>
+      <textarea class="s-add-area" id="ui-s-txt" rows="10" spellcheck="false" placeholder="Cole aqui o novo resumo sintético de ${esc(m.nome)}">${esc(guarda.ler('rascunhoSint.' + m.id, ''))}</textarea>
       <div class="s-add-bts"><button class="bt bt-p" type="button" id="ui-s-salvar" data-salvar-sint="${m.id}">Salvar e juntar</button><span class="s-add-st" id="ui-s-st" role="status"></span></div>`;
   }
+  function base64De(buffer) {
+    const bytes = new Uint8Array(buffer);
+    let s = '';
+    for (let i = 0; i < bytes.length; i += 0x8000) s += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+    return btoa(s);
+  }
   async function salvarSintetico(mid) {
-    const area = $('#ui-s-txt'), st = $('#ui-s-st'), bt = $('#ui-s-salvar');
-    if (!area.value.trim()) { st.textContent = 'Cole o texto antes de salvar.'; area.focus(); return; }
+    const area = $('#ui-s-txt'), st = $('#ui-s-st'), bt = $('#ui-s-salvar'), arq = $('#ui-s-arq').files[0];
+    if (arq && area.value.trim()) { st.textContent = 'Escolha um só: o arquivo ou o texto colado.'; return; }
+    if (!arq && !area.value.trim()) { st.textContent = 'Escolha o arquivo .docx ou cole o texto antes de salvar.'; return; }
+    if (arq && !/\.docx$/i.test(arq.name)) { st.textContent = 'O arquivo precisa ser .docx.'; return; }
     bt.disabled = true;
     st.textContent = 'Salvando…';
     try {
-      const r = await fetch(ROTA_SINTETICO, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Estudos': '1' }, body: JSON.stringify({ materia: mid, texto: area.value }) });
+      const pedido = arq ? { materia: mid, docx: base64De(await arq.arrayBuffer()) } : { materia: mid, texto: area.value };
+      const r = await fetch(ROTA_SINTETICO, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Estudos': '1' }, body: JSON.stringify(pedido) });
       const j = await r.json().catch(() => ({}));
       if (!r.ok || !j.ok) { st.textContent = j.erro ? `Atenção: ${j.erro}.` : `Não foi salvo (erro ${r.status}).`; bt.disabled = false; return; }
       try { localStorage.removeItem('estudos.rascunhoSint.' + mid); } catch (e) { /* sem armazenamento */ }
@@ -1921,7 +1938,7 @@ body.foco .toc { display: none; }
       : `<div class="vazio"><p><strong>Ainda não há resumo sintético desta disciplina.</strong></p><p>Cada parte que você acrescentar fica guardada na pasta <code>${pasta}</code> e aparece aqui, depois das anteriores.</p></div>`;
     vista.innerHTML = `<div class="doc c-${m.cor}">${cabMateria(m, 'sintetico')}
       <header class="sec-cab"><h2 class="sec-tit">Resumo sintético</h2>
-        <p class="sec-sub">${ids.length ? `${plural(ids.length, 'parte juntada', 'partes juntadas')} na ordem, sem alteração no texto. Só a numeração dos itens é refeita, em sequência na disciplina inteira. Os arquivos ficam em <code>${pasta}</code>.` : 'Seus resumos bem sintetizados, juntados na ordem em que você os acrescenta.'}</p>
+        <p class="sec-sub">${ids.length ? `${plural(ids.length, 'parte juntada', 'partes juntadas')} na ordem, sem alteração no texto. Só a numeração dos títulos é refeita, em sequência na disciplina inteira. Os arquivos ficam em <code>${pasta}</code>.` : 'Seus resumos bem sintetizados, juntados na ordem em que você os acrescenta.'}</p>
         <div class="s-acoes">${ids.length ? `<button class="bt" type="button" data-sint-copiar="${m.id}">Copiar o texto completo</button><button class="bt" type="button" data-sint-baixar="${m.id}">Baixar .txt</button>` : ''}<a class="bt bt-p" href="#ui-s-add" data-rolar="ui-s-add">Adicionar parte</a></div>
         <p class="s-add-st" id="ui-s-acao" role="status"></p></header>
       ${corpo}
