@@ -424,10 +424,21 @@ body.com-caneta .leitura { cursor: text; }
 .g-tit { margin: 0 !important; font: 650 1.62em/1.2 var(--font-serif) !important; letter-spacing: -.015em; }
 .g-tit a { color: inherit; text-decoration: none; }
 .g-tit a:hover { text-decoration: underline; text-underline-offset: 4px; }
-.s-cab { display: flex; align-items: baseline; gap: 12px; margin: 1.8em 0 .9em; padding-bottom: .55em; border-bottom: 2px solid var(--m); }
-.s-parte:first-child .s-cab { margin-top: 0; }
-.s-cab .num { font: 700 .8em/1 var(--font-ui); color: var(--m); font-variant-numeric: tabular-nums; }
-.s-cab h2 { margin: 0; font: 650 1.4em/1.2 var(--font-serif); }
+.s-div { display: flex; align-items: center; gap: 12px; margin: 2.4em 0 1.2em; color: var(--m); font: 700 11px/1.3 var(--font-ui); letter-spacing: .1em; text-transform: uppercase; }
+.s-div::after { content: ""; flex: 1 1 auto; border-top: 1px solid color-mix(in srgb, var(--m) 35%, var(--rule)); }
+.s-parte:first-child .s-div { margin-top: 0; }
+.s-acoes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.s-add { max-width: 780px; margin-top: 44px; padding: 18px 20px 20px; border: 1px solid var(--rule); border-radius: 14px; background: var(--raised); scroll-margin-top: calc(var(--top-h) + 20px); }
+.s-add-t { margin: 0 0 6px; font: 650 19px/1.3 var(--font-serif); }
+.s-add-txt { margin: 0 0 12px; font: 400 14px/1.55 var(--font-ui); color: var(--ink-2); }
+.s-add-txt code, .s-add-lista code { padding: .1em .35em; border-radius: 4px; background: var(--panel); font-size: .88em; overflow-wrap: anywhere; }
+.s-add-lista { margin: 0; padding-left: 1.2em; font: 400 14px/1.6 var(--font-ui); color: var(--ink-2); }
+.s-add-area { display: block; width: 100%; min-height: 220px; padding: 12px 14px; border: 1px solid var(--rule-2); border-radius: 10px; background: var(--paper); color: var(--ink); font: 400 14px/1.55 var(--font-mono); resize: vertical; }
+.s-add-area:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.s-add-bts { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 12px; }
+.s-add-st { margin: 8px 0 0; font: 600 13px/1.4 var(--font-ui); color: var(--ink-2); }
+.s-add-st:empty { display: none; }
+.s-add-bts .s-add-st { margin: 0; }
 .s-indice { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 26px; }
 .s-indice a { display: inline-flex; align-items: baseline; gap: 7px; padding: 7px 12px; border: 1px solid var(--rule); border-radius: 8px; background: var(--raised); color: var(--ink-2); font: 600 13.5px/1.2 var(--font-ui); text-decoration: none; }
 .s-indice a:hover { border-color: var(--rule-2); color: var(--ink); }
@@ -1676,7 +1687,7 @@ body.foco .toc { display: none; }
         `<a class="bt bt-p" href="#${m.id}_topicos">Abrir</a>`)}
       ${card(ICO.mapa, 'Mapa mental geral', plural(ramos, 'ramo', 'ramos'), 'Os mapas de todos os tópicos reunidos num só, por assunto. Clique num ramo para ver o trecho do resumo.', '', `<a class="bt bt-p" href="#${m.id}_mapa">Abrir</a>`)}
       ${card(ICO.mapa, 'Mapas por tópico', plural(ts.length, 'mapa', 'mapas'), 'Um mapa para cada tópico, ligado ao resumo daquele tópico.', '', `<a class="bt bt-p" href="#${m.id}_mapas">Abrir</a>`)}
-      ${card(ICO.camadas, 'Resumo sintético', nS ? plural(nS, 'parte', 'partes') : 'Ainda vazio', nS ? 'Seus resumos sintéticos, na ordem dos números dos arquivos.' : `Coloque arquivos .txt ou .md numerados (01, 02, 03...) na pasta <code>ESTUDOS/${esc(m.nome)}/Resumo Sintético</code>.`, '', `<a class="bt bt-p" href="#${m.id}_sintetico">Abrir</a>`)}
+      ${card(ICO.camadas, 'Resumo sintético', nS ? plural(nS, 'parte', 'partes') : 'Ainda vazio', nS ? 'Seus resumos sintéticos juntados na ordem, com a numeração dos itens em sequência.' : 'Na aba, você cola cada parte nova; o sistema junta todas na ordem e acerta a numeração dos itens.', '', `<a class="bt bt-p" href="#${m.id}_sintetico">Abrir</a>`)}
       ${card(ICO.caneta, 'Marcações', plural(nm.total, 'marcação', 'marcações'), 'Os trechos que você marcou com o marca-texto, por cor.',
         `<ul class="sw-lista">${[1, 2, 3, 4].map(c => `<li><span class="sw sw-${c}"></span>${CORES[c]}<strong>${nm[c]}</strong></li>`).join('')}</ul>`,
         `<a class="bt bt-p" href="#${m.id}_marcas">Abrir</a>`)}
@@ -1854,19 +1865,67 @@ body.foco .toc { display: none; }
   $('#ui-dg-marcar').addEventListener('click', () => { if (matAtual) dialogoLidoGeral(matAtual); });
 
   // ---------- Resumo sintético ----------
+  // As partes são juntadas na ordem e só a numeração dos itens é refeita (no gerador). Com o
+  // site aberto por "python sistema/gerar.py --servir", esta aba também grava partes novas.
+  const ROTA_SINTETICO = '/__estudos/sintetico';
+  let servidorLocal = null;
+  ((location.protocol === 'http:' && /^(localhost|127\.0\.0\.1)$/.test(location.hostname))
+    ? fetch(ROTA_SINTETICO, { cache: 'no-store', headers: { 'X-Estudos': '1' } }).then(r => (r.ok ? r.json() : null)).then(j => !!(j && j.ok)).catch(() => false)
+    : Promise.resolve(false)
+  ).then(ok => {
+    servidorLocal = ok;
+    const caixa = $('#ui-s-add');
+    if (caixa && rota && rota.v === 'mat' && rota.aba === 'sintetico') caixa.innerHTML = formularioSintetico(MAT[rota.mat]);
+  });
+  const pastaSintetico = m => `ESTUDOS/${m.nome}/Resumo Sintético`;
+  const proximaParte = m => m.sintetico.reduce((n, id) => Math.max(n, parseInt(docs[id].num, 10) || 0), 0) + 1;
+  const textoSintetico = m => m.sintetico.map(id => docs[id].texto.replace(/\s+$/, '')).join('\n\n') + '\n';
+  function formularioSintetico(m) {
+    if (servidorLocal === null) return '<p class="s-add-txt">Verificando se dá para salvar por aqui…</p>';
+    if (!servidorLocal) {
+      return `<h3 class="s-add-t">Adicionar ao resumo sintético</h3>
+        <p class="s-add-txt">Por aqui o site é só leitura. Para acrescentar uma parte:</p>
+        <ul class="s-add-lista"><li>no computador, abra o site com <code>python sistema/gerar.py --servir</code> (endereço http://localhost:8765/) e cole o texto nesta aba; ou</li>
+        <li>cole o texto no chat e peça ao Claude para juntar ao resumo sintético de ${esc(m.nome)}.</li></ul>`;
+    }
+    const nome = `${String(proximaParte(m)).padStart(2, '0')} - ${hojeISO()}.txt`;
+    return `<h3 class="s-add-t">Adicionar ao resumo sintético</h3>
+      <p class="s-add-txt">Cole abaixo a nova parte. Ela é salva exatamente como está, em <code>${esc(pastaSintetico(m))}/${nome}</code>, e entra depois das anteriores. No site, a numeração dos itens continua a das partes anteriores.</p>
+      <textarea class="s-add-area" id="ui-s-txt" rows="12" spellcheck="false" placeholder="Cole aqui o novo resumo sintético de ${esc(m.nome)}">${esc(guarda.ler('rascunhoSint.' + m.id, ''))}</textarea>
+      <div class="s-add-bts"><button class="bt bt-p" type="button" id="ui-s-salvar" data-salvar-sint="${m.id}">Salvar e juntar</button><span class="s-add-st" id="ui-s-st" role="status"></span></div>`;
+  }
+  async function salvarSintetico(mid) {
+    const area = $('#ui-s-txt'), st = $('#ui-s-st'), bt = $('#ui-s-salvar');
+    if (!area.value.trim()) { st.textContent = 'Cole o texto antes de salvar.'; area.focus(); return; }
+    bt.disabled = true;
+    st.textContent = 'Salvando…';
+    try {
+      const r = await fetch(ROTA_SINTETICO, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Estudos': '1' }, body: JSON.stringify({ materia: mid, texto: area.value }) });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok || !j.ok) { st.textContent = j.erro ? `Atenção: ${j.erro}.` : `Não foi salvo (erro ${r.status}).`; bt.disabled = false; return; }
+      try { localStorage.removeItem('estudos.rascunhoSint.' + mid); } catch (e) { /* sem armazenamento */ }
+      st.textContent = `Salvo em ESTUDOS/${j.arquivo}. Atualizando…`;
+      try { history.replaceState(null, '', '#' + j.id); } catch (e) { /* sem histórico */ }
+      location.reload();
+    } catch (e) {
+      st.textContent = 'Não consegui falar com o servidor local. Ele continua aberto no terminal?';
+      bt.disabled = false;
+    }
+  }
   function renderSintetico(m, op) {
     document.title = `Resumo sintético · ${m.nome} · Estudos`;
-    const ids = m.sintetico;
-    const pasta = `ESTUDOS/${esc(m.nome)}/Resumo Sintético`;
+    const ids = m.sintetico, pasta = esc(pastaSintetico(m));
     const corpo = ids.length
-      ? `<nav class="s-indice" aria-label="Partes">${ids.map(id => `<a href="#${id}" data-parte="${id}">${docs[id].num ? `<span class="num">${esc(docs[id].num)}</span>` : ''}${esc(docs[id].titulo)}</a>`).join('')}</nav>
-        <article class="doc-corpo leitura" id="ui-artigo">${ids.map(id => { const d = docs[id]; return `<section class="s-parte" id="s-${id}" data-texto="${id}"><header class="s-cab">${d.num ? `<span class="num">${esc(d.num)}</span>` : ''}<h2>${esc(d.titulo)}</h2></header>${d.partes.join('\n')}</section>`; }).join('')}</article>`
-      : `<div class="vazio"><p><strong>Ainda não há resumo sintético desta disciplina.</strong></p>
-        <p>Coloque arquivos <code>.txt</code> ou <code>.md</code> na pasta <code>${pasta}</code>, com o número da ordem no início do nome: <code>01 - Taxas.txt</code>, <code>02 - Impostos.txt</code>...</p>
-        <p>Depois, gere o site de novo (<code>python sistema/gerar.py</code>) ou peça ao Claude. O texto entra aqui exatamente como está nos arquivos, na ordem dos números.</p></div>`;
+      ? `${ids.length > 1 ? `<nav class="s-indice" aria-label="Partes">${ids.map(id => `<a href="#${id}" data-parte="${id}">${esc(docs[id].rotulo)}</a>`).join('')}</nav>` : ''}
+        <article class="doc-corpo leitura" id="ui-artigo">${ids.map(id => `<section class="s-parte" id="s-${id}" data-texto="${id}"><p class="s-div">${esc(docs[id].rotulo)}</p>${docs[id].partes.join('\n')}</section>`).join('')}</article>`
+      : `<div class="vazio"><p><strong>Ainda não há resumo sintético desta disciplina.</strong></p><p>Cada parte que você acrescentar fica guardada na pasta <code>${pasta}</code> e aparece aqui, depois das anteriores.</p></div>`;
     vista.innerHTML = `<div class="doc c-${m.cor}">${cabMateria(m, 'sintetico')}
-      <header class="sec-cab"><h2 class="sec-tit">Resumo sintético</h2><p class="sec-sub">${ids.length ? `${plural(ids.length, 'parte', 'partes')}, na ordem dos números dos arquivos da pasta <code>${pasta}</code>, sem alteração no texto.` : 'Seus resumos bem sintetizados, juntados na ordem que você numerar.'}</p></header>
-      ${corpo}</div>`;
+      <header class="sec-cab"><h2 class="sec-tit">Resumo sintético</h2>
+        <p class="sec-sub">${ids.length ? `${plural(ids.length, 'parte juntada', 'partes juntadas')} na ordem, sem alteração no texto. Só a numeração dos itens é refeita, em sequência na disciplina inteira. Os arquivos ficam em <code>${pasta}</code>.` : 'Seus resumos bem sintetizados, juntados na ordem em que você os acrescenta.'}</p>
+        <div class="s-acoes">${ids.length ? `<button class="bt" type="button" data-sint-copiar="${m.id}">Copiar o texto completo</button><button class="bt" type="button" data-sint-baixar="${m.id}">Baixar .txt</button>` : ''}<a class="bt bt-p" href="#ui-s-add" data-rolar="ui-s-add">Adicionar parte</a></div>
+        <p class="s-add-st" id="ui-s-acao" role="status"></p></header>
+      ${corpo}
+      <section class="s-add" id="ui-s-add" aria-label="Adicionar ao resumo sintético">${formularioSintetico(m)}</section></div>`;
     const artigo = $('#ui-artigo');
     if (!artigo) { window.scrollTo(0, 0); return; }
     pintarMarcas(artigo);
@@ -1874,6 +1933,19 @@ body.foco .toc { display: none; }
     const sec = op.doc && document.getElementById('s-' + op.doc);
     if (!(sec && posicionar(sec, op))) { if (sec) sec.scrollIntoView({ block: 'start' }); else window.scrollTo(0, 0); }
   }
+  function baixarTexto(nome, texto) {
+    try {
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([texto], { type: 'text/plain;charset=utf-8' }));
+      a.download = nome;
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+    } catch (e) { /* download bloqueado */ }
+  }
+  vista.addEventListener('input', e => {
+    if (e.target.id === 'ui-s-txt' && rota && rota.v === 'mat') guarda.gravar('rascunhoSint.' + rota.mat, e.target.value);
+  });
 
   // ---------- Marcações da disciplina ----------
   const modelos = new Map();
@@ -2403,6 +2475,18 @@ body.foco .toc { display: none; }
     if (bGeral) { dialogoLidoGeral(bGeral.dataset.marcarGeral); return; }
     const bRem = t.closest('[data-remover-marca]');
     if (bRem) { removerGrupo(bRem.dataset.removerMarca); return; }
+    const bSint = t.closest('[data-salvar-sint]');
+    if (bSint) { salvarSintetico(bSint.dataset.salvarSint); return; }
+    const bCopiar = t.closest('[data-sint-copiar]'), bBaixar = t.closest('[data-sint-baixar]');
+    if (bCopiar || bBaixar) {
+      const m = MAT[(bCopiar || bBaixar).dataset[bCopiar ? 'sintCopiar' : 'sintBaixar']], texto = textoSintetico(m), st = $('#ui-s-acao');
+      if (bBaixar) { baixarTexto(`Resumo sintético - ${m.nome}.txt`, texto); st.textContent = 'Se o download não começar, use Copiar o texto completo.'; }
+      else {
+        try { navigator.clipboard.writeText(texto).then(() => { st.textContent = 'Texto completo copiado.'; }, () => { st.textContent = 'Não consegui copiar; use Baixar .txt.'; }); }
+        catch (err) { st.textContent = 'Não consegui copiar; use Baixar .txt.'; }
+      }
+      return;
+    }
     const bCor = t.closest('[data-filtro-cor]');
     if (bCor && rota && rota.v === 'mat') { filtroCor = +bCor.dataset.filtroCor; renderMarcas(MAT[rota.mat], true); return; }
     const bTp = t.closest('[data-filtro-tp]');
@@ -2430,6 +2514,11 @@ body.foco .toc { display: none; }
     if (a.dataset.pagina && rota && rota.v === 'mat' && rota.aba === 'geral') {
       const p = document.getElementById('pag-' + a.dataset.pagina);
       if (p) p.scrollIntoView({ block: 'start', behavior: suave });
+      return;
+    }
+    if (a.dataset.rolar) {
+      const alvo = document.getElementById(a.dataset.rolar);
+      if (alvo) { alvo.scrollIntoView({ block: 'start', behavior: suave }); const campoTxt = $('textarea', alvo); if (campoTxt) campoTxt.focus({ preventScroll: true }); }
       return;
     }
     if (a.dataset.parte && rota && rota.v === 'mat' && rota.aba === 'sintetico') {

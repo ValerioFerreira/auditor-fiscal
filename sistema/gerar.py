@@ -14,8 +14,14 @@ alfabética.
 Além do texto de cada tema, o gerador monta, por matéria:
 - o resumo geral (todos os temas em sequência, dividido em páginas de tamanho fixo);
 - o mapa mental de cada tema (seção "## Mapa mental", que sai do texto do tema);
-- o resumo sintético (arquivos .txt/.md da pasta "Resumo Sintético", na ordem dos números);
+- o resumo sintético (arquivos .txt/.md da pasta "Resumo Sintético", na ordem dos números): o
+  texto entra como está; só a numeração dos itens ("1.", "1)", "1 -" no começo da linha) é
+  refeita na exibição, em sequência única na matéria inteira;
 - a data do último resumo (seções "### Matéria" do diário de estudos).
+
+Com --servir, o site aberto em http://localhost:8765/ também recebe novas partes do resumo
+sintético (formulário da aba "Resumo sintético"): o texto é salvo sem alteração como a próxima
+parte da matéria e o site é gerado de novo.
 """
 from __future__ import annotations
 
@@ -28,6 +34,7 @@ import math
 import posixpath
 import re
 import sys
+import threading
 import unicodedata
 from datetime import date, datetime
 from pathlib import Path
@@ -45,6 +52,8 @@ MARCADOR_DADOS = "__DADOS_JSON__"
 CONTROLE = "_CONTROLE"
 ORDEM_CONTROLE = ["diario-de-estudos", "assuntos-estudados", "pendencias", "alteracoes"]
 PASTA_SINTETICO = "Resumo Sintético"
+ROTA_SINTETICO = "/__estudos/sintetico"
+LIMITE_SINTETICO = 2_000_000  # bytes por parte enviada pelo site
 TITULO_MAPA = "mapa mental"
 # Tamanho de uma página do resumo geral, em caracteres de texto (cerca de uma folha A4).
 CARACTERES_POR_PAGINA = 3000
@@ -428,7 +437,7 @@ class Renderizador:
     def titulo_html(self, b: dict) -> str:
         conteudo = self.inline(b["texto"])
         texto = texto_de_html(conteudo)
-        if b["nivel"] == 1 and self.titulo is None:
+        if b["nivel"] == 1 and self.titulo is None and not self.bruto:
             self.titulo = texto
             return ""
         nivel = max(2, b["nivel"])
@@ -683,6 +692,46 @@ def chave_sintetico(p: Path) -> tuple:
     return (0, int(m.group(1)), p.name.lower()) if m else (1, 0, p.name.lower())
 
 
+# Item numerado no começo da linha: "1. texto", "1) texto" ou "1 - texto" (não "1.1", "10.000").
+RE_ITEM_NUMERADO = re.compile(r"^(\d{1,3})(?=(?:[.)]|\s*[-–—])\s)")
+
+
+def renumerar(texto: str, proximo: int) -> tuple[str, int]:
+    """Refaz a numeração dos itens em sequência única, na ordem em que aparecem.
+
+    O resumo sintético é uma colagem de resumos soltos, e a numeração recomeça no meio
+    ("1, 2, 3, 1..."). Só o número muda; o resto de cada linha fica igual. Devolve o texto e o
+    próximo número, para a sequência continuar no arquivo seguinte da mesma matéria.
+    """
+    linhas = texto.split("\n")
+    em_codigo = False
+    for i, linha in enumerate(linhas):
+        if RE_CERCA.match(linha):
+            em_codigo = not em_codigo
+            continue
+        m = None if em_codigo else RE_ITEM_NUMERADO.match(linha)
+        if m:
+            linhas[i] = str(proximo) + linha[m.end(1):]
+            proximo += 1
+    return "\n".join(linhas), proximo
+
+
+def pastas_das_materias() -> dict[str, Path]:
+    return {slug(p.name): p for p in sorted(BASE.iterdir()) if p.is_dir() and p.name != CONTROLE}
+
+
+def salvar_sintetico(pasta_materia: Path, texto: str) -> Path:
+    """Grava o texto, exatamente como veio, como a próxima parte do resumo sintético."""
+    pasta = pasta_materia / PASTA_SINTETICO
+    pasta.mkdir(exist_ok=True)
+    numeros = [int(m.group(1)) for p in pasta.iterdir() if p.is_file()
+               for m in [re.match(r"^\s*(\d+)", p.stem)] if m]
+    caminho = pasta / f"{max(numeros, default=0) + 1:02d} - {date.today().isoformat()}.txt"
+    with open(caminho, "x", encoding="utf-8", newline="") as f:
+        f.write(texto)
+    return caminho
+
+
 def peso_parte(parte: str) -> int:
     """Espaço aproximado que um bloco ocupa na página, em caracteres de texto."""
     peso = len(texto_de_html(parte)) + 60
@@ -858,6 +907,7 @@ class Base:
     def carregar_sintetico(self, materia: dict, pasta: Path) -> None:
         """Arquivos do resumo sintético: .txt e .md, na ordem do número no início do nome."""
         rel_pasta = pasta.relative_to(BASE).as_posix()
+        proximo = 1
         for p in sorted(pasta.iterdir(), key=chave_sintetico):
             if not p.is_file() or p.name.upper().startswith("LEIA-ME"):
                 continue
@@ -880,6 +930,12 @@ class Base:
             if not m:
                 self.aviso(doc, "nome sem número no início: entra depois dos numerados")
             nome = re.sub(r"^\s*\d+\s*[-–—._)]*\s*", "", p.stem).strip()
+            data = nome if re.fullmatch(r"\d{4}-\d{2}-\d{2}", nome) else ""
+            parte = f"Parte {m.group(1)}" if m else "Parte sem número"
+            rotulo = " · ".join(x for x in (parte, "" if data else nome,
+                                            f"adicionada em {'/'.join(reversed(data.split('-')))}"
+                                            if data else "") if x)
+            exibido, proximo = renumerar(texto, proximo)
             mid = materia["id"]
             doc.update({
                 "id": f"{mid}.sint.{slug(p.stem)}",
@@ -889,11 +945,12 @@ class Base:
                 "pasta": rel_pasta,
                 "assuntoNum": m.group(1) if m else "",
                 "assuntoNome": PASTA_SINTETICO,
-                "titulo": nome or (f"Parte {m.group(1)}" if m else p.stem),
+                "titulo": parte if data or not nome else nome,
+                "rotulo": rotulo,
                 "resumo_md": "",
                 "status": "",
                 "formato": p.suffix.lower()[1:],
-                "md": texto,
+                "md": exibido,
                 "md_mapa": None,
                 "hash": resumo_hash(texto),
             })
@@ -911,8 +968,7 @@ class Base:
             else:
                 partes = r.blocos(ler_blocos(d["md"].splitlines()), lista=True)
             resumo = Renderizador(self, d).inline(d["resumo_md"], False) if d["resumo_md"] else ""
-            titulo = d["titulo"] if d["tipo"] == "sint" and d["formato"] == "txt" else (
-                r.titulo or d["titulo"])
+            titulo = d["titulo"] if d["tipo"] == "sint" else (r.titulo or d["titulo"])
             d.update(partes=partes, toc=r.toc, palavras=r.palavras, resumo=resumo, titulo=titulo)
             if d["md_mapa"] is not None:
                 d["mapa"] = self.arvore_mapa(d, d["md_mapa"])
@@ -945,6 +1001,9 @@ class Base:
                 item["mapa"] = d["mapa"]
             if "pag" in d:
                 item["pag"] = d["pag"]
+            if d["tipo"] == "sint":
+                item["rotulo"] = d["rotulo"]
+                item["texto"] = d["md"]  # para copiar/baixar o resumo sintético completo
             saida[d["id"]] = item
         return {
             "meta": {"versao": self.versao, "data": self.data,
@@ -1076,12 +1135,92 @@ def escrever(caminho: Path, texto: str) -> None:
         f.write(texto)
 
 
+def gerar(escrever_saida: bool = True) -> tuple["Base", dict, int]:
+    """Carrega a base, monta os dados e, se pedido, grava as duas saídas (devolve o tamanho)."""
+    base = Base()
+    base.carregar()
+    dados = base.renderizar()
+    tamanho = 0
+    if escrever_saida:
+        site, pagina_privada = montar_paginas(dados)
+        escrever(SAIDA_SITE, site)
+        escrever(SAIDA_PAGINA_PRIVADA, pagina_privada)
+        tamanho = len(site.encode("utf-8"))
+    return base, dados, tamanho
+
+
+TRAVA_GERACAO = threading.Lock()
+
+
 class Manipulador(http.server.SimpleHTTPRequestHandler):
-    """Serve a pasta site/ sem cache: a página regenerada aparece ao recarregar."""
+    """Serve a pasta site/ sem cache e recebe as novas partes do resumo sintético.
+
+    O envio só é aceito da própria página em localhost (Host e Origin conferidos, cabeçalho
+    X-Estudos obrigatório): outro site aberto no navegador não consegue gravar nada.
+    """
 
     def end_headers(self) -> None:
         self.send_header("Cache-Control", "no-cache")
         super().end_headers()
+
+    def responder(self, codigo: int, dados: dict) -> None:
+        corpo = json.dumps(dados, ensure_ascii=False).encode("utf-8")
+        self.send_response(codigo)
+        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Content-Length", str(len(corpo)))
+        self.end_headers()
+        self.wfile.write(corpo)
+
+    def da_propria_pagina(self) -> bool:
+        porta = self.server.server_address[1]
+        hosts = {f"localhost:{porta}", f"127.0.0.1:{porta}"}
+        origem = self.headers.get("Origin")
+        return (self.headers.get("Host") in hosts and self.headers.get("X-Estudos") == "1"
+                and (origem is None or origem in {f"http://{h}" for h in hosts}))
+
+    def do_GET(self) -> None:
+        if self.path.split("?")[0] == ROTA_SINTETICO:
+            if not self.da_propria_pagina():
+                self.responder(403, {"ok": False, "erro": "pedido recusado"})
+            else:
+                self.responder(200, {"ok": True})
+            return
+        super().do_GET()
+
+    def do_POST(self) -> None:
+        if self.path.split("?")[0] != ROTA_SINTETICO:
+            self.responder(404, {"ok": False, "erro": "endereço desconhecido"})
+            return
+        if not self.da_propria_pagina():
+            self.responder(403, {"ok": False, "erro": "pedido recusado"})
+            return
+        tamanho = int(self.headers.get("Content-Length") or 0)
+        if not 0 < tamanho <= LIMITE_SINTETICO:
+            self.responder(413, {"ok": False, "erro": "texto vazio ou grande demais"})
+            return
+        try:
+            pedido = json.loads(self.rfile.read(tamanho).decode("utf-8"))
+            materia, texto = pedido["materia"], pedido["texto"]
+        except (ValueError, KeyError, TypeError):
+            self.responder(400, {"ok": False, "erro": "pedido inválido"})
+            return
+        pasta = pastas_das_materias().get(materia) if isinstance(materia, str) else None
+        if pasta is None or not isinstance(texto, str) or not texto.strip():
+            self.responder(400, {"ok": False, "erro": "disciplina desconhecida ou texto vazio"})
+            return
+        with TRAVA_GERACAO:
+            caminho = salvar_sintetico(pasta, texto)
+            rel = caminho.relative_to(BASE).as_posix()
+            print(f"Resumo sintético: parte salva em ESTUDOS/{rel}", flush=True)
+            try:
+                base, _, _ = gerar()
+            except Exception as erro:  # o arquivo já está salvo; só a geração falhou
+                self.responder(500, {"ok": False, "arquivo": rel,
+                                     "erro": f"parte salva, mas o site não foi gerado: {erro}"})
+                return
+        avisos = [a for a in base.avisos if a.startswith(f"{pasta.name}/{PASTA_SINTETICO}/")]
+        self.responder(200, {"ok": True, "arquivo": rel, "id": f"{materia}.sint.{slug(caminho.stem)}",
+                             "avisos": avisos})
 
 
 def servir(porta: int) -> int:
@@ -1106,9 +1245,8 @@ def main(argv: list[str]) -> int:
     if not BASE.is_dir():
         print(f"Pasta não encontrada: {BASE}")
         return 1
-    base = Base()
-    base.carregar()
-    dados = base.renderizar()
+    verificar = "--verificar" in argv
+    base, dados, tamanho = gerar(escrever_saida=not verificar)
     n_temas, n_ctrl = len(base.docs), len(base.controle)
     tipos = {}
     for p in dados["pegadinhas"]:
@@ -1125,13 +1263,8 @@ def main(argv: list[str]) -> int:
         f"{m['sigla']} {m['geral']['paginas']} págs. (último resumo: "
         f"{'/'.join(reversed(m['ultimo'].split('-'))) if m['ultimo'] else 'sem registro'})"
         for m in base.materias))
-    verificar = "--verificar" in argv
     if not verificar:
-        site, pagina_privada = montar_paginas(dados)
-        escrever(SAIDA_SITE, site)
-        escrever(SAIDA_PAGINA_PRIVADA, pagina_privada)
-        print(f"Gerado: {SAIDA_SITE.relative_to(RAIZ).as_posix()} "
-              f"({len(site.encode('utf-8')) // 1024} KB) e "
+        print(f"Gerado: {SAIDA_SITE.relative_to(RAIZ).as_posix()} ({tamanho // 1024} KB) e "
               f"{SAIDA_PAGINA_PRIVADA.relative_to(RAIZ).as_posix()}")
     if base.avisos:
         print(f"\n{len(base.avisos)} aviso(s):")
