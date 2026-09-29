@@ -11,6 +11,7 @@ Base de conhecimento para o concurso de Auditor Fiscal (banca de referência: CE
 | `ENTRADA/` | Onde entram os resumos novos (fora do git; ver `ENTRADA/LEIA-ME.txt`) |
 | `sistema/` | O gerador do site (`gerar.py`) e a interface (`modelo.html`) |
 | `site/` | O site gerado (`index.html`), recriado a cada geração (fora do git) |
+| `edicoes-anteriores/` | Cópia de cada arquivo antes de uma edição feita pelo site, com data e hora no nome (fora do git) |
 | `vercel.json` e `.vercelignore` | Configuração do deploy na Vercel |
 | `CLAUDE.md` | As regras que o Claude segue para manter a base |
 
@@ -28,6 +29,7 @@ Gera o site e o serve em http://localhost:8765/ (Ctrl+C para parar). Sem servido
 - **Página da disciplina:** as abas ficam numa faixa fixa logo abaixo da busca, e só o conteúdo muda: resumo geral (todos os tópicos em sequência, dividido em páginas), resumos por tópico, mapa mental geral, mapas por tópico (cada ramo leva ao trecho do resumo), resumo sintético e marcações.
 - **Resumo sintético:** com o site aberto pelo `python sistema/gerar.py --servir`, a aba "Resumo sintético" de cada disciplina recebe uma parte nova: um arquivo .docx (mantém negrito, tabelas e imagens) ou texto colado. "Salvar e juntar" grava a parte, sem alterar o conteúdo, e atualiza o site; na exibição, só a numeração dos títulos é refeita em sequência. Na Vercel e na página privada o site é só leitura.
 - **Leitura:** texto justificado, ocupando por padrão metade da largura da tela (nunca menos que uma folha A4). O controle "Largura do texto", no rodapé das páginas de leitura, aumenta ou diminui a coluna; dois cliques nele voltam ao padrão. Botão Lido em cada tópico; no resumo geral, "Marcar lido" pergunta até qual página você leu e mostra a porcentagem. Marca-texto em 4 cores: selecione um trecho e escolha a cor.
+- **Edição (administrador):** o botão **Entrar**, no canto superior direito, abre o login de administrador. Ele não é obrigatório: a leitura continua aberta para todos. Com o site aberto pelo `python sistema/gerar.py --servir` e o login feito, aparecem os botões **Editar** nos tópicos, no resumo geral e em cada parte do resumo sintético. O editor tem desfazer e refazer, estilos de parágrafo (títulos, nota, bloco de código), negrito, itálico, sublinhado, código, listas com recuo, tabelas (linhas, colunas, alinhamento e largura das colunas, arrastando a borda) e imagens (botão, colar ou arrastar; clique na imagem para mudar a largura). "Salvar" grava no arquivo `.md` só os blocos alterados, confere que nenhuma palavra se perdeu, guarda a versão anterior em `edicoes-anteriores/` (fora do git) e atualiza o site. Na Vercel, na página privada e no duplo clique o site continua só leitura.
 - **Onde ficam suas marcações:** no navegador em que você lê. Computador, celular, localhost e Vercel guardam cada um as suas. Para levar de um para outro, use Aa → Exportar e, no outro, Aa → Importar.
 
 ## Publicar na Vercel

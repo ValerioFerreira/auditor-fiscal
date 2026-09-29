@@ -25,13 +25,22 @@ Com --servir, o site aberto em http://localhost:8765/ também recebe novas parte
 sintético (formulário da aba "Resumo sintético"): um .docx (convertido em .md com a mesma
 formatação) ou texto colado (.txt), salvos sem alteração no conteúdo como a próxima parte da
 matéria; em seguida o site é gerado de novo.
+
+Também com --servir, o administrador (botão "Entrar", no alto à direita) edita os temas e as
+partes do resumo sintético direto no site. O servidor confere o login, converte o texto editado
+de volta em Markdown (só os blocos alterados; os outros ficam exatamente como estavam no
+arquivo), guarda a versão anterior em edicoes-anteriores/ e gera o site de novo. Ver a seção
+"Edição pelo site".
 """
 from __future__ import annotations
 
 import base64
+import difflib
 import functools
 import hashlib
+import hmac
 import html
+import html.parser
 import http.server
 import json
 import math
@@ -39,9 +48,11 @@ import posixpath
 import re
 import sys
 import threading
+import time
 import unicodedata
 from datetime import date, datetime
 from pathlib import Path
+from urllib.parse import parse_qs, urlsplit
 
 PASTA_SISTEMA = Path(__file__).resolve().parent
 RAIZ = PASTA_SISTEMA.parent
@@ -58,6 +69,15 @@ ORDEM_CONTROLE = ["diario-de-estudos", "assuntos-estudados", "pendencias", "alte
 PASTA_SINTETICO = "Resumo Sintético"
 ROTA_SINTETICO = "/__estudos/sintetico"
 LIMITE_SINTETICO = 40_000_000  # bytes por parte enviada pelo site (.docx vem em base64)
+# Edição pelo site (administrador). A senha não fica guardada em lugar nenhum: só o resultado do
+# PBKDF2-SHA256 com sal (iterações, sal, resultado), conferido pelo servidor local.
+ADMIN_USUARIO = "ADM"
+ADMIN_SENHA = (300000, "0c3cd0b72d4a3bc34ff431e942408fac",
+               "dd5447fc1e65bc7bb07bac3254d5be4a5674fb3eda3e0f819c6e5ed4bb9acf45")
+SESSAO_DIAS = 30  # o login vale neste navegador até "Sair" ou por 30 dias
+ROTA_ENTRAR, ROTA_SESSAO = "/__estudos/entrar", "/__estudos/sessao"
+ROTA_FONTE, ROTA_SALVAR = "/__estudos/fonte", "/__estudos/salvar"
+EDICOES_ANTERIORES = RAIZ / "edicoes-anteriores"  # cópia de cada arquivo antes de uma edição
 TITULO_MAPA = "mapa mental"
 # Tamanho de uma página do resumo geral, em caracteres de texto (cerca de uma folha A4).
 CARACTERES_POR_PAGINA = 3000
@@ -107,6 +127,9 @@ RE_TITULO = re.compile(r"^(#{1,6})\s+(.*?)\s*#*\s*$")
 RE_REGUA = re.compile(r"^\s{0,3}([-*_])(?:\s*\1){2,}\s*$")
 RE_ITEM = re.compile(r"^(\s*)([-*+]|\d{1,9}[.)])(\s+)(.*)$")
 RE_SEPARADOR = re.compile(r"^\s*\|?\s*:?-+:?\s*(?:\|\s*:?-+:?\s*)*\|?\s*$")
+# Larguras das colunas da tabela seguinte, em % (gravadas pelo editor do site):
+# "<!-- colunas: 30 20 50 -->". Fora de uma tabela, a linha é ignorada.
+RE_LARGURAS = re.compile(r"^\s*<!--\s*colunas:\s*([\d.\s]+?)\s*-->\s*$")
 
 
 def inicia_bloco(linha: str) -> bool:
@@ -114,6 +137,7 @@ def inicia_bloco(linha: str) -> bool:
     return bool(
         RE_CERCA.match(linha) or RE_TITULO.match(s) or RE_REGUA.match(linha)
         or s.startswith(">") or s.startswith("|") or RE_ITEM.match(linha)
+        or RE_LARGURAS.match(linha)
     )
 
 
@@ -156,59 +180,72 @@ def alinhamentos(separador: str, n: int) -> list[str | None]:
     return (saida + [None] * n)[:n]
 
 
+def eh_tabela(linhas: list[str], i: int) -> bool:
+    return (i + 1 < len(linhas) and linhas[i].lstrip().startswith("|")
+            and bool(RE_SEPARADOR.match(linhas[i + 1])) and "-" in linhas[i + 1])
+
+
 def ler_blocos(linhas: list[str]) -> list[dict]:
+    """Blocos do texto. Cada bloco guarda as linhas de onde veio ([l0, l1)): ao gravar uma
+    edição feita pelo site, os blocos que não mudaram voltam ao arquivo exatamente como eram."""
     blocos, i, n = [], 0, len(linhas)
     while i < n:
-        linha = linhas[i]
-        if not linha.strip():
+        if not linhas[i].strip():
             i += 1
             continue
-        m = RE_CERCA.match(linha)
+        m = RE_LARGURAS.match(linhas[i])
+        if m and not eh_tabela(linhas, i + 1):
+            i += 1  # larguras sem tabela logo abaixo: ignoradas
+            continue
+        bloco, j = um_bloco(linhas, i + 1 if m else i)
         if m:
-            buf, i = [], i + 1
-            while i < n and not RE_CERCA.match(linhas[i]):
-                buf.append(linhas[i])
-                i += 1
-            blocos.append({"t": "codigo", "texto": "\n".join(buf)})
-            i += 1
-            continue
-        m = RE_TITULO.match(linha.lstrip())
-        if m:
-            blocos.append({"t": "h", "nivel": len(m.group(1)), "texto": m.group(2)})
-            i += 1
-            continue
-        if RE_REGUA.match(linha):
-            blocos.append({"t": "regua"})
-            i += 1
-            continue
-        if linha.lstrip().startswith(">"):
-            buf = []
-            while i < n and linhas[i].lstrip().startswith(">"):
-                s = linhas[i].lstrip()[1:]
-                buf.append(s[1:] if s.startswith(" ") else s)
-                i += 1
-            blocos.append({"t": "citacao", "blocos": ler_blocos(buf)})
-            continue
-        if (linha.lstrip().startswith("|") and i + 1 < n
-                and RE_SEPARADOR.match(linhas[i + 1]) and "-" in linhas[i + 1]):
-            cab = dividir_linha(linha)
-            alin = alinhamentos(linhas[i + 1], len(cab))
-            corpo, i = [], i + 2
-            while i < n and linhas[i].lstrip().startswith("|"):
-                corpo.append(dividir_linha(linhas[i]))
-                i += 1
-            blocos.append({"t": "tabela", "cab": cab, "alin": alin, "linhas": corpo})
-            continue
-        if RE_ITEM.match(linha):
-            bloco, i = ler_lista(linhas, i)
-            blocos.append(bloco)
-            continue
-        buf, i = [linha.strip()], i + 1
-        while i < n and linhas[i].strip() and not inicia_bloco(linhas[i]):
-            buf.append(linhas[i].strip())
-            i += 1
-        blocos.append({"t": "p", "texto": " ".join(buf)})
+            bloco["larguras"] = [float(x) for x in m.group(1).split()]
+        fim = j
+        while fim > i and not linhas[fim - 1].strip():
+            fim -= 1
+        bloco["l0"], bloco["l1"] = i, fim
+        blocos.append(bloco)
+        i = j
     return blocos
+
+
+def um_bloco(linhas: list[str], i: int) -> tuple[dict, int]:
+    """Lê o bloco que começa na linha i (não vazia); devolve (bloco, linha seguinte)."""
+    n, linha = len(linhas), linhas[i]
+    m = RE_CERCA.match(linha)
+    if m:
+        buf, i = [], i + 1
+        while i < n and not RE_CERCA.match(linhas[i]):
+            buf.append(linhas[i])
+            i += 1
+        return {"t": "codigo", "texto": "\n".join(buf), "lang": m.group(2)}, i + 1
+    m = RE_TITULO.match(linha.lstrip())
+    if m:
+        return {"t": "h", "nivel": len(m.group(1)), "texto": m.group(2)}, i + 1
+    if RE_REGUA.match(linha):
+        return {"t": "regua"}, i + 1
+    if linha.lstrip().startswith(">"):
+        buf = []
+        while i < n and linhas[i].lstrip().startswith(">"):
+            s = linhas[i].lstrip()[1:]
+            buf.append(s[1:] if s.startswith(" ") else s)
+            i += 1
+        return {"t": "citacao", "blocos": ler_blocos(buf)}, i
+    if eh_tabela(linhas, i):
+        cab = dividir_linha(linha)
+        alin = alinhamentos(linhas[i + 1], len(cab))
+        corpo, i = [], i + 2
+        while i < n and linhas[i].lstrip().startswith("|"):
+            corpo.append(dividir_linha(linhas[i]))
+            i += 1
+        return {"t": "tabela", "cab": cab, "alin": alin, "linhas": corpo}, i
+    if RE_ITEM.match(linha):
+        return ler_lista(linhas, i)
+    buf, i = [linha.strip()], i + 1
+    while i < n and linhas[i].strip() and not inicia_bloco(linhas[i]):
+        buf.append(linhas[i].strip())
+        i += 1
+    return {"t": "p", "texto": " ".join(buf)}, i
 
 
 def ler_lista(linhas: list[str], i: int) -> tuple[dict, int]:
@@ -289,7 +326,12 @@ RE_A_ESTUDAR = re.compile(r"\(a estudar\)|(?<=— )a estudar\b")
 RE_PEGADINHA = re.compile(r"^(?P<s>.*?)\s*→\s*\*\*(?P<v>CERTO|ERRADO)\*\*(?P<x>.*)$")
 RE_ROTULO_PEGADINHA = re.compile(r"^(?:⚠️?\s*)?Pegadinha:\s*", re.I)
 RE_VAZOU = re.compile(r"\*\*|`|\|\s*-{3,}|\]\(|^#{1,6}\s")
-RE_IMAGEM_MD = re.compile(r"!\[([^\]]*)\]\(([^)\n]+)\)")
+# Imagem ao lado do arquivo; a largura (em % da coluna de texto) vem do editor do site.
+RE_IMAGEM_MD = re.compile(r"!\[([^\]]*)\]\(([^)\n]+)\)(?:\{largura=(\d{1,3})%\})?")
+RE_ESCAPE = re.compile(r"\\([\\`*_{}\[\]()#+\-.!|<>])")
+# Marcas HTML aceitas no texto: <br> (quebra de linha), <u> (sublinhado) e <b>/<i>, que o editor
+# usa quando o negrito ou o itálico começa ou termina no meio de uma palavra.
+RE_TAG_MD = re.compile(r"<(/?)(br|u|b|i)>")
 TIPOS_IMAGEM = {".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".png": "image/png",
                 ".gif": "image/gif", ".webp": "image/webp"}
 SELO_A_ESTUDAR = '<span class="est">a estudar</span>'
@@ -345,6 +387,20 @@ def classificar_citacao(texto: str, anterior: dict | None) -> str:
 
 # ----------------------------------------------------------------------------- renderização
 
+def num_curto(x: float) -> str:
+    return f"{x:.1f}".rstrip("0").rstrip(".")
+
+
+def colunas_html(b: dict, ncol: int) -> tuple[str, str]:
+    """(classe, <colgroup>) de uma tabela com larguras escolhidas no editor; senão ("", "")."""
+    larguras = b.get("larguras") or []
+    if len(larguras) != ncol or not all(x > 0 for x in larguras):
+        return "", ""
+    total = sum(larguras)
+    cols = "".join(f'<col style="width:{num_curto(x * 100 / total)}%">' for x in larguras)
+    return ' class="com-larguras"', f"<colgroup>{cols}</colgroup>"
+
+
 class Renderizador:
     """Converte os blocos de um documento em HTML, índice de busca e pegadinhas.
 
@@ -373,41 +429,62 @@ class Renderizador:
             self.base.aviso(self.doc, msg)
 
     # -- inline
-    def inline(self, md: str, registrar: bool = True) -> str:
+    def inline(self, md: str, registrar: bool = True, editor: bool = False) -> str:
+        """Uma linha de Markdown em HTML. Com editor=True, sai o HTML simples que o editor do
+        site edita (sem links entre temas, selos nem veredito colorido): ver `montar_md`."""
         guardados: list[str] = []
 
         def guardar(h: str) -> str:
             guardados.append(h)
             return f"\x00{len(guardados) - 1}\x00"
 
-        if self.bruto:  # resumo sintético: imagens, "\*" literal e quebras de linha do .docx
-            md = RE_IMAGEM_MD.sub(lambda m: guardar(self.imagem(m.group(1), m.group(2))), md)
-            md = re.sub(r"\\([\\`*_{}\[\]()#+\-.!|>])",
-                        lambda m: guardar(html.escape(m.group(1), quote=False)), md)
-            md = md.replace("<br>", guardar("<br>"))
-        s = RE_CODIGO.sub(lambda m: guardar(self.codigo(m.group(2), registrar)), md)
+        def marca(m: re.Match) -> str:
+            fecha, tag = m.group(1), m.group(2)
+            if tag == "br":
+                return m.group(0) if fecha else guardar("<br>")
+            return guardar(m.group(0)) if tag in pares else m.group(0)
+
+        # "\*" literal, imagens e as marcas <br>, <u>, <b> e <i> (as três últimas só em pares).
+        md = RE_ESCAPE.sub(lambda m: guardar(html.escape(m.group(1), quote=False)), md)
+        md = RE_IMAGEM_MD.sub(
+            lambda m: guardar(self.imagem(m.group(1), m.group(2), m.group(3), editor)), md)
+        pares = {t for t in ("u", "b", "i") if md.count(f"<{t}>") == md.count(f"</{t}>")}
+        md = RE_TAG_MD.sub(marca, md)
+        s = RE_CODIGO.sub(lambda m: guardar(self.codigo(m.group(2), registrar, editor)), md)
         s = html.escape(s, quote=False)
-        s = RE_VEREDITO.sub(
-            lambda m: guardar(f'<span class="vd vd-{m.group(1)[0]}">{m.group(1)}</span>'), s)
+        if not editor:
+            s = RE_VEREDITO.sub(
+                lambda m: guardar(f'<span class="vd vd-{m.group(1)[0]}">{m.group(1)}</span>'), s)
         s = RE_NEGRITO_ITALICO.sub(r"<strong><em>\1</em></strong>", s)
         s = RE_NEGRITO.sub(r"<strong>\1</strong>", s)
         s = RE_ITALICO.sub(r"<em>\1</em>", s)
-        s = RE_A_ESTUDAR.sub(SELO_A_ESTUDAR, s)
-        return re.sub(r"\x00(\d+)\x00", lambda m: guardados[int(m.group(1))], s)
+        if not editor:
+            s = RE_A_ESTUDAR.sub(SELO_A_ESTUDAR, s)
+        while "\x00" in s:  # um trecho guardado pode conter outro (ex.: "\*" dentro de `código`)
+            s = re.sub(r"\x00(\d+)\x00", lambda m: guardados[int(m.group(1))], s)
+        return s
 
-    def imagem(self, alt: str, arquivo: str) -> str:
-        """Imagem do resumo sintético, embutida na página (o site é um arquivo só)."""
+    def imagem(self, alt: str, arquivo: str, largura: str | None = None,
+               editor: bool = False) -> str:
+        """Imagem guardada ao lado do arquivo, embutida na página (o site é um arquivo só)."""
         pasta = self.doc.get("pasta_abs")
         caminho = (pasta / arquivo).resolve() if pasta else None
         tipo = TIPOS_IMAGEM.get(caminho.suffix.lower()) if caminho else None
+        extra = f' style="width:{min(100, int(largura))}%"' if largura and int(largura) else ""
+        if editor:
+            extra += f' data-arquivo="{esc(arquivo)}"'
         if not tipo or caminho.parent != pasta.resolve() or not caminho.is_file():
             self.base.aviso(self.doc, f"imagem não encontrada: {arquivo}")
+            if editor:
+                return f'<img alt="{esc(alt or "imagem não encontrada")}"{extra}>'
             return f"[imagem não encontrada: {html.escape(arquivo, quote=False)}]"
         dados = base64.b64encode(caminho.read_bytes()).decode("ascii")
-        return f'<img src="data:{tipo};base64,{dados}" alt="{esc(alt)}">'
+        return f'<img src="data:{tipo};base64,{dados}" alt="{esc(alt)}"{extra}>'
 
-    def codigo(self, conteudo: str, registrar: bool) -> str:
+    def codigo(self, conteudo: str, registrar: bool, editor: bool = False) -> str:
         c = conteudo.strip()
+        if editor:
+            return f"<code>{html.escape(c, quote=False)}</code>"
         registrar = registrar and not self.bruto
         if c.endswith(".md") or c.endswith("/"):
             alvo = self.base.resolver(c, self.doc)
@@ -560,7 +637,8 @@ class Renderizador:
                            f"{linha[0][:50]}")
             linha = (linha + [""] * ncol)[:ncol]
             corpo.append(linha_html([celula("td", c, k) for k, c in enumerate(linha)]))
-        return (f'<div class="tabela"><table><thead>{cab}</thead>'
+        classe, colunas = colunas_html(b, ncol)
+        return (f'<div class="tabela"><table{classe}>{colunas}<thead>{cab}</thead>'
                 f'<tbody>{"".join(corpo)}</tbody></table></div>')
 
     def codigo_bloco(self, b: dict) -> str:
@@ -1103,6 +1181,7 @@ class Base:
                 "id": f"{mid}.{slug(nome)}",
                 "tipo": "ctrl" if mid == "controle" else "tema",
                 "caminho": rel,
+                "pasta_abs": p.parent,
                 "materia": mid,
                 "materiaNome": materia_nome,
                 "pasta": posixpath.join(partes[0], pasta) if pasta else partes[0],
@@ -1345,6 +1424,703 @@ def contar_nos(nos: list[dict]) -> int:
     return sum(1 + contar_nos(n.get("c", [])) for n in nos)
 
 
+# ----------------------------------------------------------------------------- edição pelo site
+#
+# O editor do site recebe o arquivo em HTML simples (html_editor), o administrador edita e o
+# navegador devolve o HTML. montar_md volta ao Markdown: os blocos que não mudaram voltam ao
+# arquivo exatamente como estavam; só os alterados são escritos de novo, no estilo da base
+# (listas com "-" e recuo de 2 espaços, tabelas "| a | b |", um parágrafo por linha). Cada trecho
+# escrito é relido e comparado com o que foi editado, e nada é gravado se alguma palavra ou
+# imagem se perder na conversão.
+
+class ErroEdicao(Exception):
+    """Edição que não pode ser gravada sem perder informação (a mensagem vai para o site)."""
+
+
+VAZIOS = {"br", "img", "hr", "col", "wbr", "input", "meta", "link", "source", "area", "base"}
+IGNORADOS = {"script", "style", "template", "head", "title", "noscript", "svg", "math",
+             "button", "select", "textarea", "iframe", "object"}
+BLOCOS_HTML = {"p", "div", "h1", "h2", "h3", "h4", "h5", "h6", "ul", "ol", "li", "blockquote",
+               "table", "thead", "tbody", "tfoot", "tr", "td", "th", "caption", "colgroup", "pre",
+               "hr", "section", "article", "header", "footer", "figure", "figcaption", "main",
+               "aside", "nav", "address", "dl", "dt", "dd", "details", "summary", "center"}
+TITULOS_HTML = {"h1", "h2", "h3", "h4", "h5", "h6"}
+
+
+class No:
+    """Elemento (tag, atributos, filhos) ou trecho de texto (tag None) de uma árvore HTML."""
+    __slots__ = ("tag", "attrs", "filhos", "texto")
+
+    def __init__(self, tag: str | None = None, attrs=None, texto: str = ""):
+        self.tag, self.attrs, self.filhos, self.texto = tag, dict(attrs or {}), [], texto
+
+
+class LeitorHtml(html.parser.HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.raiz = No("raiz")
+        self.pilha = [self.raiz]
+        self.ignorar = 0
+
+    def handle_starttag(self, tag, attrs):
+        if self.ignorar or tag in IGNORADOS:
+            self.ignorar += tag not in VAZIOS
+            return
+        no = No(tag, [(k, v or "") for k, v in attrs])
+        self.pilha[-1].filhos.append(no)
+        if tag not in VAZIOS:
+            self.pilha.append(no)
+
+    def handle_startendtag(self, tag, attrs):
+        if not self.ignorar and tag not in IGNORADOS:
+            self.pilha[-1].filhos.append(No(tag, [(k, v or "") for k, v in attrs]))
+
+    def handle_endtag(self, tag):
+        if self.ignorar:
+            self.ignorar -= tag not in VAZIOS
+            return
+        for k in range(len(self.pilha) - 1, 0, -1):
+            if self.pilha[k].tag == tag:
+                del self.pilha[k:]
+                break
+
+    def handle_data(self, data):
+        if not self.ignorar:
+            self.pilha[-1].filhos.append(No(None, texto=data))
+
+
+def ler_html(h: str) -> No:
+    leitor = LeitorHtml()
+    leitor.feed(h)
+    leitor.close()
+    return leitor.raiz
+
+
+def texto_no(no: No) -> str:
+    if no.tag is None:
+        return no.texto
+    if no.tag == "br":
+        return "\n"
+    return "".join(texto_no(f) for f in no.filhos)
+
+
+def elementos(no: No, tag: str, dentro_de: str | None = None):
+    """Elementos `tag` abaixo de `no`, sem entrar em elementos `dentro_de` (ex.: tabela interna)."""
+    for f in no.filhos:
+        if f.tag == tag:
+            yield f
+        if f.tag is not None and f.tag != dentro_de:
+            yield from elementos(f, tag, dentro_de)
+
+
+def estilo(no: No, prop: str) -> str:
+    for parte in no.attrs.get("style", "").split(";"):
+        k, _, v = parte.partition(":")
+        if k.strip().lower() == prop:
+            return v.strip().lower()
+    return ""
+
+
+def largura_pct(no: No) -> float | None:
+    m = re.fullmatch(r"(\d+(?:\.\d+)?)%", estilo(no, "width") or no.attrs.get("width", "").strip())
+    return float(m.group(1)) if m and float(m.group(1)) > 0 else None
+
+
+def alinhamento(no: No) -> str | None:
+    a = estilo(no, "text-align") or no.attrs.get("align", "").lower()
+    return a if a in ("center", "right") else None
+
+
+def canonico(no: No) -> str:
+    """Forma do bloco que importa para o Markdown (tags, texto e poucos atributos)."""
+    if no.tag is None:
+        return html.escape(no.texto, quote=False)
+    extra = ""
+    if no.tag == "ol":
+        extra = no.attrs.get("start", "")
+    elif no.tag == "pre":
+        extra = no.attrs.get("data-lang", "")
+    elif no.tag in ("th", "td"):
+        extra = alinhamento(no) or ""
+    elif no.tag == "img":
+        extra = f'{no.attrs.get("data-arquivo", "")}|{largura_pct(no) or ""}'
+    elif no.tag == "col":
+        extra = str(largura_pct(no) or "")
+    return f"<{no.tag} {extra}>" + "".join(canonico(f) for f in no.filhos) + f"</{no.tag}>"
+
+
+def unidades(nos: list[No]) -> list[No]:
+    """Blocos de um contêiner: cada elemento de bloco é um; trechos soltos seguidos (texto,
+    negrito, imagem...) formam um parágrafo. Contêineres genéricos (div com blocos, section...)
+    são abertos."""
+    saida, soltos = [], []
+
+    def fechar():
+        if any(n.tag is not None or n.texto.strip() for n in soltos):
+            p = No("p")
+            p.filhos = list(soltos)
+            saida.append(p)
+        soltos.clear()
+
+    for no in nos:
+        if no.tag is None or no.tag not in BLOCOS_HTML:
+            soltos.append(no)
+            continue
+        fechar()
+        t = no.tag
+        if t in ("p", "dt", "dd", "summary", "figcaption", "caption", "address"):
+            if any(f.tag in BLOCOS_HTML for f in no.filhos):
+                saida.extend(unidades(no.filhos))
+            else:
+                p = No("p")
+                p.filhos = no.filhos
+                saida.append(p)
+        elif t in ("div", "section", "article", "header", "footer", "figure", "main", "aside",
+                   "nav", "dl", "details", "center"):
+            if any(f.tag in BLOCOS_HTML for f in no.filhos):
+                saida.extend(unidades(no.filhos))
+            else:
+                p = No("p")
+                p.filhos = no.filhos
+                saida.append(p)
+        elif t == "li":
+            lista = No("ul")
+            lista.filhos = [no]
+            saida.append(lista)
+        elif t in ("thead", "tbody", "tfoot", "tr", "td", "th", "colgroup"):
+            saida.extend(unidades(no.filhos))
+        else:
+            saida.append(no)
+    fechar()
+    return saida
+
+
+# -- trechos de uma linha: ("t", texto, marcas), ("c", código, marcas), ("br",) e
+# ("img", arquivo, alt, largura). As marcas são "b" (negrito), "i" (itálico) e "u" (sublinhado).
+
+def corridas(nos: list[No], marcas: frozenset = frozenset()) -> list[tuple]:
+    saida: list[tuple] = []
+    for no in nos:
+        t = no.tag
+        if t is None:
+            saida.append(("t", no.texto, marcas))
+            continue
+        if t == "br":
+            saida.append(("br",))
+            continue
+        if t == "img":
+            if no.attrs.get("data-arquivo"):
+                largura = largura_pct(no)
+                saida.append(("img", no.attrs["data-arquivo"], no.attrs.get("alt", ""),
+                              int(round(largura)) if largura else None))
+            continue
+        if t in ("code", "kbd", "samp", "tt"):
+            saida.append(("c", texto_no(no), marcas))
+            continue
+        novas = set(marcas)
+        if t in ("b", "strong"):
+            novas.add("b")
+        elif t in ("i", "em", "cite", "dfn", "var"):
+            novas.add("i")
+        elif t in ("u", "ins"):
+            novas.add("u")
+        peso = estilo(no, "font-weight")
+        if peso in ("bold", "bolder") or (peso.isdigit() and int(peso) >= 600):
+            novas.add("b")
+        elif peso in ("normal", "lighter") or (peso.isdigit() and int(peso) < 600):
+            novas.discard("b")
+        if estilo(no, "font-style") == "italic":
+            novas.add("i")
+        elif estilo(no, "font-style") == "normal":
+            novas.discard("i")
+        if "underline" in estilo(no, "text-decoration") + estilo(no, "text-decoration-line"):
+            novas.add("u")
+        bloco = t in BLOCOS_HTML
+        if bloco and saida and saida[-1][0] != "br":
+            saida.append(("br",))
+        saida.extend(corridas(no.filhos, frozenset(novas)))
+        if bloco:
+            saida.append(("br",))
+    return saida
+
+
+def normalizar(cs: list[tuple]) -> list[tuple]:
+    """Forma comparável dos trechos: espaços simples, marcas sem espaço nas pontas, trechos
+    vizinhos iguais juntos, sem quebras de linha no começo ou no fim."""
+    soltos: list[tuple] = []
+    for c in cs:
+        if c[0] in ("t", "c"):
+            texto = re.sub(r"[​﻿]", "", c[1])
+            texto = re.sub(r"[\s   ]+", " ", texto)
+            if c[0] == "c":
+                texto = texto.strip()
+                if texto:
+                    soltos.append(("c", texto, c[2]))
+                continue
+            miolo = texto.strip(" ")
+            if not miolo:
+                if texto:
+                    soltos.append(("t", " ", frozenset()))
+                continue
+            if texto[0] == " ":
+                soltos.append(("t", " ", frozenset()))
+            soltos.append(("t", miolo, c[2]))
+            if texto[-1] == " ":
+                soltos.append(("t", " ", frozenset()))
+        else:
+            soltos.append(c)
+    saida: list[tuple] = []
+    for c in soltos:
+        anterior = saida[-1] if saida else None
+        if c[0] == "t" and c[1] == " ":
+            if anterior is None or anterior[0] == "br" or (anterior[0] == "t" and anterior[1].endswith(" ")):
+                continue
+        if c[0] == "br" and anterior and anterior[0] == "t" and anterior[1].endswith(" "):
+            texto = anterior[1][:-1]
+            saida.pop()
+            if texto:
+                saida.append(("t", texto, anterior[2]))
+            anterior = saida[-1] if saida else None
+        if c[0] == "t" and anterior and anterior[0] == "t" and anterior[2] == c[2]:
+            saida[-1] = ("t", anterior[1] + c[1], c[2])
+            continue
+        saida.append(c)
+    while saida and (saida[-1][0] == "br" or (saida[-1][0] == "t" and saida[-1][1] == " ")):
+        saida.pop()
+    if saida and saida[-1][0] == "t" and saida[-1][1].endswith(" "):
+        saida[-1] = ("t", saida[-1][1].rstrip(" "), saida[-1][2])
+    while saida and saida[0][0] == "br":
+        saida.pop(0)
+    return saida
+
+
+def encosta(cs: list[tuple], k: int) -> bool:
+    """O trecho k encosta, sem espaço, numa letra, num número, num * ou em outro trecho marcado?"""
+    for j, lado in ((k - 1, -1), (k + 1, 0)):
+        if 0 <= j < len(cs) and cs[j][0] == "t" and (cs[j][2] or re.match(r"[\w*]", cs[j][1][lado])):
+            return True
+    return False
+
+
+def escapar_md(texto: str) -> str:
+    texto = re.sub(r"([\\*`<])", r"\\\1", texto)
+    return texto.replace("![", "\\![")
+
+
+class Escritor:
+    """Escreve em Markdown os blocos alterados no editor, conferindo cada trecho."""
+
+    def __init__(self, r: Renderizador):
+        self.r = r
+
+    # -- trechos de uma linha
+    def inline(self, nos: list[No], contexto: str = "p") -> str:
+        cs = normalizar(corridas(nos))
+        if contexto == "h":  # título é uma linha só: quebras viram espaço
+            cs = normalizar([("t", " ", frozenset()) if c[0] == "br" else c for c in cs])
+        if not cs:
+            return ""
+        # Da forma mais limpa para a mais segura: marcas ** e * com o texto como está; <b>/<i>
+        # só onde o negrito ou o itálico encosta numa letra ou em outra marca; o mesmo com "\"
+        # antes de * ` e <; e, por fim, <b>/<i> em tudo.
+        for tags, seguro in (("nao", False), ("misto", False), ("misto", True), ("sim", True)):
+            md = self.escrever(cs, tags, seguro)
+            if contexto == "cel":
+                md = md.replace("|", "\\|")
+            elif contexto in ("p", "li"):
+                md = proteger_inicio(md)
+            if self.confere(md, cs, contexto):
+                return md
+        trecho = texto_de_html("".join(c[1] for c in cs if c[0] in ("t", "c")))[:80]
+        raise ErroEdicao(f"não consegui converter este trecho sem mudar a formatação: “{trecho}”")
+
+    @staticmethod
+    def escrever(cs: list[tuple], tags: str, seguro: bool) -> str:
+        partes = []
+        for k, c in enumerate(cs):
+            if c[0] == "br":
+                partes.append("<br>")
+                continue
+            if c[0] == "img":
+                alt = re.sub(r"[\]\n]", " ", c[2]).strip()
+                partes.append(f"![{alt}]({c[1]})" + (f"{{largura={c[3]}%}}" if c[3] else ""))
+                continue
+            texto, marcas = c[1], c[2]
+            if c[0] == "c":
+                if seguro:
+                    miolo = f"`{escapar_md(texto)}`"
+                else:
+                    cerca = "`" * (max((len(x) for x in re.findall(r"`+", texto)), default=0) + 1)
+                    espaco = " " if texto.startswith("`") or texto.endswith("`") else ""
+                    miolo = f"{cerca}{espaco}{texto}{espaco}{cerca}"
+            else:
+                miolo = escapar_md(texto) if seguro else texto
+            if texto.strip() and ("b" in marcas or "i" in marcas):
+                if tags == "sim" or (tags == "misto" and encosta(cs, k)):
+                    if "i" in marcas:
+                        miolo = f"<i>{miolo}</i>"
+                    if "b" in marcas:
+                        miolo = f"<b>{miolo}</b>"
+                else:
+                    m = "***" if {"b", "i"} <= marcas else "**" if "b" in marcas else "*"
+                    miolo = f"{m}{miolo}{m}"
+            if texto.strip() and "u" in marcas:
+                miolo = f"<u>{miolo}</u>"
+            partes.append(miolo)
+        return "".join(partes)
+
+    def confere(self, md: str, cs: list[tuple], contexto: str) -> bool:
+        """Relê o Markdown escrito e confere se volta aos mesmos trechos."""
+        if contexto == "cel":
+            celulas = dividir_linha("| " + md + " |")
+            if len(celulas) != 1:
+                return False
+            md = celulas[0]
+        elif contexto == "h":
+            m = RE_TITULO.match("# " + md)
+            if not m:
+                return False
+            md = m.group(2)
+        else:
+            blocos = ler_blocos([md])
+            if len(blocos) != 1 or blocos[0]["t"] != "p":
+                return False
+            md = blocos[0]["texto"]
+        relido = normalizar(corridas(ler_html(self.r.inline(md, False, editor=True)).filhos))
+        return relido == cs
+
+    # -- blocos
+    def blocos(self, nos: list[No]) -> list[str]:
+        return [md for md in (self.bloco(u) for u in unidades(nos)) if md.strip()]
+
+    def bloco(self, no: No) -> str:
+        t = no.tag
+        if t in TITULOS_HTML:
+            texto = self.inline(no.filhos, "h")
+            return f"{'#' * int(t[1])} {texto}" if texto else ""
+        if t in ("ul", "ol"):
+            return "\n".join(self.lista(no, ""))
+        if t == "blockquote":
+            dentro = "\n\n".join(self.blocos(no.filhos))
+            return "\n".join(f"> {x}" if x else ">" for x in dentro.split("\n")) if dentro else ""
+        if t == "table":
+            return self.tabela(no)
+        if t == "pre":
+            texto = texto_no(no).strip("\n")
+            if not texto.strip():
+                return ""
+            cerca = "```"
+            while cerca in texto:
+                cerca += "`"
+            return f"{cerca}{no.attrs.get('data-lang', '')}\n{texto}\n{cerca}"
+        if t == "hr":
+            return "---"
+        return self.inline(no.filhos, "p")
+
+    def lista(self, no: No, recuo_atual: str) -> list[str]:
+        ordenada = no.tag == "ol"
+        try:
+            n = int(no.attrs.get("start") or 1)
+        except ValueError:
+            n = 1
+        itens: list[list] = []  # [li, listas internas soltas logo depois dele]
+        for f in no.filhos:
+            if f.tag == "li":
+                itens.append([f, []])
+            elif f.tag in ("ul", "ol"):  # lista dentro da lista, fora de um item (Chrome faz isso)
+                if not itens:
+                    itens.append([No("li"), []])
+                itens[-1][1].append(f)
+            elif f.tag is not None or f.texto.strip():
+                li = No("li")
+                li.filhos = [f]
+                itens.append([li, []])
+        linhas: list[str] = []
+        for li, internas in itens:
+            filhos = li.filhos + internas
+            k = 0
+            while k < len(filhos) and (filhos[k].tag is None or filhos[k].tag not in BLOCOS_HTML):
+                k += 1
+            primeira = self.inline(filhos[:k], "li")
+            resto = unidades(filhos[k:])
+            if not primeira and resto and resto[0].tag == "p":
+                primeira, resto = self.inline(resto[0].filhos, "li"), resto[1:]
+            marcador = f"{n}." if ordenada else "-"
+            dentro = recuo_atual + " " * (len(marcador) + 1)
+            corpo: list[str] = []
+            for u in resto:
+                if u.tag in ("ul", "ol"):
+                    corpo.extend(self.lista(u, dentro))
+                    continue
+                md = self.bloco(u)
+                if md.strip():
+                    corpo.append("")
+                    corpo.extend(dentro + x if x else "" for x in md.split("\n"))
+            if not primeira and not corpo:
+                continue
+            linhas.append(f"{recuo_atual}{marcador} {primeira}")
+            linhas.extend(corpo)
+            n += 1
+        return linhas
+
+    def tabela(self, no: No) -> str:
+        linhas = []
+        for tr in elementos(no, "tr", "table"):
+            celulas = []
+            for c in tr.filhos:
+                if c.tag in ("td", "th"):
+                    celulas.append((self.inline(c.filhos, "cel"), alinhamento(c)))
+                    try:
+                        extra = int(c.attrs.get("colspan") or 1) - 1
+                    except ValueError:
+                        extra = 0
+                    celulas.extend([("", None)] * max(0, min(extra, 50)))
+            if celulas:
+                linhas.append(celulas)
+        if not linhas:
+            return ""
+        ncol = max(len(x) for x in linhas)
+        linhas = [x + [("", None)] * (ncol - len(x)) for x in linhas]
+        marca = {"center": ":---:", "right": "---:", None: "---"}
+        md = ["| " + " | ".join(c[0] for c in x) + " |" for x in linhas]
+        md.insert(1, "|" + "|".join(marca[c[1]] for c in linhas[0]) + "|")
+        cols = [largura_pct(c) for c in elementos(no, "col", "table")]
+        if len(cols) == ncol and all(cols):
+            md.insert(0, f"<!-- colunas: {' '.join(num_curto(x) for x in cols)} -->")
+        legenda = " ".join(self.inline(c.filhos, "p") for c in elementos(no, "caption", "table"))
+        return (legenda + "\n\n" if legenda.strip() else "") + "\n".join(md)
+
+
+def proteger_inicio(md: str) -> str:
+    """Parágrafo que começaria um bloco ("1. ", "- ", "# ", "> ", "|"...) ganha uma barra."""
+    if not inicia_bloco(md):
+        return md
+    m = re.match(r"\s*(\d{1,9})([.)])", md)
+    if m:
+        return m.group(1) + "\\" + md[m.end(1):]
+    s = md.lstrip()
+    return "\\" + s if s[:1] in "#>|-*+`_<" else md
+
+
+def html_bloco_editor(b: dict, r: Renderizador) -> str:
+    """HTML simples de um bloco, para o editor do site (o inverso de Escritor.bloco)."""
+    t = b["t"]
+    linha = functools.partial(r.inline, registrar=False, editor=True)
+    if t == "h":
+        return f'<h{b["nivel"]}>{linha(b["texto"])}</h{b["nivel"]}>'
+    if t == "p":
+        return f"<p>{linha(b['texto'])}</p>"
+    if t in ("ul", "ol"):
+        inicio = f' start="{b["inicio"]}"' if t == "ol" and b["inicio"] not in (None, 1) else ""
+        itens = []
+        for item in b["itens"]:
+            partes = [linha(x["texto"]) if k == 0 and x["t"] == "p" else html_bloco_editor(x, r)
+                      for k, x in enumerate(item)]
+            itens.append("<li>" + "".join(partes) + "</li>")
+        return f"<{t}{inicio}>{''.join(itens)}</{t}>"
+    if t == "citacao":
+        return "<blockquote>" + "".join(html_bloco_editor(x, r) for x in b["blocos"]) + "</blockquote>"
+    if t == "tabela":
+        ncol = max([len(b["cab"])] + [len(x) for x in b["linhas"]])
+        alin = b["alin"] + [None] * (ncol - len(b["alin"]))
+        _, colunas = colunas_html(b, ncol)
+
+        def celula(tag: str, md: str, k: int) -> str:
+            st = f' style="text-align:{alin[k]}"' if alin[k] else ""
+            return f"<{tag}{st}>{linha(md)}</{tag}>"
+
+        def tr(tag: str, cels: list[str]) -> str:
+            return "<tr>" + "".join(celula(tag, c, k) for k, c in
+                                    enumerate(cels + [""] * (ncol - len(cels)))) + "</tr>"
+
+        corpo = "".join(tr("td", x) for x in b["linhas"])
+        return f"<table>{colunas}<thead>{tr('th', b['cab'])}</thead><tbody>{corpo}</tbody></table>"
+    if t == "codigo":
+        lang = f' data-lang="{esc(b["lang"])}"' if b.get("lang") else ""
+        return f'<pre{lang}><code>{html.escape(b["texto"], quote=False)}</code></pre>'
+    return "<hr>"
+
+
+def renderizador_editor(caminho: Path) -> Renderizador:
+    tipo = "sint" if caminho.parent.name == PASTA_SINTETICO else "tema"
+    doc = {"id": "", "tipo": tipo, "caminho": caminho.relative_to(BASE).as_posix(),
+           "pasta_abs": caminho.parent}
+    return Renderizador(Base(), doc)
+
+
+def html_editor(texto: str, caminho: Path, numerar: bool = False) -> str:
+    """HTML do arquivo para o editor. Com numerar=True, cada bloco leva data-o="k": o navegador
+    devolve os blocos que continuam iguais como <hr data-o-igual="k">, e eles voltam ao arquivo
+    exatamente como eram (ver `montar_md`)."""
+    r = renderizador_editor(caminho)
+    partes = [html_bloco_editor(b, r) for b in ler_blocos(texto.split("\n"))]
+    if numerar:
+        partes = [re.sub(r"^<(\w+)", rf'<\1 data-o="{k}"', h, count=1) for k, h in enumerate(partes)]
+    return "".join(partes)
+
+
+def texto_separado(no: No) -> str:
+    """Texto com espaço entre blocos (para não juntar a última palavra de um à primeira do outro)."""
+    if no.tag is None:
+        return no.texto
+    miolo = "".join(texto_separado(f) for f in no.filhos)
+    return f" {miolo} " if no.tag in BLOCOS_HTML or no.tag == "br" else miolo
+
+
+def palavras_e_imagens(raiz: No) -> tuple[list[str], list[str]]:
+    return (re.findall(r"\w+", texto_separado(raiz)),
+            [i.attrs.get("data-arquivo", "") for i in elementos(raiz, "img")
+             if i.attrs.get("data-arquivo")])
+
+
+def montar_md(original: str, raiz: No, caminho: Path) -> str:
+    """Markdown do arquivo editado: blocos iguais aos do original voltam como eram no arquivo."""
+    linhas = original.split("\n")
+    blocos = ler_blocos(linhas)
+    r = renderizador_editor(caminho)
+    originais = [ler_html(html_bloco_editor(b, r)).filhos[0] for b in blocos]
+    antes = [canonico(o) for o in originais]
+    # Blocos que o navegador marcou como intactos (<hr data-o-igual="k">) voltam como eram.
+    novos: list[No] = []
+    iguais: dict[int, int] = {}
+    for u in unidades(raiz.filhos):
+        k = u.attrs.get("data-o-igual", "") if u.tag == "hr" else ""
+        if k.isdigit() and int(k) < len(blocos):
+            iguais[len(novos)] = int(k)
+            novos.append(originais[int(k)])
+        else:
+            novos.append(u)
+    raiz = No("raiz")
+    raiz.filhos = novos
+    # Os outros são comparados pela forma; só os diferentes são escritos de novo.
+    livres = [i for i in range(len(novos)) if i not in iguais]
+    usados = set(iguais.values())
+    candidatos = [k for k in range(len(blocos)) if k not in usados]
+    comparador = difflib.SequenceMatcher(None, [canonico(novos[i]) for i in livres],
+                                         [antes[k] for k in candidatos], autojunk=False)
+    for a, b, tamanho in comparador.get_matching_blocks():
+        for k in range(tamanho):
+            iguais[livres[a + k]] = candidatos[b + k]
+    escritor = Escritor(r)
+    pedacos: list[tuple[str, int | None]] = []
+    for i, u in enumerate(novos):
+        if i in iguais:
+            b = blocos[iguais[i]]
+            pedacos.append(("\n".join(linhas[b["l0"]:b["l1"]]), iguais[i]))
+        else:
+            md = escritor.bloco(u)
+            if md.strip():
+                pedacos.append((md, None))
+    saida = ""
+    for j, (md, k) in enumerate(pedacos):
+        if j:
+            ka = pedacos[j - 1][1]
+            if k is not None and ka is not None and k == ka + 1:
+                entre = linhas[blocos[ka]["l1"]:blocos[k]["l0"]]
+                saida += "\n" + "".join(x + "\n" for x in entre)
+            else:
+                saida += "\n\n"
+        saida += md
+    saida = saida.rstrip("\n") + "\n"
+    enviado = palavras_e_imagens(raiz)
+    gravado = palavras_e_imagens(ler_html(html_editor(saida, caminho)))
+    if enviado != gravado:
+        for k, (x, y) in enumerate(zip(enviado[0] + [""], gravado[0] + [""])):
+            if x != y:
+                perto = " ".join(enviado[0][max(0, k - 6):k + 6])
+                raise ErroEdicao(f"a conversão mudaria o texto perto de “{perto}”; nada foi gravado")
+        raise ErroEdicao("a conversão perderia uma imagem; nada foi gravado")
+    return saida
+
+
+def localizar_doc(doc_id: str) -> Path | None:
+    """Arquivo de um tema ou de uma parte do resumo sintético, pelo id usado no site."""
+    for pasta in sorted(BASE.iterdir()):
+        mid = slug(pasta.name)
+        if not pasta.is_dir() or pasta.name == CONTROLE or not doc_id.startswith(mid + "."):
+            continue
+        for p in sorted(pasta.rglob("*.md")):
+            if PASTA_SINTETICO not in p.relative_to(pasta).parts and f"{mid}.{slug(p.stem)}" == doc_id:
+                return p
+        sint = pasta / PASTA_SINTETICO
+        if sint.is_dir():
+            for p in sint.iterdir():
+                if (p.is_file() and p.suffix.lower() in (".md", ".txt")
+                        and not p.name.upper().startswith("LEIA-ME")
+                        and f"{mid}.sint.{slug(p.stem)}" == doc_id):
+                    return p
+    return None
+
+
+def versao_de(dados: bytes) -> str:
+    return hashlib.sha1(dados).hexdigest()[:16]
+
+
+def decodificar(dados: bytes) -> str:
+    try:
+        texto = dados.decode("utf-8-sig")
+    except UnicodeDecodeError:
+        texto = dados.decode("cp1252", errors="replace")
+    return texto.replace("\r\n", "\n").replace("\r", "\n")
+
+
+def nomear_imagens_novas(raiz: No, caminho: Path) -> list[tuple[str, bytes]]:
+    """Dá nome às imagens coladas no editor ("<arquivo> - imagem N.ext", ao lado do arquivo)."""
+    usados = set()
+    for p in caminho.parent.iterdir():
+        m = re.match(re.escape(caminho.stem) + r" - imagem (\d+)\.", p.name)
+        if m:
+            usados.add(int(m.group(1)))
+    novas, k = [], 0
+    for img in elementos(raiz, "img"):
+        if img.attrs.get("data-arquivo"):
+            continue
+        m = re.match(r"data:image/(png|jpe?g|gif|webp);base64,(.+)$", img.attrs.get("src", ""), re.S)
+        if not m:
+            continue  # imagem de fora (link da internet): não dá para guardar
+        k += 1
+        while k in usados:
+            k += 1
+        extensao = ".jpg" if m.group(1).startswith("jp") else "." + m.group(1)
+        arquivo = f"{caminho.stem} - imagem {k}{extensao}"
+        img.attrs["data-arquivo"] = arquivo
+        img.attrs.setdefault("alt", "imagem")
+        novas.append((arquivo, base64.b64decode(m.group(2))))
+    return novas
+
+
+def guardar_anterior(caminho: Path, dados: bytes) -> Path:
+    """Cópia do arquivo antes da edição, em edicoes-anteriores/ (fora do git), com data e hora."""
+    rel = caminho.relative_to(BASE)
+    destino = (EDICOES_ANTERIORES / rel.parent /
+               f"{caminho.stem} ({datetime.now():%Y-%m-%d %H-%M-%S}){caminho.suffix}")
+    destino.parent.mkdir(parents=True, exist_ok=True)
+    destino.write_bytes(dados)
+    return destino
+
+
+def senha_confere(usuario: str, senha: str) -> bool:
+    iteracoes, sal, esperado = ADMIN_SENHA
+    obtido = hashlib.pbkdf2_hmac("sha256", senha.encode("utf-8"), bytes.fromhex(sal), iteracoes)
+    return hmac.compare_digest(obtido.hex(), esperado) and usuario.strip().upper() == ADMIN_USUARIO
+
+
+def assinatura_sessao(validade: str) -> str:
+    chave = hashlib.sha256(b"estudos-sessao:" + bytes.fromhex(ADMIN_SENHA[2])).digest()
+    return hmac.new(chave, validade.encode("ascii"), hashlib.sha256).hexdigest()
+
+
+def nova_sessao() -> str:
+    validade = str(int(time.time()) + SESSAO_DIAS * 86400)
+    return f"{validade}.{assinatura_sessao(validade)}"
+
+
+def sessao_valida(sessao: str | None) -> bool:
+    validade, _, assinatura = (sessao or "").partition(".")
+    return (validade.isdigit() and int(validade) > time.time()
+            and hmac.compare_digest(assinatura_sessao(validade), assinatura))
+
+
 # ----------------------------------------------------------------------------- saída
 
 DESCRICAO = ("Base de estudos para Auditor Fiscal: resumos por matéria e por tópico, mapas "
@@ -1407,10 +2183,12 @@ TRAVA_GERACAO = threading.Lock()
 
 
 class Manipulador(http.server.SimpleHTTPRequestHandler):
-    """Serve a pasta site/ sem cache e recebe as novas partes do resumo sintético.
+    """Serve a pasta site/ sem cache, recebe as novas partes do resumo sintético e as edições.
 
-    O envio só é aceito da própria página em localhost (Host e Origin conferidos, cabeçalho
-    X-Estudos obrigatório): outro site aberto no navegador não consegue gravar nada.
+    Os pedidos só são aceitos da própria página em localhost (Host e Origin conferidos,
+    cabeçalho X-Estudos obrigatório): outro site aberto no navegador não consegue gravar nada.
+    Abrir e salvar uma edição exige ainda a sessão do administrador (X-Estudos-Sessao), obtida
+    em /__estudos/entrar com usuário e senha.
     """
 
     def end_headers(self) -> None:
@@ -1432,28 +2210,148 @@ class Manipulador(http.server.SimpleHTTPRequestHandler):
         return (self.headers.get("Host") in hosts and self.headers.get("X-Estudos") == "1"
                 and (origem is None or origem in {f"http://{h}" for h in hosts}))
 
+    def administrador(self) -> bool:
+        return self.da_propria_pagina() and sessao_valida(self.headers.get("X-Estudos-Sessao"))
+
     def do_GET(self) -> None:
-        if self.path.split("?")[0] == ROTA_SINTETICO:
+        url = urlsplit(self.path)
+        if url.path in (ROTA_SINTETICO, ROTA_SESSAO, ROTA_FONTE):
             if not self.da_propria_pagina():
                 self.responder(403, {"ok": False, "erro": "pedido recusado"})
-            else:
+            elif url.path == ROTA_SINTETICO:
                 self.responder(200, {"ok": True})
+            elif not self.administrador():
+                self.responder(401, {"ok": False, "erro": "entre como administrador"})
+            elif url.path == ROTA_SESSAO:
+                self.responder(200, {"ok": True})
+            else:
+                self.abrir_fonte((parse_qs(url.query).get("id") or [""])[0])
             return
         super().do_GET()
 
+    def ler_pedido(self) -> dict | None:
+        """Corpo JSON do pedido (ou None, já respondido com o erro)."""
+        tamanho = int(self.headers.get("Content-Length") or 0)
+        if not 0 < tamanho <= LIMITE_SINTETICO:
+            self.responder(413, {"ok": False, "erro": "texto vazio ou grande demais"})
+            return None
+        try:
+            pedido = json.loads(self.rfile.read(tamanho).decode("utf-8"))
+        except ValueError:
+            pedido = None
+        if not isinstance(pedido, dict):
+            self.responder(400, {"ok": False, "erro": "pedido inválido"})
+            return None
+        return pedido
+
     def do_POST(self) -> None:
-        if self.path.split("?")[0] != ROTA_SINTETICO:
+        rota = urlsplit(self.path).path
+        if rota not in (ROTA_SINTETICO, ROTA_ENTRAR, ROTA_SALVAR):
             self.responder(404, {"ok": False, "erro": "endereço desconhecido"})
             return
         if not self.da_propria_pagina():
             self.responder(403, {"ok": False, "erro": "pedido recusado"})
             return
-        tamanho = int(self.headers.get("Content-Length") or 0)
-        if not 0 < tamanho <= LIMITE_SINTETICO:
-            self.responder(413, {"ok": False, "erro": "texto vazio ou grande demais"})
+        if rota == ROTA_ENTRAR:
+            self.entrar()
+        elif rota == ROTA_SALVAR:
+            if not self.administrador():
+                self.responder(401, {"ok": False, "erro": "a sessão expirou; entre de novo"})
+                return
+            self.salvar_edicao()
+        else:
+            self.receber_sintetico()
+
+    def entrar(self) -> None:
+        pedido = self.ler_pedido()
+        if pedido is None:
+            return
+        usuario, senha = pedido.get("usuario"), pedido.get("senha")
+        if not (isinstance(usuario, str) and isinstance(senha, str) and senha_confere(usuario, senha)):
+            time.sleep(1)  # atrasa tentativas seguidas
+            self.responder(401, {"ok": False, "erro": "usuário ou senha incorretos"})
+            return
+        print("Administrador: entrou no site.", flush=True)
+        self.responder(200, {"ok": True, "sessao": nova_sessao(), "dias": SESSAO_DIAS})
+
+    def abrir_fonte(self, doc_id: str) -> None:
+        caminho = localizar_doc(doc_id) if doc_id else None
+        if caminho is None:
+            self.responder(404, {"ok": False, "erro": "arquivo não encontrado"})
+            return
+        dados = caminho.read_bytes()
+        texto = decodificar(dados)
+        resposta = {"ok": True, "versao": versao_de(dados), "formato": caminho.suffix.lower()[1:],
+                    "arquivo": caminho.relative_to(BASE).as_posix()}
+        if caminho.suffix.lower() == ".txt":
+            resposta["texto"] = texto
+        else:
+            resposta["html"] = html_editor(texto, caminho, numerar=True)
+        self.responder(200, resposta)
+
+    def salvar_edicao(self) -> None:
+        pedido = self.ler_pedido()
+        if pedido is None:
+            return
+        doc_id = pedido.get("id")
+        caminho = localizar_doc(doc_id) if isinstance(doc_id, str) and doc_id else None
+        if caminho is None:
+            self.responder(404, {"ok": False, "erro": "arquivo não encontrado"})
+            return
+        rel = caminho.relative_to(BASE).as_posix()
+        txt = caminho.suffix.lower() == ".txt"
+        conteudo = pedido.get("texto" if txt else "html")
+        if not isinstance(conteudo, str):
+            self.responder(400, {"ok": False, "erro": "pedido inválido"})
+            return
+        with TRAVA_GERACAO:
+            dados = caminho.read_bytes()
+            if pedido.get("versao") != versao_de(dados):
+                self.responder(409, {"ok": False, "erro": "o arquivo mudou desde que o editor foi "
+                                     "aberto (em outra aba ou fora do site); copie o que editou, "
+                                     "recarregue a página e edite de novo"})
+                return
+            original = decodificar(dados)
+            imagens: list[tuple[str, bytes]] = []
+            if txt:
+                novo = conteudo.replace("\r\n", "\n").replace("\r", "\n")
+            else:
+                try:
+                    raiz = ler_html(conteudo)
+                    imagens = nomear_imagens_novas(raiz, caminho)
+                    novo = montar_md(original, raiz, caminho)
+                except ErroEdicao as erro:
+                    self.responder(422, {"ok": False, "erro": str(erro)})
+                    return
+            if not novo.strip():
+                self.responder(422, {"ok": False, "erro": "o texto ficaria vazio; nada foi gravado"})
+                return
+            if novo == original:
+                self.responder(200, {"ok": True, "arquivo": rel, "semMudanca": True, "avisos": []})
+                return
+            copia = guardar_anterior(caminho, dados)
+            for arquivo, bytes_imagem in imagens:
+                (caminho.parent / arquivo).write_bytes(bytes_imagem)
+            saida = novo.replace("\n", "\r\n") if b"\r\n" in dados else novo
+            prefixo = b"\xef\xbb\xbf" if dados.startswith(b"\xef\xbb\xbf") else b""
+            caminho.write_bytes(prefixo + saida.encode("utf-8"))
+            print(f"Edição do administrador: ESTUDOS/{rel} (versão anterior em "
+                  f"{copia.relative_to(RAIZ).as_posix()})", flush=True)
+            try:
+                base, _, _ = gerar()
+            except Exception as erro:  # o arquivo já está salvo; só a geração falhou
+                self.responder(500, {"ok": False, "arquivo": rel,
+                                     "erro": f"edição salva, mas o site não foi gerado: {erro}"})
+                return
+        avisos = [a[len(rel) + 2:] for a in base.avisos if a.startswith(rel + ":")]
+        self.responder(200, {"ok": True, "arquivo": rel, "avisos": avisos,
+                             "imagens": [a for a, _ in imagens]})
+
+    def receber_sintetico(self) -> None:
+        pedido = self.ler_pedido()
+        if pedido is None:
             return
         try:
-            pedido = json.loads(self.rfile.read(tamanho).decode("utf-8"))
             materia, texto = pedido["materia"], pedido.get("texto", "")
             docx = base64.b64decode(pedido["docx"]) if pedido.get("docx") else b""
         except (ValueError, KeyError, TypeError, AttributeError):

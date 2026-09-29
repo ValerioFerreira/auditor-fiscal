@@ -6,6 +6,9 @@ ENTRADA/
 # Saídas do sistema de leitura (recriadas por: python sistema/gerar.py)
 site/
 sistema/pagina-privada/
+
+# Cópia de cada arquivo antes de uma edição feita pelo site (administrador)
+edicoes-anteriores/
 __pycache__/
 .claude/launch.json
 

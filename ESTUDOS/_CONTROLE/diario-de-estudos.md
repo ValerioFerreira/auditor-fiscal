@@ -47,3 +47,4 @@
 - **Menu da disciplina:** as abas (Visão geral, Resumo geral...) ficam numa faixa fixa logo abaixo da busca, sempre no mesmo lugar; só o conteúdo abaixo muda. A busca fica sempre centralizada no topo.
 - **Última leitura:** os cards das disciplinas, a ordenação, o menu lateral e a página da disciplina mostram a data do último Lido marcado (tópico ou resumo geral), no lugar da data do último resumo.
 - **Versão da base:** deixou de aparecer no site (fica só aqui e em `assuntos-estudados.md`).
+- **Login de administrador e editor:** botão "Entrar" no canto superior direito (não obrigatório). Com o site aberto por `python sistema/gerar.py --servir` e o login feito, os tópicos e as partes do resumo sintético podem ser editados no próprio site (texto, títulos, listas, tabelas com largura de colunas, imagens). Só os blocos alterados são regravados no arquivo; a versão anterior fica em `edicoes-anteriores/` (fora do git).

@@ -677,6 +677,78 @@ body.com-achados .dock { bottom: calc(76px + env(safe-area-inset-bottom, 0px)); 
 .ach-cont { min-width: 64px; padding: 0 8px; color: var(--ink-3); text-align: center; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .ach-cima svg { transform: rotate(180deg); }
 
+/* ---------- Administrador: login, botões Editar e editor ---------- */
+.bt-adm svg { width: 17px; height: 17px; }
+.bt-adm.logado { color: var(--ink); }
+.bt-adm.logado::after { content: ""; width: 7px; height: 7px; margin-left: -2px; border-radius: 50%; background: var(--ok); }
+.so-adm { display: none !important; }
+body.adm:not(.editando) .so-adm { display: inline-flex !important; }
+.dlg-rot { display: grid; gap: 6px; font: 600 13px/1.2 var(--font-ui); color: var(--ink-2); }
+.dlg-rot input { width: 100%; height: 44px; padding: 0 12px; border: 1px solid var(--rule-2); border-radius: 10px; background: var(--paper); color: var(--ink); font: 500 16px/1 var(--font-ui); }
+.dlg-rot input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.bt-editar svg { width: 16px; height: 16px; }
+.g-ass { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.g-editar, .s-editar { align-items: center; gap: 6px; height: 28px; padding: 0 10px; border: 1px solid var(--rule-2); border-radius: 8px; background: var(--raised); color: var(--ink-2); font: 600 12px/1 var(--font-ui); letter-spacing: 0; text-transform: none; cursor: pointer; white-space: nowrap; }
+.g-editar:hover, .s-editar:hover { color: var(--ink); border-color: var(--ink-3); }
+.g-editar svg, .s-editar svg { width: 14px; height: 14px; }
+.s-div::after { order: 1; }
+.s-editar { order: 2; }
+body.editando .toc, body.editando .toc-movel, body.editando .caneta, body.editando .doc-fim, body.editando .citado, body.editando .doc-nav, body.editando .modo, body.editando .s-add, body.editando .s-indice { display: none !important; }
+body.editando .doc-grade { grid-template-columns: minmax(0, 1fr) !important; }
+.ed { position: relative; }
+.ed-barra { position: sticky; top: calc(var(--top-h) + var(--faixa) + 8px + env(safe-area-inset-top, 0px)); z-index: 30; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 2px; margin: 0 0 16px; padding: 6px; border: 1px solid var(--rule-2); border-radius: 12px; background: var(--raised); box-shadow: var(--shadow); font: 500 13px/1 var(--font-ui); text-align: left; }
+.ed-grupo { display: flex; flex-wrap: wrap; align-items: center; gap: 2px; padding-right: 6px; margin-right: 4px; border-right: 1px solid var(--rule); }
+.ed-grupo:last-of-type { border-right: 0; }
+.ed-ctx { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 4px; width: 100%; padding: 6px 4px 2px; border-top: 1px solid var(--rule); }
+.ed-ctx-rot { margin-right: 4px; font: 700 11px/1 var(--font-ui); letter-spacing: .08em; text-transform: uppercase; color: var(--m, var(--ink-3)); }
+.ed-bt { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-width: 34px; height: 34px; padding: 0 7px; border: 0; border-radius: 8px; background: none; color: var(--ink-2); font: 600 13px/1 var(--font-ui); cursor: pointer; white-space: nowrap; }
+.ed-bt:hover { background: var(--hover); color: var(--ink); }
+.ed-bt[aria-pressed="true"] { background: color-mix(in srgb, var(--m, var(--accent)) 16%, transparent); color: var(--ink); }
+.ed-bt:disabled { opacity: .35; cursor: default; background: none; }
+.ed-bt svg { width: 18px; height: 18px; }
+.ed-letra { font: 700 16px/1 var(--font-serif); }
+.ed-sel { height: 34px; max-width: 170px; padding: 0 8px; border: 1px solid var(--rule-2); border-radius: 8px; background: var(--paper); color: var(--ink); font: 600 13px/1 var(--font-ui); cursor: pointer; }
+.ed-fim { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px; margin-left: auto; }
+.ed-st { max-width: 42ch; font: 500 12.5px/1.35 var(--font-ui); color: var(--ink-3); }
+.ed-st.erro { color: var(--err); font-weight: 600; }
+.ed-fim .bt { height: 34px; padding: 0 12px; }
+.ed-faixa { display: flex; align-items: center; gap: 8px; }
+.ed-faixa input { width: 140px; accent-color: var(--m, var(--accent)); }
+.ed-faixa output { min-width: 3.2em; font-variant-numeric: tabular-nums; color: var(--ink); }
+.ed-pop { position: absolute; z-index: 40; display: grid; gap: 10px; width: 230px; padding: 14px; border: 1px solid var(--rule-2); border-radius: 12px; background: var(--raised); box-shadow: var(--shadow); font: 500 13px/1.3 var(--font-ui); }
+.ed-pop label { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-weight: 600; color: var(--ink-2); }
+.ed-pop input { width: 72px; height: 34px; padding: 0 8px; border: 1px solid var(--rule-2); border-radius: 8px; background: var(--paper); color: var(--ink); font: 600 14px/1 var(--font-ui); }
+.ed-area { min-height: 45vh; padding: 20px 22px; border: 1px dashed color-mix(in srgb, var(--m, var(--accent)) 50%, var(--rule-2)); border-radius: 12px; background: var(--raised); outline: none; caret-color: var(--m, var(--accent)); }
+.ed-area:focus { border-style: solid; box-shadow: 0 0 0 3px color-mix(in srgb, var(--m, var(--accent)) 16%, transparent); }
+.ed-area > :first-child { margin-top: 0; }
+.ed-area h1 { margin: .2em 0 .7em; font: 650 1.9em/1.2 var(--font-serif); letter-spacing: -.015em; }
+.ed-area h5, .ed-area h6 { margin: 1.4em 0 .4em; font: 700 .78em/1.3 var(--font-ui); letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+.ed-area blockquote { margin: 1.1em 0; padding: .7em 1em; border-left: 3px solid var(--m, var(--accent)); border-radius: 0 8px 8px 0; background: var(--panel); }
+.ed-area blockquote > :last-child { margin-bottom: 0; }
+.ed-area table { width: 100%; margin: 1.1em 0 1.5em; border-collapse: collapse; font-size: .9em; line-height: 1.5; }
+.ed-area table:has(col) { table-layout: fixed; }
+.ed-area th, .ed-area td { padding: .55em .8em; border: 1px solid var(--rule-2); vertical-align: top; text-align: left; overflow-wrap: anywhere; }
+.ed-area th { background: var(--panel); color: var(--ink-2); font: 650 .86em/1.35 var(--font-ui); }
+.ed-area td p, .ed-area th p { margin: 0; text-align: inherit; }
+.ed-area.ed-borda, .ed-area.ed-borda * { cursor: col-resize !important; }
+.ed-area pre { padding: .8em 1em; border-radius: 8px; background: var(--panel); font: 500 .85em/1.55 var(--font-mono); white-space: pre-wrap; }
+.ed-area pre code { padding: 0; background: none; font: inherit; }
+.ed-area img { max-width: 100%; cursor: pointer; }
+.ed-area img.ed-img-sel { outline: 3px solid var(--m, var(--accent)); outline-offset: 3px; }
+.doc-corpo img[style*="width"] { max-width: 100%; }
+.tabela table.com-larguras { table-layout: fixed; }
+.tabela table.com-larguras td { min-width: 0; }
+.ed-txt { display: block; width: 100%; min-height: 50vh; padding: 18px 20px; border: 1px dashed color-mix(in srgb, var(--m, var(--accent)) 50%, var(--rule-2)); border-radius: 12px; background: var(--raised); color: var(--ink); font: 400 var(--fs)/1.7 var(--font-read); resize: vertical; }
+.ed-txt:focus { outline: none; border-style: solid; box-shadow: 0 0 0 3px color-mix(in srgb, var(--m, var(--accent)) 16%, transparent); }
+.ed-dica { margin: 10px 2px 0; font: 500 12.5px/1.5 var(--font-ui); color: var(--ink-3); }
+.recado { position: fixed; z-index: 80; left: 50%; top: calc(var(--top-h) + 14px + env(safe-area-inset-top, 0px)); display: flex; align-items: flex-start; gap: 10px; width: min(560px, calc(100vw - 32px)); padding: 12px 8px 12px 16px; border: 1px solid var(--rule-2); border-radius: 12px; background: var(--raised); box-shadow: var(--shadow); color: var(--ink); font: 500 14px/1.45 var(--font-ui); transform: translateX(-50%); }
+.recado.ok { border-color: color-mix(in srgb, var(--ok) 45%, var(--rule-2)); }
+.recado.alerta { border-color: var(--warn-bd); background: var(--warn-bg); }
+.recado .rec-txt { flex: 1 1 auto; min-width: 0; padding-top: 7px; }
+.recado p { margin: 0; }
+.recado .rec-sub { margin-top: 8px; font-weight: 650; }
+.recado ul { margin: 4px 0 0; padding-left: 18px; }
+
 /* ---------- Telas menores e modo foco ---------- */
 @media (min-width: 720px) { .principal { --pad-x: 40px; } }
 @media (min-width: 960px) { body:not(.sem-lateral):not(.foco) .dock { left: calc(var(--side-w) + 24px); } }
@@ -684,8 +756,9 @@ body.com-achados .dock { bottom: calc(76px + env(safe-area-inset-bottom, 0px)); 
 @media (max-width: 959px) {
   .grade { grid-template-columns: minmax(0, 1fr); }
   .bt-menu { display: inline-grid; margin-left: -6px; }
-  .bt-peg span { display: none; }
-  .bt-peg { padding: 0 10px; }
+  .bt-peg span, .bt-adm .adm-rot { display: none; }
+  .bt-peg, .bt-adm { padding: 0 10px; }
+  .ed-st { max-width: none; width: 100%; order: -1; text-align: right; }
   .lateral { position: fixed; z-index: 60; top: 0; bottom: 0; left: 0; width: min(88vw, 330px); height: auto; padding-top: calc(18px + env(safe-area-inset-top, 0px)); padding-bottom: calc(28px + env(safe-area-inset-bottom, 0px)); border-right: 1px solid var(--rule); box-shadow: var(--shadow); transform: translateX(-102%); transition: transform .2s ease; visibility: hidden; }
   body.menu-aberto .lateral { transform: none; visibility: visible; }
   .mf-dica { display: none; }
@@ -732,7 +805,7 @@ body.foco .toc { display: none; }
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
 @media print {
-  .topo, .lateral, .toc, .toc-movel, .achados, .doc-nav, .bt-fav, .citado, .ajustes, .veu, .pular, .dock, .paleta, .faixa, .modo, .doc-fim, .doc-acoes { display: none !important; }
+  .topo, .lateral, .toc, .toc-movel, .achados, .doc-nav, .bt-fav, .citado, .ajustes, .veu, .pular, .dock, .paleta, .faixa, .modo, .doc-fim, .doc-acoes, .so-adm, .recado, .ed-barra { display: none !important; }
   .grade { display: block; }
   .principal { padding: 0; }
   body { background: #fff; color: #000; }
@@ -758,6 +831,7 @@ body.foco .toc { display: none; }
   <div class="acoes-topo">
     <a class="bt-topo bt-peg" id="ui-peg" href="#pegadinhas" title="Pegadinhas CEBRASPE"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7" cy="7.5" r="2.75"/><circle cx="7" cy="16.5" r="2.75"/><path d="M13 7.5h7M13 16.5h7"/></svg><span>Pegadinhas</span></a>
     <button class="bt-topo bt-aa" id="ui-bt-ajustes" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="ui-ajustes" title="Ajustes de leitura"><span aria-hidden="true">Aa</span><span class="sr">Ajustes de leitura</span></button>
+    <button class="bt-topo bt-adm" id="ui-adm" type="button" aria-haspopup="dialog" title="Entrar como administrador (para editar os textos)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg><span class="adm-rot">Entrar</span></button>
   </div>
 </header>
 <div class="grade">
@@ -831,6 +905,8 @@ body.foco .toc { display: none; }
   <button type="button" class="pal-rem" data-pal="remover" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M10 7V5h4v2M7 7l1 12h8l1-12"/></svg>Remover marcação</button>
 </div>
 <dialog class="dlg" id="ui-dlg" aria-labelledby="ui-dlg-tit"></dialog>
+<div class="recado" id="ui-recado" role="status" aria-live="polite" hidden></div>
+<input type="file" id="ui-ed-arq" accept="image/png,image/jpeg,image/gif,image/webp" hidden>
 <script id="dados" type="application/json">__DADOS_JSON__</script>
 <script>
 (() => {
@@ -867,7 +943,9 @@ body.foco .toc { display: none; }
     menos: svg('<path d="M6 12h12"/>'),
     ajustar: svg('<path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/>'),
     fechar: svg('<path d="M7 7l10 10M17 7 7 17"/>'),
-    lixo: svg('<path d="M5 7h14M10 7V5h4v2M7 7l1 12h8l1-12"/>')
+    lixo: svg('<path d="M5 7h14M10 7V5h4v2M7 7l1 12h8l1-12"/>'),
+    lapis: svg('<path d="M4 20h4L19 9a2.1 2.1 0 0 0-3-3L5 17z"/><path d="m14 7 3 3"/>'),
+    pessoa: svg('<circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/>')
   };
   const CORES = { 1: 'Muito importante', 2: 'Importante', 3: 'Atenção', 4: 'Pegadinha' };
 
@@ -1126,6 +1204,8 @@ body.foco .toc { display: none; }
     const on = favoritos.includes(id);
     return `<button class="bt-fav" type="button" data-fav="${id}" aria-pressed="${on}">${ICO.estrela}<span>${on ? 'Favorito' : 'Favoritar'}</span></button>`;
   }
+  // Só aparece com o administrador conectado (body.adm); ver "Administrador" mais abaixo.
+  const botaoEditar = id => `<button class="bt-fav bt-editar so-adm" type="button" data-editar="${id}" title="Editar o texto deste tópico">${ICO.lapis}<span>Editar</span></button>`;
   function alternarFavorito(id) {
     const i = favoritos.indexOf(id);
     if (i >= 0) favoritos.splice(i, 1); else favoritos.push(id);
@@ -1608,6 +1688,7 @@ body.foco .toc { display: none; }
     return r.v;
   }
   function ir(r, { substituir = false, op = {} } = {}) {
+    if (editor && !podeSair(() => ir(r, { substituir, op }))) return;
     rota = r;
     renderizar(r, op);
     try {
@@ -1619,6 +1700,10 @@ body.foco .toc { display: none; }
     let r = lerRota(location.hash);
     if (r.v === 'busca' && !busca.q.trim()) r = { v: 'inicio' };
     if (rota && token(r) === token(rota)) return;
+    if (editor && !podeSair(() => { rota = r; renderizar(r, {}); try { history.replaceState(null, '', '#' + token(r)); } catch (e) { /* sem histórico */ } })) {
+      try { history.pushState(null, '', '#' + token(rota)); } catch (e) { /* sem histórico */ } // fica no texto em edição até decidir
+      return;
+    }
     rota = r;
     renderizar(r, {});
   }
@@ -1820,7 +1905,7 @@ body.foco .toc { display: none; }
     vista.innerHTML = `<div class="doc c-${m.cor}">
       <header class="doc-cab">
         <nav class="migalhas" aria-label="Localização">${tema ? `${d.num ? `<span class="num">${esc(d.num)}</span>` : ''}<span>${esc(d.assunto)}</span>` : `<span class="aba">${esc(m.sigla)}</span><span>${esc(m.nome)}</span>`}</nav>
-        <div class="doc-tit-linha"><h1 class="doc-tit">${esc(d.titulo)}</h1><div class="doc-acoes">${tema ? botaoLido(id) : ''}${botaoFav(id)}</div></div>
+        <div class="doc-tit-linha"><h1 class="doc-tit">${esc(d.titulo)}</h1><div class="doc-acoes">${tema ? botaoLido(id) : ''}${botaoFav(id)}${tema ? botaoEditar(id) : ''}</div></div>
         ${d.resumo ? `<p class="doc-resumo">${d.resumo}</p>` : ''}
         <p class="doc-meta"><span>≈ ${plural(minutos, 'minuto', 'minutos')} de leitura</span><span>${plural(nSecoes, 'seção', 'seções')}</span>${d.pag ? `<a href="#${m.id}_geral~p${d.pag[0]}">${faixaPag(d.pag)} do resumo geral</a>` : ''}${d.status === '🔶' ? '<a class="selo selo-pend" href="#controle.pendencias">Com pendência em acompanhamento</a>' : ''}</p>
         ${tema && d.mapa ? modoTema(id, 'resumo') : ''}
@@ -1906,7 +1991,7 @@ body.foco .toc { display: none; }
     }
     for (const id of temasDe(m)) {
       const d = docs[id], mk = k => (inicio[id + ':' + k] ? marcador(inicio[id + ':' + k]) : '');
-      corpo += mk(-1) + `<section class="g-tema" id="g-${id}" data-texto="${id}"><header class="g-cab"><p class="g-ass">${d.num ? esc(d.num) + ' · ' : ''}${esc(d.assunto)}</p><h2 class="g-tit"><a href="#${id}" title="Abrir só este tópico">${esc(d.titulo)}</a></h2></header>`;
+      corpo += mk(-1) + `<section class="g-tema" id="g-${id}" data-texto="${id}"><header class="g-cab"><p class="g-ass"><span>${d.num ? esc(d.num) + ' · ' : ''}${esc(d.assunto)}</span><button class="g-editar so-adm" type="button" data-editar="${id}" title="Editar este tópico">${ICO.lapis}Editar</button></p><h2 class="g-tit"><a href="#${id}" title="Abrir só este tópico">${esc(d.titulo)}</a></h2></header>`;
       d.partes.forEach((p, k) => { corpo += mk(k) + p; });
       corpo += '</section>';
     }
@@ -1953,7 +2038,7 @@ body.foco .toc { display: none; }
   // site aberto por "python sistema/gerar.py --servir", esta aba também grava partes novas.
   const ROTA_SINTETICO = '/__estudos/sintetico';
   let servidorLocal = null;
-  ((location.protocol === 'http:' && /^(localhost|127\.0\.0\.1)$/.test(location.hostname))
+  const servidorVerificado = ((location.protocol === 'http:' && /^(localhost|127\.0\.0\.1)$/.test(location.hostname))
     ? fetch(ROTA_SINTETICO, { cache: 'no-store', headers: { 'X-Estudos': '1' } }).then(r => (r.ok ? r.json() : null)).then(j => !!(j && j.ok)).catch(() => false)
     : Promise.resolve(false)
   ).then(ok => {
@@ -2013,7 +2098,7 @@ body.foco .toc { display: none; }
     const ids = m.sintetico, pasta = esc(pastaSintetico(m));
     const corpo = ids.length
       ? `${ids.length > 1 ? `<nav class="s-indice" aria-label="Partes">${ids.map(id => `<a href="#${id}" data-parte="${id}">${esc(docs[id].rotulo)}</a>`).join('')}</nav>` : ''}
-        <article class="doc-corpo leitura" id="ui-artigo">${ids.map(id => `<section class="s-parte" id="s-${id}" data-texto="${id}"><p class="s-div">${esc(docs[id].rotulo)}</p>${docs[id].partes.join('\n')}</section>`).join('')}</article>`
+        <article class="doc-corpo leitura" id="ui-artigo">${ids.map(id => `<section class="s-parte" id="s-${id}" data-texto="${id}"><p class="s-div"><span>${esc(docs[id].rotulo)}</span><button class="s-editar so-adm" type="button" data-editar="${id}">${ICO.lapis}Editar esta parte</button></p>${docs[id].partes.join('\n')}</section>`).join('')}</article>`
       : `<div class="vazio"><p><strong>Ainda não há resumo sintético desta disciplina.</strong></p><p>Cada parte que você acrescentar fica guardada na pasta <code>${pasta}</code> e aparece aqui, depois das anteriores.</p></div>`;
     vista.innerHTML = `<div class="doc c-${m.cor}">
       <header class="sec-cab"><h1 class="sec-tit">Resumo sintético</h1>
@@ -2042,6 +2127,889 @@ body.foco .toc { display: none; }
   vista.addEventListener('input', e => {
     if (e.target.id === 'ui-s-txt' && rota && rota.v === 'mat') guarda.gravar('rascunhoSint.' + rota.mat, e.target.value);
   });
+
+  // ---------- Administrador: login e edição dos textos ----------
+  // Só funciona com o site aberto por "python sistema/gerar.py --servir": o servidor local confere
+  // o login, entrega o arquivo em HTML simples e grava a edição de volta em Markdown (gerar.py,
+  // "Edição pelo site"). Nos outros endereços o site é só leitura. O login não é obrigatório.
+  const ADM = { entrar: '/__estudos/entrar', sessao: '/__estudos/sessao', fonte: '/__estudos/fonte', salvar: '/__estudos/salvar' };
+  const btAdm = $('#ui-adm'), recado = $('#ui-recado'), arqImagem = $('#ui-ed-arq');
+  let sessao = guarda.ler('sessao', null), adm = false, editor = null, tRecado = 0, quadroBarra = 0;
+  const cabecalhos = extra => Object.assign({ 'X-Estudos': '1', 'X-Estudos-Sessao': sessao || '' }, extra);
+  const maiuscula = s => s.charAt(0).toUpperCase() + s.slice(1);
+  const umaVez = { // guardado só até a próxima carga da página (recado e rolagem depois de salvar)
+    ler(k) { try { const v = sessionStorage.getItem('estudos.' + k); sessionStorage.removeItem('estudos.' + k); return v ? JSON.parse(v) : null; } catch (e) { return null; } },
+    gravar(k, v) { try { sessionStorage.setItem('estudos.' + k, JSON.stringify(v)); } catch (e) { /* sem armazenamento */ } }
+  };
+  function desenharAdm() {
+    btAdm.classList.toggle('logado', adm);
+    btAdm.lastElementChild.textContent = adm ? 'Administrador' : 'Entrar';
+    btAdm.title = adm ? 'Administrador conectado: os textos podem ser editados' : 'Entrar como administrador (para editar os textos)';
+    document.body.classList.toggle('adm', adm);
+  }
+  function esquecerSessao() {
+    sessao = null;
+    adm = false;
+    try { localStorage.removeItem('estudos.sessao'); } catch (e) { /* sem armazenamento */ }
+    desenharAdm();
+  }
+  async function conferirSessao() {
+    if (!servidorLocal || !sessao) { adm = false; desenharAdm(); return; }
+    try {
+      const r = await fetch(ADM.sessao, { cache: 'no-store', headers: cabecalhos() });
+      if (r.status === 401) esquecerSessao();
+      else { adm = r.ok; desenharAdm(); }
+    } catch (e) { adm = false; desenharAdm(); }
+  }
+  function mostrarRecado(texto, tipo, avisos) {
+    clearTimeout(tRecado);
+    if (!texto) { recado.hidden = true; return; }
+    const lista = avisos && avisos.length ? `<p class="rec-sub">O gerador avisou sobre este arquivo:</p><ul>${avisos.map(a => `<li>${esc(a)}</li>`).join('')}</ul>` : '';
+    recado.className = 'recado' + (tipo ? ' ' + tipo : '');
+    recado.innerHTML = `<div class="rec-txt"><p>${esc(texto)}</p>${lista}</div><button class="bt-icone" type="button" data-recado-fechar aria-label="Fechar aviso">${ICO.fechar}</button>`;
+    recado.hidden = false;
+    if (!lista && tipo !== 'alerta') tRecado = setTimeout(() => { recado.hidden = true; }, 7000);
+  }
+  recado.addEventListener('click', e => { if (e.target.closest('[data-recado-fechar]')) mostrarRecado(null); });
+
+  function dialogoAdm() {
+    if (!adm) { dialogoEntrar(); return; }
+    abrirDialogo({
+      titulo: 'Administrador',
+      corpo: '<p class="dlg-sub">Você está conectado neste navegador: os botões <strong>Editar</strong> aparecem nos tópicos, no resumo geral e no resumo sintético. O login vale por 30 dias ou até você sair.</p>',
+      botoes: [{ rot: 'Sair', lado: 'esq', acao: () => {
+        if (editor && editor.sujo) { $('#ui-dlg-erro').textContent = 'Salve ou cancele a edição aberta antes de sair.'; return false; }
+        fecharEditor(true);
+        esquecerSessao();
+        mostrarRecado('Você saiu do modo administrador.', 'ok');
+      } }, { rot: 'Fechar', principal: true }]
+    });
+  }
+  function dialogoEntrar(depois) {
+    if (servidorLocal === null) { servidorVerificado.then(() => dialogoEntrar(depois)); return; }
+    if (!servidorLocal) {
+      abrirDialogo({
+        titulo: 'Entrar como administrador',
+        corpo: '<p class="dlg-sub">Por aqui o site é só leitura. A edição dos textos funciona no computador, com o site aberto por <code>python sistema/gerar.py --servir</code> (endereço http://localhost:8765/): lá, entre com o usuário e a senha de administrador.</p>',
+        botoes: [{ rot: 'Fechar', principal: true }]
+      });
+      return;
+    }
+    abrirDialogo({
+      titulo: 'Entrar como administrador',
+      corpo: `<p class="dlg-sub">O login não é obrigatório: a leitura continua aberta. Como administrador, você edita os textos dos tópicos e do resumo sintético.</p>
+        <label class="dlg-rot">Usuário<input id="ui-adm-u" name="username" autocomplete="username" autocapitalize="characters" spellcheck="false"></label>
+        <label class="dlg-rot">Senha<input id="ui-adm-s" name="password" type="password" autocomplete="current-password"></label>`,
+      botoes: [{ rot: 'Cancelar', lado: 'esq' }, { rot: 'Entrar', principal: true, acao: () => { entrar(depois); return false; } }],
+      aoAbrir: d => $('#ui-adm-u', d).focus()
+    });
+  }
+  async function entrar(depois) {
+    const u = $('#ui-adm-u'), s = $('#ui-adm-s'), erro = $('#ui-dlg-erro'), ok = $('#ui-dlg-ok');
+    if (!u || !s) return;
+    if (!u.value.trim() || !s.value) { erro.textContent = 'Preencha o usuário e a senha.'; return; }
+    erro.textContent = '';
+    ok.textContent = 'Conferindo…';
+    try {
+      const r = await fetch(ADM.entrar, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Estudos': '1' }, body: JSON.stringify({ usuario: u.value, senha: s.value }) });
+      const j = await r.json().catch(() => ({}));
+      ok.textContent = '';
+      if (r.status === 404) { erro.textContent = 'O servidor aberto no terminal é de antes do login existir: feche-o (Ctrl+C) e abra de novo com python sistema/gerar.py --servir.'; return; }
+      if (!r.ok || !j.ok) { erro.textContent = j.erro ? maiuscula(j.erro) + '.' : `Não deu certo (erro ${r.status}).`; s.select(); return; }
+      sessao = j.sessao;
+      guarda.gravar('sessao', sessao);
+      adm = true;
+      desenharAdm();
+      fecharDialogo();
+      if (depois) depois();
+      else mostrarRecado('Você entrou como administrador. Use os botões Editar nos tópicos, no resumo geral e no resumo sintético.', 'ok');
+    } catch (e) {
+      ok.textContent = '';
+      erro.textContent = 'Não consegui falar com o servidor local. Ele continua aberto no terminal?';
+    }
+  }
+  btAdm.addEventListener('click', dialogoAdm);
+
+  // -- editor
+  const ED = {
+    desfazer: svg('<path d="M9 14 4 9l5-5"/><path d="M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/>'),
+    refazer: svg('<path d="m15 14 5-5-5-5"/><path d="M20 9H9.5a5.5 5.5 0 0 0 0 11H13"/>'),
+    codigo: svg('<path d="m8.5 7.5-5 4.5 5 4.5M15.5 7.5l5 4.5-5 4.5"/>'),
+    limpar: svg('<path d="M6 5h11M11.5 5 8.5 19"/><path d="m14.5 14 5 5M19.5 14l-5 5"/>'),
+    ol: svg('<path d="M10.5 6.5H20M10.5 12H20M10.5 17.5H20"/><path d="M4.5 4.8h1.3v4.4"/><path d="M4.3 13.3c.2-.7.8-1.1 1.5-1.1.8 0 1.4.5 1.4 1.2 0 1-2.9 2-2.9 3.8h2.9"/>'),
+    menos: svg('<path d="M11 7h9M11 12h9M4 17h16"/><path d="M7.5 9.5 4.5 12l3 2.5"/>'),
+    mais: svg('<path d="M11 7h9M11 12h9M4 17h16"/><path d="m4.5 9.5 3 2.5-3 2.5"/>'),
+    tabela: svg('<rect x="3.5" y="5" width="17" height="14" rx="2"/><path d="M3.5 10h17M3.5 14.5h17M10 5v14"/>'),
+    imagem: svg('<rect x="3.5" y="5" width="17" height="14" rx="2"/><circle cx="9" cy="10" r="1.7"/><path d="m20.5 16-5-5-8.5 8"/>'),
+    regua: svg('<path d="M4 12h16"/><path d="M4 7h3M17 7h3M4 17h3M17 17h3" opacity=".45"/>'),
+    alinEsq: svg('<path d="M4 6h16M4 10h10M4 14h16M4 18h10"/>'),
+    alinCentro: svg('<path d="M4 6h16M7 10h10M4 14h16M7 18h10"/>'),
+    alinDir: svg('<path d="M4 6h16M10 10h10M4 14h16M10 18h10"/>')
+  };
+  const BLOCOS_ED = [['p', 'Parágrafo'], ['h1', 'Título do arquivo'], ['h2', 'Título'], ['h3', 'Subtítulo'], ['h4', 'Subtítulo menor'], ['blockquote', 'Nota (citação)'], ['pre', 'Bloco de código']];
+  function barraEditor(txt) {
+    const b = (acao, rot, conteudo, pressionado) => `<button class="ed-bt" type="button" data-ed="${acao}" title="${rot}" aria-label="${rot}"${pressionado ? ' aria-pressed="false"' : ''}>${conteudo}</button>`;
+    const fim = `<div class="ed-fim"><span class="ed-st" id="ui-ed-st" role="status" aria-live="polite"></span><button class="bt" type="button" data-ed="cancelar">Cancelar</button><button class="bt bt-p" type="button" data-ed="salvar">${ICO.check}Salvar</button></div>`;
+    if (txt) return `<div class="ed-barra" role="toolbar" aria-label="Edição">${fim}</div>`;
+    return `<div class="ed-barra" role="toolbar" aria-label="Ferramentas de edição">
+      <div class="ed-grupo">${b('desfazer', 'Desfazer (Ctrl+Z)', ED.desfazer)}${b('refazer', 'Refazer (Ctrl+Y)', ED.refazer)}</div>
+      <div class="ed-grupo"><select class="ed-sel" data-ed-bloco aria-label="Estilo do parágrafo" title="Estilo do parágrafo">${BLOCOS_ED.map(([v, r]) => `<option value="${v}">${r}</option>`).join('')}</select></div>
+      <div class="ed-grupo">${b('bold', 'Negrito (Ctrl+B)', '<span class="ed-letra">B</span>', 1)}${b('italic', 'Itálico (Ctrl+I)', '<span class="ed-letra"><i>I</i></span>', 1)}${b('underline', 'Sublinhado (Ctrl+U)', '<span class="ed-letra"><u>U</u></span>', 1)}${b('codigo', 'Código (também serve para citar outro arquivo .md)', ED.codigo, 1)}${b('limpar', 'Limpar a formatação', ED.limpar)}</div>
+      <div class="ed-grupo">${b('ul', 'Lista com marcadores', ICO.lista, 1)}${b('ol', 'Lista numerada', ED.ol, 1)}${b('outdent', 'Diminuir recuo (Shift+Tab)', ED.menos)}${b('indent', 'Aumentar recuo (Tab)', ED.mais)}</div>
+      <div class="ed-grupo">${b('tabela', 'Inserir tabela', ED.tabela)}${b('imagem', 'Inserir imagem', ED.imagem)}${b('regua', 'Inserir linha horizontal', ED.regua)}</div>
+      ${fim}
+      <div class="ed-ctx" data-ctx="tabela" hidden><span class="ed-ctx-rot">Tabela</span>${b('lin-acima', 'Inserir linha acima', 'Linha acima')}${b('lin-abaixo', 'Inserir linha abaixo', 'Linha abaixo')}${b('col-esq', 'Inserir coluna à esquerda', 'Coluna à esquerda')}${b('col-dir', 'Inserir coluna à direita', 'Coluna à direita')}${b('alin-esq', 'Alinhar a coluna à esquerda', ED.alinEsq)}${b('alin-centro', 'Centralizar a coluna', ED.alinCentro)}${b('alin-dir', 'Alinhar a coluna à direita', ED.alinDir)}${b('larg-auto', 'Voltar as colunas à largura automática', 'Largura automática')}${b('del-lin', 'Excluir a linha', 'Excluir linha')}${b('del-col', 'Excluir a coluna', 'Excluir coluna')}${b('del-tab', 'Excluir a tabela inteira', 'Excluir tabela')}</div>
+      <div class="ed-ctx" data-ctx="imagem" hidden><span class="ed-ctx-rot">Imagem</span><label class="ed-faixa">Largura<input type="range" min="10" max="100" step="1" value="100" data-ed-larg aria-label="Largura da imagem, em % do texto"><output data-ed-larg-v>100%</output></label>${b('img-orig', 'Voltar ao tamanho original', 'Tamanho original')}${b('img-del', 'Remover a imagem', 'Remover imagem')}</div>
+    </div>`;
+  }
+  function abrirEdicao(id) {
+    const d = docs[id];
+    if (!d || (d.tipo !== 'tema' && d.tipo !== 'sint')) return;
+    if (!adm) { dialogoEntrar(() => abrirEdicao(id)); return; }
+    if (editor) { if (editor.id !== id) mostrarRecado('Salve ou cancele a edição aberta antes de abrir outra.', 'alerta'); return; }
+    if (d.tipo === 'tema' && !(rota && rota.v === 'doc' && rota.doc === id && !rota.mapa)) ir({ v: 'doc', doc: id, mapa: false, secao: null });
+    else if (d.tipo === 'sint' && !(rota && rota.v === 'mat' && rota.aba === 'sintetico' && rota.mat === d.materia)) ir({ v: 'mat', mat: d.materia, aba: 'sintetico', extra: null, doc: id });
+    iniciarEditor(id);
+  }
+  async function iniciarEditor(id) {
+    const d = docs[id], alvo = d.tipo === 'sint' ? document.getElementById('s-' + id) : $('#ui-artigo');
+    if (!alvo || editor) return;
+    const pedido = { id, carregando: true };
+    editor = pedido;
+    let j = null;
+    try {
+      const r = await fetch(`${ADM.fonte}?id=${encodeURIComponent(id)}`, { cache: 'no-store', headers: cabecalhos() });
+      j = await r.json().catch(() => ({}));
+      if (r.status === 401) { if (editor === pedido) editor = null; esquecerSessao(); dialogoEntrar(() => abrirEdicao(id)); return; }
+      if (!r.ok || !j.ok) throw new Error(j.erro || `erro ${r.status}`);
+    } catch (e) {
+      if (editor === pedido) editor = null;
+      mostrarRecado(`Não consegui abrir o texto para edição: ${e.message}.`, 'alerta');
+      return;
+    }
+    if (editor !== pedido || !alvo.isConnected) { if (editor === pedido) editor = null; return; } // saiu da página enquanto carregava
+    montarEditor(id, alvo, j);
+  }
+  function montarEditor(id, alvo, j) {
+    const txt = j.formato === 'txt';
+    document.body.classList.add('editando');
+    esconderPaleta();
+    fecharBarra();
+    titulosDoc = [];
+    const artigo = $('#ui-artigo');
+    if (artigo) artigo.classList.remove('leitura');
+    const caixa = document.createElement('div');
+    caixa.className = 'ed';
+    caixa.innerHTML = barraEditor(txt) + (txt
+      ? '<textarea class="ed-txt" spellcheck="true" aria-label="Texto desta parte"></textarea><p class="ed-dica">Esta parte é texto simples (.txt): o texto é gravado exatamente como estiver aqui, sem formatação. Ctrl+S salva.</p>'
+      : '<div class="ed-area doc-corpo" contenteditable="true" spellcheck="true" role="textbox" aria-multiline="true" aria-label="Texto em edição"></div><p class="ed-dica">Arraste a borda entre duas colunas de uma tabela para mudar a largura; clique numa imagem para mudar o tamanho; cole imagens direto no texto. Ctrl+S salva. O que você não mexer fica exatamente como está no arquivo.</p>');
+    if (docs[id].tipo === 'sint') {
+      const div = $('.s-div', alvo);
+      while (div.nextSibling) div.nextSibling.remove();
+      alvo.appendChild(caixa);
+    } else alvo.replaceChildren(caixa);
+    const area = $('.ed-area, .ed-txt', caixa), barra = $('.ed-barra', caixa);
+    editor = { id, caixa, area, txt, versao: j.versao, arquivo: j.arquivo, sujo: false, salvando: false, hist: [], refazer: [], rajada: 0, img: null, faixa: null, pop: null, arraste: null, mexendoImg: false };
+    barra.addEventListener('mousedown', e => { if (e.target.closest('.ed-bt')) e.preventDefault(); });
+    barra.addEventListener('click', cliqueBarra);
+    area.addEventListener('keydown', teclaEditor);
+    area.addEventListener('input', () => { marcarSujo(); if (editor && editor.txt) ajustarTxt(); });
+    if (txt) { area.value = j.texto; ajustarTxt(); }
+    else {
+      area.innerHTML = j.html;
+      // Como cada bloco chegou (data-o = número do bloco no arquivo): ao salvar, os que continuam
+      // iguais vão só como referência e voltam ao arquivo exatamente como eram.
+      editor.originais = new Map($$(':scope > [data-o]', area).map(el => [el.dataset.o, el.outerHTML]));
+      try { document.execCommand('defaultParagraphSeparator', false, 'p'); document.execCommand('styleWithCSS', false, false); } catch (e) { /* navegador antigo */ }
+      const sel = $('[data-ed-bloco]', barra), larg = $('[data-ed-larg]', barra);
+      sel.addEventListener('mousedown', () => { editor.faixa = rangeAtual(); });
+      sel.addEventListener('keydown', () => { if (!editor.faixa) editor.faixa = rangeAtual(); });
+      sel.addEventListener('change', () => mudarBloco(sel.value));
+      larg.addEventListener('input', () => larguraImagem(+larg.value));
+      larg.addEventListener('change', () => { editor.mexendoImg = false; });
+      area.addEventListener('beforeinput', antesDeDigitar);
+      area.addEventListener('paste', colar);
+      area.addEventListener('click', cliqueArea);
+      area.addEventListener('pointermove', moverPonteiro);
+      area.addEventListener('pointerdown', apertarPonteiro);
+      area.addEventListener('pointerup', soltarPonteiro);
+      area.addEventListener('pointercancel', soltarPonteiro);
+      area.addEventListener('dragover', e => { if (e.dataTransfer && Array.from(e.dataTransfer.types || []).includes('Files')) e.preventDefault(); });
+      area.addEventListener('drop', soltarArquivo);
+    }
+    estadoEd(`Editando ESTUDOS/${j.arquivo}`);
+    const topoCaixa = caixa.getBoundingClientRect().top;
+    if (topoCaixa < alturaTopo() || topoCaixa > window.innerHeight * 0.6) window.scrollTo(0, Math.max(0, topoCaixa + window.scrollY - alturaTopo() - 16));
+    area.focus({ preventScroll: true });
+    atualizarBarra();
+  }
+  function ajustarTxt() {
+    const a = editor.area, y = window.scrollY;
+    a.style.height = 'auto';
+    a.style.height = (a.scrollHeight + 4) + 'px';
+    window.scrollTo(0, y);
+  }
+  function estadoEd(t, erro) {
+    const st = editor && editor.caixa && $('#ui-ed-st', editor.caixa);
+    if (!st) return;
+    st.textContent = t || '';
+    st.classList.toggle('erro', !!erro);
+  }
+  function marcarSujo() {
+    if (!editor || editor.sujo || editor.carregando) return;
+    editor.sujo = true;
+    estadoEd('Alterações não salvas');
+  }
+  function fecharEditor(renderizarDeNovo) {
+    if (!editor) return;
+    fecharPop();
+    editor = null;
+    document.body.classList.remove('editando');
+    if (renderizarDeNovo && rota) { const y = window.scrollY; renderizar(rota, {}); window.scrollTo(0, y); }
+  }
+  // Pergunta antes de sair de um texto com alterações não salvas; true = pode seguir já.
+  function podeSair(continuar) {
+    if (!editor) return true;
+    if (!editor.sujo) { fecharEditor(false); return true; }
+    abrirDialogo({
+      titulo: 'Sair sem salvar?',
+      corpo: '<p class="dlg-sub">As alterações feitas no editor ainda não foram salvas e serão perdidas.</p>',
+      botoes: [{ rot: 'Descartar e sair', lado: 'esq', acao: () => { fecharEditor(false); continuar(); } }, { rot: 'Continuar editando', principal: true }]
+    });
+    return false;
+  }
+  function cancelarEdicao() {
+    if (!editor) return;
+    if (!editor.sujo) { fecharEditor(true); return; }
+    abrirDialogo({
+      titulo: 'Descartar as alterações?',
+      corpo: '<p class="dlg-sub">O texto volta a ser o que está salvo no arquivo.</p>',
+      botoes: [{ rot: 'Descartar', lado: 'esq', acao: () => fecharEditor(true) }, { rot: 'Continuar editando', principal: true }]
+    });
+  }
+  async function salvarEdicao() {
+    const e = editor;
+    if (!e || e.carregando || e.salvando) return;
+    if (!e.sujo) { fecharEditor(true); mostrarRecado('Nada foi alterado.', 'ok'); return; }
+    fecharPop();
+    desmarcarImagem();
+    const corpo = { id: e.id, versao: e.versao };
+    if (e.txt) corpo.texto = e.area.value;
+    else {
+      const copia = e.area.cloneNode(true);
+      Array.from(copia.children).forEach(el => {
+        const o = el.getAttribute('data-o');
+        if (o !== null && e.originais.get(o) === el.outerHTML) { const hr = document.createElement('hr'); hr.setAttribute('data-o-igual', o); el.replaceWith(hr); }
+      });
+      corpo.html = copia.innerHTML;
+    }
+    const botoes = $$('.ed-barra button, .ed-barra select', e.caixa);
+    const falhou = msg => {
+      e.salvando = false;
+      botoes.forEach(b => { b.disabled = false; });
+      estadoEd(msg, true);
+      if (msg.length > 60) mostrarRecado(msg, 'alerta');
+      atualizarBarra();
+    };
+    e.salvando = true;
+    botoes.forEach(b => { b.disabled = true; });
+    estadoEd('Salvando…');
+    let r = null, j = {};
+    try {
+      r = await fetch(ADM.salvar, { method: 'POST', headers: cabecalhos({ 'Content-Type': 'application/json' }), body: JSON.stringify(corpo) });
+      j = await r.json().catch(() => ({}));
+    } catch (err) { r = null; }
+    if (!r) { falhou('Não consegui falar com o servidor local. Ele continua aberto no terminal?'); return; }
+    if (r.status === 401) { esquecerSessao(); falhou('A sessão expirou: entre de novo para salvar.'); dialogoEntrar(salvarEdicao); return; }
+    if (!r.ok || !j.ok) { falhou(j.erro ? `Não foi salvo: ${j.erro}.` : `Não foi salvo (erro ${r.status}).`); return; }
+    e.sujo = false;
+    const avisos = j.avisos || [];
+    umaVez.gravar('recado', j.semMudanca ? { texto: 'Nada mudou no arquivo.', tipo: 'ok' }
+      : { texto: `Salvo em ESTUDOS/${j.arquivo}. A versão anterior ficou guardada na pasta edicoes-anteriores.`, tipo: avisos.length ? 'alerta' : 'ok', avisos });
+    umaVez.gravar('rolagem', { t: token(rota), y: Math.round(window.scrollY) });
+    location.reload();
+  }
+
+  // -- seleção e desfazer (o editor guarda os próprios passos: comandos e tabelas entram juntos)
+  function noSelecionado() {
+    const s = getSelection();
+    if (!editor || !editor.area || !s.rangeCount) return null;
+    let n = s.getRangeAt(0).startContainer;
+    if (n.nodeType === 3) n = n.parentNode;
+    return editor.area.contains(n) ? n : null;
+  }
+  function dentro(seletor) {
+    const n = noSelecionado(), el = n && n.closest(seletor);
+    return el && editor.area.contains(el) && el !== editor.area ? el : null;
+  }
+  function rangeAtual() {
+    const s = getSelection();
+    if (!editor || !editor.area || !s.rangeCount) return null;
+    const r = s.getRangeAt(0);
+    return editor.area.contains(r.startContainer) ? r.cloneRange() : null;
+  }
+  function porRange(r) {
+    if (!r) return;
+    const s = getSelection();
+    s.removeAllRanges();
+    s.addRange(r);
+  }
+  function focarNoFim() {
+    const r = document.createRange();
+    r.selectNodeContents(editor.area);
+    r.collapse(false);
+    porRange(r);
+  }
+  function retomarPosicao() {
+    editor.area.focus({ preventScroll: true });
+    if (editor.faixa && editor.area.contains(editor.faixa.startContainer)) porRange(editor.faixa);
+    else if (!rangeAtual()) focarNoFim();
+    editor.faixa = null;
+  }
+  const comprimento = n => (n.nodeType === 3 ? n.nodeValue.length : n.childNodes.length);
+  function caminhoAte(no) {
+    const p = [];
+    while (no && no !== editor.area) {
+      const pai = no.parentNode;
+      if (!pai) return null;
+      p.unshift(Array.prototype.indexOf.call(pai.childNodes, no));
+      no = pai;
+    }
+    return no ? p : null;
+  }
+  function noNoCaminho(p) { let n = editor.area; for (const i of p) n = n && n.childNodes[i]; return n || null; }
+  function lerSelecao() {
+    const r = rangeAtual();
+    return r ? { a: caminhoAte(r.startContainer), ao: r.startOffset, b: caminhoAte(r.endContainer), bo: r.endOffset } : null;
+  }
+  function porSelecao(s) {
+    const a = s && s.a && noNoCaminho(s.a), b = s && s.b && noNoCaminho(s.b);
+    if (!a || !b) return;
+    try {
+      const r = document.createRange();
+      r.setStart(a, Math.min(s.ao, comprimento(a)));
+      r.setEnd(b, Math.min(s.bo, comprimento(b)));
+      porRange(r);
+    } catch (e) { /* posição que já não existe */ }
+  }
+  const retrato = () => ({ h: editor.area.innerHTML, s: lerSelecao() });
+  function guardarPasso() {
+    const e = retrato(), h = editor.hist, ult = h[h.length - 1];
+    if (!ult || ult.h !== e.h) { h.push(e); if (h.length > 150) h.shift(); }
+    editor.refazer = [];
+  }
+  function voltarPasso(de, para) {
+    const atual = retrato();
+    let alvo = de.pop();
+    while (alvo && alvo.h === atual.h) alvo = de.pop();
+    if (!alvo) return;
+    para.push(atual);
+    editor.area.innerHTML = alvo.h;
+    $$('.ed-img-sel', editor.area).forEach(i => { i.classList.remove('ed-img-sel'); if (!i.classList.length) i.removeAttribute('class'); });
+    editor.img = null;
+    editor.area.focus({ preventScroll: true });
+    porSelecao(alvo.s);
+    clearTimeout(editor.rajada);
+    editor.rajada = 0;
+    marcarSujo();
+    atualizarBarra();
+  }
+  const desfazer = () => voltarPasso(editor.hist, editor.refazer);
+  const refazer = () => voltarPasso(editor.refazer, editor.hist);
+  function antesDeDigitar(e) {
+    const tipo = e.inputType || '';
+    if (tipo === 'historyUndo') { e.preventDefault(); desfazer(); return; }
+    if (tipo === 'historyRedo') { e.preventDefault(); refazer(); return; }
+    const digitacao = /^(insertText|insertCompositionText|deleteContentBackward|deleteContentForward)$/.test(tipo);
+    if (!digitacao || !editor.rajada) guardarPasso();
+    clearTimeout(editor.rajada);
+    editor.rajada = digitacao ? setTimeout(() => { if (editor) editor.rajada = 0; }, 900) : 0;
+  }
+  function comando(cmd, valor) {
+    retomarPosicao();
+    guardarPasso();
+    document.execCommand(cmd, false, valor);
+    marcarSujo();
+    atualizarBarra();
+  }
+  function desembrulhar(el) {
+    const pai = el.parentNode;
+    while (el.firstChild) pai.insertBefore(el.firstChild, el);
+    pai.removeChild(el);
+  }
+  function teclaEditor(e) {
+    const mod = e.ctrlKey || e.metaKey, k = (e.key || '').toLowerCase();
+    if (mod && k === 's') { e.preventDefault(); salvarEdicao(); return; }
+    if (editor.txt) return;
+    if (mod && k === 'z' && !e.shiftKey) { e.preventDefault(); desfazer(); return; }
+    if (mod && (k === 'y' || (k === 'z' && e.shiftKey))) { e.preventDefault(); refazer(); return; }
+    if (editor.img && (e.key === 'Delete' || e.key === 'Backspace')) { e.preventDefault(); acaoImagem('img-del'); return; }
+    if (e.key === 'Enter' && !e.shiftKey && !mod) { // Enter num item vazio sai da lista (ou volta um nível)
+      const li = dentro('li');
+      if (li && !li.textContent.trim() && !li.querySelector('img, ul, ol')) { e.preventDefault(); recuarItem(li, -1); return; }
+    }
+    if (e.key === 'Tab' && !mod && !e.altKey) {
+      const cel = dentro('td, th');
+      if (cel) { e.preventDefault(); irCelula(cel, e.shiftKey ? -1 : 1); return; }
+      const li = dentro('li');
+      if (li) { e.preventDefault(); recuarItem(li, e.shiftKey ? -1 : 1); }
+    }
+  }
+  function cliqueBarra(e) {
+    const b = e.target.closest('[data-ed]');
+    if (!b || b.disabled || !editor) return;
+    const a = b.dataset.ed;
+    if (a === 'salvar') salvarEdicao();
+    else if (a === 'cancelar') cancelarEdicao();
+    else if (a === 'desfazer') desfazer();
+    else if (a === 'refazer') refazer();
+    else if (a === 'bold' || a === 'italic' || a === 'underline') comando(a);
+    else if (a === 'ul' || a === 'ol') alternarLista(a);
+    else if (a === 'indent' || a === 'outdent') { const li = dentro('li'); if (li) recuarItem(li, a === 'indent' ? 1 : -1); }
+    else if (a === 'regua') comando('insertHorizontalRule');
+    else if (a === 'limpar') limparFormatacao();
+    else if (a === 'codigo') alternarCodigo();
+    else if (a === 'tabela') abrirPopTabela(b);
+    else if (a === 'imagem') { editor.faixa = rangeAtual(); arqImagem.value = ''; arqImagem.click(); }
+    else if (a.startsWith('img-')) acaoImagem(a);
+    else acaoTabela(a);
+  }
+  function atualizarBarra() {
+    if (!editor || editor.txt || !editor.caixa) return;
+    const barra = $('.ed-barra', editor.caixa), q = c => { try { return document.queryCommandState(c); } catch (e) { return false; } };
+    const marcar = (a, v) => { const b = $(`[data-ed="${a}"]`, barra); if (b) b.setAttribute('aria-pressed', String(!!v)); };
+    if (noSelecionado()) {
+      marcar('bold', q('bold'));
+      marcar('italic', q('italic'));
+      marcar('underline', q('underline'));
+      marcar('codigo', dentro('code'));
+      const li = dentro('li'), lista = li && li.parentElement;
+      marcar('ul', lista && lista.tagName === 'UL');
+      marcar('ol', lista && lista.tagName === 'OL');
+      $('[data-ed="indent"]', barra).disabled = $('[data-ed="outdent"]', barra).disabled = !li;
+      const bloco = dentro('h1, h2, h3, h4, h5, h6, pre');
+      $('[data-ed-bloco]', barra).value = bloco ? (bloco.tagName === 'PRE' ? 'pre' : /^H[56]$/.test(bloco.tagName) ? 'h4' : bloco.tagName.toLowerCase()) : dentro('blockquote') ? 'blockquote' : 'p';
+      $('[data-ctx="tabela"]', barra).hidden = !dentro('td, th');
+    }
+    $('[data-ctx="imagem"]', barra).hidden = !editor.img;
+    $('[data-ed="desfazer"]', barra).disabled = !editor.hist.length;
+    $('[data-ed="refazer"]', barra).disabled = !editor.refazer.length;
+  }
+  document.addEventListener('selectionchange', () => {
+    if (!editor || !editor.area || editor.txt) return;
+    cancelAnimationFrame(quadroBarra);
+    quadroBarra = requestAnimationFrame(atualizarBarra);
+  });
+
+  // -- listas: feitas aqui, porque o execCommand do Chrome põe a lista dentro do parágrafo
+  const LISTA = /^(UL|OL)$/;
+  function guardarCursor() { const r = rangeAtual(); return r && { a: r.startContainer, ao: r.startOffset, b: r.endContainer, bo: r.endOffset }; }
+  function porCursor(c, reserva) { // volta o cursor; se o lugar dele sumiu, vai para o começo de `reserva`
+    if (c && editor.area.contains(c.a) && editor.area.contains(c.b)) {
+      try { const r = document.createRange(); r.setStart(c.a, Math.min(c.ao, comprimento(c.a))); r.setEnd(c.b, Math.min(c.bo, comprimento(c.b))); porRange(r); return; } catch (e) { /* cursor fora do lugar */ }
+    }
+    if (reserva && reserva.isConnected) caretNa(reserva);
+  }
+  function blocoDe(no) {
+    const el = no && (no.nodeType === 3 ? no.parentNode : no), b = el && el.closest('li, p, h1, h2, h3, h4, h5, h6, pre, div, td, th');
+    return b && b !== editor.area && editor.area.contains(b) ? b : null;
+  }
+  function blocosDaSelecao() { // blocos seguidos (mesmo pai) do começo ao fim da seleção
+    const r = rangeAtual(), ini = r && blocoDe(r.startContainer), fim = r && blocoDe(r.endContainer);
+    if (!ini) return [];
+    const saida = [ini];
+    if (fim && fim !== ini && fim.parentNode === ini.parentNode) for (let n = ini.nextElementSibling; n; n = n.nextElementSibling) { saida.push(n); if (n === fim) break; }
+    return saida;
+  }
+  function paraItem(bloco) {
+    const li = document.createElement('li');
+    if (/^(P|DIV|H[1-6])$/.test(bloco.tagName)) { while (bloco.firstChild) li.appendChild(bloco.firstChild); bloco.remove(); }
+    else { bloco.replaceWith(li); li.appendChild(bloco); }
+    if (!li.firstChild) li.innerHTML = '<br>';
+    return li;
+  }
+  function paraParagrafos(li) { // o texto do item vira parágrafo; listas internas vêm logo depois
+    const p = document.createElement('p'), resto = [];
+    Array.from(li.childNodes).forEach(n => { if (n.nodeType === 1 && (LISTA.test(n.tagName) || /^(P|BLOCKQUOTE|TABLE|PRE|H[1-6])$/.test(n.tagName))) resto.push(n); else p.appendChild(n); });
+    if (!p.firstChild) p.innerHTML = '<br>';
+    return [p].concat(resto);
+  }
+  function tirarDaLista(lista, itens) { // divide a lista: antes | itens como parágrafos | depois
+    const depois = document.createElement(lista.tagName);
+    let n = itens[itens.length - 1].nextElementSibling;
+    while (n) { const prox = n.nextElementSibling; depois.appendChild(n); n = prox; }
+    let ref = lista, primeiro = null;
+    itens.forEach(li => { paraParagrafos(li).forEach(b => { ref.after(b); ref = b; primeiro = primeiro || b; }); li.remove(); });
+    if (depois.children.length) ref.after(depois);
+    if (!lista.children.length) lista.remove();
+    return primeiro;
+  }
+  function alternarLista(tipo) {
+    retomarPosicao();
+    const cursor = guardarCursor(), li = dentro('li');
+    let reserva = null;
+    guardarPasso();
+    if (li) {
+      const lista = li.parentElement;
+      if (lista.tagName.toLowerCase() !== tipo) { // troca o tipo da lista inteira
+        const nova = document.createElement(tipo);
+        while (lista.firstChild) nova.appendChild(lista.firstChild);
+        lista.replaceWith(nova);
+      } else if (lista.parentElement && lista.parentElement.tagName === 'LI') recuarItem(li, -1, true);
+      else {
+        const itens = blocosDaSelecao().filter(b => b.tagName === 'LI' && b.parentElement === lista);
+        reserva = tirarDaLista(lista, itens.length ? itens : [li]);
+      }
+    } else {
+      const blocos = blocosDaSelecao().filter(b => !/^(TD|TH)$/.test(b.tagName));
+      if (!blocos.length) { estadoEd('Coloque o cursor no parágrafo que vai virar lista.'); return; }
+      const nova = document.createElement(tipo);
+      blocos[0].before(nova);
+      blocos.forEach(b => nova.appendChild(paraItem(b)));
+      reserva = nova.firstElementChild;
+    }
+    porCursor(cursor, reserva);
+    marcarSujo();
+    atualizarBarra();
+  }
+  function recuarItem(li, passo, jaGuardado) {
+    const lista = li.parentElement;
+    if (!lista || !LISTA.test(lista.tagName)) return;
+    const cursor = guardarCursor();
+    if (passo > 0) {
+      const ant = li.previousElementSibling;
+      if (!ant || ant.tagName !== 'LI') { estadoEd('O primeiro item da lista não tem onde entrar.'); return; }
+      if (!jaGuardado) guardarPasso();
+      let sub = ant.lastElementChild;
+      if (!sub || sub.tagName !== lista.tagName) { sub = document.createElement(lista.tagName); ant.appendChild(sub); }
+      sub.appendChild(li);
+      const interna = Array.from(li.children).find(c => c.tagName === lista.tagName); // os filhos dele sobem junto, no mesmo nível
+      if (interna) { while (interna.firstChild) sub.appendChild(interna.firstChild); interna.remove(); }
+    } else {
+      if (!jaGuardado) guardarPasso();
+      const pai = lista.parentElement && lista.parentElement.tagName === 'LI' ? lista.parentElement : null;
+      if (!pai) { porCursor(cursor, tirarDaLista(lista, [li])); marcarSujo(); atualizarBarra(); return; }
+      let seguinte = li.nextElementSibling;
+      if (seguinte) { // os itens de baixo continuam abaixo dele, agora como filhos
+        const sub = document.createElement(lista.tagName);
+        while (seguinte) { const prox = seguinte.nextElementSibling; sub.appendChild(seguinte); seguinte = prox; }
+        li.appendChild(sub);
+      }
+      pai.after(li);
+      if (!lista.children.length) lista.remove();
+    }
+    porCursor(cursor, li);
+    marcarSujo();
+    atualizarBarra();
+  }
+
+  // -- formatação
+  function mudarBloco(tag) {
+    retomarPosicao();
+    guardarPasso();
+    const nota = dentro('blockquote');
+    if (tag === 'blockquote') { if (nota) desembrulhar(nota); else document.execCommand('formatBlock', false, 'blockquote'); }
+    else document.execCommand('formatBlock', false, tag);
+    marcarSujo();
+    atualizarBarra();
+  }
+  function limparFormatacao() {
+    retomarPosicao();
+    guardarPasso();
+    document.execCommand('removeFormat');
+    const c = dentro('code');
+    if (c) desembrulhar(c);
+    marcarSujo();
+    atualizarBarra();
+  }
+  function alternarCodigo() {
+    retomarPosicao();
+    const c = dentro('code'), s = getSelection();
+    if (!c && (!s.rangeCount || s.isCollapsed)) { estadoEd('Selecione o trecho que vai virar código.'); return; }
+    guardarPasso();
+    if (c) desembrulhar(c);
+    else {
+      const r = s.getRangeAt(0), el = document.createElement('code');
+      el.textContent = r.toString();
+      r.deleteContents();
+      r.insertNode(el);
+      const n = document.createRange();
+      n.selectNodeContents(el);
+      porRange(n);
+    }
+    marcarSujo();
+    atualizarBarra();
+  }
+
+  // -- colar e soltar: só a formatação que o Markdown guarda (negrito, itálico, títulos, listas, tabelas...)
+  const COLAGEM = { B: 'strong', STRONG: 'strong', I: 'em', EM: 'em', CITE: 'em', U: 'u', INS: 'u', CODE: 'code', KBD: 'code', TT: 'code', SAMP: 'code', BR: 'br', P: 'p', DIV: 'p', H1: 'h2', H2: 'h2', H3: 'h3', H4: 'h4', H5: 'h4', H6: 'h4', UL: 'ul', OL: 'ol', LI: 'li', BLOCKQUOTE: 'blockquote', TABLE: 'table', THEAD: 'thead', TBODY: 'tbody', TFOOT: 'tbody', TR: 'tr', TD: 'td', TH: 'th', PRE: 'pre', HR: 'hr', IMG: 'img' };
+  const DESCARTAR = /^(SCRIPT|STYLE|META|LINK|TITLE|HEAD|TEMPLATE|NOSCRIPT|SVG|IFRAME|OBJECT|EMBED|BUTTON|INPUT|SELECT|TEXTAREA|CANVAS|VIDEO|AUDIO)$/;
+  function limparColagem(h) {
+    const t = document.createElement('template');
+    t.innerHTML = h;
+    let descartadas = 0;
+    function copiar(origem, destino) {
+      for (const f of Array.from(origem.childNodes)) {
+        if (f.nodeType === 3) { destino.appendChild(document.createTextNode(f.nodeValue)); continue; }
+        if (f.nodeType !== 1 || DESCARTAR.test(f.tagName)) continue;
+        const st = f.style || {}, peso = String(st.fontWeight || '');
+        let tag = COLAGEM[f.tagName];
+        if (tag === 'strong' && /^(normal|[1-5]00)$/.test(peso)) tag = null; // o <b> que envolve tudo no Google Docs
+        if (tag === 'img') {
+          const src = f.getAttribute('src') || '';
+          if (/^data:image\/(png|jpe?g|gif|webp);base64,/.test(src)) { const im = document.createElement('img'); im.src = src; im.alt = 'imagem'; destino.appendChild(im); }
+          else descartadas++;
+          continue;
+        }
+        if (!tag) { // span, font, a...: negrito, itálico e sublinhado pelo estilo
+          let alvo = destino;
+          const envolver = nome => { const el = document.createElement(nome); alvo.appendChild(el); alvo = el; };
+          if (peso === 'bold' || +peso >= 600) envolver('strong');
+          if (st.fontStyle === 'italic') envolver('em');
+          if (/underline/.test(st.textDecoration || st.textDecorationLine || '')) envolver('u');
+          copiar(f, alvo);
+          continue;
+        }
+        const el = document.createElement(tag);
+        if (tag === 'ol' && /^\d+$/.test(f.getAttribute('start') || '')) el.setAttribute('start', f.getAttribute('start'));
+        if ((tag === 'td' || tag === 'th') && /center|right/.test(st.textAlign || f.getAttribute('align') || '')) el.style.textAlign = /center/.test(st.textAlign || f.getAttribute('align')) ? 'center' : 'right';
+        if (tag !== 'br' && tag !== 'hr') copiar(f, el);
+        destino.appendChild(el);
+      }
+    }
+    const caixa = document.createElement('div');
+    copiar(t.content, caixa);
+    return { html: caixa.innerHTML, descartadas };
+  }
+  function colar(e) {
+    const dt = e.clipboardData;
+    if (!dt || !editor) return;
+    const imagens = Array.from(dt.files || []).filter(f => /^image\//.test(f.type));
+    if (imagens.length) { e.preventDefault(); editor.faixa = rangeAtual(); imagens.forEach(inserirImagem); return; }
+    const h = dt.getData('text/html'), t = dt.getData('text/plain');
+    if (!h && !t) return;
+    e.preventDefault();
+    guardarPasso();
+    if (h && !dentro('pre')) {
+      const limpo = limparColagem(h);
+      document.execCommand('insertHTML', false, limpo.html);
+      if (limpo.descartadas) estadoEd(`${limpo.descartadas === 1 ? 'Uma imagem de site não foi colada' : limpo.descartadas + ' imagens de sites não foram coladas'}: salve a imagem no computador e use o botão Imagem.`, true);
+    } else if (!/\n/.test(t) || dentro('pre')) document.execCommand('insertText', false, t);
+    else document.execCommand('insertHTML', false, t.replace(/\r\n?/g, '\n').split(/\n{2,}/).map(p => `<p>${esc(p).replace(/\n/g, '<br>')}</p>`).join(''));
+    marcarSujo();
+    atualizarBarra();
+  }
+  function soltarArquivo(e) {
+    const arqs = Array.from((e.dataTransfer && e.dataTransfer.files) || []).filter(f => /^image\//.test(f.type));
+    if (!arqs.length) return;
+    e.preventDefault();
+    const r = document.caretRangeFromPoint ? document.caretRangeFromPoint(e.clientX, e.clientY) : null;
+    editor.faixa = r && editor.area.contains(r.startContainer) ? r : rangeAtual();
+    arqs.forEach(inserirImagem);
+  }
+
+  // -- imagens: ficam ao lado do arquivo (o servidor grava); fotos grandes são reduzidas para 1600 px
+  arqImagem.addEventListener('change', () => { const f = arqImagem.files[0]; if (f && editor) inserirImagem(f); });
+  const lerDataUrl = arq => new Promise((ok, falha) => { const l = new FileReader(); l.onload = () => ok(l.result); l.onerror = falha; l.readAsDataURL(arq); });
+  const carregarImagem = url => new Promise((ok, falha) => { const i = new Image(); i.onload = () => ok(i); i.onerror = falha; i.src = url; });
+  async function reduzirImagem(arq) {
+    const url = await lerDataUrl(arq);
+    if (arq.type === 'image/gif') return url;
+    const img = await carregarImagem(url), MAX = 1600, maior = Math.max(img.naturalWidth, img.naturalHeight);
+    if (maior <= MAX && arq.size <= 700 * 1024) return url;
+    const k = Math.min(1, MAX / maior), c = document.createElement('canvas');
+    c.width = Math.round(img.naturalWidth * k);
+    c.height = Math.round(img.naturalHeight * k);
+    c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
+    const nova = c.toDataURL(arq.type === 'image/png' ? 'image/png' : 'image/jpeg', 0.86);
+    return nova.length < url.length ? nova : url;
+  }
+  async function inserirImagem(arq) {
+    if (!/^image\/(png|jpeg|gif|webp)$/.test(arq.type)) { estadoEd('Use uma imagem PNG, JPG, GIF ou WebP.', true); return; }
+    estadoEd('Preparando a imagem…');
+    let url;
+    try { url = await reduzirImagem(arq); } catch (e) { estadoEd('Não consegui ler a imagem.', true); return; }
+    if (!editor || editor.txt) return;
+    retomarPosicao();
+    guardarPasso();
+    document.execCommand('insertHTML', false, `<img src="${url}" alt="imagem">`);
+    marcarSujo();
+    estadoEd('Imagem inserida: clique nela para mudar o tamanho.');
+  }
+  function cliqueArea(e) {
+    const img = e.target.closest('img');
+    if (img && editor.area.contains(img)) marcarImagem(img);
+    else desmarcarImagem();
+  }
+  function marcarImagem(img) {
+    desmarcarImagem();
+    editor.img = img;
+    img.classList.add('ed-img-sel');
+    const cs = getComputedStyle(editor.area), util = editor.area.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+    const pct = Math.round(parseFloat(img.style.width) || Math.min(100, img.getBoundingClientRect().width * 100 / util));
+    $('[data-ed-larg]', editor.caixa).value = pct;
+    $('[data-ed-larg-v]', editor.caixa).textContent = pct + '%';
+    atualizarBarra();
+  }
+  function desmarcarImagem() {
+    if (!editor || !editor.img) return;
+    editor.img.classList.remove('ed-img-sel');
+    if (!editor.img.classList.length) editor.img.removeAttribute('class');
+    editor.img = null;
+    atualizarBarra();
+  }
+  function larguraImagem(v) {
+    if (!editor.img) return;
+    if (!editor.mexendoImg) { guardarPasso(); editor.mexendoImg = true; }
+    editor.img.style.width = v + '%';
+    $('[data-ed-larg-v]', editor.caixa).textContent = v + '%';
+    marcarSujo();
+  }
+  function acaoImagem(a) {
+    const img = editor.img;
+    if (!img) return;
+    guardarPasso();
+    if (a === 'img-del') { img.remove(); editor.img = null; atualizarBarra(); }
+    else { img.style.removeProperty('width'); if (!img.getAttribute('style')) img.removeAttribute('style'); marcarImagem(img); }
+    marcarSujo();
+  }
+
+  // -- tabelas
+  function abrirPopTabela(bt) {
+    fecharPop();
+    editor.faixa = rangeAtual();
+    const pop = document.createElement('div');
+    pop.className = 'ed-pop';
+    pop.innerHTML = `<label>Linhas<input type="number" min="1" max="60" value="3" data-pop-lin></label><label>Colunas<input type="number" min="1" max="12" value="3" data-pop-col></label>
+      <p class="aj-dica">A primeira linha é o cabeçalho da tabela.</p><div class="aj-bts"><button class="bt" type="button" data-pop="fechar">Cancelar</button><button class="bt bt-p" type="button" data-pop="inserir">Inserir</button></div>`;
+    editor.caixa.appendChild(pop);
+    const rb = bt.getBoundingClientRect(), rc = editor.caixa.getBoundingClientRect();
+    pop.style.left = Math.max(0, Math.min(rb.left - rc.left, rc.width - 240)) + 'px';
+    pop.style.top = (rb.bottom - rc.top + 6) + 'px';
+    const inserir = () => { const l = +$('[data-pop-lin]', pop).value, c = +$('[data-pop-col]', pop).value; fecharPop(); inserirTabela(l, c); };
+    pop.addEventListener('click', e => { const a = e.target.closest('[data-pop]'); if (a) { if (a.dataset.pop === 'inserir') inserir(); else { fecharPop(); editor.area.focus(); } } });
+    pop.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); inserir(); } else if (e.key === 'Escape') { fecharPop(); editor.area.focus(); } });
+    editor.pop = pop;
+    $('[data-pop-lin]', pop).select();
+  }
+  function fecharPop() { if (editor && editor.pop) { editor.pop.remove(); editor.pop = null; } }
+  document.addEventListener('pointerdown', e => { if (editor && editor.pop && !editor.pop.contains(e.target) && !e.target.closest('[data-ed="tabela"]')) fecharPop(); });
+  function inserirTabela(nl, nc) {
+    nl = Math.max(1, Math.min(60, nl || 3));
+    nc = Math.max(1, Math.min(12, nc || 3));
+    const cel = t => `<${t}><br></${t}>`;
+    retomarPosicao();
+    guardarPasso();
+    document.execCommand('insertHTML', false, `<table><thead><tr>${cel('th').repeat(nc)}</tr></thead><tbody>${`<tr>${cel('td').repeat(nc)}</tr>`.repeat(nl - 1)}</tbody></table><p><br></p>`);
+    marcarSujo();
+    atualizarBarra();
+  }
+  function caretNa(el, tudo) {
+    const r = document.createRange();
+    r.selectNodeContents(el);
+    if (!tudo) r.collapse(true);
+    porRange(r);
+  }
+  function irCelula(cel, passo) {
+    const tab = cel.closest('table'), todas = $$('th, td', tab).filter(c => c.closest('table') === tab), i = todas.indexOf(cel) + passo;
+    if (i >= todas.length) { acaoTabela('lin-abaixo'); const nova = tab.rows[tab.rows.length - 1]; if (nova && nova.cells[0]) caretNa(nova.cells[0]); return; }
+    if (i >= 0) caretNa(todas[i], true);
+  }
+  function larguras(tab, pcts) {
+    let cg = tab.querySelector(':scope > colgroup');
+    if (!pcts) { if (cg) cg.remove(); return; }
+    if (!cg) { cg = document.createElement('colgroup'); tab.insertBefore(cg, tab.firstChild); }
+    cg.innerHTML = pcts.map(x => `<col style="width:${x.toFixed(1)}%">`).join('');
+  }
+  function mudarColunas(tab, inserir, pos) {
+    const cg = tab.querySelector(':scope > colgroup');
+    if (!cg) return;
+    const w = Array.from(cg.children).map(c => parseFloat(c.style.width) || 0);
+    if (inserir) w.splice(pos, 0, 100 / (w.length + 1)); else w.splice(pos, 1);
+    const total = w.reduce((s, x) => s + x, 0);
+    larguras(tab, w.length && total ? w.map(x => x * 100 / total) : null);
+  }
+  function acaoTabela(a) {
+    const cel = dentro('td, th');
+    if (!cel) return;
+    const tab = cel.closest('table'), tr = cel.parentElement, idx = cel.cellIndex, linhas = Array.from(tab.rows);
+    const nova = tag => { const c = document.createElement(tag); c.innerHTML = '<br>'; return c; };
+    guardarPasso();
+    let foco = null;
+    if (a === 'lin-acima' || a === 'lin-abaixo') {
+      const n = Math.max(...linhas.map(r => r.cells.length)), novaTr = document.createElement('tr');
+      for (let k = 0; k < n; k++) novaTr.appendChild(nova('td'));
+      if (tr.parentElement.tagName === 'THEAD') { // o cabeçalho é sempre a primeira linha: a nova entra logo abaixo dele
+        let corpo = tab.tBodies[0];
+        if (!corpo) { corpo = document.createElement('tbody'); tab.appendChild(corpo); }
+        corpo.insertBefore(novaTr, corpo.firstChild);
+      } else tr.parentElement.insertBefore(novaTr, a === 'lin-acima' ? tr : tr.nextSibling);
+      foco = novaTr.cells[Math.min(idx, n - 1)];
+    } else if (a === 'col-esq' || a === 'col-dir') {
+      const pos = idx + (a === 'col-dir' ? 1 : 0);
+      linhas.forEach(r => r.insertBefore(nova(r.parentElement.tagName === 'THEAD' ? 'th' : 'td'), r.cells[pos] || null));
+      mudarColunas(tab, true, pos);
+      foco = tr.cells[pos];
+    } else if (a === 'del-lin') {
+      const vizinha = tr.nextElementSibling || tr.previousElementSibling;
+      if (tr.parentElement.tagName === 'THEAD') { // sem cabeçalho não há tabela em Markdown: a linha seguinte sobe
+        const sobe = tab.tBodies[0] && tab.tBodies[0].rows[0];
+        if (!sobe) tab.remove();
+        else {
+          Array.from(sobe.cells).forEach(c => { const th = document.createElement('th'); th.innerHTML = c.innerHTML; if (c.style.textAlign) th.style.textAlign = c.style.textAlign; c.replaceWith(th); });
+          tr.replaceWith(sobe);
+          foco = sobe.cells[0];
+        }
+      } else { tr.remove(); foco = vizinha && vizinha.cells[Math.min(idx, vizinha.cells.length - 1)]; }
+    } else if (a === 'del-col') {
+      linhas.forEach(r => { if (r.cells[idx]) r.cells[idx].remove(); });
+      mudarColunas(tab, false, idx);
+      if (!tab.rows[0] || !tab.rows[0].cells.length) tab.remove();
+      else foco = tr.cells[Math.min(idx, tr.cells.length - 1)];
+    } else if (a === 'del-tab') tab.remove();
+    else if (a.startsWith('alin-')) {
+      const al = { 'alin-esq': '', 'alin-centro': 'center', 'alin-dir': 'right' }[a];
+      linhas.forEach(r => { const c = r.cells[idx]; if (!c) return; c.style.textAlign = al; if (!c.getAttribute('style')) c.removeAttribute('style'); });
+      foco = cel;
+    } else if (a === 'larg-auto') { larguras(tab, null); foco = cel; }
+    if (foco && foco.isConnected) caretNa(foco); else editor.area.focus();
+    marcarSujo();
+    atualizarBarra();
+  }
+  // Arrastar a borda entre duas colunas muda a largura delas (gravada em % no arquivo).
+  function bordaPerto(e) {
+    const cel = e.target.closest && e.target.closest('td, th');
+    if (!cel || !editor.area.contains(cel)) return null;
+    const r = cel.getBoundingClientRect(), n = cel.parentElement.cells.length;
+    if (Math.abs(e.clientX - r.right) <= 5 && cel.cellIndex < n - 1) return cel;
+    if (Math.abs(e.clientX - r.left) <= 5 && cel.cellIndex > 0) return cel.parentElement.cells[cel.cellIndex - 1];
+    return null;
+  }
+  function moverPonteiro(e) {
+    const a = editor.arraste;
+    if (!a) { editor.area.classList.toggle('ed-borda', !!bordaPerto(e)); return; }
+    const par = a.w[a.i] + a.w[a.i + 1], nova = Math.max(36, Math.min(par - 36, a.w[a.i] + e.clientX - a.x0)), w = a.w.slice();
+    w[a.i] = nova;
+    w[a.i + 1] = par - nova;
+    larguras(a.tab, w.map(x => x * 100 / a.total));
+    marcarSujo();
+  }
+  function apertarPonteiro(e) {
+    const cel = e.button === 0 && bordaPerto(e);
+    if (!cel) return;
+    e.preventDefault();
+    const tab = cel.closest('table'), w = Array.from(tab.rows[0].cells).map(c => c.getBoundingClientRect().width);
+    guardarPasso();
+    editor.arraste = { tab, i: cel.cellIndex, w, x0: e.clientX, total: w.reduce((s, x) => s + x, 0) };
+    try { editor.area.setPointerCapture(e.pointerId); } catch (err) { /* sem captura */ }
+  }
+  function soltarPonteiro(e) {
+    if (!editor || !editor.arraste) return;
+    editor.arraste = null;
+    editor.area.classList.remove('ed-borda');
+    try { editor.area.releasePointerCapture(e.pointerId); } catch (err) { /* já solto */ }
+  }
+  window.addEventListener('beforeunload', e => { if (editor && editor.sujo && !editor.salvando) { e.preventDefault(); e.returnValue = ''; } });
 
   // ---------- Marcações da disciplina ----------
   const modelos = new Map();
@@ -2563,6 +3531,9 @@ body.foco .toc { display: none; }
   document.addEventListener('click', e => {
     if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
     const t = e.target;
+    if (editor && editor.caixa && editor.caixa.contains(t)) return; // cliques no editor ficam com ele
+    const bEditar = t.closest('[data-editar]');
+    if (bEditar) { abrirEdicao(bEditar.dataset.editar); return; }
     const bLido = t.closest('[data-lido]');
     if (bLido) { alternarLido(bLido.dataset.lido); return; }
     const bFav = t.closest('[data-fav]');
@@ -2688,8 +3659,13 @@ body.foco .toc { display: none; }
   // ---------- Partida ----------
   aplicarAjustes();
   desenharCaneta();
+  desenharAdm();
+  servidorVerificado.then(conferirSessao);
   rota = lerRota(location.hash);
   if (rota.v === 'busca') rota = { v: 'inicio' };
   renderizar(rota, {});
+  const depoisDeSalvar = umaVez.ler('recado'), rolagem = umaVez.ler('rolagem');
+  if (rolagem && rolagem.t === token(rota)) window.scrollTo(0, rolagem.y);
+  if (depoisDeSalvar) mostrarRecado(depoisDeSalvar.texto, depoisDeSalvar.tipo, depoisDeSalvar.avisos);
 })();
 </script>
