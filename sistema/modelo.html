@@ -54,7 +54,9 @@
   --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
   --font-read: var(--font-serif);
   --fs: 17px;
-  --measure: 210mm; /* coluna de leitura: a largura de uma folha A4 */
+  /* Coluna de leitura: o script (aplicarLargura) troca por um valor em px, conforme a largura
+     escolhida no controle do rodapé; o padrão é 50% da tela, nunca menos que uma folha A4. */
+  --measure: max(50vw, 210mm);
   --doc-w: 1140px;
   --faixa-w: 1140px;
   --top-h: 60px;
@@ -105,7 +107,6 @@
   --div-bg: #ece3e8; --div-bd: #d6c3cf;
 }
 :root[data-fonte="sans"] { --font-read: var(--font-ui); }
-:root[data-largura="estreita"] { --measure: calc(var(--fs) * 36); }
 
 /* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
@@ -240,11 +241,10 @@ body.sem-lateral .bt-menu { display: none !important; }
 .toc-movel, .sumario-box { max-width: var(--measure); margin: 0 0 26px; border: 1px solid var(--rule); border-radius: 10px; background: var(--raised); }
 .toc-movel summary, .sumario-box summary { padding: 11px 14px; cursor: pointer; font: 650 14px/1.2 var(--font-ui); color: var(--ink-2); }
 .toc-movel .toc-lista { margin: 0 14px 12px; }
-@media (min-width: 1500px) {
-  .doc-grade { grid-template-columns: minmax(0, 1fr) 230px; }
-  .toc { display: block; position: sticky; top: calc(var(--top-h) + var(--faixa) + 28px + env(safe-area-inset-top, 0px)); max-height: calc(100vh - var(--top-h) - var(--faixa) - 56px); overflow-y: auto; padding-bottom: 12px; scrollbar-width: thin; }
-  .toc-movel { display: none; }
-}
+/* Índice ao lado do texto só quando cabe sem estreitar a coluna escolhida (body.toc-lado, decidido pelo script). */
+body.toc-lado .doc-grade { grid-template-columns: minmax(0, 1fr) 230px; }
+body.toc-lado .toc { display: block; position: sticky; top: calc(var(--top-h) + var(--faixa) + 28px + env(safe-area-inset-top, 0px)); max-height: calc(100vh - var(--top-h) - var(--faixa) - 56px); overflow-y: auto; padding-bottom: 12px; scrollbar-width: thin; }
+body.toc-lado .toc-movel { display: none; }
 
 /* ---------- Faixa da disciplina: sigla, nome e abas, sempre no mesmo lugar ---------- */
 body.com-faixa { --faixa: var(--faixa-h); }
@@ -337,7 +337,8 @@ body.foco .faixa-mat { display: flex; }
 .doc-corpo p { margin: 0 0 .85em; }
 .doc-corpo p.txt { white-space: pre-wrap; }
 .doc-corpo img { display: block; max-width: min(100%, 640px); height: auto; margin: .4em 0; border-radius: 8px; }
-.doc-corpo p, .doc-corpo li { overflow-wrap: anywhere; }
+.doc-corpo p, .doc-corpo li { overflow-wrap: anywhere; text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
+.doc-corpo .tabela p, .doc-corpo .tabela li, .doc-corpo .md-trecho p { text-align: left; }
 .doc-corpo ul, .doc-corpo ol { margin: 0 0 1em; padding-left: 1.4em; }
 .doc-corpo li { margin: .3em 0; padding-left: .15em; }
 .doc-corpo li > p { margin: 0; }
@@ -603,7 +604,14 @@ a.atalho:hover { border-color: var(--rule-2); transform: translateY(-1px); }
 .dock { position: fixed; z-index: 45; left: 16px; right: 16px; bottom: calc(14px + env(safe-area-inset-bottom, 0px)); display: flex; align-items: flex-end; justify-content: flex-end; gap: 10px; pointer-events: none; }
 .dock > * { pointer-events: auto; }
 body.com-achados .dock { bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
-.dock-geral { display: flex; align-items: center; gap: 10px; min-width: 0; margin-right: auto; padding: 5px 5px 5px 14px; border: 1px solid var(--rule-2); border-radius: 13px; background: var(--raised); box-shadow: var(--shadow); font: 600 13px/1 var(--font-ui); }
+.dock-esq { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; min-width: 0; margin-right: auto; pointer-events: none; }
+.dock-esq > * { pointer-events: auto; }
+.dock-larg { display: flex; align-items: center; gap: 10px; padding: 7px 12px 7px 11px; border: 1px solid var(--rule-2); border-radius: 13px; background: var(--raised); box-shadow: var(--shadow); font: 600 13px/1 var(--font-ui); color: var(--ink-2); }
+.dock-larg label { display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; cursor: default; }
+.dock-larg label svg { width: 16px; height: 16px; color: var(--m, var(--accent)); }
+.dock-larg input { width: 170px; margin: 0; accent-color: var(--m, var(--accent)); cursor: pointer; }
+.dock-larg output { min-width: 3.2em; color: var(--ink); text-align: right; font-variant-numeric: tabular-nums; }
+.dock-geral { display: flex; align-items: center; gap: 10px; min-width: 0; padding: 5px 5px 5px 14px; border: 1px solid var(--rule-2); border-radius: 13px; background: var(--raised); box-shadow: var(--shadow); font: 600 13px/1 var(--font-ui); }
 .dg-pag { white-space: nowrap; font-variant-numeric: tabular-nums; }
 .dg-barra { width: 90px; height: 6px; overflow: hidden; border-radius: 99px; background: var(--rule); }
 .dg-barra span { display: block; height: 100%; background: var(--m, var(--ok)); }
@@ -686,7 +694,6 @@ body.foco .grade { grid-template-columns: minmax(0, 1fr); }
 body.foco .bt-menu { display: inline-grid; margin-left: -6px; }
 body.foco .lateral { position: fixed; z-index: 60; top: 0; bottom: 0; left: 0; width: min(88vw, 330px); height: auto; padding-top: calc(18px + env(safe-area-inset-top, 0px)); padding-bottom: calc(28px + env(safe-area-inset-bottom, 0px)); box-shadow: var(--shadow); transform: translateX(-102%); transition: transform .2s ease; visibility: hidden; }
 body.foco.menu-aberto .lateral { transform: none; visibility: visible; }
-body.foco { --doc-w: calc(var(--measure) + 40px); }
 body.foco .doc-grade { grid-template-columns: minmax(0, 1fr); }
 body.foco .toc { display: none; }
 @media (max-width: 720px) {
@@ -704,13 +711,13 @@ body.foco .toc { display: none; }
   .doc-tit-linha { gap: 10px; }
   .bt-fav { justify-content: center; width: 38px; height: 36px; padding: 0; }
   .bt-fav span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-  .doc-corpo p, .doc-corpo li { -webkit-hyphens: auto; hyphens: auto; }
   .doc-nav { grid-template-columns: minmax(0, 1fr); }
   .viz-prox { grid-column: 1; }
   .ach-termo { max-width: 28vw; }
   .dock { left: 12px; right: 12px; gap: 8px; }
   .dg-barra, .dg-lido, .caneta-bt .caneta-rot { display: none; }
   .dock-geral { gap: 8px; padding-left: 12px; }
+  .dock-larg { display: none; }
   .caneta:not(.aberta) .caneta-cores { display: none; }
   .caneta.aberta { flex-direction: column-reverse; align-items: stretch; }
   .caneta.aberta .caneta-cores { flex-direction: column; }
@@ -777,11 +784,6 @@ body.foco .toc { display: none; }
       <button type="button" role="radio" data-aj="fonte" data-val="serif">Serifada</button>
       <button type="button" role="radio" data-aj="fonte" data-val="sans">Sem serifa</button>
     </div></div>
-  <div class="aj-linha"><span class="aj-rot" id="aj-r-larg">Largura da coluna</span>
-    <div class="seg" role="radiogroup" aria-labelledby="aj-r-larg">
-      <button type="button" role="radio" data-aj="largura" data-val="normal">Folha A4</button>
-      <button type="button" role="radio" data-aj="largura" data-val="estreita">Estreita</button>
-    </div></div>
   <div class="aj-linha"><div class="aj-cab"><span class="aj-rot" id="aj-r-foco">Modo foco</span>
     <button type="button" class="chave" role="switch" aria-checked="false" aria-labelledby="aj-r-foco" data-aj="foco"><span></span></button></div>
     <p class="aj-dica">Esconde o menu e o índice da página. Tecla <kbd>/</kbd> abre a busca a qualquer momento.</p></div>
@@ -797,11 +799,18 @@ body.foco .toc { display: none; }
   <button class="bt-icone" id="ui-ach-fechar" type="button" aria-label="Fechar destaques"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7 7 17"/></svg></button>
 </div>
 <div class="dock" id="ui-dock" hidden>
-  <div class="dock-geral" id="ui-dock-geral" hidden>
-    <span class="dg-pag" id="ui-dg-pag" aria-live="polite">pág. 1/1</span>
-    <span class="dg-barra" aria-hidden="true"><span id="ui-dg-fill"></span></span>
-    <span class="dg-pct" id="ui-dg-pct">0%</span>
-    <button class="dg-bt" id="ui-dg-marcar" type="button"></button>
+  <div class="dock-esq">
+    <div class="dock-larg" id="ui-dock-larg" title="Largura do texto, em porcentagem da largura da tela. Dois cliques voltam ao padrão.">
+      <label for="ui-larg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg>Largura do texto</label>
+      <input type="range" id="ui-larg" min="30" max="90" step="1" value="50">
+      <output id="ui-larg-v" for="ui-larg">50%</output>
+    </div>
+    <div class="dock-geral" id="ui-dock-geral" hidden>
+      <span class="dg-pag" id="ui-dg-pag" aria-live="polite">pág. 1/1</span>
+      <span class="dg-barra" aria-hidden="true"><span id="ui-dg-fill"></span></span>
+      <span class="dg-pct" id="ui-dg-pct">0%</span>
+      <button class="dg-bt" id="ui-dg-marcar" type="button"></button>
+    </div>
   </div>
   <div class="caneta" id="ui-caneta" role="group" aria-label="Marca-texto">
     <button class="caneta-bt" id="ui-caneta-bt" type="button" aria-expanded="false" title="Marca-texto: escolha uma cor para marcar o que selecionar"></button>
@@ -983,16 +992,16 @@ body.foco .toc { display: none; }
 
   // ---------- Ajustes de leitura ----------
   const TAMANHOS = [15, 16, 17, 18, 20, 22];
-  const aj = Object.assign({ tema: 'auto', tam: 2, fonte: 'serif', largura: 'normal', foco: false }, guarda.ler('ajustes', {}));
+  const aj = Object.assign({ tema: 'auto', tam: 2, fonte: 'serif', largura: null, foco: false }, guarda.ler('ajustes', {}));
   if (!(aj.tam >= 0 && aj.tam < TAMANHOS.length)) aj.tam = 2;
-  if (aj.largura !== 'estreita') aj.largura = 'normal';
+  if (typeof aj.largura !== 'number') aj.largura = null; // null: largura padrão
   function aplicarAjustes() {
     const r = document.documentElement;
     if (aj.tema === 'auto') r.removeAttribute('data-leitura'); else r.setAttribute('data-leitura', aj.tema);
     r.setAttribute('data-fonte', aj.fonte);
-    r.setAttribute('data-largura', aj.largura);
     r.style.setProperty('--fs', TAMANHOS[aj.tam] + 'px');
     document.body.classList.toggle('foco', !!aj.foco);
+    aplicarLargura();
     $$('[data-aj]', painel).forEach(b => {
       const k = b.dataset.aj;
       if (k === 'tam') b.disabled = b.dataset.val === '-1' ? aj.tam === 0 : aj.tam === TAMANHOS.length - 1;
@@ -1001,6 +1010,46 @@ body.foco .toc { display: none; }
     });
     $('#ui-aj-tam').textContent = TAMANHOS[aj.tam] + ' px';
   }
+  // Largura do texto: porcentagem da largura da tela, escolhida no controle do rodapé. O padrão é
+  // 50% da tela, nunca menos que uma folha A4 (21 cm). A coluna nunca passa do espaço disponível;
+  // o índice "Nesta página" só fica ao lado do texto se couber sem estreitá-lo.
+  const A4 = 210 * 96 / 25.4, INDICE_LADO = 286, LARGURA_MIN = 360;
+  const ctLarg = $('#ui-dock-larg'), inLarg = $('#ui-larg'), outLarg = $('#ui-larg-v');
+  function espacoUtil() {
+    const raiz = document.documentElement, cs = getComputedStyle(principal);
+    const lado = window.innerWidth >= 960 && !aj.foco ? parseFloat(getComputedStyle(raiz).getPropertyValue('--side-w')) || 290 : 0;
+    return raiz.clientWidth - lado - 2 * (parseFloat(cs.getPropertyValue('--pad-x')) || 16);
+  }
+  function aplicarLargura() {
+    const vw = window.innerWidth, util = espacoUtil();
+    if (!(vw > 0 && util > 0)) return; // janela ainda sem tamanho (aba escondida): fica o padrão do CSS
+    const minimo = Math.min(LARGURA_MIN, util);
+    const pedido = aj.largura ? vw * aj.largura / 100 : Math.max(vw / 2, A4);
+    const px = Math.round(Math.max(minimo, Math.min(util, pedido)));
+    const lado = !aj.foco && util >= px + INDICE_LADO;
+    const r = document.documentElement;
+    r.style.setProperty('--measure', px + 'px');
+    const docW = aj.foco ? px + 40 : Math.max(1140, px + (lado ? INDICE_LADO : 0));
+    r.style.setProperty('--doc-w', docW + 'px');
+    r.style.setProperty('--faixa-w', Math.max(1140, docW) + 'px');
+    document.body.classList.toggle('toc-lado', lado);
+    const pMin = Math.ceil(minimo * 100 / vw), pMax = Math.floor(util * 100 / vw);
+    ctLarg.hidden = pMax - pMin < 5;
+    inLarg.min = pMin;
+    inLarg.max = pMax;
+    inLarg.value = Math.round(px * 100 / vw);
+    outLarg.textContent = inLarg.value + '%';
+  }
+  let quadroLarg = 0;
+  inLarg.addEventListener('input', () => {
+    aj.largura = Number(inLarg.value);
+    outLarg.textContent = inLarg.value + '%';
+    cancelAnimationFrame(quadroLarg);
+    quadroLarg = requestAnimationFrame(aplicarLargura);
+  });
+  inLarg.addEventListener('change', () => guarda.gravar('ajustes', aj));
+  inLarg.addEventListener('dblclick', () => { aj.largura = null; guarda.gravar('ajustes', aj); aplicarLargura(); });
+  window.addEventListener('resize', () => { cancelAnimationFrame(quadroLarg); quadroLarg = requestAnimationFrame(aplicarLargura); });
   painel.addEventListener('click', e => {
     const bk = e.target.closest('[data-backup]');
     if (bk) { fecharAjustes(false); if (bk.dataset.backup === 'exportar') exportar(); else importar(); return; }

@@ -43,7 +43,7 @@
 ## 29/09/2026 — Ajustes no site (v004)
 
 - **Sem conteúdo novo de estudo.**
-- **Leitura:** o texto dos resumos passou a ter a largura de uma folha A4 (em Aa, a opção "Estreita" volta à coluna antiga).
+- **Leitura:** o texto dos resumos ficou justificado e ocupa por padrão pelo menos 50% da largura da tela (nunca menos que uma folha A4). O controle "Largura do texto", no rodapé das páginas de leitura, logo acima do contador de páginas, aumenta ou diminui a coluna.
 - **Menu da disciplina:** as abas (Visão geral, Resumo geral...) ficam numa faixa fixa logo abaixo da busca, sempre no mesmo lugar; só o conteúdo abaixo muda. A busca fica sempre centralizada no topo.
 - **Última leitura:** os cards das disciplinas, a ordenação, o menu lateral e a página da disciplina mostram a data do último Lido marcado (tópico ou resumo geral), no lugar da data do último resumo.
 - **Versão da base:** deixou de aparecer no site (fica só aqui e em `assuntos-estudados.md`).
