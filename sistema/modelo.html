@@ -54,9 +54,12 @@
   --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, "SF Mono", Menlo, monospace;
   --font-read: var(--font-serif);
   --fs: 17px;
-  --col: 36;
-  --measure: calc(var(--fs) * var(--col));
+  --measure: 210mm; /* coluna de leitura: a largura de uma folha A4 */
+  --doc-w: 1140px;
+  --faixa-w: 1140px;
   --top-h: 60px;
+  --faixa-h: 48px;
+  --faixa: 0px;
   --side-w: 290px;
 }
 /* ---------- Tema escuro (sistema ou escolha do visualizador) ---------- */
@@ -102,11 +105,11 @@
   --div-bg: #ece3e8; --div-bd: #d6c3cf;
 }
 :root[data-fonte="sans"] { --font-read: var(--font-ui); }
-:root[data-largura="ampla"] { --col: 46; }
+:root[data-largura="estreita"] { --measure: calc(var(--fs) * 36); }
 
 /* ---------- Base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scrollbar-gutter: stable; }
 body { margin: 0; background: var(--paper); color: var(--ink); font: 400 15px/1.5 var(--font-ui); }
 [hidden] { display: none !important; }
 a { color: inherit; }
@@ -126,14 +129,15 @@ kbd { font: 500 11px/1 var(--font-mono); padding: 3px 6px; border: 1px solid var
 .aba { display: inline-grid; place-items: center; min-width: 3.2em; height: 1.6em; padding: 0 .5em; border-radius: 3px; background: var(--m, var(--ctrl)); color: var(--on-m); font: 700 10.5px/1 var(--font-ui); letter-spacing: .08em; flex: none; }
 
 /* ---------- Barra superior ---------- */
-.topo { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; display: flex; align-items: center; gap: 10px; height: var(--top-h); padding-inline: 16px; background: var(--paper); background: color-mix(in srgb, var(--paper) 90%, transparent); -webkit-backdrop-filter: saturate(1.3) blur(10px); backdrop-filter: saturate(1.3) blur(10px); border-bottom: 1px solid var(--rule); }
+.topo { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; display: grid; grid-template-columns: 1fr minmax(0, 640px) 1fr; align-items: center; gap: 12px; height: var(--top-h); padding-inline: 16px; background: var(--paper); background: color-mix(in srgb, var(--paper) 90%, transparent); -webkit-backdrop-filter: saturate(1.3) blur(10px); backdrop-filter: saturate(1.3) blur(10px); border-bottom: 1px solid var(--rule); }
 .bt-icone { display: inline-grid; place-items: center; width: 38px; height: 38px; border: 0; border-radius: 9px; background: none; color: var(--ink-2); cursor: pointer; flex: none; }
 .bt-icone:hover { background: var(--hover); color: var(--ink); }
 .bt-menu { display: none; }
-.marca { display: flex; flex-direction: column; justify-content: center; gap: 3px; width: calc(var(--side-w) - 26px); flex: none; text-decoration: none; color: var(--ink); }
+.topo-esq { display: flex; align-items: center; gap: 10px; }
+.marca { display: flex; flex-direction: column; justify-content: center; gap: 3px; flex: none; text-decoration: none; color: var(--ink); white-space: nowrap; }
 .marca-nome { font: 650 20px/1 var(--font-serif); letter-spacing: -.01em; }
 .marca-sub { font: 700 10px/1 var(--font-ui); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); }
-.busca { position: relative; flex: 1 1 auto; max-width: 640px; min-width: 0; margin: 0; }
+.busca { position: relative; width: 100%; min-width: 0; margin: 0; }
 .busca input { width: 100%; height: 40px; padding: 0 44px 0 40px; border: 1px solid var(--rule-2); border-radius: 10px; background: var(--raised); color: var(--ink); font: 400 15px/1 var(--font-ui); outline: none; transition: border-color .15s, box-shadow .15s; -webkit-appearance: none; appearance: none; }
 .busca input::placeholder { color: var(--ink-3); }
 .busca input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
@@ -142,7 +146,7 @@ kbd { font: 500 11px/1 var(--font-mono); padding: 3px 6px; border: 1px solid var
 .busca-kbd { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); pointer-events: none; }
 .busca input:not(:placeholder-shown) ~ .busca-kbd, .busca input:focus ~ .busca-kbd { display: none; }
 .bt-limpar { position: absolute; right: 4px; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; }
-.acoes-topo { display: flex; align-items: center; gap: 4px; margin-left: auto; flex: none; }
+.acoes-topo { display: flex; align-items: center; justify-self: end; gap: 4px; }
 .bt-topo { display: inline-flex; align-items: center; gap: 7px; height: 38px; padding: 0 12px; border: 0; border-radius: 9px; background: none; color: var(--ink-2); font: 600 13.5px/1 var(--font-ui); text-decoration: none; cursor: pointer; white-space: nowrap; }
 .bt-topo:hover, .bt-topo[aria-current="page"], .bt-topo[aria-expanded="true"] { background: var(--hover); color: var(--ink); }
 .bt-aa { font: 600 16px/1 var(--font-serif); padding: 0 13px; }
@@ -166,12 +170,12 @@ body.sem-lateral .bt-menu { display: none !important; }
 .nav-tema-t { flex: 1 1 auto; min-width: 0; }
 .nav-pg { flex: none; margin-top: 1px; font: 600 11.5px/1.35 var(--font-ui); color: var(--ink-3); font-variant-numeric: tabular-nums; }
 .nav-tema[aria-current="page"], .nav-tema.ativo { color: var(--ink); font-weight: 650; background: color-mix(in srgb, var(--m) 13%, transparent); }
-.nav-pe { margin: 26px 10px 0; font: 500 12px/1.5 var(--font-ui); color: var(--ink-3); }
 .lido-ico { display: inline-grid; place-items: center; width: 16px; height: 16px; margin-top: 1px; flex: none; border: 1.5px solid var(--rule-2); border-radius: 50%; color: var(--paper); }
 .lido-ico svg { width: 10px; height: 10px; stroke-width: 3.2; }
 .lido-ico.lido-sim { border-color: var(--ok); background: var(--ok); }
 .lido-ico.lido-mudou { border-color: var(--star); background: var(--warn-bg); }
-.principal { min-width: 0; padding: 32px 16px 120px; outline: none; }
+.principal { --pad-x: 16px; min-width: 0; padding: 0 var(--pad-x) 120px; outline: none; }
+#ui-vista { padding-top: 32px; }
 .veu { position: fixed; inset: 0; z-index: 55; background: rgb(10 12 16 / 40%); }
 
 /* ---------- Botões comuns ---------- */
@@ -202,8 +206,8 @@ body.sem-lateral .bt-menu { display: none !important; }
 .sw-1 { --c: var(--mt1); } .sw-2 { --c: var(--mt2); } .sw-3 { --c: var(--mt3); } .sw-4 { --c: var(--mt4); }
 
 /* ---------- Documento ---------- */
-.doc { max-width: 1140px; margin: 0 auto; }
-.doc-cab { max-width: 780px; margin-bottom: 26px; }
+.doc { max-width: var(--doc-w); margin: 0 auto; }
+.doc-cab { max-width: var(--measure); margin-bottom: 26px; }
 .migalhas { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font: 600 13px/1.3 var(--font-ui); color: var(--ink-3); }
 .migalhas .num { color: var(--m); font-variant-numeric: tabular-nums; }
 .migalhas .sep { opacity: .6; }
@@ -236,30 +240,31 @@ body.sem-lateral .bt-menu { display: none !important; }
 .toc-movel, .sumario-box { max-width: var(--measure); margin: 0 0 26px; border: 1px solid var(--rule); border-radius: 10px; background: var(--raised); }
 .toc-movel summary, .sumario-box summary { padding: 11px 14px; cursor: pointer; font: 650 14px/1.2 var(--font-ui); color: var(--ink-2); }
 .toc-movel .toc-lista { margin: 0 14px 12px; }
-@media (min-width: 1300px) {
+@media (min-width: 1500px) {
   .doc-grade { grid-template-columns: minmax(0, 1fr) 230px; }
-  .toc { display: block; position: sticky; top: calc(var(--top-h) + 28px + env(safe-area-inset-top, 0px)); max-height: calc(100vh - var(--top-h) - 56px); overflow-y: auto; padding-bottom: 12px; scrollbar-width: thin; }
+  .toc { display: block; position: sticky; top: calc(var(--top-h) + var(--faixa) + 28px + env(safe-area-inset-top, 0px)); max-height: calc(100vh - var(--top-h) - var(--faixa) - 56px); overflow-y: auto; padding-bottom: 12px; scrollbar-width: thin; }
   .toc-movel { display: none; }
 }
 
-/* ---------- Cabeçalho e abas da disciplina ---------- */
-.mat-topo { margin: 0 0 28px; }
-.mt-linha { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; }
-.mt-nome { margin: 0; font: 650 clamp(25px, 2.8vw, 34px)/1.15 var(--font-serif); letter-spacing: -.015em; text-wrap: balance; }
-.mt-nome a { color: inherit; text-decoration: none; }
-.mt-nome a:hover { text-decoration: underline; text-underline-offset: 4px; }
-.mt-ult { flex-basis: 100%; font: 500 13.5px/1.35 var(--font-ui); color: var(--ink-3); font-variant-numeric: tabular-nums; }
-.mat-topo.compacto { margin-bottom: 22px; }
-.mat-topo.compacto .mt-nome { font: 650 16px/1.25 var(--font-ui); letter-spacing: 0; }
-.mat-topo.compacto .mt-ult { display: none; }
-.abas { display: flex; gap: 2px; margin-top: 14px; overflow-x: auto; border-bottom: 1px solid var(--rule); scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+/* ---------- Faixa da disciplina: sigla, nome e abas, sempre no mesmo lugar ---------- */
+body.com-faixa { --faixa: var(--faixa-h); }
+.faixa { position: sticky; top: calc(var(--top-h) + env(safe-area-inset-top, 0px)); z-index: 35; margin-inline: calc(-1 * var(--pad-x)); padding-inline: var(--pad-x); background: var(--paper); background: color-mix(in srgb, var(--paper) 92%, transparent); -webkit-backdrop-filter: saturate(1.3) blur(10px); backdrop-filter: saturate(1.3) blur(10px); border-bottom: 1px solid var(--rule); }
+.faixa-in { display: flex; align-items: stretch; gap: 16px; max-width: var(--faixa-w); height: var(--faixa-h); margin: 0 auto; }
+.faixa-mat { display: none; align-items: center; gap: 9px; flex: none; max-width: 250px; color: var(--ink); text-decoration: none; }
+.faixa-nome { display: none; min-width: 0; overflow: hidden; font: 650 15.5px/1.2 var(--font-serif); text-overflow: ellipsis; white-space: nowrap; }
+/* Com o menu lateral à vista, o nome da disciplina já está nele: a faixa mostra só as abas. */
+body.foco .faixa-mat { display: flex; }
+@media (max-width: 959px) { .faixa-mat { display: flex; } }
+@media (min-width: 1100px) { .faixa-nome { display: block; } }
+.faixa-mat:hover .faixa-nome { text-decoration: underline; text-underline-offset: 3px; }
+.abas { display: flex; flex: 1 1 auto; gap: 2px; min-width: 0; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
 .abas::-webkit-scrollbar { display: none; }
-.aba-l { display: inline-flex; align-items: center; gap: 7px; flex: none; margin-bottom: -1px; padding: 10px 12px 11px; border-bottom: 2px solid transparent; color: var(--ink-2); font: 600 13.5px/1 var(--font-ui); text-decoration: none; white-space: nowrap; }
+.aba-l { display: inline-flex; align-items: center; gap: 6px; flex: none; padding: 2px 10px 0; border-bottom: 2px solid transparent; color: var(--ink-2); font: 600 13px/1 var(--font-ui); text-decoration: none; white-space: nowrap; }
 .aba-l:hover { color: var(--ink); }
 .aba-l[aria-current="page"] { border-bottom-color: var(--m); color: var(--ink); }
-.aba-n { padding: 3px 7px; border-radius: 99px; background: var(--panel); color: var(--ink-2); font: 700 11px/1 var(--font-ui); font-variant-numeric: tabular-nums; }
+.aba-n { padding: 3px 6px; border-radius: 99px; background: var(--panel); color: var(--ink-2); font: 700 11px/1 var(--font-ui); font-variant-numeric: tabular-nums; }
 .aba-l[aria-current="page"] .aba-n { background: color-mix(in srgb, var(--m) 16%, transparent); color: var(--ink); }
-.sec-cab { max-width: 780px; margin: 0 0 20px; }
+.sec-cab { max-width: var(--measure); margin: 0 0 20px; }
 .sec-tit { margin: 0 0 6px; font: 650 clamp(24px, 2.8vw, 32px)/1.18 var(--font-serif); letter-spacing: -.015em; text-wrap: balance; }
 .sec-sub { margin: 0; font: 400 15.5px/1.5 var(--font-ui); color: var(--ink-2); text-wrap: pretty; }
 .sec-sub code, .vg-txt code, .vazio code { padding: .1em .35em; border-radius: 4px; background: var(--panel); font-size: .88em; overflow-wrap: anywhere; }
@@ -324,7 +329,7 @@ body.sem-lateral .bt-menu { display: none !important; }
 .doc-corpo { font-family: var(--font-read); font-size: var(--fs); line-height: 1.72; font-optical-sizing: auto; overflow-wrap: break-word; }
 .doc-corpo > *, .doc-corpo > [data-texto] > * { max-width: var(--measure); }
 .doc-corpo > [data-texto], .doc-corpo .tabela, .doc-corpo .codigo { max-width: 100%; }
-.doc-corpo [data-b], .doc-corpo h2, .doc-corpo h3, .pag, .g-tema, .s-parte { scroll-margin-top: calc(var(--top-h) + 28px + env(safe-area-inset-top, 0px)); }
+.doc-corpo [data-b], .doc-corpo h2, .doc-corpo h3, .pag, .g-tema, .s-parte { scroll-margin-top: calc(var(--top-h) + var(--faixa) + 28px + env(safe-area-inset-top, 0px)); }
 .doc-corpo h2 { margin: 2.1em 0 .55em; font: 650 1.44em/1.25 var(--font-serif); letter-spacing: -.012em; text-wrap: balance; }
 .doc-corpo [data-texto] > h2:first-child, .g-cab + h2 { margin-top: .2em; }
 .doc-corpo h3 { margin: 1.7em 0 .45em; font: 650 1.15em/1.3 var(--font-serif); text-wrap: balance; }
@@ -400,7 +405,7 @@ body.com-caneta .leitura { cursor: text; }
 .peg-ir:hover { background: var(--hover); color: var(--ink); }
 
 /* Resumo geral: páginas, sumário e temas em sequência */
-.g-prog { display: grid; gap: 10px; max-width: 780px; margin: 16px 0 0; padding: 14px 16px; border: 1px solid var(--rule); border-radius: 12px; background: var(--raised); }
+.g-prog { display: grid; gap: 10px; max-width: var(--measure); margin: 16px 0 0; padding: 14px 16px; border: 1px solid var(--rule); border-radius: 12px; background: var(--raised); }
 .g-prog-txt { margin: 0; font: 500 13.5px/1.45 var(--font-ui); color: var(--ink-2); }
 .g-prog-bts { display: flex; flex-wrap: wrap; gap: 8px; }
 .aviso-mudou { color: var(--ink); font-weight: 600; }
@@ -430,7 +435,7 @@ body.com-caneta .leitura { cursor: text; }
 .s-div::after { content: ""; flex: 1 1 auto; border-top: 1px solid color-mix(in srgb, var(--m) 35%, var(--rule)); }
 .s-parte:first-child .s-div { margin-top: 0; }
 .s-acoes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-.s-add { max-width: 780px; margin-top: 44px; padding: 18px 20px 20px; border: 1px solid var(--rule); border-radius: 14px; background: var(--raised); scroll-margin-top: calc(var(--top-h) + 20px); }
+.s-add { max-width: var(--measure); margin-top: 44px; padding: 18px 20px 20px; border: 1px solid var(--rule); border-radius: 14px; background: var(--raised); scroll-margin-top: calc(var(--top-h) + var(--faixa) + 20px); }
 .s-add-t { margin: 0 0 6px; font: 650 19px/1.3 var(--font-serif); }
 .s-add-txt { margin: 0 0 12px; font: 400 14px/1.55 var(--font-ui); color: var(--ink-2); }
 .s-add-txt code, .s-add-lista code { padding: .1em .35em; border-radius: 4px; background: var(--panel); font-size: .88em; overflow-wrap: anywhere; }
@@ -452,10 +457,10 @@ body.com-caneta .leitura { cursor: text; }
 /* Rodapé do tema */
 .doc-fim { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; max-width: var(--measure); margin: 44px 0 0; padding: 22px 0 0; border-top: 1px solid var(--rule); }
 .doc-fim p { margin: 0; font: 500 13.5px/1.45 var(--font-ui); color: var(--ink-3); }
-.citado { max-width: var(--measure-cab, 780px); margin: 44px 0 0; padding-top: 22px; border-top: 1px solid var(--rule); }
+.citado { max-width: var(--measure); margin: 44px 0 0; padding-top: 22px; border-top: 1px solid var(--rule); }
 .citado-tit { margin: 0 0 10px; font: 700 10.5px/1 var(--font-ui); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); }
 .citado ul { display: flex; flex-wrap: wrap; gap: 8px 10px; margin: 0; padding: 0; list-style: none; font: 15px/1.6 var(--font-ui); }
-.doc-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; max-width: 780px; margin-top: 40px; }
+.doc-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; max-width: var(--measure); margin-top: 40px; }
 .viz { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; border: 1px solid var(--rule); border-radius: 12px; background: var(--raised); text-decoration: none; }
 .viz:hover { border-color: var(--rule-2); background: var(--hover); }
 .viz-prox { grid-column: 2; text-align: right; }
@@ -464,7 +469,6 @@ body.com-caneta .leitura { cursor: text; }
 .viz-mat { font: 500 12.5px/1.3 var(--font-ui); color: var(--m); }
 
 /* ---------- Mapa mental ---------- */
-.doc.vista-mapa { max-width: none; }
 .vista-mapa .doc-cab { margin-bottom: 18px; }
 .mapa { position: relative; }
 .mapa-ferr { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 0 0 10px; }
@@ -542,7 +546,7 @@ body.com-caneta .leitura { cursor: text; }
 .trecho-txt { font: 400 15.5px/1.6 var(--font-read); color: var(--ink-2); }
 .res-mais { margin: 6px 0 0; padding: 7px 0; border: 0; background: none; color: var(--accent); font: 650 13.5px/1 var(--font-ui); cursor: pointer; }
 .res-mais:hover { text-decoration: underline; }
-.vazio { max-width: 780px; margin-top: 12px; padding: 20px 22px; border: 1px dashed var(--rule-2); border-radius: 12px; color: var(--ink-2); line-height: 1.6; }
+.vazio { max-width: var(--measure); margin-top: 12px; padding: 20px 22px; border: 1px dashed var(--rule-2); border-radius: 12px; color: var(--ink-2); line-height: 1.6; }
 .vazio p { margin: 0 0 8px; }
 .vazio p:last-child { margin-bottom: 0; }
 
@@ -666,10 +670,9 @@ body.com-achados .dock { bottom: calc(76px + env(safe-area-inset-bottom, 0px)); 
 .ach-cima svg { transform: rotate(180deg); }
 
 /* ---------- Telas menores e modo foco ---------- */
-@media (min-width: 720px) { .principal { padding-inline: 40px; } }
+@media (min-width: 720px) { .principal { --pad-x: 40px; } }
 @media (min-width: 960px) { body:not(.sem-lateral):not(.foco) .dock { left: calc(var(--side-w) + 24px); } }
-@media (min-width: 1480px) { .principal { padding-inline: 60px; } }
-@media (max-width: 1099px) { .marca { width: auto; padding-right: 8px; } }
+@media (min-width: 1480px) { .principal { --pad-x: 60px; } }
 @media (max-width: 959px) {
   .grade { grid-template-columns: minmax(0, 1fr); }
   .bt-menu { display: inline-grid; margin-left: -6px; }
@@ -683,9 +686,7 @@ body.foco .grade { grid-template-columns: minmax(0, 1fr); }
 body.foco .bt-menu { display: inline-grid; margin-left: -6px; }
 body.foco .lateral { position: fixed; z-index: 60; top: 0; bottom: 0; left: 0; width: min(88vw, 330px); height: auto; padding-top: calc(18px + env(safe-area-inset-top, 0px)); padding-bottom: calc(28px + env(safe-area-inset-bottom, 0px)); box-shadow: var(--shadow); transform: translateX(-102%); transition: transform .2s ease; visibility: hidden; }
 body.foco.menu-aberto .lateral { transform: none; visibility: visible; }
-body.foco .marca { width: auto; }
-body.foco .doc:not(.vista-mapa) { max-width: 800px; }
-:root[data-largura="ampla"] body.foco .doc:not(.vista-mapa) { max-width: 980px; }
+body.foco { --doc-w: calc(var(--measure) + 40px); }
 body.foco .doc-grade { grid-template-columns: minmax(0, 1fr); }
 body.foco .toc { display: none; }
 @media (max-width: 720px) {
@@ -693,12 +694,13 @@ body.foco .toc { display: none; }
 }
 @media (max-width: 640px) {
   :root { --top-h: 56px; }
-  .topo { gap: 6px; padding-inline: 12px; }
+  .topo { grid-template-columns: auto minmax(0, 1fr) auto; gap: 6px; padding-inline: 12px; }
   .marca-sub, .busca-kbd { display: none; }
   .marca-nome { font-size: 18px; }
+  :root { --faixa-h: 44px; }
   .busca input { font-size: 16px; padding-right: 38px; }
   .bt-peg { display: none; }
-  .principal { padding-top: 22px; }
+  #ui-vista { padding-top: 22px; }
   .doc-tit-linha { gap: 10px; }
   .bt-fav { justify-content: center; width: 38px; height: 36px; padding: 0; }
   .bt-fav span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
@@ -723,7 +725,7 @@ body.foco .toc { display: none; }
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
 @media print {
-  .topo, .lateral, .toc, .toc-movel, .achados, .doc-nav, .bt-fav, .citado, .ajustes, .veu, .pular, .dock, .paleta, .abas, .modo, .doc-fim, .doc-acoes { display: none !important; }
+  .topo, .lateral, .toc, .toc-movel, .achados, .doc-nav, .bt-fav, .citado, .ajustes, .veu, .pular, .dock, .paleta, .faixa, .modo, .doc-fim, .doc-acoes { display: none !important; }
   .grade { display: block; }
   .principal { padding: 0; }
   body { background: #fff; color: #000; }
@@ -735,8 +737,10 @@ body.foco .toc { display: none; }
 <noscript><p style="padding:24px;font:16px system-ui,sans-serif">Ative o JavaScript para usar o sistema de estudos.</p></noscript>
 <a class="pular" href="#" data-pular>Pular para o conteúdo</a>
 <header class="topo">
-  <button class="bt-icone bt-menu" id="ui-menu" type="button" aria-label="Abrir a lista de tópicos" aria-controls="ui-lateral" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-  <a class="marca" href="#inicio" aria-label="Início: todas as disciplinas"><span class="marca-nome">Estudos</span><span class="marca-sub">Auditor Fiscal</span></a>
+  <div class="topo-esq">
+    <button class="bt-icone bt-menu" id="ui-menu" type="button" aria-label="Abrir a lista de tópicos" aria-controls="ui-lateral" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="marca" href="#inicio" aria-label="Início: todas as disciplinas"><span class="marca-nome">Estudos</span><span class="marca-sub">Auditor Fiscal</span></a>
+  </div>
   <form class="busca" id="ui-form" role="search" autocomplete="off">
     <label class="sr" for="ui-q">Buscar em todo o material</label>
     <svg class="busca-ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
@@ -751,7 +755,7 @@ body.foco .toc { display: none; }
 </header>
 <div class="grade">
   <nav class="lateral" id="ui-lateral" aria-label="Tópicos da disciplina"></nav>
-  <main class="principal" id="ui-principal" tabindex="-1"><div id="ui-vista"></div></main>
+  <main class="principal" id="ui-principal" tabindex="-1"><nav class="faixa" id="ui-faixa" hidden></nav><div id="ui-vista"></div></main>
 </div>
 <div class="veu" id="ui-veu" hidden></div>
 <div class="ajustes" id="ui-ajustes" role="dialog" aria-label="Ajustes de leitura" hidden>
@@ -775,8 +779,8 @@ body.foco .toc { display: none; }
     </div></div>
   <div class="aj-linha"><span class="aj-rot" id="aj-r-larg">Largura da coluna</span>
     <div class="seg" role="radiogroup" aria-labelledby="aj-r-larg">
-      <button type="button" role="radio" data-aj="largura" data-val="normal">Normal</button>
-      <button type="button" role="radio" data-aj="largura" data-val="ampla">Ampla</button>
+      <button type="button" role="radio" data-aj="largura" data-val="normal">Folha A4</button>
+      <button type="button" role="radio" data-aj="largura" data-val="estreita">Estreita</button>
     </div></div>
   <div class="aj-linha"><div class="aj-cab"><span class="aj-rot" id="aj-r-foco">Modo foco</span>
     <button type="button" class="chave" role="switch" aria-checked="false" aria-labelledby="aj-r-foco" data-aj="foco"><span></span></button></div>
@@ -892,7 +896,6 @@ body.foco .toc { display: none; }
     if (n < 730) return `há ${Math.round(n / 30)} meses`;
     return `há ${Math.round(n / 365)} anos`;
   }
-  const ultimoTexto = m => (m.ultimo ? `Último resumo em ${dataBR(m.ultimo)} · ${haQuanto(m.ultimo)}` : 'Sem resumo registrado no diário');
 
   // ---------- Busca: normalização sem acentos ----------
   const MARCAS = /[̀-ͯ]/g;
@@ -968,7 +971,7 @@ body.foco .toc { display: none; }
   const vista = $('#ui-vista'), lateral = $('#ui-lateral'), principal = $('#ui-principal');
   const campo = $('#ui-q'), btLimpar = $('#ui-limpar'), painel = $('#ui-ajustes'), btAjustes = $('#ui-bt-ajustes');
   const btMenu = $('#ui-menu'), veu = $('#ui-veu'), barra = $('#ui-achados'), btPeg = $('#ui-peg');
-  const topo = $('.topo'), dock = $('#ui-dock'), dockGeral = $('#ui-dock-geral'), paleta = $('#ui-paleta'), dlg = $('#ui-dlg');
+  const topo = $('.topo'), faixa = $('#ui-faixa'), dock = $('#ui-dock'), dockGeral = $('#ui-dock-geral'), paleta = $('#ui-paleta'), dlg = $('#ui-dlg');
   const busca = { q: '', exata: false, filtro: 'todas', termos: [] };
   let rota = null, rotaAntesDaBusca = null, pegFiltro = 'todas', matAtual = null, filtroCor = 0;
   let favoritos = guarda.ler('favoritos', []).filter(id => docs[id]);
@@ -982,6 +985,7 @@ body.foco .toc { display: none; }
   const TAMANHOS = [15, 16, 17, 18, 20, 22];
   const aj = Object.assign({ tema: 'auto', tam: 2, fonte: 'serif', largura: 'normal', foco: false }, guarda.ler('ajustes', {}));
   if (!(aj.tam >= 0 && aj.tam < TAMANHOS.length)) aj.tam = 2;
+  if (aj.largura !== 'estreita') aj.largura = 'normal';
   function aplicarAjustes() {
     const r = document.documentElement;
     if (aj.tema === 'auto') r.removeAttribute('data-leitura'); else r.setAttribute('data-leitura', aj.tema);
@@ -1051,7 +1055,7 @@ body.foco .toc { display: none; }
         h += `<a class="nav-tema" href="${href}" data-doc="${id}"${modo === 'geral' ? ` data-geral="${id}"` : ''}>${icoLido(id)}<span class="nav-tema-t">${esc(d.titulo)}</span>${modo === 'geral' ? `<span class="nav-pg">${d.pag[0]}</span>` : ''}</a>`;
       }
     }
-    lateral.innerHTML = h + `</div><p class="nav-pe">Base ${esc(D.meta.versao)} · atualizada em ${esc(D.meta.data)}</p>`;
+    lateral.innerHTML = h + '</div>';
   }
   function rolarLateral(a) {
     const lr = lateral.getBoundingClientRect(), ar = a.getBoundingClientRect();
@@ -1116,6 +1120,15 @@ body.foco .toc { display: none; }
       if (b) b.focus({ preventScroll: true });
     }
   }
+  // Última leitura da disciplina: o Lido mais recente (tópicos ou resumo geral).
+  function ultimaLeitura(m) {
+    let u = '';
+    temasDe(m).forEach(id => { const l = lidos[id]; if (l && (l.em || '') > u) u = l.em; });
+    const g = geralLido[m.id];
+    if (g && (g.em || '') > u) u = g.em;
+    return u || null;
+  }
+  const ultimoTexto = m => { const u = ultimaLeitura(m); return u ? `Última leitura em ${dataBR(u)} · ${haQuanto(u)}` : 'Nenhuma leitura marcada ainda'; };
   function progressoTemas(m) {
     const ts = temasDe(m);
     let sim = 0, mudou = 0;
@@ -1573,6 +1586,7 @@ body.foco .toc { display: none; }
     configurarDock(null);
     matAtual = r.v === 'mat' ? r.mat : r.v === 'doc' && docs[r.doc].tipo === 'tema' ? docs[r.doc].materia : null;
     renderLateral();
+    renderFaixa(r);
     if (r.v === 'doc') {
       if (r.mapa && docs[r.doc].mapa) renderMapaTema(r.doc);
       else renderDoc(r.doc, Object.assign({ secao: r.secao }, op));
@@ -1581,11 +1595,6 @@ body.foco .toc { display: none; }
     else if (r.v === 'pegadinhas') renderPegadinhas();
     else renderInicio();
     marcarAtivo();
-    const aba = $('.aba-l[aria-current="page"]', vista);
-    if (aba) {
-      const nav = aba.parentElement, rn = nav.getBoundingClientRect(), ra = aba.getBoundingClientRect();
-      nav.scrollLeft += ra.left - rn.left - (rn.width - ra.width) / 2;
-    }
   }
   function renderMateria(m, r, op) {
     if (r.aba === 'geral') renderGeral(m, r.extra, op);
@@ -1599,11 +1608,11 @@ body.foco .toc { display: none; }
 
   // ---------- Início: as disciplinas ----------
   function cartaoDisciplina(m) {
-    const nT = temasDe(m).length, pt = progressoTemas(m), pg = progressoGeral(m);
-    const ult = m.ultimo ? `<span class="disc-ult-d">${dataBR(m.ultimo)}</span><span class="disc-ult-h">${haQuanto(m.ultimo)}</span>` : '<span class="disc-ult-h">sem registro no diário</span>';
+    const nT = temasDe(m).length, pt = progressoTemas(m), pg = progressoGeral(m), u = ultimaLeitura(m);
+    const ult = u ? `<span class="disc-ult-d">${dataBR(u)}</span><span class="disc-ult-h">${haQuanto(u)}</span>` : '<span class="disc-ult-h">nenhum Lido marcado</span>';
     return `<article class="disc c-${m.cor}">
       <div class="disc-cab"><span class="aba">${esc(m.sigla)}</span><h3 class="disc-nome">${esc(m.nome)}</h3></div>
-      <p class="disc-ult">${ICO.cal}<span>Último resumo</span>${ult}</p>
+      <p class="disc-ult">${ICO.cal}<span>Última leitura</span>${ult}</p>
       <p class="disc-dados">${plural(nT, 'tópico', 'tópicos')} · ${plural(m.assuntos.length, 'assunto', 'assuntos')} · resumo geral de ${plural(m.geral.paginas, 'página', 'páginas')}</p>
       <div class="disc-prog">${barraProg('Resumo geral', pg ? pg.pct : 0, (pg ? pg.pct : 0) + '%')}${barraProg('Tópicos lidos', pt.pct, `${pt.sim}/${pt.total}`)}</div>
       <a class="disc-bt" href="#${m.id}">Abrir a disciplina ${ICO.dir}</a>
@@ -1617,7 +1626,9 @@ body.foco .toc { display: none; }
     const lista = D.materias.slice();
     if (ordem !== 'curso') {
       const sinal = ordem === 'antigo' ? 1 : -1;
-      lista.sort((a, b) => { const x = a.ultimo || '', y = b.ultimo || ''; return x === y ? 0 : (x < y ? -1 : 1) * sinal; });
+      const quando = Object.create(null);
+      lista.forEach(m => { quando[m.id] = ultimaLeitura(m) || ''; });
+      lista.sort((a, b) => { const x = quando[a.id], y = quando[b.id]; return x === y ? 0 : (x < y ? -1 : 1) * sinal; });
     }
     const nE = D.pegadinhas.filter(p => p.v === 'E').length, nC = D.pegadinhas.filter(p => p.v === 'C').length;
     const u = guarda.ler('ultimo', null);
@@ -1640,12 +1651,11 @@ body.foco .toc { display: none; }
     }
     const opcao = (v, t) => `<option value="${v}"${ordem === v ? ' selected' : ''}>${t}</option>`;
     vista.innerHTML = `<div class="inicio">
-      <header><p class="rotulo">Base ${esc(D.meta.versao)} · atualizada em ${esc(D.meta.data)}</p>
-        <h1 class="ini-tit">${saudacao}.</h1>
+      <header><h1 class="ini-tit">${saudacao}.</h1>
         <p class="ini-lede">${plural(D.materias.length, 'disciplina', 'disciplinas')} e ${plural(D.ordem.length, 'tópico', 'tópicos')}. Abra uma disciplina para ler o resumo geral, os resumos por tópico, os mapas mentais e o resumo sintético.</p></header>
       <section aria-labelledby="ui-t-disc">
         <div class="disc-barra"><h2 id="ui-t-disc">Disciplinas</h2>
-          <label class="ordem">Ordenar por <select id="ui-ordem">${opcao('curso', 'ordem do curso')}${opcao('antigo', 'último resumo: mais antigo primeiro')}${opcao('recente', 'último resumo: mais recente primeiro')}</select></label></div>
+          <label class="ordem">Ordenar por <select id="ui-ordem">${opcao('curso', 'ordem do curso')}${opcao('antigo', 'última leitura: mais antiga primeiro')}${opcao('recente', 'última leitura: mais recente primeiro')}</select></label></div>
         <div class="disc-grade">${lista.map(cartaoDisciplina).join('')}</div>
       </section>
       <div class="ini-atalhos">${atalhos}</div>
@@ -1655,21 +1665,42 @@ body.foco .toc { display: none; }
   }
 
   // ---------- Página da disciplina ----------
-  function cabMateria(m, aba, compacto) {
-    const pg = progressoGeral(m), pt = progressoTemas(m), nm = contarMarcas(m);
-    const abas = [['visao', 'Visão geral'], ['geral', 'Resumo geral'], ['topicos', 'Por tópico'], ['mapa', 'Mapa mental geral'], ['mapas', 'Mapas por tópico'], ['sintetico', 'Resumo sintético'], ['marcas', 'Marcações']];
-    const conta = { geral: pg ? pg.pct + '%' : '', topicos: `${pt.sim}/${pt.total}`, sintetico: m.sintetico.length || '', marcas: nm.total || '' };
-    const tag = compacto ? 'p' : 'h1';
-    return `<header class="mat-topo c-${m.cor}${compacto ? ' compacto' : ''}">
-      <div class="mt-linha"><span class="aba">${esc(m.sigla)}</span><${tag} class="mt-nome"><a href="#${m.id}">${esc(m.nome)}</a></${tag}><span class="mt-ult">${esc(ultimoTexto(m))}</span></div>
-      <nav class="abas" aria-label="Conteúdo de ${esc(m.nome)}">${abas.map(([k, t]) => `<a class="aba-l" href="#${m.id}${k === 'visao' ? '' : '_' + k}"${k === aba ? ' aria-current="page"' : ''}>${t}${k in conta ? `<span class="aba-n" data-conta="${k}"${conta[k] === '' ? ' hidden' : ''}>${conta[k]}</span>` : ''}</a>`).join('')}</nav>
-    </header>`;
+  // A faixa (sigla, nome e abas) fica fora da vista: ao trocar de aba na mesma disciplina, ela não é
+  // redesenhada; só muda a aba marcada. Assim o menu não se mexe e só o conteúdo abaixo muda.
+  const NOMES_ABAS = [['visao', 'Visão geral'], ['geral', 'Resumo geral'], ['topicos', 'Por tópico'], ['mapa', 'Mapa mental geral'], ['mapas', 'Mapas por tópico'], ['sintetico', 'Resumo sintético'], ['marcas', 'Marcações']];
+  const CONTAS = ['geral', 'topicos', 'sintetico', 'marcas'];
+  const abaDaRota = r => (r.v === 'mat' ? r.aba || 'visao' : r.mapa ? 'mapas' : 'topicos');
+  function renderFaixa(r) {
+    document.body.classList.toggle('com-faixa', !!matAtual);
+    if (!matAtual) { faixa.hidden = true; faixa.innerHTML = ''; faixa.dataset.mat = ''; return; }
+    const m = MAT[matAtual], aba = abaDaRota(r);
+    if (faixa.dataset.mat !== m.id) {
+      faixa.dataset.mat = m.id;
+      faixa.className = `faixa c-${m.cor}`;
+      faixa.setAttribute('aria-label', `Conteúdo de ${m.nome}`);
+      faixa.innerHTML = `<div class="faixa-in"><a class="faixa-mat" href="#${m.id}" title="${esc(m.nome)}"><span class="aba">${esc(m.sigla)}</span><span class="faixa-nome">${esc(m.nome)}</span></a>
+        <div class="abas">${NOMES_ABAS.map(([k, t]) => `<a class="aba-l" href="#${m.id}${k === 'visao' ? '' : '_' + k}" data-aba="${k}">${t}${CONTAS.includes(k) ? `<span class="aba-n" data-conta="${k}" hidden></span>` : ''}</a>`).join('')}</div></div>`;
+    }
+    faixa.hidden = false;
+    $$('.aba-l', faixa).forEach(a => { if (a.dataset.aba === aba) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
+    atualizarContadores();
+    // Em tela estreita, as abas rolam de lado: elas só se mexem se a aba atual estiver toda fora da vista.
+    const nav = $('.abas', faixa), atual = $('.aba-l[aria-current]', faixa);
+    if (nav && atual) {
+      const rn = nav.getBoundingClientRect(), ra = atual.getBoundingClientRect();
+      if (ra.right <= rn.left) nav.scrollLeft -= rn.left - ra.left + 24;
+      else if (ra.left >= rn.right) nav.scrollLeft += ra.right - rn.right + 24;
+    }
   }
   function atualizarContadores() {
-    if (!matAtual || !$('.mat-topo', vista)) return;
-    const m = MAT[matAtual], pg = progressoGeral(m), pt = progressoTemas(m), nm = contarMarcas(m);
-    const valores = { geral: pg ? pg.pct + '%' : '', topicos: `${pt.sim}/${pt.total}`, marcas: nm.total || '' };
-    Object.keys(valores).forEach(k => { const el = $(`[data-conta="${k}"]`, vista); if (el) { el.textContent = valores[k]; el.hidden = valores[k] === ''; } });
+    if (!matAtual) return;
+    const m = MAT[matAtual];
+    const lu = $('.lat-ult', lateral);
+    if (lu) lu.textContent = ultimoTexto(m);
+    if (faixa.hidden) return;
+    const pg = progressoGeral(m), pt = progressoTemas(m), nm = contarMarcas(m);
+    const valores = { geral: pg ? pg.pct + '%' : '', topicos: `${pt.sim}/${pt.total}`, sintetico: m.sintetico.length || '', marcas: nm.total || '' };
+    Object.keys(valores).forEach(k => { const el = $(`[data-conta="${k}"]`, faixa); if (el) { el.textContent = valores[k]; el.hidden = valores[k] === ''; } });
   }
   function progGeralHtml(m) {
     const pg = progressoGeral(m), N = m.geral.paginas;
@@ -1683,7 +1714,7 @@ body.foco .toc { display: none; }
     const ramos = ts.reduce((s, id) => s + contarRamos(docs[id].mapa), 0), nS = m.sintetico.length;
     const card = (ico, rot, tit, txt, meio, acoes) => `<article class="vg"><p class="vg-rot">${ico}${rot}</p><h2 class="vg-tit">${tit}</h2><p class="vg-txt">${txt}</p>${meio}<div class="vg-acoes">${acoes}</div></article>`;
     const seguir = pg && pg.pag < N ? pg.pag + 1 : 0;
-    vista.innerHTML = `<div class="doc c-${m.cor}">${cabMateria(m, 'visao')}<div class="vg-grade">
+    vista.innerHTML = `<div class="doc c-${m.cor}"><header class="sec-cab"><h1 class="sec-tit">${esc(m.nome)}</h1><p class="sec-sub">${esc(ultimoTexto(m))}</p></header><div class="vg-grade">
       ${card(ICO.livro, 'Resumo geral', plural(N, 'página', 'páginas'), 'Todos os tópicos da disciplina num texto só, na ordem do curso e dividido em páginas.',
         `${barraProg('Lido', pg ? pg.pct : 0, (pg ? pg.pct : 0) + '%')}<p class="vg-sit">${pg ? `Até a pág. ${pg.pag}, marcado em ${dataBR(pg.em)}${pg.mudou ? ' (o texto mudou depois)' : ''}` : 'Nenhuma leitura marcada'}</p>`,
         `<a class="bt bt-p" href="#${m.id}_geral${seguir ? '~p' + seguir : ''}">${seguir ? `Continuar da pág. ${seguir}` : 'Abrir'}</a><button class="bt" type="button" data-marcar-geral="${m.id}">Marcar lido</button>`)}
@@ -1713,7 +1744,7 @@ body.foco .toc { display: none; }
       }
       h += '</ul></section>';
     }
-    vista.innerHTML = `<div class="doc c-${m.cor}">${cabMateria(m, 'topicos')}
+    vista.innerHTML = `<div class="doc c-${m.cor}"><h1 class="sr">Resumos por tópico · ${esc(m.nome)}</h1>
       <div class="tp-barra">${barraTopicos(m)}<div class="seg" role="group" aria-label="Mostrar"><button type="button" data-filtro-tp="todos" aria-pressed="${filtro !== 'nao'}">Todos</button><button type="button" data-filtro-tp="nao" aria-pressed="${filtro === 'nao'}">Só os não lidos</button></div></div>
       ${h}</div>`;
     window.scrollTo(0, 0);
@@ -1738,7 +1769,6 @@ body.foco .toc { display: none; }
     }).join('');
     document.title = `${d.titulo} · Estudos`;
     vista.innerHTML = `<div class="doc c-${m.cor}">
-      ${tema ? cabMateria(m, 'topicos', true) : ''}
       <header class="doc-cab">
         <nav class="migalhas" aria-label="Localização">${tema ? `${d.num ? `<span class="num">${esc(d.num)}</span>` : ''}<span>${esc(d.assunto)}</span>` : `<span class="aba">${esc(m.sigla)}</span><span>${esc(m.nome)}</span>`}</nav>
         <div class="doc-tit-linha"><h1 class="doc-tit">${esc(d.titulo)}</h1><div class="doc-acoes">${tema ? botaoLido(id) : ''}${botaoFav(id)}</div></div>
@@ -1796,7 +1826,7 @@ body.foco .toc { display: none; }
     el.classList.add('alvo');
     setTimeout(() => el.classList.remove('alvo'), 1900);
   }
-  function alturaTopo() { return topo.getBoundingClientRect().bottom; }
+  function alturaTopo() { return faixa.hidden ? topo.getBoundingClientRect().bottom : faixa.getBoundingClientRect().bottom; }
   function espiar() {
     if (!titulosDoc.length) return;
     const limite = alturaTopo() + 40;
@@ -1831,8 +1861,8 @@ body.foco .toc { display: none; }
       d.partes.forEach((p, k) => { corpo += mk(k) + p; });
       corpo += '</section>';
     }
-    vista.innerHTML = `<div class="doc c-${m.cor}">${cabMateria(m, 'geral')}
-      <header class="sec-cab"><h2 class="sec-tit">Resumo geral</h2><p class="sec-sub">Todos os tópicos de ${esc(m.nome)} num texto só, na ordem do curso, em ${plural(G.paginas, 'página', 'páginas')}. Ao marcar lido, informe até qual página leu.</p>
+    vista.innerHTML = `<div class="doc c-${m.cor}">
+      <header class="sec-cab"><h1 class="sec-tit">Resumo geral</h1><p class="sec-sub">Todos os tópicos de ${esc(m.nome)} num texto só, na ordem do curso, em ${plural(G.paginas, 'página', 'páginas')}. Ao marcar lido, informe até qual página leu.</p>
         <div class="g-prog" id="ui-g-prog">${progGeralHtml(m)}</div></header>
       <details class="sumario-box" open><summary>Sumário</summary><ol class="sumario">${sum}</ol></details>
       <article class="doc-corpo leitura" id="ui-artigo">${corpo}</article></div>`;
@@ -1936,8 +1966,8 @@ body.foco .toc { display: none; }
       ? `${ids.length > 1 ? `<nav class="s-indice" aria-label="Partes">${ids.map(id => `<a href="#${id}" data-parte="${id}">${esc(docs[id].rotulo)}</a>`).join('')}</nav>` : ''}
         <article class="doc-corpo leitura" id="ui-artigo">${ids.map(id => `<section class="s-parte" id="s-${id}" data-texto="${id}"><p class="s-div">${esc(docs[id].rotulo)}</p>${docs[id].partes.join('\n')}</section>`).join('')}</article>`
       : `<div class="vazio"><p><strong>Ainda não há resumo sintético desta disciplina.</strong></p><p>Cada parte que você acrescentar fica guardada na pasta <code>${pasta}</code> e aparece aqui, depois das anteriores.</p></div>`;
-    vista.innerHTML = `<div class="doc c-${m.cor}">${cabMateria(m, 'sintetico')}
-      <header class="sec-cab"><h2 class="sec-tit">Resumo sintético</h2>
+    vista.innerHTML = `<div class="doc c-${m.cor}">
+      <header class="sec-cab"><h1 class="sec-tit">Resumo sintético</h1>
         <p class="sec-sub">${ids.length ? `${plural(ids.length, 'parte juntada', 'partes juntadas')} na ordem, sem alteração no texto. Só a numeração dos títulos é refeita, em sequência na disciplina inteira. Os arquivos ficam em <code>${pasta}</code>.` : 'Seus resumos bem sintetizados, juntados na ordem em que você os acrescenta.'}</p>
         <div class="s-acoes">${ids.length ? `<button class="bt" type="button" data-sint-copiar="${m.id}">Copiar o texto completo</button><button class="bt" type="button" data-sint-baixar="${m.id}">Baixar .txt</button>` : ''}<a class="bt bt-p" href="#ui-s-add" data-rolar="ui-s-add">Adicionar parte</a></div>
         <p class="s-add-st" id="ui-s-acao" role="status"></p></header>
@@ -1990,8 +2020,8 @@ body.foco .toc { display: none; }
       }).join('')}</ul></section>`;
     }
     const chip = (c, rot, n) => `<button class="chip${c ? '' : ' chip-todas'}" type="button" data-filtro-cor="${c}" aria-pressed="${filtroCor === c}">${c ? `<span class="sw sw-${c}"></span>` : ''}${rot} <span class="n">${n}</span></button>`;
-    vista.innerHTML = `<div class="doc c-${m.cor}">${cabMateria(m, 'marcas')}
-      <header class="sec-cab"><h2 class="sec-tit">Marcações</h2><p class="sec-sub">Selecione qualquer trecho de um resumo para marcá-lo. As cores:</p>
+    vista.innerHTML = `<div class="doc c-${m.cor}">
+      <header class="sec-cab"><h1 class="sec-tit">Marcações</h1><p class="sec-sub">Selecione qualquer trecho de um resumo para marcá-lo. As cores:</p>
         <ul class="mc-legenda">${[1, 2, 3, 4].map(c => `<li><span class="sw sw-${c}"></span>${CORES[c]}</li>`).join('')}</ul></header>
       ${nm.total ? `<div class="chips" role="group" aria-label="Filtrar por cor">${chip(0, 'Todas', nm.total)}${[1, 2, 3, 4].map(c => chip(c, CORES[c], nm[c])).join('')}</div>${lista || '<div class="vazio"><p>Nenhuma marcação com esta cor.</p></div>'}`
         : `<div class="vazio"><p><strong>Nenhuma marcação ainda.</strong></p><p>No resumo geral, num tópico ou no resumo sintético, selecione um trecho e escolha a cor. Outra forma: escolha uma cor no marca-texto do canto da tela e selecione o trecho, que fica marcado na hora.</p></div>`}
@@ -2267,7 +2297,7 @@ body.foco .toc { display: none; }
   }
   function renderMapaGeral(m) {
     document.title = `Mapa mental geral · ${m.nome} · Estudos`;
-    vista.innerHTML = `<div class="doc vista-mapa c-${m.cor}">${cabMateria(m, 'mapa')}<div id="ui-mapa"></div></div>`;
+    vista.innerHTML = `<div class="doc vista-mapa c-${m.cor}"><h1 class="sr">Mapa mental geral · ${esc(m.nome)}</h1><div id="ui-mapa"></div></div>`;
     window.scrollTo(0, 0);
     mapaAtivo = criarMapa($('#ui-mapa'), arvoreGeral(m), 3);
   }
@@ -2280,15 +2310,15 @@ body.foco .toc { display: none; }
         return `<li><a class="mp" href="#${id}_mapa"><span class="mp-ico">${ICO.mapa}</span><span class="mp-tit">${esc(d.titulo)}</span><span class="mp-ramos">${(d.mapa || []).map(n => esc(textoPuro(n.t))).join(' · ')}</span><span class="mp-n">${plural(contarRamos(d.mapa), 'ramo', 'ramos')}</span></a></li>`;
       }).join('')}</ul></section>`;
     }
-    vista.innerHTML = `<div class="doc c-${m.cor}">${cabMateria(m, 'mapas')}
-      <header class="sec-cab"><h2 class="sec-tit">Mapas por tópico</h2><p class="sec-sub">Cada mapa resume um tópico e está ligado ao resumo dele: clique num ramo para ver o trecho correspondente.</p></header>${h}</div>`;
+    vista.innerHTML = `<div class="doc c-${m.cor}">
+      <header class="sec-cab"><h1 class="sec-tit">Mapas por tópico</h1><p class="sec-sub">Cada mapa resume um tópico e está ligado ao resumo dele: clique num ramo para ver o trecho correspondente.</p></header>${h}</div>`;
     window.scrollTo(0, 0);
   }
   function renderMapaTema(id) {
     const d = docs[id], m = MAT[d.materia];
     const [ant, prox] = vizinhos[id] || [null, null];
     document.title = `Mapa mental · ${d.titulo} · Estudos`;
-    vista.innerHTML = `<div class="doc vista-mapa c-${m.cor}">${cabMateria(m, 'mapas', true)}
+    vista.innerHTML = `<div class="doc vista-mapa c-${m.cor}">
       <header class="doc-cab"><nav class="migalhas" aria-label="Localização">${d.num ? `<span class="num">${esc(d.num)}</span>` : ''}<span>${esc(d.assunto)}</span></nav>
         <div class="doc-tit-linha"><h1 class="doc-tit">${esc(d.titulo)}</h1><div class="doc-acoes">${botaoLido(id)}</div></div>${modoTema(id, 'mapa')}</header>
       <div id="ui-mapa"></div>

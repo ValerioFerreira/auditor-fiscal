@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v003** (28/09/2026)
+> Versão atual da base: **v004** (29/09/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -39,3 +39,11 @@
 - **Sistema de leitura:** página própria para cada disciplina (resumo geral dividido em páginas, resumos por tópico, mapa mental geral e por tópico, resumo sintético e marcações), botão Lido, porcentagem de leitura do resumo geral, marca-texto em 4 cores e ordenação das disciplinas pela data do último resumo.
 - **Resumo sintético pelo site:** com o site aberto no computador (`python sistema/gerar.py --servir`), a aba "Resumo sintético" recebe cada parte nova, que é salva sem alteração na pasta da matéria. No site, só a numeração dos itens é refeita, em sequência única na matéria inteira.
 - **Primeiro resumo sintético:** o arquivo "01 - Sintético.docx", com as quatro matérias misturadas, foi separado pelos títulos de disciplina e salvo como a parte 01 de cada uma (em Markdown, com a mesma formatação e a imagem da pirâmide das normas), sem alteração no conteúdo. Na exibição, os títulos numerados passam a seguir em sequência: Tributário 1 a 24, Contabilidade 1 a 4, Constitucional 1 a 10 (o título repetido "Classificação das Constituições" virou continuação: 7.1 a 7.8); Administrativo já estava em ordem. As próximas partes podem ser enviadas em .docx pela aba "Resumo sintético" do site.
+
+## 29/09/2026 — Ajustes no site (v004)
+
+- **Sem conteúdo novo de estudo.**
+- **Leitura:** o texto dos resumos passou a ter a largura de uma folha A4 (em Aa, a opção "Estreita" volta à coluna antiga).
+- **Menu da disciplina:** as abas (Visão geral, Resumo geral...) ficam numa faixa fixa logo abaixo da busca, sempre no mesmo lugar; só o conteúdo abaixo muda. A busca fica sempre centralizada no topo.
+- **Última leitura:** os cards das disciplinas, a ordenação, o menu lateral e a página da disciplina mostram a data do último Lido marcado (tópico ou resumo geral), no lugar da data do último resumo.
+- **Versão da base:** deixou de aparecer no site (fica só aqui e em `assuntos-estudados.md`).

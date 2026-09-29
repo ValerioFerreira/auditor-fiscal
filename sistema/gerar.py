@@ -16,8 +16,10 @@ Além do texto de cada tema, o gerador monta, por matéria:
 - o mapa mental de cada tema (seção "## Mapa mental", que sai do texto do tema);
 - o resumo sintético (arquivos .txt/.md da pasta "Resumo Sintético", na ordem dos números): o
   texto entra como está; só a numeração dos títulos ("1.", "1.1") é refeita na exibição, em
-  sequência única na matéria inteira (ver `renumerar`);
-- a data do último resumo (seções "### Matéria" do diário de estudos).
+  sequência única na matéria inteira (ver `renumerar`).
+
+A data da última leitura de cada disciplina (o Lido mais recente) é calculada no navegador, a
+partir das leituras que o próprio leitor marcou.
 
 Com --servir, o site aberto em http://localhost:8765/ também recebe novas partes do resumo
 sintético (formulário da aba "Resumo sintético"): um .docx (convertido em .md com a mesma
@@ -662,33 +664,6 @@ def ler_assuntos(caminho: Path) -> tuple[list[str], dict]:
     return ordem, tabela
 
 
-def ler_ultimos_resumos(texto: str) -> dict[str, str]:
-    """Data (ISO) do resumo mais recente de cada matéria, pelas seções '### Matéria' do diário.
-
-    A data é a da sessão ('## DD/MM/AAAA — ...'), ou a que estiver no próprio '### ' (ex.:
-    '### Direito Tributário (estudo de 28/09/2026)').
-    """
-    ultimos: dict[str, str] = {}
-    sessao = None
-    for linha in texto.splitlines():
-        m = re.match(r"^##\s+(\d{2})/(\d{2})/(\d{4})\b", linha)
-        if m:
-            sessao = f"{m.group(3)}-{m.group(2)}-{m.group(1)}"
-            continue
-        if linha.startswith("## "):
-            sessao = None
-            continue
-        m = re.match(r"^###\s+(.+?)\s*$", linha)
-        if m and sessao:
-            titulo = m.group(1)
-            d = re.search(r"(\d{2})/(\d{2})/(\d{4})", titulo)
-            quando = f"{d.group(3)}-{d.group(2)}-{d.group(1)}" if d else sessao
-            nome = chave_materia(re.split(r"\s+[(—–-]\s*", titulo)[0])
-            if quando > ultimos.get(nome, ""):
-                ultimos[nome] = quando
-    return ultimos
-
-
 def chave_materia(nome: str) -> str:
     return re.sub(r"\s+", " ", sem_acentos(nome).lower()).strip()
 
@@ -1037,7 +1012,6 @@ class Base:
         self.materia_por_id: dict[str, dict] = {}
         self.citado_em: dict[str, set[str]] = {}
         self.versao, self.data = "v???", ""
-        self.ultimos: dict[str, str] = {}
 
     def aviso(self, doc: dict, msg: str) -> None:
         linha = f"{doc['caminho']}: {msg}"
@@ -1087,7 +1061,6 @@ class Base:
                           texto_diario)
             if m:
                 self.versao, self.data = m.group(1), m.group(2)
-            self.ultimos = ler_ultimos_resumos(texto_diario)
 
         cores_livres = list(CORES_LIVRES)
         materias: dict[str, dict] = {}
@@ -1182,7 +1155,6 @@ class Base:
                 assuntos[-1]["temas"].append(d["id"])
             m["assuntos"] = [{k: a[k] for k in ("num", "nome", "temas")} for a in assuntos]
             m["sintetico"] = [d["id"] for d in self.sinteticos if d["materia"] == m["id"]]
-            m["ultimo"] = self.ultimos.get(chave_materia(m["nome"]))
             self.materias.append(m)
 
     def carregar_sintetico(self, materia: dict, pasta: Path) -> None:
@@ -1290,9 +1262,7 @@ class Base:
                 item["texto"] = d["md"]  # para copiar/baixar o resumo sintético completo
             saida[d["id"]] = item
         return {
-            "meta": {"versao": self.versao, "data": self.data,
-                     "gerado": datetime.now().strftime("%d/%m/%Y %H:%M"),
-                     "hoje": date.today().isoformat()},
+            "meta": {"gerado": datetime.now().strftime("%d/%m/%Y %H:%M")},
             "materias": self.materias,
             "controle": dict(self.materia_por_id["controle"],
                              temas=[d["id"] for d in self.controle]),
@@ -1553,9 +1523,7 @@ def main(argv: list[str]) -> int:
     print(f"Mapas mentais: {com_mapa} de {n_temas} temas ({base.n_nos} ramos) · "
           f"Resumo sintético: {len(base.sinteticos)} arquivo(s)")
     print("Resumo geral: " + " · ".join(
-        f"{m['sigla']} {m['geral']['paginas']} págs. (último resumo: "
-        f"{'/'.join(reversed(m['ultimo'].split('-'))) if m['ultimo'] else 'sem registro'})"
-        for m in base.materias))
+        f"{m['sigla']} {m['geral']['paginas']} págs." for m in base.materias))
     if not verificar:
         print(f"Gerado: {SAIDA_SITE.relative_to(RAIZ).as_posix()} ({tamanho // 1024} KB) e "
               f"{SAIDA_PAGINA_PRIVADA.relative_to(RAIZ).as_posix()}")
