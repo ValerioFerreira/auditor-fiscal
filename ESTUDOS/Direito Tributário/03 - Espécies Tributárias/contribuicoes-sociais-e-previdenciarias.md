@@ -6,7 +6,31 @@
 |---|---|---|
 | **De seguridade social** | CF, art. 195, I a V | Contribuições previdenciárias, COFINS, CSLL, PIS/COFINS-Importação, CBS |
 | **Outras de seguridade social (residuais)** | CF, art. 195, §4º | Exigem **lei complementar**, devem ser **não cumulativas** e ter FG/BC distintos dos já previstos |
-| **Sociais gerais** | Outras finalidades sociais | Ex.: **salário-educação** (CF, art. 212, §5º) |
+| **Sociais gerais** | Outras finalidades sociais, fora da seguridade | **Salário-educação** (CF, art. 212, §5º) e contribuições do **Sistema S** (SESI, SENAI, SESC, SENAC — CF, art. 240) |
+
+## Contribuições residuais x nominadas
+
+| | Nominadas | Residuais (inominadas) |
+|---|---|---|
+| Fonte de financiamento | **Prevista** na CF (art. 195, I a V) | **Não prevista** na CF (art. 195, §4º, c/c art. 154, I) |
+| Instrumento | **Lei ordinária** | **Lei complementar** |
+| Requisitos | — | **Não cumulatividade** e FG/BC **diferentes dos das contribuições já previstas** |
+
+- A contribuição residual **pode ter fato gerador ou base de cálculo iguais aos de um imposto**: a vedação é só em relação a outras contribuições sociais (STF, RE 228.321 e RE 258.470).
+- **PIS/PASEP e COFINS não são residuais**, embora criados por lei complementar (LC 7/1970, LC 8/1970 e LC 70/1991): têm base prevista na CF (arts. 195, I, "b", e 239). A LC 70/1991 é **materialmente ordinária** e pode ser alterada por lei ordinária (STF, ADC 1 e RE 377.457).
+
+## Contribuições sociais gerais
+
+- Custeiam a atuação da União na área social **fora da seguridade social**.
+- **Salário-educação** (CF, art. 212, §5º): constitucional (Súmula 732 do STF).
+- **Sistema S** (SESI, SENAI, SESC, SENAC — CF, art. 240): contribuições dos empregadores sobre a folha, destinadas a **serviços sociais autônomos**, pessoas jurídicas de **direito privado** que realizam atividades de interesse público. Por irem a entidade diversa do ente instituidor, são **parafiscais**. Classificação majoritária: contribuições sociais gerais.
+- ⚠️ **SEBRAE**, APEX e ABDI não entram aqui: são **CIDE** → `contribuicoes-especiais.md`.
+
+## FGTS: não é tributo
+
+- Depósito mensal de **8%** da remuneração, feito pelo empregador em conta vinculada do trabalhador (Lei 8.036/1990, art. 15; criado pela Lei 5.107/1966). É **direito social** do trabalhador (CF, art. 7º, III).
+- **Não é tributo**: o dinheiro pertence ao trabalhador, não é receita pública. Por isso **o CTN não se aplica** às contribuições para o FGTS (Súmula 353 do STJ).
+- ⚠️ O motivo é a natureza não tributária, e não o fato de estar previsto na CF (os tributos também estão).
 
 ## Seguridade social (CF, art. 194)
 
@@ -58,13 +82,18 @@
 - "Incide contribuição previdenciária sobre aposentadoria concedida pelo RGPS" → **ERRADO**.
 - "No RPPS, a contribuição dos inativos incide sobre todo o provento" → **ERRADO** (em regra, só sobre o que exceder o teto do RGPS).
 - "Contribuições residuais de seguridade podem ser instituídas por lei ordinária" → **ERRADO** (LC).
+- "A contribuição social residual não pode ter a mesma base de cálculo de um imposto" → **ERRADO** (a vedação é quanto a outras contribuições — RE 228.321).
+- "A COFINS, por ter sido instituída por lei complementar, é contribuição residual" → **ERRADO** (tem base prevista no art. 195, I, "b"; a LC 70/1991 é materialmente ordinária).
+- "As normas do CTN aplicam-se às contribuições para o FGTS" → **ERRADO** (Súmula 353 do STJ: o FGTS não é tributo).
+- "A contribuição ao SEBRAE é contribuição social geral, como as do Sistema S" → **ERRADO** (é CIDE).
 - "A contribuição extraordinária pode ser instituída por qualquer ente" → **ERRADO** (texto: "no âmbito da União").
 
 ## Base legal / referência
 
-- CF, arts. 40, §18; 149, §§1º a 1º-C; 167, XI; 194; 195; 212, §5º; 239
-- EC 103/2019, art. 9º, §4º; EC 132/2023 (ADCT, arts. 125 e 126); LC 214/2025
-- STF, ADI 3.105; ADIs 6.254 e outras (pendentes)
+- CF, arts. 7º, III; 40, §18; 149, §§1º a 1º-C; 154, I; 167, XI; 194; 195; 212, §5º; 239; 240
+- EC 103/2019, art. 9º, §4º; EC 132/2023 (ADCT, arts. 125 e 126); LC 214/2025; LC 70/1991; Lei 8.036/1990
+- STF: ADI 3.105; ADIs 6.254 e outras (pendentes); RE 228.321; RE 258.470; ADC 1; RE 377.457; Súmula 732
+- STJ, Súmula 353
 
 ## Relações com outros assuntos
 
@@ -74,11 +103,13 @@
 ## Mapa mental
 
 - Classificação
-  - De seguridade social (CF, art. 195, I a V)
-  - Residuais (art. 195, §4º): lei complementar, não cumulativas, FG e BC distintos
-  - Sociais gerais: ex.: salário-educação
-- Seguridade social (art. 194): saúde, previdência e assistência social
+  - De seguridade social (CF, art. 195, I a V): nominadas, por lei ordinária
+  - Residuais (art. 195, §4º): lei complementar, não cumulativas, FG e BC distintos das outras contribuições
+  - Residual pode ter FG ou BC de imposto (RE 228.321)
+  - PIS e COFINS não são residuais: LC 70/1991 é materialmente ordinária
+  - Sociais gerais: salário-educação e Sistema S (parafiscais)
 - Bases do art. 195
+  - Seguridade (art. 194): saúde, previdência e assistência social
   - I, "a": folha e rendimentos do trabalho, mesmo sem vínculo
   - I, "b": receita ou faturamento → COFINS (PIS: art. 239)
   - I, "c": lucro → CSLL
@@ -98,3 +129,6 @@
   - Com déficit atuarial: inativos contribuem sobre o que superar o salário mínimo (§1º-A)
   - Contribuição extraordinária só no âmbito da União (§§1º-B e 1º-C)
   - ⚠️ STF: maioria pela inconstitucionalidade, julgamento não concluído
+- FGTS
+  - 8% da remuneração, em conta do trabalhador
+  - Não é tributo: o CTN não se aplica (Súmula 353 do STJ)

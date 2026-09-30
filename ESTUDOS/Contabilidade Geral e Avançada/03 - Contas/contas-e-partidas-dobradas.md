@@ -26,7 +26,8 @@
 
 > ⚠️ **Débito não significa aumento, nem crédito significa diminuição.** O efeito depende da **natureza da conta**: um débito aumenta o Caixa (ativo), mas reduz Fornecedores (passivo).
 
-- **Contas redutoras** existem para que o grupo reflita fielmente a realidade patrimonial. Exemplos: depreciação acumulada e perdas estimadas com créditos de liquidação duvidosa (redutoras do ativo — saldo credor); capital a integralizar, ações em tesouraria e prejuízos acumulados (redutoras do PL — saldo devedor); devoluções e abatimentos sobre vendas (redutoras da receita).
+- **Contas redutoras** existem para que o grupo reflita fielmente a realidade patrimonial. Exemplos: depreciação acumulada e perdas estimadas com créditos de liquidação duvidosa (redutoras do ativo — saldo credor); juros passivos a transcorrer (redutora do passivo — saldo devedor); capital a integralizar, ações em tesouraria e prejuízos acumulados (redutoras do PL — saldo devedor); devoluções e abatimentos sobre vendas (redutoras da receita).
+- Tabela com 71 exemplos de contas, sua classificação e natureza → `classificacao-e-natureza-das-contas.md`.
 
 ## Contas quanto à estabilidade do saldo
 
@@ -62,6 +63,8 @@
 
 - Teorias das contas → `teorias-das-contas.md`
 - Plano de contas → `plano-de-contas.md`
+- Exemplos de contas (classificação e natureza) → `classificacao-e-natureza-das-contas.md`
+- Atos e fatos administrativos (lançamentos) → `../04 - Atos e Fatos Administrativos/atos-e-fatos-administrativos.md`
 - Capital a integralizar (redutora do PL) → `../02 - Patrimônio/capital.md`
 
 ## Mapa mental
@@ -79,6 +82,7 @@
   - Débito não significa aumento: depende da natureza da conta
 - Contas redutoras
   - Do ativo: depreciação acumulada, perdas estimadas com créditos de liquidação duvidosa
+  - Do passivo: juros passivos a transcorrer
   - Do PL: capital a integralizar, ações em tesouraria, prejuízos acumulados
   - Da receita: devoluções e abatimentos sobre vendas
 - Estabilidade do saldo

@@ -95,3 +95,40 @@
 |---|---|---|
 | REORGANIZAÇÃO | Temas sem mapa mental | Seção `## Mapa mental` no fim de cada um dos 25 temas, feita só com o conteúdo do próprio tema; o texto dos temas não mudou |
 | REORGANIZAÇÃO | Sem lugar para o resumo sintético | Pasta `Resumo Sintético` em cada matéria, com instruções em `LEIA-ME.txt`; os arquivos serão seus e entram no sistema sem alteração |
+
+## v005 — 30/09/2026 (resumos de 29/09/2026)
+
+### Direito Tributário
+
+| Classificação | Como estava no resumo | Como ficou na base |
+|---|---|---|
+| INCORRETA | "Taxas judiciárias são as únicas que possuem arrecadação vinculada" | Empréstimos compulsórios e contribuições especiais também têm arrecadação vinculada; entre as **taxas**, só custas e emolumentos têm destinação vinculada pela CF (art. 98, §2º) |
+| IMPRECISA | FGTS "é garantido pela CF/88, por isso o CTN não se aplica" | O CTN não se aplica porque o FGTS **não é tributo** (Súmula 353 do STJ); estar na CF não afasta o CTN |
+| IMPRECISA | "Taxas e contribuições de melhoria são vinculados/retributivos/bilaterais/contraprestacionais/sinalagmáticos" | Ambos são vinculados (taxa: vinculação direta; contribuição de melhoria: indireta); os demais termos descrevem sobretudo as taxas |
+| INCOMPLETA | "Imposto residual pode ter base de cálculo e fato gerador igual a contribuição social" | Registrado como entendimento doutrinário, paralelo ao que o STF decidiu para as contribuições residuais (RE 228.321) |
+| INCOMPLETA | "Contribuição sindical... agora exige prévia e expressa autorização" | Acrescentadas a ADI 5.794 e a contribuição assistencial (Tema 935, com direito de oposição) |
+| INCOMPLETA | INCRA "pode incidir sobre folha de salários... mesmo que não expressamente definido na EC" | Identificada a EC 33/2001 e os Temas 325 e 495 do STF (lista de bases exemplificativa) |
+| CONFIRMADA | Recursos da CIDE-combustíveis para "tarifas de transporte público coletivo de passageiros" | Correto: incluído pela EC 132/2023 (art. 177, §4º, II, "d") |
+| CONFIRMADA | Contribuição estadual transitória sobre produtos primários e semielaborados (até 31/12/2043) | Correto: ADCT, art. 136 (EC 132/2023). A sigla "CPPS" do material não é nome oficial |
+
+### Contabilidade Geral e Avançada
+
+| Classificação | Como estava no resumo | Como ficou na base |
+|---|---|---|
+| INCORRETA | "Receita é ativo, receita antecipada é passivo / Despesa é passivo, despesa antecipada é ativo" | Receita e despesa são contas de **resultado**. O correto: **despesa antecipada → ativo** (direito); **receita antecipada → passivo** (obrigação) |
+| IMPRECISA | CMV classificado como "Resultado – Despesa" | **Resultado – Custo** (deduzido da receita líquida para chegar ao lucro bruto); natureza devedora mantida |
+| INCOMPLETA | Regra: "ativo, despesas e retificadoras do passivo: devedoras" | Acrescentadas as **redutoras do PL** (devedoras), como já constava na própria tabela |
+| INCOMPLETA | "Provisão para perdas esperadas" | Nota: o nome técnico atual é perdas estimadas com créditos de liquidação duvidosa; "provisão" hoje designa passivo (CPC 25) |
+| INCOMPLETA | "Duplicatas descontadas — Passivo" | Mantido (orientação atual), com nota de que a classificação antiga era de redutora do ativo |
+| REORGANIZAÇÃO | Tabela de contas dividida em três partes no .docx (a 2ª e a 3ª sem cabeçalho) | Uma única tabela com as **71 contas**, sem perda, em tópico próprio (`03 - Contas/classificacao-e-natureza-das-contas.md`), com filtros por classificação e natureza no site |
+
+### Direito Constitucional
+
+| Classificação | Como estava no resumo | Como ficou na base |
+|---|---|---|
+| IMPRECISA | Assembleia "exclusiva, quando formada por não-políticos (professores, cientistas, juristas...)" | Exclusiva é a eleita **só para elaborar a Constituição** e dissolvida depois (x congressual); não depende de os membros serem ou não políticos |
+| IMPRECISA | Originário "não está previsto em norma judicial" | Norma **jurídica**; acrescentada a divergência positivistas x jusnaturalistas |
+| DIVERGÊNCIA | Originário "ilimitado juridicamente (exceto a vedação ao retrocesso...)" | STF: juridicamente ilimitado (ADI 815); parte da doutrina: limites transcendentes, como a vedação do retrocesso |
+| INCOMPLETA | Cláusulas pétreas: "não pode abolir... o derivado pode alterar, ampliando ou reduzindo" | É vedada a proposta **tendente a abolir**; alterações são possíveis se preservado o **núcleo essencial** (ADI 2.024) |
+| IMPRECISA | Decorrente: "deve possuir 3/5 dos votos dos deputados estaduais para emenda" | O quórum é fixado pela **constituição estadual** (em regra, por simetria, 3/5 em dois turnos) |
+| INCOMPLETA | Prisão do depositário infiel como exemplo de mutação | Mantido, com a ressalva de que tecnicamente é efeito paralisante do tratado supralegal (SV 25) |

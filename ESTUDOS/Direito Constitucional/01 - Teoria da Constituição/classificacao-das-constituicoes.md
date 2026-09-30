@@ -110,7 +110,7 @@
 ## Relações com outros assuntos
 
 - Tratados de DH com status de EC → `hierarquia-das-normas.md`
-- Poder constituinte e cláusulas pétreas — a estudar
+- Poder constituinte e cláusulas pétreas → `poder-constituinte.md`
 
 ## Mapa mental
 

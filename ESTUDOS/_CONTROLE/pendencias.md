@@ -2,7 +2,9 @@
 
 ## 🔴 Confirmar com você (intenção do resumo original)
 
-*Nenhuma pendência aberta.* As quatro pendências da carga inicial foram resolvidas por você em 27/09/2026 (ver `alteracoes.md`, v002).
+- **Direito Administrativo — resumo de 29/09/2026:** o arquivo "29_09_26 - Resumos - Auditor Fiscal.docx" tem o título "Direito Administrativo" no fim, mas nenhum conteúdo abaixo dele. Faltou colar essa parte? Se sim, mande-a para eu incorporar.
+
+*As quatro pendências da carga inicial foram resolvidas por você em 27/09/2026 (ver `alteracoes.md`, v002).*
 
 ## 🟠 Acompanhar (jurisprudência/legislação em aberto)
 
@@ -18,6 +20,6 @@
 ## ⚪ Assuntos mencionados, mas ainda não consolidados (estudar)
 
 - **Tributário:** competência tributária; princípio da legalidade e anterioridades (limitações ao poder de tributar); imunidades; obrigação tributária (art. 113); impostos em espécie; transação tributária.
-- **Constitucional:** poder constituinte e cláusulas pétreas; processo legislativo (MP, LC, EC); controle de constitucionalidade (ADI, ADO, mandado de injunção); competências legislativas (art. 22); estado de defesa e de sítio; direitos fundamentais em espécie.
+- **Constitucional:** processo legislativo (MP, LC, EC); controle de constitucionalidade (ADI, ADO, mandado de injunção); competências legislativas (art. 22); estado de defesa e de sítio; direitos fundamentais em espécie.
 - **Administrativo:** poderes administrativos (polícia, regulamentar, hierárquico); atos administrativos (anulação, revogação, convalidação); serviços públicos e concessões; agentes públicos (estabilidade, greve); improbidade; processo administrativo (Lei 9.784/99); bens públicos.
 - **Contabilidade:** demonstrações contábeis (Balanço Patrimonial, DRE); escrituração e lançamentos.

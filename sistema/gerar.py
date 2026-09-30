@@ -127,9 +127,10 @@ RE_TITULO = re.compile(r"^(#{1,6})\s+(.*?)\s*#*\s*$")
 RE_REGUA = re.compile(r"^\s{0,3}([-*_])(?:\s*\1){2,}\s*$")
 RE_ITEM = re.compile(r"^(\s*)([-*+]|\d{1,9}[.)])(\s+)(.*)$")
 RE_SEPARADOR = re.compile(r"^\s*\|?\s*:?-+:?\s*(?:\|\s*:?-+:?\s*)*\|?\s*$")
-# Larguras das colunas da tabela seguinte, em % (gravadas pelo editor do site):
-# "<!-- colunas: 30 20 50 -->". Fora de uma tabela, a linha é ignorada.
-RE_LARGURAS = re.compile(r"^\s*<!--\s*colunas:\s*([\d.\s]+?)\s*-->\s*$")
+# Opções da tabela seguinte, uma por linha logo acima dela (fora de uma tabela, são ignoradas):
+# "<!-- colunas: 30 20 50 -->" (larguras em %, gravadas pelo editor do site) e
+# "<!-- filtros: Classificação, Natureza -->" (colunas com filtro no site).
+RE_OPCAO_TABELA = re.compile(r"^\s*<!--\s*(colunas|filtros):\s*(.*?)\s*-->\s*$")
 
 
 def inicia_bloco(linha: str) -> bool:
@@ -137,7 +138,7 @@ def inicia_bloco(linha: str) -> bool:
     return bool(
         RE_CERCA.match(linha) or RE_TITULO.match(s) or RE_REGUA.match(linha)
         or s.startswith(">") or s.startswith("|") or RE_ITEM.match(linha)
-        or RE_LARGURAS.match(linha)
+        or RE_OPCAO_TABELA.match(linha)
     )
 
 
@@ -193,13 +194,22 @@ def ler_blocos(linhas: list[str]) -> list[dict]:
         if not linhas[i].strip():
             i += 1
             continue
-        m = RE_LARGURAS.match(linhas[i])
-        if m and not eh_tabela(linhas, i + 1):
-            i += 1  # larguras sem tabela logo abaixo: ignoradas
+        opcoes, k = {}, i
+        while k < n and RE_OPCAO_TABELA.match(linhas[k]):
+            m = RE_OPCAO_TABELA.match(linhas[k])
+            opcoes[m.group(1)] = m.group(2)
+            k += 1
+        if opcoes and not eh_tabela(linhas, k):
+            i = k  # opções sem tabela logo abaixo: ignoradas
             continue
-        bloco, j = um_bloco(linhas, i + 1 if m else i)
-        if m:
-            bloco["larguras"] = [float(x) for x in m.group(1).split()]
+        bloco, j = um_bloco(linhas, k)
+        if "colunas" in opcoes:
+            try:
+                bloco["larguras"] = [float(x) for x in opcoes["colunas"].split()]
+            except ValueError:
+                pass
+        if opcoes.get("filtros"):
+            bloco["filtros"] = [x.strip() for x in opcoes["filtros"].split(",") if x.strip()]
         fim = j
         while fim > i and not linhas[fim - 1].strip():
             fim -= 1
@@ -638,7 +648,9 @@ class Renderizador:
             linha = (linha + [""] * ncol)[:ncol]
             corpo.append(linha_html([celula("td", c, k) for k, c in enumerate(linha)]))
         classe, colunas = colunas_html(b, ncol)
-        return (f'<div class="tabela"><table{classe}>{colunas}<thead>{cab}</thead>'
+        filtros = (f' data-filtros="{esc("|".join(b["filtros"]))}"'
+                   if b.get("filtros") else "")  # o site monta os filtros (ver prepararFiltros)
+        return (f'<div class="tabela"{filtros}><table{classe}>{colunas}<thead>{cab}</thead>'
                 f'<tbody>{"".join(corpo)}</tbody></table></div>')
 
     def codigo_bloco(self, b: dict) -> str:
@@ -1323,7 +1335,10 @@ class Base:
         ordem = [d["id"] for d in self.docs]
         for m in self.materias:
             m["geral"] = self.paginar([d for d in self.docs if d["materia"] == m["id"]])
-        for d in todos:
+        # Os arquivos de _CONTROLE são conferidos (referências, markdown), mas não vão para o site:
+        # a seção "Controle da base" foi ocultada a seu pedido (30/09/2026).
+        indice = [e for e in indice if not e[0].startswith("controle.")]
+        for d in self.docs + self.sinteticos:
             citantes = self.citado_em.get(d["id"], set())
             item = {
                 "titulo": d["titulo"], "tipo": d["tipo"], "materia": d["materia"],
@@ -1343,8 +1358,7 @@ class Base:
         return {
             "meta": {"gerado": datetime.now().strftime("%d/%m/%Y %H:%M")},
             "materias": self.materias,
-            "controle": dict(self.materia_por_id["controle"],
-                             temas=[d["id"] for d in self.controle]),
+            "controle": dict(self.materia_por_id["controle"], temas=[]),
             "ordem": ordem,
             "docs": saida,
             "indice": indice,
@@ -1546,6 +1560,8 @@ def canonico(no: No) -> str:
         extra = f'{no.attrs.get("data-arquivo", "")}|{largura_pct(no) or ""}'
     elif no.tag == "col":
         extra = str(largura_pct(no) or "")
+    elif no.tag == "table":
+        extra = no.attrs.get("data-filtros", "")
     return f"<{no.tag} {extra}>" + "".join(canonico(f) for f in no.filhos) + f"</{no.tag}>"
 
 
@@ -1887,6 +1903,8 @@ class Escritor:
         cols = [largura_pct(c) for c in elementos(no, "col", "table")]
         if len(cols) == ncol and all(cols):
             md.insert(0, f"<!-- colunas: {' '.join(num_curto(x) for x in cols)} -->")
+        if no.attrs.get("data-filtros", "").strip():
+            md.insert(0, f"<!-- filtros: {no.attrs['data-filtros'].strip()} -->")
         legenda = " ".join(self.inline(c.filhos, "p") for c in elementos(no, "caption", "table"))
         return (legenda + "\n\n" if legenda.strip() else "") + "\n".join(md)
 
@@ -1934,7 +1952,9 @@ def html_bloco_editor(b: dict, r: Renderizador) -> str:
                                     enumerate(cels + [""] * (ncol - len(cels)))) + "</tr>"
 
         corpo = "".join(tr("td", x) for x in b["linhas"])
-        return f"<table>{colunas}<thead>{tr('th', b['cab'])}</thead><tbody>{corpo}</tbody></table>"
+        filtros = f' data-filtros="{esc(", ".join(b["filtros"]))}"' if b.get("filtros") else ""
+        return (f"<table{filtros}>{colunas}<thead>{tr('th', b['cab'])}</thead>"
+                f"<tbody>{corpo}</tbody></table>")
     if t == "codigo":
         lang = f' data-lang="{esc(b["lang"])}"' if b.get("lang") else ""
         return f'<pre{lang}><code>{html.escape(b["texto"], quote=False)}</code></pre>'

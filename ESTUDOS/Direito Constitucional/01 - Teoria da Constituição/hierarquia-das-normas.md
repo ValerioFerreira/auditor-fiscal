@@ -82,7 +82,8 @@ decretos regulamentares, portarias, instruções normativas...
 
 - CTN com status de LC → `Direito Tributário/01 - Fundamentos/fundamentos-do-direito-tributario.md`
 - Poder regulamentar — Direito Administrativo (a estudar)
-- Processo legislativo e poder constituinte — a estudar
+- Poder constituinte → `poder-constituinte.md`
+- Processo legislativo — a estudar
 
 ## Mapa mental
 

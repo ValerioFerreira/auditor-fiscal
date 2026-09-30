@@ -21,6 +21,7 @@
 ## Relações com outros assuntos
 
 - Natureza devedora/credora → `contas-e-partidas-dobradas.md`
+- Atos administrativos (controlados em contas de compensação) → `../04 - Atos e Fatos Administrativos/atos-e-fatos-administrativos.md`
 
 ## Mapa mental
 

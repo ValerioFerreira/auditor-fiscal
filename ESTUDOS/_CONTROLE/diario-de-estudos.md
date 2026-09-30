@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v004** (29/09/2026)
+> Versão atual da base: **v005** (30/09/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -48,3 +48,21 @@
 - **Última leitura:** os cards das disciplinas, a ordenação, o menu lateral e a página da disciplina mostram a data do último Lido marcado (tópico ou resumo geral), no lugar da data do último resumo.
 - **Versão da base:** deixou de aparecer no site (fica só aqui e em `assuntos-estudados.md`).
 - **Login de administrador e editor:** botão "Entrar" no canto superior direito (não obrigatório). Com o site aberto por `python sistema/gerar.py --servir` e o login feito, os tópicos e as partes do resumo sintético podem ser editados no próprio site (texto, títulos, listas, tabelas com largura de colunas, imagens). Só os blocos alterados são regravados no arquivo; a versão anterior fica em `edicoes-anteriores/` (fora do git).
+
+## 30/09/2026 — Resumos de 29/09/2026 e redesign do site (v005)
+
+- **Origem:** arquivo "29_09_26 - Resumos - Auditor Fiscal.docx" (estudo de 29/09/2026), com Direito Tributário, Contabilidade e Direito Constitucional. A seção de Direito Administrativo veio vazia (ver `pendencias.md`).
+
+### Direito Tributário (estudo de 29/09/2026)
+- Contribuições residuais x nominadas; PIS/COFINS não residuais (LC 70/1991 materialmente ordinária); contribuições sociais gerais (salário-educação e Sistema S); FGTS (não é tributo); CIDEs (combustíveis, AFRMM, SEBRAE, CIDE-Royalties, INCRA); contribuições corporativas, OAB e contribuições sindicais; contribuição estadual transitória do art. 136 do ADCT; competência residual de impostos e papel da LC (art. 146, III, "a"); classificações por finalidade, repercussão e alíquotas.
+- **Principais enriquecimentos:** EC 132/2023 (CIDE-combustíveis para tarifas de transporte público; art. 136 do ADCT); STF, RE 228.321, RE 396.266, Temas 325, 495, 540, 732 e 935, ADI 3.026, ADI 5.794, ADC 1 e RE 377.457; Súmulas 353 e 516 do STJ; SV 40; CTN, art. 166 (restituição de tributo indireto); ADIs 1.145 e 3.643 (destinação de custas e emolumentos).
+
+### Contabilidade Geral e Avançada (estudo de 29/09/2026)
+- Novo tópico com a tabela de 71 contas (classificação, natureza e porquê), com filtros por classificação e natureza no site; dicas pelo nome da conta; atos e fatos administrativos (permutativos, modificativos e mistos, com lançamentos).
+- **Principais enriquecimentos:** CMV como custo; PECLD (nome atual da "provisão para perdas"); duplicatas descontadas como passivo; empréstimos a dirigentes no RLP (Lei 6.404, art. 179, II); lucros acumulados nas S.A.; desconto condicional x incondicional.
+
+### Direito Constitucional (estudo de 29/09/2026)
+- Poder constituinte: teoria (Sieyès), titularidade e exercício, originário (características, classificações e divergência sobre limites), derivado reformador (limitações do art. 60), decorrente, revisor, difuso (mutação constitucional) e supranacional.
+- **Principais enriquecimentos:** ADI 815, ADI 939 (anterioridade tributária como cláusula pétrea), ADI 2.024 (núcleo essencial), ADI 4.277/ADPF 132, SV 25; EC 26/1985; ECR 1 a 6/1994; natureza da Lei Orgânica do DF.
+
+- **Site:** tabela de contas com filtros; a seção "Controle da base" deixou de aparecer; a página inicial perdeu a saudação e o subtítulo; o controle de largura do texto passou para o painel Aa; redesign de todo o site (fonte Manrope, tema escuro neutro, cards reorganizados na página de cada disciplina, novos ícones e transições).
