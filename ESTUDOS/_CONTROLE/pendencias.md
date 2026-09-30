@@ -14,6 +14,8 @@
 
 ## 🟡 Organização / fluxo de trabalho
 
+- **Login com Google (v007):** o código está pronto, mas só liga depois de você criar o cliente OAuth no Google Cloud, a Data API no Neon (com `sistema/neon.sql`) e o `sistema/conta.json`, e desligar a Vercel Authentication (passos no README). Até lá, o botão Entrar só oferece o login de administrador.
+
 - **Concurso-alvo e data-base do edital:** saber qual concurso (e se a banca é mesmo CEBRASPE) ajuda a priorizar legislação estadual/municipal e a decidir como tratar a transição PIS/COFINS → CBS.
 - **Datas originais dos estudos:** não informadas no arquivo inicial.
 - Termo "eficácia prospectiva" (sinônimo de eficácia contida no seu material): mantido; não é a nomenclatura mais usual (Temer: "redutível ou restringível").

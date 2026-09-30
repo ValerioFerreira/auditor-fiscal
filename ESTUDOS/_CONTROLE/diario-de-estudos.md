@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v006** (30/09/2026)
+> Versão atual da base: **v007** (30/09/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -73,3 +73,9 @@
 - **Questões turbo:** 708 questões de Certo ou Errado sobre os 28 temas (Tributário 218, Contabilidade 151, Constitucional 200, Administrativo 139), com selo de dificuldade, comentário e link para a seção do tema; entre 48% e 53% de itens certos em cada matéria. Feitas por um agente por matéria (`.claude/agents/`), com base num guia de como a banca cobra cada disciplina (pesquisa na web, `.claude/questoes/guias/`). O gerador guarda a cobertura de cada seção, para que as próximas questões partam só do texto novo (`--questoes-pendentes`).
 - **Base:** ⚠️ no nepotismo em cargos políticos (STF, Tema 1.000, em julgamento); divergência sobre o direito à paz (3ª dimensão x 5ª, Bonavides).
 - **Site:** aba e card "Questões turbo" em cada disciplina (ordem por assunto ou aleatória, inéditas primeiro e depois revisão pelas erradas, filtros, favoritas, relatos e desempenho por tópico); o nome da banca não aparece mais no site.
+
+## 30/09/2026 — Login com Google e questões sempre C/E (v007)
+
+- **Sem conteúdo novo de estudo.**
+- **Questões turbo:** decidido que continuam só de Certo ou Errado; se os agentes encontrarem questões de múltipla escolha na pesquisa, usam-nas como base para entender como a banca cobra o assunto e as adaptam a C/E (instruções comuns dos agentes de questões).
+- **Site:** login com Google para qualquer leitor (leituras, marca-texto, favoritos e respostas das questões ficam na conta e sincronizam entre aparelhos; a edição de textos segue exclusiva do administrador). Precisa ser configurado (Google Cloud + Neon): ver README, "Login com Google", e `sistema/neon.sql`.

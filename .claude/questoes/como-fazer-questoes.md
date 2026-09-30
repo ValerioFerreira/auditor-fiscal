@@ -59,6 +59,7 @@ Arquivo: `ESTUDOS/<Matéria>/Questões Turbo/<mesmo-nome-do-tema>.md`. Se ainda 
   - dificuldade em torno de 30% fácil, 45% médio e 25% difícil;
   - "difícil" é o item que exige um passo a mais: exceção da exceção, sinônimo raro, caso concreto, jurisprudência específica do tema ou combinação de conceitos.
 - **Quantidade: o máximo que o texto sustenta sem repetir a mesma ideia.** Em geral, uma questão por fato, distinção, exceção ou exemplo relevante. Seções com tabela comparativa costumam render várias. Não faça duas questões que testem a mesma coisa com o mesmo gabarito.
+- **Formato: sempre Certo ou Errado**, mesmo que a banca da matéria cobre em múltipla escolha. Se na pesquisa (ou no guia) aparecerem questões de múltipla escolha, use-as só para entender **como** a banca cobra o assunto (o que ela testa, as armadilhas e os distratores) e adapte a ideia para uma afirmativa C/E: cada alternativa errada de uma questão vira, no máximo, uma afirmativa ERRADA própria, e a correta vira uma CERTA. O conteúdo continua vindo só do tema.
 - **Nunca** diga que a questão é de prova real ou de um concurso específico, e não copie questões reais.
 - **Português formal, como o da banca.** O enunciado não menciona "o resumo" nem "o tema".
 - **Tabela com filtros** (ex.: as 71 contas de Contabilidade): varie. Cobre classificação, natureza, a conta redutora e os cuidados listados.

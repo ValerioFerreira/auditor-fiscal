@@ -53,6 +53,7 @@ import html.parser
 import http.server
 import json
 import math
+import os
 import posixpath
 import re
 import sys
@@ -78,7 +79,10 @@ ORDEM_CONTROLE = ["diario-de-estudos", "assuntos-estudados", "pendencias", "alte
 PASTA_SINTETICO = "Resumo Sintético"
 PASTA_QUESTOES = "Questões Turbo"
 PASTAS_ESPECIAIS = (PASTA_SINTETICO, PASTA_QUESTOES)  # dentro da matéria, mas não são temas
-ROTA_RELATO = "/__estudos/relato"  # questão reportada pelo site (com --servir)
+ROTA_RELATO = "/__estudos/relato"
+# Conta (login com Google + dados no Neon). Valores públicos, não segredos: vêm das variáveis
+# de ambiente ESTUDOS_GOOGLE_CLIENT_ID e ESTUDOS_NEON_API ou do arquivo sistema/conta.json.
+CONTA_JSON = PASTA_SISTEMA / "conta.json"  # questão reportada pelo site (com --servir)
 RELATOS = RAIZ / "ENTRADA" / "questoes-relatadas.md"
 ROTA_SINTETICO = "/__estudos/sintetico"
 LIMITE_SINTETICO = 40_000_000  # bytes por parte enviada pelo site (.docx vem em base64)
@@ -2490,11 +2494,35 @@ ICONE_SVG = (
 )
 
 
+def ler_conta() -> dict | None:
+    """Configuração do login com Google: {"cliente": ID do cliente OAuth, "api": URL da Data API}."""
+    cfg: dict = {}
+    if CONTA_JSON.exists():
+        try:
+            lido = json.loads(CONTA_JSON.read_text(encoding="utf-8"))
+            if isinstance(lido, dict):
+                cfg = lido
+        except (OSError, ValueError):
+            print(f"AVISO: {CONTA_JSON.name} não é um JSON válido; o login com Google fica desligado.")
+    cliente = (os.environ.get("ESTUDOS_GOOGLE_CLIENT_ID") or cfg.get("cliente") or "").strip()
+    api = (os.environ.get("ESTUDOS_NEON_API") or cfg.get("api") or "").strip().rstrip("/")
+    if not cliente and not api:
+        return None
+    if not cliente.endswith(".apps.googleusercontent.com") or not api.startswith("https://"):
+        print("AVISO: a configuração da conta está incompleta (cliente Google terminado em "
+              ".apps.googleusercontent.com e URL https da Data API); o login fica desligado.")
+        return None
+    if not api.endswith("/rest/v1"):
+        api += "/rest/v1"
+    return {"cliente": cliente, "api": api}
+
+
 def montar_paginas(dados: dict) -> tuple[str, str]:
     """Devolve (página completa do site, página sem esqueleto HTML para a página privada)."""
     modelo = MODELO.read_text(encoding="utf-8")
     if MARCADOR_DADOS not in modelo:
         raise SystemExit(f"O modelo {MODELO.name} não contém o marcador {MARCADOR_DADOS}.")
+    dados = dict(dados, conta=ler_conta())
     bruto = json.dumps(dados, ensure_ascii=False, separators=(",", ":"))
     bruto = bruto.replace("</", "<\\/").replace("<!--", "<\\!--")
     pagina = modelo.replace(MARCADOR_DADOS, bruto)

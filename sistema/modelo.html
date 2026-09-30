@@ -712,6 +712,19 @@ body.com-achados .dock { bottom: calc(76px + env(safe-area-inset-bottom, 0px)); 
 .bt-adm svg { width: 17px; height: 17px; }
 .bt-adm.logado { color: var(--ink); }
 .bt-adm.logado::after { content: ""; width: 7px; height: 7px; margin-left: -2px; border-radius: 50%; background: var(--ok); }
+.bt-adm[data-sync="pend"]::after, .bt-adm[data-sync="sincronizando"]::after { background: #d9900a; }
+.bt-adm[data-sync="erro"]::after, .bt-adm[data-sync="exp"]::after { background: var(--err); }
+.bt-adm.com-foto > svg { display: none; }
+.bt-adm .adm-foto { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; flex: none; }
+.bt-adm .adm-foto[hidden] { display: none; }
+.cta-g { display: flex; align-items: center; min-height: 44px; }
+.cta-g-espera { font: 500 12px/16px var(--font-ui); color: var(--ink-3); }
+.cta-perfil { display: flex; align-items: center; gap: 12px; }
+.cta-perfil img { width: 48px; height: 48px; flex: none; border-radius: 50%; object-fit: cover; }
+.cta-perfil div { display: grid; gap: 2px; min-width: 0; }
+.cta-perfil strong { font: 600 16px/24px var(--font-ui); }
+.cta-perfil span { font: 500 12px/16px var(--font-ui); color: var(--ink-3); overflow-wrap: anywhere; }
+.cta-st { margin: 0; padding: 8px 12px; border-radius: 8px; background: var(--paper); font: 500 12px/16px var(--font-ui); color: var(--ink-2); }
 .so-adm { display: none !important; }
 body.adm:not(.editando) .so-adm { display: inline-flex !important; }
 .dlg-rot { display: grid; gap: 8px; font: 600 12px/16px var(--font-ui); color: var(--ink-2); }
@@ -1005,7 +1018,7 @@ body.foco .toc { display: none; }
   <div class="acoes-topo">
     <a class="bt-topo bt-peg" id="ui-peg" href="#pegadinhas" title="Pegadinhas"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M225.86,102.82c-3.77-3.94-7.67-8-9.14-11.57-1.36-3.27-1.44-8.69-1.52-13.94-.15-9.76-.31-20.82-8-28.51s-18.75-7.85-28.51-8c-5.25-.08-10.67-.16-13.94-1.52-3.56-1.47-7.63-5.37-11.57-9.14C146.28,23.51,138.44,16,128,16s-18.27,7.51-25.18,14.14c-3.94,3.77-8,7.67-11.57,9.14C88,40.64,82.56,40.72,77.31,40.8c-9.76.15-20.82.31-28.51,8S41,67.55,40.8,77.310c-.08,5.25-.16,10.67-1.52,13.94-1.47,3.56-5.37,7.63-9.14,11.57C23.51,109.72,16,117.56,16,128s7.51,18.27,14.14,25.18c3.77,3.94,7.67,8,9.14,11.57,1.36,3.27,1.44,8.69,1.520,13.94.15,9.76.31,20.82,8,28.51s18.75,7.85,28.51,8c5.25.08,10.67.16,13.94,1.52,3.56,1.47,7.63,5.37,11.57,9.14C109.72,232.49,117.56,240,128,240s18.27-7.51,25.18-14.14c3.94-3.77,8-7.67,11.57-9.14,3.27-1.36,8.69-1.44,13.94-1.52,9.76-.15,20.82-.31,28.51-8s7.85-18.75,8-28.51c.08-5.25.16-10.67,1.52-13.94,1.47-3.56,5.37-7.63,9.14-11.57C232.49,146.28,240,138.44,240,128S232.49,109.73,225.86,102.82Zm-11.55,39.29c-4.79,5-9.75,10.17-12.38,16.52-2.52,6.1-2.63,13.07-2.73,19.82-.1,7-.21,14.33-3.32,17.43s-10.39,3.22-17.43,3.32c-6.75.1-13.72.21-19.82,2.73-6.35,2.63-11.52,7.59-16.52,12.38S132,224,128,224s-9.15-4.92-14.11-9.690-10.17-9.75-16.52-12.38c-6.1-2.52-13.07-2.63-19.82-2.73-7-.1-14.33-.21-17.43-3.32s-3.22-10.39-3.32-17.43c-.1-6.75-.21-13.72-2.73-19.82-2.63-6.35-7.59-11.52-12.38-16.52S32,132,32,128s4.92-9.15,9.69-14.11,9.75-10.17,12.38-16.52c2.52-6.1,2.63-13.07,2.73-19.82.1-7,.21-14.33,3.32-17.43S70.51,56.9,77.55,56.8c6.75-.1,13.72-.21,19.82-2.73,6.35-2.63,11.52-7.59,16.52-12.38S124,32,128,32s9.15,4.92,14.11,9.69,10.17,9.75,16.52,12.38c6.1,2.52,13.07,2.63,19.82,2.73,7,.1,14.33.21,17.43,3.32s3.22,10.39,3.32,17.43c.1,6.75.21,13.72,2.73,19.82,2.63,6.35,7.59,11.52,12.38,16.52S224,124,224,128,219.08,137.15,214.31,142.11ZM140,180a12,12,0,1,1-12-12A12,12,0,0,1,140,180Zm28-72c0,17.38-13.76,31.93-32,35.28V144a8,8,0,0,1-16,0v-8a8,8,0,0,1,8-8c13.23,0,24-9,24-20s-10.77-20-24-20-24,9-24,20v4a8,8,0,0,1-16,0v-4c0-19.85,17.94-36,40-36S168,88.15,168,108Z"/></svg><span>Pegadinhas</span></a>
     <button class="bt-topo bt-aa" id="ui-bt-ajustes" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="ui-ajustes" title="Ajustes de leitura"><span aria-hidden="true">Aa</span><span class="sr">Ajustes de leitura</span></button>
-    <button class="bt-topo bt-adm" id="ui-adm" type="button" aria-haspopup="dialog" title="Entrar como administrador (para editar os textos)"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"/></svg><span class="adm-rot">Entrar</span></button>
+    <button class="bt-topo bt-adm" id="ui-adm" type="button" aria-haspopup="dialog" title="Entrar"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"/></svg><img class="adm-foto" id="ui-foto" alt="" hidden referrerpolicy="no-referrer"><span class="adm-rot">Entrar</span></button>
   </div>
 </header>
 <div class="grade">
@@ -1090,9 +1103,10 @@ body.foco .toc { display: none; }
   const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const plural = (n, um, varios) => `${n.toLocaleString('pt-BR')} ${n === 1 ? um : varios}`;
+  let aoGravar = null; // a conta (login com Google) avisa-se de cada gravação para sincronizar
   const guarda = {
     ler(k, padrao) { try { const v = localStorage.getItem('estudos.' + k); return v === null ? padrao : JSON.parse(v); } catch (e) { return padrao; } },
-    gravar(k, v) { try { localStorage.setItem('estudos.' + k, JSON.stringify(v)); } catch (e) { /* armazenamento indisponível */ } }
+    gravar(k, v) { try { localStorage.setItem('estudos.' + k, JSON.stringify(v)); } catch (e) { /* armazenamento indisponível */ } if (aoGravar) aoGravar(k); }
   };
   // Ícones Phosphor (regular), embutidos para o site funcionar sem internet.
   const svg = d => `<svg viewBox="0 0 256 256" aria-hidden="true"><path d="${d}"/></svg>`;
@@ -2685,9 +2699,15 @@ body.foco .toc { display: none; }
     gravar(k, v) { try { sessionStorage.setItem('estudos.' + k, JSON.stringify(v)); } catch (e) { /* sem armazenamento */ } }
   };
   function desenharAdm() {
-    btAdm.classList.toggle('logado', adm);
-    btAdm.lastElementChild.textContent = adm ? 'Administrador' : 'Entrar';
-    btAdm.title = adm ? 'Administrador conectado: os textos podem ser editados' : 'Entrar como administrador (para editar os textos)';
+    const g = conta.user, foto = $('#ui-foto');
+    btAdm.classList.toggle('logado', adm || !!g);
+    btAdm.dataset.sync = g ? conta.estado : '';
+    btAdm.lastElementChild.textContent = g ? (g.nome || g.email || 'Conta').split(' ')[0] : adm ? 'Administrador' : 'Entrar';
+    btAdm.title = g ? `Conta ${g.email}${adm ? ' · administrador' : ''}` : adm ? 'Administrador conectado: os textos podem ser editados' : conta.cfg ? 'Entrar (Google)' : 'Entrar como administrador (para editar os textos)';
+    if (foto) {
+      if (g && g.foto) { if (foto.getAttribute('src') !== g.foto) foto.src = g.foto; foto.hidden = false; } else { foto.hidden = true; foto.removeAttribute('src'); }
+      btAdm.classList.toggle('com-foto', !foto.hidden);
+    }
     document.body.classList.toggle('adm', adm);
   }
   function esquecerSessao() {
@@ -2771,7 +2791,297 @@ body.foco .toc { display: none; }
       erro.textContent = 'Não consegui falar com o servidor local. Ele continua aberto no terminal?';
     }
   }
-  btAdm.addEventListener('click', dialogoAdm);
+  // O botão do topo: conta (Google) quando ela está configurada; senão, só o administrador.
+  btAdm.addEventListener('click', () => { if (conta.user) dialogoConta(); else if (conta.cfg) dialogoEntrarGoogle(); else dialogoAdm(); });
+  const foto0 = $('#ui-foto');
+  if (foto0) foto0.addEventListener('error', () => { foto0.hidden = true; btAdm.classList.remove('com-foto'); });
+
+  // ---------- Conta: login com Google e dados na nuvem ----------
+  // O site funciona sem login (tudo fica no navegador). Entrando com o Google, as leituras, marcações,
+  // favoritos e respostas das questões também ficam guardados na conta, num banco Neon acessado pela
+  // Data API com o token do Google: a política do banco (sistema/neon.sql) deixa cada pessoa acessar só
+  // as próprias linhas. Só o administrador edita textos (servidor local, à parte). Configuração em
+  // sistema/conta.json (README, "Login com Google").
+  const SYNC = ['lidos', 'geral', 'marcas', 'favoritos', 'questoes', 'qfav', 'qrep', 'qfiltro', 'ultimo', 'ordemDisciplinas', 'filtroTopicos'];
+  const EM_MEMORIA = { lidos: () => lidos, geral: () => geralLido, marcas: () => marcas, favoritos: () => favoritos, questoes: () => qResp, qfav: () => qFav, qrep: () => qRel };
+  const conta = { cfg: D.conta || null, user: null, estado: 'fora', msg: '', quando: 0, ocupado: false, repetir: false, ver: {}, aguarda: null };
+  if (conta.cfg) conta.user = guarda.ler('google', null);
+  const meta = Object.assign({ uid: null, sujos: {} }, guarda.ler('sync', {}));
+  let aplicando = false, tSync = 0, gisPronto = null, gisIniciado = false;
+  const guardarMeta = () => guarda.gravar('sync', meta);
+  // A posição de leitura muda a cada rolagem: vai junto na próxima sincronização, sem disparar uma só para ela.
+  const BAIXA = ['ultimo'];
+  const pendentes = () => Object.keys(meta.sujos).filter(k => !BAIXA.includes(k)).length;
+  const vazioDe = k => (k === 'favoritos' || k === 'qfav' ? [] : {});
+  const lerLocal = k => (EM_MEMORIA[k] ? EM_MEMORIA[k]() : guarda.ler(k, null));
+  const ehVazio = v => v == null || (Array.isArray(v) ? !v.length : typeof v === 'object' ? !Object.keys(v).length : false);
+  const hhmm = ms => new Date(ms).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+  function igual(a, b) {
+    if (a === b) return true;
+    if (!a || !b || typeof a !== 'object' || typeof b !== 'object' || Array.isArray(a) !== Array.isArray(b)) return false;
+    const ka = Object.keys(a);
+    return ka.length === Object.keys(b).length && ka.every(k => igual(a[k], b[k]));
+  }
+  // O que veio da nuvem, sem as referências a textos que não existem mais na base.
+  function normaliza(k, v) {
+    if (v == null) return EM_MEMORIA[k] ? vazioDe(k) : v;
+    const so = (obj, ok) => Object.fromEntries(Object.entries(obj).filter(([id]) => ok(id)));
+    if (k === 'lidos' || k === 'marcas') return so(v, id => docs[id]);
+    if (k === 'geral') return so(v, id => MAT[id]);
+    if (k === 'favoritos') return v.filter(id => docs[id]);
+    return v;
+  }
+  function escreverLocal(k, v) {
+    aplicando = true;
+    try {
+      const alvo = EM_MEMORIA[k] && EM_MEMORIA[k]();
+      if (!alvo) { if (v === null || v === undefined) { try { localStorage.removeItem('estudos.' + k); } catch (e) { /* sem armazenamento */ } } else guarda.gravar(k, v); return; }
+      if (Array.isArray(alvo)) alvo.splice(0, alvo.length, ...(Array.isArray(v) ? v : []));
+      else { Object.keys(alvo).forEach(x => delete alvo[x]); Object.assign(alvo, v && typeof v === 'object' ? v : {}); }
+      guarda.gravar(k, alvo);
+    } finally { aplicando = false; }
+  }
+  function mesclarChave(k, remoto) {
+    const v = normaliza(k, remoto);
+    if (EM_MEMORIA[k]) { aplicando = true; try { mesclar({ [k]: v }); } finally { aplicando = false; } return; }
+    if (ehVazio(lerLocal(k)) && !ehVazio(v)) escreverLocal(k, v); // sem união possível: a edição local, se houver, vale
+  }
+  function marcarPendente(k) {
+    if (aplicando || !SYNC.includes(k)) return;
+    if (BAIXA.includes(k)) { if (!meta.sujos[k]) { meta.sujos[k] = 1; guardarMeta(); } return; }
+    meta.sujos[k] = 1;
+    conta.ver[k] = (conta.ver[k] || 0) + 1;
+    guardarMeta();
+    if (!conta.user) return;
+    if (conta.estado !== 'sincronizando' && conta.estado !== 'exp') definirEstado('pend');
+    if (conta.estado === 'exp') return;
+    clearTimeout(tSync);
+    tSync = setTimeout(() => sincronizar('gravacao'), 3000);
+  }
+  aoGravar = marcarPendente;
+
+  function textoEstado() {
+    if (conta.estado === 'sincronizando') return 'Sincronizando…';
+    if (conta.estado === 'exp') return 'A sessão do Google expirou. Entre de novo abaixo para sincronizar; o que você fez continua guardado neste navegador.';
+    if (conta.estado === 'erro') return `Não consegui sincronizar (${esc(conta.msg)}). As alterações continuam guardadas neste navegador e serão enviadas na próxima tentativa.`;
+    if (pendentes()) return 'Há alterações ainda por enviar para a sua conta.';
+    return conta.quando ? `Tudo sincronizado às ${hhmm(conta.quando)}.` : 'Conectado à sua conta.';
+  }
+  function definirEstado(e, msg) {
+    conta.estado = e;
+    conta.msg = msg || '';
+    desenharAdm();
+    const st = $('#ui-conta-st');
+    if (st) st.innerHTML = textoEstado();
+  }
+
+  // -- Google Identity Services
+  function lerJwt(jwt) {
+    try {
+      const b = jwt.split('.')[1].replace(/-/g, '+').replace(/_/g, '/');
+      return JSON.parse(decodeURIComponent(Array.prototype.map.call(atob(b), c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2)).join('')));
+    } catch (e) { return null; }
+  }
+  function carregarGoogle() {
+    if (window.google && google.accounts && google.accounts.id) return Promise.resolve();
+    if (!gisPronto) {
+      gisPronto = new Promise((ok, falha) => {
+        const s = document.createElement('script');
+        s.src = 'https://accounts.google.com/gsi/client';
+        s.async = true;
+        s.onload = () => ok();
+        s.onerror = () => falha(new Error('google'));
+        document.head.appendChild(s);
+        setTimeout(() => falha(new Error('google')), 12000);
+      }).catch(e => { gisPronto = null; throw e; });
+    }
+    return gisPronto;
+  }
+  function iniciarGoogle() {
+    return carregarGoogle().then(() => {
+      if (gisIniciado) return;
+      google.accounts.id.initialize({ client_id: conta.cfg.cliente, callback: r => receberCredencial(r.credential), auto_select: true, cancel_on_tap_outside: false, use_fedcm_for_prompt: true });
+      gisIniciado = true;
+    });
+  }
+  function botaoGoogle(alvo) {
+    iniciarGoogle().then(() => {
+      if (!alvo.isConnected) return;
+      alvo.innerHTML = '';
+      google.accounts.id.renderButton(alvo, { type: 'standard', theme: 'outline', size: 'large', text: 'signin_with', shape: 'pill', logo_alignment: 'left', locale: 'pt-BR', width: 280 });
+    }).catch(() => {
+      alvo.innerHTML = '<p class="dlg-erro">Não consegui carregar o login do Google. Confira a conexão. Por aqui (página privada ou arquivo aberto com duplo clique) ele não funciona: use o endereço do site publicado ou o local.</p>';
+    });
+  }
+  function receberCredencial(jwt) {
+    const p = jwt && lerJwt(jwt);
+    if (!p || p.aud !== conta.cfg.cliente || !p.sub || !(p.exp * 1000 > Date.now())) { mostrarRecado('Não consegui confirmar o login do Google. Tente de novo.', 'alerta'); return; }
+    if (conta.user && conta.user.sub !== p.sub) { mostrarRecado('Essa é outra conta do Google. Saia da conta atual antes de trocar.', 'alerta'); if (conta.aguarda) { conta.aguarda.falha(new Error('expirou')); conta.aguarda = null; } return; }
+    const novo = !conta.user, renovou = !novo && conta.estado === 'exp';
+    conta.user = { tok: jwt, exp: p.exp, sub: p.sub, nome: p.name || '', email: p.email || '', foto: p.picture || '' };
+    guarda.gravar('google', conta.user);
+    if (conta.aguarda) { conta.aguarda.ok(); conta.aguarda = null; }
+    definirEstado(pendentes() ? 'pend' : 'ok');
+    if (novo) { fecharDialogo(); mostrarRecado(`Você entrou como ${conta.user.nome || conta.user.email}. Sincronizando…`, 'ok'); sincronizar('entrada'); }
+    else if (renovou) sincronizar('volta');
+  }
+  async function garantirToken(forcar) {
+    if (!forcar && conta.user.exp - 60 > Date.now() / 1000) return;
+    await iniciarGoogle().catch(() => { throw new Error('expirou'); });
+    await new Promise((ok, falha) => {
+      conta.aguarda = { ok, falha };
+      try { google.accounts.id.prompt(); } catch (e) { falha(new Error('expirou')); }
+      setTimeout(() => { if (conta.aguarda && conta.aguarda.ok === ok) { conta.aguarda = null; falha(new Error('expirou')); } }, 12000);
+    });
+  }
+
+  // -- Data API do Neon
+  async function nuvem(metodo, caminho, corpo, extra) {
+    const r = await fetch(conta.cfg.api + caminho, {
+      method: metodo,
+      headers: Object.assign({ Authorization: 'Bearer ' + conta.user.tok, 'Content-Type': 'application/json', Accept: 'application/json' }, extra || {}),
+      body: corpo === undefined ? undefined : JSON.stringify(corpo)
+    });
+    if (!r.ok) {
+      const j = await r.json().catch(() => ({}));
+      const e = new Error(j.message || j.hint || 'erro ' + r.status);
+      e.status = r.status;
+      throw e;
+    }
+    return r.status === 204 || metodo === 'POST' ? null : r.json();
+  }
+
+  // Sincroniza: traz o que há na nuvem e envia o que mudou aqui. Por chave: sem mudança local,
+  // vale a nuvem (assim um "desmarcar" feito em outro aparelho chega); com mudança local, as duas
+  // versões são somadas (leituras, marcações, favoritos e questões) e o resultado é enviado.
+  async function sincronizar(motivo, tentativa) {
+    if (!conta.user) return false;
+    if (conta.ocupado) { conta.repetir = true; return false; }
+    conta.ocupado = true;
+    clearTimeout(tSync);
+    definirEstado('sincronizando');
+    let ok = false;
+    try {
+      await garantirToken(tentativa);
+      const linhas = await nuvem('GET', '/estudos_dados?select=chave,valor');
+      const primeira = meta.uid !== conta.user.sub;
+      const remotos = {};
+      linhas.forEach(l => { remotos[l.chave] = l.valor; });
+      const enviar = [];
+      let mudou = false;
+      SYNC.forEach(k => {
+        const local = lerLocal(k), tem = k in remotos;
+        const sujo = primeira ? !ehVazio(local) : !!meta.sujos[k];
+        if (!tem) { if (!ehVazio(local)) enviar.push(k); return; }
+        const v = normaliza(k, remotos[k]);
+        if (!sujo) {
+          if (!igual(v, ehVazio(local) ? normaliza(k, null) : local)) { escreverLocal(k, v); mudou = true; }
+          return;
+        }
+        const antes = JSON.stringify(local);
+        mesclarChave(k, remotos[k]);
+        if (JSON.stringify(lerLocal(k)) !== antes) mudou = true;
+        if (!igual(v, lerLocal(k))) enviar.push(k);
+      });
+      const versoes = Object.assign({}, conta.ver);
+      if (enviar.length) {
+        const agora = new Date().toISOString();
+        await nuvem('POST', '/estudos_dados?on_conflict=user_id,chave', enviar.map(k => ({ user_id: conta.user.sub, chave: k, valor: lerLocal(k), atualizado: agora })), { Prefer: 'resolution=merge-duplicates,return=minimal' });
+      }
+      // o que já estava igual na nuvem também deixa de estar pendente
+      SYNC.forEach(k => { if (meta.sujos[k] && (conta.ver[k] || 0) === (versoes[k] || 0)) delete meta.sujos[k]; });
+      meta.uid = conta.user.sub;
+      guardarMeta();
+      conta.quando = Date.now();
+      ok = true;
+      conta.ocupado = false;
+      definirEstado(pendentes() ? 'pend' : 'ok');
+      if (motivo === 'entrada') mostrarRecado('Sincronizado: suas leituras, marcações e respostas agora estão na sua conta.', 'ok');
+      if (mudou) redesenharDepois();
+    } catch (e) {
+      conta.ocupado = false;
+      if (e.status === 401 && !tentativa) { conta.user.exp = 0; return sincronizar(motivo, true); }
+      if (e.message === 'expirou' || e.status === 401) definirEstado('exp');
+      else definirEstado('erro', e instanceof TypeError ? 'sem conexão com o servidor' : e.message);
+    }
+    conta.ocupado = false;
+    if (conta.repetir) { conta.repetir = false; if (ok) sincronizar('gravacao'); }
+    return ok;
+  }
+  function redesenharDepois() {
+    if (editor) return;
+    const f = () => { const y = window.scrollY; renderizar(rota, {}); window.scrollTo(0, y); };
+    if (dlg.open) dlg.addEventListener('close', f, { once: true }); else f();
+  }
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden && conta.user && conta.estado !== 'exp' && Date.now() - conta.quando > 60000) sincronizar('volta');
+  });
+  window.addEventListener('online', () => { if (conta.user && conta.estado === 'erro') sincronizar('volta'); });
+
+  // -- diálogos
+  function dialogoEntrarGoogle() {
+    if (servidorLocal === null) { servidorVerificado.then(dialogoEntrarGoogle); return; }
+    abrirDialogo({
+      titulo: 'Entrar',
+      corpo: `<p class="dlg-sub">Entre com a sua conta Google para guardar leituras, marcações, favoritos e respostas das questões na sua conta e continuar de onde parou em qualquer aparelho.</p>
+        <div class="cta-g" id="ui-g-btn" aria-live="polite"><span class="cta-g-espera">Carregando o login do Google…</span></div>
+        <p class="dlg-dica">O login não é obrigatório: sem ele a leitura continua aberta e tudo fica só neste navegador. Ao entrar, o que já está aqui é somado à sua conta. O Google informa apenas nome, e-mail e foto, e os seus dados de estudo são protegidos: cada pessoa acessa só os próprios.</p>`,
+      botoes: [{ rot: 'Sou o administrador', lado: 'esq', acao: () => { setTimeout(() => dialogoEntrar(), 0); } }, { rot: 'Cancelar', principal: true }],
+      aoAbrir: d => botaoGoogle($('#ui-g-btn', d))
+    });
+  }
+  function dialogoConta() {
+    const g = conta.user;
+    abrirDialogo({
+      titulo: 'Conta',
+      corpo: `<div class="cta-perfil">${g.foto ? `<img src="${esc(g.foto)}" alt="" referrerpolicy="no-referrer">` : ''}<div><strong>${esc(g.nome || 'Conta Google')}</strong><span>${esc(g.email)}</span></div></div>
+        <p class="cta-st" id="ui-conta-st" role="status">${textoEstado()}</p>
+        ${conta.estado === 'exp' ? '<div class="cta-g" id="ui-g-btn"><span class="cta-g-espera">Carregando o login do Google…</span></div>' : ''}
+        <p class="dlg-dica">Leituras, marcações, favoritos e respostas das questões ficam guardados na sua conta e acompanham você em qualquer aparelho. Sair limpa esses dados deste navegador; eles continuam na conta.</p>${adm ? '<p class="dlg-dica">Você também está conectado como administrador.</p>' : ''}`,
+      botoes: [
+        { rot: 'Sair', lado: 'esq', acao: () => { sairConta(false); return false; } },
+        ...(adm ? [{ rot: 'Sair do modo administrador', lado: 'esq', acao: () => {
+          if (editor && editor.sujo) { $('#ui-dlg-erro').textContent = 'Salve ou cancele a edição aberta antes de sair.'; return false; }
+          fecharEditor(true); esquecerSessao(); mostrarRecado('Você saiu do modo administrador.', 'ok');
+        } }] : servidorLocal ? [{ rot: 'Sou o administrador', lado: 'esq', acao: () => { setTimeout(() => dialogoEntrar(), 0); } }] : []),
+        { rot: 'Sincronizar agora', acao: () => { sincronizar('manual'); return false; } },
+        { rot: 'Fechar', principal: true }
+      ],
+      aoAbrir: d => { const b = $('#ui-g-btn', d); if (b) botaoGoogle(b); }
+    });
+  }
+  async function sairConta(forcar) {
+    const erro = $('#ui-dlg-erro'), ok = $('#ui-dlg-ok');
+    if (!forcar && pendentes()) {
+      if (ok) ok.textContent = 'Enviando as últimas alterações…';
+      for (let i = 0; i < 40 && conta.ocupado; i++) await new Promise(r => setTimeout(r, 250));
+      await sincronizar('saida');
+      if (pendentes()) {
+        if (ok) ok.textContent = '';
+        abrirDialogo({
+          titulo: 'Não deu para enviar tudo',
+          corpo: '<p class="dlg-sub">Algumas alterações ainda não chegaram à sua conta. Sair agora as apaga deste navegador. Você pode tentar de novo mais tarde ou guardar uma cópia em Aa → Exportar antes de sair.</p>',
+          botoes: [{ rot: 'Sair mesmo assim', lado: 'esq', acao: () => { sairConta(true); return false; } }, { rot: 'Voltar', principal: true }]
+        });
+        return;
+      }
+    }
+    if (erro) erro.textContent = '';
+    try { if (window.google && google.accounts) google.accounts.id.disableAutoSelect(); } catch (e) { /* sem Google carregado */ }
+    SYNC.forEach(k => escreverLocal(k, EM_MEMORIA[k] ? vazioDe(k) : null));
+    meta.uid = null;
+    meta.sujos = {};
+    conta.user = null;
+    conta.quando = 0;
+    try { localStorage.removeItem('estudos.google'); } catch (e) { /* sem armazenamento */ }
+    guardarMeta();
+    definirEstado('fora');
+    fecharDialogo();
+    renderizar(rota, {});
+    mostrarRecado('Você saiu da conta. As suas leituras e marcações continuam guardadas nela.', 'ok');
+  }
+  desenharAdm();
+  if (conta.user) { definirEstado(pendentes() ? 'pend' : 'ok'); iniciarGoogle().catch(() => { /* a sincronização avisa */ }); setTimeout(() => sincronizar('abertura'), 600); }
 
   // -- editor
   const ED = {
