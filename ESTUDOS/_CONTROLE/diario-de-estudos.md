@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v005** (30/09/2026)
+> Versão atual da base: **v006** (30/09/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -66,3 +66,10 @@
 - **Principais enriquecimentos:** ADI 815, ADI 939 (anterioridade tributária como cláusula pétrea), ADI 2.024 (núcleo essencial), ADI 4.277/ADPF 132, SV 25; EC 26/1985; ECR 1 a 6/1994; natureza da Lei Orgânica do DF.
 
 - **Site:** tabela de contas com filtros; a seção "Controle da base" deixou de aparecer; a página inicial perdeu a saudação e o subtítulo; o controle de largura do texto passou para o painel Aa; redesign de todo o site (fonte Manrope, tema escuro neutro, cards reorganizados na página de cada disciplina, novos ícones e transições).
+
+## 30/09/2026 — Questões turbo (v006)
+
+- **Sem conteúdo novo de estudo.**
+- **Questões turbo:** 708 questões de Certo ou Errado sobre os 28 temas (Tributário 218, Contabilidade 151, Constitucional 200, Administrativo 139), com selo de dificuldade, comentário e link para a seção do tema; entre 48% e 53% de itens certos em cada matéria. Feitas por um agente por matéria (`.claude/agents/`), com base num guia de como a banca cobra cada disciplina (pesquisa na web, `.claude/questoes/guias/`). O gerador guarda a cobertura de cada seção, para que as próximas questões partam só do texto novo (`--questoes-pendentes`).
+- **Base:** ⚠️ no nepotismo em cargos políticos (STF, Tema 1.000, em julgamento); divergência sobre o direito à paz (3ª dimensão x 5ª, Bonavides).
+- **Site:** aba e card "Questões turbo" em cada disciplina (ordem por assunto ou aleatória, inéditas primeiro e depois revisão pelas erradas, filtros, favoritas, relatos e desempenho por tópico); o nome da banca não aparece mais no site.

@@ -5,6 +5,10 @@ Uso (na raiz do projeto):
     python sistema/gerar.py              gera o site (site/index.html) e a cópia da página privada
     python sistema/gerar.py --servir     gera e serve o site em http://localhost:8765/
     python sistema/gerar.py --verificar  só confere a base (referências e formatação)
+    python sistema/gerar.py --questoes-pendentes ["Matéria"]
+                                         mostra só o texto dos temas ainda sem questões turbo
+    python sistema/gerar.py --cobrir "<Matéria>/Questões Turbo/<tema>.md" [...]
+                                         registra que as questões do tema cobrem o texto atual
 
 Não depende de nenhum pacote externo. Mantenha o código compatível com Python 3.9: o build da
 Vercel (vercel.json) roda este script com o python3 da imagem de build. A ordem das matérias e
@@ -25,6 +29,11 @@ Com --servir, o site aberto em http://localhost:8765/ também recebe novas parte
 sintético (formulário da aba "Resumo sintético"): um .docx (convertido em .md com a mesma
 formatação) ou texto colado (.txt), salvos sem alteração no conteúdo como a próxima parte da
 matéria; em seguida o site é gerado de novo.
+
+Questões turbo: cada tema pode ter um arquivo de questões de Certo/Errado com o mesmo nome, na
+pasta "Questões Turbo" da matéria (ver a seção "Questões turbo"). A linha "cobertura" desse
+arquivo guarda o hash de cada seção do tema quando as questões foram feitas; assim, só o texto
+novo ou alterado precisa ser lido para fazer questões novas (--questoes-pendentes).
 
 Também com --servir, o administrador (botão "Entrar", no alto à direita) edita os temas e as
 partes do resumo sintético direto no site. O servidor confere o login, converte o texto editado
@@ -67,6 +76,10 @@ MARCADOR_DADOS = "__DADOS_JSON__"
 CONTROLE = "_CONTROLE"
 ORDEM_CONTROLE = ["diario-de-estudos", "assuntos-estudados", "pendencias", "alteracoes"]
 PASTA_SINTETICO = "Resumo Sintético"
+PASTA_QUESTOES = "Questões Turbo"
+PASTAS_ESPECIAIS = (PASTA_SINTETICO, PASTA_QUESTOES)  # dentro da matéria, mas não são temas
+ROTA_RELATO = "/__estudos/relato"  # questão reportada pelo site (com --servir)
+RELATOS = RAIZ / "ENTRADA" / "questoes-relatadas.md"
 ROTA_SINTETICO = "/__estudos/sintetico"
 LIMITE_SINTETICO = 40_000_000  # bytes por parte enviada pelo site (.docx vem em base64)
 # Edição pelo site (administrador). A senha não fica guardada em lugar nenhum: só o resultado do
@@ -334,6 +347,7 @@ RE_NEGRITO = re.compile(r"\*\*(?=\S)(.+?)(?<=\S)\*\*")
 RE_ITALICO = re.compile(r"(?<![*\w])\*(?=[^\s*])(.+?)(?<=[^\s*])\*(?![*\w])")
 RE_A_ESTUDAR = re.compile(r"\(a estudar\)|(?<=— )a estudar\b")
 RE_PEGADINHA = re.compile(r"^(?P<s>.*?)\s*→\s*\*\*(?P<v>CERTO|ERRADO)\*\*(?P<x>.*)$")
+RE_NOME_BANCA = re.compile(r"\s*[-–—(]?\s*\bCEBRASPE\b\)?", re.I)
 RE_ROTULO_PEGADINHA = re.compile(r"^(?:⚠️?\s*)?Pegadinha:\s*", re.I)
 RE_VAZOU = re.compile(r"\*\*|`|\|\s*-{3,}|\]\(|^#{1,6}\s")
 # Imagem ao lado do arquivo; a largura (em % da coluna de texto) vem do editor do site.
@@ -424,6 +438,7 @@ class Renderizador:
         self.bruto = doc.get("tipo") == "sint"
         self.n = 0
         self.toc: list[dict] = []
+        self.titulos: list[dict] = []  # todos os títulos (## a ######), para as questões turbo
         self.ids: set[str] = set()
         self.indice: list[list] = []
         self.pegadinhas: list[dict] = []
@@ -545,7 +560,10 @@ class Renderizador:
         return partes if lista else "\n".join(partes)
 
     def titulo_html(self, b: dict) -> str:
-        conteudo = self.inline(b["texto"])
+        md = b["texto"]
+        if not self.bruto and re.search(r"pegadinha", md, re.I):
+            md = RE_NOME_BANCA.sub("", md)  # o site não mostra o nome da banca (30/09/2026)
+        conteudo = self.inline(md)
         texto = texto_de_html(conteudo)
         if b["nivel"] == 1 and self.titulo is None and not self.bruto:
             self.titulo = texto
@@ -556,6 +574,7 @@ class Renderizador:
         while hid in self.ids:
             hid, k = f"{raiz}-{k}", k + 1
         self.ids.add(hid)
+        self.titulos.append({"id": hid, "t": texto})
         eh_peg = bool(re.search(r"pegadinha", texto, re.I))
         if nivel == 2:
             self.h2, self.h3, self.peg_h2, self.peg_h3 = texto, None, eh_peg, False
@@ -1089,6 +1108,255 @@ def peso_parte(parte: str) -> int:
     return peso
 
 
+# ----------------------------------------------------------------------------- questões turbo
+# Arquivo "ESTUDOS/<Matéria>/Questões Turbo/<tema>.md" (mesmo nome do arquivo do tema):
+#
+#   # Questões turbo — Taxas
+#   <!-- cobertura
+#   Conceito = 3f9a1c20b4
+#   -->
+#
+#   ## Q001 · médio · Espécies de taxa
+#   Enunciado (um ou mais parágrafos).
+#   - Gabarito: CERTO
+#   - Comentário: explicação (pode continuar nas linhas seguintes).
+#
+# O número identifica a questão no site (é nele que ficam as respostas do leitor): não renumere;
+# questão apagada deixa o número vago. A seção é o título (## ou ###) do tema que a questão cobra:
+# vira o link "Ver no resumo". A "cobertura" é escrita por --cobrir, nunca à mão.
+
+DIFICULDADES = {"fácil": "f", "médio": "m", "difícil": "d"}
+RE_QUESTAO = re.compile(r"^##\s+Q(\d{1,4})\s*·\s*([^·]+?)\s*·\s*(.+?)\s*$")
+RE_GABARITO = re.compile(r"^-\s*Gabarito:\s*(\S+)\s*$", re.I)
+RE_COMENTARIO = re.compile(r"^-\s*Comentário:\s*(.*)$", re.I)
+RE_COBERTURA = re.compile(r"<!--\s*cobertura\s*\n(.*?)-->\n?", re.S)
+INICIO_TEMA = "(início)"
+
+
+def chave_secao(titulo: str) -> str:
+    return re.sub(r"[^a-z0-9]+", " ", sem_acentos(re.sub(r"[*_`]", "", titulo)).lower()).strip()
+
+
+def eh_relacoes(titulo: str) -> bool:
+    return chave_secao(titulo).startswith("relac")
+
+
+def secoes_do_tema(md: str) -> list[dict]:
+    """Seções "## " do tema (texto já sem o mapa mental): título, texto, subtítulos e hash.
+    O que vem antes da primeira seção (além do título) entra como "(início)"."""
+    secoes = [{"t": INICIO_TEMA, "linhas": [], "subs": []}]
+    cerca = False
+    for linha in md.split("\n"):
+        if RE_CERCA.match(linha):
+            cerca = not cerca
+        m = None if cerca else RE_TITULO.match(linha)
+        if m and len(m.group(1)) == 2:
+            secoes.append({"t": re.sub(r"[*_`]", "", m.group(2)).strip(), "linhas": [linha],
+                           "subs": []})
+            continue
+        if m and len(m.group(1)) == 1 and secoes[-1]["t"] == INICIO_TEMA:
+            continue  # o título do tema
+        if m and len(m.group(1)) == 3:
+            secoes[-1]["subs"].append(re.sub(r"[*_`]", "", m.group(2)).strip())
+        secoes[-1]["linhas"].append(linha)
+    saida = []
+    for s in secoes:
+        texto = "\n".join(s["linhas"]).strip()
+        if texto and not eh_relacoes(s["t"]):
+            saida.append({"t": s["t"], "texto": texto, "subs": s["subs"],
+                          "hash": resumo_hash(texto)})
+    return saida
+
+
+def ler_questoes(texto: str) -> tuple[dict, list[dict], list[str]]:
+    """(cobertura, questões, erros de formato) de um arquivo de questões."""
+    cobertura = {}
+    m = RE_COBERTURA.search(texto)
+    if m:
+        for linha in m.group(1).splitlines():
+            if " = " in linha:
+                nome, h = linha.rsplit(" = ", 1)
+                cobertura[nome.strip()] = h.strip()
+    questoes, erros, atual = [], [], None
+
+    def fechar(q):
+        if q is None:
+            return
+        rot = f"Q{q['n']:03d}"
+        q["enun"] = "\n".join(q["enun"]).strip()
+        q["com"] = "\n".join(q["com"]).strip()
+        if q["dif"] not in DIFICULDADES:
+            erros.append(f"{rot}: dificuldade '{q['dif']}' (use fácil, médio ou difícil)")
+            q["dif"] = "médio"
+        if q["gab"] is None:
+            erros.append(f"{rot}: falta a linha '- Gabarito: CERTO' ou '- Gabarito: ERRADO'")
+            return
+        if not q["enun"]:
+            erros.append(f"{rot}: enunciado vazio")
+            return
+        if not q["com"]:
+            erros.append(f"{rot}: falta o comentário")
+        if any(x["n"] == q["n"] for x in questoes):
+            erros.append(f"{rot}: número repetido (a segunda foi ignorada)")
+            return
+        questoes.append(q)
+
+    for linha in RE_COBERTURA.sub("", texto).replace("\r\n", "\n").split("\n"):
+        mq = RE_QUESTAO.match(linha)
+        if mq:
+            fechar(atual)
+            atual = {"n": int(mq.group(1)), "dif": mq.group(2).strip().lower(),
+                     "sec": mq.group(3).strip(), "enun": [], "gab": None, "com": [], "fase": "e"}
+            continue
+        if linha.startswith("## "):
+            erros.append(f"título fora do formato '## Q001 · médio · Seção': {linha[:60]}")
+            fechar(atual)
+            atual = None
+            continue
+        if atual is None:
+            continue
+        s = linha.strip()
+        mg = RE_GABARITO.match(s)
+        if mg and atual["fase"] == "e":
+            g = sem_acentos(mg.group(1)).upper()
+            if g in ("CERTO", "C"):
+                atual["gab"] = "C"
+            elif g in ("ERRADO", "E"):
+                atual["gab"] = "E"
+            else:
+                erros.append(f"Q{atual['n']:03d}: gabarito '{mg.group(1)}' (use CERTO ou ERRADO)")
+            atual["fase"] = "g"
+            continue
+        mc = RE_COMENTARIO.match(s)
+        if mc and atual["fase"] == "g":
+            atual["com"].append(mc.group(1))
+            atual["fase"] = "c"
+            continue
+        if atual["fase"] == "e":
+            atual["enun"].append(linha)
+        elif atual["fase"] == "c":
+            atual["com"].append(linha)
+        elif s:
+            erros.append(f"Q{atual['n']:03d}: texto solto entre o gabarito e o comentário")
+    fechar(atual)
+    return cobertura, questoes, erros
+
+
+def paragrafos_html(r: "Renderizador", md: str) -> str:
+    blocos = [" ".join(x.split()) for x in re.split(r"\n\s*\n", md) if x.strip()]
+    return "".join(f"<p>{r.inline(b, False)}</p>" for b in blocos)
+
+
+def arquivo_de_questoes(tema: dict) -> str:
+    return f"{tema['materiaNome']}/{PASTA_QUESTOES}/{posixpath.basename(tema['caminho'])}"
+
+
+def questoes_pendentes(base: "Base", filtro: str = "") -> str:
+    """Só o texto que ainda não virou questão: seções novas ou alteradas desde a última cobertura
+    (e a lista curta das questões que já citam essas seções, para conferir e não repetir)."""
+    alvo = chave_secao(filtro)
+    saida = []
+    for d in base.docs:
+        if alvo and alvo not in chave_secao(d["materiaNome"]):
+            continue
+        cob = d.get("cobertura", {})
+        secoes = secoes_do_tema(d["md"])
+        pend = [s for s in secoes if cob.get(s["t"]) != s["hash"]]
+        atuais = {s["t"] for s in secoes}
+        removidas = [nome for nome in cob if nome not in atuais]
+        if not pend and not removidas:
+            continue
+        mae = {chave_secao(d["titulo"]): INICIO_TEMA}  # o título do tema = texto antes da 1ª seção
+        for s in secoes:
+            mae[chave_secao(s["t"])] = s["t"]
+            for sub in s["subs"]:
+                mae.setdefault(chave_secao(sub), s["t"])
+        qs = d.get("questoes", [])
+        ultima = max([q["n"] for q in qs], default=0)
+        nomes_pend = {s["t"] for s in pend}
+        saida.append(f"\n{'=' * 78}\nTEMA: {d['titulo']}  ({d['caminho']})")
+        saida.append(f"Arquivo de questões: ESTUDOS/{arquivo_de_questoes(d)}"
+                     + (f"  ({len(qs)} questões; próxima: Q{ultima + 1:03d})" if qs
+                        else "  (ainda não existe: criar)"))
+        if removidas:
+            saida.append("Seções que saíram do tema (confira as questões que as citam): "
+                         + "; ".join(removidas))
+        saida.append("Seções novas ou alteradas: " + "; ".join(s["t"] for s in pend))
+        ligadas = [q for q in qs if mae.get(chave_secao(q["sec"]), q["sec"]) in nomes_pend
+                   or q["sec"] in removidas or chave_secao(q["sec"]) not in mae]
+        if ligadas:
+            saida.append("Questões que já existem nessas seções (confira se continuam certas; "
+                         "não repita):")
+            for q in ligadas:
+                enun = " ".join(q["enun"].split())
+                saida.append(f"  - Q{q['n']:03d} · {q['dif']} · {q['sec']} · "
+                             f"{'CERTO' if q['gab'] == 'C' else 'ERRADO'} · {enun[:150]}")
+        for s in pend:
+            saida.append(f"\n--- seção: {s['t']} ---\n{s['texto']}")
+    if not saida:
+        return "Nada pendente: as questões turbo cobrem todo o texto atual dos temas."
+    return "\n".join(saida).strip() + "\n"
+
+
+def cobrir(base: "Base", alvos: list[str]) -> list[str]:
+    """Grava no arquivo de questões o hash atual de cada seção do tema (depois de fazer as
+    questões do texto pendente)."""
+    msgs = []
+    for alvo in alvos:
+        rel = alvo.replace("\\", "/").strip().strip("/")
+        for prefixo in ("ESTUDOS/",):
+            if rel.startswith(prefixo):
+                rel = rel[len(prefixo):]
+        partes = rel.split("/")
+        tema = next((d for d in base.docs if d["materiaNome"] == partes[0]
+                     and posixpath.basename(d["caminho"]) == partes[-1]), None)
+        if tema is None:
+            msgs.append(f"{alvo}: tema não encontrado (use '<Matéria>/{PASTA_QUESTOES}/<tema>.md')")
+            continue
+        caminho = BASE / arquivo_de_questoes(tema)
+        if not caminho.is_file():
+            msgs.append(f"{alvo}: o arquivo de questões ainda não existe")
+            continue
+        texto = caminho.read_text(encoding="utf-8").replace("\r\n", "\n")
+        secoes = secoes_do_tema(tema["md"])
+        bloco = "<!-- cobertura\n" + "".join(f"{s['t']} = {s['hash']}\n" for s in secoes) + "-->\n"
+        texto = RE_COBERTURA.sub("", texto)
+        linhas = texto.split("\n")
+        if linhas and linhas[0].startswith("# "):
+            texto = linhas[0] + "\n" + bloco + "\n".join(linhas[1:])
+        else:
+            texto = bloco + texto
+        escrever(caminho, texto)
+        msgs.append(f"{arquivo_de_questoes(tema)}: cobertura de {len(secoes)} seções gravada")
+    return msgs
+
+
+def gravar_relato(questao_id: str, motivo: str) -> str:
+    """Acrescenta ao arquivo de relatos (em ENTRADA/) a questão reportada pelo leitor."""
+    tema_id, _, num = questao_id.partition(":")
+    caminho = localizar_doc(tema_id)
+    if caminho is None or not re.fullmatch(r"Q\d{1,4}", num):
+        raise ValueError("questão desconhecida")
+    rel_tema = caminho.relative_to(BASE)
+    arq = BASE / rel_tema.parts[0] / PASTA_QUESTOES / caminho.name
+    _, questoes, _ = ler_questoes(arq.read_text(encoding="utf-8")) if arq.is_file() else ({}, [], [])
+    q = next((x for x in questoes if x["n"] == int(num[1:])), None)
+    enun = " ".join(q["enun"].split()) if q else "(não encontrada no arquivo)"
+    agora = datetime.now().strftime("%d/%m/%Y %H:%M")
+    entrada = (f"\n## {agora} · {rel_tema.parts[0]} · {caminho.stem} · {num}\n"
+               f"- Arquivo: ESTUDOS/{rel_tema.parts[0]}/{PASTA_QUESTOES}/{caminho.name}\n"
+               f"- Enunciado: {enun}\n- Motivo: {' '.join(motivo.split())}\n")
+    RELATOS.parent.mkdir(parents=True, exist_ok=True)
+    novo = not RELATOS.exists()
+    with open(RELATOS, "a", encoding="utf-8", newline="\n") as f:
+        if novo:
+            f.write("# Questões turbo reportadas pelo site\n\nCada item é uma questão que o leitor "
+                    "marcou como errada ou duvidosa. Conferir, corrigir o arquivo de questões e "
+                    "mover este arquivo para processados/.\n")
+        f.write(entrada)
+    return f"{rel_tema.parts[0]}/{PASTA_QUESTOES}/{caminho.name} {num}"
+
+
 class Base:
     def __init__(self):
         self.avisos: list[str] = []
@@ -1101,6 +1369,7 @@ class Base:
         self.materias: list[dict] = []
         self.materia_por_id: dict[str, dict] = {}
         self.citado_em: dict[str, set[str]] = {}
+        self.docs_brutos: list[dict] = []
         self.versao, self.data = "v???", ""
 
     def aviso(self, doc: dict, msg: str) -> None:
@@ -1170,7 +1439,7 @@ class Base:
         for p in sorted(BASE.rglob("*.md")):
             rel = p.relative_to(BASE).as_posix()
             partes = rel.split("/")
-            if len(partes) > 2 and partes[1] == PASTA_SINTETICO:
+            if len(partes) > 2 and partes[1] in PASTAS_ESPECIAIS:
                 continue
             texto = p.read_text(encoding="utf-8")
             arquivo = partes[-1]
@@ -1222,10 +1491,12 @@ class Base:
                                                                      nome)
             brutos.append(doc)
 
+        self.docs_brutos = [d for d in brutos if d["materia"] != "controle"]
         for pasta in sorted(BASE.iterdir()):
             if pasta.is_dir() and pasta.name != CONTROLE and (pasta / PASTA_SINTETICO).is_dir():
                 self.carregar_sintetico(materia(pasta.name), pasta / PASTA_SINTETICO)
 
+        self.carregar_questoes()
         self.materia_por_id = {m["id"]: m for m in materias.values()}
         self.materia_por_id["controle"] = {"id": "controle", "nome": "Controle da base",
                                            "sigla": "CTRL", "cor": "ctrl"}
@@ -1303,6 +1574,63 @@ class Base:
             })
             self.sinteticos.append(doc)
 
+    def carregar_questoes(self) -> None:
+        """Arquivos de "Questões Turbo/": um por tema, com o mesmo nome do arquivo do tema."""
+        temas = {}
+        for d in self.docs_brutos:
+            temas[(d["materiaNome"], posixpath.basename(d["caminho"]))] = d
+        for pasta in sorted(BASE.iterdir()):
+            qpasta = pasta / PASTA_QUESTOES
+            if not pasta.is_dir() or pasta.name == CONTROLE or not qpasta.is_dir():
+                continue
+            for p in sorted(qpasta.glob("*.md")):
+                rel = p.relative_to(BASE).as_posix()
+                doc_q = {"caminho": rel}
+                tema = temas.get((pasta.name, p.name))
+                if tema is None:
+                    self.aviso(doc_q, "arquivo de questões sem tema com o mesmo nome na matéria")
+                    continue
+                cobertura, questoes, erros = ler_questoes(p.read_text(encoding="utf-8"))
+                for e in erros:
+                    self.aviso(doc_q, e)
+                tema.update(arquivo_questoes=rel, cobertura=cobertura, questoes=questoes)
+
+    def montar_questoes(self) -> list[dict]:
+        """Questões de todos os temas, na ordem do material (tema, seção citada, número)."""
+        saida = []
+        for pos, d in enumerate(self.docs):
+            if not d.get("questoes"):
+                continue
+            doc_q = {"caminho": d["arquivo_questoes"]}
+            r = Renderizador(self, d)
+            # A seção citada pode ser qualquer título do tema; o próprio título do tema (ou
+            # "(início)") aponta para o texto antes da primeira seção.
+            # Um subtítulo igual ao título do tema tem preferência.
+            secs = {}
+            for i, x in enumerate(d["titulos"]):
+                secs.setdefault(chave_secao(x["t"]), (i, x["id"], x["t"]))
+            for nome in (INICIO_TEMA, d["titulo"]):
+                secs.setdefault(chave_secao(nome), (-1, "", d["titulo"]))
+            itens = []
+            for q in d["questoes"]:
+                achada = secs.get(chave_secao(RE_NOME_BANCA.sub("", q["sec"])))
+                if achada is None:
+                    self.aviso(doc_q, f"Q{q['n']:03d}: seção '{q['sec']}' não existe no tema")
+                    achada = (10 ** 6, "", q["sec"])
+                enun = paragrafos_html(r, q["enun"])
+                com = paragrafos_html(r, q["com"])
+                for campo, h in (("enunciado", enun), ("comentário", com)):
+                    vazou = RE_VAZOU.search(texto_de_html(h))
+                    if vazou:
+                        self.aviso(doc_q, f"Q{q['n']:03d}: marcação não convertida no {campo} "
+                                          f"({vazou.group(0)!r})")
+                itens.append(((pos, achada[0], q["n"]), {
+                    "id": f"{d['id']}:Q{q['n']:03d}", "t": d["id"], "n": q["n"],
+                    "d": DIFICULDADES[q["dif"]], "s": achada[2], "h": achada[1],
+                    "e": enun, "g": q["gab"], "c": com}))
+            saida.extend(x for _, x in sorted(itens, key=lambda y: y[0]))
+        return saida
+
     # -- renderização e checagens
     def renderizar(self) -> dict:
         indice, pegadinhas, saida = [], [], {}
@@ -1316,7 +1644,8 @@ class Base:
                 partes = r.blocos(ler_blocos(d["md"].splitlines()), lista=True)
             resumo = Renderizador(self, d).inline(d["resumo_md"], False) if d["resumo_md"] else ""
             titulo = d["titulo"] if d["tipo"] == "sint" else (r.titulo or d["titulo"])
-            d.update(partes=partes, toc=r.toc, palavras=r.palavras, resumo=resumo, titulo=titulo)
+            d.update(partes=partes, toc=r.toc, titulos=r.titulos, palavras=r.palavras, resumo=resumo,
+                     titulo=titulo)
             if d["md_mapa"] is not None:
                 d["mapa"] = self.arvore_mapa(d, d["md_mapa"])
                 ligar_mapa(d["mapa"], r)
@@ -1363,6 +1692,7 @@ class Base:
             "docs": saida,
             "indice": indice,
             "pegadinhas": pegadinhas,
+            "questoes": self.montar_questoes(),
         }
 
     def arvore_mapa(self, doc: dict, md: str) -> list[dict]:
@@ -2060,7 +2390,8 @@ def localizar_doc(doc_id: str) -> Path | None:
         if not pasta.is_dir() or pasta.name == CONTROLE or not doc_id.startswith(mid + "."):
             continue
         for p in sorted(pasta.rglob("*.md")):
-            if PASTA_SINTETICO not in p.relative_to(pasta).parts and f"{mid}.{slug(p.stem)}" == doc_id:
+            partes = p.relative_to(pasta).parts
+            if not set(PASTAS_ESPECIAIS) & set(partes) and f"{mid}.{slug(p.stem)}" == doc_id:
                 return p
         sint = pasta / PASTA_SINTETICO
         if sint.is_dir():
@@ -2144,7 +2475,7 @@ def sessao_valida(sessao: str | None) -> bool:
 # ----------------------------------------------------------------------------- saída
 
 DESCRICAO = ("Base de estudos para Auditor Fiscal: resumos por matéria e por tópico, mapas "
-             "mentais, busca em todo o material e pegadinhas CEBRASPE.")
+             "mentais, busca em todo o material, pegadinhas e questões de Certo ou Errado.")
 # Ícone da aba: um livro com as abas coloridas das quatro primeiras matérias.
 ICONE_SVG = (
     "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'>"
@@ -2266,7 +2597,7 @@ class Manipulador(http.server.SimpleHTTPRequestHandler):
 
     def do_POST(self) -> None:
         rota = urlsplit(self.path).path
-        if rota not in (ROTA_SINTETICO, ROTA_ENTRAR, ROTA_SALVAR):
+        if rota not in (ROTA_SINTETICO, ROTA_ENTRAR, ROTA_SALVAR, ROTA_RELATO):
             self.responder(404, {"ok": False, "erro": "endereço desconhecido"})
             return
         if not self.da_propria_pagina():
@@ -2274,6 +2605,8 @@ class Manipulador(http.server.SimpleHTTPRequestHandler):
             return
         if rota == ROTA_ENTRAR:
             self.entrar()
+        elif rota == ROTA_RELATO:
+            self.receber_relato()
         elif rota == ROTA_SALVAR:
             if not self.administrador():
                 self.responder(401, {"ok": False, "erro": "a sessão expirou; entre de novo"})
@@ -2281,6 +2614,24 @@ class Manipulador(http.server.SimpleHTTPRequestHandler):
             self.salvar_edicao()
         else:
             self.receber_sintetico()
+
+    def receber_relato(self) -> None:
+        pedido = self.ler_pedido()
+        if pedido is None:
+            return
+        qid, motivo = pedido.get("id"), pedido.get("motivo")
+        if not (isinstance(qid, str) and isinstance(motivo, str) and motivo.strip()
+                and len(motivo) <= 4000):
+            self.responder(400, {"ok": False, "erro": "relato vazio ou grande demais"})
+            return
+        try:
+            with TRAVA_GERACAO:
+                onde = gravar_relato(qid, motivo)
+        except ValueError as erro:
+            self.responder(400, {"ok": False, "erro": str(erro)})
+            return
+        print(f"Questão reportada: {onde} (ENTRADA/{RELATOS.name})", flush=True)
+        self.responder(200, {"ok": True})
 
     def entrar(self) -> None:
         pedido = self.ler_pedido()
@@ -2426,6 +2777,17 @@ def main(argv: list[str]) -> int:
     if not BASE.is_dir():
         print(f"Pasta não encontrada: {BASE}")
         return 1
+    if "--questoes-pendentes" in argv or "--cobrir" in argv:
+        base = Base()
+        base.carregar()
+        i = argv.index("--questoes-pendentes" if "--questoes-pendentes" in argv else "--cobrir")
+        args = [a for a in argv[i + 1:] if not a.startswith("--")]
+        if "--cobrir" in argv:
+            for msg in cobrir(base, args):
+                print(msg)
+        else:
+            print(questoes_pendentes(base, args[0] if args else ""))
+        return 0
     verificar = "--verificar" in argv
     base, dados, tamanho = gerar(escrever_saida=not verificar)
     n_temas, n_ctrl = len(base.docs), len(base.controle)
@@ -2440,6 +2802,11 @@ def main(argv: list[str]) -> int:
     com_mapa = sum(1 for d in base.docs if d.get("mapa"))
     print(f"Mapas mentais: {com_mapa} de {n_temas} temas ({base.n_nos} ramos) · "
           f"Resumo sintético: {len(base.sinteticos)} arquivo(s)")
+    por_materia = {}
+    for q in dados["questoes"]:
+        por_materia[q["t"].split(".")[0]] = por_materia.get(q["t"].split(".")[0], 0) + 1
+    print(f"Questões turbo: {len(dados['questoes'])} (" + " · ".join(
+        f"{m['sigla']} {por_materia.get(m['id'], 0)}" for m in base.materias) + ")")
     print("Resumo geral: " + " · ".join(
         f"{m['sigla']} {m['geral']['paginas']} págs." for m in base.materias))
     if not verificar:

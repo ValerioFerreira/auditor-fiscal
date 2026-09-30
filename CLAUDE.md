@@ -13,13 +13,13 @@ Você é gestor e curador de uma base de conhecimento cumulativa para concursos.
 - Se houver divergência doutrinária legítima, mantenha as duas posições e deixe claro que existe divergência.
 
 ## Fluxo para cada novo resumo
-Receber → identificar a matéria → identificar os assuntos → localizar o conteúdo existente → decompor em informações independentes → validar cada uma (CORRETA / CORRETA, MAS INCOMPLETA / IMPRECISA / INCORRETA / DEPENDE DO CONTEXTO) → corrigir → enriquecer (só o que agrega valor para a prova) → identificar relações → integrar → atualizar o mapa mental de cada tema alterado → eliminar duplicações → reorganizar se necessário → atualizar o _CONTROLE → me informar.
+Receber → identificar a matéria → identificar os assuntos → localizar o conteúdo existente → decompor em informações independentes → validar cada uma (CORRETA / CORRETA, MAS INCOMPLETA / IMPRECISA / INCORRETA / DEPENDE DO CONTEXTO) → corrigir → enriquecer (só o que agrega valor para a prova) → identificar relações → integrar → atualizar o mapa mental de cada tema alterado → eliminar duplicações → reorganizar se necessário → atualizar as questões turbo dos temas alterados (ver "Questões turbo") → atualizar o _CONTROLE → me informar.
 
 ## Entrada de novos resumos
 - Eu salvo os resumos em `ENTRADA/`, na raiz do projeto: `.txt` ou `.md` de preferência (`.docx`, `.pdf` e fotos também valem). Também posso colar o resumo direto no chat.
 - Quando eu pedir (ex.: "processe a entrada"), leia todos os arquivos de `ENTRADA/`, menos `LEIA-ME.txt` e a pasta `processados/`. Vários arquivos na mesma sessão geram uma única versão.
 - Se o nome do arquivo ou o texto trouxer a data do estudo (ex.: `2026-09-28 Direito Tributário.txt`), use-a no diário; senão, use a data da sessão. Se a matéria não estiver clara, pergunte.
-- No início de cada sessão, se houver arquivos esperando em `ENTRADA/`, me avise. Se houver arquivos novos nas pastas `Resumo Sintético/`, regenere o site para que apareçam (sem processá-los como resumo).
+- No início de cada sessão, se houver arquivos esperando em `ENTRADA/`, me avise. `ENTRADA/questoes-relatadas.md` não é resumo: são questões turbo que eu reportei pelo site; confira cada uma, corrija o arquivo de questões (ou me pergunte, se a dúvida for de conteúdo do tema) e mova o arquivo para `processados/`. Se houver arquivos novos nas pastas `Resumo Sintético/`, regenere o site para que apareçam (sem processá-los como resumo).
 - Depois de incorporar, mova cada arquivo para `ENTRADA/processados/`, com a data na frente do nome (`AAAA-MM-DD - nome original`). `ENTRADA/` fica fora do git (material bruto).
 
 ## Legislação e jurisprudência
@@ -41,6 +41,7 @@ Receber → identificar a matéria → identificar os assuntos → localizar o c
   - Se eu mandar um arquivo com várias disciplinas misturadas, separe-o pelos títulos de disciplina (parágrafo só com o nome da matéria), sem mudar nada no texto, e salve cada trecho como a próxima parte da matéria correspondente. Título que não corresponder a nenhuma matéria da base vira matéria nova (pasta com `Resumo Sintético/`), e me avise para confirmar o nome.
   - Ao criar uma matéria nova, crie também essa pasta, com o mesmo `LEIA-ME.txt`.
   - Partes que eu acrescentar ou editar pelo site entre as sessões entram no commit da sessão seguinte.
+- **Questões turbo:** cada matéria tem a pasta `Questões Turbo/`, com um arquivo de questões de Certo ou Errado por tema, de mesmo nome (ver "Questões turbo" em "Sistema de leitura"). Ao renomear, dividir ou unir um tema, faça o mesmo com o arquivo de questões dele, sem renumerar as questões.
 
 ## Modelo de arquivo (adapte; use só as seções úteis)
 # Nome do assunto
@@ -51,7 +52,7 @@ Receber → identificar a matéria → identificar os assuntos → localizar o c
 ## Exemplos
 ## Exceções
 ## Diferenças importantes (tabela)
-## Pegadinhas CEBRASPE  → formato: "Afirmação típica" → **CERTO/ERRADO** (explicação curta). Nunca apresente como questão real de prova.
+## Pegadinhas  → formato: "Afirmação típica" → **CERTO/ERRADO** (explicação curta). Nunca apresente como questão real de prova.
 ## Base legal / referência
 ## Relações com outros assuntos
 ## Mapa mental  → sempre, como última seção: lista com "-" e recuo de 2 espaços; de 3 a 7 ramos principais, rótulos curtos, só com o que está no próprio tema (sem acrescentar nada). O sistema tira essa seção do texto, desenha o mapa, junta os mapas da matéria no mapa geral e liga cada ramo ao trecho mais parecido do tema.
@@ -67,10 +68,11 @@ Estilo: máxima densidade de conhecimento com mínima redundância. Use tabelas 
 
 ## Fechamento de cada sessão
 1. Atualize o `_CONTROLE` (com a versão nova).
-2. Regenere o sistema de leitura, sem avisos, e republique a página privada (ver "Sistema de leitura").
-3. Mova os arquivos processados de `ENTRADA/` para `ENTRADA/processados/`.
-4. Faça o commit de todas as mudanças, com a mensagem `Base ESTUDOS vNNN — resumo curto` (autorizado por mim em 27/09/2026).
-5. Responda conforme a seção abaixo.
+2. Atualize as questões turbo: `python sistema/gerar.py --questoes-pendentes` e, para cada matéria com texto pendente, o agente `questoes-<matéria>` (ver "Questões turbo").
+3. Regenere o sistema de leitura, sem avisos, e republique a página privada (ver "Sistema de leitura").
+4. Mova os arquivos processados de `ENTRADA/` para `ENTRADA/processados/`.
+5. Faça o commit de todas as mudanças, com a mensagem `Base ESTUDOS vNNN — resumo curto` (autorizado por mim em 27/09/2026).
+6. Responda conforme a seção abaixo.
 
 ## Resposta ao final de cada sessão (breve)
 1. Matéria identificada.
@@ -82,7 +84,7 @@ Não reproduza o conteúdo armazenado na resposta.
 ## Sistema de leitura (web)
 - Gerador: `sistema/gerar.py` (sem dependências; mantenha compatível com Python 3.9, porque o build da Vercel usa o `python3` da imagem de build). Interface: `sistema/modelo.html`. Saídas, fora do git: `site/index.html` (o site: localhost, Vercel e duplo clique) e `sistema/pagina-privada/Estudos.html` (a mesma página sem o esqueleto HTML, para a página privada).
 - Regenerar: `python sistema/gerar.py`. Corrija os avisos (referência quebrada, markdown não convertido, tema sem mapa mental) antes de encerrar. Avisos sobre arquivos do `Resumo Sintético` não se corrigem: me conte.
-- O que o site mostra: início com as disciplinas (sem saudação nem subtítulo; data da última leitura, isto é, o Lido mais recente marcado no navegador; progresso; ordenação pela última leitura) e, para cada disciplina, as abas Visão geral, Resumo geral (todos os temas em sequência, em páginas de ~3.000 caracteres: `CARACTERES_POR_PAGINA` em `gerar.py`), Por tópico, Mapa mental geral, Mapas por tópico, Resumo sintético e Marcações. Botão Lido nos tópicos; no resumo geral, "Marcar lido" pergunta a página. Marca-texto em 4 cores (#6635A5 muito importante, #00F22E importante, #FF6A01 atenção, #FDFD02 pegadinha).
+- O que o site mostra: início com as disciplinas (sem saudação nem subtítulo; data da última leitura, isto é, o Lido mais recente marcado no navegador; progresso; ordenação pela última leitura) e, para cada disciplina, as abas Visão geral, Resumo geral (todos os temas em sequência, em páginas de ~3.000 caracteres: `CARACTERES_POR_PAGINA` em `gerar.py`), Por tópico, Mapa mental geral, Mapas por tópico, Resumo sintético, Questões turbo e Marcações. Botão Lido nos tópicos; no resumo geral, "Marcar lido" pergunta a página. Marca-texto em 4 cores (#6635A5 muito importante, #00F22E importante, #FF6A01 atenção, #FDFD02 pegadinha).
 - Pedidos meus sobre o layout (29 e 30/09/2026), que devem continuar valendo: o texto ocupa por padrão pelo menos 50% da largura da tela (nunca menos que uma folha A4), é justificado, e a largura se ajusta pelo controle "Largura do texto" do painel Aa, no topo (`aplicarLargura` em `modelo.html`; até 29/09 ficava no rodapé); as abas da disciplina ficam numa faixa fixa abaixo da busca, sempre no mesmo lugar em todas as abas (só o conteúdo abaixo muda); a busca fica sempre centralizada no topo; o site não mostra a versão da base nem a data de atualização; a seção "Controle da base" não aparece no site (os arquivos de `_CONTROLE` continuam sendo conferidos pelo gerador, mas não vão para a página); a página inicial não tem saudação nem subtítulo.
 - Visual (30/09/2026, feito com a skill redesign-existing-projects; mudanças futuras de visual seguem essa skill): fonte Manrope em tudo (a Literata continua como opção em Aa → Fonte do texto) e Geist Mono no código; tema escuro nos tons #181818, #1F1F1F, #272727 e #313131; acento neutro, com a cor da disciplina nos detalhes; ícones Phosphor embutidos; itálico só no conteúdo dos resumos; escala de tipos, espaçamentos e cantos do Tailwind; transições com cubic-bezier(0.32, 0.72, 0, 1); entrada suave só nos cards das páginas iniciais (respeita "menos movimento" do sistema). Decidido por mim: manter a estrutura do topo, a faixa de abas e o menu lateral. A Visão geral de cada disciplina é uma composição assimétrica (Resumo geral em destaque).
 - Login de administrador e edição pelo site (pedido meu em 29/09/2026): botão "Entrar" no canto superior direito do topo; o login não é obrigatório e a leitura continua aberta. Usuário ADM; a senha fica só como hash PBKDF2 em `ADMIN_SENHA` (`gerar.py`), nunca em texto (não a escreva em nenhum arquivo). Só funciona com `python sistema/gerar.py --servir`, porque é o servidor local que confere o login e grava; na Vercel, na página privada e no duplo clique o botão só explica isso. Logado, eu edito os temas (o arquivo inteiro, inclusive o mapa mental) e cada parte do resumo sintético (com a numeração original do arquivo; `.txt` continua texto simples). O servidor grava só os blocos alterados (os outros voltam idênticos), no estilo da base, confere que nenhuma palavra ou imagem se perdeu e guarda a versão anterior em `edicoes-anteriores/` (fora do git). Formatos que o editor grava e o gerador entende: `<u>`, `<br>`, `<b>`/`<i>` (negrito ou itálico no meio de palavra), larguras de coluna `<!-- colunas: 30 70 -->` na linha antes da tabela, e imagens ao lado do arquivo (`<arquivo> - imagem N.ext`) com largura `![imagem](arquivo){largura=45%}`.
@@ -93,6 +95,12 @@ Não reproduza o conteúdo armazenado na resposta.
 - Vercel: `vercel.json` (build `python3 sistema/gerar.py`, publica só `site/`) e `.vercelignore` (sobem só `ESTUDOS/`, `sistema/` e `vercel.json`). O projeto na Vercel ainda não foi criado; os passos estão no `README.md`.
 - A ordem de matérias e temas no sistema vem de `_CONTROLE/assuntos-estudados.md`: mantenha a tabela na ordem pedagógica. Matéria nova: acrescente sigla e cor em `MATERIAS`, no início de `gerar.py`.
 - Tabela com filtros no site: a linha `<!-- filtros: Classificação, Natureza -->` logo acima da tabela no .md (nomes iguais aos do cabeçalho) faz o site mostrar filtros por essas colunas — botões quando há até 4 valores; lista agrupada pelo texto antes de " – " quando há mais — e uma busca na tabela. Usada em `Contabilidade Geral e Avançada/03 - Contas/classificacao-e-natureza-das-contas.md`, que deve manter todas as 71 contas (pedido meu em 30/09/2026).
+- **Questões turbo** (pedido meu em 30/09/2026): questões de Certo ou Errado sobre os temas (não sobre o resumo sintético), no estilo da banca, com enunciados reescritos (sutilezas, sinônimos pouco comuns mas aceitos, troca de regra e exceção, caso hipotético), e nunca recortes do texto. Cada uma tem selo de dificuldade (fácil, médio, difícil), comentário e a seção do tema que vira o link "Ver no resumo".
+  - Arquivo: `ESTUDOS/<Matéria>/Questões Turbo/<nome-do-tema>.md`; formato em `.claude/questoes/como-fazer-questoes.md` (`## Q001 · médio · Seção`, enunciado, `- Gabarito: CERTO/ERRADO`, `- Comentário:`). O número é a identidade da questão no site (onde ficam as minhas respostas): nunca renumere; questão apagada deixa o número vago.
+  - Para não reler o que já virou questão: `python sistema/gerar.py --questoes-pendentes "<Matéria>"` mostra só as seções novas ou alteradas desde a última vez (e as questões que já as citam); depois de fazer as questões, `python sistema/gerar.py --cobrir "<Matéria>/Questões Turbo/<tema>.md"` grava a cobertura (hash de cada seção) no arquivo.
+  - Quem faz: o agente da matéria em `.claude/agents/questoes-<matéria>.md` (Tributário, Contabilidade, Constitucional, Administrativo), que segue `.claude/questoes/como-fazer-questoes.md` e o guia da banca da matéria em `.claude/questoes/guias/` (pesquisa feita em 30/09/2026). Matéria nova: crie o agente e o guia no mesmo molde (pesquisa na web sobre como a banca cobra a disciplina). Faça sempre o máximo de questões que o texto sustentar.
+  - No site: aba "Questões turbo" e card na Visão geral; ordem por assunto (a do material) ou aleatória; primeiro só as inéditas, depois revisão (as erradas na última vez primeiro); filtros por tópico, dificuldade, erradas e favoritas; placar e desempenho por tópico. As respostas ficam no navegador (e vão no Aa → Exportar). "Reportar" grava em `ENTRADA/questoes-relatadas.md` quando o site está aberto com `--servir`.
+- O site não mostra o nome da banca: os títulos "Pegadinhas CEBRASPE" dos temas antigos aparecem como "Pegadinhas" (troca feita só na exibição, para não mudar os arquivos e não marcar os temas lidos como alterados; pedido meu em 30/09/2026). Temas novos já usam `## Pegadinhas`.
 - Pegadinhas são lidas das seções cujo título contém "Pegadinha" e das citações que começam com "Pegadinha:". Mantenha o formato `"Afirmação" → **ERRADO** (explicação)` para o gabarito C/E aparecer.
 
 ## Contexto atual

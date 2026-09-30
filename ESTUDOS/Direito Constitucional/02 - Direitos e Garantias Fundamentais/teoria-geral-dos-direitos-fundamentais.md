@@ -11,6 +11,7 @@
 | **3ª** | **Difusos/coletivos**: meio ambiente, paz, desenvolvimento, patrimônio comum da humanidade | **Fraternidade/solidariedade** | Titularidade coletiva |
 
 - Parte da doutrina fala em 4ª dimensão (ex.: democracia, informação, pluralismo — Paulo Bonavides) e seguintes; não há consenso.
+- **Divergência:** na classificação tradicional (Karel Vasak), a **paz** é direito de 3ª dimensão; Bonavides a desloca para uma **5ª dimensão**.
 
 ## Relações com outros assuntos
 
@@ -23,4 +24,4 @@
   - 1ª: civis e políticos → liberdade; abstenção do Estado
   - 2ª: sociais, econômicos e culturais → igualdade; prestações positivas
   - 3ª: difusos e coletivos → fraternidade; titularidade coletiva
-  - 4ª e seguintes: sem consenso (Bonavides: democracia, informação, pluralismo)
+  - 4ª e seguintes: sem consenso (Bonavides: democracia, informação, pluralismo; paz na 5ª)

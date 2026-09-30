@@ -293,8 +293,7 @@ body.foco .faixa-mat { display: flex; }
 /* Visão geral da disciplina */
 .vg-grade { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
 .vg-geral { grid-column: span 4; grid-row: span 2; padding: 32px; border-color: color-mix(in srgb, var(--m) 24%, var(--rule)); background: color-mix(in srgb, var(--m) 6%, var(--raised)); }
-.vg-topicos, .vg-sint { grid-column: span 2; }
-.vg-mapas, .vg-marcas { grid-column: span 3; }
+.vg-topicos, .vg-sint, .vg-questoes, .vg-mapas, .vg-marcas { grid-column: span 2; }
 .vg { display: flex; flex-direction: column; gap: 12px; min-width: 0; padding: 24px; border: 1px solid var(--rule); border-radius: 16px; background: var(--raised); }
 .vg-rot { display: flex; align-items: center; gap: 8px; margin: 0; font: 600 14px/20px var(--font-ui); color: var(--m); }
 .vg-rot svg { width: 16px; height: 16px; }
@@ -781,6 +780,112 @@ body.editando .doc-grade { grid-template-columns: minmax(0, 1fr) !important; }
 .recado .rec-sub { margin-top: 8px; font-weight: 600; }
 .recado ul { margin: 4px 0 0; padding-left: 16px; }
 
+/* ---------- Questões turbo ---------- */
+.qt, .qq { display: grid; gap: 32px; }
+.qt svg, .qq svg { width: 16px; height: 16px; flex: none; }
+.qt-num { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.qn { display: flex; flex-direction: column; gap: 4px; min-width: 0; padding: 20px 24px; border: 1px solid var(--rule); border-radius: 16px; background: var(--raised); }
+.qn-v { font: 600 36px/40px var(--font-display); letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.qn-r { font: 600 14px/20px var(--font-ui); color: var(--ink); }
+.qn-s { font: 500 12px/16px var(--font-ui); color: var(--ink-3); }
+.qt-cfg { display: grid; gap: 16px; padding: 24px; border: 1px solid color-mix(in srgb, var(--m) 24%, var(--rule)); border-radius: 16px; background: color-mix(in srgb, var(--m) 6%, var(--raised)); }
+.qt-linha { display: grid; grid-template-columns: 8.5em minmax(0, 1fr); gap: 12px; align-items: center; }
+.qt-rot { font: 600 12px/16px var(--font-ui); color: var(--ink-2); }
+.qt-linha .seg { max-width: 520px; }
+.qt-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.qt-chips .chip { padding: 0 12px; }
+.qt-temas { border: 1px solid var(--rule-2); border-radius: 8px; background: var(--raised); }
+.qt-temas summary { display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 12px; font: 600 14px/20px var(--font-ui); cursor: pointer; list-style: none; }
+.qt-temas summary::-webkit-details-marker { display: none; }
+.qt-temas summary svg { margin-left: auto; transition: transform var(--dur-micro) var(--ease); }
+.qt-temas[open] summary svg { transform: rotate(180deg); }
+.qt-temas-in { display: grid; gap: 12px; padding: 4px 12px 12px; }
+.qt-ass { display: grid; gap: 2px; }
+.qt-ass-t { margin: 8px 0 4px; font: 600 12px/16px var(--font-ui); color: var(--ink-3); }
+.qt-tema { display: flex; align-items: center; gap: 12px; padding: 6px 8px; margin: 0 -8px; border-radius: 6px; font: 500 14px/20px var(--font-ui); cursor: pointer; }
+.qt-tema:hover { background: var(--hover); }
+.qt-tema input { width: 16px; height: 16px; margin: 0; accent-color: var(--m); }
+.qt-tema .n { margin-left: auto; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.qt-fim { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 16px; padding-top: 16px; border-top: 1px solid var(--rule); }
+.qt-fim-txt { margin: 0; font: 500 14px/20px var(--font-ui); color: var(--ink-2); }
+.qt-sec-t { margin: 0 0 12px; font: 600 18px/28px var(--font-display); letter-spacing: -.01em; }
+.qt-dest { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 16px; }
+.qt-dest > div { padding: 16px 20px; border-radius: 12px; background: var(--panel); }
+.qt-dest h3 { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; font: 600 12px/16px var(--font-ui); }
+.qt-dest ol { margin: 0; padding-left: 20px; font: 500 14px/24px var(--font-ui); }
+.qt-dest .ok { color: var(--ok); }
+.qt-dest .err { color: var(--err); }
+.qt-top-lista { display: grid; gap: 2px; margin: 0; padding: 0; list-style: none; }
+.qt-top { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(96px, 1fr) 3.5em; gap: 16px; align-items: center; margin: 0 -8px; padding: 12px 8px; border-radius: 8px; }
+.qt-top:hover { background: var(--hover); }
+.qt-top a { color: var(--ink); font: 600 14px/20px var(--font-ui); text-decoration: none; }
+.qt-top a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.qt-top-meta { display: block; margin-top: 2px; font: 500 12px/16px var(--font-ui); color: var(--ink-3); }
+.qt-trilho { height: 8px; overflow: hidden; border-radius: 9999px; background: var(--panel); }
+.qt-trilho span { display: block; height: 100%; border-radius: inherit; background: var(--m); }
+.qt-top-pct { font: 600 14px/20px var(--font-ui); text-align: right; font-variant-numeric: tabular-nums; }
+.qt-top-pct.nd { color: var(--ink-3); font-weight: 500; }
+.qt-rel { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.qt-rel li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 12px; padding: 12px 16px; border: 1px solid var(--rule); border-radius: 12px; }
+.qt-rel-q { margin: 0; font: 500 14px/20px var(--font-ui); }
+.qt-rel-m { grid-column: 1; margin: 0; font: 400 14px/20px var(--font-ui); color: var(--ink-2); }
+.qt-rel .bt-texto { grid-row: 1 / span 2; grid-column: 2; align-self: center; }
+.qq { gap: 16px; max-width: min(100%, var(--measure)); margin: 0 auto; }
+.qq-barra { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+.qq-barra .bt-texto { padding-left: 0; color: var(--ink-2); text-decoration: none; }
+.qq-barra .bt-texto:hover { color: var(--ink); }
+.qq-fase { padding: 4px 12px; border-radius: 9999px; background: color-mix(in srgb, var(--m) 14%, transparent); font: 600 12px/16px var(--font-ui); }
+.qq-placar { margin-left: auto; font: 500 12px/16px var(--font-ui); color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.qq-card { display: grid; gap: 24px; padding: 32px; border: 1px solid var(--rule); border-radius: 16px; background: var(--raised); box-shadow: var(--shadow-sm); }
+.qq-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.q-dif { padding: 4px 10px; border-radius: 9999px; font: 700 12px/16px var(--font-ui); }
+.q-dif-f { background: var(--ok-soft); color: var(--ok); }
+.q-dif-m { background: color-mix(in srgb, var(--star) 16%, transparent); color: color-mix(in srgb, var(--star) 72%, var(--ink)); }
+.q-dif-d { background: var(--err-soft); color: var(--err); }
+.qq-tema { font: 600 14px/20px var(--font-ui); color: var(--m); text-decoration: none; }
+.qq-tema:hover { text-decoration: underline; text-underline-offset: 3px; }
+.q-ult { font: 500 12px/16px var(--font-ui); color: var(--ink-3); }
+.q-ult-ok { color: var(--ok); }
+.q-ult-err { color: var(--err); }
+.qq-meta .bt-fav { margin-left: auto; }
+.qq-enun { font: 400 var(--fs)/1.65 var(--font-read); color: var(--ink); text-wrap: pretty; }
+.qq-enun p, .qq-com p { margin: 0 0 12px; }
+.qq-enun p:last-child, .qq-com p:last-child { margin-bottom: 0; }
+.qq-resp { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.qq-bt { display: flex; align-items: center; justify-content: center; gap: 12px; height: 56px; padding: 0 16px; border: 1px solid var(--rule-2); border-radius: 12px; background: var(--raised); color: var(--ink); font: 600 16px/1 var(--font-ui); cursor: pointer; transition: background-color var(--dur-micro) var(--ease), border-color var(--dur-micro) var(--ease), transform var(--dur-micro) var(--ease); }
+.qq-bt:hover:not(:disabled) { border-color: var(--ink-3); background: var(--hover); }
+.qq-bt:active:not(:disabled) { transform: scale(.98); }
+.qq-bt:disabled { cursor: default; opacity: .5; }
+.qq-k { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 8px; background: var(--panel); font: 600 14px/1 var(--font-mono); }
+.qq-bt.certa { opacity: 1; border-color: var(--ok); background: var(--ok-soft); color: var(--ok); }
+.qq-bt.errada { opacity: 1; border-color: var(--err); background: var(--err-soft); color: var(--err); }
+.qq-dica { margin: -12px 0 0; font: 500 12px/16px var(--font-ui); color: var(--ink-3); text-align: center; }
+.qq-res { padding: 20px 24px; border: 1px solid; border-radius: 12px; }
+.qq-res-ok { border-color: color-mix(in srgb, var(--ok) 40%, var(--rule)); background: var(--ok-soft); }
+.qq-res-err { border-color: color-mix(in srgb, var(--err) 40%, var(--rule)); background: var(--err-soft); }
+.qq-res-t { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; margin: 0 0 12px; font: 700 16px/24px var(--font-ui); }
+.qq-res-ok .qq-res-t { color: var(--ok); }
+.qq-res-err .qq-res-t { color: var(--err); }
+.qq-res-t svg { width: 20px; height: 20px; }
+.qq-gab { font: 600 12px/16px var(--font-ui); color: var(--ink-2); }
+.qq-com { font: 400 16px/1.6 var(--font-read); color: var(--ink); }
+.qq-acoes { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
+.qq-acoes .bt-p { margin-left: auto; }
+.qq-fim { display: grid; gap: 12px; justify-items: start; }
+@media (max-width: 1100px) { .qt-num { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) {
+  .qt-linha { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .qt-dest { grid-template-columns: minmax(0, 1fr); }
+  .qt-top { grid-template-columns: minmax(0, 1fr) 3.5em; gap: 8px 12px; }
+  .qt-top .qt-trilho { grid-column: 1 / -1; grid-row: 2; }
+  .qn { padding: 16px; }
+  .qn-v { font-size: 30px; line-height: 36px; }
+  .qq-card { padding: 20px; gap: 20px; }
+  .qq-resp { gap: 8px; }
+  .qq-placar { margin-left: 0; }
+  .qq-acoes .bt-p { margin-left: 0; }
+}
+
 /* ---------- Tabelas com filtros ---------- */
 .tf { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px 16px; margin: 24px 0 12px; padding: 16px; border: 1px solid var(--rule); border-radius: 12px; background: var(--panel); font-family: var(--font-ui); }
 .doc-corpo .tf { max-width: 100%; }
@@ -813,6 +918,7 @@ body.editando .doc-grade { grid-template-columns: minmax(0, 1fr) !important; }
   .vg-grade { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .vg-geral { grid-column: 1 / -1; grid-row: auto; }
   .vg-topicos, .vg-sint, .vg-mapas, .vg-marcas { grid-column: span 1; }
+  .vg-questoes { grid-column: 1 / -1; }
 }
 @media (min-width: 960px) { body:not(.sem-lateral):not(.foco) .dock { left: calc(var(--side-w) + 24px); } }
 @media (min-width: 1480px) { .principal { --pad-x: 60px; } }
@@ -897,7 +1003,7 @@ body.foco .toc { display: none; }
     <button class="bt-icone bt-limpar" id="ui-limpar" type="button" aria-label="Limpar busca" hidden><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg></button>
   </form>
   <div class="acoes-topo">
-    <a class="bt-topo bt-peg" id="ui-peg" href="#pegadinhas" title="Pegadinhas CEBRASPE"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M225.86,102.82c-3.77-3.94-7.67-8-9.14-11.57-1.36-3.27-1.44-8.69-1.52-13.94-.15-9.76-.31-20.82-8-28.51s-18.75-7.85-28.51-8c-5.25-.08-10.67-.16-13.94-1.52-3.56-1.47-7.63-5.37-11.57-9.14C146.28,23.51,138.44,16,128,16s-18.27,7.51-25.18,14.14c-3.94,3.77-8,7.67-11.57,9.14C88,40.64,82.56,40.72,77.31,40.8c-9.76.15-20.82.31-28.51,8S41,67.55,40.8,77.310c-.08,5.25-.16,10.67-1.52,13.94-1.47,3.56-5.37,7.63-9.14,11.57C23.51,109.72,16,117.56,16,128s7.51,18.27,14.14,25.18c3.77,3.94,7.67,8,9.14,11.57,1.36,3.27,1.44,8.69,1.520,13.94.15,9.76.31,20.82,8,28.51s18.75,7.85,28.51,8c5.25.08,10.67.16,13.94,1.52,3.56,1.47,7.63,5.37,11.57,9.14C109.72,232.49,117.56,240,128,240s18.27-7.51,25.18-14.14c3.94-3.77,8-7.67,11.57-9.14,3.27-1.36,8.69-1.44,13.94-1.52,9.76-.15,20.82-.31,28.51-8s7.85-18.75,8-28.51c.08-5.25.16-10.67,1.52-13.94,1.47-3.56,5.37-7.63,9.14-11.57C232.49,146.28,240,138.44,240,128S232.49,109.73,225.86,102.82Zm-11.55,39.29c-4.79,5-9.75,10.17-12.38,16.52-2.52,6.1-2.63,13.07-2.73,19.82-.1,7-.21,14.33-3.32,17.43s-10.39,3.22-17.43,3.32c-6.75.1-13.72.21-19.82,2.73-6.35,2.63-11.52,7.59-16.52,12.38S132,224,128,224s-9.15-4.92-14.11-9.690-10.17-9.75-16.52-12.38c-6.1-2.52-13.07-2.63-19.82-2.73-7-.1-14.33-.21-17.43-3.32s-3.22-10.39-3.32-17.43c-.1-6.75-.21-13.72-2.73-19.82-2.63-6.35-7.59-11.52-12.38-16.52S32,132,32,128s4.92-9.15,9.69-14.11,9.75-10.17,12.38-16.52c2.52-6.1,2.63-13.07,2.73-19.82.1-7,.21-14.33,3.32-17.43S70.51,56.9,77.55,56.8c6.75-.1,13.72-.21,19.82-2.73,6.35-2.63,11.52-7.59,16.52-12.38S124,32,128,32s9.15,4.92,14.11,9.69,10.17,9.75,16.52,12.38c6.1,2.52,13.07,2.63,19.82,2.73,7,.1,14.33.21,17.43,3.32s3.22,10.39,3.32,17.43c.1,6.75.21,13.72,2.73,19.82,2.63,6.35,7.59,11.52,12.38,16.52S224,124,224,128,219.08,137.15,214.31,142.11ZM140,180a12,12,0,1,1-12-12A12,12,0,0,1,140,180Zm28-72c0,17.38-13.76,31.93-32,35.28V144a8,8,0,0,1-16,0v-8a8,8,0,0,1,8-8c13.23,0,24-9,24-20s-10.77-20-24-20-24,9-24,20v4a8,8,0,0,1-16,0v-4c0-19.85,17.94-36,40-36S168,88.15,168,108Z"/></svg><span>Pegadinhas</span></a>
+    <a class="bt-topo bt-peg" id="ui-peg" href="#pegadinhas" title="Pegadinhas"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M225.86,102.82c-3.77-3.94-7.67-8-9.14-11.57-1.36-3.27-1.44-8.69-1.52-13.94-.15-9.76-.31-20.82-8-28.51s-18.75-7.85-28.51-8c-5.25-.08-10.67-.16-13.94-1.52-3.56-1.47-7.63-5.37-11.57-9.14C146.28,23.51,138.44,16,128,16s-18.27,7.51-25.18,14.14c-3.94,3.77-8,7.67-11.57,9.14C88,40.64,82.56,40.72,77.31,40.8c-9.76.15-20.82.31-28.51,8S41,67.55,40.8,77.310c-.08,5.25-.16,10.67-1.52,13.94-1.47,3.56-5.37,7.63-9.14,11.57C23.51,109.72,16,117.56,16,128s7.51,18.27,14.14,25.18c3.77,3.94,7.67,8,9.14,11.57,1.36,3.27,1.44,8.69,1.520,13.94.15,9.76.31,20.82,8,28.51s18.75,7.85,28.51,8c5.25.08,10.67.16,13.94,1.52,3.56,1.47,7.63,5.37,11.57,9.14C109.72,232.49,117.56,240,128,240s18.27-7.51,25.18-14.14c3.94-3.77,8-7.67,11.57-9.14,3.27-1.36,8.69-1.44,13.94-1.52,9.76-.15,20.82-.31,28.51-8s7.85-18.75,8-28.51c.08-5.25.16-10.67,1.52-13.94,1.47-3.56,5.37-7.63,9.14-11.57C232.49,146.28,240,138.44,240,128S232.49,109.73,225.86,102.82Zm-11.55,39.29c-4.79,5-9.75,10.17-12.38,16.52-2.52,6.1-2.63,13.07-2.73,19.82-.1,7-.21,14.33-3.32,17.43s-10.39,3.22-17.43,3.32c-6.75.1-13.72.21-19.82,2.73-6.35,2.63-11.52,7.59-16.52,12.38S132,224,128,224s-9.15-4.92-14.11-9.690-10.17-9.75-16.52-12.38c-6.1-2.52-13.07-2.63-19.82-2.73-7-.1-14.33-.21-17.43-3.32s-3.22-10.39-3.32-17.43c-.1-6.75-.21-13.72-2.73-19.82-2.63-6.35-7.59-11.52-12.38-16.52S32,132,32,128s4.92-9.15,9.69-14.11,9.75-10.17,12.38-16.52c2.52-6.1,2.63-13.07,2.73-19.82.1-7,.21-14.33,3.32-17.43S70.51,56.9,77.55,56.8c6.75-.1,13.72-.21,19.82-2.73,6.35-2.63,11.52-7.59,16.52-12.38S124,32,128,32s9.15,4.92,14.11,9.69,10.17,9.75,16.52,12.38c6.1,2.52,13.07,2.63,19.82,2.73,7,.1,14.33.21,17.43,3.32s3.22,10.39,3.32,17.43c.1,6.75.21,13.72,2.73,19.82,2.63,6.35,7.59,11.52,12.38,16.52S224,124,224,128,219.08,137.15,214.31,142.11ZM140,180a12,12,0,1,1-12-12A12,12,0,0,1,140,180Zm28-72c0,17.38-13.76,31.93-32,35.28V144a8,8,0,0,1-16,0v-8a8,8,0,0,1,8-8c13.23,0,24-9,24-20s-10.77-20-24-20-24,9-24,20v4a8,8,0,0,1-16,0v-4c0-19.85,17.94-36,40-36S168,88.15,168,108Z"/></svg><span>Pegadinhas</span></a>
     <button class="bt-topo bt-aa" id="ui-bt-ajustes" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="ui-ajustes" title="Ajustes de leitura"><span aria-hidden="true">Aa</span><span class="sr">Ajustes de leitura</span></button>
     <button class="bt-topo bt-adm" id="ui-adm" type="button" aria-haspopup="dialog" title="Entrar como administrador (para editar os textos)"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"/></svg><span class="adm-rot">Entrar</span></button>
   </div>
@@ -1016,6 +1122,8 @@ body.foco .toc { display: none; }
     pessoa: svg('M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z'),
     busca: svg('M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z'),
     filtro: svg('M230.6,49.53A15.81,15.81,0,0,0,216,40H40A16,16,0,0,0,28.19,66.76l.08.09L96,139.17V216a16,16,0,0,0,24.87,13.32l32-21.34A16,16,0,0,0,160,194.66V139.17l67.74-72.32.08-.09A15.8,15.8,0,0,0,230.6,49.53ZM40,56h0Zm106.18,74.58A8,8,0,0,0,144,136v58.66L112,216V136a8,8,0,0,0-2.16-5.47L40,56H216Z'),
+    raio: svg('M215.79,118.17a8,8,0,0,0-5-5.66L153.18,90.9l14.66-73.33a8,8,0,0,0-13.69-7l-112,120a8,8,0,0,0,3,13l57.63,21.61L88.16,238.43a8,8,0,0,0,13.69,7l112-120A8,8,0,0,0,215.79,118.17ZM109.37,214l10.47-52.38a8,8,0,0,0-5-9.06L62,132.71l84.62-90.66L136.16,94.43a8,8,0,0,0,5,9.06l52.8,19.8Z'),
+    bandeira: svg('M42.76,50A8,8,0,0,0,40,56V224a8,8,0,0,0,16,0V179.77c26.79-21.16,49.87-9.75,76.45,3.41,16.4,8.11,34.06,16.85,53,16.85,13.93,0,28.54-4.75,43.82-18a8,8,0,0,0,2.76-6V56A8,8,0,0,0,218.76,50c-28,24.23-51.72,12.49-79.21-1.12C111.07,34.76,78.78,18.79,42.76,50ZM216,172.25c-26.79,21.16-49.87,9.74-76.45-3.41-25-12.35-52.81-26.13-83.55-8.4V59.79c26.79-21.16,49.87-9.75,76.45,3.4,25,12.35,52.82,26.13,83.55,8.4Z'),
     largura: svg('M136,40V216a8,8,0,0,1-16,0V40a8,8,0,0,1,16,0ZM96,120H35.31l18.35-18.34A8,8,0,0,0,42.34,90.34l-32,32a8,8,0,0,0,0,11.32l32,32a8,8,0,0,0,11.32-11.32L35.31,136H96a8,8,0,0,0,0-16Zm149.66,2.34-32-32a8,8,0,0,0-11.32,11.32L220.69,120H160a8,8,0,0,0,0,16h60.69l-18.35,18.34a8,8,0,0,0,11.32,11.32l32-32A8,8,0,0,0,245.66,122.34Z')
   };
   const CORES = { 1: 'Muito importante', 2: 'Importante', 3: 'Atenção', 4: 'Pegadinha' };
@@ -1662,10 +1770,10 @@ body.foco .toc { display: none; }
   const APP = 'estudos-auditor-fiscal';
   function resumoBackup(x) {
     const nMarcas = new Set([].concat(...Object.values(x.marcas || {}).map(l => l.map(y => y.g)))).size;
-    return `${plural(Object.keys(x.lidos || {}).length, 'tópico lido', 'tópicos lidos')}, ${plural(Object.keys(x.geral || {}).length, 'resumo geral com página marcada', 'resumos gerais com página marcada')} e ${plural(nMarcas, 'marcação', 'marcações')}.`;
+    return `${plural(Object.keys(x.lidos || {}).length, 'tópico lido', 'tópicos lidos')}, ${plural(Object.keys(x.geral || {}).length, 'resumo geral com página marcada', 'resumos gerais com página marcada')}, ${plural(nMarcas, 'marcação', 'marcações')} e ${plural(Object.keys(x.questoes || {}).length, 'questão respondida', 'questões respondidas')}.`;
   }
   function exportar() {
-    const dados = { app: APP, versao: 1, exportadoEm: new Date().toISOString(), lidos, geral: geralLido, marcas, favoritos };
+    const dados = { app: APP, versao: 2, exportadoEm: new Date().toISOString(), lidos, geral: geralLido, marcas, favoritos, questoes: qResp, qfav: qFav, qrep: qRel };
     const json = JSON.stringify(dados);
     abrirDialogo({
       titulo: 'Exportar leituras e marcações',
@@ -1696,7 +1804,7 @@ body.foco .toc { display: none; }
   function importar() {
     abrirDialogo({
       titulo: 'Importar leituras e marcações',
-      corpo: `<p class="dlg-dica">Cole o texto exportado ou escolha o arquivo. Nada do que já está neste navegador é apagado: as leituras e marcações são somadas.</p>
+      corpo: `<p class="dlg-dica">Cole o texto exportado ou escolha o arquivo. Nada do que já está neste navegador é apagado: as leituras e marcações são somadas e, nas questões, vale a resposta mais recente.</p>
         <textarea class="dlg-txt" id="ui-imp-txt" rows="4" placeholder="Cole aqui o texto exportado"></textarea>
         <label class="dlg-arq">Ou escolha o arquivo exportado<input type="file" id="ui-imp-arq" accept=".json,application/json,text/plain"></label>`,
       botoes: [
@@ -1734,12 +1842,17 @@ body.foco .toc { display: none; }
       lista.forEach(y => { const k = y.g + '|' + y.b + '|' + y.s; if (!chaves.has(k)) { atual.push(y); chaves.add(k); } });
     });
     (x.favoritos || []).forEach(id => { if (docs[id] && !favoritos.includes(id)) favoritos.push(id); });
+    // Questões: vale o registro da resposta mais recente (os contadores vêm junto com ele).
+    Object.entries(x.questoes || {}).forEach(([id, v]) => { if (v && (!qResp[id] || (v.em || '') > (qResp[id].em || ''))) qResp[id] = v; });
+    (x.qfav || []).forEach(id => { if (!qFav.includes(id)) qFav.push(id); });
+    Object.entries(x.qrep || {}).forEach(([id, v]) => { if (v && (!qRel[id] || (v.em || '') > (qRel[id].em || ''))) qRel[id] = v; });
     guarda.gravar('lidos', lidos); guarda.gravar('geral', geralLido); gravarMarcas(); guarda.gravar('favoritos', favoritos);
+    guarda.gravar('questoes', qResp); guarda.gravar('qfav', qFav); guarda.gravar('qrep', qRel);
   }
 
   // ---------- Rotas ----------
   // #inicio · #busca · #pegadinhas · #<disciplina>[_aba][~p12] · #<tema>[_mapa][~seção]
-  const ABAS = ['visao', 'geral', 'topicos', 'mapa', 'mapas', 'sintetico', 'marcas'];
+  const ABAS = ['visao', 'geral', 'topicos', 'mapa', 'mapas', 'sintetico', 'questoes', 'marcas'];
   function lerRota(hash) {
     let t = (hash || '').replace(/^#/, '');
     try { t = decodeURIComponent(t); } catch (e) { /* mantém */ }
@@ -1812,6 +1925,7 @@ body.foco .toc { display: none; }
     else if (r.aba === 'mapas') renderMapas(m);
     else if (r.aba === 'sintetico') renderSintetico(m, Object.assign({ doc: r.doc }, op));
     else if (r.aba === 'marcas') renderMarcas(m);
+    else if (r.aba === 'questoes') renderQuestoes(m);
     else renderVisao(m);
   }
 
@@ -1849,7 +1963,7 @@ body.foco .toc { display: none; }
         <span class="atalho-tit">${esc(d.titulo)}</span><span class="atalho-sub">${esc(m.nome)}${u.s ? ' · em ' + esc(u.s) : ''}</span></a>`;
     }
     atalhos += `<a class="atalho revelar" href="#pegadinhas"><span class="atalho-rot">${ICO.peg} Revisão rápida</span>
-      <span class="atalho-tit">${plural(D.pegadinhas.length, 'pegadinha', 'pegadinhas')} CEBRASPE</span>
+      <span class="atalho-tit">${plural(D.pegadinhas.length, 'pegadinha', 'pegadinhas')}</span>
       <span class="atalho-sub"><span class="gabarito"><span class="g-E">E</span></span> ${plural(nE, 'item errado', 'itens errados')}${nC ? ` · ${plural(nC, 'item certo', 'itens certos')}` : ''} · todas as disciplinas</span></a>`;
     if (favoritos.length) {
       atalhos += `<div class="atalho revelar"><span class="atalho-rot">${ICO.estrela} Favoritos</span><ul class="atalho-favs">${favoritos.map(id =>
@@ -1871,8 +1985,8 @@ body.foco .toc { display: none; }
   // ---------- Página da disciplina ----------
   // A faixa (sigla, nome e abas) fica fora da vista: ao trocar de aba na mesma disciplina, ela não é
   // redesenhada; só muda a aba marcada. Assim o menu não se mexe e só o conteúdo abaixo muda.
-  const NOMES_ABAS = [['visao', 'Visão geral'], ['geral', 'Resumo geral'], ['topicos', 'Por tópico'], ['mapa', 'Mapa mental geral'], ['mapas', 'Mapas por tópico'], ['sintetico', 'Resumo sintético'], ['marcas', 'Marcações']];
-  const CONTAS = ['geral', 'topicos', 'sintetico', 'marcas'];
+  const NOMES_ABAS = [['visao', 'Visão geral'], ['geral', 'Resumo geral'], ['topicos', 'Por tópico'], ['mapa', 'Mapa mental geral'], ['mapas', 'Mapas por tópico'], ['sintetico', 'Resumo sintético'], ['questoes', 'Questões turbo'], ['marcas', 'Marcações']];
+  const CONTAS = ['geral', 'topicos', 'sintetico', 'questoes', 'marcas'];
   const abaDaRota = r => (r.v === 'mat' ? r.aba || 'visao' : r.mapa ? 'mapas' : 'topicos');
   function renderFaixa(r) {
     document.body.classList.toggle('com-faixa', !!matAtual);
@@ -1903,7 +2017,8 @@ body.foco .toc { display: none; }
     if (lu) lu.textContent = ultimoTexto(m);
     if (faixa.hidden) return;
     const pg = progressoGeral(m), pt = progressoTemas(m), nm = contarMarcas(m);
-    const valores = { geral: pg ? pg.pct + '%' : '', topicos: `${pt.sim}/${pt.total}`, sintetico: m.sintetico.length || '', marcas: nm.total || '' };
+    const qe = qEstat(questoesDe(m));
+    const valores = { geral: pg ? pg.pct + '%' : '', topicos: `${pt.sim}/${pt.total}`, sintetico: m.sintetico.length || '', questoes: qe.total ? `${qe.feitas}/${qe.total}` : '', marcas: nm.total || '' };
     Object.keys(valores).forEach(k => { const el = $(`[data-conta="${k}"]`, faixa); if (el) { el.textContent = valores[k]; el.hidden = valores[k] === ''; } });
   }
   function progGeralHtml(m) {
@@ -1917,6 +2032,7 @@ body.foco .toc { display: none; }
     const pg = progressoGeral(m), pt = progressoTemas(m), nm = contarMarcas(m), ts = temasDe(m), N = m.geral.paginas;
     const ramos = ts.reduce((s, id) => s + contarRamos(docs[id].mapa), 0), nS = m.sintetico.length;
     const seguir = pg && pg.pag < N ? pg.pag + 1 : 0, pct = pg ? pg.pct : 0;
+    const qm = questoesDe(m), qe = qEstat(qm);
     const card = (classe, ico, rot, tit, corpo, acoes) => `<article class="vg ${classe} revelar"><p class="vg-rot">${ico}${rot}</p><h2 class="vg-tit">${tit}</h2>${corpo}${acoes ? `<div class="vg-acoes">${acoes}</div>` : ''}</article>`;
     const ligacao = (href, rot, n) => `<a class="vg-link" href="${href}"><span>${rot}</span><span class="vg-link-n">${n}</span>${ICO.dir}</a>`;
     vista.innerHTML = `<div class="doc c-${m.cor}"><header class="sec-cab"><h1 class="sec-tit">${esc(m.nome)}</h1><p class="sec-sub">${esc(ultimoTexto(m))}</p></header><div class="vg-grade">
@@ -1932,6 +2048,9 @@ body.foco .toc { display: none; }
       ${card('vg-sint', ICO.camadas, 'Resumo sintético', nS ? plural(nS, 'parte', 'partes') : 'Ainda vazio',
         `<p class="vg-txt">${nS ? 'Seus resumos sintéticos juntados na ordem, com a numeração dos títulos em sequência.' : 'Cada parte nova que você acrescentar entra depois das anteriores.'}</p>`,
         `<a class="bt" href="#${m.id}_sintetico">Abrir</a>`)}
+      ${card('vg-questoes', ICO.raio, 'Questões turbo', qm.length ? plural(qm.length, 'questão', 'questões') : 'Em preparação',
+        `<p class="vg-txt">Certo ou Errado sobre os tópicos, com comentário e link para o trecho do resumo.</p>${qm.length ? barraProg('Feitas', Math.round(100 * qe.feitas / qe.total), `${qe.feitas}/${qe.total}`) + `<p class="vg-sit">${qe.resp ? `${qe.pct}% de acerto em ${plural(qe.resp, 'resposta', 'respostas')}` : 'Nenhuma resposta ainda'}</p>` : ''}`,
+        qm.length ? `<a class="bt" href="#${m.id}_questoes">${qe.feitas ? (qe.ineditas ? 'Continuar' : 'Revisar') : 'Começar'}</a>` : '')}
       ${card('vg-mapas', ICO.mapa, 'Mapas mentais', plural(ramos, 'ramo', 'ramos'),
         `<p class="vg-txt">Clique num ramo para ver o trecho do resumo que ele resume.</p><div class="vg-links">${ligacao(`#${m.id}_mapa`, 'Mapa geral da disciplina', plural(ramos, 'ramo', 'ramos'))}${ligacao(`#${m.id}_mapas`, 'Um mapa por tópico', plural(ts.length, 'mapa', 'mapas'))}</div>`, '')}
       ${card('vg-marcas', ICO.caneta, 'Marcações', plural(nm.total, 'marcação', 'marcações'),
@@ -1960,6 +2079,244 @@ body.foco .toc { display: none; }
       ${h}</div>`;
     window.scrollTo(0, 0);
   }
+
+  // ---------- Questões turbo ----------
+  // Questões de Certo ou Errado feitas a partir dos temas (pasta "Questões Turbo" de cada matéria).
+  // Primeiro saem só as inéditas, na ordem do material ou em ordem aleatória. Quando todas já foram
+  // respondidas, começa a revisão: as que você errou na última vez voltam primeiro, depois as
+  // respondidas há mais tempo. Cada resposta nova atualiza o "Acertou/Errou" da questão.
+  // No navegador: questoes = {id: {u: resposta, ok, n: tentativas, a: acertos, em}}, qfav, qrep.
+  const QS = D.questoes || [];
+  const QID = Object.create(null);
+  QS.forEach((q, i) => { q.i = i; QID[q.id] = q; });
+  const DIF = { f: 'Fácil', m: 'Médio', d: 'Difícil' };
+  const qResp = guarda.ler('questoes', {});
+  const qFav = guarda.ler('qfav', []);
+  const qRel = guarda.ler('qrep', {});
+  let qSessao = null;
+  const ROTA_RELATO = '/__estudos/relato';
+  const questoesDe = m => QS.filter(q => docs[q.t] && docs[q.t].materia === m.id);
+  const numQ = id => id.split(':').pop();
+  function qFiltro(m) {
+    const f = guarda.ler('qfiltro', {})[m.id] || {};
+    return {
+      ordem: f.ordem === 'aleatoria' ? 'aleatoria' : 'assunto',
+      mostrar: ['erradas', 'favoritas'].includes(f.mostrar) ? f.mostrar : 'todas',
+      dif: Array.isArray(f.dif) ? f.dif.filter(x => DIF[x]) : [],
+      temas: Array.isArray(f.temas) ? f.temas.filter(id => docs[id]) : []
+    };
+  }
+  function gravarQFiltro(m, f) { const tudo = guarda.ler('qfiltro', {}); tudo[m.id] = f; guarda.gravar('qfiltro', tudo); }
+  function qFiltradas(m, f) {
+    return questoesDe(m).filter(q => (!f.dif.length || f.dif.includes(q.d)) && (!f.temas.length || f.temas.includes(q.t))
+      && (f.mostrar !== 'erradas' || (qResp[q.id] && !qResp[q.id].ok)) && (f.mostrar !== 'favoritas' || qFav.includes(q.id)));
+  }
+  function qEstat(lista) {
+    let feitas = 0, resp = 0, acertos = 0, fixadas = 0;
+    lista.forEach(q => { const r = qResp[q.id]; if (!r) return; feitas++; resp += r.n || 0; acertos += r.a || 0; if (r.ok) fixadas++; });
+    return { total: lista.length, feitas, ineditas: lista.length - feitas, resp, acertos, fixadas,
+      pct: resp ? Math.round(100 * acertos / resp) : 0, pctFix: feitas ? Math.round(100 * fixadas / feitas) : 0 };
+  }
+  function sorteio(semente, id) {
+    let h = 2166136261 ^ semente;
+    for (let i = 0; i < id.length; i++) { h ^= id.charCodeAt(i); h = Math.imul(h, 16777619); }
+    return h >>> 0;
+  }
+  function proximaQuestao(s) {
+    const lista = qFiltradas(MAT[s.mat], s.f);
+    if (!lista.length) return null;
+    const ordem = s.f.ordem === 'aleatoria' ? (a, b) => sorteio(s.sem, a.id) - sorteio(s.sem, b.id) : (a, b) => a.i - b.i;
+    const ineditas = lista.filter(q => !qResp[q.id]);
+    if (ineditas.length) return { q: ineditas.sort(ordem)[0], fase: 'ineditas', faltam: ineditas.length };
+    // Revisão: cada rodada passa uma vez por todas as questões do filtro.
+    if (!s.revisao) { s.revisao = true; s.feitas.clear(); }
+    let resto = lista.filter(q => !s.feitas.has(q.id));
+    if (!resto.length) { s.feitas.clear(); s.rodada++; resto = lista.slice(); }
+    const erradas = resto.filter(q => !qResp[q.id].ok).sort(ordem);
+    const antigas = resto.filter(q => qResp[q.id].ok).sort((a, b) => (qResp[a.id].em || '').localeCompare(qResp[b.id].em || '') || ordem(a, b));
+    const fila = erradas.concat(antigas);
+    const q = fila.length > 1 && fila[0].id === s.ultima ? fila[1] : fila[0]; // não repete a que acabou de responder
+    return { q, fase: 'revisao', faltam: resto.length };
+  }
+  function renderQuestoes(m) {
+    if (qSessao && qSessao.mat === m.id) renderQuestao(m);
+    else renderQInicio(m);
+  }
+  function renderQInicio(m, manterRolagem) {
+    document.title = `Questões turbo · ${m.nome} · Estudos`;
+    const todas = questoesDe(m), y = window.scrollY;
+    const cab = `<header class="sec-cab"><h1 class="sec-tit">Questões turbo</h1><p class="sec-sub">Certo ou Errado sobre os tópicos de ${esc(m.nome)}, elaboradas a partir do resumo (não são questões de prova). Primeiro vêm as inéditas; depois de fazer todas, elas voltam para revisão, começando pelas que você errou.</p></header>`;
+    if (!todas.length) {
+      vista.innerHTML = `<div class="doc c-${m.cor}">${cab}<div class="vazio"><p>Ainda não há questões desta disciplina.</p><p>Elas são criadas a partir dos tópicos e aumentam a cada resumo novo.</p></div></div>`;
+      window.scrollTo(0, 0);
+      return;
+    }
+    const f = qFiltro(m), st = qEstat(todas), filtradas = qFiltradas(m, f), stF = qEstat(filtradas);
+    const nErr = todas.filter(q => qResp[q.id] && !qResp[q.id].ok).length, nFav = todas.filter(q => qFav.includes(q.id)).length;
+    const tile = (v, r, s) => `<div class="qn"><span class="qn-v">${v}</span><span class="qn-r">${r}</span><span class="qn-s">${s}</span></div>`;
+    const seg = (nome, rot, itens, atual) => `<div class="qt-linha"><span class="qt-rot" id="qt-${nome}">${rot}</span><div class="seg" role="group" aria-labelledby="qt-${nome}">${itens.map(([k, t]) => `<button type="button" data-q${nome}="${k}" aria-pressed="${atual === k}">${t}</button>`).join('')}</div></div>`;
+    const porDif = k => todas.filter(q => q.d === k).length;
+    let temasHtml = '';
+    for (const a of m.assuntos) {
+      const ids = a.temas.filter(id => todas.some(q => q.t === id));
+      if (!ids.length) continue;
+      temasHtml += `<div class="qt-ass"><p class="qt-ass-t">${a.num ? esc(a.num) + ' · ' : ''}${esc(a.nome || 'Tópicos')}</p>${ids.map(id => `<label class="qt-tema"><input type="checkbox" data-qtema="${id}"${!f.temas.length || f.temas.includes(id) ? ' checked' : ''}><span>${esc(docs[id].titulo)}</span><span class="n">${todas.filter(q => q.t === id).length}</span></label>`).join('')}</div>`;
+    }
+    const rotTemas = f.temas.length ? `${f.temas.length} de ${new Set(todas.map(q => q.t)).size} tópicos` : 'Todos os tópicos';
+    const botao = !filtradas.length ? '<button class="bt bt-p" type="button" disabled>Nenhuma questão com esses filtros</button>'
+      : `<button class="bt bt-p" type="button" data-qcomecar="${m.id}">${stF.ineditas ? (stF.feitas ? `Continuar · ${plural(stF.ineditas, 'inédita', 'inéditas')}` : 'Começar') : 'Revisar'} ${ICO.dir}</button>`;
+    // Desempenho por tópico: o que conta é o resultado da última resposta de cada questão.
+    const linhas = [];
+    temasDe(m).forEach(id => {
+      const qs = todas.filter(q => q.t === id);
+      if (qs.length) linhas.push({ id, s: qEstat(qs) });
+    });
+    const feitos = linhas.filter(l => l.s.feitas).sort((a, b) => b.s.pctFix - a.s.pctFix || b.s.feitas - a.s.feitas);
+    const k = Math.min(3, Math.floor(feitos.length / 2));
+    const dest = k ? `<div class="qt-dest"><div><h3 class="ok">${ICO.check} Mais acerta</h3><ol>${feitos.slice(0, k).map(l => `<li>${esc(docs[l.id].titulo)} · ${l.s.pctFix}%</li>`).join('')}</ol></div>
+      <div><h3 class="err">${ICO.fechar} Mais erra</h3><ol>${feitos.slice(-k).reverse().map(l => `<li>${esc(docs[l.id].titulo)} · ${l.s.pctFix}%</li>`).join('')}</ol></div></div>` : '';
+    const topicos = `<section><h2 class="qt-sec-t">Desempenho por tópico</h2>${dest}<ul class="qt-top-lista">${linhas.map(l => `<li class="qt-top"><div><a href="#${l.id}">${esc(docs[l.id].titulo)}</a><span class="qt-top-meta">${l.s.feitas} de ${plural(l.s.total, 'questão feita', 'questões feitas')}${l.s.feitas ? ` · acertou na última vez em ${l.s.fixadas}` : ''}</span></div>
+      <div class="qt-trilho" aria-hidden="true"><span style="width:${l.s.pctFix}%"></span></div><span class="qt-top-pct${l.s.feitas ? '' : ' nd'}">${l.s.feitas ? l.s.pctFix + '%' : '—'}</span></li>`).join('')}</ul></section>`;
+    const rels = todas.filter(q => qRel[q.id]);
+    const relatos = rels.length ? `<section><h2 class="qt-sec-t">Questões reportadas</h2><ul class="qt-rel">${rels.map(q => `<li><p class="qt-rel-q">${esc(docs[q.t].titulo)} · ${numQ(q.id)} — ${esc(textoPuro(q.e).length > 110 ? textoPuro(q.e).slice(0, 110) + '…' : textoPuro(q.e))}</p><p class="qt-rel-m">${esc(qRel[q.id].m)} (${dataBR(qRel[q.id].em)})</p><button class="bt-texto" type="button" data-qrel-rem="${q.id}">Retirar</button></li>`).join('')}</ul></section>` : '';
+    vista.innerHTML = `<div class="doc c-${m.cor}">${cab}<div class="qt">
+      <div class="qt-num">${tile(st.total, 'questões', `${plural(st.ineditas, 'inédita', 'inéditas')}`)}${tile(st.resp, 'respostas', `${plural(st.feitas, 'questão feita', 'questões feitas')}`)}${tile(st.acertos, 'acertos', `${st.pct}% das respostas`)}${tile(st.pctFix + '%', 'fixação', st.feitas ? `acertou na última vez em ${st.fixadas} de ${st.feitas}` : 'nenhuma questão feita')}</div>
+      <section class="qt-cfg" aria-label="Como estudar">
+        ${seg('ordem', 'Ordem', [['assunto', 'Por assunto'], ['aleatoria', 'Aleatória']], f.ordem)}
+        ${seg('mostrar', 'Questões', [['todas', 'Todas'], ['erradas', `Erradas (${nErr})`], ['favoritas', `Favoritas (${nFav})`]], f.mostrar)}
+        <div class="qt-linha"><span class="qt-rot">Dificuldade</span><div class="qt-chips">${Object.keys(DIF).map(x => `<button class="chip" type="button" data-qdif="${x}" aria-pressed="${f.dif.includes(x)}">${DIF[x]} <span class="n">${porDif(x)}</span></button>`).join('')}</div></div>
+        <div class="qt-linha"><span class="qt-rot">Tópicos</span><details class="qt-temas"><summary>${rotTemas}${ICO.seta}</summary><div class="qt-temas-in">${temasHtml}<div><button class="bt-texto" type="button" data-qtemas-todos>Marcar todos</button></div></div></details></div>
+        <div class="qt-fim"><p class="qt-fim-txt">${plural(filtradas.length, 'questão', 'questões')} com esses filtros · ${plural(stF.ineditas, 'inédita', 'inéditas')}${f.ordem === 'assunto' ? ', na ordem do material' : ', em ordem aleatória'}</p>${botao}</div>
+      </section>
+      ${topicos}${relatos}</div></div>`;
+    if (!manterRolagem) window.scrollTo(0, 0); else window.scrollTo(0, y);
+  }
+  function renderQuestao(m) {
+    const s = qSessao;
+    document.title = `Questões turbo · ${m.nome} · Estudos`;
+    if (!s.atual) {
+      const p = proximaQuestao(s);
+      if (!p) {
+        vista.innerHTML = `<div class="doc c-${m.cor}"><div class="qq"><div class="qq-fim vazio"><p>Não há mais questões com esses filtros.</p><button class="bt" type="button" data-qsair>${ICO.voltar} Voltar aos filtros</button></div></div></div>`;
+        return;
+      }
+      Object.assign(s, { atual: p.q.id, fase: p.fase, faltam: p.faltam, resposta: null });
+    }
+    const q = QID[s.atual], r = s.resposta, ant = r ? r.antes : qResp[q.id];
+    const faltam = s.faltam - (r ? 1 : 0);
+    const fase = s.fase === 'ineditas' ? (faltam ? `Inéditas · faltam ${faltam}` : 'Inéditas · esta era a última') : `Revisão${s.rodada > 1 ? ` · rodada ${s.rodada}` : ''} · faltam ${faltam}`;
+    const ultima = ant && ant.n ? `<span class="q-ult q-ult-${ant.ok ? 'ok' : 'err'}">${ant.ok ? 'Acertou' : 'Errou'} na última vez, em ${dataBR(ant.em)}</span>` : '<span class="q-ult">Inédita</span>';
+    const fav = qFav.includes(q.id);
+    const bt = (k, rot) => {
+      const cls = r ? (k === q.g ? ' certa' : k === r.u ? ' errada' : '') : '';
+      return `<button class="qq-bt${cls}" type="button" data-qresp="${k}"${r ? ' disabled' : ''}><span class="qq-k">${k}</span>${rot}</button>`;
+    };
+    const resultado = r ? `<div class="qq-res qq-res-${r.ok ? 'ok' : 'err'}" role="status"><p class="qq-res-t">${r.ok ? ICO.check + ' Você acertou' : ICO.fechar + ' Você errou'}<span class="qq-gab">Gabarito: ${q.g === 'C' ? 'CERTO' : 'ERRADO'}</span></p><div class="qq-com">${q.c}</div></div>
+      <div class="qq-acoes"><a class="bt" href="#${q.t}${q.h ? '~' + q.h : ''}">${ICO.livro} Ver no resumo</a><button class="bt-texto" type="button" data-qrelatar="${q.id}">${ICO.bandeira} ${qRel[q.id] ? 'Reportada' : 'Reportar'}</button><button class="bt bt-p" type="button" data-qprox>Próxima ${ICO.dir}</button></div>`
+      : '<p class="qq-dica">Teclas C e E</p>';
+    vista.innerHTML = `<div class="doc c-${m.cor}"><div class="qq">
+      <div class="qq-barra"><button class="bt-texto" type="button" data-qsair>${ICO.voltar} Filtros e desempenho</button><span class="qq-fase">${fase}</span><span class="qq-placar">Nesta sessão: ${plural(s.a, 'acerto', 'acertos')} em ${s.n}</span></div>
+      <article class="qq-card" aria-label="Questão ${numQ(q.id)}">
+        <div class="qq-meta"><span class="q-dif q-dif-${q.d}">${DIF[q.d]}</span><a class="qq-tema" href="#${q.t}">${esc(docs[q.t].titulo)}</a>${ultima}<button class="bt-fav" type="button" data-qfav="${q.id}" aria-pressed="${fav}" title="${fav ? 'Tirar das favoritas' : 'Guardar nas favoritas'}">${fav ? ICO.estrelaCheia : ICO.estrela}<span class="sr">Favorita</span></button></div>
+        <div class="qq-enun">${q.e}</div>
+        <div class="qq-resp">${bt('C', 'Certo')}${bt('E', 'Errado')}</div>
+        ${resultado}
+      </article></div></div>`;
+    const foco = r ? $('[data-qprox]', vista) : null;
+    if (foco) foco.focus({ preventScroll: true });
+  }
+  function responderQuestao(u) {
+    const s = qSessao;
+    if (!s || !s.atual || s.resposta) return;
+    const q = QID[s.atual], ok = u === q.g, antes = qResp[q.id] ? Object.assign({}, qResp[q.id]) : null;
+    const r = qResp[q.id] || { n: 0, a: 0 };
+    qResp[q.id] = { u, ok: ok ? 1 : 0, n: (r.n || 0) + 1, a: (r.a || 0) + (ok ? 1 : 0), em: new Date().toISOString() };
+    guarda.gravar('questoes', qResp);
+    s.feitas.add(q.id);
+    s.ultima = q.id;
+    s.n++; if (ok) s.a++;
+    s.resposta = { u, ok, antes };
+    renderQuestao(MAT[s.mat]);
+    atualizarContadores();
+  }
+  function proximaDaSessao() {
+    if (!qSessao || !qSessao.resposta) return;
+    qSessao.atual = null;
+    renderQuestao(MAT[qSessao.mat]);
+    window.scrollTo(0, 0);
+  }
+  function naTelaDeQuestao() { return qSessao && rota && rota.v === 'mat' && rota.aba === 'questoes' && rota.mat === qSessao.mat && qSessao.atual; }
+  function teclaQuestao(e) {
+    if (!naTelaDeQuestao()) return false;
+    const k = e.key.toLowerCase();
+    if ((k === 'c' || k === 'e') && !qSessao.resposta) { e.preventDefault(); responderQuestao(k.toUpperCase()); return true; }
+    if ((e.key === 'Enter' || e.key === 'ArrowRight') && qSessao.resposta && !e.target.closest('a, button')) { e.preventDefault(); proximaDaSessao(); return true; }
+    return false;
+  }
+  function dialogoRelato(id) {
+    const q = QID[id], ja = qRel[id];
+    abrirDialogo({
+      titulo: 'Reportar questão',
+      corpo: `<p class="dlg-sub">${esc(docs[q.t].titulo)} · ${numQ(id)}</p>
+        <textarea class="dlg-txt" id="ui-rel-txt" rows="4" placeholder="O que está errado ou gera dúvida nesta questão?">${ja ? esc(ja.m) : ''}</textarea>
+        <p class="dlg-dica">${servidorLocal ? 'O relato fica neste navegador e também é gravado em ENTRADA/questoes-relatadas.md, para ser conferido na próxima sessão.' : 'O relato fica guardado neste navegador. Para ele chegar à base, use Aa → Exportar e coloque o arquivo em ENTRADA/ (ou abra o site com python sistema/gerar.py --servir).'}</p>`,
+      botoes: [
+        { rot: 'Cancelar' },
+        { rot: 'Reportar', principal: true, acao: d => {
+          const motivo = $('#ui-rel-txt', d).value.trim();
+          if (!motivo) { $('#ui-dlg-erro', d).textContent = 'Descreva o problema.'; return false; }
+          qRel[id] = { m: motivo, em: new Date().toISOString() };
+          guarda.gravar('qrep', qRel);
+          if (servidorLocal) {
+            fetch(ROTA_RELATO, { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Estudos': '1' }, body: JSON.stringify({ id, motivo }) })
+              .then(r => r.json()).then(j => { if (!j.ok) throw new Error(j.erro); qRel[id].gravado = 1; guarda.gravar('qrep', qRel); })
+              .catch(() => { /* fica só no navegador */ });
+          }
+          if (rota && rota.v === 'mat' && rota.aba === 'questoes') renderQuestoes(MAT[rota.mat]);
+        } }
+      ],
+      aoAbrir: d => { const ta = $('#ui-rel-txt', d); if (ta) ta.focus(); }
+    });
+  }
+  document.addEventListener('click', e => {
+    if (e.defaultPrevented || e.button !== 0) return;
+    const t = e.target, m = rota && rota.v === 'mat' ? MAT[rota.mat] : null;
+    if (!m || rota.aba !== 'questoes') return;
+    const alterar = fn => { const f = qFiltro(m); fn(f); gravarQFiltro(m, f); renderQInicio(m, true); };
+    let b;
+    if ((b = t.closest('[data-qresp]'))) { responderQuestao(b.dataset.qresp); return; }
+    if (t.closest('[data-qprox]')) { proximaDaSessao(); return; }
+    if (t.closest('[data-qsair]')) { qSessao = null; renderQInicio(m); return; }
+    if ((b = t.closest('[data-qcomecar]'))) {
+      qSessao = { mat: m.id, f: qFiltro(m), sem: Math.floor(Math.random() * 2 ** 31), feitas: new Set(), rodada: 1, atual: null, n: 0, a: 0 };
+      renderQuestao(m); window.scrollTo(0, 0); return;
+    }
+    if ((b = t.closest('[data-qfav]'))) {
+      const id = b.dataset.qfav, i = qFav.indexOf(id);
+      if (i >= 0) qFav.splice(i, 1); else qFav.push(id);
+      guarda.gravar('qfav', qFav);
+      const fav = i < 0;
+      b.setAttribute('aria-pressed', fav); b.title = fav ? 'Tirar das favoritas' : 'Guardar nas favoritas';
+      b.innerHTML = `${fav ? ICO.estrelaCheia : ICO.estrela}<span class="sr">Favorita</span>`;
+      return;
+    }
+    if ((b = t.closest('[data-qrelatar]'))) { dialogoRelato(b.dataset.qrelatar); return; }
+    if ((b = t.closest('[data-qrel-rem]'))) { delete qRel[b.dataset.qrelRem]; guarda.gravar('qrep', qRel); renderQInicio(m, true); return; }
+    if ((b = t.closest('[data-qordem]'))) { alterar(f => { f.ordem = b.dataset.qordem; }); return; }
+    if ((b = t.closest('[data-qmostrar]'))) { alterar(f => { f.mostrar = b.dataset.qmostrar; }); return; }
+    if ((b = t.closest('[data-qdif]'))) { alterar(f => { const x = b.dataset.qdif; f.dif = f.dif.includes(x) ? f.dif.filter(y => y !== x) : f.dif.concat(x); }); return; }
+    if (t.closest('[data-qtemas-todos]')) { alterar(f => { f.temas = []; }); const d = $('.qt-temas', vista); if (d) d.open = true; }
+  });
+  document.addEventListener('change', e => {
+    const c = e.target.closest && e.target.closest('[data-qtema]');
+    if (!c || !rota || rota.v !== 'mat' || rota.aba !== 'questoes') return;
+    const m = MAT[rota.mat], f = qFiltro(m);
+    const marcados = $$('[data-qtema]', vista).filter(x => x.checked).map(x => x.dataset.qtema);
+    f.temas = marcados.length === $$('[data-qtema]', vista).length ? [] : marcados;
+    gravarQFiltro(m, f);
+    renderQInicio(m, true);
+    const d = $('.qt-temas', vista); if (d) d.open = true;
+  });
 
   // ---------- Tabelas com filtros ----------
   // No .md, a linha "<!-- filtros: Classificação, Natureza -->" logo acima da tabela pede filtros
@@ -3711,7 +4068,7 @@ body.foco .toc { display: none; }
       }
       corpo += '</section>';
     }
-    vista.innerHTML = `<section class="pegs"><header><p class="rotulo">Revisão rápida</p><h1 class="pegs-tit">Pegadinhas CEBRASPE</h1>
+    vista.innerHTML = `<section class="pegs"><header><p class="rotulo">Revisão rápida</p><h1 class="pegs-tit">Pegadinhas</h1>
       <p class="res-sum">Todas as pegadinhas da base, por disciplina e tópico. A bolinha mostra o gabarito: <span class="gabarito"><span class="g-E">E</span></span> errado, <span class="gabarito"><span class="g-C">C</span></span> certo.</p>${chips}</header>${corpo}</section>`;
     window.scrollTo(0, 0);
   }
@@ -3818,6 +4175,7 @@ body.foco .toc { display: none; }
   document.addEventListener('keydown', e => {
     const digitando = e.target.closest && e.target.closest('input, textarea, select, [contenteditable="true"]');
     if (dlg.open) return;
+    if (!digitando && !e.ctrlKey && !e.metaKey && !e.altKey && teclaQuestao(e)) return;
     if ((e.key === '/' && !digitando) || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k')) {
       e.preventDefault();
       fecharMenu();

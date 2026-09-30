@@ -132,3 +132,17 @@
 | INCOMPLETA | Cláusulas pétreas: "não pode abolir... o derivado pode alterar, ampliando ou reduzindo" | É vedada a proposta **tendente a abolir**; alterações são possíveis se preservado o **núcleo essencial** (ADI 2.024) |
 | IMPRECISA | Decorrente: "deve possuir 3/5 dos votos dos deputados estaduais para emenda" | O quórum é fixado pela **constituição estadual** (em regra, por simetria, 3/5 em dois turnos) |
 | INCOMPLETA | Prisão do depositário infiel como exemplo de mutação | Mantido, com a ressalva de que tecnicamente é efeito paralisante do tratado supralegal (SV 25) |
+
+## v006 — 30/09/2026 (questões turbo; sem resumo novo)
+
+### Direito Administrativo
+
+| Classificação | Como estava na base | Como ficou na base |
+|---|---|---|
+| INCOMPLETA | Nepotismo em cargos de natureza política: "em regra, não se aplica a SV 13... análise caso a caso (STF)", sem sinalização | Mantido, com ⚠️: o tema está em julgamento no STF com repercussão geral (RE 1.133.118, Tema 1.000), sem tese fixada; registrado em `pendencias.md` |
+
+### Direito Constitucional
+
+| Classificação | Como estava na base | Como ficou na base |
+|---|---|---|
+| DIVERGÊNCIA | Paz na 3ª dimensão, sem ressalva | Mantida na 3ª (classificação tradicional), com a posição de Bonavides, que a situa numa 5ª dimensão |

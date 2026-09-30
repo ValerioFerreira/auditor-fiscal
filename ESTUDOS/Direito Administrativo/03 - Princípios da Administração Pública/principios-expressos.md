@@ -34,7 +34,7 @@
 
 - A vedação decorre **diretamente dos princípios do art. 37** (moralidade e impessoalidade) — **independe de lei** (STF, RE 579.951; ADC 12).
 - **Súmula Vinculante 13**: viola a CF a nomeação de cônjuge, companheiro ou parente em linha reta, colateral ou por afinidade, **até o 3º grau, inclusive**, da autoridade nomeante ou de servidor da mesma pessoa jurídica investido em cargo de direção, chefia ou assessoramento, para cargo em comissão, de confiança ou função gratificada, em qualquer dos Poderes e entes, **compreendido o ajuste mediante designações recíprocas (nepotismo cruzado)**.
-- **Cargos de natureza política** (ministros, secretários): em regra, **não se aplica** a SV 13, mas pode haver nepotismo se houver fraude ou manifesta falta de qualificação — análise **caso a caso** (STF).
+- **Cargos de natureza política** (ministros, secretários): em regra, **não se aplica** a SV 13, mas pode haver nepotismo se houver fraude ou manifesta falta de qualificação — análise **caso a caso** (STF). ⚠️ O tema está em julgamento no STF com repercussão geral (RE 1.133.118, **Tema 1.000**), ainda sem tese fixada na última verificação (30/09/2026).
 - Hoje também é **ato de improbidade** que atenta contra os princípios (Lei 8.429/92, art. 11, XI, incluído pela Lei 14.230/2021).
 
 ## Publicidade
