@@ -22,9 +22,12 @@ alter table public.estudos_dados enable row level security;
 
 drop policy if exists "cada usuario acessa so os proprios dados" on public.estudos_dados;
 create policy "cada usuario acessa so os proprios dados" on public.estudos_dados
-  for all to authenticated
+  for all to authenticated, anonymous
   using (auth.user_id() = user_id)
   with check (auth.user_id() = user_id);
 
-grant usage on schema public to authenticated;
-grant select, insert, update, delete on public.estudos_dados to authenticated;
+-- O token do Google não traz o campo "role", então a Data API pode executar as consultas como
+-- "anonymous". A política acima continua valendo: sem token válido auth.user_id() é nulo e nada é
+-- visível; com token, só as linhas do próprio "sub".
+grant usage on schema public to authenticated, anonymous;
+grant select, insert, update, delete on public.estudos_dados to authenticated, anonymous;
