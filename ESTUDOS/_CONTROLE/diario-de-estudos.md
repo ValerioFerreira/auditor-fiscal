@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v007** (30/09/2026)
+> Versão atual da base: **v008** (01/10/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -79,3 +79,11 @@
 - **Sem conteúdo novo de estudo.**
 - **Questões turbo:** decidido que continuam só de Certo ou Errado; se os agentes encontrarem questões de múltipla escolha na pesquisa, usam-nas como base para entender como a banca cobra o assunto e as adaptam a C/E (instruções comuns dos agentes de questões).
 - **Site:** login com Google para qualquer leitor (leituras, marca-texto, favoritos e respostas das questões ficam na conta e sincronizam entre aparelhos; a edição de textos segue exclusiva do administrador). Precisa ser configurado (Google Cloud + Neon): ver README, "Login com Google", e `sistema/neon.sql`.
+
+## 01/10/2026 — Missão Fiscal: perfil, comentários, downloads e menos texto (v008)
+
+- Sessão de sistema (sem estudo novo). O site passou a se chamar **Missão Fiscal**; "turbo" saiu do que o site mostra.
+- Novo modal de login (cartão estreito), menu da conta, página de **Perfil** e **Baixar conteúdo** em DOCX e PDF.
+- **Comentários** nos textos (menu Marca-texto / Comentar ao selecionar) e **Marcar lido** por páginas ou tópicos no resumo geral, sem o bloco "Leitura" do topo.
+- Topo com **Questões** (página com as disciplinas e as Pegadinhas) e **Aparência** (antes "Aa"); abas da disciplina com menus Resumos e Mapas mentais.
+- Textos explicativos trocados por ícone ⓘ com balão.

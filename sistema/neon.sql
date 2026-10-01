@@ -13,7 +13,7 @@ create table if not exists public.estudos_dados (
   primary key (user_id, chave),
   constraint estudos_dados_chave check (chave in (
     'lidos', 'geral', 'marcas', 'favoritos', 'questoes', 'qfav', 'qrep', 'qfiltro',
-    'ultimo', 'ordemDisciplinas', 'filtroTopicos'
+    'ultimo', 'ordemDisciplinas', 'filtroTopicos', 'comentarios', 'atividade'
   )),
   constraint estudos_dados_tamanho check (octet_length(valor::text) <= 3000000)
 );
@@ -31,3 +31,10 @@ create policy "cada usuario acessa so os proprios dados" on public.estudos_dados
 -- visível; com token, só as linhas do próprio "sub".
 grant usage on schema public to authenticated, anonymous;
 grant select, insert, update, delete on public.estudos_dados to authenticated, anonymous;
+
+-- Quem criou a tabela antes da v008 (comentários e atividade) roda só este bloco, uma vez:
+-- alter table public.estudos_dados drop constraint estudos_dados_chave;
+-- alter table public.estudos_dados add constraint estudos_dados_chave check (chave in (
+--   'lidos', 'geral', 'marcas', 'favoritos', 'questoes', 'qfav', 'qrep', 'qfiltro',
+--   'ultimo', 'ordemDisciplinas', 'filtroTopicos', 'comentarios', 'atividade'
+-- ));

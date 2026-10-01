@@ -2478,7 +2478,7 @@ def sessao_valida(sessao: str | None) -> bool:
 
 # ----------------------------------------------------------------------------- saída
 
-DESCRICAO = ("Base de estudos para Auditor Fiscal: resumos por matéria e por tópico, mapas "
+DESCRICAO = ("Missão Fiscal, base de estudos para Auditor Fiscal: resumos por matéria e por tópico, mapas "
              "mentais, busca em todo o material, pegadinhas e questões de Certo ou Errado.")
 # Ícone da aba: um livro com as abas coloridas das quatro primeiras matérias.
 ICONE_SVG = (

@@ -1,4 +1,4 @@
-<title>Estudos · Auditor Fiscal</title>
+<title>Missão Fiscal</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..700&family=Manrope:wght@400..700&display=swap">
@@ -56,6 +56,7 @@
   --mt1: #6635A5; --mt2: #00F22E; --mt3: #FF6A01; --mt4: #FDFD02;
   --shadow: 0 1px 2px rgb(23 23 23 / 5%), 0 12px 32px -8px rgb(23 23 23 / 16%);
   --shadow-sm: 0 1px 2px rgb(23 23 23 / 6%);
+  --ico-cm: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M216,48H40A16,16,0,0,0,24,64V224a15.85,15.85,0,0,0,9.24,14.5A16.13,16.13,0,0,0,40,240a15.89,15.89,0,0,0,10.25-3.78l.09-.07L83,208H216a16,16,0,0,0,16-16V64A16,16,0,0,0,216,48ZM40,224h0ZM216,192H80a8,8,0,0,0-5.23,1.95L40,224V64H216ZM88,112a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H96A8,8,0,0,1,88,112Zm0,32a8,8,0,0,1,8-8h64a8,8,0,1,1,0,16H96A8,8,0,0,1,88,144Z'/%3E%3C/svg%3E");
   --font-ui: "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-display: var(--font-ui);
   --font-serif: "Literata", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
@@ -166,7 +167,7 @@ kbd { font: 500 12px/1 var(--font-mono); padding: 4px 8px; border: 1px solid var
 .acoes-topo { display: flex; align-items: center; justify-self: end; gap: 4px; }
 .bt-topo { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 12px; border: 0; border-radius: 8px; background: none; color: var(--ink-2); font: 600 14px/1 var(--font-ui); text-decoration: none; cursor: pointer; white-space: nowrap; }
 .bt-topo:hover, .bt-topo[aria-current="page"], .bt-topo[aria-expanded="true"] { background: var(--hover); color: var(--ink); }
-.bt-aa { font: 600 16px/1 var(--font-display); padding: 0 12px; }
+.bt-aa svg { width: 18px; height: 18px; }
 
 /* ---------- Grade: menu lateral (só dentro de uma disciplina) + conteúdo ---------- */
 .grade { display: grid; grid-template-columns: var(--side-w) minmax(0, 1fr); align-items: start; }
@@ -282,6 +283,14 @@ body.foco .faixa-mat { display: flex; }
 .abas::-webkit-scrollbar { display: none; }
 .aba-l { display: inline-flex; align-items: center; gap: 8px; flex: none; padding: 2px 12px 0; border-bottom: 2px solid transparent; color: var(--ink-2); font: 600 12px/1 var(--font-ui); text-decoration: none; white-space: nowrap; }
 .aba-l:hover { color: var(--ink); }
+.aba-g svg { width: 12px; height: 12px; margin-left: -2px; transition: transform var(--dur-micro) var(--ease); }
+.aba-g[aria-expanded="true"] svg { transform: rotate(180deg); }
+button.aba-l { padding-block: 2px 0; border-top: 0; border-inline: 0; background: none; cursor: pointer; }
+.aba-menu { position: fixed; z-index: 75; display: grid; gap: 2px; padding: 4px; border: 1px solid var(--rule-2); border-radius: 12px; background: var(--raised); box-shadow: var(--shadow); }
+.aba-mi { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 40px; padding: 0 12px; border-radius: 8px; color: var(--ink-2); font: 600 14px/1 var(--font-ui); text-decoration: none; white-space: nowrap; }
+.aba-mi:hover, .aba-mi:focus-visible { background: var(--hover); color: var(--ink); }
+.aba-mi[aria-current="page"] { background: color-mix(in srgb, var(--m) 14%, transparent); color: var(--ink); }
+.aba-mi .aba-n { background: var(--panel); }
 .aba-l[aria-current="page"] { border-bottom-color: var(--m); color: var(--ink); }
 .aba-n { padding: 4px 8px; border-radius: 9999px; background: var(--panel); color: var(--ink-2); font: 700 12px/1 var(--font-ui); font-variant-numeric: tabular-nums; }
 .aba-l[aria-current="page"] .aba-n { background: color-mix(in srgb, var(--m) 16%, transparent); color: var(--ink); }
@@ -655,13 +664,147 @@ body.com-achados .dock { bottom: calc(76px + env(safe-area-inset-bottom, 0px)); 
 .caneta-cores button:hover { background: var(--hover); }
 .caneta-cores .sw { width: 18px; height: 18px; border-radius: 6px; }
 .caneta-cores button[aria-pressed="true"] { background: var(--hover); box-shadow: inset 0 0 0 2px var(--ink); }
-.paleta { position: fixed; z-index: 80; display: grid; grid-template-columns: repeat(4, auto); gap: 2px; max-width: calc(100vw - 16px); padding: 8px; border: 1px solid var(--rule-2); border-radius: 12px; background: var(--raised); box-shadow: var(--shadow); font: 600 12px/1 var(--font-ui); }
-.paleta button { display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 12px 0 8px; border: 0; border-radius: 8px; background: none; color: var(--ink); cursor: pointer; white-space: nowrap; }
+.paleta { position: fixed; z-index: 80; width: max-content; max-width: calc(100vw - 16px); padding: 8px; border: 1px solid var(--rule-2); border-radius: 12px; background: var(--raised); box-shadow: var(--shadow); font: 600 12px/1 var(--font-ui); }
+.paleta button { display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 12px 0 8px; border: 0; border-radius: 8px; background: none; color: var(--ink); font: 600 12px/1 var(--font-ui); cursor: pointer; white-space: nowrap; }
 .paleta button:hover, .paleta button[aria-pressed="true"] { background: var(--hover); }
 .paleta .sw { width: 16px; height: 16px; border-radius: 4px; }
-.pal-info { grid-column: 1 / -1; margin: 0; padding: 4px 8px 8px; color: var(--ink-3); font-weight: 500; }
-.pal-rem { grid-column: 1 / -1; justify-content: center; color: var(--err) !important; }
-.pal-rem svg { width: 15px; height: 15px; }
+.paleta svg { width: 16px; height: 16px; }
+.pal-menu { display: flex; gap: 2px; }
+.pal-cores { display: grid; grid-template-columns: repeat(4, auto); gap: 2px; }
+.pal-extra { display: flex; flex-wrap: wrap; gap: 2px; margin-top: 4px; padding-top: 4px; border-top: 1px solid var(--rule); }
+.pal-extra button[hidden] { display: none; }
+.pal-info { margin: 0; padding: 4px 8px 8px; color: var(--ink-3); font-weight: 500; }
+.pal-rem { color: var(--err) !important; }
+.pal-nota-v, .pal-ver-v { display: grid; gap: 8px; width: min(320px, calc(100vw - 48px)); }
+#ui-pal-nota { width: 100%; padding: 8px 12px; border: 1px solid var(--rule-2); border-radius: 8px; background: var(--paper); color: var(--ink); font: 500 14px/20px var(--font-ui); resize: vertical; }
+#ui-pal-nota:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.pal-nota-bts { display: flex; justify-content: flex-end; gap: 4px; }
+.paleta .pal-p { padding: 0 16px; background: var(--accent); color: var(--on-accent); }
+.paleta .pal-p:hover { background: var(--accent); filter: brightness(1.12); }
+.pal-ver-txt { margin: 0; padding: 4px 4px 0; font: 500 14px/20px var(--font-ui); white-space: pre-wrap; overflow-wrap: anywhere; max-height: 40vh; overflow-y: auto; }
+.pal-ver-meta { margin: 0; padding: 0 4px; font: 500 12px/16px var(--font-ui); color: var(--ink-3); }
+.cm { border-radius: 2px; background: color-mix(in srgb, var(--ink) 7%, transparent); text-decoration: underline dotted var(--ink-3); text-decoration-thickness: 2px; text-underline-offset: 4px; cursor: pointer; }
+.cm:hover { background: color-mix(in srgb, var(--ink) 13%, transparent); }
+.cm.pisca { animation: pisca 1.6s ease-out; }
+.cm-fim::after { content: ""; display: inline-block; width: .9em; height: .9em; margin-left: .25em; vertical-align: -.1em; background: var(--ink-3); -webkit-mask: var(--ico-cm) center / contain no-repeat; mask: var(--ico-cm) center / contain no-repeat; }
+.mc-nota { margin: 8px 0 0; padding: 8px 12px; border-radius: 8px; background: var(--panel); font: 500 14px/20px var(--font-ui); white-space: pre-wrap; overflow-wrap: anywhere; }
+.chip-ico { display: inline-grid; place-items: center; }
+.chip-ico svg { width: 14px; height: 14px; }
+.mc-q-dlg { max-height: 80px; overflow-y: auto; font-style: normal; }
+.dlg-nota { font: 500 14px/20px var(--font-ui); }
+.mc-txt .cm-q { padding: .06em .02em; border-radius: 4px; background: color-mix(in srgb, var(--ink) 7%, transparent); text-decoration: underline dotted var(--ink-3); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+
+.qh-tot { margin: 0; font: 600 14px/20px var(--font-ui); color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.pegs .modo, .inicio .modo { margin: 0 0 24px; }
+
+/* ---------- Login, menu da conta e perfil ---------- */
+.dlg-login { width: min(360px, calc(100vw - 32px)); }
+.dlg-login .dlg-form { justify-items: center; gap: 16px; padding: 40px 32px 24px; text-align: center; }
+.dlg-login .dlg-tit { display: flex; flex-direction: column; align-items: center; gap: 16px; font: 600 24px/32px var(--font-display); letter-spacing: -.02em; text-wrap: balance; }
+.dlg-login .dlg-corpo { display: grid; justify-items: center; gap: 16px; width: 100%; }
+.dlg-login .dlg-bts { display: none; }
+.dlg-login .dlg-erro, .dlg-login .dlg-ok { text-align: center; }
+.lg-selo { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 16px; background: var(--ink); color: var(--paper); }
+.lg-selo svg { width: 26px; height: 26px; }
+.lg-sub { margin: 0; max-width: 26ch; font: 500 14px/20px var(--font-ui); color: var(--ink-2); text-wrap: balance; }
+.dlg-login .cta-g { justify-content: center; width: 100%; }
+.lg-rodape { display: flex; align-items: center; justify-content: center; gap: 4px; }
+.lg-adm { height: 28px; padding: 0 8px; border: 0; border-radius: 6px; background: none; color: var(--ink-3); font: 600 12px/1 var(--font-ui); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.lg-adm:hover { color: var(--ink); background: var(--hover); }
+.av { flex: none; border-radius: 50%; object-fit: cover; }
+.av-40 { width: 40px; height: 40px; }
+.av-64 { width: 64px; height: 64px; }
+.av-ini { display: grid; place-items: center; background: var(--accent); color: var(--on-accent); font: 600 16px/1 var(--font-display); }
+.av-64.av-ini { font-size: 24px; }
+.menu-conta { position: fixed; z-index: 75; width: min(300px, calc(100vw - 16px)); padding: 8px; border: 1px solid var(--rule-2); border-radius: 12px; background: var(--raised); box-shadow: var(--shadow); }
+.mn-cab { display: flex; align-items: center; gap: 12px; padding: 8px; }
+.mn-cab div { display: grid; min-width: 0; }
+.mn-cab strong { font: 600 14px/20px var(--font-ui); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mn-cab span { font: 500 12px/16px var(--font-ui); color: var(--ink-3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mn-st { margin: 0 0 4px; padding: 8px; border-radius: 8px; background: var(--paper); font: 500 12px/16px var(--font-ui); color: var(--ink-2); }
+.mn-lista { display: grid; gap: 2px; margin-top: 4px; padding-top: 4px; border-top: 1px solid var(--rule); }
+.mn-it { display: flex; align-items: center; gap: 12px; width: 100%; height: 40px; padding: 0 12px; border: 0; border-radius: 8px; background: none; color: var(--ink-2); font: 600 14px/1 var(--font-ui); text-align: left; text-decoration: none; cursor: pointer; }
+.mn-it:hover, .mn-it:focus-visible { background: var(--hover); color: var(--ink); }
+.mn-it svg { width: 18px; height: 18px; }
+.mn-sair { color: var(--err); }
+.mn-sair:hover { color: var(--err); }
+.bt-adm .adm-ini { display: none; }
+.pf { display: grid; gap: 24px; max-width: var(--doc-w); margin: 0 auto; }
+.pf-cab { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; padding: 24px; border: 1px solid var(--rule); border-radius: 16px; background: var(--raised); }
+.pf-id { display: grid; gap: 4px; flex: 1 1 260px; min-width: 0; }
+.pf-id h1 { margin: 0; font: 600 24px/32px var(--font-display); letter-spacing: -.02em; overflow-wrap: anywhere; }
+.pf-id p { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0; font: 500 14px/20px var(--font-ui); color: var(--ink-3); overflow-wrap: anywhere; }
+.pf-st { margin: 4px 0 0; font: 500 12px/16px var(--font-ui); color: var(--ink-2); }
+.pf-acoes { display: flex; flex-wrap: wrap; gap: 8px; }
+.pf-grade { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+.pf-sec { display: grid; gap: 16px; min-width: 0; padding: 24px; border: 1px solid var(--rule); border-radius: 16px; background: var(--raised); }
+.pf-todo { grid-column: 1 / -1; }
+.pf-sec h2 { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 12px; margin: 0; font: 600 16px/24px var(--font-display); }
+.pf-sec h3 { margin: 8px 0 0; font: 600 12px/16px var(--font-ui); color: var(--ink-3); }
+.pf-tot { font: 500 12px/16px var(--font-ui); color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.pf-nums { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.pf-num { display: grid; gap: 4px; padding: 12px; border-radius: 12px; background: var(--paper); }
+.pf-v { font: 600 30px/36px var(--font-display); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.pf-r { font: 500 12px/16px var(--font-ui); color: var(--ink-3); }
+.pf-dias { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; align-items: end; height: 120px; }
+.pf-dia { display: grid; grid-template-rows: 16px 1fr 16px; justify-items: center; gap: 4px; height: 100%; }
+.pf-q { font: 600 12px/16px var(--font-ui); color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.pf-barra { display: flex; align-items: flex-end; width: 100%; max-width: 32px; height: 100%; border-radius: 6px; background: var(--paper); overflow: hidden; }
+.pf-barra span { display: block; width: 100%; border-radius: 6px; background: var(--ink-3); }
+.pf-dia.hoje .pf-barra span { background: var(--accent); }
+.pf-rot { font: 600 12px/16px var(--font-ui); color: var(--ink-3); }
+.pf-dia.hoje .pf-rot { color: var(--ink); }
+.pf-cont { display: grid; gap: 4px; padding: 16px; border: 1px solid color-mix(in srgb, var(--m) 28%, var(--rule)); border-radius: 12px; background: color-mix(in srgb, var(--m) 6%, var(--raised)); color: var(--ink); text-decoration: none; }
+.pf-cont:hover { border-color: var(--m); }
+.pf-cont-r { display: flex; align-items: center; gap: 8px; font: 600 12px/16px var(--font-ui); color: var(--m); }
+.pf-cont-r svg { width: 16px; height: 16px; }
+.pf-cont strong { font: 600 16px/24px var(--font-ui); }
+.pf-cont span:last-child { font: 500 12px/16px var(--font-ui); color: var(--ink-3); }
+.pf-vazio { display: flex; align-items: center; gap: 8px; margin: 0; font: 500 14px/20px var(--font-ui); color: var(--ink-3); }
+.pf-baixar { display: flex; flex-wrap: wrap; gap: 8px; }
+.pf-baixar .bt svg { width: 18px; height: 18px; }
+.pf-lado { align-content: start; }
+.pf-discs { display: grid; gap: 4px; margin: 0; padding: 0; list-style: none; }
+.pf-disc { display: grid; grid-template-columns: minmax(180px, 1fr) minmax(0, 2fr) 96px; align-items: center; gap: 16px; padding: 12px 0; border-top: 1px solid var(--rule); }
+.pf-disc:first-child { border-top: 0; }
+.pf-disc-n { display: flex; align-items: center; gap: 12px; color: var(--ink); font: 600 14px/20px var(--font-ui); text-decoration: none; }
+.pf-disc-n:hover span:last-child { text-decoration: underline; text-underline-offset: 3px; }
+.pf-disc-b { display: grid; gap: 4px; }
+.pf-disc-q { margin: 0; text-align: right; font: 600 12px/16px var(--font-ui); color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.pf-bars { display: grid; gap: 8px; }
+.pf-erra { display: grid; gap: 4px; margin: 0; padding: 0; list-style: none; counter-reset: e; }
+.pf-erra li { display: flex; align-items: center; justify-content: space-between; gap: 12px; font: 500 14px/20px var(--font-ui); counter-increment: e; }
+.pf-erra li a { color: var(--ink); text-decoration: none; }
+.pf-erra li a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.pf-erra li span { color: var(--err); font-weight: 700; font-variant-numeric: tabular-nums; }
+.pf-erradas { display: flex; flex-wrap: wrap; gap: 8px; }
+.pf-favs { margin: 0; }
+@media (max-width: 760px) {
+  .pf-grade { grid-template-columns: minmax(0, 1fr); }
+  .pf-disc { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .pf-disc-q { text-align: left; }
+  .pf-cab, .pf-sec { padding: 16px; }
+  .pf-v { font-size: 24px; line-height: 32px; }
+}
+
+/* ---------- Baixar conteúdo e impressão ---------- */
+.sec-cab-lin { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; max-width: none; }
+.bt-texto svg { width: 16px; height: 16px; }
+.dlg-baixar { width: min(480px, calc(100vw - 32px)); }
+.bx-g { display: grid; gap: 4px; margin: 0; padding: 0; border: 0; min-width: 0; }
+.bx-g legend { margin-bottom: 4px; padding: 0; font: 600 12px/16px var(--font-ui); color: var(--ink-3); }
+.bx-ck { display: flex; align-items: center; gap: 12px; padding: 6px 8px; margin: 0 -8px; border-radius: 6px; font: 500 14px/20px var(--font-ui); cursor: pointer; }
+.bx-ck:hover { background: var(--hover); }
+.bx-ck input { width: 16px; height: 16px; margin: 0; accent-color: var(--accent); flex: none; }
+.bx-aviso { margin: 0; padding: 8px 12px; border-radius: 8px; background: var(--warn-bg); box-shadow: inset 0 0 0 1px var(--warn-bd); font: 500 12px/16px var(--font-ui); }
+.dlg-baixar .seg svg { width: 16px; height: 16px; margin-right: 8px; vertical-align: -3px; }
+.imp { display: none; }
+/* ---------- Dica (ícone ⓘ com balão) ---------- */
+.i-info { display: inline-grid; place-items: center; width: 20px; height: 20px; padding: 0; border: 0; border-radius: 50%; background: none; color: var(--ink-3); cursor: help; flex: none; vertical-align: middle; }
+.i-info svg { width: 16px; height: 16px; }
+.i-info:hover, .i-info[aria-describedby] { color: var(--ink); background: var(--hover); }
+.balao { position: fixed; inset: auto; margin: 0; max-width: min(280px, calc(100vw - 16px)); padding: 8px 12px; border: 0; border-radius: 8px; background: var(--ink); color: var(--paper); font: 500 12px/16px var(--font-ui); box-shadow: var(--shadow); pointer-events: none; overflow: visible; }
+.balao:not(:popover-open) { display: none; }
 
 /* ---------- Diálogos ---------- */
 .dlg { width: min(470px, calc(100vw - 32px)); max-height: calc(100dvh - 32px); padding: 0; border: 1px solid var(--rule-2); border-radius: 16px; background: var(--raised); color: var(--ink); box-shadow: var(--shadow); }
@@ -687,12 +830,34 @@ body.com-achados .dock { bottom: calc(76px + env(safe-area-inset-bottom, 0px)); 
 .dlg-bt:hover { border-color: var(--ink-3); }
 .dlg-bt.principal { border-color: transparent; background: var(--accent); color: var(--paper); }
 
+.dlg-x { position: absolute; top: 12px; right: 12px; width: 36px; height: 36px; }
+.dlg-form { position: relative; }
+.dlg-lido { width: min(520px, calc(100vw - 32px)); }
+.lido-faixa { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font: 600 14px/1 var(--font-ui); }
+.lido-faixa label { display: flex; align-items: center; gap: 8px; }
+.lido-faixa input { width: 5.5em; height: 44px; padding: 0 12px; border: 1px solid var(--rule-2); border-radius: 8px; background: var(--paper); color: var(--ink); font: 600 18px/1 var(--font-ui); font-variant-numeric: tabular-nums; }
+.lido-faixa input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.lido-de { color: var(--ink-3); font-weight: 500; }
+.lido-grade { display: grid; grid-template-columns: repeat(auto-fill, minmax(36px, 1fr)); gap: 4px; max-height: 188px; overflow-y: auto; padding: 4px 2px; }
+.lido-pg { height: 32px; padding: 0; border: 1px solid var(--rule-2); border-radius: 6px; background: var(--raised); color: var(--ink-2); font: 600 12px/1 var(--font-ui); font-variant-numeric: tabular-nums; cursor: pointer; }
+.lido-pg:hover { border-color: var(--ink-3); }
+.lido-pg.on { border-color: transparent; background: color-mix(in srgb, var(--ok) 20%, var(--raised)); color: var(--ok); }
+.lido-pg.sel { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+.lido-chips { display: flex; flex-wrap: wrap; gap: 8px; min-height: 28px; }
+.lido-chip { display: inline-flex; align-items: center; gap: 4px; padding: 4px 4px 4px 12px; border-radius: 9999px; background: var(--panel); font: 600 12px/16px var(--font-ui); font-variant-numeric: tabular-nums; }
+.lido-chip button { display: grid; place-items: center; width: 20px; height: 20px; padding: 0; border: 0; border-radius: 50%; background: none; color: var(--ink-3); cursor: pointer; }
+.lido-chip button:hover { background: var(--hover); color: var(--ink); }
+.lido-chip svg { width: 12px; height: 12px; }
+.lido-nada { color: var(--ink-3); font: 500 12px/16px var(--font-ui); }
+.lido-temas { display: grid; gap: 12px; max-height: 300px; overflow-y: auto; }
+.lido-res { margin: 0; font: 600 12px/16px var(--font-ui); color: var(--ink-3); }
+.sec-tit .i-info, .pegs-tit .i-info { margin-left: 8px; }
 /* ---------- Painel de ajustes e barra de ocorrências ---------- */
 .ajustes { position: fixed; z-index: 70; top: calc(var(--top-h) + 8px + env(safe-area-inset-top, 0px)); right: 16px; width: min(350px, calc(100vw - 32px)); max-height: calc(100dvh - var(--top-h) - 24px); overflow-y: auto; padding: 16px 16px 16px; border: 1px solid var(--rule-2); border-radius: 12px; background: var(--raised); box-shadow: var(--shadow); font-size: 12px; }
 .aj-linha { display: grid; gap: 8px; padding: 12px 0; }
 .aj-linha + .aj-linha { border-top: 1px solid var(--rule); }
 .aj-cab { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-.aj-rot { font: 600 12px/16px var(--font-ui); color: var(--ink-2); }
+.aj-rot { display: inline-flex; align-items: center; gap: 4px; font: 600 12px/16px var(--font-ui); color: var(--ink-2); }
 .aj-valor { font: 600 14px/20px var(--font-ui); color: var(--ink); font-variant-numeric: tabular-nums; }
 .aj-faixa { width: 100%; margin: 0; accent-color: var(--accent); cursor: pointer; }
 #ui-aj-larg .bt-texto { flex: none; height: 24px; padding: 0; color: var(--ink); }
@@ -938,8 +1103,8 @@ body.editando .doc-grade { grid-template-columns: minmax(0, 1fr) !important; }
 @media (max-width: 959px) {
   .grade { grid-template-columns: minmax(0, 1fr); }
   .bt-menu { display: inline-grid; margin-left: -8px; }
-  .bt-peg span, .bt-adm .adm-rot { display: none; }
-  .bt-peg, .bt-adm { padding: 0 12px; }
+  .bt-peg span, .bt-aa .bt-rot, .bt-adm .adm-rot { display: none; }
+  .bt-peg, .bt-aa, .bt-adm { padding: 0 12px; }
   .ed-st { max-width: none; width: 100%; order: -1; text-align: right; }
   .lateral { position: fixed; z-index: 60; top: 0; bottom: 0; left: 0; width: min(88vw, 330px); height: auto; padding-top: calc(18px + env(safe-area-inset-top, 0px)); padding-bottom: calc(28px + env(safe-area-inset-bottom, 0px)); border-right: 1px solid var(--rule); box-shadow: var(--shadow); transform: translateX(-102%); transition: transform var(--dur) var(--ease), visibility var(--dur) var(--ease); visibility: hidden; }
   body.menu-aberto .lateral { transform: none; visibility: visible; }
@@ -957,11 +1122,10 @@ body.foco .toc { display: none; }
 @media (max-width: 640px) {
   :root { --top-h: 56px; }
   .topo { grid-template-columns: auto minmax(0, 1fr) auto; gap: 8px; padding-inline: 12px; }
-  .marca-sub, .busca-kbd { display: none; }
-  .marca-nome { font-size: 18px; }
+  .marca-sub, .busca-kbd, .bt-peg { display: none; }
+  .marca-nome { font-size: 17px; }
   :root { --faixa-h: 44px; }
   .busca input { font-size: 16px; padding-right: 40px; }
-  .bt-peg { display: none; }
   #ui-vista { padding-top: 24px; }
   .doc-tit-linha { gap: 12px; }
   .bt-fav { justify-content: center; width: 38px; height: 36px; padding: 0; }
@@ -975,7 +1139,7 @@ body.foco .toc { display: none; }
   .caneta:not(.aberta) .caneta-cores { display: none; }
   .caneta.aberta { flex-direction: column-reverse; align-items: stretch; }
   .caneta.aberta .caneta-cores { flex-direction: column; }
-  .paleta { grid-template-columns: repeat(2, auto); }
+  .pal-cores { grid-template-columns: repeat(2, auto); }
   .mp { grid-template-columns: auto minmax(0, 1fr); }
   .mp-n { grid-column: 2; grid-row: auto; }
   .mc { grid-template-columns: minmax(0, 1fr); }
@@ -987,7 +1151,7 @@ body.foco .toc { display: none; }
   .tf-sel { min-width: 0; width: 100%; }
   .tf-campo { width: 100%; }
 }
-@media (max-width: 380px) { .marca-nome { font-size: 16px; } .bt-aa { padding: 0 8px; } }
+@media (max-width: 380px) { .marca-nome { font-size: 16px; } .bt-peg, .bt-aa, .bt-adm { padding: 0 8px; } }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
@@ -999,6 +1163,25 @@ body.foco .toc { display: none; }
   .doc-corpo { font-size: 11pt; }
   .tabela, .peg, .nota { break-inside: avoid; }
   .pag { break-before: page; }
+  @page { size: A4; margin: 18mm 16mm; }
+  body.imprimindo > *:not(#ui-impressao) { display: none !important; }
+  body.imprimindo { background: #fff; }
+  body.imprimindo .imp { display: block; --paper: #fff; --panel: #f3f3f3; --raised: #fff; --hover: #eee; --ink: #111; --ink-2: #333; --ink-3: #555; --rule: #ddd; --rule-2: #bbb; --law-bg: #f5f5f2; --law-bd: #dfdfd8; --trap-bg: #fbeff2; --trap-bd: #eccbd6; --warn-bg: #fff7e0; --warn-bd: #ecd18c; --info-bg: #eef3f9; --info-bd: #cddbec; --div-bg: #f3effa; --div-bd: #d9cff0; --ok: #1d7a3a; --ok-soft: #e3f2e7; --err: #c0271e; --err-soft: #fbe6e4; --accent: #171717; --accent-soft: #e6e6e6; --on-accent: #fff; --marker: #ffe45c; --m: #444; color: #111; background: #fff; font-family: var(--font-ui); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .imp .imp-capa { display: grid; align-content: center; min-height: 230mm; }
+  .imp .imp-marca { margin: 0 0 8px; font: 700 12pt/1 var(--font-ui); letter-spacing: .08em; text-transform: uppercase; color: #555; }
+  .imp .imp-titulo { margin: 0 0 12px; font: 700 34pt/1.1 var(--font-ui); letter-spacing: -.02em; }
+  .imp .imp-sub { margin: 0 0 4px; font: 500 12pt/1.4 var(--font-ui); color: #555; }
+  .imp .imp-h1 { break-before: page; margin: 0 0 12mm; font: 700 26pt/1.15 var(--font-ui); letter-spacing: -.02em; }
+  .imp .imp-tema { break-before: page; }
+  .imp .imp-h2 { margin: 0 0 4mm; font: 700 18pt/1.2 var(--font-ui); }
+  .imp .imp-h3 { margin: 8mm 0 3mm; font: 700 13pt/1.3 var(--font-ui); break-after: avoid; }
+  .imp .imp-meta { margin: 0 0 6mm; font: 500 10pt/1.4 var(--font-ui); color: #666; }
+  .imp .imp-corpo { max-width: none; font-size: 11pt; line-height: 1.5; }
+  .imp .imp-q { margin: 0 0 6mm; break-inside: avoid; }
+  .imp .imp-com { color: #444; }
+  .imp h2, .imp h3, .imp h4 { break-after: avoid; }
+  .imp tr, .imp img { break-inside: avoid; }
+  .imp img { max-width: 100%; }
 }
 </style>
 <noscript><p style="padding:24px;font:16px system-ui,sans-serif">Ative o JavaScript para usar o sistema de estudos.</p></noscript>
@@ -1006,7 +1189,7 @@ body.foco .toc { display: none; }
 <header class="topo">
   <div class="topo-esq">
     <button class="bt-icone bt-menu" id="ui-menu" type="button" aria-label="Abrir a lista de tópicos" aria-controls="ui-lateral" aria-expanded="false"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/></svg></button>
-    <a class="marca" href="#inicio" aria-label="Início: todas as disciplinas"><span class="marca-nome">Estudos</span><span class="marca-sub">Auditor Fiscal</span></a>
+    <a class="marca" href="#inicio" aria-label="Início: todas as disciplinas"><span class="marca-nome">Missão Fiscal</span></a>
   </div>
   <form class="busca" id="ui-form" role="search" autocomplete="off">
     <label class="sr" for="ui-q">Buscar em todo o material</label>
@@ -1016,8 +1199,8 @@ body.foco .toc { display: none; }
     <button class="bt-icone bt-limpar" id="ui-limpar" type="button" aria-label="Limpar busca" hidden><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg></button>
   </form>
   <div class="acoes-topo">
-    <a class="bt-topo bt-peg" id="ui-peg" href="#pegadinhas" title="Pegadinhas"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M225.86,102.82c-3.77-3.94-7.67-8-9.14-11.57-1.36-3.27-1.44-8.69-1.52-13.94-.15-9.76-.31-20.82-8-28.51s-18.75-7.85-28.51-8c-5.25-.08-10.67-.16-13.94-1.52-3.56-1.47-7.63-5.37-11.57-9.14C146.28,23.51,138.44,16,128,16s-18.27,7.51-25.18,14.14c-3.94,3.77-8,7.67-11.57,9.14C88,40.64,82.56,40.72,77.31,40.8c-9.76.15-20.82.31-28.51,8S41,67.55,40.8,77.310c-.08,5.25-.16,10.67-1.52,13.94-1.47,3.56-5.37,7.63-9.14,11.57C23.51,109.72,16,117.56,16,128s7.51,18.27,14.14,25.18c3.77,3.94,7.67,8,9.14,11.57,1.36,3.27,1.44,8.69,1.520,13.94.15,9.76.31,20.82,8,28.51s18.75,7.85,28.51,8c5.25.08,10.67.16,13.94,1.52,3.56,1.47,7.63,5.37,11.57,9.14C109.72,232.49,117.56,240,128,240s18.27-7.51,25.18-14.14c3.94-3.77,8-7.67,11.57-9.14,3.27-1.36,8.69-1.44,13.94-1.52,9.76-.15,20.82-.31,28.51-8s7.85-18.75,8-28.51c.08-5.25.16-10.67,1.52-13.94,1.47-3.56,5.37-7.63,9.14-11.57C232.49,146.28,240,138.44,240,128S232.49,109.73,225.86,102.82Zm-11.55,39.29c-4.79,5-9.75,10.17-12.38,16.52-2.52,6.1-2.63,13.07-2.73,19.82-.1,7-.21,14.33-3.32,17.43s-10.39,3.22-17.43,3.32c-6.75.1-13.72.21-19.82,2.73-6.35,2.63-11.52,7.59-16.52,12.38S132,224,128,224s-9.15-4.92-14.11-9.690-10.17-9.75-16.52-12.38c-6.1-2.52-13.07-2.63-19.82-2.73-7-.1-14.33-.21-17.43-3.32s-3.22-10.39-3.32-17.43c-.1-6.75-.21-13.72-2.73-19.82-2.63-6.35-7.59-11.52-12.38-16.52S32,132,32,128s4.92-9.15,9.69-14.11,9.75-10.17,12.38-16.52c2.52-6.1,2.63-13.07,2.73-19.82.1-7,.21-14.33,3.32-17.43S70.51,56.9,77.55,56.8c6.75-.1,13.72-.21,19.82-2.73,6.35-2.63,11.52-7.59,16.52-12.38S124,32,128,32s9.15,4.92,14.11,9.69,10.17,9.75,16.52,12.38c6.1,2.52,13.07,2.63,19.82,2.73,7,.1,14.33.21,17.43,3.32s3.22,10.39,3.32,17.43c.1,6.75.21,13.72,2.73,19.82,2.63,6.35,7.59,11.52,12.38,16.52S224,124,224,128,219.08,137.15,214.31,142.11ZM140,180a12,12,0,1,1-12-12A12,12,0,0,1,140,180Zm28-72c0,17.38-13.76,31.93-32,35.28V144a8,8,0,0,1-16,0v-8a8,8,0,0,1,8-8c13.23,0,24-9,24-20s-10.77-20-24-20-24,9-24,20v4a8,8,0,0,1-16,0v-4c0-19.85,17.94-36,40-36S168,88.15,168,108Z"/></svg><span>Pegadinhas</span></a>
-    <button class="bt-topo bt-aa" id="ui-bt-ajustes" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="ui-ajustes" title="Ajustes de leitura"><span aria-hidden="true">Aa</span><span class="sr">Ajustes de leitura</span></button>
+    <a class="bt-topo bt-peg" id="ui-peg" href="#questoes" title="Questões"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M225.86,102.82c-3.77-3.94-7.67-8-9.14-11.57-1.36-3.27-1.44-8.69-1.52-13.94-.15-9.76-.31-20.82-8-28.51s-18.75-7.85-28.51-8c-5.25-.08-10.67-.16-13.94-1.52-3.56-1.47-7.63-5.37-11.57-9.14C146.28,23.51,138.44,16,128,16s-18.27,7.51-25.18,14.14c-3.94,3.77-8,7.67-11.57,9.14C88,40.64,82.56,40.72,77.31,40.8c-9.76.15-20.82.31-28.51,8S41,67.55,40.8,77.310c-.08,5.25-.16,10.67-1.52,13.94-1.47,3.56-5.37,7.63-9.14,11.57C23.51,109.72,16,117.56,16,128s7.51,18.27,14.14,25.18c3.77,3.94,7.67,8,9.14,11.57,1.36,3.27,1.44,8.69,1.520,13.94.15,9.76.31,20.82,8,28.51s18.75,7.85,28.51,8c5.25.08,10.67.16,13.94,1.52,3.56,1.47,7.63,5.37,11.57,9.14C109.72,232.49,117.56,240,128,240s18.27-7.51,25.18-14.14c3.94-3.77,8-7.67,11.57-9.14,3.27-1.36,8.69-1.44,13.94-1.52,9.76-.15,20.82-.31,28.51-8s7.85-18.75,8-28.51c.08-5.25.16-10.67,1.52-13.94,1.47-3.56,5.37-7.63,9.14-11.57C232.49,146.28,240,138.44,240,128S232.49,109.73,225.86,102.82Zm-11.55,39.29c-4.79,5-9.75,10.17-12.38,16.52-2.52,6.1-2.63,13.07-2.73,19.82-.1,7-.21,14.33-3.32,17.43s-10.39,3.22-17.43,3.32c-6.75.1-13.72.21-19.82,2.73-6.35,2.63-11.52,7.59-16.52,12.38S132,224,128,224s-9.15-4.92-14.11-9.690-10.17-9.75-16.52-12.38c-6.1-2.52-13.07-2.63-19.82-2.73-7-.1-14.33-.21-17.43-3.32s-3.22-10.39-3.32-17.43c-.1-6.75-.21-13.72-2.73-19.82-2.63-6.35-7.59-11.52-12.38-16.52S32,132,32,128s4.92-9.15,9.69-14.11,9.75-10.17,12.38-16.52c2.52-6.1,2.63-13.07,2.73-19.82.1-7,.21-14.33,3.32-17.43S70.51,56.9,77.55,56.8c6.75-.1,13.72-.21,19.82-2.73,6.35-2.63,11.52-7.59,16.52-12.38S124,32,128,32s9.15,4.92,14.11,9.69,10.17,9.75,16.52,12.38c6.1,2.52,13.07,2.63,19.82,2.73,7,.1,14.33.21,17.43,3.32s3.22,10.39,3.32,17.43c.1,6.75.21,13.72,2.73,19.82,2.63,6.35,7.59,11.52,12.38,16.52S224,124,224,128,219.08,137.15,214.31,142.11ZM140,180a12,12,0,1,1-12-12A12,12,0,0,1,140,180Zm28-72c0,17.38-13.76,31.93-32,35.28V144a8,8,0,0,1-16,0v-8a8,8,0,0,1,8-8c13.23,0,24-9,24-20s-10.77-20-24-20-24,9-24,20v4a8,8,0,0,1-16,0v-4c0-19.85,17.94-36,40-36S168,88.15,168,108Z"/></svg><span>Questões</span></a>
+    <button class="bt-topo bt-aa" id="ui-bt-ajustes" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="ui-ajustes" title="Aparência"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M40,88H73a32,32,0,0,0,62,0h81a8,8,0,0,0,0-16H135a32,32,0,0,0-62,0H40a8,8,0,0,0,0,16Zm64-24A16,16,0,1,1,88,80,16,16,0,0,1,104,64ZM216,168H199a32,32,0,0,0-62,0H40a8,8,0,0,0,0,16h97a32,32,0,0,0,62,0h17a8,8,0,0,0,0-16Zm-48,24a16,16,0,1,1,16-16A16,16,0,0,1,168,192Z"/></svg><span class="bt-rot">Aparência</span></button>
     <button class="bt-topo bt-adm" id="ui-adm" type="button" aria-haspopup="dialog" title="Entrar"><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"/></svg><img class="adm-foto" id="ui-foto" alt="" hidden referrerpolicy="no-referrer"><span class="adm-rot">Entrar</span></button>
   </div>
 </header>
@@ -1026,7 +1209,11 @@ body.foco .toc { display: none; }
   <main class="principal" id="ui-principal" tabindex="-1"><nav class="faixa" id="ui-faixa" hidden></nav><div id="ui-vista"></div></main>
 </div>
 <div class="veu" id="ui-veu" hidden></div>
-<div class="ajustes" id="ui-ajustes" role="dialog" aria-label="Ajustes de leitura" hidden>
+<div class="imp" id="ui-impressao" aria-hidden="true"></div>
+<div class="menu-conta" id="ui-menu-conta" role="menu" hidden></div>
+<div class="aba-menu" id="ui-aba-menu" role="menu" hidden></div>
+<div class="balao" id="ui-balao" role="tooltip" popover="manual"></div>
+<div class="ajustes" id="ui-ajustes" role="dialog" aria-label="Aparência" hidden>
   <div class="aj-linha"><span class="aj-rot" id="aj-r-tema">Tema</span>
     <div class="seg" role="radiogroup" aria-labelledby="aj-r-tema">
       <button type="button" role="radio" data-aj="tema" data-val="auto">Auto</button>
@@ -1045,14 +1232,12 @@ body.foco .toc { display: none; }
       <button type="button" role="radio" data-aj="fonte" data-val="sans">Sem serifa</button>
       <button type="button" role="radio" data-aj="fonte" data-val="serif">Serifada</button>
     </div></div>
-  <div class="aj-linha" id="ui-aj-larg"><div class="aj-cab"><label class="aj-rot" for="ui-larg">Largura do texto</label><output class="aj-valor" id="ui-larg-v" for="ui-larg">50%</output></div>
+  <div class="aj-linha" id="ui-aj-larg"><div class="aj-cab"><label class="aj-rot" for="ui-larg">Largura do texto<button class="i-info" type="button" data-dica="Porcentagem da largura da tela. O texto se ajusta enquanto você arrasta." aria-label="Mais informações"></button></label><output class="aj-valor" id="ui-larg-v" for="ui-larg">50%</output></div>
     <input class="aj-faixa" type="range" id="ui-larg" min="30" max="90" step="1" value="50">
-    <div class="aj-cab"><p class="aj-dica">Porcentagem da largura da tela. O texto se ajusta enquanto você arrasta.</p><button class="bt-texto" type="button" id="ui-larg-pad">Padrão</button></div></div>
-  <div class="aj-linha"><div class="aj-cab"><span class="aj-rot" id="aj-r-foco">Modo foco</span>
-    <button type="button" class="chave" role="switch" aria-checked="false" aria-labelledby="aj-r-foco" data-aj="foco"><span></span></button></div>
-    <p class="aj-dica">Esconde o menu e o índice da página. Tecla <kbd>/</kbd> abre a busca a qualquer momento.</p></div>
-  <div class="aj-linha"><span class="aj-rot">Leituras e marcações</span>
-    <p class="aj-dica">Ficam guardadas neste navegador. Para levar a outro aparelho ou navegador, exporte aqui e importe lá.</p>
+    <div class="aj-cab"><span></span><button class="bt-texto" type="button" id="ui-larg-pad">Padrão</button></div></div>
+  <div class="aj-linha"><div class="aj-cab"><span class="aj-rot" id="aj-r-foco">Modo foco<button class="i-info" type="button" data-dica="Esconde o menu e o índice da página. A tecla / abre a busca a qualquer momento." aria-label="Mais informações"></button></span>
+    <button type="button" class="chave" role="switch" aria-checked="false" aria-labelledby="aj-r-foco" data-aj="foco"><span></span></button></div></div>
+  <div class="aj-linha" id="ui-aj-backup"><span class="aj-rot">Cópia de segurança<button class="i-info" type="button" data-dica="Suas leituras e marcações ficam neste navegador. Para levar a outro aparelho, exporte aqui e importe lá. Entrando com o Google, isso é feito sozinho." aria-label="Mais informações"></button></span>
     <div class="aj-bts"><button class="bt" type="button" data-backup="exportar">Exportar</button><button class="bt" type="button" data-backup="importar">Importar</button></div></div>
 </div>
 <div class="achados" id="ui-achados" role="region" aria-label="Ocorrências da busca neste tema" hidden>
@@ -1081,13 +1266,33 @@ body.foco .toc { display: none; }
     </div>
   </div>
 </div>
-<div class="paleta" id="ui-paleta" role="toolbar" aria-label="Marcar o trecho selecionado" hidden>
-  <p class="pal-info" id="ui-pal-info" hidden></p>
-  <button type="button" data-cor="1"><span class="sw sw-1"></span>Muito importante</button>
-  <button type="button" data-cor="2"><span class="sw sw-2"></span>Importante</button>
-  <button type="button" data-cor="3"><span class="sw sw-3"></span>Atenção</button>
-  <button type="button" data-cor="4"><span class="sw sw-4"></span>Pegadinha</button>
-  <button type="button" class="pal-rem" data-pal="remover" hidden><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z"/></svg>Remover marcação</button>
+<div class="paleta" id="ui-paleta" role="toolbar" aria-label="Trecho selecionado" hidden>
+  <div class="pal-menu" data-vista="menu">
+    <button type="button" data-pal="marca"><span data-ico="marcador"></span>Marca-texto</button>
+    <button type="button" data-pal="comentar"><span data-ico="comentario"></span>Comentar</button>
+  </div>
+  <div class="pal-cores-v" data-vista="cores" hidden>
+    <p class="pal-info" id="ui-pal-info" hidden></p>
+    <div class="pal-cores">
+      <button type="button" data-cor="1"><span class="sw sw-1"></span>Muito importante</button>
+      <button type="button" data-cor="2"><span class="sw sw-2"></span>Importante</button>
+      <button type="button" data-cor="3"><span class="sw sw-3"></span>Atenção</button>
+      <button type="button" data-cor="4"><span class="sw sw-4"></span>Pegadinha</button>
+    </div>
+    <div class="pal-extra">
+      <button type="button" data-pal="comentar-marca" hidden><span data-ico="comentario"></span>Comentar</button>
+      <button type="button" class="pal-rem" data-pal="remover" hidden><svg viewBox="0 0 256 256" aria-hidden="true"><path d="M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z"/></svg>Remover marcação</button>
+    </div>
+  </div>
+  <div class="pal-nota-v" data-vista="nota" hidden>
+    <textarea id="ui-pal-nota" rows="3" maxlength="2000" placeholder="Escreva o seu comentário" aria-label="Comentário"></textarea>
+    <div class="pal-nota-bts"><button type="button" data-pal="nota-cancelar">Cancelar</button><button type="button" class="pal-p" data-pal="nota-salvar">Salvar</button></div>
+  </div>
+  <div class="pal-ver-v" data-vista="ver" hidden>
+    <p class="pal-ver-txt" id="ui-pal-ver-txt"></p>
+    <p class="pal-ver-meta" id="ui-pal-ver-meta"></p>
+    <div class="pal-nota-bts"><button type="button" data-pal="ver-excluir" class="pal-rem">Excluir</button><button type="button" class="pal-p" data-pal="ver-editar">Editar</button></div>
+  </div>
 </div>
 <dialog class="dlg" id="ui-dlg" aria-labelledby="ui-dlg-tit"></dialog>
 <div class="recado" id="ui-recado" role="status" aria-live="polite" hidden></div>
@@ -1111,6 +1316,24 @@ body.foco .toc { display: none; }
   // Ícones Phosphor (regular), embutidos para o site funcionar sem internet.
   const svg = d => `<svg viewBox="0 0 256 256" aria-hidden="true"><path d="${d}"/></svg>`;
   const ICO = {
+    alvo: svg('M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32l-96,96a8,8,0,0,1-11.32-11.32l27.72-27.72a40,40,0,1,0,17.87,31.09,8,8,0,1,1,16-.9,56,56,0,1,1-22.38-41.65L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z'),
+    info: svg('M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176ZM112,84a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z'),
+    ajusteTela: svg('M40,88H73a32,32,0,0,0,62,0h81a8,8,0,0,0,0-16H135a32,32,0,0,0-62,0H40a8,8,0,0,0,0,16Zm64-24A16,16,0,1,1,88,80,16,16,0,0,1,104,64ZM216,168H199a32,32,0,0,0-62,0H40a8,8,0,0,0,0,16h97a32,32,0,0,0,62,0h17a8,8,0,0,0,0-16Zm-48,24a16,16,0,1,1,16-16A16,16,0,0,1,168,192Z'),
+    comentario: svg('M216,48H40A16,16,0,0,0,24,64V224a15.85,15.85,0,0,0,9.24,14.5A16.13,16.13,0,0,0,40,240a15.89,15.89,0,0,0,10.25-3.78l.09-.07L83,208H216a16,16,0,0,0,16-16V64A16,16,0,0,0,216,48ZM40,224h0ZM216,192H80a8,8,0,0,0-5.23,1.95L40,224V64H216ZM88,112a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H96A8,8,0,0,1,88,112Zm0,32a8,8,0,0,1,8-8h64a8,8,0,1,1,0,16H96A8,8,0,0,1,88,144Z'),
+    comentarioC: svg('M168,112a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,112Zm-8,24H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16Zm72-8A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Zm-16,0A88,88,0,1,0,51.81,172.06a8,8,0,0,1,.66,6.54L40,216,77.4,203.53a7.85,7.85,0,0,1,2.53-.42,8,8,0,0,1,4,1.08A88,88,0,0,0,216,128Z'),
+    perfil: svg('M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24ZM74.08,197.5a64,64,0,0,1,107.84,0,87.83,87.83,0,0,1-107.84,0ZM96,120a32,32,0,1,1,32,32A32,32,0,0,1,96,120Zm97.76,66.41a79.66,79.66,0,0,0-36.06-28.75,48,48,0,1,0-59.4,0,79.66,79.66,0,0,0-36.06,28.75,88,88,0,1,1,131.52,0Z'),
+    sair: svg('M120,216a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V40a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H56V208h56A8,8,0,0,1,120,216Zm109.66-93.66-40-40a8,8,0,0,0-11.32,11.32L204.69,120H112a8,8,0,0,0,0,16h92.69l-26.35,26.34a8,8,0,0,0,11.32,11.32l40-40A8,8,0,0,0,229.66,122.34Z'),
+    baixar: svg('M224,144v64a8,8,0,0,1-8,8H40a8,8,0,0,1-8-8V144a8,8,0,0,1,16,0v56H208V144a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,124.69V32a8,8,0,0,0-16,0v92.69L93.66,98.34a8,8,0,0,0-11.32,11.32Z'),
+    docx: svg('M52,144H36a8,8,0,0,0-8,8v56a8,8,0,0,0,8,8H52a36,36,0,0,0,0-72Zm0,56H44V160h8a20,20,0,0,1,0,40Zm169.53-4.91a8,8,0,0,1,.25,11.31A30.06,30.06,0,0,1,200,216c-17.65,0-32-16.15-32-36s14.35-36,32-36a30.06,30.06,0,0,1,21.78,9.6,8,8,0,0,1-11.56,11.06A14.24,14.24,0,0,0,200,160c-8.82,0-16,9-16,20s7.18,20,16,20a14.24,14.24,0,0,0,10.22-4.66A8,8,0,0,1,221.53,195.09ZM128,144c-17.65,0-32,16.15-32,36s14.35,36,32,36,32-16.15,32-36S145.65,144,128,144Zm0,56c-8.82,0-16-9-16-20s7.18-20,16-20,16,9,16,20S136.82,200,128,200ZM48,120a8,8,0,0,0,8-8V40h88V88a8,8,0,0,0,8,8h48v16a8,8,0,0,0,16,0V88a8,8,0,0,0-2.34-5.66l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40v72A8,8,0,0,0,48,120ZM160,51.31,188.69,80H160Z'),
+    pdf: svg('M224,152a8,8,0,0,1-8,8H192v16h16a8,8,0,0,1,0,16H192v16a8,8,0,0,1-16,0V152a8,8,0,0,1,8-8h32A8,8,0,0,1,224,152ZM92,172a28,28,0,0,1-28,28H56v8a8,8,0,0,1-16,0V152a8,8,0,0,1,8-8H64A28,28,0,0,1,92,172Zm-16,0a12,12,0,0,0-12-12H56v24h8A12,12,0,0,0,76,172Zm88,8a36,36,0,0,1-36,36H112a8,8,0,0,1-8-8V152a8,8,0,0,1,8-8h16A36,36,0,0,1,164,180Zm-16,0a20,20,0,0,0-20-20h-8v40h8A20,20,0,0,0,148,180ZM40,112V40A16,16,0,0,1,56,24h96a8,8,0,0,1,5.66,2.34l56,56A8,8,0,0,1,216,88v24a8,8,0,0,1-16,0V96H152a8,8,0,0,1-8-8V40H56v72a8,8,0,0,1-16,0ZM160,80h28.69L160,51.31Z'),
+    chama: svg('M173.79,51.48a221.25,221.25,0,0,0-41.67-34.34,8,8,0,0,0-8.24,0A221.25,221.25,0,0,0,82.21,51.48C54.59,80.48,40,112.47,40,144a88,88,0,0,0,176,0C216,112.47,201.41,80.48,173.79,51.48ZM96,184c0-27.67,22.53-47.28,32-54.3,9.48,7,32,26.63,32,54.3a32,32,0,0,1-64,0Zm77.27,15.93A47.8,47.8,0,0,0,176,184c0-44-42.09-69.79-43.88-70.86a8,8,0,0,0-8.24,0C122.09,114.21,80,140,80,184a47.8,47.8,0,0,0,2.73,15.93A71.88,71.88,0,0,1,56,144c0-34.41,20.4-63.15,37.52-81.19A216.21,216.21,0,0,1,128,33.54a215.77,215.77,0,0,1,34.48,29.27C193.49,95.5,200,125,200,144A71.88,71.88,0,0,1,173.27,199.93Z'),
+    caret: svg('M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z'),
+    nota: svg('M229.66,58.34l-32-32a8,8,0,0,0-11.32,0l-96,96A8,8,0,0,0,88,128v32a8,8,0,0,0,8,8h32a8,8,0,0,0,5.66-2.34l96-96A8,8,0,0,0,229.66,58.34ZM124.69,152H104V131.31l64-64L188.69,88ZM200,76.69,179.31,56,192,43.31,212.69,64ZM224,128v80a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V48A16,16,0,0,1,48,32h80a8,8,0,0,1,0,16H48V208H208V128a8,8,0,0,1,16,0Z'),
+    checkC: svg('M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z'),
+    livros: svg('M231.65,194.55,198.46,36.75a16,16,0,0,0-19-12.39L132.65,34.42a16.08,16.08,0,0,0-12.3,19l33.19,157.8A16,16,0,0,0,169.16,224a16.25,16.25,0,0,0,3.38-.36l46.81-10.06A16.09,16.09,0,0,0,231.65,194.55ZM136,50.15c0-.06,0-.09,0-.09l46.8-10,3.33,15.87L139.33,66Zm6.62,31.47,46.82-10.05,3.34,15.9L146,97.53Zm6.64,31.57,46.82-10.06,13.3,63.24-46.82,10.06ZM216,197.94l-46.8,10-3.33-15.87L212.67,182,216,197.85C216,197.91,216,197.94,216,197.94ZM104,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V48A16,16,0,0,0,104,32ZM56,48h48V64H56Zm0,32h48v96H56Zm48,128H56V192h48v16Z'),
+    usuario: svg('M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z'),
+    lapisS: svg('M227.31,73.37,182.63,28.68a16,16,0,0,0-22.63,0L36.69,152A15.86,15.86,0,0,0,32,163.31V208a16,16,0,0,0,16,16H92.69A15.86,15.86,0,0,0,104,219.31L227.31,96a16,16,0,0,0,0-22.63ZM92.69,208H48V163.31l88-88L180.69,120ZM192,108.68,147.31,64l24-24L216,84.68Z'),
+    marcador: svg('M253.66,106.34a8,8,0,0,0-11.32,0L192,156.69,107.31,72l50.35-50.34a8,8,0,1,0-11.32-11.32L96,60.69A16,16,0,0,0,93.18,79.5L72,100.69a16,16,0,0,0,0,22.62L76.69,128,18.34,186.34a8,8,0,0,0,3.13,13.25l72,24A7.88,7.88,0,0,0,96,224a8,8,0,0,0,5.66-2.34L136,187.31l4.69,4.69a16,16,0,0,0,22.62,0l21.19-21.18A16,16,0,0,0,203.31,168l50.35-50.34A8,8,0,0,0,253.66,106.34ZM93.84,206.85l-55-18.35L88,139.31,124.69,176ZM152,180.69,83.31,112,104,91.31,172.69,160Z'),
     casa: svg('M219.31,108.68l-80-80a16,16,0,0,0-22.62,0l-80,80A15.87,15.87,0,0,0,32,120v96a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V160h32v56a8,8,0,0,0,8,8h64a8,8,0,0,0,8-8V120A15.87,15.87,0,0,0,219.31,108.68ZM208,208H160V152a8,8,0,0,0-8-8H104a8,8,0,0,0-8,8v56H48V120l80-80,80,80Z'),
     voltar: svg('M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z'),
     dir: svg('M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z'),
@@ -1258,6 +1481,8 @@ body.foco .toc { display: none; }
   let lidos = guarda.ler('lidos', {});
   let geralLido = guarda.ler('geral', {});
   let marcas = guarda.ler('marcas', {});
+  const comentarios = guarda.ler('comentarios', {});
+  const atividade = guarda.ler('atividade', {}); // {AAAA-MM-DD: {q: respostas, a: acertos}}
   let achados = [], achadoAtual = -1, titulosDoc = [], secaoAtualId = null, secaoAtual = '';
   let marcadoresPag = [], secoesGeral = [], pagAtual = 1, mapaAtivo = null;
 
@@ -1388,7 +1613,7 @@ body.foco .toc { display: none; }
     $$('[aria-current]', lateral).forEach(a => a.removeAttribute('aria-current'));
     btPeg.removeAttribute('aria-current');
     if (!rota) return;
-    if (rota.v === 'pegadinhas') btPeg.setAttribute('aria-current', 'page');
+    if (rota.v === 'pegadinhas' || rota.v === 'questoes') btPeg.setAttribute('aria-current', 'page');
     if (rota.v === 'doc') {
       const a = $(`[data-doc="${rota.doc}"]`, lateral);
       if (a) { a.setAttribute('aria-current', 'page'); rolarLateral(a); }
@@ -1461,17 +1686,32 @@ body.foco .toc { display: none; }
     ts.forEach(id => { const e = estadoLido(id); if (e === 'sim') sim++; else if (e === 'mudou') mudou++; });
     return { total: ts.length, sim, mudou, pct: ts.length ? Math.round(sim * 100 / ts.length) : 0 };
   }
+  // Resumo geral: geralLido[disciplina] = { r: [[de, até], ...], em, h } (páginas lidas). O formato
+  // antigo { pag } vale como [[1, pag]].
+  const rangesDe = g => (!g ? [] : Array.isArray(g.r) ? g.r : g.pag > 0 ? [[1, g.pag]] : []);
+  function normRanges(lista, N) {
+    const r = lista.map(x => [Math.max(1, Math.round(x[0])), Math.min(N, Math.round(x[1]))]).filter(x => x[1] >= x[0]).sort((a, b) => a[0] - b[0]);
+    const saida = [];
+    r.forEach(x => { const u = saida[saida.length - 1]; if (u && x[0] <= u[1] + 1) u[1] = Math.max(u[1], x[1]); else saida.push(x.slice()); });
+    return saida;
+  }
+  const rangesDePags = (lida, N) => { const r = []; for (let p = 1; p <= N; p++) if (lida(p)) { const u = r[r.length - 1]; if (u && u[1] === p - 1) u[1] = p; else r.push([p, p]); } return r; };
   function progressoGeral(m) {
     const g = geralLido[m.id], total = m.geral.paginas;
     if (!g || !total) return null;
-    const pag = Math.max(0, Math.min(g.pag, total));
-    return { pag, total, pct: Math.round(pag * 100 / total), em: g.em, mudou: g.h !== m.geral.hash };
+    const r = normRanges(rangesDe(g), total);
+    if (!r.length) return null;
+    const lidas = r.reduce((n, x) => n + x[1] - x[0] + 1, 0);
+    let prox = 1;
+    for (const x of r) { if (x[0] <= prox) prox = Math.max(prox, x[1] + 1); else break; }
+    return { r, lidas, pag: r[r.length - 1][1], prox: prox <= total ? prox : 0, total, pct: Math.round(lidas * 100 / total), em: g.em, mudou: g.h !== m.geral.hash, lida: p => r.some(x => p >= x[0] && p <= x[1]) };
   }
+  const txtPaginas = pg => (pg.r.length === 1 && pg.r[0][0] === 1 ? `Lido até a pág. ${pg.pag} de ${pg.total}` : `${plural(pg.lidas, 'página lida', 'páginas lidas')} de ${pg.total}`);
   const barraProg = (rot, pct, txt) => `<div class="bp"><span>${rot}</span><span class="bp-trilho" role="progressbar" aria-label="${esc(rot)}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pct}"><span style="width:${pct}%"></span></span><span class="bp-n">${txt}</span></div>`;
   const barraTopicos = m => { const pt = progressoTemas(m); return `<div id="ui-tp-prog" class="bp"><span>Tópicos lidos</span><span class="bp-trilho" role="progressbar" aria-label="Tópicos lidos" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${pt.pct}"><span style="width:${pt.pct}%"></span></span><span class="bp-n">${pt.sim}/${pt.total}</span></div>`; };
-  function definirGeral(mid, pag) {
-    const m = MAT[mid];
-    if (pag > 0) geralLido[mid] = { pag, total: m.geral.paginas, em: hojeISO(), h: m.geral.hash };
+  function definirGeral(mid, ranges) {
+    const m = MAT[mid], r = normRanges(ranges, m.geral.paginas);
+    if (r.length) geralLido[mid] = { r, em: hojeISO(), h: m.geral.hash };
     else delete geralLido[mid];
     guarda.gravar('geral', geralLido);
     aposProgressoGeral(m);
@@ -1480,10 +1720,9 @@ body.foco .toc { display: none; }
     atualizarContadores();
     if (!rota || rota.v !== 'mat' || rota.mat !== m.id) { if (rota && rota.v === 'inicio') renderInicio(); return; }
     if (rota.aba === 'geral') {
-      const pg = progressoGeral(m), ate = pg ? pg.pag : 0;
-      const box = $('#ui-g-prog'); if (box) box.innerHTML = progGeralHtml(m);
+      const pg = progressoGeral(m);
       marcadoresPag.forEach(mk => {
-        const p = +mk.dataset.pag, lida = p <= ate;
+        const p = +mk.dataset.pag, lida = !!(pg && pg.lida(p));
         mk.classList.toggle('lida', lida);
         mk.firstElementChild.innerHTML = (lida ? ICO.check : '') + 'Página ' + p;
       });
@@ -1520,7 +1759,7 @@ body.foco .toc { display: none; }
   }
   const textoProprio = E => textosProprios(E).map(n => n.nodeValue).join('');
   const ESTRUTURA = /^(TABLE|THEAD|TBODY|TFOOT|TR|UL|OL)$/;
-  function pintar(E, s, e, g, c) {
+  function pintar(E, s, e, g, c, cm) {
     let pos = 0;
     for (const T of textosProprios(E)) {
       const tam = T.nodeValue.length, ini = pos, fim = pos + tam;
@@ -1531,9 +1770,8 @@ body.foco .toc { display: none; }
       let alvo = T;
       if (a > 0) alvo = alvo.splitText(a);
       if (b - a < alvo.nodeValue.length) alvo.splitText(b - a);
-      const mk = document.createElement('mark');
-      mk.className = 'mt mt-' + c;
-      mk.dataset.g = g;
+      const mk = document.createElement(cm ? 'span' : 'mark');
+      if (cm) { mk.className = 'cm'; mk.dataset.cm = g; } else { mk.className = 'mt mt-' + c; mk.dataset.g = g; }
       alvo.parentNode.insertBefore(mk, alvo);
       mk.appendChild(alvo);
     }
@@ -1571,6 +1809,20 @@ body.foco .toc { display: none; }
       }
     });
     if (mudou) gravarMarcas();
+    let mudouC = false;
+    $$('[data-texto]', raiz).forEach(C => {
+      const lista = comentarios[C.dataset.texto];
+      if (!lista) return;
+      for (const x of lista) {
+        const r = localizar(C, x, parcial);
+        if (!r) continue;
+        const b = +r.E.dataset.b;
+        if (!parcial && (x.b !== b || x.s !== r.s)) { x.b = b; x.s = r.s; x.e = r.e; mudouC = true; }
+        pintar(r.E, r.s, r.e, x.g, 0, true);
+      }
+    });
+    marcarFimComentarios(raiz);
+    if (mudouC) gravarComentarios();
   }
   function segmentos(range) {
     const raiz = range.commonAncestorContainer;
@@ -1646,17 +1898,83 @@ body.foco .toc { display: none; }
     if (rota && rota.v === 'mat' && rota.aba === 'marcas') renderMarcas(MAT[rota.mat], true);
   }
 
+  // ---------- Comentários: uma nota presa a um trecho (mesma âncora das marcações) ----------
+  // comentarios = { idDoTexto: [{ g, b, s, e, t, pr, su, n, em, ed }] }: g liga os pedaços de um mesmo
+  // comentário, n é a nota, em a data de criação e ed a da última edição.
+  const gravarComentarios = () => guarda.gravar('comentarios', comentarios);
+  function gruposComentario(docId) {
+    const porG = new Map();
+    (comentarios[docId] || []).forEach(x => {
+      if (!porG.has(x.g)) porG.set(x.g, { g: x.g, n: x.n, em: x.em, ed: x.ed, doc: docId, partes: [] });
+      porG.get(x.g).partes.push(x);
+    });
+    return [...porG.values()].sort((a, b) => a.partes[0].b - b.partes[0].b || a.partes[0].s - b.partes[0].s);
+  }
+  function contarComentarios(m) {
+    const vistos = new Set();
+    temasDe(m).concat(m.sintetico).forEach(id => gruposComentario(id).forEach(gr => vistos.add(gr.g)));
+    return vistos.size;
+  }
+  const docsDoComentario = g => Object.keys(comentarios).filter(id => comentarios[id].some(x => x.g === g));
+  const infoComentario = g => { for (const id of docsDoComentario(g)) { const x = comentarios[id].find(y => y.g === g); if (x) return x; } return null; };
+  function marcarFimComentarios(raiz) {
+    const ultimo = new Map();
+    $$('.cm', raiz).forEach(el => { ultimo.set(el.dataset.cm, el); el.classList.remove('cm-fim'); });
+    ultimo.forEach(el => el.classList.add('cm-fim'));
+  }
+  function comentarRange(range, nota) {
+    if (!range || range.collapsed) return false;
+    const segs = segmentos(range);
+    if (!segs.length) return false;
+    const g = 'c' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), em = new Date().toISOString();
+    segs.forEach(x => { (comentarios[x.doc] = comentarios[x.doc] || []).push({ g, b: x.b, s: x.s, e: x.e, t: x.t, pr: x.pr, su: x.su, n: nota, em, ed: em }); });
+    gravarComentarios();
+    segs.forEach(x => pintar(x.E, x.s, x.e, g, 0, true));
+    marcarFimComentarios(vista);
+    try { getSelection().removeAllRanges(); } catch (e) { /* sem seleção */ }
+    atualizarContadores();
+    return true;
+  }
+  // Comentar um trecho que já está marcado: usa o mesmo trecho da marcação.
+  function comentarDeMarca(gMarca, nota) {
+    const g = 'c' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6), em = new Date().toISOString();
+    const feitos = [];
+    docsDoGrupo(gMarca).forEach(id => marcas[id].forEach(x => {
+      if (x.g !== gMarca) return;
+      (comentarios[id] = comentarios[id] || []).push({ g, b: x.b, s: x.s, e: x.e, t: x.t, pr: x.pr, su: x.su, n: nota, em, ed: em });
+      feitos.push(id);
+    }));
+    gravarComentarios();
+    $$('[data-texto]', vista).forEach(C => {
+      (comentarios[C.dataset.texto] || []).filter(x => x.g === g).forEach(x => { const r = localizar(C, x, true); if (r) pintar(r.E, r.s, r.e, g, 0, true); });
+    });
+    marcarFimComentarios(vista);
+    atualizarContadores();
+  }
+  function editarComentario(g, nota) {
+    const ed = new Date().toISOString();
+    docsDoComentario(g).forEach(id => comentarios[id].forEach(x => { if (x.g === g) { x.n = nota; x.ed = ed; } }));
+    gravarComentarios();
+    if (rota && rota.v === 'mat' && rota.aba === 'marcas') renderMarcas(MAT[rota.mat], true);
+  }
+  function removerComentario(g) {
+    docsDoComentario(g).forEach(id => {
+      comentarios[id] = comentarios[id].filter(x => x.g !== g);
+      if (!comentarios[id].length) delete comentarios[id];
+    });
+    gravarComentarios();
+    $$(`.cm[data-cm="${g}"]`).forEach(desembrulhar);
+    marcarFimComentarios(vista);
+    atualizarContadores();
+    if (rota && rota.v === 'mat' && rota.aba === 'marcas') renderMarcas(MAT[rota.mat], true);
+  }
+
   // ---------- Marca-texto: paleta e caneta ----------
-  let paletaModo = null, paletaGrupo = null, rangeSalvo = null, caneta = 0, arrastando = false, tSel = 0;
-  function mostrarPaleta(rect, modo, g) {
-    paletaModo = modo;
-    paletaGrupo = g || null;
-    const info = modo === 'marca' ? infoGrupo(g) : null;
-    $('[data-pal="remover"]', paleta).hidden = modo !== 'marca';
-    $('#ui-pal-info').hidden = !info;
-    $('#ui-pal-info').textContent = info ? `${CORES[info.c]} · marcado em ${dataBR(info.em)}. Trocar a cor:` : '';
-    $$('[data-cor]', paleta).forEach(b => b.setAttribute('aria-pressed', String(info ? +b.dataset.cor === info.c : +b.dataset.cor === caneta)));
-    paleta.hidden = false;
+  let paletaModo = null, paletaGrupo = null, paletaVista = 'menu', paletaRect = null, paletaNotaG = null, paletaNotaMarca = null, rangeSalvo = null, caneta = 0, arrastando = false, tSel = 0;
+  const palVista = v => { paletaVista = v; $$('[data-vista]', paleta).forEach(x => { x.hidden = x.dataset.vista !== v; }); };
+  function posicionarPaleta() {
+    const rect = paletaRect;
+    if (!rect) return;
     const pw = paleta.offsetWidth, ph = paleta.offsetHeight, vw = document.documentElement.clientWidth, vh = window.innerHeight;
     let x = rect.left + rect.width / 2 - pw / 2;
     x = Math.max(8, Math.min(vw - pw - 8, x));
@@ -1666,7 +1984,48 @@ body.foco .toc { display: none; }
     paleta.style.left = x + 'px';
     paleta.style.top = y + 'px';
   }
-  function esconderPaleta() { paleta.hidden = true; paletaModo = null; paletaGrupo = null; }
+  // modo: 'selecao' (trecho selecionado: Marca-texto ou Comentar), 'marca' (clicou numa marcação) ou
+  // 'comentario' (clicou num texto comentado). "manter" só reposiciona, sem voltar ao menu.
+  function mostrarPaleta(rect, modo, g, manter) {
+    if (manter && !paleta.hidden && paletaModo === modo) { paletaRect = rect; posicionarPaleta(); return; }
+    paletaModo = modo;
+    paletaGrupo = g || null;
+    paletaRect = rect;
+    paletaNotaG = null;
+    paletaNotaMarca = null;
+    const info = modo === 'marca' ? infoGrupo(g) : null;
+    $('[data-pal="remover"]', paleta).hidden = modo !== 'marca';
+    $('[data-pal="comentar-marca"]', paleta).hidden = modo !== 'marca';
+    $('#ui-pal-info').hidden = !info;
+    $('#ui-pal-info').textContent = info ? `${CORES[info.c]} · marcado em ${dataBR(info.em)}. Trocar a cor:` : '';
+    $$('[data-cor]', paleta).forEach(b => b.setAttribute('aria-pressed', String(info ? +b.dataset.cor === info.c : +b.dataset.cor === caneta)));
+    if (modo === 'comentario') {
+      const x = infoComentario(g);
+      $('#ui-pal-ver-txt').textContent = x ? x.n : '';
+      $('#ui-pal-ver-meta').textContent = x ? `Comentado em ${dataBR(x.ed || x.em)}` : '';
+      palVista('ver');
+    } else palVista(modo === 'selecao' ? 'menu' : 'cores');
+    paleta.hidden = false;
+    posicionarPaleta();
+  }
+  function esconderPaleta() { paleta.hidden = true; paletaModo = null; paletaGrupo = null; paletaNotaG = null; paletaNotaMarca = null; }
+  function abrirNota(g, deMarca) {
+    paletaNotaG = g || null;
+    paletaNotaMarca = deMarca || null;
+    const x = g ? infoComentario(g) : null, ta = $('#ui-pal-nota');
+    ta.value = x ? x.n : '';
+    palVista('nota');
+    posicionarPaleta();
+    ta.focus({ preventScroll: true });
+  }
+  function salvarNota() {
+    const ta = $('#ui-pal-nota'), txt = ta.value.trim();
+    if (!txt) { ta.focus(); return; }
+    if (paletaNotaG) editarComentario(paletaNotaG, txt);
+    else if (paletaNotaMarca) comentarDeMarca(paletaNotaMarca, txt);
+    else if (!comentarRange(selecaoNaLeitura() || rangeSalvo, txt)) { esconderPaleta(); return; }
+    esconderPaleta();
+  }
   function selecaoNaLeitura() {
     const sel = getSelection();
     if (!sel || !sel.rangeCount || sel.isCollapsed || !sel.toString().trim()) return null;
@@ -1675,12 +2034,12 @@ body.foco .toc { display: none; }
   }
   function avaliarSelecao(comMouse) {
     const r = selecaoNaLeitura();
-    if (!r) { if (paletaModo === 'selecao') esconderPaleta(); return; }
+    if (!r) { if (paletaModo === 'selecao' && paletaVista !== 'nota') esconderPaleta(); return; }
     rangeSalvo = r.cloneRange();
     if (caneta && comMouse) { marcarRange(rangeSalvo, caneta); return; }
     mostrarPaleta(r.getBoundingClientRect(), 'selecao');
   }
-  document.addEventListener('mousedown', e => { if (paleta.contains(e.target)) e.preventDefault(); });
+  document.addEventListener('mousedown', e => { if (paleta.contains(e.target) && !e.target.closest('textarea')) e.preventDefault(); });
   document.addEventListener('pointerdown', e => {
     if (paleta.contains(e.target)) return;
     arrastando = e.pointerType === 'mouse' && !!e.target.closest('.leitura');
@@ -1706,8 +2065,19 @@ body.foco .toc { display: none; }
       const c = +b.dataset.cor;
       if (paletaModo === 'marca') { recolorir(paletaGrupo, c); esconderPaleta(); }
       else marcarRange(selecaoNaLeitura() || rangeSalvo, c);
-    } else if (b.dataset.pal === 'remover') { removerGrupo(paletaGrupo); esconderPaleta(); }
+      return;
+    }
+    const a = b.dataset.pal;
+    if (a === 'marca') { palVista('cores'); posicionarPaleta(); }
+    else if (a === 'comentar') abrirNota(null, null);
+    else if (a === 'comentar-marca') abrirNota(null, paletaGrupo);
+    else if (a === 'remover') { removerGrupo(paletaGrupo); esconderPaleta(); }
+    else if (a === 'nota-salvar') salvarNota();
+    else if (a === 'nota-cancelar') esconderPaleta();
+    else if (a === 'ver-editar') abrirNota(paletaGrupo, null);
+    else if (a === 'ver-excluir') { removerComentario(paletaGrupo); esconderPaleta(); }
   });
+  $('#ui-pal-nota').addEventListener('keydown', e => { if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); salvarNota(); } });
   function abrirCaneta(abrir) {
     const cn = $('#ui-caneta');
     cn.classList.toggle('aberta', abrir);
@@ -1734,13 +2104,53 @@ body.foco .toc { display: none; }
     dockGeral.hidden = modo !== 'geral';
   }
 
+  // ---------- Dicas: ícone ⓘ com balão ----------
+  // Um balão só (popover, que fica acima dos diálogos), posicionado junto do ícone: aparece com o mouse,
+  // com o foco do teclado e com o toque.
+  const dica = t => `<button class="i-info" type="button" data-dica="${esc(t)}" aria-label="Mais informações">${ICO.info}</button>`;
+  const balao = $('#ui-balao');
+  let dicaAtual = null;
+  function mostrarDica(b) {
+    if (dicaAtual === b) return;
+    esconderDica();
+    dicaAtual = b;
+    balao.textContent = b.dataset.dica;
+    try { balao.showPopover(); } catch (e) { balao.style.display = 'block'; }
+    const r = b.getBoundingClientRect(), bw = balao.offsetWidth, bh = balao.offsetHeight, vw = document.documentElement.clientWidth;
+    let y = r.bottom + 8;
+    if (y + bh > window.innerHeight - 8) y = Math.max(8, r.top - bh - 8);
+    balao.style.left = Math.max(8, Math.min(vw - bw - 8, r.left + r.width / 2 - bw / 2)) + 'px';
+    balao.style.top = y + 'px';
+    b.setAttribute('aria-describedby', 'ui-balao');
+  }
+  function esconderDica() {
+    if (!dicaAtual) return;
+    dicaAtual.removeAttribute('aria-describedby');
+    dicaAtual = null;
+    try { balao.hidePopover(); } catch (e) { balao.style.display = ''; }
+  }
+  $$('.i-info:empty').forEach(b => { b.innerHTML = ICO.info; });
+  $$('[data-ico]').forEach(el => { el.outerHTML = ICO[el.dataset.ico]; });
+  document.addEventListener('pointerover', e => { if (e.pointerType === 'touch') return; const b = e.target.closest && e.target.closest('.i-info'); if (b) mostrarDica(b); });
+  document.addEventListener('pointerout', e => { if (e.pointerType === 'touch') return; const b = e.target.closest && e.target.closest('.i-info'); if (b && !b.contains(e.relatedTarget) && document.activeElement !== b) esconderDica(); });
+  document.addEventListener('focusin', e => { const b = e.target.closest && e.target.closest('.i-info'); if (b) mostrarDica(b); });
+  document.addEventListener('focusout', e => { if (e.target.closest && e.target.closest('.i-info')) esconderDica(); });
+  document.addEventListener('click', e => {
+    const b = e.target.closest && e.target.closest('.i-info');
+    if (b) { e.preventDefault(); e.stopPropagation(); if (dicaAtual === b && e.detail !== 0 && matchMedia('(hover: none)').matches) esconderDica(); else mostrarDica(b); return; }
+    esconderDica();
+  }, true);
+  window.addEventListener('scroll', esconderDica, { passive: true });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') esconderDica(); });
+
   // ---------- Diálogos ----------
   let acoesDlg = [];
-  function abrirDialogo({ titulo, corpo, botoes, aoAbrir }) {
+  function abrirDialogo({ titulo, corpo, botoes, aoAbrir, classe, x }) {
     acoesDlg = botoes.map(b => b.acao || null);
+    dlg.className = 'dlg' + (classe ? ' ' + classe : '');
     const bt = (b, i) => `<button type="${b.principal ? 'submit' : 'button'}" class="dlg-bt${b.principal ? ' principal' : ''}" data-dlg="${i}">${b.rot}</button>`;
     const esq = botoes.map((b, i) => (b.lado === 'esq' ? bt(b, i) : '')).join(''), dir = botoes.map((b, i) => (b.lado !== 'esq' ? bt(b, i) : '')).join('');
-    dlg.innerHTML = `<form class="dlg-form" method="dialog" novalidate><h2 class="dlg-tit" id="ui-dlg-tit">${titulo}</h2><div class="dlg-corpo">${corpo}</div>
+    dlg.innerHTML = `<form class="dlg-form" method="dialog" novalidate>${x ? `<button type="button" class="bt-icone dlg-x" data-dlg-x aria-label="Fechar">${ICO.fechar}</button>` : ''}<h2 class="dlg-tit" id="ui-dlg-tit">${titulo}</h2><div class="dlg-corpo">${corpo}</div>
       <p class="dlg-erro" id="ui-dlg-erro" role="alert"></p><p class="dlg-ok" id="ui-dlg-ok" role="status"></p>
       <div class="dlg-bts"><div class="dlg-esq">${esq}</div><div class="dlg-dir">${dir}</div></div></form>`;
     try { dlg.showModal(); } catch (e) { dlg.setAttribute('open', ''); }
@@ -1748,7 +2158,7 @@ body.foco .toc { display: none; }
   }
   function fecharDialogo() { if (dlg.open) { try { dlg.close(); } catch (e) { dlg.removeAttribute('open'); } } }
   dlg.addEventListener('click', e => {
-    if (e.target === dlg) { fecharDialogo(); return; }
+    if (e.target === dlg || e.target.closest('[data-dlg-x]')) { fecharDialogo(); return; }
     const b = e.target.closest('[data-dlg]');
     if (!b) return;
     e.preventDefault();
@@ -1757,26 +2167,512 @@ body.foco .toc { display: none; }
     fecharDialogo();
   });
   dlg.addEventListener('submit', e => { e.preventDefault(); const b = $('.dlg-bt.principal', dlg); if (b) b.click(); });
+  // Marcar o que foi lido no resumo geral: por páginas (de, até, ou página a página) ou por tópicos.
+  // Marcar um tópico aqui também marca o "Lido" dele em Por tópico, e desmarcar tira as duas marcas.
   function dialogoLidoGeral(mid) {
-    const m = MAT[mid], N = m.geral.paginas, g = geralLido[mid];
+    const m = MAT[mid], N = m.geral.paginas, pg0 = progressoGeral(m);
     const naVista = rota && rota.v === 'mat' && rota.aba === 'geral' && rota.mat === mid;
-    const sugestao = naVista ? pagAtual : g ? Math.min(g.pag, N) : 1;
+    const trab = new Array(N + 1).fill(false); // páginas lidas, na cópia de trabalho
+    if (pg0) for (let p = 1; p <= N; p++) trab[p] = pg0.lida(p);
+    const de0 = pg0 && pg0.prox ? pg0.prox : 1;
+    const est = { modo: 'pag', de: de0, ate: Math.max(de0, naVista && pagAtual ? Math.min(pagAtual, N) : de0), mexeu: false, ultima: 0 };
+    const mudancas = {}; // tema -> true (marcou) / false (desmarcou)
+    const temas = temasDe(m);
+    const paginasDe = id => { const [a, b] = docs[id].pag; return [Math.max(1, a), Math.min(N, b)]; };
+    const temaEm = (arr, id) => { const [a, b] = paginasDe(id); for (let p = a; p <= b; p++) if (!arr[p]) return false; return true; };
+    const temaMarcado = id => temaEm(trab, id);
+    // Só os tópicos cuja situação mudou com a ação entram em "mudancas" (os outros mantêm o Lido que já têm).
+    const alterar = f => { const antes = temas.map(temaMarcado); f(); temas.forEach((id, i) => { const agora = temaMarcado(id); if (agora !== antes[i]) mudancas[id] = agora; }); };
+    const faixaOk = () => Number.isInteger(est.de) && Number.isInteger(est.ate) && est.de >= 1 && est.ate <= N && est.de <= est.ate;
+    const selecionada = p => est.modo === 'pag' && !est.mexeu && faixaOk() && p >= est.de && p <= est.ate;
+    const efetivas = () => { const t = trab.slice(); if (est.modo === 'pag' && !est.mexeu && faixaOk()) for (let p = est.de; p <= est.ate; p++) t[p] = true; return t; };
+    const fixarFaixa = () => { if (!est.mexeu && faixaOk()) alterar(() => { efetivas().forEach((v, i) => { trab[i] = v; }); }); est.mexeu = true; };
+    function desenhar(d) {
+      $$('[data-aba-lido]', d).forEach(b => b.setAttribute('aria-pressed', String(b.dataset.abaLido === est.modo)));
+      const lidas = trab.reduce((n, v) => n + (v ? 1 : 0), 0), r = rangesDePags(p => trab[p], N);
+      const corpo = $('#ui-lido-corpo', d);
+      if (est.modo === 'pag') {
+        corpo.innerHTML = `<div class="lido-faixa"><label>De<input id="ui-lido-de" type="number" inputmode="numeric" min="1" max="${N}" value="${Number.isInteger(est.de) ? est.de : ''}"></label><label>Até<input id="ui-lido-ate" type="number" inputmode="numeric" min="1" max="${N}" value="${Number.isInteger(est.ate) ? est.ate : ''}"></label><span class="lido-de">de ${N}</span></div>
+          <div class="lido-grade" role="group" aria-label="Páginas">${Array.from({ length: N }, (_, i) => { const p = i + 1; return `<button type="button" class="lido-pg${trab[p] ? ' on' : ''}${selecionada(p) ? ' sel' : ''}" data-pg="${p}" aria-pressed="${trab[p] || selecionada(p)}">${p}</button>`; }).join('')}</div>
+          <div class="lido-chips">${r.length ? r.map(x => `<span class="lido-chip">${x[0] === x[1] ? 'pág. ' + x[0] : `págs. ${x[0]}–${x[1]}`}<button type="button" data-rem-r="${x[0]}-${x[1]}" aria-label="Remover ${x[0]} a ${x[1]}">${ICO.fechar}</button></span>`).join('') : '<span class="lido-nada">Nenhuma página lida</span>'}</div>`;
+      } else {
+        let h = '';
+        for (const a of m.assuntos) {
+          h += `<div class="qt-ass"><p class="qt-ass-t">${a.num ? esc(a.num) + ' · ' : ''}${esc(a.nome || 'Tópicos')}</p>`;
+          h += a.temas.map(id => `<label class="qt-tema"><input type="checkbox" data-lido-tema="${id}"${temaMarcado(id) ? ' checked' : ''}><span>${esc(docs[id].titulo)}</span><span class="n">${esc(faixaPag(docs[id].pag))}</span></label>`).join('');
+          h += '</div>';
+        }
+        corpo.innerHTML = `<div class="lido-temas">${h}</div>`;
+      }
+      $('#ui-lido-res', d).textContent = `${plural(lidas, 'página lida', 'páginas lidas')} de ${N}`;
+    }
     abrirDialogo({
-      titulo: 'Lido até qual página?',
-      corpo: `<p class="dlg-sub">Resumo geral de ${esc(m.nome)} · ${plural(N, 'página', 'páginas')}</p>
-        <label class="dlg-campo"><span>Página</span><input id="ui-dlg-pag" type="number" inputmode="numeric" min="1" max="${N}" value="${sugestao}"><span>de ${N}</span></label>
-        <p class="dlg-dica">${naVista ? `Você está na pág. ${pagAtual}. ` : ''}${g ? `Marcação atual: pág. ${Math.min(g.pag, N)}, em ${dataBR(g.em)}.` : 'Nenhuma leitura marcada ainda.'}</p>`,
+      titulo: 'Marcar como lido',
+      classe: 'dlg-lido',
+      x: true,
+      corpo: `<p class="dlg-sub">${esc(m.nome)}</p>
+        <div class="seg" role="group" aria-label="Como marcar"><button type="button" data-aba-lido="pag" aria-pressed="true">Páginas</button><button type="button" data-aba-lido="top" aria-pressed="false">Tópicos</button></div>
+        <div id="ui-lido-corpo"></div><p class="lido-res" id="ui-lido-res" aria-live="polite"></p>`,
       botoes: [
-        ...(g ? [{ rot: 'Zerar', lado: 'esq', acao: () => definirGeral(mid, 0) }] : []),
-        { rot: 'Li tudo', lado: 'esq', acao: () => definirGeral(mid, N) },
-        { rot: 'Cancelar' },
+        { rot: 'Li tudo', lado: 'esq', acao: d => { alterar(() => { trab.fill(true); trab[0] = false; }); est.mexeu = true; desenhar(d); return false; } },
+        { rot: 'Zerar', lado: 'esq', acao: d => { alterar(() => { trab.fill(false); }); est.mexeu = true; desenhar(d); return false; } },
         { rot: 'Salvar', principal: true, acao: d => {
-          const v = Number($('#ui-dlg-pag', d).value);
-          if (!Number.isInteger(v) || v < 1 || v > N) { $('#ui-dlg-erro', d).textContent = `Digite um número de 1 a ${N}.`; return false; }
-          definirGeral(mid, v);
+          if (est.modo === 'pag' && !est.mexeu && !faixaOk() && !(est.de === de0 && est.ate === de0 && pg0 && !pg0.prox)) { $('#ui-dlg-erro', d).textContent = `Digite páginas de 1 a ${N}, com o início antes do fim.`; return false; }
+          const t = efetivas();
+          if (est.modo === 'pag' && !est.mexeu && faixaOk()) temas.forEach(id => { if (temaEm(t, id) && !temaMarcado(id)) mudancas[id] = true; });
+          definirGeral(mid, rangesDePags(p => t[p], N));
+          let lidosMudou = false;
+          Object.entries(mudancas).forEach(([id, v]) => {
+            if (v && estadoLido(id) !== 'sim') { lidos[id] = { em: hojeISO(), h: docs[id].hash }; lidosMudou = true; }
+            else if (!v && lidos[id]) { delete lidos[id]; lidosMudou = true; }
+          });
+          if (lidosMudou) {
+            guarda.gravar('lidos', lidos);
+            renderLateral(); marcarAtivo(); atualizarContadores();
+            if (rota && rota.v === 'mat' && rota.aba === 'topicos') { const y = window.scrollY; renderTopicos(m); window.scrollTo(0, y); }
+          }
         } }
       ],
-      aoAbrir: d => { const i = $('#ui-dlg-pag', d); i.focus(); i.select(); }
+      aoAbrir: d => {
+        desenhar(d);
+        d.addEventListener('click', e => {
+          const ab = e.target.closest('[data-aba-lido]');
+          if (ab) { fixarFaixa(); est.modo = ab.dataset.abaLido; desenhar(d); return; }
+          const c = e.target.closest('[data-pg]');
+          if (c) {
+            const p = +c.dataset.pg;
+            fixarFaixa();
+            alterar(() => {
+              if (e.shiftKey && est.ultima) { const a = Math.min(est.ultima, p), b = Math.max(est.ultima, p), v = !trab[p]; for (let i = a; i <= b; i++) trab[i] = v; }
+              else trab[p] = !trab[p];
+            });
+            est.ultima = p;
+            desenhar(d);
+            return;
+          }
+          const rm = e.target.closest('[data-rem-r]');
+          if (rm) {
+            fixarFaixa();
+            const [a, b] = rm.dataset.remR.split('-').map(Number);
+            alterar(() => { for (let i = a; i <= b; i++) trab[i] = false; });
+            desenhar(d);
+          }
+        });
+        d.addEventListener('input', e => {
+          if (e.target.id === 'ui-lido-de' || e.target.id === 'ui-lido-ate') {
+            if (e.target.id === 'ui-lido-de') est.de = parseInt(e.target.value, 10); else est.ate = parseInt(e.target.value, 10);
+            est.mexeu = false;
+            $$('.lido-pg', d).forEach(b => { const on = trab[+b.dataset.pg], sel = selecionada(+b.dataset.pg); b.classList.toggle('sel', sel); b.setAttribute('aria-pressed', String(on || sel)); });
+            return;
+          }
+          const ck = e.target.closest('[data-lido-tema]');
+          if (ck) {
+            const id = ck.dataset.lidoTema, [a, b] = paginasDe(id);
+            alterar(() => {
+              if (ck.checked) { for (let p = a; p <= b; p++) trab[p] = true; }
+              else {
+                const outros = new Set(); // páginas que outro tópico marcado ainda cobre
+                temas.forEach(o => { if (o !== id && temaMarcado(o)) { const [x, y] = paginasDe(o); for (let p = x; p <= y; p++) outros.add(p); } });
+                for (let p = a; p <= b; p++) if (!outros.has(p)) trab[p] = false;
+              }
+            });
+            mudancas[id] = ck.checked;
+            est.mexeu = true;
+            desenhar(d);
+          }
+        });
+        const i = $('#ui-lido-de', d); if (i) { i.focus(); i.select(); }
+      }
+    });
+  }
+
+  // ---------- Baixar o conteúdo (DOCX e PDF) ----------
+  // O mesmo documento (capa, disciplinas, tópicos, sintético, mapas, questões e comentários) serve aos
+  // dois formatos: o PDF sai da impressão do navegador ("Salvar como PDF") e o DOCX é escrito aqui
+  // mesmo, sem biblioteca: HTML do texto -> WordprocessingML, dentro de um ZIP sem compressão.
+  const MARCA_COR = { 1: ['6635A5', 'FFFFFF'], 2: ['00F22E', null], 3: ['FF6A01', null], 4: ['FDFD02', null] };
+  const CONTEUDOS = [['resumos', 'Resumos dos tópicos', true], ['sintetico', 'Resumo sintético', false], ['mapas', 'Mapas mentais', false], ['questoes', 'Questões, com gabarito e comentário', false], ['marcas', 'Minhas marcações e comentários', false]];
+  const noIframe = () => { try { return window.self !== window.top; } catch (e) { return true; } };
+  function rebaixar(corpo, n) {
+    $$('h1, h2, h3, h4, h5', corpo).forEach(h => {
+      const novo = document.createElement('h' + Math.min(6, +h.tagName[1] + n));
+      novo.className = h.className;
+      while (h.firstChild) novo.appendChild(h.firstChild);
+      h.replaceWith(novo);
+    });
+  }
+  function ulMapa(nos) { return `<ul>${nos.map(n => `<li>${esc(textoPuro(n.t))}${n.c && n.c.length ? ulMapa(n.c) : ''}</li>`).join('')}</ul>`; }
+  function montarDocumento(op) {
+    const raiz = document.createElement('div');
+    raiz.className = 'imp-doc';
+    const mats = D.materias.filter(m => op.mats.includes(m.id));
+    const nomes = mats.map(m => m.nome).join(' · ');
+    raiz.insertAdjacentHTML('beforeend', `<section class="imp-capa"><p class="imp-marca">Missão Fiscal</p><h1 class="imp-titulo">${esc(mats.length === 1 ? mats[0].nome : 'Conteúdo de estudo')}</h1>${mats.length > 1 ? `<p class="imp-sub">${esc(nomes)}</p>` : ''}<p class="imp-sub">${dataBR(hojeISO())}</p></section>`);
+    const corpo = (id, n, extra) => { const c = document.createElement('div'); c.className = 'imp-corpo doc-corpo'; c.dataset.texto = id; c.innerHTML = docs[id].partes.join('\n'); rebaixar(c, n); if (extra) c.dataset.extra = extra; return c; };
+    for (const m of mats) {
+      raiz.insertAdjacentHTML('beforeend', `<h1 class="imp-h1">${esc(m.nome)}</h1>`);
+      if (op.resumos) {
+        for (const id of temasDe(m)) {
+          const d = docs[id], sec = document.createElement('section');
+          sec.className = 'imp-tema';
+          sec.innerHTML = `<h2 class="imp-h2">${esc(d.titulo)}</h2>${d.assunto ? `<p class="imp-meta">${esc(d.assunto)}</p>` : ''}`;
+          sec.appendChild(corpo(id, 1));
+          raiz.appendChild(sec);
+        }
+      }
+      if (op.sintetico && m.sintetico.length) {
+        const sec = document.createElement('section');
+        sec.className = 'imp-tema';
+        sec.innerHTML = '<h2 class="imp-h2">Resumo sintético</h2>';
+        m.sintetico.forEach(id => { sec.insertAdjacentHTML('beforeend', `<h3 class="imp-h3">${esc(docs[id].rotulo)}</h3>`); sec.appendChild(corpo(id, 2)); });
+        raiz.appendChild(sec);
+      }
+      if (op.mapas) {
+        const ids = temasDe(m).filter(id => docs[id].mapa && docs[id].mapa.length);
+        if (ids.length) raiz.insertAdjacentHTML('beforeend', `<section class="imp-tema"><h2 class="imp-h2">Mapas mentais</h2>${ids.map(id => `<h3 class="imp-h3">${esc(docs[id].titulo)}</h3>${ulMapa(docs[id].mapa)}`).join('')}</section>`);
+      }
+      if (op.questoes) {
+        const qs = questoesDe(m);
+        if (qs.length) {
+          let h = '<section class="imp-tema"><h2 class="imp-h2">Questões</h2>';
+          for (const id of temasDe(m)) {
+            const lista = qs.filter(q => q.t === id);
+            if (!lista.length) continue;
+            h += `<h3 class="imp-h3">${esc(docs[id].titulo)}</h3>` + lista.map(q => `<div class="imp-q"><p><strong>${esc(numQ(q.id))} · ${DIF[q.d]}</strong></p><div>${q.e}</div><p>Gabarito: <strong>${q.g === 'C' ? 'CERTO' : 'ERRADO'}</strong></p><div class="imp-com">${q.c}</div></div>`).join('');
+          }
+          raiz.insertAdjacentHTML('beforeend', h + '</section>');
+        }
+      }
+      if (op.marcas) {
+        let h = '';
+        for (const id of temasDe(m).concat(m.sintetico)) {
+          const grs = gruposComentario(id);
+          if (!grs.length) continue;
+          h += `<h3 class="imp-h3">${esc(docs[id].tipo === 'sint' ? 'Resumo sintético · ' + docs[id].titulo : docs[id].titulo)}</h3><ul>${grs.map(gr => `<li><em>${esc(gr.partes.map(x => x.t).join(' … '))}</em> — ${esc(gr.n)}</li>`).join('')}</ul>`;
+        }
+        if (h) raiz.insertAdjacentHTML('beforeend', `<section class="imp-tema"><h2 class="imp-h2">Meus comentários</h2>${h}</section>`);
+      }
+    }
+    if (op.marcas) pintarMarcas(raiz);
+    return raiz;
+  }
+
+  // -- ZIP (sem compressão)
+  let tabelaCrc = null;
+  function crc32(u8) {
+    if (!tabelaCrc) { tabelaCrc = new Uint32Array(256); for (let n = 0; n < 256; n++) { let c = n; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; tabelaCrc[n] = c >>> 0; } }
+    let c = 0xFFFFFFFF;
+    for (let i = 0; i < u8.length; i++) c = tabelaCrc[(c ^ u8[i]) & 0xFF] ^ (c >>> 8);
+    return (c ^ 0xFFFFFFFF) >>> 0;
+  }
+  function criarZip(arquivos) {
+    const enc = new TextEncoder(), partes = [], central = [];
+    const agora = new Date(), hora = (agora.getHours() << 11) | (agora.getMinutes() << 5) | (agora.getSeconds() >> 1), data = ((agora.getFullYear() - 1980) << 9) | ((agora.getMonth() + 1) << 5) | agora.getDate();
+    let pos = 0;
+    arquivos.forEach(a => {
+      const nome = enc.encode(a.nome), dados = typeof a.dados === 'string' ? enc.encode(a.dados) : a.dados, crc = crc32(dados);
+      const lh = new DataView(new ArrayBuffer(30));
+      lh.setUint32(0, 0x04034b50, true); lh.setUint16(4, 20, true); lh.setUint16(6, 0x0800, true); lh.setUint16(8, 0, true);
+      lh.setUint16(10, hora, true); lh.setUint16(12, data, true); lh.setUint32(14, crc, true); lh.setUint32(18, dados.length, true); lh.setUint32(22, dados.length, true);
+      lh.setUint16(26, nome.length, true); lh.setUint16(28, 0, true);
+      const ch = new DataView(new ArrayBuffer(46));
+      ch.setUint32(0, 0x02014b50, true); ch.setUint16(4, 20, true); ch.setUint16(6, 20, true); ch.setUint16(8, 0x0800, true); ch.setUint16(10, 0, true);
+      ch.setUint16(12, hora, true); ch.setUint16(14, data, true); ch.setUint32(16, crc, true); ch.setUint32(20, dados.length, true); ch.setUint32(24, dados.length, true);
+      ch.setUint16(28, nome.length, true); ch.setUint32(42, pos, true);
+      partes.push(lh, nome, dados);
+      central.push(ch, nome);
+      pos += 30 + nome.length + dados.length;
+    });
+    const tamCentral = central.reduce((n, p) => n + (p.byteLength != null ? p.byteLength : p.length), 0);
+    const fim = new DataView(new ArrayBuffer(22));
+    fim.setUint32(0, 0x06054b50, true); fim.setUint16(8, arquivos.length, true); fim.setUint16(10, arquivos.length, true); fim.setUint32(12, tamCentral, true); fim.setUint32(16, pos, true);
+    return new Blob([...partes, ...central, fim], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+  }
+
+  // -- HTML -> WordprocessingML
+  const xmlEsc = t => String(t).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const LARG_UTIL = 9638, EMU_CM = 360000, LARG_IMG_MAX = 16 * EMU_CM;
+  const imgCache = new Map();
+  async function infoImagem(src) {
+    if (imgCache.has(src)) return imgCache.get(src);
+    let info = null;
+    const mm = /^data:image\/(png|jpe?g|gif|webp);base64,(.+)$/s.exec(src || '');
+    if (mm) {
+      try {
+        const img = new Image();
+        img.src = src;
+        await img.decode();
+        let tipo = mm[1] === 'jpg' ? 'jpeg' : mm[1];
+        const bin = atob(mm[2]);
+        let bytes = Uint8Array.from(bin, c => c.charCodeAt(0));
+        if (tipo === 'webp') {
+          const cv = document.createElement('canvas');
+          cv.width = img.naturalWidth; cv.height = img.naturalHeight;
+          cv.getContext('2d').drawImage(img, 0, 0);
+          const blob = await new Promise(ok => cv.toBlob(ok, 'image/png'));
+          bytes = new Uint8Array(await blob.arrayBuffer());
+          tipo = 'png';
+        }
+        info = { tipo, bytes, w: img.naturalWidth || 400, h: img.naturalHeight || 300 };
+      } catch (e) { info = null; }
+    }
+    imgCache.set(src, info);
+    return info;
+  }
+  function docxDe(raiz, imagens) {
+    const midias = [], numeros = [];
+    let nImg = 0, nDoc = 1;
+    const estilo = (el, p) => { const v = el.style && el.style[p]; return v || ''; };
+    function run(texto, f) {
+      const rpr = (f.code ? '<w:rFonts w:ascii="Consolas" w:hAnsi="Consolas" w:cs="Consolas"/>' : '') + (f.b ? '<w:b/>' : '') + (f.i ? '<w:i/>' : '')
+        + (f.cor ? `<w:color w:val="${f.cor}"/>` : '') + (f.u ? `<w:u w:val="${f.u}"/>` : '') + (f.shd ? `<w:shd w:val="clear" w:color="auto" w:fill="${f.shd}"/>` : '')
+        + (f.sup ? '<w:vertAlign w:val="superscript"/>' : f.sub ? '<w:vertAlign w:val="subscript"/>' : '');
+      return `<w:r>${rpr ? `<w:rPr>${rpr}</w:rPr>` : ''}<w:t xml:space="preserve">${xmlEsc(texto)}</w:t></w:r>`;
+    }
+    function imagemXml(el, larguraPct) {
+      const info = imagens.get(el.getAttribute('src'));
+      if (!info) return '';
+      const id = ++nImg, rid = 'rIdImg' + id, nome = `imagem${id}.${info.tipo === 'jpeg' ? 'jpg' : info.tipo}`;
+      midias.push({ rid, nome, bytes: info.bytes, tipo: info.tipo });
+      let cx = Math.round(info.w * 9525), cy = Math.round(info.h * 9525);
+      const w = larguraPct ? Math.round(LARG_IMG_MAX * larguraPct / 100) : Math.min(cx, LARG_IMG_MAX);
+      cy = Math.round(cy * w / cx); cx = w;
+      if (cx > LARG_IMG_MAX) { cy = Math.round(cy * LARG_IMG_MAX / cx); cx = LARG_IMG_MAX; }
+      return `<w:r><w:drawing><wp:inline distT="0" distB="0" distL="0" distR="0"><wp:extent cx="${cx}" cy="${cy}"/><wp:docPr id="${id}" name="Imagem ${id}"/><wp:cNvGraphicFramePr><a:graphicFrameLocks noChangeAspect="1"/></wp:cNvGraphicFramePr><a:graphic><a:graphicData uri="http://schemas.openxmlformats.org/drawingml/2006/picture"><pic:pic><pic:nvPicPr><pic:cNvPr id="${id}" name="${nome}"/><pic:cNvPicPr/></pic:nvPicPr><pic:blipFill><a:blip r:embed="${rid}"/><a:stretch><a:fillRect/></a:stretch></pic:blipFill><pic:spPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="${cx}" cy="${cy}"/></a:xfrm><a:prstGeom prst="rect"><a:avLst/></a:prstGeom></pic:spPr></pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r>`;
+    }
+    const PULAR = /^(svg|button|input|textarea|select|script|style|template|iframe)$/;
+    const BLOCOS = /^(p|div|section|article|header|footer|aside|nav|ul|ol|li|table|thead|tbody|tfoot|tr|blockquote|pre|hr|h[1-6]|figure|figcaption|details|summary)$/;
+    // itens de uma linha: { t, f } texto, { br }, { img }
+    function inline(no, f, saida) {
+      no.childNodes.forEach(c => {
+        if (c.nodeType === 3) { const t = c.nodeValue.replace(/\s+/g, ' '); if (t) saida.push({ t, f }); return; }
+        if (c.nodeType !== 1) return;
+        const tag = c.tagName.toLowerCase();
+        if (PULAR.test(tag)) return;
+        if (tag === 'br') { saida.push({ br: 1 }); return; }
+        if (tag === 'img') { const w = /(\d+(?:\.\d+)?)%/.exec(c.getAttribute('style') || ''); saida.push({ img: imagemXml(c, w ? +w[1] : 0) }); return; }
+        const g = Object.assign({}, f);
+        if (tag === 'strong' || tag === 'b') g.b = 1;
+        if (tag === 'em' || tag === 'i') g.i = 1;
+        if (tag === 'u') g.u = 'single';
+        if (tag === 'code' || tag === 'kbd') { g.code = 1; g.shd = g.shd || 'EEEEEE'; }
+        if (tag === 'sup') g.sup = 1;
+        if (tag === 'sub') g.sub = 1;
+        if (tag === 'mark') { const mt = /mt-(\d)/.exec(c.className); if (mt && MARCA_COR[mt[1]]) { g.shd = MARCA_COR[mt[1]][0]; if (MARCA_COR[mt[1]][1]) g.cor = MARCA_COR[mt[1]][1]; } else g.shd = 'FFE45C'; }
+        if (c.classList && c.classList.contains('cm')) g.u = 'dotted';
+        if (c.classList && c.classList.contains('gabarito')) { const e = c.querySelector('.g-E'), ce = c.querySelector('.g-C'); saida.push({ t: e ? '(ERRADO) ' : ce ? '(CERTO) ' : '', f: Object.assign({}, g, { b: 1 }) }); return; }
+        inline(c, g, saida);
+      });
+    }
+    function paragrafo(itens, ppr) {
+      // limpa espaços: sem espaço no começo e no fim, sem espaços duplos
+      let ant = ' ';
+      const fim = [];
+      itens.forEach(it => {
+        if (it.t != null) { let t = it.t; if (ant === ' ' && t[0] === ' ') t = t.slice(1); if (!t) return; ant = t[t.length - 1]; fim.push({ t, f: it.f }); }
+        else { ant = ' '; fim.push(it); }
+      });
+      while (fim.length && fim[fim.length - 1].t != null && /^\s*$/.test(fim[fim.length - 1].t)) fim.pop();
+      if (fim.length && fim[fim.length - 1].t != null) fim[fim.length - 1].t = fim[fim.length - 1].t.replace(/\s+$/, '');
+      if (!fim.length) return '';
+      const runs = fim.map(it => (it.br ? '<w:r><w:br/></w:r>' : it.img != null ? it.img : run(it.t, it.f))).join('');
+      return `<w:p>${ppr ? `<w:pPr>${ppr}</w:pPr>` : ''}${runs}</w:p>`;
+    }
+    const VAZIO = '<w:p><w:pPr><w:spacing w:before="0" w:after="0" w:line="120" w:lineRule="exact"/></w:pPr></w:p>';
+    function listaItens(lista, ctx, nivel) {
+      let xml = '';
+      const ordenada = lista.tagName.toLowerCase() === 'ol';
+      let numId = 1;
+      if (ordenada) { numId = 1 + (++nDoc); numeros.push(numId); }
+      const lvl = Math.min(nivel, 3);
+      Array.from(lista.children).forEach(li => {
+        if (li.tagName.toLowerCase() !== 'li') return;
+        let buf = [], primeiro = true;
+        const numPr = () => { const x = primeiro ? `<w:numPr><w:ilvl w:val="${lvl}"/><w:numId w:val="${numId}"/></w:numPr>` : ''; return x; };
+        const ppr = () => `<w:pStyle w:val="ListParagraph"/>${numPr()}${primeiro ? '' : `<w:ind w:left="${720 + 360 * lvl}"/>`}`;
+        const descarregar = () => { const p = paragrafo(buf, ppr()); if (p) { xml += p; primeiro = false; } buf = []; };
+        li.childNodes.forEach(c => {
+          if (c.nodeType === 1) {
+            const tag = c.tagName.toLowerCase();
+            if (tag === 'ul' || tag === 'ol') { descarregar(); xml += listaItens(c, ctx, nivel + 1); return; }
+            if (tag === 'table') { descarregar(); xml += tabela(c, ctx); return; }
+            if (BLOCOS.test(tag) && !/^(strong|em)$/.test(tag)) { descarregar(); const f = []; inline(c, {}, f); const p = paragrafo(f, ppr()); if (p) { xml += p; primeiro = false; } return; }
+          }
+          const t = []; inline({ childNodes: [c] }, {}, t); buf.push(...t);
+        });
+        descarregar();
+      });
+      return xml;
+    }
+    function tabela(t, ctx) {
+      const linhas = Array.from(t.rows);
+      if (!linhas.length) return '';
+      const ocup = [];
+      const grade = [];
+      linhas.forEach((tr, r) => {
+        let c = 0;
+        grade[r] = [];
+        Array.from(tr.cells).forEach(cel => {
+          while (ocup[r] && ocup[r][c]) { grade[r].push({ cont: ocup[r][c] }); c++; }
+          const cs = Math.max(1, parseInt(cel.getAttribute('colspan'), 10) || 1), rs = Math.max(1, parseInt(cel.getAttribute('rowspan'), 10) || 1);
+          grade[r].push({ cel, cs, rs, th: cel.tagName.toLowerCase() === 'th' });
+          for (let k = 1; k < cs; k++) grade[r].push({ pula: 1 });
+          for (let rr = 1; rr < rs; rr++) { (ocup[r + rr] = ocup[r + rr] || [])[c] = 1; for (let k = 1; k < cs; k++) ocup[r + rr][c + k] = 2; }
+          c += cs;
+        });
+      });
+      const nCol = Math.max(...grade.map(g => g.length));
+      let pcts = null;
+      const cols = Array.from(t.querySelectorAll(':scope > colgroup > col'));
+      if (cols.length === nCol) { const v = cols.map(x => parseFloat(x.style.width)); if (v.every(x => x > 0)) { const s = v.reduce((a, b) => a + b, 0); pcts = v.map(x => x / s); } }
+      const larg = Array.from({ length: nCol }, (_, i) => Math.round(LARG_UTIL * (pcts ? pcts[i] : 1 / nCol)));
+      const borda = ['top', 'left', 'bottom', 'right', 'insideH', 'insideV'].map(b => `<w:${b} w:val="single" w:sz="4" w:space="0" w:color="BBBBBB"/>`).join('');
+      let xml = `<w:tbl><w:tblPr><w:tblW w:w="${LARG_UTIL}" w:type="dxa"/><w:tblBorders>${borda}</w:tblBorders><w:tblLayout w:type="fixed"/><w:tblCellMar><w:top w:w="40" w:type="dxa"/><w:left w:w="100" w:type="dxa"/><w:bottom w:w="40" w:type="dxa"/><w:right w:w="100" w:type="dxa"/></w:tblCellMar></w:tblPr><w:tblGrid>${larg.map(w => `<w:gridCol w:w="${w}"/>`).join('')}</w:tblGrid>`;
+      grade.forEach((lin, r) => {
+        const cab = linhas[r].parentElement && linhas[r].parentElement.tagName.toLowerCase() === 'thead';
+        xml += `<w:tr><w:trPr><w:cantSplit/>${cab ? '<w:tblHeader/>' : ''}</w:trPr>`;
+        let c = 0;
+        lin.forEach(x => {
+          if (x.pula) { c++; return; }
+          const w0 = x.cs ? larg.slice(c, c + x.cs).reduce((a, b) => a + b, 0) : larg[c];
+          if (x.cont) { xml += `<w:tc><w:tcPr><w:tcW w:w="${larg[c]}" w:type="dxa"/><w:vMerge/></w:tcPr><w:p/></w:tc>`; c++; return; }
+          const th = x.th || cab;
+          const conteudo = blocos(x.cel, { quote: false, cel: 1, th }) || '<w:p/>';
+          xml += `<w:tc><w:tcPr><w:tcW w:w="${w0}" w:type="dxa"/>${x.cs > 1 ? `<w:gridSpan w:val="${x.cs}"/>` : ''}${x.rs > 1 ? '<w:vMerge w:val="restart"/>' : ''}${th ? '<w:shd w:val="clear" w:color="auto" w:fill="EEEEEE"/>' : ''}</w:tcPr>${conteudo}</w:tc>`;
+          c += x.cs;
+        });
+        xml += '</w:tr>';
+      });
+      return xml + '</w:tbl>' + VAZIO;
+    }
+    function blocos(no, ctx) {
+      let xml = '', buf = [];
+      const base = () => `${ctx.quote ? '<w:pBdr><w:left w:val="single" w:sz="18" w:space="8" w:color="999999"/></w:pBdr><w:shd w:val="clear" w:color="auto" w:fill="F5F5F5"/><w:ind w:left="360"/>' : ''}${ctx.cel ? '<w:spacing w:before="20" w:after="20"/>' : ''}`;
+      const descarregar = () => { const p = paragrafo(ctx.th ? buf.map(it => (it.t != null ? { t: it.t, f: Object.assign({}, it.f, { b: 1 }) } : it)) : buf, base()); if (p) xml += p; buf = []; };
+      no.childNodes.forEach(c => {
+        if (c.nodeType !== 1) { if (c.nodeType === 3) { const t = c.nodeValue.replace(/\s+/g, ' '); if (t.trim()) buf.push({ t, f: {} }); else if (buf.length) buf.push({ t: ' ', f: {} }); } return; }
+        const tag = c.tagName.toLowerCase();
+        if (PULAR.test(tag)) return;
+        if (!BLOCOS.test(tag)) { inline({ childNodes: [c] }, {}, buf); return; }
+        descarregar();
+        if (/^h[1-6]$/.test(tag)) {
+          const f = []; inline(c, {}, f);
+          const cl = c.classList, nivel = cl.contains('imp-h1') ? 1 : cl.contains('imp-h2') ? 2 : +tag[1];
+          const p = paragrafo(f, cl.contains('imp-titulo') ? '<w:pStyle w:val="Title"/>' : `<w:pStyle w:val="Heading${Math.min(6, nivel)}"/>`);
+          if (p) xml += p;
+        } else if (tag === 'ul' || tag === 'ol') xml += listaItens(c, ctx, 0);
+        else if (tag === 'table') xml += tabela(c, ctx);
+        else if (tag === 'blockquote') xml += blocos(c, Object.assign({}, ctx, { quote: true }));
+        else if (tag === 'pre') {
+          (c.textContent || '').replace(/\n+$/, '').split('\n').forEach(l => { xml += `<w:p><w:pPr><w:shd w:val="clear" w:color="auto" w:fill="F3F3F3"/><w:spacing w:before="0" w:after="0"/></w:pPr>${run(l.replace(/ /g, ' ') || ' ', { code: 1 })}</w:p>`; });
+          xml += VAZIO;
+        } else if (tag === 'hr') xml += '<w:p><w:pPr><w:pBdr><w:bottom w:val="single" w:sz="6" w:space="1" w:color="BBBBBB"/></w:pBdr></w:pPr></w:p>';
+        else if (tag === 'p' || tag === 'figcaption' || tag === 'summary') {
+          const f = []; inline(c, {}, f);
+          const cl = c.classList;
+          const p = cl.contains('imp-marca') ? paragrafo(f.map(it => (it.t != null ? { t: it.t, f: Object.assign({}, it.f, { b: 1, cor: '777777' }) } : it)), '<w:spacing w:before="3000" w:after="120"/>')
+            : paragrafo(cl.contains('imp-meta') || cl.contains('imp-sub') ? f.map(it => (it.t != null ? { t: it.t, f: Object.assign({}, it.f, { i: 1, cor: '666666' }) } : it)) : f, base());
+          if (p) xml += p;
+        } else if (tag === 'li') { const f = []; inline(c, {}, f); const p = paragrafo(f, base()); if (p) xml += p; }
+        else xml += blocos(c, ctx); // div, section etc.
+      });
+      descarregar();
+      return xml;
+    }
+    // capa: o primeiro bloco é a capa (título, subtítulo, data)
+    const corpo = blocos(raiz, { quote: false });
+    return { corpo, midias, numeros };
+  }
+  const XML_CAB = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n';
+  const NS = 'xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships" xmlns:wp="http://schemas.openxmlformats.org/drawingml/2006/wordprocessingDrawing" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:pic="http://schemas.openxmlformats.org/drawingml/2006/picture"';
+  function estilosXml() {
+    const h = (n, tam, antes, depois, extra) => `<w:style w:type="paragraph" w:styleId="Heading${n}"><w:name w:val="heading ${n}"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:qFormat/><w:pPr><w:keepNext/><w:keepLines/>${extra || ''}<w:spacing w:before="${antes}" w:after="${depois}"/><w:outlineLvl w:val="${n - 1}"/></w:pPr><w:rPr><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/><w:b/><w:color w:val="1F2937"/><w:sz w:val="${tam}"/><w:szCs w:val="${tam}"/></w:rPr></w:style>`;
+    return `${XML_CAB}<w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:docDefaults><w:rPrDefault><w:rPr><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri" w:eastAsia="Calibri" w:cs="Calibri"/><w:sz w:val="22"/><w:szCs w:val="22"/><w:lang w:val="pt-BR"/></w:rPr></w:rPrDefault><w:pPrDefault><w:pPr><w:spacing w:after="120" w:line="276" w:lineRule="auto"/></w:pPr></w:pPrDefault></w:docDefaults>
+      <w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/><w:qFormat/></w:style>
+      ${h(1, 40, 0, 240, '<w:pageBreakBefore/>')}${h(2, 32, 0, 160, '<w:pageBreakBefore/>')}${h(3, 28, 280, 120)}${h(4, 24, 240, 100)}${h(5, 22, 200, 80)}${h(6, 22, 160, 60)}
+      <w:style w:type="paragraph" w:styleId="Title"><w:name w:val="Title"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:qFormat/><w:pPr><w:spacing w:before="0" w:after="240"/></w:pPr><w:rPr><w:b/><w:color w:val="1F2937"/><w:sz w:val="64"/><w:szCs w:val="64"/></w:rPr></w:style>
+      <w:style w:type="paragraph" w:styleId="ListParagraph"><w:name w:val="List Paragraph"/><w:basedOn w:val="Normal"/><w:qFormat/><w:pPr><w:spacing w:after="60"/></w:pPr></w:style>
+      <w:style w:type="paragraph" w:styleId="Footer"><w:name w:val="footer"/><w:basedOn w:val="Normal"/><w:pPr><w:jc w:val="center"/></w:pPr><w:rPr><w:color w:val="777777"/><w:sz w:val="18"/></w:rPr></w:style></w:styles>`;
+  }
+  function numeracaoXml(numeros) {
+    const niveis = (fmt, textos) => [0, 1, 2, 3].map(i => `<w:lvl w:ilvl="${i}"><w:start w:val="1"/><w:numFmt w:val="${fmt}"/><w:lvlText w:val="${textos[i]}"/><w:lvlJc w:val="left"/><w:pPr><w:ind w:left="${720 + 360 * i}" w:hanging="360"/></w:pPr></w:lvl>`).join('');
+    return `${XML_CAB}<w:numbering xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:abstractNum w:abstractNumId="0"><w:multiLevelType w:val="hybridMultilevel"/>${niveis('bullet', ['•', '–', '▪', '•'])}</w:abstractNum><w:abstractNum w:abstractNumId="1"><w:multiLevelType w:val="hybridMultilevel"/>${niveis('decimal', ['%1.', '%2.', '%3.', '%4.'])}</w:abstractNum><w:num w:numId="1"><w:abstractNumId w:val="0"/></w:num>${numeros.map(n => `<w:num w:numId="${n}"><w:abstractNumId w:val="1"/><w:lvlOverride w:ilvl="0"><w:startOverride w:val="1"/></w:lvlOverride></w:num>`).join('')}</w:numbering>`;
+  }
+  async function gerarDocx(raiz) {
+    const imagens = new Map();
+    for (const im of $$('img', raiz)) { const src = im.getAttribute('src'); if (src && !imagens.has(src)) imagens.set(src, await infoImagem(src)); }
+    const { corpo, midias, numeros } = docxDe(raiz, imagens);
+    const sect = '<w:sectPr><w:footerReference w:type="default" r:id="rIdRod"/><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1134" w:header="567" w:footer="567" w:gutter="0"/></w:sectPr>';
+    const rels = [['rIdEst', 'styles', 'styles.xml'], ['rIdNum', 'numbering', 'numbering.xml'], ['rIdRod', 'footer', 'footer1.xml']].map(([id, t, a]) => `<Relationship Id="${id}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/${t}" Target="${a}"/>`).join('')
+      + midias.map(m => `<Relationship Id="${m.rid}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/image" Target="media/${m.nome}"/>`).join('');
+    const arquivos = [
+      { nome: '[Content_Types].xml', dados: `${XML_CAB}<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Default Extension="png" ContentType="image/png"/><Default Extension="jpg" ContentType="image/jpeg"/><Default Extension="gif" ContentType="image/gif"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/><Override PartName="/word/numbering.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.numbering+xml"/><Override PartName="/word/footer1.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml"/></Types>` },
+      { nome: '_rels/.rels', dados: `${XML_CAB}<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>` },
+      { nome: 'word/_rels/document.xml.rels', dados: `${XML_CAB}<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">${rels}</Relationships>` },
+      { nome: 'word/document.xml', dados: `${XML_CAB}<w:document ${NS}><w:body>${corpo}${sect}</w:body></w:document>` },
+      { nome: 'word/styles.xml', dados: estilosXml() },
+      { nome: 'word/numbering.xml', dados: numeracaoXml(numeros) },
+      { nome: 'word/footer1.xml', dados: `${XML_CAB}<w:ftr ${NS}><w:p><w:pPr><w:pStyle w:val="Footer"/></w:pPr><w:r><w:t xml:space="preserve">Missão Fiscal · </w:t></w:r><w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> PAGE </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r><w:r><w:t>1</w:t></w:r><w:r><w:fldChar w:fldCharType="end"/></w:r></w:p></w:ftr>` }
+    ];
+    midias.forEach(m => arquivos.push({ nome: 'word/media/' + m.nome, dados: m.bytes }));
+    return criarZip(arquivos);
+  }
+  function baixarBlob(nome, blob) {
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = nome;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1500);
+  }
+  const impressao = $('#ui-impressao');
+  function imprimirDocumento(raiz, titulo) {
+    impressao.replaceChildren(raiz);
+    const antes = document.title;
+    document.title = titulo;
+    document.body.classList.add('imprimindo');
+    const fim = () => { window.removeEventListener('afterprint', fim); document.body.classList.remove('imprimindo'); impressao.replaceChildren(); document.title = antes; };
+    window.addEventListener('afterprint', fim);
+    setTimeout(() => { try { window.print(); } catch (e) { fim(); } }, 80);
+  }
+  function dialogoBaixar(matPre, formatoPre) {
+    const todas = D.materias.map(m => m.id);
+    const sel = matPre ? [matPre] : todas;
+    const aviso = noIframe() ? '<p class="bx-aviso">Nesta página o navegador bloqueia downloads e impressão. Use o site publicado ou o local.</p>' : '';
+    abrirDialogo({
+      titulo: 'Baixar conteúdo',
+      classe: 'dlg-baixar',
+      x: true,
+      corpo: `${aviso}<fieldset class="bx-g"><legend>Disciplinas</legend>${D.materias.map(m => `<label class="bx-ck"><input type="checkbox" name="bx-mat" value="${m.id}"${sel.includes(m.id) ? ' checked' : ''}><span class="aba c-${m.cor}">${esc(m.sigla)}</span>${esc(m.nome)}</label>`).join('')}</fieldset>
+        <fieldset class="bx-g"><legend>Conteúdo</legend>${CONTEUDOS.map(([k, t, on]) => `<label class="bx-ck"><input type="checkbox" name="bx-con" value="${k}"${on ? ' checked' : ''}>${t}</label>`).join('')}</fieldset>
+        <div class="seg" role="group" aria-label="Formato"><button type="button" data-fmt="docx" aria-pressed="${formatoPre !== 'pdf'}">${ICO.docx}DOCX</button><button type="button" data-fmt="pdf" aria-pressed="${formatoPre === 'pdf'}">${ICO.pdf}PDF</button></div>`,
+      botoes: [
+        { rot: 'Cancelar' },
+        { rot: 'Baixar', principal: true, acao: d => {
+          const mats = $$('[name="bx-mat"]:checked', d).map(x => x.value), cons = $$('[name="bx-con"]:checked', d).map(x => x.value);
+          const fmt = $('[data-fmt][aria-pressed="true"]', d).dataset.fmt, erro = $('#ui-dlg-erro', d), ok = $('#ui-dlg-ok', d);
+          if (!mats.length || !cons.length) { erro.textContent = 'Escolha ao menos uma disciplina e um tipo de conteúdo.'; return false; }
+          erro.textContent = '';
+          const op = { mats };
+          cons.forEach(k => { op[k] = true; });
+          const nome = `Missão Fiscal - ${mats.length === 1 ? MAT[mats[0]].nome : 'conteúdo completo'}`;
+          ok.textContent = 'Preparando o arquivo…';
+          setTimeout(async () => {
+            try {
+              const raiz = montarDocumento(op);
+              if (fmt === 'docx') { baixarBlob(nome + '.docx', await gerarDocx(raiz)); fecharDialogo(); mostrarRecado('O arquivo DOCX foi gerado. Se o download não começar, verifique o bloqueio do navegador.', 'ok'); }
+              else { fecharDialogo(); imprimirDocumento(raiz, nome); }
+            } catch (e) { ok.textContent = ''; erro.textContent = 'Não consegui gerar o arquivo: ' + e.message; }
+          }, 30);
+          return false;
+        } }
+      ],
+      aoAbrir: d => {
+        d.addEventListener('click', e => {
+          const b = e.target.closest('[data-fmt]');
+          if (b) $$('[data-fmt]', d).forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+        });
+      }
     });
   }
 
@@ -1784,14 +2680,15 @@ body.foco .toc { display: none; }
   const APP = 'estudos-auditor-fiscal';
   function resumoBackup(x) {
     const nMarcas = new Set([].concat(...Object.values(x.marcas || {}).map(l => l.map(y => y.g)))).size;
-    return `${plural(Object.keys(x.lidos || {}).length, 'tópico lido', 'tópicos lidos')}, ${plural(Object.keys(x.geral || {}).length, 'resumo geral com página marcada', 'resumos gerais com página marcada')}, ${plural(nMarcas, 'marcação', 'marcações')} e ${plural(Object.keys(x.questoes || {}).length, 'questão respondida', 'questões respondidas')}.`;
+    const nCom = new Set([].concat(...Object.values(x.comentarios || {}).map(l => l.map(y => y.g)))).size;
+    return `${plural(Object.keys(x.lidos || {}).length, 'tópico lido', 'tópicos lidos')}, ${plural(Object.keys(x.geral || {}).length, 'resumo geral com página marcada', 'resumos gerais com página marcada')}, ${plural(nMarcas, 'marcação', 'marcações')}, ${plural(nCom, 'comentário', 'comentários')} e ${plural(Object.keys(x.questoes || {}).length, 'questão respondida', 'questões respondidas')}.`;
   }
   function exportar() {
-    const dados = { app: APP, versao: 2, exportadoEm: new Date().toISOString(), lidos, geral: geralLido, marcas, favoritos, questoes: qResp, qfav: qFav, qrep: qRel };
+    const dados = { app: APP, versao: 3, exportadoEm: new Date().toISOString(), lidos, geral: geralLido, marcas, comentarios, atividade, favoritos, questoes: qResp, qfav: qFav, qrep: qRel };
     const json = JSON.stringify(dados);
     abrirDialogo({
-      titulo: 'Exportar leituras e marcações',
-      corpo: `<p class="dlg-sub">${resumoBackup(dados)}</p><p class="dlg-dica">Baixe o arquivo ou copie o texto. No outro aparelho ou navegador, abra Aa → Importar.</p><textarea class="dlg-txt" id="ui-exp-txt" readonly rows="4">${esc(json)}</textarea>`,
+      titulo: 'Exportar cópia de segurança',
+      corpo: `<p class="dlg-sub">${resumoBackup(dados)}${dica('Baixe o arquivo ou copie o texto. No outro aparelho ou navegador, use Importar.')}</p><textarea class="dlg-txt" id="ui-exp-txt" readonly rows="4">${esc(json)}</textarea>`,
       botoes: [
         { rot: 'Copiar texto', lado: 'esq', acao: d => {
           const ta = $('#ui-exp-txt', d), ok = $('#ui-dlg-ok', d);
@@ -1803,7 +2700,7 @@ body.foco .toc { display: none; }
           try {
             const a = document.createElement('a');
             a.href = URL.createObjectURL(new Blob([json], { type: 'application/json' }));
-            a.download = `estudos-marcacoes-${hojeISO()}.json`;
+            a.download = `missao-fiscal-marcacoes-${hojeISO()}.json`;
             document.body.appendChild(a);
             a.click();
             setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
@@ -1817,8 +2714,8 @@ body.foco .toc { display: none; }
   }
   function importar() {
     abrirDialogo({
-      titulo: 'Importar leituras e marcações',
-      corpo: `<p class="dlg-dica">Cole o texto exportado ou escolha o arquivo. Nada do que já está neste navegador é apagado: as leituras e marcações são somadas e, nas questões, vale a resposta mais recente.</p>
+      titulo: 'Importar cópia de segurança',
+      corpo: `<p class="dlg-sub">Cole o texto exportado ou escolha o arquivo.${dica('Nada do que já está neste navegador é apagado: as leituras, marcações e comentários são somados e, nas questões, vale a resposta mais recente.')}</p>
         <textarea class="dlg-txt" id="ui-imp-txt" rows="4" placeholder="Cole aqui o texto exportado"></textarea>
         <label class="dlg-arq">Ou escolha o arquivo exportado<input type="file" id="ui-imp-arq" accept=".json,application/json,text/plain"></label>`,
       botoes: [
@@ -1846,14 +2743,33 @@ body.foco .toc { display: none; }
   function mesclar(x) {
     Object.entries(x.lidos || {}).forEach(([id, v]) => { if (docs[id] && (!lidos[id] || (v.em || '') >= (lidos[id].em || ''))) lidos[id] = v; });
     Object.entries(x.geral || {}).forEach(([id, v]) => {
+      if (!MAT[id] || !v) return;
       const a = geralLido[id];
-      if (MAT[id] && (!a || (v.em || '') > (a.em || '') || ((v.em || '') === (a.em || '') && v.pag > a.pag))) geralLido[id] = v;
+      if (!a) { geralLido[id] = v; return; }
+      const novo = (v.em || '') > (a.em || '');
+      geralLido[id] = { r: normRanges(rangesDe(a).concat(rangesDe(v)), MAT[id].geral.paginas), em: novo ? v.em : a.em, h: novo ? v.h : a.h };
     });
     Object.entries(x.marcas || {}).forEach(([id, lista]) => {
       if (!docs[id] || !Array.isArray(lista)) return;
       const atual = marcas[id] || (marcas[id] = []);
       const chaves = new Set(atual.map(y => y.g + '|' + y.b + '|' + y.s));
       lista.forEach(y => { const k = y.g + '|' + y.b + '|' + y.s; if (!chaves.has(k)) { atual.push(y); chaves.add(k); } });
+    });
+    // Comentários: somam-se pelo trecho; se o mesmo comentário foi editado nos dois lados, vale a edição mais recente.
+    Object.entries(x.comentarios || {}).forEach(([id, lista]) => {
+      if (!docs[id] || !Array.isArray(lista)) return;
+      const atual = comentarios[id] || (comentarios[id] = []);
+      lista.forEach(y => {
+        const k = y.g + '|' + y.b + '|' + y.s, a = atual.find(z => z.g + '|' + z.b + '|' + z.s === k);
+        if (!a) atual.push(y);
+        else if ((y.ed || '') > (a.ed || '')) { a.n = y.n; a.ed = y.ed; }
+      });
+    });
+    Object.entries(x.atividade || {}).forEach(([dia, v]) => {
+      if (!v) return;
+      const a = atividade[dia] || (atividade[dia] = { q: 0, a: 0 });
+      a.q = Math.max(a.q, v.q || 0);
+      a.a = Math.max(a.a, v.a || 0);
     });
     (x.favoritos || []).forEach(id => { if (docs[id] && !favoritos.includes(id)) favoritos.push(id); });
     // Questões: vale o registro da resposta mais recente (os contadores vêm junto com ele).
@@ -1862,10 +2778,11 @@ body.foco .toc { display: none; }
     Object.entries(x.qrep || {}).forEach(([id, v]) => { if (v && (!qRel[id] || (v.em || '') > (qRel[id].em || ''))) qRel[id] = v; });
     guarda.gravar('lidos', lidos); guarda.gravar('geral', geralLido); gravarMarcas(); guarda.gravar('favoritos', favoritos);
     guarda.gravar('questoes', qResp); guarda.gravar('qfav', qFav); guarda.gravar('qrep', qRel);
+    guarda.gravar('comentarios', comentarios); guarda.gravar('atividade', atividade);
   }
 
   // ---------- Rotas ----------
-  // #inicio · #busca · #pegadinhas · #<disciplina>[_aba][~p12] · #<tema>[_mapa][~seção]
+  // #inicio · #busca · #perfil · #questoes · #pegadinhas · #<disciplina>[_aba][~p12] · #<tema>[_mapa][~seção]
   const ABAS = ['visao', 'geral', 'topicos', 'mapa', 'mapas', 'sintetico', 'questoes', 'marcas'];
   function lerRota(hash) {
     let t = (hash || '').replace(/^#/, '');
@@ -1873,6 +2790,8 @@ body.foco .toc { display: none; }
     if (!t || t === 'inicio') return { v: 'inicio' };
     if (t === 'busca') return { v: 'busca' };
     if (t === 'pegadinhas') return { v: 'pegadinhas' };
+    if (t === 'questoes') return { v: 'questoes' };
+    if (t === 'perfil') return { v: 'perfil' };
     const [cabeca, extra] = t.split('~');
     let base = cabeca, aba = null;
     const u = cabeca.lastIndexOf('_');
@@ -1929,6 +2848,8 @@ body.foco .toc { display: none; }
     } else if (r.v === 'mat') renderMateria(MAT[r.mat], r, op);
     else if (r.v === 'busca') renderBusca();
     else if (r.v === 'pegadinhas') renderPegadinhas();
+    else if (r.v === 'questoes') renderQuestoesHub();
+    else if (r.v === 'perfil') renderPerfil();
     else renderInicio();
     marcarAtivo();
   }
@@ -1955,7 +2876,7 @@ body.foco .toc { display: none; }
     </a>`;
   }
   function renderInicio() {
-    document.title = 'Estudos · Auditor Fiscal';
+    document.title = 'Missão Fiscal';
     const ordem = guarda.ler('ordemDisciplinas', 'curso');
     const lista = D.materias.slice();
     if (ordem !== 'curso') {
@@ -1976,6 +2897,9 @@ body.foco .toc { display: none; }
       atalhos += `<a class="atalho c-${m.cor} revelar" href="#${u.d}" data-continuar="1"><span class="atalho-rot">${ICO.livro} Continuar lendo</span>
         <span class="atalho-tit">${esc(d.titulo)}</span><span class="atalho-sub">${esc(m.nome)}${u.s ? ' · em ' + esc(u.s) : ''}</span></a>`;
     }
+    atalhos += `<a class="atalho revelar" href="#questoes"><span class="atalho-rot">${ICO.raio} Questões</span>
+      <span class="atalho-tit">${plural(QS.length, 'questão', 'questões')}</span>
+      <span class="atalho-sub">${(() => { const e = qEstat(QS); return e.feitas ? `${plural(e.feitas, 'feita', 'feitas')} · ${e.pct}% de acerto` : 'Certo ou Errado · todas as disciplinas'; })()}</span></a>`;
     atalhos += `<a class="atalho revelar" href="#pegadinhas"><span class="atalho-rot">${ICO.peg} Revisão rápida</span>
       <span class="atalho-tit">${plural(D.pegadinhas.length, 'pegadinha', 'pegadinhas')}</span>
       <span class="atalho-sub"><span class="gabarito"><span class="g-E">E</span></span> ${plural(nE, 'item errado', 'itens errados')}${nC ? ` · ${plural(nC, 'item certo', 'itens certos')}` : ''} · todas as disciplinas</span></a>`;
@@ -1987,6 +2911,7 @@ body.foco .toc { display: none; }
     vista.innerHTML = `<div class="inicio">
       <section aria-labelledby="ui-t-disc">
         <div class="disc-barra"><h1 id="ui-t-disc">Disciplinas</h1>
+          <button class="bt-texto" type="button" data-baixar="">${ICO.baixar}Baixar conteúdo</button>
           <label class="ordem">Ordenar por <select id="ui-ordem">${opcao('curso', 'ordem do curso')}${opcao('antigo', 'última leitura: mais antiga primeiro')}${opcao('recente', 'última leitura: mais recente primeiro')}</select></label></div>
         <div class="disc-grade">${lista.map(cartaoDisciplina).join('')}</div>
       </section>
@@ -1999,22 +2924,71 @@ body.foco .toc { display: none; }
   // ---------- Página da disciplina ----------
   // A faixa (sigla, nome e abas) fica fora da vista: ao trocar de aba na mesma disciplina, ela não é
   // redesenhada; só muda a aba marcada. Assim o menu não se mexe e só o conteúdo abaixo muda.
-  const NOMES_ABAS = [['visao', 'Visão geral'], ['geral', 'Resumo geral'], ['topicos', 'Por tópico'], ['mapa', 'Mapa mental geral'], ['mapas', 'Mapas por tópico'], ['sintetico', 'Resumo sintético'], ['questoes', 'Questões turbo'], ['marcas', 'Marcações']];
-  const CONTAS = ['geral', 'topicos', 'sintetico', 'questoes', 'marcas'];
+  // Abas: Visão geral, Resumos ▾ (geral, por tópico, sintético), Mapas mentais ▾ (geral, por tópico),
+  // Questões e Marcações. Os grupos abrem um menu único, fora da faixa (que rola de lado em tela estreita).
+  const ABAS_FAIXA = [
+    { k: 'visao', t: 'Visão geral' },
+    { g: 'resumos', t: 'Resumos', filhos: [['geral', 'Geral'], ['topicos', 'Por tópico'], ['sintetico', 'Sintético']] },
+    { g: 'mapas', t: 'Mapas mentais', filhos: [['mapa', 'Geral'], ['mapas', 'Por tópico']] },
+    { k: 'questoes', t: 'Questões' },
+    { k: 'marcas', t: 'Marcações' }
+  ];
   const abaDaRota = r => (r.v === 'mat' ? r.aba || 'visao' : r.mapa ? 'mapas' : 'topicos');
+  const grupoDaAba = k => { const g = ABAS_FAIXA.find(x => x.filhos && x.filhos.some(f => f[0] === k)); return g ? g.g : null; };
+  const abaMenu = $('#ui-aba-menu');
+  let abaMenuDe = null;
+  function fecharAbaMenu(devolverFoco) {
+    if (abaMenu.hidden) return;
+    abaMenu.hidden = true;
+    const b = abaMenuDe;
+    abaMenuDe = null;
+    if (b) { b.setAttribute('aria-expanded', 'false'); if (devolverFoco) b.focus(); }
+  }
+  function abrirAbaMenu(btn, focar) {
+    const m = MAT[matAtual], g = ABAS_FAIXA.find(x => x.g === btn.dataset.grupo), v = valoresAbas(m), atual = abaDaRota(rota);
+    abaMenu.className = `aba-menu c-${m.cor}`;
+    abaMenu.innerHTML = g.filhos.map(([k, t]) => `<a role="menuitem" class="aba-mi" href="#${m.id}_${k}" data-aba="${k}"${k === atual ? ' aria-current="page"' : ''}>${t}${v[k] ? `<span class="aba-n">${esc(v[k])}</span>` : ''}</a>`).join('');
+    abaMenu.hidden = false;
+    abaMenuDe = btn;
+    btn.setAttribute('aria-expanded', 'true');
+    const r = btn.getBoundingClientRect();
+    abaMenu.style.minWidth = Math.max(168, r.width) + 'px';
+    abaMenu.style.left = Math.max(8, Math.min(document.documentElement.clientWidth - abaMenu.offsetWidth - 8, r.left)) + 'px';
+    abaMenu.style.top = (r.bottom + 4) + 'px';
+    if (focar) { const a = $('.aba-mi', abaMenu); if (a) a.focus(); }
+  }
+  abaMenu.addEventListener('click', () => fecharAbaMenu(false));
+  abaMenu.addEventListener('keydown', e => {
+    const itens = $$('.aba-mi', abaMenu), i = itens.indexOf(document.activeElement);
+    if (e.key === 'ArrowDown') { e.preventDefault(); itens[(i + 1) % itens.length].focus(); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); itens[(i - 1 + itens.length) % itens.length].focus(); }
+    else if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); fecharAbaMenu(true); }
+    else if (e.key === 'Tab') fecharAbaMenu(false);
+  });
+  document.addEventListener('pointerdown', e => { if (!abaMenu.hidden && !abaMenu.contains(e.target) && !(abaMenuDe && abaMenuDe.contains(e.target))) fecharAbaMenu(false); });
+  window.addEventListener('scroll', () => fecharAbaMenu(false), { passive: true });
+  window.addEventListener('resize', () => fecharAbaMenu(false));
   function renderFaixa(r) {
     document.body.classList.toggle('com-faixa', !!matAtual);
+    fecharAbaMenu(false);
     if (!matAtual) { faixa.hidden = true; faixa.innerHTML = ''; faixa.dataset.mat = ''; return; }
-    const m = MAT[matAtual], aba = abaDaRota(r);
+    const m = MAT[matAtual], aba = abaDaRota(r), grupo = grupoDaAba(aba);
     if (faixa.dataset.mat !== m.id) {
       faixa.dataset.mat = m.id;
       faixa.className = `faixa c-${m.cor}`;
       faixa.setAttribute('aria-label', `Conteúdo de ${m.nome}`);
+      const item = a => (a.filhos
+        ? `<button class="aba-l aba-g" type="button" data-grupo="${a.g}" aria-haspopup="menu" aria-expanded="false">${a.t}${ICO.caret}</button>`
+        : `<a class="aba-l" href="#${m.id}${a.k === 'visao' ? '' : '_' + a.k}" data-aba="${a.k}">${a.t}<span class="aba-n" data-conta="${a.k}" hidden></span></a>`);
       faixa.innerHTML = `<div class="faixa-in"><a class="faixa-mat" href="#${m.id}" title="${esc(m.nome)}"><span class="aba">${esc(m.sigla)}</span><span class="faixa-nome">${esc(m.nome)}</span></a>
-        <div class="abas">${NOMES_ABAS.map(([k, t]) => `<a class="aba-l" href="#${m.id}${k === 'visao' ? '' : '_' + k}" data-aba="${k}">${t}${CONTAS.includes(k) ? `<span class="aba-n" data-conta="${k}" hidden></span>` : ''}</a>`).join('')}</div></div>`;
+        <div class="abas">${ABAS_FAIXA.map(item).join('')}</div></div>`;
+      $$('.aba-g', faixa).forEach(b => {
+        b.addEventListener('click', () => { if (abaMenuDe === b) fecharAbaMenu(false); else abrirAbaMenu(b, false); });
+        b.addEventListener('keydown', e => { if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') { e.preventDefault(); abrirAbaMenu(b, true); } });
+      });
     }
     faixa.hidden = false;
-    $$('.aba-l', faixa).forEach(a => { if (a.dataset.aba === aba) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
+    $$('.aba-l', faixa).forEach(a => { const on = a.dataset.grupo ? a.dataset.grupo === grupo : a.dataset.aba === aba; if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current'); });
     atualizarContadores();
     // Em tela estreita, as abas rolam de lado: elas só se mexem se a aba atual estiver toda fora da vista.
     const nav = $('.abas', faixa), atual = $('.aba-l[aria-current]', faixa);
@@ -2024,58 +2998,53 @@ body.foco .toc { display: none; }
       else if (ra.left >= rn.right) nav.scrollLeft += ra.right - rn.right + 24;
     }
   }
+  function valoresAbas(m) {
+    const pg = progressoGeral(m), pt = progressoTemas(m), nm = contarMarcas(m), qe = qEstat(questoesDe(m));
+    return { geral: pg ? pg.pct + '%' : '', topicos: `${pt.sim}/${pt.total}`, sintetico: m.sintetico.length || '', questoes: qe.total ? `${qe.feitas}/${qe.total}` : '', marcas: nm.total + contarComentarios(m) || '' };
+  }
   function atualizarContadores() {
     if (!matAtual) return;
     const m = MAT[matAtual];
     const lu = $('.lat-ult', lateral);
     if (lu) lu.textContent = ultimoTexto(m);
     if (faixa.hidden) return;
-    const pg = progressoGeral(m), pt = progressoTemas(m), nm = contarMarcas(m);
-    const qe = qEstat(questoesDe(m));
-    const valores = { geral: pg ? pg.pct + '%' : '', topicos: `${pt.sim}/${pt.total}`, sintetico: m.sintetico.length || '', questoes: qe.total ? `${qe.feitas}/${qe.total}` : '', marcas: nm.total || '' };
+    const valores = valoresAbas(m);
     Object.keys(valores).forEach(k => { const el = $(`[data-conta="${k}"]`, faixa); if (el) { el.textContent = valores[k]; el.hidden = valores[k] === ''; } });
   }
-  function progGeralHtml(m) {
-    const pg = progressoGeral(m), N = m.geral.paginas;
-    const txt = pg ? `Lido até a pág. ${pg.pag} de ${N}, marcado em ${dataBR(pg.em)}.${pg.mudou ? ' <span class="aviso-mudou">O resumo geral foi atualizado depois dessa marcação.</span>' : ''}` : `Nenhuma leitura marcada. ${plural(N, 'página', 'páginas')} no total.`;
-    return `${barraProg('Leitura', pg ? pg.pct : 0, (pg ? pg.pct : 0) + '%')}<p class="g-prog-txt">${txt}</p>
-      <div class="g-prog-bts">${pg && pg.pag < N ? `<a class="bt" href="#${m.id}_geral~p${pg.pag + 1}" data-pagina="${pg.pag + 1}">Continuar da pág. ${pg.pag + 1}</a>` : ''}<button class="bt bt-p" type="button" data-marcar-geral="${m.id}">${ICO.check} Marcar lido</button></div>`;
-  }
   function renderVisao(m) {
-    document.title = `${m.nome} · Estudos`;
-    const pg = progressoGeral(m), pt = progressoTemas(m), nm = contarMarcas(m), ts = temasDe(m), N = m.geral.paginas;
+    document.title = `${m.nome} · Missão Fiscal`;
+    const pg = progressoGeral(m), pt = progressoTemas(m), nm = contarMarcas(m), nCm = contarComentarios(m), ts = temasDe(m), N = m.geral.paginas;
     const ramos = ts.reduce((s, id) => s + contarRamos(docs[id].mapa), 0), nS = m.sintetico.length;
-    const seguir = pg && pg.pag < N ? pg.pag + 1 : 0, pct = pg ? pg.pct : 0;
+    const seguir = pg ? pg.prox : 0, pct = pg ? pg.pct : 0;
     const qm = questoesDe(m), qe = qEstat(qm);
     const card = (classe, ico, rot, tit, corpo, acoes) => `<article class="vg ${classe} revelar"><p class="vg-rot">${ico}${rot}</p><h2 class="vg-tit">${tit}</h2>${corpo}${acoes ? `<div class="vg-acoes">${acoes}</div>` : ''}</article>`;
     const ligacao = (href, rot, n) => `<a class="vg-link" href="${href}"><span>${rot}</span><span class="vg-link-n">${n}</span>${ICO.dir}</a>`;
-    vista.innerHTML = `<div class="doc c-${m.cor}"><header class="sec-cab"><h1 class="sec-tit">${esc(m.nome)}</h1><p class="sec-sub">${esc(ultimoTexto(m))}</p></header><div class="vg-grade">
+    vista.innerHTML = `<div class="doc c-${m.cor}"><header class="sec-cab sec-cab-lin"><div><h1 class="sec-tit">${esc(m.nome)}</h1><p class="sec-sub">${esc(ultimoTexto(m))}</p></div><button class="bt-texto" type="button" data-baixar="${m.id}">${ICO.baixar}Baixar</button></header><div class="vg-grade">
       ${card('vg-geral', ICO.livro, 'Resumo geral', plural(N, 'página', 'páginas'),
-        `<p class="vg-txt">Todos os tópicos da disciplina num texto só, na ordem do curso e dividido em páginas.</p>
-        <div class="vg-pct"><span class="vg-pct-n">${pct}%</span><span class="vg-pct-r">lido</span></div>
+        `<div class="vg-pct"><span class="vg-pct-n">${pct}%</span><span class="vg-pct-r">lido</span></div>
         <div class="vg-trilho" aria-hidden="true"><span style="width:${pct}%"></span></div>
-        <p class="vg-sit">${pg ? `Até a pág. ${pg.pag} de ${N}, marcado em ${dataBR(pg.em)}${pg.mudou ? ' (o texto mudou depois)' : ''}` : 'Nenhuma leitura marcada ainda'}</p>`,
+        <p class="vg-sit">${pg ? `${txtPaginas(pg)}, marcado em ${dataBR(pg.em)}${pg.mudou ? ' (o texto mudou depois)' : ''}` : 'Nenhuma leitura marcada ainda'}</p>`,
         `<a class="bt bt-p bt-grande" href="#${m.id}_geral${seguir ? '~p' + seguir : ''}">${seguir ? `Continuar da pág. ${seguir}` : pg ? 'Reler desde o início' : 'Começar a leitura'} ${ICO.dir}</a><button class="bt-texto" type="button" data-marcar-geral="${m.id}">Marcar até onde li</button>`)}
       ${card('vg-topicos', ICO.lista, 'Resumos por tópico', `${pt.sim} de ${plural(ts.length, 'tópico', 'tópicos')}`,
-        `<p class="vg-txt">Cada tópico separado, com o botão Lido para controlar o que já leu.</p>${barraProg('Lidos', pt.pct, pt.pct + '%')}${pt.mudou ? `<p class="vg-sit">${plural(pt.mudou, 'tópico lido foi atualizado', 'tópicos lidos foram atualizados')} depois da leitura</p>` : ''}`,
+        `${barraProg('Lidos', pt.pct, pt.pct + '%')}${pt.mudou ? `<p class="vg-sit">${plural(pt.mudou, 'tópico lido foi atualizado', 'tópicos lidos foram atualizados')} depois da leitura</p>` : ''}`,
         `<a class="bt" href="#${m.id}_topicos">Ver os tópicos</a>`)}
       ${card('vg-sint', ICO.camadas, 'Resumo sintético', nS ? plural(nS, 'parte', 'partes') : 'Ainda vazio',
-        `<p class="vg-txt">${nS ? 'Seus resumos sintéticos juntados na ordem, com a numeração dos títulos em sequência.' : 'Cada parte nova que você acrescentar entra depois das anteriores.'}</p>`,
+        '',
         `<a class="bt" href="#${m.id}_sintetico">Abrir</a>`)}
-      ${card('vg-questoes', ICO.raio, 'Questões turbo', qm.length ? plural(qm.length, 'questão', 'questões') : 'Em preparação',
-        `<p class="vg-txt">Certo ou Errado sobre os tópicos, com comentário e link para o trecho do resumo.</p>${qm.length ? barraProg('Feitas', Math.round(100 * qe.feitas / qe.total), `${qe.feitas}/${qe.total}`) + `<p class="vg-sit">${qe.resp ? `${qe.pct}% de acerto em ${plural(qe.resp, 'resposta', 'respostas')}` : 'Nenhuma resposta ainda'}</p>` : ''}`,
+      ${card('vg-questoes', ICO.raio, `Questões${dica('Certo ou Errado sobre os tópicos, com comentário e link para o trecho do resumo. Não são questões de prova.')}`, qm.length ? plural(qm.length, 'questão', 'questões') : 'Em preparação',
+        `${qm.length ? barraProg('Feitas', Math.round(100 * qe.feitas / qe.total), `${qe.feitas}/${qe.total}`) + `<p class="vg-sit">${qe.resp ? `${qe.pct}% de acerto em ${plural(qe.resp, 'resposta', 'respostas')}` : 'Nenhuma resposta ainda'}</p>` : ''}`,
         qm.length ? `<a class="bt" href="#${m.id}_questoes">${qe.feitas ? (qe.ineditas ? 'Continuar' : 'Revisar') : 'Começar'}</a>` : '')}
-      ${card('vg-mapas', ICO.mapa, 'Mapas mentais', plural(ramos, 'ramo', 'ramos'),
-        `<p class="vg-txt">Clique num ramo para ver o trecho do resumo que ele resume.</p><div class="vg-links">${ligacao(`#${m.id}_mapa`, 'Mapa geral da disciplina', plural(ramos, 'ramo', 'ramos'))}${ligacao(`#${m.id}_mapas`, 'Um mapa por tópico', plural(ts.length, 'mapa', 'mapas'))}</div>`, '')}
-      ${card('vg-marcas', ICO.caneta, 'Marcações', plural(nm.total, 'marcação', 'marcações'),
-        `<ul class="sw-lista">${[1, 2, 3, 4].map(c => `<li><span class="sw sw-${c}"></span>${CORES[c]}<strong>${nm[c]}</strong></li>`).join('')}</ul>`,
+      ${card('vg-mapas', ICO.mapa, `Mapas mentais${dica('Clique num ramo para ver o trecho do resumo que ele resume.')}`, plural(ramos, 'ramo', 'ramos'),
+        `<div class="vg-links">${ligacao(`#${m.id}_mapa`, 'Mapa geral da disciplina', plural(ramos, 'ramo', 'ramos'))}${ligacao(`#${m.id}_mapas`, 'Um mapa por tópico', plural(ts.length, 'mapa', 'mapas'))}</div>`, '')}
+      ${card('vg-marcas', ICO.caneta, 'Marcações', plural(nm.total + nCm, 'item', 'itens'),
+        `<ul class="sw-lista">${[1, 2, 3, 4].map(c => `<li><span class="sw sw-${c}"></span>${CORES[c]}<strong>${nm[c]}</strong></li>`).join('')}<li><span class="chip-ico">${ICO.comentario}</span>Comentários<strong>${nCm}</strong></li></ul>`,
         `<a class="bt" href="#${m.id}_marcas">Ver as marcações</a>`)}
     </div></div>`;
     revelar(vista);
     window.scrollTo(0, 0);
   }
   function renderTopicos(m) {
-    document.title = `Resumos por tópico · ${m.nome} · Estudos`;
+    document.title = `Resumos por tópico · ${m.nome} · Missão Fiscal`;
     const filtro = guarda.ler('filtroTopicos', 'todos');
     let h = '';
     for (const a of m.assuntos) {
@@ -2157,11 +3126,11 @@ body.foco .toc { display: none; }
     else renderQInicio(m);
   }
   function renderQInicio(m, manterRolagem) {
-    document.title = `Questões turbo · ${m.nome} · Estudos`;
+    document.title = `Questões · ${m.nome} · Missão Fiscal`;
     const todas = questoesDe(m), y = window.scrollY;
-    const cab = `<header class="sec-cab"><h1 class="sec-tit">Questões turbo</h1><p class="sec-sub">Certo ou Errado sobre os tópicos de ${esc(m.nome)}, elaboradas a partir do resumo (não são questões de prova). Primeiro vêm as inéditas; depois de fazer todas, elas voltam para revisão, começando pelas que você errou.</p></header>`;
+    const cab = `<header class="sec-cab"><h1 class="sec-tit">Questões${dica('Certo ou Errado sobre os tópicos, elaboradas a partir do resumo (não são questões de prova). Primeiro vêm as inéditas; depois de fazer todas, elas voltam para revisão, começando pelas que você errou.')}</h1></header>`;
     if (!todas.length) {
-      vista.innerHTML = `<div class="doc c-${m.cor}">${cab}<div class="vazio"><p>Ainda não há questões desta disciplina.</p><p>Elas são criadas a partir dos tópicos e aumentam a cada resumo novo.</p></div></div>`;
+      vista.innerHTML = `<div class="doc c-${m.cor}">${cab}<div class="vazio"><p>Ainda não há questões desta disciplina.</p></div></div>`;
       window.scrollTo(0, 0);
       return;
     }
@@ -2207,7 +3176,7 @@ body.foco .toc { display: none; }
   }
   function renderQuestao(m) {
     const s = qSessao;
-    document.title = `Questões turbo · ${m.nome} · Estudos`;
+    document.title = `Questões · ${m.nome} · Missão Fiscal`;
     if (!s.atual) {
       const p = proximaQuestao(s);
       if (!p) {
@@ -2246,6 +3215,10 @@ body.foco .toc { display: none; }
     const r = qResp[q.id] || { n: 0, a: 0 };
     qResp[q.id] = { u, ok: ok ? 1 : 0, n: (r.n || 0) + 1, a: (r.a || 0) + (ok ? 1 : 0), em: new Date().toISOString() };
     guarda.gravar('questoes', qResp);
+    const dia = atividade[hojeISO()] || (atividade[hojeISO()] = { q: 0, a: 0 });
+    dia.q++;
+    if (ok) dia.a++;
+    guarda.gravar('atividade', atividade);
     s.feitas.add(q.id);
     s.ultima = q.id;
     s.n++; if (ok) s.a++;
@@ -2273,7 +3246,7 @@ body.foco .toc { display: none; }
       titulo: 'Reportar questão',
       corpo: `<p class="dlg-sub">${esc(docs[q.t].titulo)} · ${numQ(id)}</p>
         <textarea class="dlg-txt" id="ui-rel-txt" rows="4" placeholder="O que está errado ou gera dúvida nesta questão?">${ja ? esc(ja.m) : ''}</textarea>
-        <p class="dlg-dica">${servidorLocal ? 'O relato fica neste navegador e também é gravado em ENTRADA/questoes-relatadas.md, para ser conferido na próxima sessão.' : 'O relato fica guardado neste navegador. Para ele chegar à base, use Aa → Exportar e coloque o arquivo em ENTRADA/ (ou abra o site com python sistema/gerar.py --servir).'}</p>`,
+        <p class="dlg-dica">${servidorLocal ? 'O relato fica neste navegador e também é gravado em ENTRADA/questoes-relatadas.md, para ser conferido na próxima sessão.' : 'O relato fica guardado neste navegador. Para ele chegar à base, use Exportar (Aparência ou Perfil) e coloque o arquivo em ENTRADA/ (ou abra o site com python sistema/gerar.py --servir).'}</p>`,
       botoes: [
         { rot: 'Cancelar' },
         { rot: 'Reportar', principal: true, acao: d => {
@@ -2456,7 +3429,7 @@ body.foco .toc { display: none; }
       const dc = docs[c], mc = matDoc(c);
       return `<li><a class="xref c-${mc.cor}" href="#${c}"${dc.materia !== d.materia ? ` data-sig="${esc(mc.sigla)}"` : ''}>${esc(dc.titulo)}</a></li>`;
     }).join('');
-    document.title = `${d.titulo} · Estudos`;
+    document.title = `${d.titulo} · Missão Fiscal`;
     vista.innerHTML = `<div class="doc c-${m.cor}">
       <header class="doc-cab">
         <nav class="migalhas" aria-label="Localização">${tema ? `${d.num ? `<span class="num">${esc(d.num)}</span>` : ''}<span>${esc(d.assunto)}</span>` : `<span class="aba">${esc(m.sigla)}</span><span>${esc(m.nome)}</span>`}</nav>
@@ -2470,7 +3443,7 @@ body.foco .toc { display: none; }
         <article class="doc-corpo${tema ? ' leitura' : ''}" id="ui-artigo"><div data-texto="${id}">${d.partes.join('\n')}</div></article>
         ${d.toc.length ? `<aside class="toc" aria-label="Nesta página"><p class="toc-rot">Nesta página</p>${tocHtml(d, id)}</aside>` : ''}
       </div>
-      ${tema ? `<div class="doc-fim">${botaoLido(id, 'g')}<p>Terminou? Marque como lido: o tópico ganha o ✓ na lista e conta no progresso da disciplina.</p></div>` : ''}
+      ${tema ? `<div class="doc-fim">${botaoLido(id, 'g')}</div>` : ''}
       ${citado ? `<section class="citado"><h2 class="citado-tit">Citado em</h2><ul>${citado}</ul></section>` : ''}
       ${ant || prox ? `<nav class="doc-nav" aria-label="Tópicos vizinhos">${ant ? cartaoVizinho(ant, 'ant') : ''}${prox ? cartaoVizinho(prox, 'prox') : ''}</nav>` : ''}
     </div>`;
@@ -2502,6 +3475,10 @@ body.foco .toc { display: none; }
         irAchado(k >= 0 ? k : 0, true);
         return true;
       }
+    }
+    if (op.cm) {
+      const el = $(`.cm[data-cm="${op.cm}"]`, raiz);
+      if (el) { el.scrollIntoView({ block: 'center' }); el.classList.add('pisca'); setTimeout(() => el.classList.remove('pisca'), 1700); return true; }
     }
     if (op.marca) {
       const mk = $(`mark.mt[data-g="${op.marca}"]`, raiz);
@@ -2535,11 +3512,11 @@ body.foco .toc { display: none; }
 
   // ---------- Resumo geral ----------
   function renderGeral(m, extra, op) {
-    document.title = `Resumo geral · ${m.nome} · Estudos`;
-    const G = m.geral, pg = progressoGeral(m), ate = pg ? pg.pag : 0;
+    document.title = `Resumo geral · ${m.nome} · Missão Fiscal`;
+    const G = m.geral, pg = progressoGeral(m);
     const inicio = Object.create(null);
     G.quebras.forEach(([d, k], i) => { inicio[d + ':' + k] = i + 1; });
-    const marcador = p => `<div class="pag${p <= ate ? ' lida' : ''}" data-pag="${p}" id="pag-${p}"><span>${p <= ate ? ICO.check : ''}Página ${p}</span></div>`;
+    const marcador = p => { const l = !!(pg && pg.lida(p)); return `<div class="pag${l ? ' lida' : ''}" data-pag="${p}" id="pag-${p}"><span>${l ? ICO.check : ''}Página ${p}</span></div>`; };
     let sum = '', corpo = '';
     for (const a of m.assuntos) {
       sum += `<li><p class="sum-ass">${a.num ? `<span class="num">${esc(a.num)}</span>` : ''}${esc(a.nome)}</p><ol>${a.temas.map(id =>
@@ -2552,8 +3529,7 @@ body.foco .toc { display: none; }
       corpo += '</section>';
     }
     vista.innerHTML = `<div class="doc c-${m.cor}">
-      <header class="sec-cab"><h1 class="sec-tit">Resumo geral</h1><p class="sec-sub">Todos os tópicos de ${esc(m.nome)} num texto só, na ordem do curso, em ${plural(G.paginas, 'página', 'páginas')}. Ao marcar lido, informe até qual página leu.</p>
-        <div class="g-prog" id="ui-g-prog">${progGeralHtml(m)}</div></header>
+      <header class="sec-cab"><h1 class="sec-tit">Resumo geral</h1></header>
       <details class="sumario-box" open><summary>Sumário</summary><ol class="sumario">${sum}</ol></details>
       <article class="doc-corpo leitura" id="ui-artigo">${corpo}</article></div>`;
     const artigo = $('#ui-artigo');
@@ -2651,15 +3627,15 @@ body.foco .toc { display: none; }
     }
   }
   function renderSintetico(m, op) {
-    document.title = `Resumo sintético · ${m.nome} · Estudos`;
+    document.title = `Resumo sintético · ${m.nome} · Missão Fiscal`;
     const ids = m.sintetico, pasta = esc(pastaSintetico(m));
     const corpo = ids.length
       ? `${ids.length > 1 ? `<nav class="s-indice" aria-label="Partes">${ids.map(id => `<a href="#${id}" data-parte="${id}">${esc(docs[id].rotulo)}</a>`).join('')}</nav>` : ''}
         <article class="doc-corpo leitura" id="ui-artigo">${ids.map(id => `<section class="s-parte" id="s-${id}" data-texto="${id}"><p class="s-div"><span>${esc(docs[id].rotulo)}</span><button class="s-editar so-adm" type="button" data-editar="${id}">${ICO.lapis}Editar esta parte</button></p>${docs[id].partes.join('\n')}</section>`).join('')}</article>`
-      : `<div class="vazio"><p><strong>Ainda não há resumo sintético desta disciplina.</strong></p><p>Cada parte que você acrescentar fica guardada na pasta <code>${pasta}</code> e aparece aqui, depois das anteriores.</p></div>`;
+      : `<div class="vazio"><p><strong>Ainda não há resumo sintético desta disciplina.</strong></p></div>`;
     vista.innerHTML = `<div class="doc c-${m.cor}">
-      <header class="sec-cab"><h1 class="sec-tit">Resumo sintético</h1>
-        <p class="sec-sub">${ids.length ? `${plural(ids.length, 'parte juntada', 'partes juntadas')} na ordem, sem alteração no texto. Só a numeração dos títulos é refeita, em sequência na disciplina inteira. Os arquivos ficam em <code>${pasta}</code>.` : 'Seus resumos bem sintetizados, juntados na ordem em que você os acrescenta.'}</p>
+      <header class="sec-cab"><h1 class="sec-tit">Resumo sintético${dica(`As partes ficam juntadas na ordem, sem alteração no texto; só a numeração dos títulos é refeita, em sequência na disciplina inteira. Os arquivos ficam em ${pastaSintetico(m)}.`)}</h1>
+        ${ids.length ? `<p class="sec-sub">${plural(ids.length, 'parte', 'partes')}</p>` : ''}
         <div class="s-acoes">${ids.length ? `<button class="bt" type="button" data-sint-copiar="${m.id}">Copiar o texto completo</button><button class="bt" type="button" data-sint-baixar="${m.id}">Baixar .txt</button>` : ''}<a class="bt bt-p" href="#ui-s-add" data-rolar="ui-s-add">Adicionar parte</a></div>
         <p class="s-add-st" id="ui-s-acao" role="status"></p></header>
       ${corpo}
@@ -2709,6 +3685,9 @@ body.foco .toc { display: none; }
       btAdm.classList.toggle('com-foto', !foto.hidden);
     }
     document.body.classList.toggle('adm', adm);
+    btAdm.setAttribute('aria-haspopup', g ? 'menu' : 'dialog');
+    const bk = $('#ui-aj-backup');
+    if (bk) bk.hidden = !!g;
   }
   function esquecerSessao() {
     sessao = null;
@@ -2792,7 +3771,7 @@ body.foco .toc { display: none; }
     }
   }
   // O botão do topo: conta (Google) quando ela está configurada; senão, só o administrador.
-  btAdm.addEventListener('click', () => { if (conta.user) dialogoConta(); else if (conta.cfg) dialogoEntrarGoogle(); else dialogoAdm(); });
+  btAdm.addEventListener('click', () => { if (conta.user) { if (menuConta.hidden) abrirMenuConta(); else fecharMenuConta(false); } else if (conta.cfg) dialogoEntrarGoogle(); else dialogoAdm(); });
   const foto0 = $('#ui-foto');
   if (foto0) foto0.addEventListener('error', () => { foto0.hidden = true; btAdm.classList.remove('com-foto'); });
 
@@ -2802,8 +3781,8 @@ body.foco .toc { display: none; }
   // Data API com o token do Google: a política do banco (sistema/neon.sql) deixa cada pessoa acessar só
   // as próprias linhas. Só o administrador edita textos (servidor local, à parte). Configuração em
   // sistema/conta.json (README, "Login com Google").
-  const SYNC = ['lidos', 'geral', 'marcas', 'favoritos', 'questoes', 'qfav', 'qrep', 'qfiltro', 'ultimo', 'ordemDisciplinas', 'filtroTopicos'];
-  const EM_MEMORIA = { lidos: () => lidos, geral: () => geralLido, marcas: () => marcas, favoritos: () => favoritos, questoes: () => qResp, qfav: () => qFav, qrep: () => qRel };
+  const SYNC = ['lidos', 'geral', 'marcas', 'favoritos', 'questoes', 'qfav', 'qrep', 'qfiltro', 'ultimo', 'ordemDisciplinas', 'filtroTopicos', 'comentarios', 'atividade'];
+  const EM_MEMORIA = { lidos: () => lidos, geral: () => geralLido, marcas: () => marcas, favoritos: () => favoritos, questoes: () => qResp, qfav: () => qFav, qrep: () => qRel, comentarios: () => comentarios, atividade: () => atividade };
   const conta = { cfg: D.conta || null, user: null, estado: 'fora', msg: '', quando: 0, ocupado: false, repetir: false, ver: {}, aguarda: null };
   if (conta.cfg) conta.user = guarda.ler('google', null);
   const meta = Object.assign({ uid: null, sujos: {} }, guarda.ler('sync', {}));
@@ -2826,7 +3805,7 @@ body.foco .toc { display: none; }
   function normaliza(k, v) {
     if (v == null) return EM_MEMORIA[k] ? vazioDe(k) : v;
     const so = (obj, ok) => Object.fromEntries(Object.entries(obj).filter(([id]) => ok(id)));
-    if (k === 'lidos' || k === 'marcas') return so(v, id => docs[id]);
+    if (k === 'lidos' || k === 'marcas' || k === 'comentarios') return so(v, id => docs[id]);
     if (k === 'geral') return so(v, id => MAT[id]);
     if (k === 'favoritos') return v.filter(id => docs[id]);
     return v;
@@ -2862,7 +3841,7 @@ body.foco .toc { display: none; }
 
   function textoEstado() {
     if (conta.estado === 'sincronizando') return 'Sincronizando…';
-    if (conta.estado === 'exp') return 'A sessão do Google expirou. Entre de novo abaixo para sincronizar; o que você fez continua guardado neste navegador.';
+    if (conta.estado === 'exp') return 'A sessão do Google expirou. Entre de novo no Perfil para sincronizar; o que você fez continua guardado neste navegador.';
     if (conta.estado === 'erro') return `Não consegui sincronizar (${esc(conta.msg)}). As alterações continuam guardadas neste navegador e serão enviadas na próxima tentativa.`;
     if (pendentes()) return 'Há alterações ainda por enviar para a sua conta.';
     return conta.quando ? `Tudo sincronizado às ${hhmm(conta.quando)}.` : 'Conectado à sua conta.';
@@ -2871,8 +3850,7 @@ body.foco .toc { display: none; }
     conta.estado = e;
     conta.msg = msg || '';
     desenharAdm();
-    const st = $('#ui-conta-st');
-    if (st) st.innerHTML = textoEstado();
+    $$('.js-conta-st').forEach(st => { st.innerHTML = textoEstado(); });
   }
 
   // -- Google Identity Services
@@ -2908,7 +3886,7 @@ body.foco .toc { display: none; }
     iniciarGoogle().then(() => {
       if (!alvo.isConnected) return;
       alvo.innerHTML = '';
-      google.accounts.id.renderButton(alvo, { type: 'standard', theme: 'outline', size: 'large', text: 'signin_with', shape: 'pill', logo_alignment: 'left', locale: 'pt-BR', width: 280 });
+      google.accounts.id.renderButton(alvo, { type: 'standard', theme: 'outline', size: 'large', text: 'signin_with', shape: 'pill', logo_alignment: 'left', locale: 'pt-BR', width: Math.max(200, Math.min(400, Math.round(alvo.clientWidth) || 280)) });
     }).catch(() => {
       alvo.innerHTML = '<p class="dlg-erro">Não consegui carregar o login do Google. Confira a conexão. Por aqui (página privada ou arquivo aberto com duplo clique) ele não funciona: use o endereço do site publicado ou o local.</p>';
     });
@@ -3018,49 +3996,172 @@ body.foco .toc { display: none; }
   });
   window.addEventListener('online', () => { if (conta.user && conta.estado === 'erro') sincronizar('volta'); });
 
-  // -- diálogos
+  // -- login: cartão estreito, tudo no mesmo eixo
   function dialogoEntrarGoogle() {
     if (servidorLocal === null) { servidorVerificado.then(dialogoEntrarGoogle); return; }
     abrirDialogo({
-      titulo: 'Entrar',
-      corpo: `<p class="dlg-sub">Entre com a sua conta Google para guardar leituras, marcações, favoritos e respostas das questões na sua conta e continuar de onde parou em qualquer aparelho.</p>
+      titulo: `<span class="lg-selo">${ICO.alvo}</span>Entrar na Missão Fiscal`,
+      classe: 'dlg-login',
+      x: true,
+      corpo: `<p class="lg-sub">Salve seu progresso e continue em qualquer aparelho.</p>
         <div class="cta-g" id="ui-g-btn" aria-live="polite"><span class="cta-g-espera">Carregando o login do Google…</span></div>
-        <p class="dlg-dica">O login não é obrigatório: sem ele a leitura continua aberta e tudo fica só neste navegador. Ao entrar, o que já está aqui é somado à sua conta. O Google informa apenas nome, e-mail e foto, e os seus dados de estudo são protegidos: cada pessoa acessa só os próprios.</p>`,
-      botoes: [{ rot: 'Sou o administrador', lado: 'esq', acao: () => { setTimeout(() => dialogoEntrar(), 0); } }, { rot: 'Cancelar', principal: true }],
-      aoAbrir: d => botaoGoogle($('#ui-g-btn', d))
+        <div class="lg-rodape">${dica('Sem login, a leitura continua aberta e tudo fica só neste navegador. Ao entrar, o que já está aqui é somado à sua conta. O Google informa apenas nome, e-mail e foto, e os seus dados de estudo são protegidos: cada pessoa acessa só os próprios.')}<button type="button" class="lg-adm" data-lg-adm>Sou o administrador</button></div>`,
+      botoes: [],
+      aoAbrir: d => {
+        botaoGoogle($('#ui-g-btn', d));
+        $('[data-lg-adm]', d).addEventListener('click', () => { fecharDialogo(); setTimeout(() => dialogoEntrar(), 0); });
+      }
     });
   }
-  function dialogoConta() {
+
+  // -- menu da conta (botão do topo, logado)
+  const menuConta = $('#ui-menu-conta');
+  function fecharMenuConta(devolverFoco) {
+    if (menuConta.hidden) return;
+    menuConta.hidden = true;
+    btAdm.setAttribute('aria-expanded', 'false');
+    if (devolverFoco) btAdm.focus();
+  }
+  const inicialDe = g => esc(((g && (g.nome || g.email)) || '?').trim().charAt(0).toUpperCase());
+  const avatarHtml = (g, tam) => (g && g.foto ? `<img class="av av-${tam}" src="${esc(g.foto)}" alt="" referrerpolicy="no-referrer">` : `<span class="av av-${tam} av-ini">${inicialDe(g)}</span>`);
+  function abrirMenuConta() {
     const g = conta.user;
-    abrirDialogo({
-      titulo: 'Conta',
-      corpo: `<div class="cta-perfil">${g.foto ? `<img src="${esc(g.foto)}" alt="" referrerpolicy="no-referrer">` : ''}<div><strong>${esc(g.nome || 'Conta Google')}</strong><span>${esc(g.email)}</span></div></div>
-        <p class="cta-st" id="ui-conta-st" role="status">${textoEstado()}</p>
-        ${conta.estado === 'exp' ? '<div class="cta-g" id="ui-g-btn"><span class="cta-g-espera">Carregando o login do Google…</span></div>' : ''}
-        <p class="dlg-dica">Leituras, marcações, favoritos e respostas das questões ficam guardados na sua conta e acompanham você em qualquer aparelho. Sair limpa esses dados deste navegador; eles continuam na conta.</p>${adm ? '<p class="dlg-dica">Você também está conectado como administrador.</p>' : ''}`,
-      botoes: [
-        { rot: 'Sair', lado: 'esq', acao: () => { sairConta(false); return false; } },
-        ...(adm ? [{ rot: 'Sair do modo administrador', lado: 'esq', acao: () => {
-          if (editor && editor.sujo) { $('#ui-dlg-erro').textContent = 'Salve ou cancele a edição aberta antes de sair.'; return false; }
-          fecharEditor(true); esquecerSessao(); mostrarRecado('Você saiu do modo administrador.', 'ok');
-        } }] : servidorLocal ? [{ rot: 'Sou o administrador', lado: 'esq', acao: () => { setTimeout(() => dialogoEntrar(), 0); } }] : []),
-        { rot: 'Sincronizar agora', acao: () => { sincronizar('manual'); return false; } },
-        { rot: 'Fechar', principal: true }
-      ],
-      aoAbrir: d => { const b = $('#ui-g-btn', d); if (b) botaoGoogle(b); }
-    });
+    menuConta.innerHTML = `<div class="mn-cab">${avatarHtml(g, 40)}<div><strong>${esc(g.nome || 'Conta Google')}</strong><span>${esc(g.email)}</span></div></div>
+      <p class="mn-st js-conta-st">${textoEstado()}</p>
+      <div class="mn-lista">
+        <a role="menuitem" class="mn-it" href="#perfil" data-menu="perfil">${ICO.perfil}Meu perfil</a>
+        <button role="menuitem" class="mn-it" type="button" data-menu="baixar">${ICO.baixar}Baixar conteúdo</button>
+        ${adm ? `<button role="menuitem" class="mn-it" type="button" data-menu="sair-adm">${ICO.lapis}Sair do modo administrador</button>` : servidorLocal ? `<button role="menuitem" class="mn-it" type="button" data-menu="adm">${ICO.lapis}Sou o administrador</button>` : ''}
+        <button role="menuitem" class="mn-it mn-sair" type="button" data-menu="sair">${ICO.sair}Sair</button>
+      </div>`;
+    menuConta.hidden = false;
+    btAdm.setAttribute('aria-expanded', 'true');
+    const r = btAdm.getBoundingClientRect(), vw = document.documentElement.clientWidth;
+    menuConta.style.top = (r.bottom + 8) + 'px';
+    menuConta.style.right = Math.max(8, vw - r.right) + 'px';
+  }
+  menuConta.addEventListener('click', e => {
+    const b = e.target.closest('[data-menu]');
+    if (!b) return;
+    const a = b.dataset.menu;
+    fecharMenuConta(false);
+    if (a === 'perfil') { e.preventDefault(); ir({ v: 'perfil' }); }
+    else if (a === 'baixar') dialogoBaixar();
+    else if (a === 'adm') dialogoEntrar();
+    else if (a === 'sair-adm') {
+      if (editor && editor.sujo) { mostrarRecado('Salve ou cancele a edição aberta antes de sair.', 'alerta'); return; }
+      fecharEditor(true); esquecerSessao(); mostrarRecado('Você saiu do modo administrador.', 'ok');
+    } else if (a === 'sair') sairConta(false);
+  });
+  document.addEventListener('pointerdown', e => { if (!menuConta.hidden && !menuConta.contains(e.target) && !btAdm.contains(e.target)) fecharMenuConta(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !menuConta.hidden) { fecharMenuConta(true); } });
+  window.addEventListener('scroll', () => fecharMenuConta(false), { passive: true });
+  window.addEventListener('resize', () => fecharMenuConta(false));
+
+  // -- perfil
+  const isoDia = d => `${d.getFullYear()}-${dois(d.getMonth() + 1)}-${dois(d.getDate())}`;
+  function diasDeEstudo() {
+    const dias = new Set(), add = v => { if (v) dias.add(String(v).slice(0, 10)); };
+    Object.entries(atividade).forEach(([d, v]) => { if (v && v.q) dias.add(d); });
+    Object.values(lidos).forEach(v => add(v.em));
+    Object.values(geralLido).forEach(v => add(v.em));
+    [marcas, comentarios].forEach(o => Object.values(o).forEach(l => l.forEach(x => add(x.em))));
+    return dias;
+  }
+  function sequenciaDias(dias) {
+    const d = new Date();
+    let n = 0;
+    if (!dias.has(isoDia(d))) d.setDate(d.getDate() - 1);
+    while (dias.has(isoDia(d))) { n++; d.setDate(d.getDate() - 1); }
+    return n;
+  }
+  function renderPerfil() {
+    document.title = 'Perfil · Missão Fiscal';
+    const g = conta.user, dias = diasDeEstudo(), seq = sequenciaDias(dias);
+    const sem = [];
+    for (let i = 6; i >= 0; i--) {
+      const d = new Date();
+      d.setDate(d.getDate() - i);
+      const k = isoDia(d), v = atividade[k] || {};
+      sem.push({ q: v.q || 0, a: v.a || 0, rot: d.toLocaleDateString('pt-BR', { weekday: 'short' }).replace('.', ''), hoje: i === 0 });
+    }
+    const maxQ = Math.max(1, ...sem.map(x => x.q)), totSem = sem.reduce((n, x) => n + x.q, 0);
+    const num = (v, r) => `<div class="pf-num"><span class="pf-v">${v}</span><span class="pf-r">${r}</span></div>`;
+    // continuar de onde parou
+    const u = guarda.ler('ultimo', null);
+    let continuar = '';
+    if (u && u.g && MAT[u.g]) continuar = `<a class="pf-cont c-${MAT[u.g].cor}" href="#${u.g}_geral~p${u.pag || 1}"><span class="pf-cont-r">${ICO.livro}Continuar lendo</span><strong>Resumo geral · ${esc(MAT[u.g].nome)}</strong><span>Pág. ${u.pag || 1} de ${MAT[u.g].geral.paginas}</span></a>`;
+    else if (u && u.d && docs[u.d] && docs[u.d].tipo === 'tema') continuar = `<a class="pf-cont c-${MAT[docs[u.d].materia].cor}" href="#${u.d}" data-continuar="1"><span class="pf-cont-r">${ICO.livro}Continuar lendo</span><strong>${esc(docs[u.d].titulo)}</strong><span>${esc(MAT[docs[u.d].materia].nome)}${u.s ? ' · ' + esc(u.s) : ''}</span></a>`;
+    // progresso por disciplina
+    let sumLidos = 0, sumTemas = 0, sumFeitas = 0, sumQ = 0;
+    const linhas = D.materias.map(m => {
+      const pt = progressoTemas(m), pg = progressoGeral(m), qs = questoesDe(m), st = qEstat(qs);
+      sumLidos += pt.sim; sumTemas += pt.total; sumFeitas += st.feitas; sumQ += st.total;
+      return `<li class="pf-disc c-${m.cor}"><a class="pf-disc-n" href="#${m.id}"><span class="aba">${esc(m.sigla)}</span><span>${esc(m.nome)}</span></a>
+        <div class="pf-disc-b">${barraProg('Resumo geral', pg ? pg.pct : 0, (pg ? pg.pct : 0) + '%')}${barraProg('Tópicos', pt.pct, `${pt.sim}/${pt.total}`)}${qs.length ? barraProg('Questões', Math.round(100 * st.feitas / st.total), `${st.feitas}/${st.total}`) : ''}</div>
+        <p class="pf-disc-q">${st.resp ? `${st.pct}% de acerto` : '&nbsp;'}</p></li>`;
+    }).join('');
+    // questões
+    const tudo = qEstat(QS);
+    const porDif = Object.keys(DIF).map(k => { const q = QS.filter(x => x.d === k), e = qEstat(q); return barraProg(DIF[k], e.feitas ? e.pctFix : 0, e.feitas ? `${e.pctFix}%` : '—'); }).join('');
+    const temasQ = [];
+    D.ordem.forEach(id => { const qs = QS.filter(q => q.t === id); if (qs.length) { const e = qEstat(qs); if (e.feitas && e.pctFix < 100) temasQ.push({ id, e }); } });
+    temasQ.sort((a, b) => a.e.pctFix - b.e.pctFix || b.e.feitas - a.e.feitas);
+    const erra = temasQ.slice(0, 3).map(x => `<li><a href="#${x.id}">${esc(docs[x.id].titulo)}</a><span>${x.e.pctFix}%</span></li>`).join('');
+    const erradas = D.materias.map(m => { const n = questoesDe(m).filter(q => qResp[q.id] && !qResp[q.id].ok).length; return n ? `<button class="bt" type="button" data-perfil="erradas" data-mat="${m.id}"><span class="aba c-${m.cor}">${esc(m.sigla)}</span>Refazer ${plural(n, 'errada', 'erradas')}</button>` : ''; }).join('');
+    // marcações
+    const nMarc = { 1: 0, 2: 0, 3: 0, 4: 0, total: 0 };
+    let nCom = 0;
+    D.materias.forEach(m => { const n = contarMarcas(m); [1, 2, 3, 4].forEach(c => { nMarc[c] += n[c]; }); nMarc.total += n.total; nCom += contarComentarios(m); });
+    const favs = favoritos.map(id => `<li><a class="c-${matDoc(id).cor}" href="#${id}"><span class="ponto"></span>${esc(docs[id].titulo)}</a></li>`).join('');
+    const sync = g
+      ? `<p class="pf-st js-conta-st" role="status">${textoEstado()}</p>${conta.estado === 'exp' ? '<div class="cta-g" id="ui-g-btn"><span class="cta-g-espera">Carregando o login do Google…</span></div>' : ''}`
+      : '';
+    vista.innerHTML = `<div class="pf">
+      <header class="pf-cab">${avatarHtml(g, 64)}<div class="pf-id"><h1>${esc(g ? (g.nome || 'Conta Google') : 'Visitante')}</h1><p>${g ? esc(g.email) : 'Os seus dados ficam só neste navegador.'}${adm ? '<span class="selo">Administrador</span>' : ''}</p>${sync}</div>
+        <div class="pf-acoes">${g ? `<button class="bt" type="button" data-perfil="sync">Sincronizar agora</button><button class="bt" type="button" data-perfil="sair">${ICO.sair}Sair</button>` : conta.cfg ? `<button class="bt bt-p" type="button" data-perfil="entrar">Entrar com o Google</button>` : ''}</div></header>
+      <div class="pf-grade">
+        <section class="pf-sec pf-ritmo"><h2>Ritmo</h2><div class="pf-nums">${num(seq, seq === 1 ? 'dia seguido' : 'dias seguidos')}${num(dias.size, dias.size === 1 ? 'dia de estudo' : 'dias de estudo')}${num(totSem, 'respostas em 7 dias')}</div>
+          <div class="pf-dias" role="img" aria-label="Respostas por dia nos últimos 7 dias">${sem.map(x => `<div class="pf-dia${x.hoje ? ' hoje' : ''}" title="${plural(x.q, 'resposta', 'respostas')}${x.q ? `, ${x.a} certas` : ''}"><span class="pf-q">${x.q || ''}</span><span class="pf-barra"><span style="height:${x.q ? Math.max(6, Math.round(100 * x.q / maxQ)) : 0}%"></span></span><span class="pf-rot">${esc(x.rot)}</span></div>`).join('')}</div></section>
+        <section class="pf-sec pf-lado"><h2>Continuar</h2>${continuar || '<p class="pf-vazio">Nenhuma leitura iniciada.</p>'}
+          <h2>Baixar conteúdo</h2><div class="pf-baixar"><button class="bt" type="button" data-perfil="baixar" data-formato="docx">${ICO.docx}DOCX</button><button class="bt" type="button" data-perfil="baixar" data-formato="pdf">${ICO.pdf}PDF</button></div></section>
+        <section class="pf-sec pf-todo"><h2>Progresso por disciplina<span class="pf-tot">${sumLidos}/${sumTemas} tópicos${sumQ ? ` · ${sumFeitas}/${sumQ} questões` : ''}</span></h2><ul class="pf-discs">${linhas}</ul></section>
+        <section class="pf-sec"><h2>Questões</h2>
+          <div class="pf-nums">${num(tudo.resp, 'respostas')}${num(tudo.acertos, 'acertos')}${num(tudo.resp ? tudo.pct + '%' : '—', 'de acerto')}</div>
+          <div class="pf-bars">${porDif}</div>
+          ${erra ? `<h3>Onde mais erra</h3><ol class="pf-erra">${erra}</ol>` : ''}
+          ${erradas ? `<div class="pf-erradas">${erradas}</div>` : ''}</section>
+        <section class="pf-sec"><h2>Marcações e comentários</h2>
+          <ul class="sw-lista">${[1, 2, 3, 4].map(c => `<li><span class="sw sw-${c}"></span>${CORES[c]}<strong>${nMarc[c]}</strong></li>`).join('')}<li><span class="chip-ico">${ICO.comentario}</span>Comentários<strong>${nCom}</strong></li></ul>
+          ${favs ? `<h3>Favoritos</h3><ul class="atalho-favs pf-favs">${favs}</ul>` : ''}
+          ${qFav.length ? `<p class="pf-vazio">${ICO.estrela} ${plural(qFav.length, 'questão favorita', 'questões favoritas')}</p>` : ''}</section>
+        <section class="pf-sec pf-todo pf-dados"><h2>Dados</h2><div class="pf-baixar"><button class="bt" type="button" data-perfil="exportar">Exportar cópia</button><button class="bt" type="button" data-perfil="importar">Importar cópia</button>${servidorLocal && !adm ? '<button class="bt-texto" type="button" data-perfil="adm">Sou o administrador</button>' : ''}</div></section>
+      </div></div>`;
+    const b = $('#ui-g-btn', vista);
+    if (b) botaoGoogle(b);
+    window.scrollTo(0, 0);
+  }
+  function acaoPerfil(a, el) {
+    if (a === 'sync') sincronizar('manual');
+    else if (a === 'sair') sairConta(false);
+    else if (a === 'entrar') dialogoEntrarGoogle();
+    else if (a === 'baixar') dialogoBaixar(null, el.dataset.formato);
+    else if (a === 'exportar') exportar();
+    else if (a === 'importar') importar();
+    else if (a === 'adm') dialogoEntrar();
+    else if (a === 'erradas') { const m = MAT[el.dataset.mat]; gravarQFiltro(m, Object.assign(qFiltro(m), { mostrar: 'erradas' })); qSessao = null; ir({ v: 'mat', mat: m.id, aba: 'questoes', extra: null }); }
   }
   async function sairConta(forcar) {
     const erro = $('#ui-dlg-erro'), ok = $('#ui-dlg-ok');
     if (!forcar && pendentes()) {
-      if (ok) ok.textContent = 'Enviando as últimas alterações…';
+      if (ok) ok.textContent = 'Enviando as últimas alterações…'; else mostrarRecado('Enviando as últimas alterações…');
       for (let i = 0; i < 40 && conta.ocupado; i++) await new Promise(r => setTimeout(r, 250));
       await sincronizar('saida');
       if (pendentes()) {
         if (ok) ok.textContent = '';
         abrirDialogo({
           titulo: 'Não deu para enviar tudo',
-          corpo: '<p class="dlg-sub">Algumas alterações ainda não chegaram à sua conta. Sair agora as apaga deste navegador. Você pode tentar de novo mais tarde ou guardar uma cópia em Aa → Exportar antes de sair.</p>',
+          corpo: '<p class="dlg-sub">Algumas alterações ainda não chegaram à sua conta. Sair agora as apaga deste navegador. Você pode tentar de novo mais tarde ou guardar uma cópia (Perfil → Exportar) antes de sair.</p>',
           botoes: [{ rot: 'Sair mesmo assim', lado: 'esq', acao: () => { sairConta(true); return false; } }, { rot: 'Voltar', principal: true }]
         });
         return;
@@ -3878,28 +4979,52 @@ body.foco .toc { display: none; }
     return modelos.get(id);
   }
   function renderMarcas(m, manterRolagem) {
-    document.title = `Marcações · ${m.nome} · Estudos`;
-    const y = window.scrollY, nm = contarMarcas(m), vistos = new Set();
+    document.title = `Marcações · ${m.nome} · Missão Fiscal`;
+    const y = window.scrollY, nm = contarMarcas(m), nc = contarComentarios(m), vistos = new Set(), vistosC = new Set();
     let lista = '';
     for (const id of temasDe(m).concat(m.sintetico)) {
-      const grs = gruposDe(id).filter(gr => { if (vistos.has(gr.g)) return false; vistos.add(gr.g); return !filtroCor || gr.c === filtroCor; });
-      if (!grs.length) continue;
+      const grs = filtroCor === 5 ? [] : gruposDe(id).filter(gr => { if (vistos.has(gr.g)) return false; vistos.add(gr.g); return !filtroCor || gr.c === filtroCor; });
+      const cms = !filtroCor || filtroCor === 5 ? gruposComentario(id).filter(gr => { if (vistosC.has(gr.g)) return false; vistosC.add(gr.g); return true; }) : [];
+      if (!grs.length && !cms.length) continue;
       const d = docs[id], rotulo = d.tipo === 'sint' ? `Resumo sintético · ${d.titulo}` : d.titulo;
-      lista += `<section class="mc-doc"><h3 class="mc-doc-t"><a href="#${id}">${esc(rotulo)}</a></h3><ul class="mc-lista">${grs.map(gr => {
+      const itensM = grs.map(gr => {
         const achada = gr.partes.every(x => localizar(modeloTexto(id), x, false));
         const texto = gr.partes.map(x => esc(x.t)).join(' … ');
         return `<li class="mc"><div><p class="mc-txt"><mark class="mt mt-${gr.c}">${texto}</mark></p><p class="mc-meta">${CORES[gr.c]} · ${dataBR(gr.em)}${achada ? '' : ' · <span class="mc-perdida">trecho não encontrado no texto atual</span>'}</p></div>
           <div class="mc-acoes">${achada ? `<a class="bt" href="#${id}" data-b="${gr.partes[0].b}" data-marca="${gr.g}">${ICO.ir}Ver no texto</a>` : ''}<button class="bt" type="button" data-remover-marca="${gr.g}">${ICO.lixo}Remover</button></div></li>`;
-      }).join('')}</ul></section>`;
+      }).join('');
+      const itensC = cms.map(gr => {
+        const achada = gr.partes.every(x => localizar(modeloTexto(id), x, false));
+        const texto = gr.partes.map(x => esc(x.t)).join(' … ');
+        return `<li class="mc"><div><p class="mc-txt"><span class="cm-q">${texto}</span></p><p class="mc-nota">${esc(gr.n)}</p><p class="mc-meta">Comentário · ${dataBR(gr.ed || gr.em)}${achada ? '' : ' · <span class="mc-perdida">trecho não encontrado no texto atual</span>'}</p></div>
+          <div class="mc-acoes">${achada ? `<a class="bt" href="#${id}" data-b="${gr.partes[0].b}" data-cm="${gr.g}">${ICO.ir}Ver no texto</a>` : ''}<button class="bt" type="button" data-editar-cm="${gr.g}">${ICO.lapis}Editar</button><button class="bt" type="button" data-remover-cm="${gr.g}">${ICO.lixo}Remover</button></div></li>`;
+      }).join('');
+      lista += `<section class="mc-doc"><h3 class="mc-doc-t"><a href="#${id}">${esc(rotulo)}</a></h3><ul class="mc-lista">${itensM}${itensC}</ul></section>`;
     }
-    const chip = (c, rot, n) => `<button class="chip${c ? '' : ' chip-todas'}" type="button" data-filtro-cor="${c}" aria-pressed="${filtroCor === c}">${c ? `<span class="sw sw-${c}"></span>` : ''}${rot} <span class="n">${n}</span></button>`;
+    const chip = (c, rot, n) => `<button class="chip${c ? '' : ' chip-todas'}" type="button" data-filtro-cor="${c}" aria-pressed="${filtroCor === c}">${c === 5 ? `<span class="chip-ico">${ICO.comentario}</span>` : c ? `<span class="sw sw-${c}"></span>` : ''}${rot} <span class="n">${n}</span></button>`;
     vista.innerHTML = `<div class="doc c-${m.cor}">
-      <header class="sec-cab"><h1 class="sec-tit">Marcações</h1><p class="sec-sub">Selecione qualquer trecho de um resumo para marcá-lo. As cores:</p>
-        <ul class="mc-legenda">${[1, 2, 3, 4].map(c => `<li><span class="sw sw-${c}"></span>${CORES[c]}</li>`).join('')}</ul></header>
-      ${nm.total ? `<div class="chips" role="group" aria-label="Filtrar por cor">${chip(0, 'Todas', nm.total)}${[1, 2, 3, 4].map(c => chip(c, CORES[c], nm[c])).join('')}</div>${lista || '<div class="vazio"><p>Nenhuma marcação com esta cor.</p></div>'}`
-        : `<div class="vazio"><p><strong>Nenhuma marcação ainda.</strong></p><p>No resumo geral, num tópico ou no resumo sintético, selecione um trecho e escolha a cor. Outra forma: escolha uma cor no marca-texto do canto da tela e selecione o trecho, que fica marcado na hora.</p></div>`}
+      <header class="sec-cab"><h1 class="sec-tit">Marcações${dica('Selecione um trecho de qualquer resumo para marcar com cor ou comentar. Outra forma: escolha uma cor no marca-texto do canto da tela e selecione o trecho, que fica marcado na hora.')}</h1></header>
+      ${nm.total + nc ? `<div class="chips" role="group" aria-label="Filtrar">${chip(0, 'Todas', nm.total + nc)}${[1, 2, 3, 4].map(c => chip(c, CORES[c], nm[c])).join('')}${chip(5, 'Comentários', nc)}</div>${lista || '<div class="vazio"><p>Nada com este filtro.</p></div>'}`
+        : `<div class="vazio"><p><strong>Nenhuma marcação ainda.</strong></p></div>`}
     </div>`;
     window.scrollTo(0, manterRolagem ? y : 0);
+  }
+  function dialogoComentario(g) {
+    const x = infoComentario(g);
+    if (!x) return;
+    abrirDialogo({
+      titulo: 'Editar comentário',
+      corpo: `<p class="dlg-sub mc-q-dlg">${esc(x.t)}</p><textarea class="dlg-txt dlg-nota" id="ui-cm-txt" rows="4" maxlength="2000" aria-label="Comentário">${esc(x.n)}</textarea>`,
+      botoes: [
+        { rot: 'Cancelar' },
+        { rot: 'Salvar', principal: true, acao: d => {
+          const v = $('#ui-cm-txt', d).value.trim();
+          if (!v) { $('#ui-dlg-erro', d).textContent = 'Escreva o comentário ou remova-o.'; return false; }
+          editarComentario(g, v);
+        } }
+      ],
+      aoAbrir: d => { const t = $('#ui-cm-txt', d); t.focus(); t.setSelectionRange(t.value.length, t.value.length); }
+    });
   }
 
   // ---------- Mapas mentais ----------
@@ -4169,13 +5294,13 @@ body.foco .toc { display: none; }
     return { destruir() { window.removeEventListener('resize', aoRedimensionar); } };
   }
   function renderMapaGeral(m) {
-    document.title = `Mapa mental geral · ${m.nome} · Estudos`;
+    document.title = `Mapa mental geral · ${m.nome} · Missão Fiscal`;
     vista.innerHTML = `<div class="doc vista-mapa c-${m.cor}"><h1 class="sr">Mapa mental geral · ${esc(m.nome)}</h1><div id="ui-mapa"></div></div>`;
     window.scrollTo(0, 0);
     mapaAtivo = criarMapa($('#ui-mapa'), arvoreGeral(m), 3);
   }
   function renderMapas(m) {
-    document.title = `Mapas por tópico · ${m.nome} · Estudos`;
+    document.title = `Mapas por tópico · ${m.nome} · Missão Fiscal`;
     let h = '';
     for (const a of m.assuntos) {
       h += `<section class="tp-ass"><h2 class="tp-ass-t">${a.num ? `<span class="num">${esc(a.num)}</span>` : ''}${esc(a.nome || 'Tópicos')}</h2><ul class="mp-lista">${a.temas.map(id => {
@@ -4184,13 +5309,13 @@ body.foco .toc { display: none; }
       }).join('')}</ul></section>`;
     }
     vista.innerHTML = `<div class="doc c-${m.cor}">
-      <header class="sec-cab"><h1 class="sec-tit">Mapas por tópico</h1><p class="sec-sub">Cada mapa resume um tópico e está ligado ao resumo dele: clique num ramo para ver o trecho correspondente.</p></header>${h}</div>`;
+      <header class="sec-cab"><h1 class="sec-tit">Mapas por tópico${dica('Cada mapa resume um tópico e está ligado ao resumo dele: clique num ramo para ver o trecho correspondente.')}</h1></header>${h}</div>`;
     window.scrollTo(0, 0);
   }
   function renderMapaTema(id) {
     const d = docs[id], m = MAT[d.materia];
     const [ant, prox] = vizinhos[id] || [null, null];
-    document.title = `Mapa mental · ${d.titulo} · Estudos`;
+    document.title = `Mapa mental · ${d.titulo} · Missão Fiscal`;
     vista.innerHTML = `<div class="doc vista-mapa c-${m.cor}">
       <header class="doc-cab"><nav class="migalhas" aria-label="Localização">${d.num ? `<span class="num">${esc(d.num)}</span>` : ''}<span>${esc(d.assunto)}</span></nav>
         <div class="doc-tit-linha"><h1 class="doc-tit">${esc(d.titulo)}</h1><div class="doc-acoes">${botaoLido(id)}</div></div>${modoTema(id, 'mapa')}</header>
@@ -4269,7 +5394,7 @@ body.foco .toc { display: none; }
   }
   function renderBusca() {
     const q = busca.q.trim();
-    document.title = `Busca: ${q} · Estudos`;
+    document.title = `Busca: ${q} · Missão Fiscal`;
     const res = pesquisar();
     const cab = `<header><p class="rotulo">Busca em todo o material</p><h1 class="res-tit">“${esc(q)}”</h1>`;
     const opcoes = `<div class="res-ops"><label class="op"><input type="checkbox" id="ui-exata"${busca.exata ? ' checked' : ''}> Palavra exata</label>
@@ -4353,9 +5478,33 @@ body.foco .toc { display: none; }
     itens[Math.max(0, Math.min(itens.length - 1, i + (e.key === 'ArrowDown' ? 1 : -1)))].focus();
   });
 
+  // ---------- Questões: todas as disciplinas ----------
+  const abasQuestoes = atual => `<nav class="modo" aria-label="Questões e pegadinhas"><a href="#questoes"${atual === 'questoes' ? ' aria-current="page"' : ''}>${ICO.raio}Questões</a><a href="#pegadinhas"${atual === 'pegadinhas' ? ' aria-current="page"' : ''}>${ICO.peg}Pegadinhas</a></nav>`;
+  function renderQuestoesHub() {
+    document.title = 'Questões · Missão Fiscal';
+    const tudo = qEstat(QS);
+    const cartoes = D.materias.map(m => {
+      const lista = questoesDe(m), st = qEstat(lista), nErr = lista.filter(q => qResp[q.id] && !qResp[q.id].ok).length;
+      if (!lista.length) return `<div class="disc c-${m.cor}"><div class="disc-cab"><span class="aba">${esc(m.sigla)}</span><h2 class="disc-nome">${esc(m.nome)}</h2></div><p class="disc-dados">Em preparação</p></div>`;
+      const rot = st.feitas ? (st.ineditas ? 'Continuar' : 'Revisar') : 'Começar';
+      return `<a class="disc c-${m.cor} revelar" href="#${m.id}_questoes" aria-label="Questões de ${esc(m.nome)}">
+        <div class="disc-cab"><span class="aba">${esc(m.sigla)}</span><h2 class="disc-nome">${esc(m.nome)}</h2><span class="disc-ir">${ICO.dir}</span></div>
+        <p class="disc-dados">${plural(st.total, 'questão', 'questões')}${st.resp ? ` · ${st.pct}% de acerto em ${plural(st.resp, 'resposta', 'respostas')}` : ' · nenhuma resposta ainda'}</p>
+        <div class="disc-prog">${barraProg('Feitas', Math.round(100 * st.feitas / st.total), `${st.feitas}/${st.total}`)}</div>
+        <p class="disc-ult"><span>${rot}</span>${nErr ? `<span class="disc-ult-h">${plural(nErr, 'errada', 'erradas')}</span>` : ''}</p>
+      </a>`;
+    }).join('');
+    vista.innerHTML = `<div class="inicio"><section>${abasQuestoes('questoes')}
+      <div class="disc-barra"><h1>Questões${dica('Certo ou Errado sobre os tópicos de cada disciplina, elaboradas a partir dos resumos (não são questões de prova).')}</h1>
+        <p class="qh-tot">${plural(tudo.feitas, 'feita', 'feitas')} de ${tudo.total}${tudo.resp ? ` · ${tudo.pct}% de acerto` : ''}</p></div>
+      <div class="disc-grade">${cartoes}</div></section></div>`;
+    revelar(vista);
+    window.scrollTo(0, 0);
+  }
+
   // ---------- Pegadinhas ----------
   function renderPegadinhas() {
-    document.title = 'Pegadinhas · Estudos';
+    document.title = 'Pegadinhas · Missão Fiscal';
     const porDoc = new Map();
     D.pegadinhas.forEach(p => { if (!porDoc.has(p.d)) porDoc.set(p.d, []); porDoc.get(p.d).push(p); });
     const contagem = {};
@@ -4378,8 +5527,8 @@ body.foco .toc { display: none; }
       }
       corpo += '</section>';
     }
-    vista.innerHTML = `<section class="pegs"><header><p class="rotulo">Revisão rápida</p><h1 class="pegs-tit">Pegadinhas</h1>
-      <p class="res-sum">Todas as pegadinhas da base, por disciplina e tópico. A bolinha mostra o gabarito: <span class="gabarito"><span class="g-E">E</span></span> errado, <span class="gabarito"><span class="g-C">C</span></span> certo.</p>${chips}</header>${corpo}</section>`;
+    vista.innerHTML = `<section class="pegs"><header>${abasQuestoes('pegadinhas')}<h1 class="pegs-tit">Pegadinhas${dica('Todas as pegadinhas da base, por disciplina e tópico. A bolinha mostra o gabarito: E é errado, C é certo.')}</h1>
+      ${chips}</header>${corpo}</section>`;
     window.scrollTo(0, 0);
   }
 
@@ -4396,6 +5545,14 @@ body.foco .toc { display: none; }
     if (bFav) { alternarFavorito(bFav.dataset.fav); return; }
     const bGeral = t.closest('[data-marcar-geral]');
     if (bGeral) { dialogoLidoGeral(bGeral.dataset.marcarGeral); return; }
+    const bBx = t.closest('[data-baixar]');
+    if (bBx) { dialogoBaixar(bBx.dataset.baixar || null); return; }
+    const bPf = t.closest('[data-perfil]');
+    if (bPf) { acaoPerfil(bPf.dataset.perfil, bPf); return; }
+    const bEdCm = t.closest('[data-editar-cm]');
+    if (bEdCm) { dialogoComentario(bEdCm.dataset.editarCm); return; }
+    const bRemCm = t.closest('[data-remover-cm]');
+    if (bRemCm) { removerComentario(bRemCm.dataset.removerCm); return; }
     const bRem = t.closest('[data-remover-marca]');
     if (bRem) { removerGrupo(bRem.dataset.removerMarca); return; }
     const bSint = t.closest('[data-salvar-sint]');
@@ -4420,6 +5577,8 @@ body.foco .toc { display: none; }
     if (pchip) { pegFiltro = pchip.dataset.pegfiltro; renderPegadinhas(); return; }
     const mais = t.closest('[data-mais]');
     if (mais) { const art = mais.closest('.res-doc'); $$('li[hidden]', art).forEach(li => { li.hidden = false; }); mais.remove(); return; }
+    const cmEl = t.closest('.cm');
+    if (cmEl && !t.closest('a') && cmEl.closest('.leitura') && !selecaoNaLeitura()) { mostrarPaleta(cmEl.getBoundingClientRect(), 'comentario', cmEl.dataset.cm); return; }
     const mk = t.closest('mark.mt');
     if (mk && !t.closest('a') && mk.closest('.leitura') && !selecaoNaLeitura()) { mostrarPaleta(mk.getBoundingClientRect(), 'marca', mk.dataset.g); return; }
     const a = t.closest('a[href^="#"]');
@@ -4462,6 +5621,7 @@ body.foco .toc { display: none; }
     if (a.dataset.busca) { op.termos = busca.termos; op.exata = busca.exata; op.rotulo = busca.q.trim(); }
     if (a.dataset.b) op.b = Number(a.dataset.b);
     if (a.dataset.marca) op.marca = a.dataset.marca;
+    if (a.dataset.cm) op.cm = a.dataset.cm;
     if (a.dataset.continuar) { const u = guarda.ler('ultimo', null); if (u && u.d === r.doc) op.y = u.y; }
     ir(r, { op });
   });
@@ -4475,8 +5635,8 @@ body.foco .toc { display: none; }
       if (rota.v === 'doc') espiar();
       else if (rota.v === 'mat' && rota.aba === 'geral') espiarGeral();
     });
-    if (paletaModo === 'marca') esconderPaleta();
-    else if (paletaModo === 'selecao') { const r = selecaoNaLeitura(); if (r) mostrarPaleta(r.getBoundingClientRect(), 'selecao'); else esconderPaleta(); }
+    if (paletaModo === 'marca' || paletaModo === 'comentario') esconderPaleta();
+    else if (paletaModo === 'selecao' && paletaVista !== 'nota') { const r = selecaoNaLeitura(); if (r) mostrarPaleta(r.getBoundingClientRect(), 'selecao', null, true); else esconderPaleta(); }
     clearTimeout(tSalvar);
     tSalvar = setTimeout(salvarPosicao, 350);
   }, { passive: true });

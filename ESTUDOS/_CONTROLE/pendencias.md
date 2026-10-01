@@ -14,7 +14,7 @@
 
 ## 🟡 Organização / fluxo de trabalho
 
-- **Login com Google (v007):** o código está pronto, mas só liga depois de você criar o cliente OAuth no Google Cloud, a Data API no Neon (com `sistema/neon.sql`) e o `sistema/conta.json`, e desligar a Vercel Authentication (passos no README). Até lá, o botão Entrar só oferece o login de administrador.
+- **Neon, chaves novas (v008):** os comentários e o ritmo de estudo sincronizam como as chaves `comentarios` e `atividade`. Rode uma vez, no SQL Editor do Neon, o bloco de migração no fim de `sistema/neon.sql` (o `alter table ... estudos_dados_chave`). Sem isso, só essas duas chaves falham ao sincronizar; o resto continua funcionando.
 
 - **Concurso-alvo e data-base do edital:** saber qual concurso (e se a banca é mesmo CEBRASPE) ajuda a priorizar legislação estadual/municipal e a decidir como tratar a transição PIS/COFINS → CBS.
 - **Datas originais dos estudos:** não informadas no arquivo inicial.
