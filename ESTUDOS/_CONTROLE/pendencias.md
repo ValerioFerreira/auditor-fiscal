@@ -4,6 +4,8 @@
 
 - **Direito Administrativo — resumo de 29/09/2026:** o arquivo "29_09_26 - Resumos - Auditor Fiscal.docx" tem o título "Direito Administrativo" no fim, mas nenhum conteúdo abaixo dele. Faltou colar essa parte? Se sim, mande-a para eu incorporar.
 
+- **Direito Constitucional — *Conceito e Concepções* (sua edição de 03/10/2026):** (1) a célula de Lassalle ficou com a leitura truncada ("somatório de duas características: efeiitva, que é real e é a soma dos fatores reais de poder, e a escrita, que caso não corresponda à real…") e traz um erro de digitação ("efeiitva"); (2) na teoria clássica, o terceiro elemento do Estado costuma aparecer como "governo soberano" ou "soberania", e o tema diz só "Governo". Mantive o texto como está; as questões novas evitam depender desses dois pontos. Quer que eu ajuste?
+
 *As quatro pendências da carga inicial foram resolvidas por você em 27/09/2026 (ver `alteracoes.md`, v002).*
 
 ## 🟠 Acompanhar (jurisprudência/legislação em aberto)

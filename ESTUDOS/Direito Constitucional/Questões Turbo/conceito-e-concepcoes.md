@@ -1,7 +1,7 @@
 # Questões turbo — Conceito e Concepções (Sentidos) da Constituição
 <!-- cobertura
-Conceito = 126001be7b
-Concepções = d94f4b4ed1
+Conceito = c877205589
+Concepções = 6a44096e0e
 Regras e princípios = 78ad4b17b8
 Pegadinhas CEBRASPE = e85ea1259a
 -->
@@ -110,3 +110,33 @@ Na concepção estrutural de constituição, o fim constitucional reside na pres
 Determinado jurista afirma que, embora o texto constitucional de certo país preveja amplas liberdades, a organização efetiva do poder é ditada pelas forças econômicas e militares dominantes, e que é essa organização que configura a verdadeira constituição. Esse raciocínio alinha-se à concepção sociológica de constituição.
 - Gabarito: CERTO
 - Comentário: Tomar como verdadeira constituição a organização efetiva do poder, e não o texto escrito, é a essência da concepção sociológica de Lassalle (fatores reais de poder × "folha de papel").
+
+## Q022 · fácil · Conceito
+Conforme a teoria clássica, a entidade estatal, cuja ordem jurídica básica é objeto da constituição, integra-se por três componentes: o povo, o território e o governo.
+- Gabarito: CERTO
+- Comentário: Segundo a teoria clássica, o Estado é composto por povo, território e governo. A constituição reúne as normas básicas da ordem jurídica desse Estado (organização do poder, competências, forma de governo e direitos fundamentais).
+
+## Q023 · médio · Conceito
+Um grupamento humano fixado em território delimitado, ainda que desprovido de governo, configura Estado de acordo com a teoria clássica, uma vez que povo e território bastam à sua composição.
+- Gabarito: ERRADO
+- Comentário: Na teoria clássica o Estado é composto por três elementos: povo, território **e governo**. Faltando o governo, não se reúnem todos os componentes; a suficiência de apenas dois deles torna o item falso.
+
+## Q024 · médio · Concepções
+Sob a ótica sociológica de Lassalle, o conceito de constituição de um Estado abrange dois aspectos, o efetivo, que traduz a soma dos fatores reais de poder, e o escrito; havendo divergência entre eles, sobrepõe-se o aspecto efetivo.
+- Gabarito: CERTO
+- Comentário: Para Lassalle, a constituição é o somatório de duas características: a real (efetiva), que é a soma dos fatores reais de poder, e a escrita. Se a escrita não corresponder à real, é mera "folha de papel", e prevalece a real.
+
+## Q025 · difícil · Concepções
+Em determinado país, o texto constitucional escrito reproduz com fidelidade a distribuição efetiva do poder entre as forças sociais que o exercem. Na concepção de Lassalle, esse documento seria, ainda assim, mera "folha de papel", porque a constituição escrita, em qualquer hipótese, carece de valor diante da real.
+- Gabarito: ERRADO
+- Comentário: A constituição escrita só é "folha de papel" quando **não corresponde** à constituição real. Se o texto reflete os fatores reais de poder, não há descompasso a gerar essa qualificação. O absoluto ("em qualquer hipótese") torna o item falso.
+
+## Q026 · fácil · Concepções
+A concepção que compreende a constituição como norma jurídica pura e fundamental, sem fundamento sociológico ou político, denomina-se normativa e é atribuída a Konrad Hesse.
+- Gabarito: ERRADO
+- Comentário: Essa é a concepção jurídica, de Hans Kelsen. A concepção normativa, de Hesse, trata da força normativa da constituição, que pode prevalecer sobre a realidade em caso de conflito (em oposição a Lassalle).
+
+## Q027 · médio · Concepções
+Enquanto Lassalle enxerga a constituição como fato social, cuja forma escrita, se destoar dos fatores reais de poder, é mera folha de papel, Kelsen a toma como norma jurídica pura e fundamental, sem fundamento sociológico ou político.
+- Gabarito: CERTO
+- Comentário: Contraste entre a concepção sociológica (constituição como fato social; a escrita que não corresponde à real é "folha de papel") e a jurídica (norma jurídica pura e fundamental, sem fundamento sociológico ou político).

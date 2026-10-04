@@ -4219,17 +4219,20 @@ body.foco .toc { display: none; }
       <div class="ed-ctx" data-ctx="imagem" hidden><span class="ed-ctx-rot">Imagem</span><label class="ed-faixa">Largura<input type="range" min="10" max="100" step="1" value="100" data-ed-larg aria-label="Largura da imagem, em % do texto"><output data-ed-larg-v>100%</output></label>${b('img-orig', 'Voltar ao tamanho original', 'Tamanho original')}${b('img-del', 'Remover a imagem', 'Remover imagem')}</div>
     </div>`;
   }
+  // Tema aberto para edição dentro do resumo geral da própria disciplina: o editor entra no lugar do
+  // texto daquele tema, sem sair da página que a pessoa estava lendo.
+  const emGeral = id => !!(rota && rota.v === 'mat' && rota.aba === 'geral' && docs[id] && docs[id].tipo === 'tema' && docs[id].materia === rota.mat && document.getElementById('g-' + id));
   function abrirEdicao(id) {
     const d = docs[id];
     if (!d || (d.tipo !== 'tema' && d.tipo !== 'sint')) return;
     if (!adm) { dialogoEntrar(() => abrirEdicao(id)); return; }
     if (editor) { if (editor.id !== id) mostrarRecado('Salve ou cancele a edição aberta antes de abrir outra.', 'alerta'); return; }
-    if (d.tipo === 'tema' && !(rota && rota.v === 'doc' && rota.doc === id && !rota.mapa)) ir({ v: 'doc', doc: id, mapa: false, secao: null });
+    if (d.tipo === 'tema' && !emGeral(id) && !(rota && rota.v === 'doc' && rota.doc === id && !rota.mapa)) ir({ v: 'doc', doc: id, mapa: false, secao: null });
     else if (d.tipo === 'sint' && !(rota && rota.v === 'mat' && rota.aba === 'sintetico' && rota.mat === d.materia)) ir({ v: 'mat', mat: d.materia, aba: 'sintetico', extra: null, doc: id });
     iniciarEditor(id);
   }
   async function iniciarEditor(id) {
-    const d = docs[id], alvo = d.tipo === 'sint' ? document.getElementById('s-' + id) : $('#ui-artigo');
+    const d = docs[id], alvo = d.tipo === 'sint' ? document.getElementById('s-' + id) : emGeral(id) ? document.getElementById('g-' + id) : $('#ui-artigo');
     if (!alvo || editor) return;
     const pedido = { id, carregando: true };
     editor = pedido;
@@ -4260,10 +4263,11 @@ body.foco .toc { display: none; }
     caixa.innerHTML = barraEditor(txt) + (txt
       ? '<textarea class="ed-txt" spellcheck="true" aria-label="Texto desta parte"></textarea><p class="ed-dica">Esta parte é texto simples (.txt): o texto é gravado exatamente como estiver aqui, sem formatação. Ctrl+S salva.</p>'
       : '<div class="ed-area doc-corpo" contenteditable="true" spellcheck="true" role="textbox" aria-multiline="true" aria-label="Texto em edição"></div><p class="ed-dica">Arraste a borda entre duas colunas de uma tabela para mudar a largura; clique numa imagem para mudar o tamanho; cole imagens direto no texto. Ctrl+S salva. O que você não mexer fica exatamente como está no arquivo.</p>');
-    if (docs[id].tipo === 'sint') {
-      const div = $('.s-div', alvo);
-      while (div.nextSibling) div.nextSibling.remove();
+    if (docs[id].tipo === 'sint' || alvo.classList.contains('g-tema')) { // fica o cabeçalho da parte ou do tema; o texto vira o editor
+      const cab = $('.s-div, .g-cab', alvo);
+      while (cab.nextSibling) cab.nextSibling.remove();
       alvo.appendChild(caixa);
+      marcadoresPag = marcadoresPag.filter(mk => mk.isConnected);
     } else alvo.replaceChildren(caixa);
     const area = $('.ed-area, .ed-txt', caixa), barra = $('.ed-barra', caixa);
     editor = { id, caixa, area, txt, versao: j.versao, arquivo: j.arquivo, sujo: false, salvando: false, hist: [], refazer: [], rajada: 0, img: null, faixa: null, pop: null, arraste: null, mexendoImg: false };
@@ -4383,7 +4387,7 @@ body.foco .toc { display: none; }
     const avisos = j.avisos || [];
     umaVez.gravar('recado', j.semMudanca ? { texto: 'Nada mudou no arquivo.', tipo: 'ok' }
       : { texto: `Salvo em ESTUDOS/${j.arquivo}. A versão anterior ficou guardada na pasta edicoes-anteriores.`, tipo: avisos.length ? 'alerta' : 'ok', avisos });
-    umaVez.gravar('rolagem', { t: token(rota), y: Math.round(window.scrollY) });
+    umaVez.gravar('rolagem', { t: token(rota), y: Math.round(window.scrollY), g: emGeral(e.id) ? e.id : '' });
     location.reload();
   }
 
@@ -5682,7 +5686,15 @@ body.foco .toc { display: none; }
   if (rota.v === 'busca') rota = { v: 'inicio' };
   renderizar(rota, {});
   const depoisDeSalvar = umaVez.ler('recado'), rolagem = umaVez.ler('rolagem');
-  if (rolagem && rolagem.t === token(rota)) window.scrollTo(0, rolagem.y);
+  if (rolagem && rolagem.t === token(rota)) {
+    let y = rolagem.y;
+    const secEditada = rolagem.g && document.getElementById('g-' + rolagem.g); // o tema editado pode ter encolhido: não deixa a vista passar do fim dele
+    if (secEditada) {
+      const topo = secEditada.getBoundingClientRect().top + window.scrollY;
+      y = Math.max(topo - 80, Math.min(y, topo + secEditada.offsetHeight - Math.round(window.innerHeight * 0.5)));
+    }
+    window.scrollTo(0, y);
+  }
   if (depoisDeSalvar) mostrarRecado(depoisDeSalvar.texto, depoisDeSalvar.tipo, depoisDeSalvar.avisos);
 })();
 </script>

@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v008** (01/10/2026)
+> Versão atual da base: **v009** (03/10/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -87,3 +87,9 @@
 - **Comentários** nos textos (menu Marca-texto / Comentar ao selecionar) e **Marcar lido** por páginas ou tópicos no resumo geral, sem o bloco "Leitura" do topo.
 - Topo com **Questões** (página com as disciplinas e as Pegadinhas) e **Aparência** (antes "Aa"); abas da disciplina com menus Resumos e Mapas mentais.
 - Textos explicativos trocados por ícone ⓘ com balão.
+
+## 03/10/2026 — Editar no próprio resumo geral e regras do resumo geral (v009)
+
+- Sessão de sistema (sem estudo novo). O botão **Editar** do resumo geral agora abre o editor no lugar do texto do tema, sem levar ao tópico; ao salvar, a página volta ao mesmo ponto, e a mudança vale também em Por tópico.
+- Regras registradas no CLAUDE.md: o resumo geral mostra o texto de cada tema por extenso (links são só acréscimo) e o enriquecimento dos resumos é aditivo, sem descaracterizar o que foi marcado como importante.
+- Edição sua pelo site em *Conceito e Concepções* (Estado = povo, território e governo; Lassalle; Kelsen) incorporada como está; **6 questões turbo novas** (Q022 a Q027) cobrem o texto novo.
