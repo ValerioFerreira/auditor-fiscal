@@ -146,3 +146,11 @@
 | Classificação | Como estava na base | Como ficou na base |
 |---|---|---|
 | DIVERGÊNCIA | Paz na 3ª dimensão, sem ressalva | Mantida na 3ª (classificação tradicional), com a posição de Bonavides, que a situa numa 5ª dimensão |
+
+## v009 — 03/10/2026 (ajustes pedidos por você em Conceito e Concepções; sem resumo novo)
+### Direito Constitucional
+
+| Classificação | Como estava na base | Como ficou na base |
+|---|---|---|
+| IMPRECISA | Elementos do Estado: "Povo, Território e Governo" (sua edição de 03/10/2026) | **Governo soberano**, com a nota de que o terceiro elemento também aparece como *poder* ou *soberania*, conforme o autor |
+| IMPRECISA | Lassalle: "somatório de duas características: efeiitva, que é real…" (frase truncada, com erro de digitação) | Duas faces: a **real (efetiva)**, soma dos fatores reais de poder, e a **escrita**, que, se não corresponder à real, é "folha de papel" — prevalece a real |

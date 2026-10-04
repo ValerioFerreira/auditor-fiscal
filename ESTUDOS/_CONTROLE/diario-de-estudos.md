@@ -93,3 +93,4 @@
 - Sessão de sistema (sem estudo novo). O botão **Editar** do resumo geral agora abre o editor no lugar do texto do tema, sem levar ao tópico; ao salvar, a página volta ao mesmo ponto, e a mudança vale também em Por tópico.
 - Regras registradas no CLAUDE.md: o resumo geral mostra o texto de cada tema por extenso (links são só acréscimo) e o enriquecimento dos resumos é aditivo, sem descaracterizar o que foi marcado como importante.
 - Edição sua pelo site em *Conceito e Concepções* (Estado = povo, território e governo; Lassalle; Kelsen) incorporada como está; **6 questões turbo novas** (Q022 a Q027) cobrem o texto novo.
+- **Ajustes pedidos por você no mesmo dia:** em *Conceito e Concepções*, o terceiro elemento do Estado passou a "governo soberano" (com as variações *poder* e *soberania*) e a célula de Lassalle foi reescrita (real/efetiva x escrita); mapa mental e questões acompanharam (Q028 e Q029 novas; Q022 a Q024 ajustadas). Pendência 🔴 resolvida.

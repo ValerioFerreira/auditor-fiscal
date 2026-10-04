@@ -1,7 +1,7 @@
 # Questões turbo — Conceito e Concepções (Sentidos) da Constituição
 <!-- cobertura
-Conceito = c877205589
-Concepções = 6a44096e0e
+Conceito = 68be0e0ef9
+Concepções = 97e7b044a4
 Regras e princípios = 78ad4b17b8
 Pegadinhas CEBRASPE = e85ea1259a
 -->
@@ -112,19 +112,19 @@ Determinado jurista afirma que, embora o texto constitucional de certo país pre
 - Comentário: Tomar como verdadeira constituição a organização efetiva do poder, e não o texto escrito, é a essência da concepção sociológica de Lassalle (fatores reais de poder × "folha de papel").
 
 ## Q022 · fácil · Conceito
-Conforme a teoria clássica, a entidade estatal, cuja ordem jurídica básica é objeto da constituição, integra-se por três componentes: o povo, o território e o governo.
+Conforme a teoria clássica, a entidade estatal, cuja ordem jurídica básica é objeto da constituição, integra-se por três componentes: o povo, o território e o governo soberano.
 - Gabarito: CERTO
-- Comentário: Segundo a teoria clássica, o Estado é composto por povo, território e governo. A constituição reúne as normas básicas da ordem jurídica desse Estado (organização do poder, competências, forma de governo e direitos fundamentais).
+- Comentário: Segundo a teoria clássica, o Estado é composto por povo, território e governo soberano (o terceiro elemento também aparece como poder ou soberania, conforme o autor). A constituição reúne as normas básicas da ordem jurídica desse Estado (organização do poder, competências, forma de governo e direitos fundamentais).
 
 ## Q023 · médio · Conceito
 Um grupamento humano fixado em território delimitado, ainda que desprovido de governo, configura Estado de acordo com a teoria clássica, uma vez que povo e território bastam à sua composição.
 - Gabarito: ERRADO
-- Comentário: Na teoria clássica o Estado é composto por três elementos: povo, território **e governo**. Faltando o governo, não se reúnem todos os componentes; a suficiência de apenas dois deles torna o item falso.
+- Comentário: Na teoria clássica o Estado é composto por três elementos: povo, território **e governo soberano**. Faltando o governo, não se reúnem todos os componentes; a suficiência de apenas dois deles torna o item falso.
 
 ## Q024 · médio · Concepções
 Sob a ótica sociológica de Lassalle, o conceito de constituição de um Estado abrange dois aspectos, o efetivo, que traduz a soma dos fatores reais de poder, e o escrito; havendo divergência entre eles, sobrepõe-se o aspecto efetivo.
 - Gabarito: CERTO
-- Comentário: Para Lassalle, a constituição é o somatório de duas características: a real (efetiva), que é a soma dos fatores reais de poder, e a escrita. Se a escrita não corresponder à real, é mera "folha de papel", e prevalece a real.
+- Comentário: Para Lassalle, a constituição, fato social, tem duas faces: a real (efetiva), que é a soma dos fatores reais de poder, e a escrita. Se a escrita não corresponder à real, é mera "folha de papel", e prevalece a real.
 
 ## Q025 · difícil · Concepções
 Em determinado país, o texto constitucional escrito reproduz com fidelidade a distribuição efetiva do poder entre as forças sociais que o exercem. Na concepção de Lassalle, esse documento seria, ainda assim, mera "folha de papel", porque a constituição escrita, em qualquer hipótese, carece de valor diante da real.
@@ -140,3 +140,13 @@ A concepção que compreende a constituição como norma jurídica pura e fundam
 Enquanto Lassalle enxerga a constituição como fato social, cuja forma escrita, se destoar dos fatores reais de poder, é mera folha de papel, Kelsen a toma como norma jurídica pura e fundamental, sem fundamento sociológico ou político.
 - Gabarito: CERTO
 - Comentário: Contraste entre a concepção sociológica (constituição como fato social; a escrita que não corresponde à real é "folha de papel") e a jurídica (norma jurídica pura e fundamental, sem fundamento sociológico ou político).
+
+## Q028 · médio · Conceito
+Conforme a teoria clássica, o elemento que se soma ao povo e ao território na composição do Estado pode ser designado pela doutrina como governo soberano, poder ou soberania, conforme o autor consultado.
+- Gabarito: CERTO
+- Comentário: Povo, território e governo soberano são os elementos do Estado na teoria clássica; o terceiro aparece também sob os rótulos "poder" e "soberania", conforme o autor. A variação é de nomenclatura, não de número de elementos.
+
+## Q029 · fácil · Conceito
+De acordo com a teoria clássica, o Estado compõe-se de povo e governo soberano, de modo que a delimitação de um território constitui requisito meramente acessório, e não elemento de sua composição.
+- Gabarito: ERRADO
+- Comentário: O território é um dos três elementos do Estado na teoria clássica, ao lado do povo e do governo soberano. Tratá-lo como acessório torna o item falso.

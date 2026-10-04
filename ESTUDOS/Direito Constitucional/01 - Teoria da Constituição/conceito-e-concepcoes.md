@@ -2,7 +2,7 @@
 
 ## Conceito
 
-- Conjunto de normas sobre a **organização do poder**, distribuição de **competências**, exercício da autoridade, **forma de governo** e **direitos fundamentais** — tudo o que é básico para a ordem jurídica do Estado (este, composto, de acordo com a teoria clássica, de: Povo, Território e Governo).
+- Conjunto de normas sobre a **organização do poder**, distribuição de **competências**, exercício da autoridade, **forma de governo** e **direitos fundamentais** — tudo o que é básico para a ordem jurídica do Estado (este, composto, de acordo com a teoria clássica, por **povo**, **território** e **governo soberano** — o terceiro elemento também aparece como *poder* ou *soberania*, conforme o autor).
 
 ### Conceito ideal de constituição (Canotilho — constitucionalismo liberal)
 
@@ -15,7 +15,7 @@
 
 | Concepção | Autor | Ideia-chave |
 |---|---|---|
-| **Sociológica** | Ferdinand **Lassalle** | Constituição é **fato social**, não norma: somatório de duas características: efeiitva, que é real e é a soma dos **fatores reais de poder,** e a escrita, que caso não corresponda à real, é mera **"folha de papel"** — prevalece a real. |
+| **Sociológica** | Ferdinand **Lassalle** | Constituição é **fato social**, não norma, e tem duas faces: a **real (efetiva)**, que é a soma dos **fatores reais de poder**, e a **escrita**, que, caso não corresponda à real, é mera **"folha de papel"** — prevalece a real. |
 | **Política** | Carl **Schmitt** | **Decisão política fundamental** do titular do poder constituinte, válida independentemente da justiça de suas normas. Distingue **constituição** (decisões fundamentais — normas materiais) de **leis constitucionais** (demais normas do texto — apenas formais). |
 | **Jurídica** | Hans **Kelsen** | **Norma jurídica pura e fundamental**, sem fundamento sociológico/político. Normas **fundantes** (superiores) x **fundadas** (inferiores). Dois sentidos: **lógico-jurídico** (norma fundamental hipotética, pressuposta) e **jurídico-positivo** (constituição positivada, norma suprema). |
 | **Culturalista** | J. H. **Meirelles Teixeira** | Manifestação da **cultura** de um povo; **"Constituição total"**: síntese das concepções sociológica, política e jurídica. Como objeto cultural, não é pura realidade (fato), nem puro ideal, nem puro valor — é síntese desses aspectos; é condicionada pela cultura e também a condiciona. |
@@ -43,6 +43,7 @@
 ## Mapa mental
 
 - Conceito: organização do poder, competências, forma de governo e direitos fundamentais
+  - Estado (teoria clássica): povo, território e governo soberano
 - Conceito ideal (Canotilho)
   - Escrita
   - Sistema de direitos fundamentais individuais
@@ -50,7 +51,7 @@
   - Sistema democrático formal
 - Concepções
   - Sociológica — Lassalle
-    - Soma dos fatores reais de poder
+    - Real (efetiva): soma dos fatores reais de poder
     - Constituição escrita divergente é "folha de papel"
   - Política — Schmitt
     - Decisão política fundamental
