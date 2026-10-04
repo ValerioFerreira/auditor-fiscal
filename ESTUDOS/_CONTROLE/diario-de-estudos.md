@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v009** (03/10/2026)
+> Versão atual da base: **v010** (04/10/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -97,3 +97,7 @@
 - **Resumo sintético, parte 02 (enviada em 03/10/2026):** o arquivo "Sintético.docx", com quatro matérias misturadas, foi separado pelos títulos de disciplina e salvo, sem alteração de texto, como a **parte 02** de cada uma (`02 - 2026-10-03`): Direito Constitucional (Princípios Fundamentais), Direito Administrativo (conceito, objeto, critérios e mudanças recentes), Contabilidade Geral e Avançada (escrituração, livros e balancete, com 2 imagens) e Direito Tributário (legalidade, exceções, o que não é majorar, LC x MP). Os títulos "DIREITO ADMINISTRATIVO", "CONTABILIDADE" e "TRIBUTÁRIO" foram associados às matérias já existentes.
 - **Resumo sintético, numeração na exibição:** continua a das partes 01 (Constitucional 11; Administrativo 6 a 11; Contabilidade 5 e 6; Tributário 25 a 28). Ajuste no gerador: itens de lista do Word que são títulos entram na sequência e o 3º nível (`5.1.1`) acompanha o subnível.
 - **Botão Editar na barra inferior do resumo geral (pedido seu):** abre o tema que está na tela e posiciona o editor no bloco que estava sendo lido; só aparece para o administrador.
+
+## 04/10/2026 — Editar no menu do trecho selecionado (v010)
+
+- Sessão de sistema (sem estudo novo). O menu que aparece ao selecionar um trecho (Marca-texto, Comentar) ganhou **Editar**, só para o administrador: abre o editor do tema (no resumo geral, no tópico) ou da parte do resumo sintético, com o cursor no começo do trecho selecionado.

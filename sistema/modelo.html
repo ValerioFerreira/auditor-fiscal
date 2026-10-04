@@ -1276,6 +1276,7 @@ body.foco .toc { display: none; }
   <div class="pal-menu" data-vista="menu">
     <button type="button" data-pal="marca"><span data-ico="marcador"></span>Marca-texto</button>
     <button type="button" data-pal="comentar"><span data-ico="comentario"></span>Comentar</button>
+    <button type="button" class="so-adm" data-pal="editar" title="Editar a partir deste trecho"><span data-ico="lapis"></span>Editar</button>
   </div>
   <div class="pal-cores-v" data-vista="cores" hidden>
     <p class="pal-info" id="ui-pal-info" hidden></p>
@@ -2032,6 +2033,18 @@ body.foco .toc { display: none; }
     else if (!comentarRange(selecaoNaLeitura() || rangeSalvo, txt)) { esconderPaleta(); return; }
     esconderPaleta();
   }
+  // Editar (só administrador): abre o editor do texto em que está a seleção, com o cursor no começo do
+  // trecho selecionado. Vale no tópico, no resumo geral e no resumo sintético.
+  function editarSelecao() {
+    const r = selecaoNaLeitura() || rangeSalvo, no = r && r.startContainer, el = no && (no.nodeType === 1 ? no : no.parentElement);
+    const caixa = el && el.closest('[data-texto]');
+    esconderPaleta();
+    if (!caixa) return;
+    const norm = s => s.replace(/\s+/g, ' ').trim();
+    const bloco = el.closest('li, td, th, p, h2, h3, h4, blockquote, pre');
+    const sel = norm(r.toString()).slice(0, 60), doBloco = bloco ? norm(bloco.textContent) : '';
+    abrirEdicao(caixa.dataset.texto, doBloco.includes(sel) ? sel : doBloco.slice(0, 40));
+  }
   function selecaoNaLeitura() {
     const sel = getSelection();
     if (!sel || !sel.rangeCount || sel.isCollapsed || !sel.toString().trim()) return null;
@@ -2076,6 +2089,7 @@ body.foco .toc { display: none; }
     const a = b.dataset.pal;
     if (a === 'marca') { palVista('cores'); posicionarPaleta(); }
     else if (a === 'comentar') abrirNota(null, null);
+    else if (a === 'editar') editarSelecao();
     else if (a === 'comentar-marca') abrirNota(null, paletaGrupo);
     else if (a === 'remover') { removerGrupo(paletaGrupo); esconderPaleta(); }
     else if (a === 'nota-salvar') salvarNota();
@@ -4286,10 +4300,20 @@ body.foco .toc { display: none; }
     const el = achados.find(e => !achados.some(o => o !== e && e.contains(o))); // o mais interno
     if (!el) return;
     el.scrollIntoView({ block: 'center' });
-    const r = document.createRange();
-    r.selectNodeContents(el);
+    const r = document.createRange(), ponto = pontoNoTexto(el, trecho);
+    if (ponto) r.setStart(ponto.no, ponto.pos); else r.setStart(el, 0);
     r.collapse(true);
     porRange(r);
+  }
+  // Onde o trecho começa dentro do bloco (nó de texto e posição), se ele aparece igual no editor.
+  function pontoNoTexto(el, trecho) {
+    const nos = [], w = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    let total = '', n;
+    while ((n = w.nextNode())) { nos.push([n, total.length]); total += n.nodeValue; }
+    const i = total.indexOf(trecho);
+    if (i < 0) return null;
+    for (let k = nos.length - 1; k >= 0; k--) if (i >= nos[k][1]) return { no: nos[k][0], pos: i - nos[k][1] };
+    return null;
   }
   function montarEditor(id, alvo, j, ancora) {
     const txt = j.formato === 'txt';
