@@ -801,11 +801,16 @@ def chave_sintetico(p: Path) -> tuple:
     return (0, int(m.group(1)), p.name.lower()) if m else (1, 0, p.name.lower())
 
 
-# Título numerado no começo da linha, com um ou dois níveis: "1. Taxas", "**1. Taxas**",
-# "### 1.2. Base de cálculo", "1.1– Regime", "1.Atos". Não pega "1.1.1", "10.000", "1ª" nem "10%".
+# Título numerado no começo da linha, com até três níveis: "1. Taxas", "**1. Taxas**",
+# "### 1.2. Base de cálculo", "1.1– Regime", "1.Atos", "1.1.3 Retificação". Não pega "1.1.1.1",
+# "10.000", "1ª" nem "10%".
 RE_NUM_TITULO = re.compile(
-    r"^(?P<pre>#{1,6}[ \t]+(?:\*\*)?|\*\*)?(?P<a>\d{1,3})(?:\.(?P<b>[1-9]\d?))?(?![\d.]*\d)"
-    r"(?![/,%ºª°])")
+    r"^(?P<pre>#{1,6}[ \t]+(?:\*\*)?|\*\*)?(?P<a>\d{1,3})"
+    r"(?:\.(?P<b>[1-9]\d?)(?:\.(?P<c>[1-9]\d?))?)?(?![\d.]*\d)(?![/,%ºª°])")
+# Item de lista numerada do Word que é, na verdade, um título: o negrito é a linha inteira (ou vai
+# até um <br>), como "3. **Conceito**<br>a) ...". Item de lista de verdade tem texto depois do
+# negrito ("1. **Rótulo:** explicação") e não entra aqui. Até 3 espaços de recuo.
+RE_ITEM_TITULO = re.compile(r"^ {0,3}(?P<a>\d{1,3})\.[ \t]+\*\*(?P<t>[^*\n]+)\*\*[ \t]*(?:<br>.*)?$")
 
 
 def renumerar(texto: str, estado: dict, markdown: bool) -> str:
@@ -815,15 +820,26 @@ def renumerar(texto: str, estado: dict, markdown: bool) -> str:
     ("1, 2, 3, 1..."). O nível principal segue em sequência na matéria inteira; o subnível
     (1.1, 1.2...) acompanha o título principal em que está e recomeça em cada um. O mesmo título
     com o mesmo número repetido logo em seguida é continuação (mantém o número; os subtítulos
-    seguem). Só os números mudam; o resto da linha fica igual. `estado` guarda os contadores entre os arquivos da
-    matéria. Em Markdown, "1. item" sem negrito é item de lista (fica como está); título é o que
-    vem em negrito, em "#" ou escapado ("1\\.").
+    seguem). O terceiro nível (1.1.1) acompanha o subnível em que está. Só os números mudam; o
+    resto da linha fica igual. `estado` guarda os contadores entre os arquivos da matéria. Em
+    Markdown, "1. item" sem negrito é item de lista (fica como está); título é o que vem em
+    negrito, em "#" ou escapado ("1\\."). Exceção (03/10/2026): item de lista numerada cujo
+    negrito é a linha inteira (RE_ITEM_TITULO) é título e entra na sequência.
     """
     linhas = texto.split("\n")
     em_codigo = False
     for i, linha in enumerate(linhas):
         if RE_CERCA.match(linha):
             em_codigo = not em_codigo
+            continue
+        item = None if em_codigo or not markdown else RE_ITEM_TITULO.match(linha)
+        if item:
+            nome = (item.group("a"), nucleo_titulo(item.group("t")))
+            if not (nome[1] and nome == estado.get("titulo")):
+                estado["a"] = estado.get("a", 0) + 1
+                estado["b"] = estado["c"] = 0
+                estado["titulo"] = nome
+            linhas[i] = linha[:item.start("a")] + str(estado["a"]) + linha[item.end("a"):]
             continue
         m = None if em_codigo else RE_NUM_TITULO.match(linha)
         if not m:
@@ -840,15 +856,22 @@ def renumerar(texto: str, estado: dict, markdown: bool) -> str:
                 linhas[i] = linha[:m.start("a")] + str(estado["a"]) + resto
                 continue
             estado["a"] = estado.get("a", 0) + 1
-            estado["b"] = 0
+            estado["b"] = estado["c"] = 0
             estado["titulo"] = nome
             linhas[i] = linha[:m.start("a")] + str(estado["a"]) + resto
         else:
             if not re.match(r"\.?\s*[-–—]?\s*\S", resto):
                 continue
             estado["a"] = max(estado.get("a", 0), 1)
-            estado["b"] = estado.get("b", 0) + 1
-            linhas[i] = linha[:m.start("a")] + f"{estado['a']}.{estado['b']}" + resto
+            if m.group("c") is None:
+                estado["b"] = estado.get("b", 0) + 1
+                estado["c"] = 0
+                numero = f"{estado['a']}.{estado['b']}"
+            else:
+                estado["b"] = max(estado.get("b", 0), 1)
+                estado["c"] = estado.get("c", 0) + 1
+                numero = f"{estado['a']}.{estado['b']}.{estado['c']}"
+            linhas[i] = linha[:m.start("a")] + numero + resto
     return "\n".join(linhas)
 
 
