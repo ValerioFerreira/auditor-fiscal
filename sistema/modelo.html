@@ -655,6 +655,10 @@ body.com-achados .dock { bottom: calc(76px + env(safe-area-inset-bottom, 0px)); 
 .dg-pct { color: var(--ink-3); white-space: nowrap; font-variant-numeric: tabular-nums; }
 .dg-bt { display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 12px; border: 0; border-radius: 8px; background: var(--m, var(--accent)); color: var(--on-m); font: 600 12px/1 var(--font-ui); cursor: pointer; white-space: nowrap; }
 .dg-bt svg { width: 15px; height: 15px; }
+.dg-ed { align-items: center; gap: 8px; height: 36px; padding: 0 12px; border: 1px solid var(--rule-2); border-radius: 8px; background: var(--raised); color: var(--ink-2); font: 600 12px/1 var(--font-ui); cursor: pointer; white-space: nowrap; transition: color var(--dur-micro) var(--ease), border-color var(--dur-micro) var(--ease), transform var(--dur-micro) var(--ease); }
+.dg-ed:hover { color: var(--ink); border-color: var(--ink-3); }
+.dg-ed:active { transform: scale(.98); }
+.dg-ed svg { width: 15px; height: 15px; }
 .caneta { position: relative; display: flex; align-items: center; gap: 2px; padding: 4px; border: 1px solid var(--rule-2); border-radius: 12px; background: var(--raised); box-shadow: var(--shadow); }
 .caneta-bt { display: inline-flex; align-items: center; gap: 8px; height: 36px; padding: 0 12px; border: 0; border-radius: 8px; background: none; color: var(--ink-2); font: 600 12px/1 var(--font-ui); cursor: pointer; white-space: nowrap; }
 .caneta-bt:hover { background: var(--hover); color: var(--ink); }
@@ -1134,7 +1138,8 @@ body.foco .toc { display: none; }
   .viz-prox { grid-column: 1; }
   .ach-termo { max-width: 28vw; }
   .dock { left: 12px; right: 12px; gap: 8px; }
-  .dg-barra, .dg-lido, .caneta-bt .caneta-rot { display: none; }
+  .dg-barra, .dg-lido, .dg-ed span, .caneta-bt .caneta-rot { display: none; }
+  .dg-ed { padding: 0 10px; }
   .dock-geral { gap: 8px; padding-left: 12px; }
   .caneta:not(.aberta) .caneta-cores { display: none; }
   .caneta.aberta { flex-direction: column-reverse; align-items: stretch; }
@@ -1253,6 +1258,7 @@ body.foco .toc { display: none; }
       <span class="dg-pag" id="ui-dg-pag" aria-live="polite">pág. 1/1</span>
       <span class="dg-barra" aria-hidden="true"><span id="ui-dg-fill"></span></span>
       <span class="dg-pct" id="ui-dg-pct">0%</span>
+      <button class="dg-ed so-adm" id="ui-dg-editar" type="button" title="Editar o tópico que está na tela"></button>
       <button class="dg-bt" id="ui-dg-marcar" type="button"></button>
     </div>
   </div>
@@ -3539,6 +3545,7 @@ body.foco .toc { display: none; }
     prepararFiltros(artigo);
     configurarDock('geral', m);
     $('#ui-dg-marcar').innerHTML = `${ICO.check}Marcar lido`;
+    $('#ui-dg-editar').innerHTML = `${ICO.lapis}<span>Editar</span>`;
     const pagina = /^p(\d+)$/.exec(extra || '');
     let rolou = posicionar(artigo, op);
     if (!rolou && pagina) { const alvo = $('#pag-' + pagina[1]); if (alvo) { alvo.scrollIntoView({ block: 'start' }); rolou = true; } }
@@ -3555,6 +3562,23 @@ body.foco .toc { display: none; }
     let t = null;
     for (const s of secoesGeral) { if (s.getBoundingClientRect().top <= linha) t = s.dataset.texto; else break; }
     $$('.nav-tema', lateral).forEach(a => a.classList.toggle('ativo', a.dataset.doc === t));
+    const tit = docs[t || (secoesGeral[0] && secoesGeral[0].dataset.texto)];
+    if (tit) $('#ui-dg-editar').title = `Editar: ${tit.titulo}`;
+  }
+  // Tema que está na tela no resumo geral (o último cujo início já passou da linha de leitura) e o
+  // começo do bloco que está nessa linha, para o editor abrir no mesmo ponto do texto.
+  function temaNaTela() {
+    const linha = alturaTopo() + window.innerHeight * 0.3;
+    let t = null;
+    for (const s of secoesGeral) { if (s.getBoundingClientRect().top <= linha) t = s.dataset.texto; else break; }
+    return t || (secoesGeral[0] ? secoesGeral[0].dataset.texto : null);
+  }
+  function trechoNaLinha(id) {
+    const sec = document.getElementById('g-' + id), artigo = $('#ui-artigo');
+    if (!sec || !artigo) return '';
+    const el = document.elementFromPoint(artigo.getBoundingClientRect().left + 80, alturaTopo() + window.innerHeight * 0.3);
+    const bloco = el && el.closest('li, td, th, p, h2, h3, h4, blockquote, pre');
+    return bloco && sec.contains(bloco) ? bloco.textContent.replace(/\s+/g, ' ').trim().slice(0, 40) : '';
   }
   function atualizarDockGeral() {
     const m = MAT[matAtual];
@@ -3565,6 +3589,10 @@ body.foco .toc { display: none; }
     $('#ui-dg-pct').innerHTML = `${pg ? pg.pct : 0}%<span class="dg-lido"> lido</span>`;
   }
   $('#ui-dg-marcar').addEventListener('click', () => { if (matAtual) dialogoLidoGeral(matAtual); });
+  $('#ui-dg-editar').addEventListener('click', () => {
+    const id = temaNaTela();
+    if (id) abrirEdicao(id, trechoNaLinha(id));
+  });
 
   // ---------- Resumo sintético ----------
   // As partes são juntadas na ordem e só a numeração dos títulos é refeita (no gerador). Com o
@@ -4222,16 +4250,17 @@ body.foco .toc { display: none; }
   // Tema aberto para edição dentro do resumo geral da própria disciplina: o editor entra no lugar do
   // texto daquele tema, sem sair da página que a pessoa estava lendo.
   const emGeral = id => !!(rota && rota.v === 'mat' && rota.aba === 'geral' && docs[id] && docs[id].tipo === 'tema' && docs[id].materia === rota.mat && document.getElementById('g-' + id));
-  function abrirEdicao(id) {
+  // `ancora`: começo do trecho que estava sendo lido (só no resumo geral); o editor abre nesse ponto.
+  function abrirEdicao(id, ancora) {
     const d = docs[id];
     if (!d || (d.tipo !== 'tema' && d.tipo !== 'sint')) return;
-    if (!adm) { dialogoEntrar(() => abrirEdicao(id)); return; }
+    if (!adm) { dialogoEntrar(() => abrirEdicao(id, ancora)); return; }
     if (editor) { if (editor.id !== id) mostrarRecado('Salve ou cancele a edição aberta antes de abrir outra.', 'alerta'); return; }
     if (d.tipo === 'tema' && !emGeral(id) && !(rota && rota.v === 'doc' && rota.doc === id && !rota.mapa)) ir({ v: 'doc', doc: id, mapa: false, secao: null });
     else if (d.tipo === 'sint' && !(rota && rota.v === 'mat' && rota.aba === 'sintetico' && rota.mat === d.materia)) ir({ v: 'mat', mat: d.materia, aba: 'sintetico', extra: null, doc: id });
-    iniciarEditor(id);
+    iniciarEditor(id, ancora);
   }
-  async function iniciarEditor(id) {
+  async function iniciarEditor(id, ancora) {
     const d = docs[id], alvo = d.tipo === 'sint' ? document.getElementById('s-' + id) : emGeral(id) ? document.getElementById('g-' + id) : $('#ui-artigo');
     if (!alvo || editor) return;
     const pedido = { id, carregando: true };
@@ -4248,9 +4277,21 @@ body.foco .toc { display: none; }
       return;
     }
     if (editor !== pedido || !alvo.isConnected) { if (editor === pedido) editor = null; return; } // saiu da página enquanto carregava
-    montarEditor(id, alvo, j);
+    montarEditor(id, alvo, j, ancora);
   }
-  function montarEditor(id, alvo, j) {
+  // Leva a vista e o cursor ao bloco do editor que começa com o trecho que estava na linha de leitura.
+  function irParaTrecho(area, trecho) {
+    const norm = s => s.replace(/\s+/g, ' ').trim().toLowerCase(), chave = norm(trecho);
+    const achados = $$('p, li, td, th, h1, h2, h3, h4, h5, h6, blockquote, pre', area).filter(e => norm(e.textContent).includes(chave));
+    const el = achados.find(e => !achados.some(o => o !== e && e.contains(o))); // o mais interno
+    if (!el) return;
+    el.scrollIntoView({ block: 'center' });
+    const r = document.createRange();
+    r.selectNodeContents(el);
+    r.collapse(true);
+    porRange(r);
+  }
+  function montarEditor(id, alvo, j, ancora) {
     const txt = j.formato === 'txt';
     document.body.classList.add('editando');
     esconderPaleta();
@@ -4302,6 +4343,7 @@ body.foco .toc { display: none; }
     const topoCaixa = caixa.getBoundingClientRect().top;
     if (topoCaixa < alturaTopo() || topoCaixa > window.innerHeight * 0.6) window.scrollTo(0, Math.max(0, topoCaixa + window.scrollY - alturaTopo() - 16));
     area.focus({ preventScroll: true });
+    if (ancora && !txt) irParaTrecho(area, ancora);
     atualizarBarra();
   }
   function ajustarTxt() {
