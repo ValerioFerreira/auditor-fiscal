@@ -2,7 +2,7 @@
 
 > ⚠️ Vários princípios **implícitos na CF** são **expressos na Lei 9.784/99, art. 2º**: "legalidade, **finalidade, motivação, razoabilidade, proporcionalidade**, moralidade, **ampla defesa, contraditório, segurança jurídica, interesse público** e eficiência".
 
-- **Supremacia** e **indisponibilidade** do interesse público (pilares do regime jurídico) → `../01 - Regime Jurídico Administrativo/regime-juridico-administrativo.md`
+- **Supremacia** e **indisponibilidade** do interesse público (pilares do regime jurídico) → `../02 - Regime Jurídico Administrativo/regime-juridico-administrativo.md`
 
 ---
 
@@ -93,7 +93,7 @@
 
 ## Especialidade
 
-- Decorre da **descentralização**: as entidades da indireta são criadas para **finalidades específicas**, definidas na lei que as cria ou autoriza (CF, art. 37, XIX), e não podem desviar-se delas. → ver `../02 - Organização Administrativa/administracao-direta-e-indireta.md`
+- Decorre da **descentralização**: as entidades da indireta são criadas para **finalidades específicas**, definidas na lei que as cria ou autoriza (CF, art. 37, XIX), e não podem desviar-se delas. → ver `../03 - Organização Administrativa/administracao-direta-e-indireta.md`
 
 ## Segurança jurídica, proteção à confiança e boa-fé
 

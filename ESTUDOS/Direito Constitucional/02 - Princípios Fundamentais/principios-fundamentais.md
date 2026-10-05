@@ -158,7 +158,7 @@
 - Estrutura da CF e parte dogmática → `../01 - Teoria da Constituição/estrutura-e-elementos.md`
 - Cláusulas pétreas (forma federativa e separação dos Poderes) → `../01 - Teoria da Constituição/poder-constituinte.md`
 - Dignidade da pessoa humana e sistema de direitos fundamentais → `../03 - Direitos e Garantias Fundamentais/teoria-geral-dos-direitos-fundamentais.md`
-- Função administrativa exercida pelos três Poderes → `../../Direito Administrativo/00 - Introdução ao Direito Administrativo/conceito-e-objeto-do-direito-administrativo.md`
+- Função administrativa exercida pelos três Poderes → `../../Direito Administrativo/01 - Introdução ao Direito Administrativo/conceito-e-objeto-do-direito-administrativo.md`
 
 ## Mapa mental
 

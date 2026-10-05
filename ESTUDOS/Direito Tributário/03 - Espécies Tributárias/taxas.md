@@ -140,7 +140,7 @@
 ## Relações com outros assuntos
 
 - COSIP → `contribuicoes-especiais.md`
-- Direito de petição e certidões → `Direito Administrativo/03 - Princípios da Administração Pública/principios-expressos.md` (Publicidade)
+- Direito de petição e certidões → `Direito Administrativo/04 - Princípios da Administração Pública/principios-expressos.md` (Publicidade)
 - Poder de polícia — Direito Administrativo (a estudar)
 - Competências legislativas da União (art. 22) — Direito Constitucional (a estudar)
 

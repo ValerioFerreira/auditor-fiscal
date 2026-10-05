@@ -10,12 +10,10 @@
 | Fonte | Regra |
 |---|---|
 | **CC, art. 1.179** | O empresário e a sociedade empresária devem seguir um **sistema de contabilidade** (mecanizado ou não), com escrituração uniforme dos livros, e levantar **anualmente** o balanço patrimonial e o de resultado econômico |
-| **CC, art. 1.179, §2º** (c/c art. 970) | É **dispensado o pequeno empresário**: o **MEI**, com receita bruta anual de até **R$ 81.000**, inclusive o que atua no âmbito rural (LC 123/2006, arts. 18-A, §1º, e 68) |
+| **CC, art. 1.179, §2º** (c/c art. 970) | É **dispensado o pequeno empresário**: o **MEI**, com receita bruta anual de até **R$ 81.000** (teto vigente, conferido em 04/10/2026; há projetos de lei complementar em tramitação para elevá-lo), inclusive o que atua no âmbito rural (LC 123/2006, arts. 18-A, §1º, e 68) |
 | **ITG 2000 (R1), item 2** | A norma deve ser adotada por **todas as entidades, independentemente da natureza e do porte**, observadas as exigências da legislação e de outras normas aplicáveis |
 
 > ⚠️ A dispensa vem da **lei** (Código Civil e LC 123/2006), e não da ITG 2000, que alcança todas as entidades, "observada a legislação".
-
-> ⚠️ O teto do MEI é de **R$ 81.000** (conferido em 04/10/2026); há projetos de lei complementar em tramitação para elevá-lo (ver `_CONTROLE/pendencias.md`).
 
 ## Livros contábeis
 
@@ -99,7 +97,7 @@
   - Responsabilidade exclusiva do profissional da contabilidade habilitado
 - Obrigatoriedade
   - CC, art. 1.179: sistema de contabilidade e balanços anuais
-  - Dispensa do pequeno empresário (MEI, até R$ 81.000)
+  - Dispensa do pequeno empresário (MEI, até R$ 81.000; projetos de LC em aberto para elevar o teto)
   - ITG 2000 (R1): todas as entidades, qualquer porte
 - Livros
   - Diário: cronológico, obrigatório

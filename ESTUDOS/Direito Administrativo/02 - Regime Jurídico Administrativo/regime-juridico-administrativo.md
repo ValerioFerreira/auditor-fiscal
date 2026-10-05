@@ -41,7 +41,7 @@
 
 ## Relativização
 
-- **Nenhum princípio é absoluto**: buscando maior benefício à sociedade, a Administração pode celebrar **acordos e transações** (ex.: transação tributária, acordos de leniência, TAC), relativizando a indisponibilidade → ver **consensualidade** em `../03 - Princípios da Administração Pública/principios-implicitos.md`.
+- **Nenhum princípio é absoluto**: buscando maior benefício à sociedade, a Administração pode celebrar **acordos e transações** (ex.: transação tributária, acordos de leniência, TAC), relativizando a indisponibilidade → ver **consensualidade** em `../04 - Princípios da Administração Pública/principios-implicitos.md`.
 
 ## Pegadinhas
 
@@ -55,8 +55,8 @@
 
 ## Relações com outros assuntos
 
-- Princípios → pasta `../03 - Princípios da Administração Pública/`
-- Organização administrativa → `../02 - Organização Administrativa/administracao-direta-e-indireta.md`
+- Princípios → pasta `../04 - Princípios da Administração Pública/`
+- Organização administrativa → `../03 - Organização Administrativa/administracao-direta-e-indireta.md`
 
 ## Mapa mental
 

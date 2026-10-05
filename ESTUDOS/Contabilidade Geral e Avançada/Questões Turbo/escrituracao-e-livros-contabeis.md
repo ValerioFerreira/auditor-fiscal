@@ -1,7 +1,7 @@
 # Questões turbo — Escrituração Contábil e Livros
 <!-- cobertura
 Conceito = 99615be267
-Obrigatoriedade e dispensa = 58e18aab5e
+Obrigatoriedade e dispensa = 9f11e1fc6c
 Livros contábeis = b6d5295735
 Livros obrigatórios das sociedades anônimas (Lei 6.404/1976, art. 100) = a2a6da11dc
 Formalidades da escrituração (ITG 2000 (R1)) = b448fb4af0

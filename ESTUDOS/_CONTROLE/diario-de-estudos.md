@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v011** (04/10/2026)
+> Versão atual da base: **v012** (05/10/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -123,3 +123,7 @@
 - O título veio sem conteúdo abaixo (pendência 🔴).
 
 - **Questões turbo:** 166 novas (Contabilidade 68, Constitucional 74, Administrativo 24), no total de 882 na base.
+
+## 05/10/2026 — Decisões sobre os resumos de 04/10/2026 e novos recursos do site (v012)
+
+- **Decisões suas:** as pastas de Direito Administrativo foram renumeradas (`01 - Introdução ao Direito Administrativo`, `02 - Regime Jurídico Administrativo`, `03 - Organização Administrativa`, `04 - Princípios da Administração Pública`), com as referências cruzadas ajustadas (os quatro temas que tinham referência a pastas aparecem como "mudou" nas leituras); os adendos ao Livro Razão (três referenciais) foram aprovados; o teto do MEI ficou em R$ 81.000, com ressalva entre parênteses sobre os projetos de lei complementar em tramitação.

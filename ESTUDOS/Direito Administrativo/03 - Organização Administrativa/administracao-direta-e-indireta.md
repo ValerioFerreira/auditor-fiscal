@@ -36,7 +36,7 @@
 
 ## Controle (tutela) x hierarquia
 
-- Entre administração direta e indireta há **vinculação** (tutela ou controle finalístico), e **não hierarquia** → princípios da **tutela** e da **especialidade** em `../03 - Princípios da Administração Pública/principios-implicitos.md`.
+- Entre administração direta e indireta há **vinculação** (tutela ou controle finalístico), e **não hierarquia** → princípios da **tutela** e da **especialidade** em `../04 - Princípios da Administração Pública/principios-implicitos.md`.
 
 ## Pegadinhas CEBRASPE
 
@@ -52,7 +52,7 @@
 
 ## Relações com outros assuntos
 
-- Regime jurídico das estatais → `../01 - Regime Jurídico Administrativo/regime-juridico-administrativo.md`
+- Regime jurídico das estatais → `../02 - Regime Jurídico Administrativo/regime-juridico-administrativo.md`
 
 ## Mapa mental
 

@@ -1,13 +1,13 @@
 # Questões turbo — Princípios Implícitos da Administração Pública
 <!-- cobertura
-(início) = 8750074d61
+(início) = 88e57698fb
 Razoabilidade e proporcionalidade = c3cd1dce0d
 Autotutela = c41bfdf087
 Controle ou tutela = 594de0e0c9
 Motivação = 506150a68b
 Continuidade do serviço público = a81d2c1d62
 Contraditório e ampla defesa = bddf35a469
-Especialidade = b2061b16b6
+Especialidade = 34a025178b
 Segurança jurídica, proteção à confiança e boa-fé = a0f27b9ba6
 Intranscendência subjetiva das sanções = 8df4291678
 Hierarquia = 674b3a74c2

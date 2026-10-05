@@ -2,7 +2,7 @@
 <!-- cobertura
 Administração direta = d85505d827
 Administração indireta = 5eeedc2862
-Controle (tutela) x hierarquia = f2ac028ef9
+Controle (tutela) x hierarquia = 3bc69dbe2f
 Pegadinhas CEBRASPE = 7a93467335
 Base legal / referência = 5e929e3d5c
 -->

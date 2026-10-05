@@ -65,7 +65,7 @@
 
 ## Relações com outros assuntos
 
-- Greve de servidor (art. 37, VII) → `Direito Administrativo/03 - Princípios da Administração Pública/principios-implicitos.md` (Continuidade)
+- Greve de servidor (art. 37, VII) → `Direito Administrativo/04 - Princípios da Administração Pública/principios-implicitos.md` (Continuidade)
 - ADCT e eficácia exaurida → `estrutura-e-elementos.md`
 - ADO e mandado de injunção — a estudar
 

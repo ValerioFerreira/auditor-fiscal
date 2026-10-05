@@ -3,7 +3,7 @@
 Direito público x direito privado = 014b1ee8ba
 Regime jurídico administrativo = de7770e3e1
 Interesse público primário x secundário = be2c1e7693
-Relativização = dff7a6bf28
+Relativização = 34c607d57f
 Pegadinhas = 2f4b6cad44
 Base legal = 492b73c382
 -->

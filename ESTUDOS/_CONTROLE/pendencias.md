@@ -11,9 +11,9 @@
 ## 🟠 Acompanhar (jurisprudência/legislação em aberto)
 
 - **STF — ADIs 6.254 e outras (EC 103/2019):** maioria formada (jun/2024) pela inconstitucionalidade do art. 149, §§1º-A, 1º-B e 1º-C (contribuição de inativos acima do salário mínimo e contribuição extraordinária); julgamento suspenso por vista, sem conclusão na última verificação. Progressividade das alíquotas empatada. → atualizar `Direito Tributário/03 - Espécies Tributárias/contribuicoes-sociais-e-previdenciarias.md` quando concluído.
-- **STF — Tema 1.000 (RE 1.133.118): nepotismo em cargos de natureza política.** Em julgamento com repercussão geral, sem tese fixada (último andamento: 19/08/2026, devolução de vista; verificado em 30/09/2026). Hoje vale o entendimento das Turmas (em regra, SV 13 não se aplica, salvo fraude ou falta manifesta de qualificação). → atualizar `Direito Administrativo/03 - Princípios da Administração Pública/principios-expressos.md` (seção Moralidade → Nepotismo) e a Q021 de `Direito Administrativo/Questões Turbo/principios-expressos.md` quando concluído.
+- **STF — Tema 1.000 (RE 1.133.118): nepotismo em cargos de natureza política.** Em julgamento com repercussão geral, sem tese fixada (último andamento: 19/08/2026, devolução de vista; verificado em 30/09/2026). Hoje vale o entendimento das Turmas (em regra, SV 13 não se aplica, salvo fraude ou falta manifesta de qualificação). → atualizar `Direito Administrativo/04 - Princípios da Administração Pública/principios-expressos.md` (seção Moralidade → Nepotismo) e a Q021 de `Direito Administrativo/Questões Turbo/principios-expressos.md` quando concluído.
 - **Reforma Tributária:** alíquotas da CBS e do Imposto Seletivo para 2027 ainda dependiam de lei ordinária na última verificação.
-- **Teto do MEI (R$ 81.000):** valor vigente conferido em 04/10/2026 (gov.br); há projetos de lei complementar em tramitação para elevá-lo. Afeta a dispensa de escrituração do pequeno empresário (`05 - Escrituração/escrituracao-e-livros-contabeis.md`).
+- **Teto do MEI (R$ 81.000):** valor vigente conferido em 04/10/2026 (gov.br); há projetos de lei complementar em tramitação para elevá-lo (ressalva já inserida no tema, entre parênteses). Afeta a dispensa de escrituração do pequeno empresário (`05 - Escrituração/escrituracao-e-livros-contabeis.md`).
 
 ## 🟡 Organização / fluxo de trabalho
 

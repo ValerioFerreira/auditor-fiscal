@@ -54,9 +54,9 @@
 
 ## Relações com outros assuntos
 
-- Regime jurídico administrativo (prerrogativas e sujeições) → `../01 - Regime Jurídico Administrativo/regime-juridico-administrativo.md`
-- Organização da Administração → `../02 - Organização Administrativa/administracao-direta-e-indireta.md`
-- Função administrativa e princípios → `../03 - Princípios da Administração Pública/principios-implicitos.md`
+- Regime jurídico administrativo (prerrogativas e sujeições) → `../02 - Regime Jurídico Administrativo/regime-juridico-administrativo.md`
+- Organização da Administração → `../03 - Organização Administrativa/administracao-direta-e-indireta.md`
+- Função administrativa e princípios → `../04 - Princípios da Administração Pública/principios-implicitos.md`
 - Funções típicas e atípicas dos Poderes (art. 2º) → `../../Direito Constitucional/02 - Princípios Fundamentais/principios-fundamentais.md`
 
 ## Mapa mental

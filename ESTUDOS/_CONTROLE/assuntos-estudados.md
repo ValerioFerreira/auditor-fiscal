@@ -1,6 +1,6 @@
 # Assuntos Estudados — Visão Geral
 
-> Versão da base: **v011** (04/10/2026) · ✅ consolidado · 🔶 consolidado com pendência (ver `pendencias.md`)
+> Versão da base: **v012** (05/10/2026) · ✅ consolidado · 🔶 consolidado com pendência (ver `pendencias.md`)
 
 ## Direito Tributário
 
@@ -48,8 +48,8 @@
 
 | Pasta | Arquivo | Assunto | Status |
 |---|---|---|---|
-| 00 - Introdução ao Direito Administrativo | `conceito-e-objeto-do-direito-administrativo.md` | Origem; conceito; função administrativa e objeto; escolas e critérios | ✅ |
-| 01 - Regime Jurídico Administrativo | `regime-juridico-administrativo.md` | Público x privado; supremacia e indisponibilidade; interesse primário x secundário | ✅ |
-| 02 - Organização Administrativa | `administracao-direta-e-indireta.md` | Entidades; órgãos; indireta; tutela | ✅ |
-| 03 - Princípios da Administração Pública | `principios-expressos.md` | LIMPE; nepotismo | 🔶 |
-| 03 - Princípios da Administração Pública | `principios-implicitos.md` | Razoabilidade, autotutela, motivação, continuidade, segurança jurídica e demais | ✅ |
+| 01 - Introdução ao Direito Administrativo | `conceito-e-objeto-do-direito-administrativo.md` | Origem; conceito; função administrativa e objeto; escolas e critérios | ✅ |
+| 02 - Regime Jurídico Administrativo | `regime-juridico-administrativo.md` | Público x privado; supremacia e indisponibilidade; interesse primário x secundário | ✅ |
+| 03 - Organização Administrativa | `administracao-direta-e-indireta.md` | Entidades; órgãos; indireta; tutela | ✅ |
+| 04 - Princípios da Administração Pública | `principios-expressos.md` | LIMPE; nepotismo | 🔶 |
+| 04 - Princípios da Administração Pública | `principios-implicitos.md` | Razoabilidade, autotutela, motivação, continuidade, segurança jurídica e demais | ✅ |

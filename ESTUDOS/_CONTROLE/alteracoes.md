@@ -194,3 +194,17 @@
 | INCOMPLETA | Objeto: "aplicação da lei" | "De ofício", em oposição à jurisdição |
 | INCOMPLETA | Duas escolas (prerrogativas públicas e serviço público) | Mantidas, com os autores e o complemento dos demais critérios para conceituar |
 | REORGANIZAÇÃO | — | Nova pasta `00 - Introdução ao Direito Administrativo`, sem renumerar as demais (preserva os temas já lidos) |
+
+## v012 — 05/10/2026 (decisões sobre os resumos de 04/10/2026)
+### Direito Administrativo
+
+| Classificação | Como estava na base | Como ficou na base |
+|---|---|---|
+| REORGANIZAÇÃO | Pastas `00 - Introdução…`, `01 - Regime…`, `02 - Organização…`, `03 - Princípios…` | Renumeradas para `01`, `02`, `03` e `04`, a pedido seu; referências cruzadas ajustadas em nove arquivos |
+
+### Contabilidade Geral e Avançada
+
+| Classificação | Como estava na base | Como ficou na base |
+|---|---|---|
+| CONFIRMADA | Livro Razão com três referenciais (comercial, IR e ITG 2000 (R1)) | Aprovado por você |
+| INCOMPLETA | Teto do MEI (R$ 81.000) com aviso separado sobre projetos de lei complementar | Ressalva incluída entre parênteses na própria linha da dispensa; teto mantido |
