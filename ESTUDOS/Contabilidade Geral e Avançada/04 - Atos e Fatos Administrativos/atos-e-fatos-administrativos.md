@@ -87,7 +87,8 @@
 - Contas de compensação → `../03 - Contas/teorias-das-contas.md`
 - Natureza das contas usadas nos lançamentos → `../03 - Contas/classificacao-e-natureza-das-contas.md`
 - Situação líquida → `../02 - Patrimônio/patrimonio.md`
-- Escrituração e lançamentos — a estudar
+- Escrituração (livros e formalidades) → `../05 - Escrituração/escrituracao-e-livros-contabeis.md`
+- Lançamentos, fórmulas e retificação → `../05 - Escrituração/lancamentos-e-retificacao.md`
 
 ## Mapa mental
 

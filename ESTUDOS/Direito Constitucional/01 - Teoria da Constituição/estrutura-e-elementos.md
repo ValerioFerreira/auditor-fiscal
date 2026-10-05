@@ -37,7 +37,7 @@
 
 - Eficácia exaurida (ADCT) → `eficacia-e-aplicabilidade-das-normas.md`
 - Rigidez → `classificacao-das-constituicoes.md`
-- Direitos fundamentais → `../02 - Direitos e Garantias Fundamentais/teoria-geral-dos-direitos-fundamentais.md`
+- Direitos fundamentais → `../03 - Direitos e Garantias Fundamentais/teoria-geral-dos-direitos-fundamentais.md`
 
 ## Mapa mental
 

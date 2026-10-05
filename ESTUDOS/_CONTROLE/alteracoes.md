@@ -154,3 +154,43 @@
 |---|---|---|
 | IMPRECISA | Elementos do Estado: "Povo, Território e Governo" (sua edição de 03/10/2026) | **Governo soberano**, com a nota de que o terceiro elemento também aparece como *poder* ou *soberania*, conforme o autor |
 | IMPRECISA | Lassalle: "somatório de duas características: efeiitva, que é real…" (frase truncada, com erro de digitação) | Duas faces: a **real (efetiva)**, soma dos fatores reais de poder, e a **escrita**, que, se não corresponder à real, é "folha de papel" — prevalece a real |
+
+## v011 — 04/10/2026 (resumos de 04/10/2026)
+### Contabilidade Geral e Avançada
+
+| Classificação | Como estava no resumo | Como ficou na base |
+|---|---|---|
+| IMPRECISA | Dispensa de escrituração: "exceto MEI e produtor rural até 81 mil" | Dispensa do pequeno empresário (CC, art. 1.179, §2º): MEI com receita até R$ 81.000, inclusive no âmbito rural; a ITG 2000 (R1) vale para todas as entidades |
+| INCOMPLETA | Livro Razão: "facultativo (societária) e obrigatório (IR, lucro real)" | Mantido, com a nuance de que a ITG 2000 (R1) cita o Razão entre os "livros contábeis obrigatórios" |
+| IMPRECISA | Livros da S.A.: "Atas das reuniões do conselho de administração e de diretoria, se houverem" | O "se houver" vale só para o Conselho de Administração; partes beneficiárias só "se tiverem sido emitidas" (Lei 6.404, art. 100) |
+| INCOMPLETA | Escrituração "pode ser feita resumidamente" | Base legal (CC, art. 1.184), limite de 30 dias e livros auxiliares autenticados |
+| CONFIRMADA | Formalidades extrínsecas e intrínsecas, "sob pena de invalidação" | Mantidas; a consequência (livro inteiro x registro) fica indicada como doutrina, porque a ITG 2000 e o Código Civil descrevem as formalidades, mas não a trazem expressamente |
+| INCOMPLETA | Duas listas de elementos essenciais (do registro e do lançamento) | Apresentadas lado a lado: doutrina clássica (local e data…) x ITG 2000 (R1) (com identificação unívoca) |
+| INCOMPLETA | Bizu do "a" (manual) e "D" e "C" (mecanizado) | Mantido, com as formas "Diversos a…" |
+| IMPRECISA | Complementação: "repete o errado e registra a diferença" | O lançamento errado permanece e registra-se apenas a diferença, aumentando ou reduzindo o valor (ITG 2000 (R1)) |
+| INCOMPLETA | Livro Caixa: "registro cronológico de recebimentos e pagamentos" | Acrescentado o uso no lucro presumido (Lei 8.981/1995, art. 45, parágrafo único) |
+
+### Direito Constitucional
+
+| Classificação | Como estava no resumo | Como ficou na base |
+|---|---|---|
+| INCOMPLETA | Art. 3º, I: "construir uma sociedade livre" | "Livre, justa e solidária" (texto do art. 3º, I) |
+| IMPRECISA | Valores sociais do trabalho e da livre iniciativa: "Estado capitalista" | Modelo capitalista adotado pela Constituição, com valorização do trabalho (art. 170) |
+| IMPRECISA | "Democracia — limitação dos poderes estatais (Estado de Direito)" | Democracia: povo titular do poder; poderes limitados (Estado de Direito); absolutismo: ilimitados |
+| IMPRECISA | Estado social de direito: "positivismo estatal em favor dos indivíduos" | Atuação positiva (prestacional) do Estado em favor dos indivíduos |
+| DIVERGÊNCIA | Estado constitucional = Estado de Direito + Estado Democrático | Mantido, com a posição de José Afonso da Silva (conceito novo, e não mera soma formal) |
+| IMPRECISA | "Federalismo de terceiro grau — União, estados e municípios" | Inclui o Distrito Federal (art. 18) |
+| IMPRECISA | Cooperativo: "repartição de competências entre os entes" | Cooperação por competências comuns e concorrentes (arts. 23 e 24); a repartição é traço de todo federalismo |
+| INCOMPLETA | RFB soberana; outros entes podem atuar no plano internacional se autorizados | Acrescentados os fundamentos e um exemplo (arts. 21, I, e 52, V) |
+| IMPRECISA | Art. 4º "inspirado pela Carta da ONU de 1945" | Vários princípios espelham a Carta da ONU (autodeterminação, igualdade soberana, solução pacífica, não intervenção e paz) |
+| CONFIRMADA | Oito princípios do Estado Democrático de Direito; justiça social com "pouca democracia econômica" | Atribuídos a José Afonso da Silva e conferidos na fonte |
+| REORGANIZAÇÃO | Pasta `02 - Direitos e Garantias Fundamentais` | Passou a `03 -`, para entrar `02 - Princípios Fundamentais`; uma referência cruzada ajustada em `estrutura-e-elementos.md` |
+
+### Direito Administrativo
+
+| Classificação | Como estava no resumo | Como ficou na base |
+|---|---|---|
+| INCOMPLETA | "Bases surgiram do Conselho de Estado Francês" | Acrescentado o contraste contencioso administrativo (França) x jurisdição una (Brasil, art. 5º, XXXV) |
+| INCOMPLETA | Objeto: "aplicação da lei" | "De ofício", em oposição à jurisdição |
+| INCOMPLETA | Duas escolas (prerrogativas públicas e serviço público) | Mantidas, com os autores e o complemento dos demais critérios para conceituar |
+| REORGANIZAÇÃO | — | Nova pasta `00 - Introdução ao Direito Administrativo`, sem renumerar as demais (preserva os temas já lidos) |

@@ -1,6 +1,6 @@
 # Assuntos Estudados — Visão Geral
 
-> Versão da base: **v010** (04/10/2026) · ✅ consolidado · 🔶 consolidado com pendência (ver `pendencias.md`)
+> Versão da base: **v011** (04/10/2026) · ✅ consolidado · 🔶 consolidado com pendência (ver `pendencias.md`)
 
 ## Direito Tributário
 
@@ -28,6 +28,8 @@
 | 03 - Contas | `plano-de-contas.md` | Conceito e componentes | ✅ |
 | 03 - Contas | `teorias-das-contas.md` | Personalista, materialista, patrimonialista; compensação | ✅ |
 | 04 - Atos e Fatos Administrativos | `atos-e-fatos-administrativos.md` | Atos x fatos; permutativos, modificativos e mistos | ✅ |
+| 05 - Escrituração | `escrituracao-e-livros-contabeis.md` | Obrigatoriedade e dispensa; livros (Diário, Razão, Caixa, razonete); livros da S.A.; formalidades intrínsecas e extrínsecas; escrituração resumida | ✅ |
+| 05 - Escrituração | `lancamentos-e-retificacao.md` | Elementos do lançamento; processo manual x mecanizado; fórmulas; erros; estorno, transferência e complementação | ✅ |
 
 ## Direito Constitucional
 
@@ -39,12 +41,14 @@
 | 01 - Teoria da Constituição | `poder-constituinte.md` | Originário, derivado (reformador, decorrente, revisor), difuso e supranacional; cláusulas pétreas | ✅ |
 | 01 - Teoria da Constituição | `eficacia-e-aplicabilidade-das-normas.md` | Regras x princípios; plena, contida, limitada; outras classificações | ✅ |
 | 01 - Teoria da Constituição | `hierarquia-das-normas.md` | Pirâmide; tratados; LC x LO; decretos | ✅ |
-| 02 - Direitos e Garantias Fundamentais | `teoria-geral-dos-direitos-fundamentais.md` | Gerações (dimensões) | ✅ |
+| 02 - Princípios Fundamentais | `principios-fundamentais.md` | Arts. 1º a 4º: fundamentos; forma de Estado, de governo e regime político; Estado Democrático de Direito; separação dos Poderes; objetivos; relações internacionais | ✅ |
+| 03 - Direitos e Garantias Fundamentais | `teoria-geral-dos-direitos-fundamentais.md` | Gerações (dimensões) | ✅ |
 
 ## Direito Administrativo
 
 | Pasta | Arquivo | Assunto | Status |
 |---|---|---|---|
+| 00 - Introdução ao Direito Administrativo | `conceito-e-objeto-do-direito-administrativo.md` | Origem; conceito; função administrativa e objeto; escolas e critérios | ✅ |
 | 01 - Regime Jurídico Administrativo | `regime-juridico-administrativo.md` | Público x privado; supremacia e indisponibilidade; interesse primário x secundário | ✅ |
 | 02 - Organização Administrativa | `administracao-direta-e-indireta.md` | Entidades; órgãos; indireta; tutela | ✅ |
 | 03 - Princípios da Administração Pública | `principios-expressos.md` | LIMPE; nepotismo | 🔶 |

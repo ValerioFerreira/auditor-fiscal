@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v010** (04/10/2026)
+> Versão atual da base: **v011** (04/10/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -101,3 +101,25 @@
 ## 04/10/2026 — Editar no menu do trecho selecionado (v010)
 
 - Sessão de sistema (sem estudo novo). O menu que aparece ao selecionar um trecho (Marca-texto, Comentar) ganhou **Editar**, só para o administrador: abre o editor do tema (no resumo geral, no tópico) ou da parte do resumo sintético, com o cursor no começo do trecho selecionado.
+
+## 04/10/2026 — Resumos de 04/10/2026 (v011)
+
+- **Origem:** arquivo "04_10_26 - Resumos - Auditor Fiscal.docx", com quatro títulos de matéria: Direito Tributário (sem conteúdo), Contabilidade Geral e Avançada, Direito Constitucional e Direito Administrativo.
+- **Organização:** nova pasta `05 - Escrituração` em Contabilidade; em Constitucional, `02 - Princípios Fundamentais` (a antiga 02 passou a `03 - Direitos e Garantias Fundamentais`); em Administrativo, `00 - Introdução ao Direito Administrativo`, sem renumerar as demais, para não alterar temas já lidos.
+
+### Contabilidade Geral e Avançada
+- Escrituração contábil e livros (Diário, Razão, Caixa, razonete; livros da S.A.; formalidades intrínsecas e extrínsecas); lançamentos (elementos, processo manual x mecanizado, fórmulas) e retificação (estorno, transferência e complementação).
+- **Principais enriquecimentos:** obrigatoriedade e dispensa (CC, arts. 1.179 e 1.180; ITG 2000 (R1), item 2; MEI até R$ 81.000); Razão conforme o referencial (comercial, IR e ITG); art. 100 da Lei 6.404/1976 conferido (o "se houver" é só do Conselho de Administração; substituição por registros eletrônicos, §§2º e 3º); escrituração resumida (CC, art. 1.184); Livro Caixa no lucro presumido (Lei 8.981/1995, art. 45); conteúdo mínimo do registro e retificação conforme a ITG 2000 (R1); quadro de erros e retificações típicas.
+
+### Direito Constitucional
+- Princípios Fundamentais (Título I): fundamentos (art. 1º), forma de Estado (federação), forma de governo (república), regime político (democracia), Estado Democrático de Direito, separação dos Poderes (art. 2º), objetivos (art. 3º) e princípios nas relações internacionais (art. 4º).
+- **Principais enriquecimentos:** oito princípios do Estado Democrático de Direito (José Afonso da Silva) e sua divergência com a visão de simples soma; soberania x autonomia (arts. 18, 21, I, e 52, V); federalismo (terceiro grau, centrífugo, cooperativo); forma x sistema de governo (ADCT, art. 2º); instrumentos da democracia semidireta (art. 14, art. 61, §2º, Lei 9.709/1998); funções típicas e atípicas dos Poderes, com exemplos.
+
+### Direito Administrativo
+- Conceito, escolas e objeto do Direito Administrativo: origem francesa, conceito, função administrativa, escolas das prerrogativas públicas e do serviço público.
+- **Principais enriquecimentos:** contencioso administrativo (França) x jurisdição una (CF, art. 5º, XXXV); função administrativa como aplicação da lei de ofício; os demais critérios para conceituar o Direito Administrativo; autores das escolas.
+
+### Direito Tributário
+- O título veio sem conteúdo abaixo (pendência 🔴).
+
+- **Questões turbo:** 166 novas (Contabilidade 68, Constitucional 74, Administrativo 24), no total de 882 na base.
