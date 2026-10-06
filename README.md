@@ -37,6 +37,10 @@ Gera o site e o serve em http://localhost:8765/ (Ctrl+C para parar). Sem servido
 - **Perfil e downloads:** logado, o menu do topo leva ao **Perfil** (ritmo de estudo, progresso por disciplina, questões, marcações e dados). Em **Baixar conteúdo** (início, Visão geral, menu e Perfil), o material sai em **DOCX** (gerado no navegador) ou **PDF** (impressão do navegador, "Salvar como PDF"), com resumos, sintético, mapas mentais, questões e comentários à escolha. Na página privada o navegador bloqueia downloads e impressão.
 - **Login com Google (qualquer leitor):** o botão **Entrar** oferece o login com a conta Google. Não é obrigatório. Quem entra tem leituras, marca-texto, favoritos e respostas das questões guardados na própria conta e sincronizados entre aparelhos; só a edição de textos continua exclusiva do administrador (login ADM, acima). Precisa da configuração da seção "Login com Google"; sem ela, o botão só oferece o login de administrador.
 
+## Modo E-book
+
+- **Modo E-book** (Aparência → Modo E-book): leitura longa como num e-reader. Papel de tom quente com grão leve (Papel, Sépia ou Noite), letra serifada (Literata) 2 px acima do tamanho escolhido, entrelinha larga, coluna de cerca de 65 caracteres centralizada, margens largas, contraste baixo, sem menu lateral nem índice ao lado, sem animações, e um controle de **Brilho** (véu escuro por cima da página). Tema, fonte e modo foco ficam definidos pelo modo enquanto ele está ligado.
+
 ## Publicar na Vercel
 
 O deploy já está configurado: a Vercel roda `python3 sistema/gerar.py` e publica só a pasta `site/`. Sobem apenas `ESTUDOS/` e `sistema/`; os resumos brutos de `ENTRADA/` e os arquivos `.zip`/`.docx` ficam no computador.

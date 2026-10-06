@@ -127,3 +127,4 @@
 ## 05/10/2026 — Decisões sobre os resumos de 04/10/2026 e novos recursos do site (v012)
 
 - **Decisões suas:** as pastas de Direito Administrativo foram renumeradas (`01 - Introdução ao Direito Administrativo`, `02 - Regime Jurídico Administrativo`, `03 - Organização Administrativa`, `04 - Princípios da Administração Pública`), com as referências cruzadas ajustadas (os quatro temas que tinham referência a pastas aparecem como "mudou" nas leituras); os adendos ao Livro Razão (três referenciais) foram aprovados; o teto do MEI ficou em R$ 81.000, com ressalva entre parênteses sobre os projetos de lei complementar em tramitação.
+- **Modo E-book (pedido seu):** novo modo em Aparência, com papel de tom quente (Papel, Sépia e Noite), letra serifada, coluna estreita centralizada, margens largas, contraste e brilho baixos.

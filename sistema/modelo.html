@@ -1157,6 +1157,98 @@ body.foco .toc { display: none; }
   .tf-campo { width: 100%; }
 }
 @media (max-width: 380px) { .marca-nome { font-size: 16px; } .bt-peg, .bt-aa, .bt-adm { padding: 0 8px; } }
+
+/* ---------- Modo E-book (03/10/2026): leitura longa, como num e-reader ----------
+   Ligado pelo painel Aparência (html[data-ebook="papel|sepia|noite"]). O papel tem tom quente e
+   grão leve; o contraste é baixo (nada de preto sobre branco); a letra é serifada (Literata, feita
+   para leitura em tela), com entrelinha larga e coluna de uns 65 caracteres, centralizada, sem menu
+   lateral nem índice. O brilho é um véu escuro por cima da página (#ui-ebook-veu). Os três tons
+   redefinem todas as variáveis de cor, inclusive as das disciplinas e dos ramos do mapa mental. */
+:root[data-ebook="papel"] {
+  color-scheme: light;
+  --paper: #f3ead6; --panel: #ebe0c8; --raised: #f8f1e1; --raised-2: #f8f1e1; --hover: #e6dbc1;
+  --ink: #3f362a; --ink-2: #5c5040; --ink-3: #84786a; --rule: #dfd2b6; --rule-2: #d0c0a0;
+  --accent: #5a4a33; --accent-soft: #e3d6bb; --on-accent: #f8f1e1; --marker: #efd77a; --marker-cur: #e3b45a; --star: #b07d1c;
+  --ok: #4b7a4a; --ok-soft: #e4e8cc; --err: #a2492f; --err-soft: #f1dcc9;
+  --warn-bg: #f4e5bd; --warn-bd: #dcc07a; --info-bg: #e9e4d0; --info-bd: #cfc7a8; --law-bg: #eee4cc; --law-bd: #d6c9a8;
+  --trap-bg: #f0dccf; --trap-bd: #dcbfae; --div-bg: #e9e0d3; --div-bd: #cfc2b3;
+  --m1: #3f747c; --m2: #9a5d2c; --m3: #5a63a3; --m4: #94405f; --m5: #4f7a45; --m6: #7a5496; --m7: #6c7a30; --m8: #9a4a34; --ctrl: #6b6558; --on-m: #f8f1e1;
+  --r0: #3f8077; --r1: #a8672a; --r2: #5a60a8; --r3: #a03f66; --r4: #4d804f; --r5: #7a529e; --r6: #3b7898; --r7: #9a7a28;
+  --shadow: 0 1px 2px rgb(74 58 30 / 8%), 0 12px 28px -10px rgb(74 58 30 / 18%); --shadow-sm: 0 1px 2px rgb(74 58 30 / 8%);
+}
+:root[data-ebook="sepia"] {
+  color-scheme: light;
+  --paper: #e8dabb; --panel: #ddcca8; --raised: #efe3c8; --raised-2: #efe3c8; --hover: #d7c6a1;
+  --ink: #45372a; --ink-2: #64533e; --ink-3: #8a7861; --rule: #d3c19a; --rule-2: #c2ac80;
+  --accent: #5a4630; --accent-soft: #dccba6; --on-accent: #efe3c8; --marker: #e6c966; --marker-cur: #d6a24a; --star: #a8741a;
+  --ok: #4f7646; --ok-soft: #dde1bf; --err: #9c4a2e; --err-soft: #ebd2b8;
+  --warn-bg: #eed9a6; --warn-bd: #d2b46d; --info-bg: #e1d8bc; --info-bd: #c6b992; --law-bg: #e6d9b9; --law-bd: #cdbb92;
+  --trap-bg: #ebd2bf; --trap-bd: #d2b29c; --div-bg: #e0d3c0; --div-bd: #c6b69f;
+  --m1: #3b6d74; --m2: #94572a; --m3: #565f9a; --m4: #8c3f5a; --m5: #4a7241; --m6: #735090; --m7: #66722e; --m8: #92472f; --ctrl: #675f50; --on-m: #efe3c8;
+  --r0: #3b786f; --r1: #a0612a; --r2: #565c9e; --r3: #983e60; --r4: #497a4a; --r5: #744d98; --r6: #37708e; --r7: #92722a;
+  --shadow: 0 1px 2px rgb(70 50 24 / 10%), 0 12px 28px -10px rgb(70 50 24 / 20%); --shadow-sm: 0 1px 2px rgb(70 50 24 / 10%);
+}
+:root[data-ebook="noite"] {
+  color-scheme: dark;
+  --paper: #15120e; --panel: #1b1813; --raised: #1f1b15; --raised-2: #26211a; --hover: #26211a;
+  --ink: #bfb4a0; --ink-2: #a1957f; --ink-3: #7d725f; --rule: rgb(255 235 200 / 8%); --rule-2: rgb(255 235 200 / 15%);
+  --accent: #bfb4a0; --accent-soft: #2d271e; --on-accent: #15120e; --marker: #6b5a1e; --marker-cur: #8f6f1c; --star: #d1a64a;
+  --ok: #86b27e; --ok-soft: color-mix(in srgb, #86b27e 14%, #1f1b15); --err: #d98d76; --err-soft: color-mix(in srgb, #d98d76 14%, #1f1b15);
+  --warn-bg: color-mix(in srgb, #d1a64a 12%, #1f1b15); --warn-bd: color-mix(in srgb, #d1a64a 32%, #1f1b15);
+  --info-bg: color-mix(in srgb, #8aa4c8 10%, #1f1b15); --info-bd: color-mix(in srgb, #8aa4c8 28%, #1f1b15);
+  --law-bg: #1f1b15; --law-bd: #332d23;
+  --trap-bg: color-mix(in srgb, #d98aa8 10%, #1f1b15); --trap-bd: color-mix(in srgb, #d98aa8 28%, #1f1b15);
+  --div-bg: color-mix(in srgb, #b39ad0 10%, #1f1b15); --div-bd: color-mix(in srgb, #b39ad0 28%, #1f1b15);
+  --m1: #6fa3a9; --m2: #d49a62; --m3: #9aa3d2; --m4: #d388a6; --m5: #8ab382; --m6: #bb9bd6; --m7: #b3c075; --m8: #db9a84; --ctrl: #9a907d; --on-m: #15120e;
+  --r0: #62b3a7; --r1: #dca262; --r2: #9ea2dc; --r3: #dc8aaf; --r4: #7fbb8a; --r5: #b89ddc; --r6: #6fa7cd; --r7: #cdb064;
+  --shadow: inset 0 1px 0 rgb(255 235 200 / 3%), 0 16px 40px -12px rgb(0 0 0 / 60%); --shadow-sm: 0 1px 2px rgb(0 0 0 / 40%);
+}
+:root[data-ebook] {
+  --font-read: var(--font-serif);
+  --font-display: var(--font-serif);
+  --pad-x-ebook: 22px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--rule-2) transparent;
+}
+html[data-ebook] body {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .32 0 0 0 0 .25 0 0 0 0 .14 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.10'/%3E%3C/svg%3E");
+}
+html[data-ebook] .principal { --pad-x: var(--pad-x-ebook); }
+html[data-ebook] #ui-vista { padding-top: 56px; }
+html[data-ebook] .principal { padding-bottom: 160px; }
+html[data-ebook] ::selection { background: color-mix(in srgb, var(--m, #b9893a) 28%, transparent); }
+/* Texto: serifa de leitura, entrelinha larga, parágrafos arejados */
+html[data-ebook] .doc-corpo { font-family: var(--font-serif); line-height: 1.88; letter-spacing: .004em; word-spacing: .015em; text-rendering: optimizeLegibility; font-kerning: normal; font-variant-ligatures: common-ligatures; font-optical-sizing: auto; }
+html[data-ebook] .doc-corpo p { margin-bottom: 1.05em; orphans: 3; widows: 3; }
+html[data-ebook] .doc-corpo p, html[data-ebook] .doc-corpo li { text-align: justify; -webkit-hyphens: auto; hyphens: auto; hyphenate-limit-chars: 6 3 3; }
+html[data-ebook] .doc-corpo li { margin: .4em 0; }
+html[data-ebook] .doc-corpo h2 { margin: 2.6em 0 .7em; font-weight: 600; letter-spacing: -.005em; }
+html[data-ebook] .doc-corpo h3 { margin: 2em 0 .55em; font-weight: 600; }
+html[data-ebook] .doc-corpo h2, html[data-ebook] .doc-corpo h3, html[data-ebook] .g-tit, html[data-ebook] .doc-tit, html[data-ebook] .sec-tit { font-family: var(--font-serif); }
+html[data-ebook] .doc-tit { font-weight: 600; letter-spacing: -.01em; }
+html[data-ebook] .doc-resumo { font-family: var(--font-serif); font-style: normal; }
+html[data-ebook] .doc-corpo hr { margin: 2.8em auto; width: 3.2em; height: 0; border-top: 1px solid var(--rule-2); background: none; }
+html[data-ebook] .pag { margin: 3em 0 1.8em; opacity: .7; }
+html[data-ebook] .tabela, html[data-ebook] .nota, html[data-ebook] .codigo { border-radius: 4px; box-shadow: none; }
+html[data-ebook] .tabela th { letter-spacing: .01em; }
+html[data-ebook] .doc-corpo img { filter: sepia(.14) brightness(.96) contrast(.94); mix-blend-mode: multiply; border-radius: 4px; }
+html[data-ebook="noite"] .doc-corpo img { filter: brightness(.78) sepia(.2) contrast(.92); mix-blend-mode: normal; }
+html[data-ebook] mark.mt { filter: saturate(.8); }
+/* Menos "aplicativo": barras discretas, sem sombras fortes e sem movimento */
+html[data-ebook] .topo { border-bottom-color: transparent; }
+html[data-ebook] .faixa { border-bottom-color: var(--rule); }
+html[data-ebook] *, html[data-ebook] *::before, html[data-ebook] *::after { scroll-behavior: auto !important; }
+html[data-ebook] .revelar { opacity: 1 !important; transform: none !important; transition: none !important; animation: none !important; }
+html[data-ebook] .g-cab { border-bottom-width: 1px; }
+/* Véu de brilho: escurece a página inteira sem mexer nas cores (o painel Aparência regula a opacidade) */
+.ebook-veu { position: fixed; inset: 0; z-index: 150; background: #0b0703; opacity: 0; pointer-events: none; transition: opacity var(--dur-micro) var(--ease); }
+html:not([data-ebook]) .ebook-veu { display: none; }
+/* Painel Aparência: opções do modo */
+.aj-ebook-op { display: grid; gap: 8px; padding-top: 4px; }
+.aj-ebook-op[hidden] { display: none; }
+.aj-linha[data-ebook-desativa] { opacity: .45; }
+.aj-linha[data-ebook-desativa] .seg, .aj-linha[data-ebook-desativa] .chave { pointer-events: none; }
+@media print { html[data-ebook] body { background: #fff !important; } .ebook-veu { display: none !important; } }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
 }
@@ -1218,6 +1310,7 @@ body.foco .toc { display: none; }
 <div class="menu-conta" id="ui-menu-conta" role="menu" hidden></div>
 <div class="aba-menu" id="ui-aba-menu" role="menu" hidden></div>
 <div class="balao" id="ui-balao" role="tooltip" popover="manual"></div>
+<div class="ebook-veu" id="ui-ebook-veu" aria-hidden="true"></div>
 <div class="ajustes" id="ui-ajustes" role="dialog" aria-label="Aparência" hidden>
   <div class="aj-linha"><span class="aj-rot" id="aj-r-tema">Tema</span>
     <div class="seg" role="radiogroup" aria-labelledby="aj-r-tema">
@@ -1240,8 +1333,19 @@ body.foco .toc { display: none; }
   <div class="aj-linha" id="ui-aj-larg"><div class="aj-cab"><label class="aj-rot" for="ui-larg">Largura do texto<button class="i-info" type="button" data-dica="Porcentagem da largura da tela. O texto se ajusta enquanto você arrasta." aria-label="Mais informações"></button></label><output class="aj-valor" id="ui-larg-v" for="ui-larg">50%</output></div>
     <input class="aj-faixa" type="range" id="ui-larg" min="30" max="90" step="1" value="50">
     <div class="aj-cab"><span></span><button class="bt-texto" type="button" id="ui-larg-pad">Padrão</button></div></div>
-  <div class="aj-linha"><div class="aj-cab"><span class="aj-rot" id="aj-r-foco">Modo foco<button class="i-info" type="button" data-dica="Esconde o menu e o índice da página. A tecla / abre a busca a qualquer momento." aria-label="Mais informações"></button></span>
+  <div class="aj-linha" id="ui-aj-foco"><div class="aj-cab"><span class="aj-rot" id="aj-r-foco">Modo foco<button class="i-info" type="button" data-dica="Esconde o menu e o índice da página. A tecla / abre a busca a qualquer momento." aria-label="Mais informações"></button></span>
     <button type="button" class="chave" role="switch" aria-checked="false" aria-labelledby="aj-r-foco" data-aj="foco"><span></span></button></div></div>
+  <div class="aj-linha" id="ui-aj-ebook"><div class="aj-cab"><span class="aj-rot" id="aj-r-ebook">Modo E-book<button class="i-info" type="button" data-dica="Leitura longa, como num e-reader: papel de tom quente, letra serifada, coluna estreita e centralizada, margens largas, contraste e brilho baixos, sem menu lateral nem índice." aria-label="Mais informações"></button></span>
+    <button type="button" class="chave" role="switch" aria-checked="false" aria-labelledby="aj-r-ebook" data-aj="ebook"><span></span></button></div>
+    <div class="aj-ebook-op" id="ui-aj-ebook-op" hidden>
+      <div class="seg" role="radiogroup" aria-label="Tom do papel">
+        <button type="button" role="radio" data-aj="ebookTom" data-val="papel">Papel</button>
+        <button type="button" role="radio" data-aj="ebookTom" data-val="sepia">Sépia</button>
+        <button type="button" role="radio" data-aj="ebookTom" data-val="noite">Noite</button>
+      </div>
+      <div class="aj-cab"><label class="aj-rot" for="ui-ebook-brilho">Brilho</label><output class="aj-valor" id="ui-ebook-brilho-v" for="ui-ebook-brilho">90%</output></div>
+      <input class="aj-faixa" type="range" id="ui-ebook-brilho" min="50" max="100" step="1" value="90" aria-label="Brilho da página">
+    </div></div>
   <div class="aj-linha" id="ui-aj-backup"><span class="aj-rot">Cópia de segurança<button class="i-info" type="button" data-dica="Suas leituras e marcações ficam neste navegador. Para levar a outro aparelho, exporte aqui e importe lá. Entrando com o Google, isso é feito sozinho." aria-label="Mais informações"></button></span>
     <div class="aj-bts"><button class="bt" type="button" data-backup="exportar">Exportar</button><button class="bt" type="button" data-backup="importar">Importar</button></div></div>
 </div>
@@ -1495,24 +1599,36 @@ body.foco .toc { display: none; }
 
   // ---------- Ajustes de leitura ----------
   const TAMANHOS = [14, 16, 18, 20, 24];
-  const aj = Object.assign({ tema: 'auto', tam: 2, fonte: 'sans', largura: null, foco: false }, guarda.ler('ajustes', {}));
+  const aj = Object.assign({ tema: 'auto', tam: 2, fonte: 'sans', largura: null, foco: false, ebook: false, ebookTom: 'papel', ebookBrilho: 90 }, guarda.ler('ajustes', {}));
   if (aj.v !== 2) { aj.fonte = 'sans'; aj.v = 2; } // redesign de 30/09/2026: Manrope passa a ser a fonte padrão do texto
   if (!(aj.tam >= 0 && aj.tam < TAMANHOS.length)) aj.tam = 2;
   if (typeof aj.largura !== 'number') aj.largura = null; // null: largura padrão
+  if (!['papel', 'sepia', 'noite'].includes(aj.ebookTom)) aj.ebookTom = 'papel';
+  if (!(aj.ebookBrilho >= 50 && aj.ebookBrilho <= 100)) aj.ebookBrilho = 90;
+  aj.ebook = aj.ebook === true;
+  // O modo E-book usa o mesmo leiaute do modo foco (sem menu lateral nem índice ao lado do texto).
+  const focoAtivo = () => !!(aj.foco || aj.ebook);
   function aplicarAjustes() {
     const r = document.documentElement;
-    if (aj.tema === 'auto') r.removeAttribute('data-leitura'); else r.setAttribute('data-leitura', aj.tema);
-    r.setAttribute('data-fonte', aj.fonte);
-    r.style.setProperty('--fs', TAMANHOS[aj.tam] + 'px');
-    document.body.classList.toggle('foco', !!aj.foco);
+    // No modo E-book o tom do papel manda: o tema fica neutro (claro) e o CSS de data-ebook redefine as cores.
+    if (aj.ebook) r.setAttribute('data-leitura', 'light'); else if (aj.tema === 'auto') r.removeAttribute('data-leitura'); else r.setAttribute('data-leitura', aj.tema);
+    if (aj.ebook) r.setAttribute('data-ebook', aj.ebookTom); else r.removeAttribute('data-ebook');
+    r.setAttribute('data-fonte', aj.ebook ? 'serif' : aj.fonte);
+    r.style.setProperty('--fs', (TAMANHOS[aj.tam] + (aj.ebook ? 2 : 0)) + 'px'); // e-book: 2 px acima do tamanho escolhido
+    $('#ui-ebook-veu').style.opacity = String(Math.round((100 - aj.ebookBrilho) * 0.9) / 100);
+    document.body.classList.toggle('foco', focoAtivo());
     aplicarLargura();
     $$('[data-aj]', painel).forEach(b => {
       const k = b.dataset.aj;
       if (k === 'tam') b.disabled = b.dataset.val === '-1' ? aj.tam === 0 : aj.tam === TAMANHOS.length - 1;
-      else if (k === 'foco') b.setAttribute('aria-checked', String(!!aj.foco));
+      else if (k === 'foco' || k === 'ebook') b.setAttribute('aria-checked', String(!!aj[k]));
       else b.setAttribute('aria-checked', String(aj[k] === b.dataset.val));
     });
     $('#ui-aj-tam').textContent = TAMANHOS[aj.tam] + ' px';
+    $('#ui-aj-ebook-op').hidden = !aj.ebook;
+    $('#ui-ebook-brilho').value = aj.ebookBrilho;
+    $('#ui-ebook-brilho-v').textContent = aj.ebookBrilho + '%';
+    [$('#aj-r-tema'), $('#aj-r-fonte'), $('#ui-aj-foco')].forEach(el => { const linha = el && (el.closest('.aj-linha') || el); if (linha) linha.toggleAttribute('data-ebook-desativa', aj.ebook); }); // o modo E-book já define tema, fonte e leiaute
   }
   // Largura do texto: porcentagem da largura da tela, escolhida no painel Aa. O padrão é
   // 50% da tela, nunca menos que uma folha A4 (21 cm). A coluna nunca passa do espaço disponível;
@@ -1521,19 +1637,20 @@ body.foco .toc { display: none; }
   const ctLarg = $('#ui-aj-larg'), inLarg = $('#ui-larg'), outLarg = $('#ui-larg-v');
   function espacoUtil() {
     const raiz = document.documentElement, cs = getComputedStyle(principal);
-    const lado = window.innerWidth >= 960 && !aj.foco ? parseFloat(getComputedStyle(raiz).getPropertyValue('--side-w')) || 290 : 0;
+    const lado = window.innerWidth >= 960 && !focoAtivo() ? parseFloat(getComputedStyle(raiz).getPropertyValue('--side-w')) || 290 : 0;
     return raiz.clientWidth - lado - 2 * (parseFloat(cs.getPropertyValue('--pad-x')) || 16);
   }
   function aplicarLargura() {
     const vw = window.innerWidth, util = espacoUtil();
     if (!(vw > 0 && util > 0)) return; // janela ainda sem tamanho (aba escondida): fica o padrão do CSS
     const minimo = Math.min(LARGURA_MIN, util);
-    const pedido = aj.largura ? vw * aj.largura / 100 : Math.max(vw / 2, A4);
+    // padrão: metade da tela (nunca menos que uma folha A4); no e-book, uns 65 caracteres por linha (34 em)
+    const pedido = aj.largura ? vw * aj.largura / 100 : aj.ebook ? (TAMANHOS[aj.tam] + 2) * 34 : Math.max(vw / 2, A4);
     const px = Math.round(Math.max(minimo, Math.min(util, pedido)));
-    const lado = !aj.foco && util >= px + INDICE_LADO;
+    const lado = !focoAtivo() && util >= px + INDICE_LADO;
     const r = document.documentElement;
     r.style.setProperty('--measure', px + 'px');
-    const docW = aj.foco ? px + 40 : Math.max(1140, px + (lado ? INDICE_LADO : 0));
+    const docW = focoAtivo() ? px + 40 : Math.max(1140, px + (lado ? INDICE_LADO : 0));
     r.style.setProperty('--doc-w', docW + 'px');
     r.style.setProperty('--faixa-w', Math.max(1140, docW) + 'px');
     document.body.classList.toggle('toc-lado', lado);
@@ -1563,11 +1680,20 @@ body.foco .toc { display: none; }
     if (!b) return;
     const k = b.dataset.aj;
     if (k === 'tam') aj.tam = Math.max(0, Math.min(TAMANHOS.length - 1, aj.tam + Number(b.dataset.val)));
-    else if (k === 'foco') { aj.foco = !aj.foco; if (!aj.foco) fecharMenu(); }
+    else if (k === 'foco') { aj.foco = !aj.foco; if (!focoAtivo()) fecharMenu(); }
+    else if (k === 'ebook') { aj.ebook = !aj.ebook; fecharMenu(); }
     else aj[k] = b.dataset.val;
     guarda.gravar('ajustes', aj);
     aplicarAjustes();
   });
+  // Brilho do modo E-book: véu escuro por cima da página (o texto e as cores continuam os mesmos)
+  $('#ui-ebook-brilho').addEventListener('input', e => {
+    aj.ebookBrilho = Number(e.target.value);
+    $('#ui-ebook-brilho-v').textContent = aj.ebookBrilho + '%';
+    $('#ui-ebook-veu').style.opacity = String(Math.round((100 - aj.ebookBrilho) * 0.9) / 100);
+  });
+  $('#ui-ebook-brilho').addEventListener('change', () => guarda.gravar('ajustes', aj));
+  $('#ui-ebook-brilho').addEventListener('dblclick', () => { aj.ebookBrilho = 90; guarda.gravar('ajustes', aj); aplicarAjustes(); });
   function abrirAjustes() {
     painel.hidden = false;
     btAjustes.setAttribute('aria-expanded', 'true');
