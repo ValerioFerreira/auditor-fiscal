@@ -1,6 +1,6 @@
 # Questões turbo — Hierarquia das Normas (Pirâmide de Kelsen)
 <!-- cobertura
-Visão geral = 9a1e450161
+Visão geral = 00744c558d
 Normas constitucionais = 3c4285b634
 Tratados internacionais = dc71f5a5d1
 Normas infraconstitucionais primárias = 4eafafeff3
@@ -167,3 +167,23 @@ A competência presidencial para dispor, por decreto, sobre a organização e o 
 O decreto regulamentar, expedido para a fiel execução da lei, é ato normativo primário, pois inova na ordem jurídica.
 - Gabarito: ERRADO
 - Comentário: O decreto regulamentar (art. 84, IV) é secundário e não inova. Quem inova, nos limites da CF, é o decreto autônomo (art. 84, VI).
+
+## Q033 · fácil · Visão geral
+Na concepção kelseniana, a validade de cada norma é extraída de uma norma superior, até se chegar a uma norma pressuposta, e não posta, que fundamenta a Constituição.
+- Gabarito: CERTO
+- Comentário: Para Kelsen, cada norma retira a validade de norma superior, até a norma fundamental hipotética, pressuposta e não posta, que fundamenta a Constituição.
+
+## Q034 · médio · Visão geral
+A norma fundamental hipotética de Kelsen identifica-se com o texto da Constituição de cada Estado, ocupando o ápice da pirâmide como norma posta pelo poder constituinte originário.
+- Gabarito: ERRADO
+- Comentário: A norma fundamental hipotética é pressuposta, e não posta; situa-se acima da pirâmide e dá fundamento à própria Constituição.
+
+## Q035 · médio · Visão geral
+Os tratados internacionais comuns situam-se em patamar inferior ao das leis ordinárias, pois integram as normas infralegais secundárias.
+- Gabarito: ERRADO
+- Comentário: Os tratados internacionais comuns estão entre as normas infraconstitucionais primárias, sem hierarquia entre si e em relação à lei complementar, à lei ordinária, à lei delegada, à medida provisória, ao decreto legislativo, à resolução e ao decreto autônomo.
+
+## Q036 · difícil · Visão geral
+Tratado de direitos humanos aprovado em cada Casa do Congresso Nacional por três quintos, em dois turnos, situa-se no mesmo patamar das normas constitucionais, ao passo que outro, de igual matéria, aprovado pelo rito comum, ocupa posição supralegal.
+- Gabarito: CERTO
+- Comentário: Aprovado pelo rito do art. 5º, § 3º, o tratado de direitos humanos equivale a emenda constitucional. Aprovado pelo rito comum, tem status supralegal: abaixo da Constituição e acima das normas infraconstitucionais primárias.

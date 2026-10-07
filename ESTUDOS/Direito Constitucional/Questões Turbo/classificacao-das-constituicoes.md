@@ -1,6 +1,5 @@
 # Questões turbo — Classificação das Constituições
 <!-- cobertura
-Quadro-resumo da CF/88 = a2aacef5d5
 Quanto à origem = 960b28cbf6
 Quanto à forma = 83149e1622
 Quanto ao modo de elaboração = 5f61d51678
@@ -11,6 +10,7 @@ Quanto à correspondência com a realidade (Karl Loewenstein — critério ontol
 Quanto à função desempenhada = 348c07ac92
 Quanto à finalidade = d19e141101
 Outros critérios = c6402822a1
+Quadro-resumo da CF/88 = 98e51c6447
 Pegadinhas CEBRASPE = 76eab66e6d
 -->
 
@@ -213,3 +213,8 @@ Quanto ao sistema, a CF/88 é preceitual, pois nela predominam regras concretas 
 Segundo Raul Machado Horta, a CF/88 pode ser qualificada como expansiva, por ampliar temas e direitos em relação às constituições que a antecederam.
 - Gabarito: CERTO
 - Comentário: Constituição expansiva é a que amplia temas e direitos em relação às anteriores; a qualificação da CF/88 é de Raul Machado Horta.
+
+## Q041 · médio · Quadro-resumo da CF/88
+Segundo a classificação tradicional, a CF/88 é democrática, escrita, sistemática, rígida, formal, analítica e normativa, ou ao menos pretende sê-lo.
+- Gabarito: CERTO
+- Comentário: Democrática equivale a promulgada; sistemática, a dogmática. A CF/88 é rígida (para Alexandre de Moraes, super-rígida), formal, analítica e normativa, ou que pretende sê-la.

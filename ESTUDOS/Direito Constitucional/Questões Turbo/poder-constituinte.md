@@ -3,7 +3,7 @@
 Teoria do poder constituinte = 88dd20e4b8
 Titularidade x exercício = 64e728167f
 Poder constituinte originário = 62d3b0abc2
-Poder constituinte derivado = 828742e985
+Poder constituinte derivado = 07381109fa
 Poder constituinte difuso (mutação constitucional) = 1e51fdf976
 Poder constituinte supranacional = 51d22928ed
 Pegadinhas CEBRASPE = 87b1881916
@@ -229,3 +229,8 @@ A União Europeia dispõe de constituição própria em vigor, que se sobrepõe 
 O poder constituinte supranacional cria ordem jurídica comunitária que se sobrepõe às constituições dos Estados-membros, os quais cedem parte de sua soberania.
 - Gabarito: CERTO
 - Comentário: É o conceito de poder constituinte supranacional; o exemplo citado é a União Europeia.
+
+## Q045 · médio · Poder constituinte derivado
+Diferentemente do reformador, o poder revisor atuou em sessão unicameral e somente pôde ser exercido cinco anos após a promulgação da CF/88, por deliberação da maioria absoluta dos membros do Congresso Nacional.
+- Gabarito: CERTO
+- Comentário: A revisão do ADCT, art. 3º, ocorreu após cinco anos da promulgação, em sessão conjunta de deputados e senadores, por maioria absoluta. O revisor está exaurido; o reformador é permanente e segue o art. 60.

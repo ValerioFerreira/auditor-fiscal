@@ -1,24 +1,5 @@
 # Classificação das Constituições
 
-## Quadro-resumo da CF/88
-
-| Critério | CF/88 |
-|---|---|
-| Origem | **Promulgada** (democrática, popular) |
-| Forma | **Escrita** (codificada/unitária — ver divergência abaixo) |
-| Modo de elaboração | **Dogmática eclética** (heterodoxa/compromissória) |
-| Estabilidade | **Rígida** (para Alexandre de Moraes, **super-rígida**) |
-| Conteúdo | **Formal** |
-| Extensão | **Analítica** |
-| Correspondência com a realidade | **Normativa** (ou que pretende sê-lo) |
-| Finalidade | **Dirigente** |
-| Conteúdo ideológico | **Social** |
-| Local da decretação | **Autoconstituição** |
-| Sistema | **Principiológica** (aberta) |
-| Outras | **Expansiva** |
-
----
-
 ## Quanto à origem
 
 | Tipo | Características | Brasil |
@@ -99,6 +80,23 @@
 | **Expansiva** | Amplia temas e direitos em relação às anteriores → CF/88 (Raul Machado Horta) |
 | **Dúctil (suave)** | Zagrebelsky → ver `conceito-e-concepcoes.md` |
 
+## Quadro-resumo da CF/88
+
+| Critério | CF/88 |
+|---|---|
+| Origem | **Promulgada** (democrática, popular) |
+| Forma | **Escrita** (codificada/unitária — ver divergência acima) |
+| Modo de elaboração | **Dogmática eclética** (heterodoxa/compromissória) |
+| Estabilidade | **Rígida** (para Alexandre de Moraes, **super-rígida**) |
+| Conteúdo | **Formal** |
+| Extensão | **Analítica** |
+| Correspondência com a realidade | **Normativa** (ou que pretende sê-lo) |
+| Finalidade | **Dirigente** |
+| Conteúdo ideológico | **Social** |
+| Local da decretação | **Autoconstituição** |
+| Sistema | **Principiológica** (aberta) |
+| Outras | **Expansiva** |
+
 ## Pegadinhas CEBRASPE
 
 - "Toda constituição rígida é estável" → **ERRADO**.
@@ -109,7 +107,7 @@
 
 ## Relações com outros assuntos
 
-- Tratados de DH com status de EC → `hierarquia-das-normas.md`
+- Tratados de DDHH com status de EC → `hierarquia-das-normas.md`
 - Poder constituinte e cláusulas pétreas → `poder-constituinte.md`
 
 ## Mapa mental

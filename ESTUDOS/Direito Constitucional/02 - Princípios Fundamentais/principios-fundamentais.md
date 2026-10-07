@@ -130,7 +130,28 @@
 
 ## Art. 4º — Princípios nas relações internacionais
 
-- A RFB rege-se, nas suas relações internacionais, pelos princípios: **independência nacional**; **prevalência dos direitos humanos**; **autodeterminação dos povos** (respeito à soberania); **não intervenção**; **igualdade entre os Estados**; **defesa da paz**; **solução pacífica dos conflitos**; **repúdio ao terrorismo e ao racismo**; **cooperação entre os povos** para o progresso da humanidade; **concessão de asilo político**.
+- A RFB rege-se, nas suas relações internacionais, pelos princípios do **art. 4º, I a X**:
+
+| Inciso | Princípio | Em resumo |
+|---|---|---|
+| I | **Independência nacional** | O Estado decide por si, sem subordinação a outro (soberania externa) |
+| II | **Prevalência dos direitos humanos** | Nas relações externas, a proteção da pessoa humana tem primazia; orienta a adesão a tratados de direitos humanos (→ `hierarquia-das-normas.md`) |
+| III | **Autodeterminação dos povos** | Cada povo define livremente seu destino político, econômico e social (respeito à soberania) |
+| IV | **Não intervenção** | Nenhum Estado interfere nos assuntos internos de outro |
+| V | **Igualdade entre os Estados** | Todos têm a mesma condição jurídica de Estados soberanos, independentemente de tamanho ou poder |
+| VI | **Defesa da paz** | A paz é a regra; a guerra só é declarada em caso de agressão estrangeira, com autorização ou referendo do Congresso Nacional (CF, art. 84, XIX) |
+| VII | **Solução pacífica dos conflitos** | Controvérsias resolvidas por negociação, mediação, arbitragem ou jurisdição internacional, não pela força |
+| VIII | **Repúdio ao terrorismo e ao racismo** | Condena ambos; no plano interno, o racismo é crime **inafiançável** e **imprescritível** e o terrorismo é **inafiançável** e **insuscetível de graça ou anistia** (CF, art. 5º, XLII e XLIII) |
+| IX | **Cooperação entre os povos para o progresso da humanidade** | Colaboração entre Estados e organismos internacionais |
+| X | **Concessão de asilo político** | Acolhimento de pessoa perseguida por motivos políticos; ato **discricionário** do Estado, diplomático ou territorial (Lei 13.445/2017, art. 27) |
+
+- **Como memorizar** (iniciais dos incisos: **I P A N I D S R C A**), em quatro blocos: **IPA** · **NI** · **DS** · **RCA**.
+  - **IPA** = **I**ndependência, **P**revalência dos direitos humanos, **A**utodeterminação (incisos I a III).
+  - **NI** = **N**ão intervenção, **I**gualdade entre os Estados (IV e V).
+  - **DS** = **D**efesa da paz, **S**olução pacífica dos conflitos (VI e VII).
+  - **RCA** = **R**epúdio ao terrorismo e ao racismo, **C**ooperação entre os povos, **A**silo político (VIII a X).
+  - Frase-gancho, uma palavra-chave por inciso: "**I**ndependentes, **P**riorizamos os direitos humanos e a **A**utodeterminação; **N**ão **I**ntervimos; **D**efendemos a paz e a **S**olução pacífica; **R**epudiamos o terror e o racismo, **C**ooperamos e damos **A**silo".
+  - Por ideia: **soberania** (I, III, IV, V) · **paz** (VI, VII, VIII) · **pessoa e solidariedade** (II, IX, X).
 - **Parágrafo único:** a RFB buscará a **integração** econômica, política, social e cultural dos povos da **América Latina**, visando à formação de uma **comunidade latino-americana de nações**.
 - Vários desses princípios **espelham a Carta da ONU (1945)**: autodeterminação, igualdade soberana, solução pacífica das controvérsias, não intervenção e paz.
 
@@ -187,3 +208,5 @@
   - Art. 2º: Poderes independentes e harmônicos; freios e contrapesos; funções típicas e atípicas
   - Art. 3º: objetivos (CONGA ERRA PRO)
   - Art. 4º: princípios nas relações internacionais e integração latino-americana
+    - Dez princípios (I a X): independência, prevalência dos direitos humanos, autodeterminação, não intervenção, igualdade, paz, solução pacífica, repúdio ao terrorismo e ao racismo, cooperação, asilo político
+    - Mnemônico: IPA · NI · DS · RCA

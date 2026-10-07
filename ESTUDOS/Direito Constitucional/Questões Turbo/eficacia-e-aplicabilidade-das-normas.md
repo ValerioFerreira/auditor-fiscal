@@ -2,7 +2,7 @@
 <!-- cobertura
 Regras x princípios = 91d29841c2
 Premissa = 76ffaa9b27
-Classificação de José Afonso da Silva = fa5405cacb
+Classificação de José Afonso da Silva = 0f5b840a84
 Outras classificações = 55b582e3a6
 Densidade normativa = 3c9cd7272d
 Pegadinhas CEBRASPE = 2018b5e3c3

@@ -1054,6 +1054,67 @@ body.editando .doc-grade { grid-template-columns: minmax(0, 1fr) !important; }
 .qq-acoes { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; }
 .qq-acoes .bt-p { margin-left: auto; }
 .qq-fim { display: grid; gap: 12px; justify-items: start; }
+/* Questões: montagem do caderno, múltipla escolha, tempo e resultado */
+.qt-linha .seg button { height: auto; min-height: 32px; padding: 6px 12px; line-height: 16px; white-space: normal; }
+.qt-linha .seg button .n { margin-left: 4px; opacity: .6; font-variant-numeric: tabular-nums; }
+.qt-linha .seg button:disabled { opacity: .4; }
+.qt-sep { height: 1px; background: var(--rule); }
+.qt-outra { display: inline-flex; align-items: center; }
+.qt-in { width: 96px; height: 36px; padding: 0 10px; border: 1px solid var(--rule-2); border-radius: 8px; background: var(--raised); color: var(--ink); font: 600 14px/1 var(--font-ui); font-variant-numeric: tabular-nums; }
+.qt-in:focus-visible { outline: 2px solid var(--m); outline-offset: 1px; }
+.qt-lim { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; font: 500 14px/20px var(--font-ui); color: var(--ink-2); }
+.qt-lim label { display: inline-flex; align-items: center; gap: 8px; }
+.qt-lim .qt-in { width: 80px; }
+.qt-lim-s { font-size: 12px; color: var(--ink-3); }
+.q-banca { padding: 4px 10px; border-radius: 9999px; background: var(--panel); color: var(--ink-2); font: 700 12px/16px var(--font-ui); }
+.qq-opcoes { display: grid; gap: 12px; }
+.qq-op { display: flex; align-items: flex-start; gap: 16px; padding: 14px 16px; border: 1px solid var(--rule-2); border-radius: 12px; background: var(--raised); color: var(--ink); font: 500 16px/1.5 var(--font-ui); text-align: left; cursor: pointer; transition: background-color var(--dur-micro) var(--ease), border-color var(--dur-micro) var(--ease), transform var(--dur-micro) var(--ease); }
+.qq-op .qq-k { margin-top: 1px; }
+.qq-op .qq-ot { min-width: 0; text-wrap: pretty; }
+.qq-op:hover:not(:disabled) { border-color: var(--ink-3); background: var(--hover); }
+.qq-op:active:not(:disabled) { transform: scale(.995); }
+.qq-op:disabled { cursor: default; opacity: .55; }
+.qq-op.certa { opacity: 1; border-color: var(--ok); background: var(--ok-soft); }
+.qq-op.errada { opacity: 1; border-color: var(--err); background: var(--err-soft); }
+.qq-op.certa .qq-k { background: var(--ok); color: var(--paper); }
+.qq-op.errada .qq-k { background: var(--err); color: var(--paper); }
+.qq-tempo { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 9999px; background: var(--panel); font: 600 12px/16px var(--font-ui); font-variant-numeric: tabular-nums; }
+.qq-tempo svg { width: 14px; height: 14px; }
+.qq-tempo.pouco { background: var(--err-soft); color: var(--err); }
+.qq-tempo-r { font-weight: 500; color: var(--ink-3); }
+.qq-tempo.pouco .qq-tempo-r { color: inherit; }
+.qq-prog { height: 4px; overflow: hidden; border-radius: 9999px; background: var(--rule); }
+.qq-prog span { display: block; height: 100%; border-radius: inherit; background: var(--m); transition: width 300ms var(--ease); }
+.qr { display: grid; gap: 32px; max-width: min(100%, var(--measure)); margin: 0 auto; }
+.qr svg { width: 16px; height: 16px; flex: none; }
+.qr-cab { display: grid; gap: 4px; }
+.qr-sub { margin: 0; font: 500 14px/20px var(--font-ui); color: var(--ink-2); }
+.qr-aviso { margin: 0; padding: 12px 16px; border: 1px solid color-mix(in srgb, var(--err) 40%, var(--rule)); border-radius: 12px; background: var(--err-soft); color: var(--err); font: 600 14px/20px var(--font-ui); }
+.qn-ok .qn-v { color: var(--ok); }
+.qn-err .qn-v { color: var(--err); }
+.qr-barra { display: flex; height: 14px; overflow: hidden; border-radius: 9999px; background: var(--panel); }
+.qr-barra span, .qr-seg span { height: 100%; }
+.qr-barra .a, .qr-seg .a { background: var(--ok); }
+.qr-barra .e, .qr-seg .e { background: var(--err); }
+.qr-barra .b, .qr-seg .b { background: var(--ink-3); opacity: .55; }
+.qr-leg { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 8px 0 0; padding: 0; list-style: none; font: 500 14px/20px var(--font-ui); color: var(--ink-2); }
+.qr-leg i { display: inline-block; width: 10px; height: 10px; margin-right: 8px; border-radius: 9999px; }
+.qr-seg { display: flex; height: 8px; overflow: hidden; border-radius: 9999px; background: var(--panel); }
+.qr-nada { margin: 0; font: 500 14px/20px var(--font-ui); color: var(--ink-3); }
+.qr-grupos { width: 100%; border-collapse: collapse; font: 500 14px/20px var(--font-ui); }
+.qr-grupos th, .qr-grupos td { padding: 10px 8px; border-bottom: 1px solid var(--rule); text-align: right; font-variant-numeric: tabular-nums; }
+.qr-grupos th:first-child, .qr-grupos td:first-child { text-align: left; }
+.qr-grupos th { font-size: 12px; font-weight: 600; color: var(--ink-3); }
+.qr-rev { display: grid; gap: 8px; }
+.qr-q { border: 1px solid var(--rule); border-radius: 12px; background: var(--raised); }
+.qr-q summary { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 4px 12px; padding: 12px 16px; font: 500 14px/20px var(--font-ui); cursor: pointer; list-style: none; }
+.qr-q summary::-webkit-details-marker { display: none; }
+.qr-q-g { grid-column: 2; font-size: 12px; line-height: 16px; color: var(--ink-3); }
+.qr-st { align-self: start; padding: 2px 8px; border-radius: 9999px; font: 700 12px/16px var(--font-ui); }
+.qr-st.e { background: var(--err-soft); color: var(--err); }
+.qr-st.b { background: var(--panel); color: var(--ink-2); }
+.qr-q-corpo { display: grid; gap: 12px; padding: 0 16px 16px; }
+.qr-acoes { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
 @media (max-width: 1100px) { .qt-num { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 640px) {
   .qt-linha { grid-template-columns: minmax(0, 1fr); gap: 8px; }
@@ -1471,6 +1532,7 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     busca: svg('M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z'),
     filtro: svg('M230.6,49.53A15.81,15.81,0,0,0,216,40H40A16,16,0,0,0,28.19,66.76l.08.09L96,139.17V216a16,16,0,0,0,24.87,13.32l32-21.34A16,16,0,0,0,160,194.66V139.17l67.74-72.32.08-.09A15.8,15.8,0,0,0,230.6,49.53ZM40,56h0Zm106.18,74.58A8,8,0,0,0,144,136v58.66L112,216V136a8,8,0,0,0-2.16-5.47L40,56H216Z'),
     raio: svg('M215.79,118.17a8,8,0,0,0-5-5.66L153.18,90.9l14.66-73.33a8,8,0,0,0-13.69-7l-112,120a8,8,0,0,0,3,13l57.63,21.61L88.16,238.43a8,8,0,0,0,13.69,7l112-120A8,8,0,0,0,215.79,118.17ZM109.37,214l10.47-52.38a8,8,0,0,0-5-9.06L62,132.71l84.62-90.66L136.16,94.43a8,8,0,0,0,5,9.06l52.8,19.8Z'),
+    relogio: svg('M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z'),
     bandeira: svg('M42.76,50A8,8,0,0,0,40,56V224a8,8,0,0,0,16,0V179.77c26.79-21.16,49.87-9.75,76.45,3.41,16.4,8.11,34.06,16.85,53,16.85,13.93,0,28.54-4.75,43.82-18a8,8,0,0,0,2.76-6V56A8,8,0,0,0,218.76,50c-28,24.23-51.72,12.49-79.21-1.12C111.07,34.76,78.78,18.79,42.76,50ZM216,172.25c-26.79,21.16-49.87,9.74-76.45-3.41-25-12.35-52.81-26.13-83.55-8.4V59.79c26.79-21.16,49.87-9.75,76.45,3.4,25,12.35,52.82,26.13,83.55,8.4Z'),
     largura: svg('M136,40V216a8,8,0,0,1-16,0V40a8,8,0,0,1,16,0ZM96,120H35.31l18.35-18.34A8,8,0,0,0,42.34,90.34l-32,32a8,8,0,0,0,0,11.32l32,32a8,8,0,0,0,11.32-11.32L35.31,136H96a8,8,0,0,0,0-16Zm149.66,2.34-32-32a8,8,0,0,0-11.32,11.32L220.69,120H160a8,8,0,0,0,0,16h60.69l-18.35,18.34a8,8,0,0,0,11.32,11.32l32-32A8,8,0,0,0,245.66,122.34Z')
   };
@@ -2484,7 +2546,7 @@ html:not([data-ebook]) .ebook-veu { display: none; }
           for (const id of temasDe(m)) {
             const lista = qs.filter(q => q.t === id);
             if (!lista.length) continue;
-            h += `<h3 class="imp-h3">${esc(docs[id].titulo)}</h3>` + lista.map(q => `<div class="imp-q"><p><strong>${esc(numQ(q.id))} · ${DIF[q.d]}</strong></p><div>${q.e}</div><p>Gabarito: <strong>${q.g === 'C' ? 'CERTO' : 'ERRADO'}</strong></p><div class="imp-com">${q.c}</div></div>`).join('');
+            h += `<h3 class="imp-h3">${esc(docs[id].titulo)}</h3>` + lista.map(q => `<div class="imp-q"><p><strong>${esc(numQ(q.id))} · ${DIF[q.d]}${q.o ? ' · ' + (bancaDe(q) === 'F' ? 'FGV' : 'CEBRASPE') : ''}</strong></p><div>${q.e}</div>${q.o ? q.o.map((o, i) => `<p>${LETRAS[i]}) ${o}</p>`).join('') : ''}<p>Gabarito: <strong>${q.o ? q.g : q.g === 'C' ? 'CERTO' : 'ERRADO'}</strong></p><div class="imp-com">${q.c}</div></div>`).join('');
           }
           raiz.insertAdjacentHTML('beforeend', h + '</section>');
         }
@@ -3045,7 +3107,7 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     }
     atalhos += `<a class="atalho revelar" href="#questoes"><span class="atalho-rot">${ICO.raio} Questões</span>
       <span class="atalho-tit">${plural(QS.length, 'questão', 'questões')}</span>
-      <span class="atalho-sub">${(() => { const e = qEstat(QS); return e.feitas ? `${plural(e.feitas, 'feita', 'feitas')} · ${e.pct}% de acerto` : 'Certo ou Errado · todas as disciplinas'; })()}</span></a>`;
+      <span class="atalho-sub">${(() => { const e = qEstat(QS); return e.feitas ? `${plural(e.feitas, 'feita', 'feitas')} · ${e.pct}% de acerto` : 'Certo ou Errado e múltipla escolha · todas as disciplinas'; })()}</span></a>`;
     atalhos += `<a class="atalho revelar" href="#pegadinhas"><span class="atalho-rot">${ICO.peg} Revisão rápida</span>
       <span class="atalho-tit">${plural(D.pegadinhas.length, 'pegadinha', 'pegadinhas')}</span>
       <span class="atalho-sub"><span class="gabarito"><span class="g-E">E</span></span> ${plural(nE, 'item errado', 'itens errados')}${nC ? ` · ${plural(nC, 'item certo', 'itens certos')}` : ''} · todas as disciplinas</span></a>`;
@@ -3177,7 +3239,7 @@ html:not([data-ebook]) .ebook-veu { display: none; }
       ${card('vg-sint', ICO.camadas, 'Resumo sintético', nS ? plural(nS, 'parte', 'partes') : 'Ainda vazio',
         '',
         `<a class="bt" href="#${m.id}_sintetico">Abrir</a>`)}
-      ${card('vg-questoes', ICO.raio, `Questões${dica('Certo ou Errado sobre os tópicos, com comentário e link para o trecho do resumo. Não são questões de prova.')}`, qm.length ? plural(qm.length, 'questão', 'questões') : 'Em preparação',
+      ${card('vg-questoes', ICO.raio, `Questões${dica('Certo ou Errado e múltipla escolha (estilo CEBRASPE e FGV) sobre os tópicos, com comentário e link para o trecho do resumo. Não são questões de prova.')}`, qm.length ? plural(qm.length, 'questão', 'questões') : 'Em preparação',
         `${qm.length ? barraProg('Feitas', Math.round(100 * qe.feitas / qe.total), `${qe.feitas}/${qe.total}`) + `<p class="vg-sit">${qe.resp ? `${qe.pct}% de acerto em ${plural(qe.resp, 'resposta', 'respostas')}` : 'Nenhuma resposta ainda'}</p>` : ''}`,
         qm.length ? `<a class="bt" href="#${m.id}_questoes">${qe.feitas ? (qe.ineditas ? 'Continuar' : 'Revisar') : 'Começar'}</a>` : '')}
       ${card('vg-mapas', ICO.mapa, `Mapas mentais${dica('Clique num ramo para ver o trecho do resumo que ele resume.')}`, plural(ramos, 'ramo', 'ramos'),
@@ -3209,11 +3271,14 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     window.scrollTo(0, 0);
   }
 
-  // ---------- Questões turbo ----------
-  // Questões de Certo ou Errado feitas a partir dos temas (pasta "Questões Turbo" de cada matéria).
-  // Primeiro saem só as inéditas, na ordem do material ou em ordem aleatória. Quando todas já foram
-  // respondidas, começa a revisão: as que você errou na última vez voltam primeiro, depois as
-  // respondidas há mais tempo. Cada resposta nova atualiza o "Acertou/Errou" da questão.
+  // ---------- Questões ----------
+  // Questões de Certo ou Errado (pasta "Questões Turbo" de cada matéria) e de múltipla escolha (pasta
+  // "Questões Múltipla Escolha"), feitas a partir dos temas. O leitor monta um caderno: formato, estilo
+  // da banca (CEBRASPE ou FGV), quantidade e tempo (sem tempo, cronômetro ou tempo limite). O caderno é
+  // um conjunto fixo de questões: primeiro as inéditas; acabando elas, as que o leitor errou na última
+  // vez e depois as respondidas há mais tempo. No fim, o resultado mostra acertos, erros e os temas com
+  // mais acertos e erros. Questão de múltipla escolha: q.o = alternativas e q.b = banca (C ou F); sem
+  // q.o é Certo ou Errado (sempre no estilo CEBRASPE).
   // No navegador: questoes = {id: {u: resposta, ok, n: tentativas, a: acertos, em}}, qfav, qrep.
   const QS = D.questoes || [];
   const QID = Object.create(null);
@@ -3226,18 +3291,30 @@ html:not([data-ebook]) .ebook-veu { display: none; }
   const ROTA_RELATO = '/__estudos/relato';
   const questoesDe = m => QS.filter(q => docs[q.t] && docs[q.t].materia === m.id);
   const numQ = id => id.split(':').pop();
+  const FORMATOS = { ce: 'Certo ou Errado', me: 'Múltipla escolha', ambas: 'Ambas' };
+  const BANCAS = { cebraspe: 'CEBRASPE', fgv: 'FGV', ambas: 'Ambas' };
+  const LETRAS = ['A', 'B', 'C', 'D', 'E'];
+  const ehME = q => !!q.o;           // múltipla escolha (as de Certo ou Errado não têm alternativas)
+  const bancaDe = q => q.b || 'C';   // C = CEBRASPE, F = FGV; Certo ou Errado é sempre CEBRASPE
+  const noFormato = (q, fm) => fm === 'ambas' || (fm === 'me') === ehME(q);
+  const naBanca = (q, bc) => bc === 'ambas' || (bc === 'fgv') === (bancaDe(q) === 'F');
   function qFiltro(m) {
     const f = guarda.ler('qfiltro', {})[m.id] || {};
     return {
       ordem: f.ordem === 'aleatoria' ? 'aleatoria' : 'assunto',
       mostrar: ['erradas', 'favoritas'].includes(f.mostrar) ? f.mostrar : 'todas',
       dif: Array.isArray(f.dif) ? f.dif.filter(x => DIF[x]) : [],
-      temas: Array.isArray(f.temas) ? f.temas.filter(id => docs[id]) : []
+      temas: Array.isArray(f.temas) ? f.temas.filter(id => docs[id]) : [],
+      formato: FORMATOS[f.formato] ? f.formato : 'ambas',
+      banca: BANCAS[f.banca] ? f.banca : 'ambas',
+      qtd: Number.isInteger(f.qtd) && f.qtd > 0 ? f.qtd : 0, // 0 = todas
+      tempo: ['nenhum', 'cron', 'limite'].includes(f.tempo) ? f.tempo : 'nenhum',
+      limMin: Number.isInteger(f.limMin) && f.limMin > 0 && f.limMin <= 600 ? f.limMin : 60
     };
   }
   function gravarQFiltro(m, f) { const tudo = guarda.ler('qfiltro', {}); tudo[m.id] = f; guarda.gravar('qfiltro', tudo); }
   function qFiltradas(m, f) {
-    return questoesDe(m).filter(q => (!f.dif.length || f.dif.includes(q.d)) && (!f.temas.length || f.temas.includes(q.t))
+    return questoesDe(m).filter(q => noFormato(q, f.formato) && naBanca(q, f.banca) && (!f.dif.length || f.dif.includes(q.d)) && (!f.temas.length || f.temas.includes(q.t))
       && (f.mostrar !== 'erradas' || (qResp[q.id] && !qResp[q.id].ok)) && (f.mostrar !== 'favoritas' || qFav.includes(q.id)));
   }
   function qEstat(lista) {
@@ -3251,21 +3328,52 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     for (let i = 0; i < id.length; i++) { h ^= id.charCodeAt(i); h = Math.imul(h, 16777619); }
     return h >>> 0;
   }
-  function proximaQuestao(s) {
-    const lista = qFiltradas(MAT[s.mat], s.f);
-    if (!lista.length) return null;
-    const ordem = s.f.ordem === 'aleatoria' ? (a, b) => sorteio(s.sem, a.id) - sorteio(s.sem, b.id) : (a, b) => a.i - b.i;
-    const ineditas = lista.filter(q => !qResp[q.id]);
-    if (ineditas.length) return { q: ineditas.sort(ordem)[0], fase: 'ineditas', faltam: ineditas.length };
-    // Revisão: cada rodada passa uma vez por todas as questões do filtro.
-    if (!s.revisao) { s.revisao = true; s.feitas.clear(); }
-    let resto = lista.filter(q => !s.feitas.has(q.id));
-    if (!resto.length) { s.feitas.clear(); s.rodada++; resto = lista.slice(); }
-    const erradas = resto.filter(q => !qResp[q.id].ok).sort(ordem);
-    const antigas = resto.filter(q => qResp[q.id].ok).sort((a, b) => (qResp[a.id].em || '').localeCompare(qResp[b.id].em || '') || ordem(a, b));
-    const fila = erradas.concat(antigas);
-    const q = fila.length > 1 && fila[0].id === s.ultima ? fila[1] : fila[0]; // não repete a que acabou de responder
-    return { q, fase: 'revisao', faltam: resto.length };
+  // Monta o caderno: as inéditas primeiro; faltando, as que o leitor errou na última vez e depois as
+  // respondidas há mais tempo. O corte da quantidade vale para essa fila; dentro do caderno, vale a ordem escolhida.
+  function montarCaderno(m, f, sem) {
+    const lista = qFiltradas(m, f);
+    const ordem = f.ordem === 'aleatoria' ? (a, b) => sorteio(sem, a.id) - sorteio(sem, b.id) : (a, b) => a.i - b.i;
+    const feitas = lista.filter(q => qResp[q.id]);
+    const fila = lista.filter(q => !qResp[q.id]).sort(ordem)
+      .concat(feitas.filter(q => !qResp[q.id].ok).sort(ordem),
+        feitas.filter(q => qResp[q.id].ok).sort((a, b) => (qResp[a.id].em || '').localeCompare(qResp[b.id].em || '') || ordem(a, b)));
+    return fila.slice(0, f.qtd || fila.length).sort(ordem).map(q => q.id);
+  }
+  function iniciarCaderno(m, ids, f) {
+    qSessao = { mat: m.id, f, ids, pos: 0, resp: {}, resposta: null, inicio: Date.now(), fim: 0, esgotou: false,
+      modo: f.tempo, limite: f.tempo === 'limite' ? f.limMin * 60 : 0 };
+  }
+  // Tempo: contado pelo relógio (não para ao trocar de página). No tempo limite, o caderno se encerra sozinho
+  // quando acaba; as questões sem resposta contam como em branco.
+  const mmss = seg => {
+    seg = Math.max(0, Math.round(seg));
+    const h = Math.floor(seg / 3600), mi = Math.floor(seg % 3600 / 60), se = seg % 60;
+    return (h ? h + ':' + String(mi).padStart(2, '0') : String(mi)) + ':' + String(se).padStart(2, '0');
+  };
+  const decorrido = s => ((s.fim || Date.now()) - s.inicio) / 1000;
+  const tempoEsgotado = s => !s.fim && s.limite > 0 && decorrido(s) >= s.limite;
+  function encerrarCaderno(esgotou) {
+    const s = qSessao;
+    if (!s || s.fim) return;
+    s.esgotou = !!esgotou;
+    s.fim = esgotou ? s.inicio + s.limite * 1000 : Date.now();
+    s.resposta = null;
+    pararTick();
+  }
+  let qTick = 0;
+  function pararTick() { if (qTick) { clearInterval(qTick); qTick = 0; } }
+  function textoTempo(s) { return s.modo === 'limite' ? mmss(s.limite - decorrido(s)) : mmss(decorrido(s)); }
+  function iniciarTick() {
+    pararTick();
+    const s = qSessao;
+    if (!s || s.fim || s.modo === 'nenhum') return;
+    qTick = setInterval(() => {
+      const el = $('#ui-qtempo');
+      if (!el || qSessao !== s || s.fim) { pararTick(); return; }
+      if (tempoEsgotado(s)) { encerrarCaderno(true); renderQuestao(MAT[s.mat]); return; }
+      el.textContent = textoTempo(s);
+      el.closest('.qq-tempo').classList.toggle('pouco', s.modo === 'limite' && s.limite - decorrido(s) <= 60);
+    }, 1000);
   }
   function renderQuestoes(m) {
     if (qSessao && qSessao.mat === m.id) renderQuestao(m);
@@ -3274,7 +3382,7 @@ html:not([data-ebook]) .ebook-veu { display: none; }
   function renderQInicio(m, manterRolagem) {
     document.title = `Questões · ${m.nome} · Missão Fiscal`;
     const todas = questoesDe(m), y = window.scrollY;
-    const cab = `<header class="sec-cab"><h1 class="sec-tit">Questões${dica('Certo ou Errado sobre os tópicos, elaboradas a partir do resumo (não são questões de prova). Primeiro vêm as inéditas; depois de fazer todas, elas voltam para revisão, começando pelas que você errou.')}</h1></header>`;
+    const cab = `<header class="sec-cab"><h1 class="sec-tit">Questões${dica('Certo ou Errado e múltipla escolha sobre os tópicos, no estilo da CEBRASPE e da FGV, elaboradas a partir do resumo (não são questões de prova). Monte o caderno e, no fim, veja o resultado por tópico. Primeiro vêm as inéditas; depois, as que você errou.')}</h1></header>`;
     if (!todas.length) {
       vista.innerHTML = `<div class="doc c-${m.cor}">${cab}<div class="vazio"><p>Ainda não há questões desta disciplina.</p></div></div>`;
       window.scrollTo(0, 0);
@@ -3283,8 +3391,21 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     const f = qFiltro(m), st = qEstat(todas), filtradas = qFiltradas(m, f), stF = qEstat(filtradas);
     const nErr = todas.filter(q => qResp[q.id] && !qResp[q.id].ok).length, nFav = todas.filter(q => qFav.includes(q.id)).length;
     const tile = (v, r, s) => `<div class="qn"><span class="qn-v">${v}</span><span class="qn-r">${r}</span><span class="qn-s">${s}</span></div>`;
-    const seg = (nome, rot, itens, atual) => `<div class="qt-linha"><span class="qt-rot" id="qt-${nome}">${rot}</span><div class="seg" role="group" aria-labelledby="qt-${nome}">${itens.map(([k, t]) => `<button type="button" data-q${nome}="${k}" aria-pressed="${atual === k}">${t}</button>`).join('')}</div></div>`;
+    const seg = (nome, rot, itens, atual) => `<div class="qt-linha"><span class="qt-rot" id="qt-${nome}">${rot}</span><div class="seg" role="group" aria-labelledby="qt-${nome}">${itens.map(([k, t, off]) => `<button type="button" data-q${nome}="${k}" aria-pressed="${atual === k}"${off ? ' disabled' : ''}>${t}</button>`).join('')}</div></div>`;
     const porDif = k => todas.filter(q => q.d === k).length;
+    // Caderno: formato, banca, quantidade e tempo
+    const cont = (fm, bc) => todas.filter(q => noFormato(q, fm) && naBanca(q, bc)).length;
+    const nME = todas.filter(ehME).length, nFGV = todas.filter(q => bancaDe(q) === 'F').length;
+    const disp = filtradas.length, caderno = montarCaderno(m, f, 0), nCad = caderno.length, nIned = caderno.filter(id => !qResp[id]).length;
+    const rotN = (rot, n) => `${rot} <span class="n">${n}</span>`;
+    const presets = [10, 20, 30, 50, 100].filter(n => n < disp);
+    const chipsQtd = presets.map(n => `<button class="chip" type="button" data-qqtd="${n}" aria-pressed="${f.qtd === n}">${n}</button>`).join('')
+      + `<button class="chip" type="button" data-qqtd="0" aria-pressed="${!f.qtd || f.qtd >= disp}">Todas${disp ? ` <span class="n">${disp}</span>` : ''}</button>`;
+    const qtdOutra = f.qtd && f.qtd < disp && !presets.includes(f.qtd) ? f.qtd : '';
+    const linhaQtd = `<div class="qt-linha"><span class="qt-rot">Quantidade</span><div class="qt-chips">${chipsQtd}<label class="qt-outra"><span class="sr">Outra quantidade</span><input class="qt-in" type="number" inputmode="numeric" min="1" max="${Math.max(1, disp)}" step="1" placeholder="Outra" value="${qtdOutra}" data-qqtd-in></label></div></div>`;
+    const linhaLim = f.tempo === 'limite' ? `<div class="qt-linha"><span class="qt-rot">Limite</span><div class="qt-lim"><label>Tempo total <input class="qt-in" type="number" inputmode="numeric" min="1" max="600" step="1" value="${f.limMin}" data-qlim-in> minutos</label>${nCad ? `<span class="qt-lim-s">≈ ${mmss(f.limMin * 60 / nCad)} por questão</span>` : ''}</div></div>` : '';
+    const msgVazio = f.formato === 'ce' && f.banca === 'fgv' ? 'Certo ou Errado só existe no estilo CEBRASPE.' : 'Nenhuma questão com esses filtros.';
+    const tempoTxt = f.tempo === 'cron' ? ' · com cronômetro' : f.tempo === 'limite' ? ` · limite de ${f.limMin} min` : '';
     let temasHtml = '';
     for (const a of m.assuntos) {
       const ids = a.temas.filter(id => todas.some(q => q.t === id));
@@ -3293,7 +3414,7 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     }
     const rotTemas = f.temas.length ? `${f.temas.length} de ${new Set(todas.map(q => q.t)).size} tópicos` : 'Todos os tópicos';
     const botao = !filtradas.length ? '<button class="bt bt-p" type="button" disabled>Nenhuma questão com esses filtros</button>'
-      : `<button class="bt bt-p" type="button" data-qcomecar="${m.id}">${stF.ineditas ? (stF.feitas ? `Continuar · ${plural(stF.ineditas, 'inédita', 'inéditas')}` : 'Começar') : 'Revisar'} ${ICO.dir}</button>`;
+      : `<button class="bt bt-p" type="button" data-qcomecar="${m.id}">Começar caderno · ${plural(nCad, 'questão', 'questões')} ${ICO.dir}</button>`;
     // Desempenho por tópico: o que conta é o resultado da última resposta de cada questão.
     const linhas = [];
     temasDe(m).forEach(id => {
@@ -3310,12 +3431,18 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     const relatos = rels.length ? `<section><h2 class="qt-sec-t">Questões reportadas</h2><ul class="qt-rel">${rels.map(q => `<li><p class="qt-rel-q">${esc(docs[q.t].titulo)} · ${numQ(q.id)} — ${esc(textoPuro(q.e).length > 110 ? textoPuro(q.e).slice(0, 110) + '…' : textoPuro(q.e))}</p><p class="qt-rel-m">${esc(qRel[q.id].m)} (${dataBR(qRel[q.id].em)})</p><button class="bt-texto" type="button" data-qrel-rem="${q.id}">Retirar</button></li>`).join('')}</ul></section>` : '';
     vista.innerHTML = `<div class="doc c-${m.cor}">${cab}<div class="qt">
       <div class="qt-num">${tile(st.total, 'questões', `${plural(st.ineditas, 'inédita', 'inéditas')}`)}${tile(st.resp, 'respostas', `${plural(st.feitas, 'questão feita', 'questões feitas')}`)}${tile(st.acertos, 'acertos', `${st.pct}% das respostas`)}${tile(st.pctFix + '%', 'fixação', st.feitas ? `acertou na última vez em ${st.fixadas} de ${st.feitas}` : 'nenhuma questão feita')}</div>
-      <section class="qt-cfg" aria-label="Como estudar">
+      <section class="qt-cfg" aria-label="Montar o caderno">
+        ${seg('formato', 'Formato', [['ce', rotN('Certo ou Errado', cont('ce', f.banca))], ['me', rotN('Múltipla escolha', cont('me', f.banca)), !nME], ['ambas', rotN('Ambas', cont('ambas', f.banca))]], f.formato)}
+        ${seg('banca', `Estilo da banca${dica('É o estilo de redação das questões. Certo ou Errado só existe no estilo CEBRASPE; a FGV tem apenas múltipla escolha.')}`, [['cebraspe', rotN('CEBRASPE', cont(f.formato, 'cebraspe'))], ['fgv', rotN('FGV', cont(f.formato, 'fgv')), !nFGV], ['ambas', rotN('Ambas', cont(f.formato, 'ambas'))]], f.banca)}
+        ${linhaQtd}
+        ${seg('tempo', `Tempo${dica('Cronômetro: marca quanto você levou, sem limite. Tempo limite: o caderno se encerra quando o tempo acaba, e as questões sem resposta contam como em branco.')}`, [['nenhum', 'Sem tempo'], ['cron', 'Cronômetro'], ['limite', 'Tempo limite']], f.tempo)}
+        ${linhaLim}
+        <div class="qt-sep"></div>
         ${seg('ordem', 'Ordem', [['assunto', 'Por assunto'], ['aleatoria', 'Aleatória']], f.ordem)}
         ${seg('mostrar', 'Questões', [['todas', 'Todas'], ['erradas', `Erradas (${nErr})`], ['favoritas', `Favoritas (${nFav})`]], f.mostrar)}
         <div class="qt-linha"><span class="qt-rot">Dificuldade</span><div class="qt-chips">${Object.keys(DIF).map(x => `<button class="chip" type="button" data-qdif="${x}" aria-pressed="${f.dif.includes(x)}">${DIF[x]} <span class="n">${porDif(x)}</span></button>`).join('')}</div></div>
         <div class="qt-linha"><span class="qt-rot">Tópicos</span><details class="qt-temas"><summary>${rotTemas}${ICO.seta}</summary><div class="qt-temas-in">${temasHtml}<div><button class="bt-texto" type="button" data-qtemas-todos>Marcar todos</button></div></div></details></div>
-        <div class="qt-fim"><p class="qt-fim-txt">${plural(filtradas.length, 'questão', 'questões')} com esses filtros · ${plural(stF.ineditas, 'inédita', 'inéditas')}${f.ordem === 'assunto' ? ', na ordem do material' : ', em ordem aleatória'}</p>${botao}</div>
+        <div class="qt-fim"><p class="qt-fim-txt">${filtradas.length ? `${plural(nCad, 'questão', 'questões')} no caderno${disp > nCad ? ` (de ${disp} com esses filtros)` : ''} · ${plural(nIned, 'inédita', 'inéditas')}${f.ordem === 'assunto' ? ', na ordem do material' : ', em ordem aleatória'}${tempoTxt}` : msgVazio}</p>${botao}</div>
       </section>
       ${topicos}${relatos}</div></div>`;
     if (!manterRolagem) window.scrollTo(0, 0); else window.scrollTo(0, y);
@@ -3323,41 +3450,103 @@ html:not([data-ebook]) .ebook-veu { display: none; }
   function renderQuestao(m) {
     const s = qSessao;
     document.title = `Questões · ${m.nome} · Missão Fiscal`;
-    if (!s.atual) {
-      const p = proximaQuestao(s);
-      if (!p) {
-        vista.innerHTML = `<div class="doc c-${m.cor}"><div class="qq"><div class="qq-fim vazio"><p>Não há mais questões com esses filtros.</p><button class="bt" type="button" data-qsair>${ICO.voltar} Voltar aos filtros</button></div></div></div>`;
-        return;
-      }
-      Object.assign(s, { atual: p.q.id, fase: p.fase, faltam: p.faltam, resposta: null });
-    }
-    const q = QID[s.atual], r = s.resposta, ant = r ? r.antes : qResp[q.id];
-    const faltam = s.faltam - (r ? 1 : 0);
-    const fase = s.fase === 'ineditas' ? (faltam ? `Inéditas · faltam ${faltam}` : 'Inéditas · esta era a última') : `Revisão${s.rodada > 1 ? ` · rodada ${s.rodada}` : ''} · faltam ${faltam}`;
+    if (tempoEsgotado(s)) encerrarCaderno(true);
+    if (s.fim) { renderResultado(m); return; }
+    const q = QID[s.ids[s.pos]], r = s.resposta, ant = r ? r.antes : qResp[q.id];
+    const me = ehME(q), N = s.ids.length, feitas = Object.keys(s.resp).length, acertos = Object.values(s.resp).filter(x => x.ok).length;
     const ultima = ant && ant.n ? `<span class="q-ult q-ult-${ant.ok ? 'ok' : 'err'}">${ant.ok ? 'Acertou' : 'Errou'} na última vez, em ${dataBR(ant.em)}</span>` : '<span class="q-ult">Inédita</span>';
     const fav = qFav.includes(q.id);
     const bt = (k, rot) => {
       const cls = r ? (k === q.g ? ' certa' : k === r.u ? ' errada' : '') : '';
       return `<button class="qq-bt${cls}" type="button" data-qresp="${k}"${r ? ' disabled' : ''}><span class="qq-k">${k}</span>${rot}</button>`;
     };
-    const resultado = r ? `<div class="qq-res qq-res-${r.ok ? 'ok' : 'err'}" role="status"><p class="qq-res-t">${r.ok ? ICO.check + ' Você acertou' : ICO.fechar + ' Você errou'}<span class="qq-gab">Gabarito: ${q.g === 'C' ? 'CERTO' : 'ERRADO'}</span></p><div class="qq-com">${q.c}</div></div>
-      <div class="qq-acoes"><a class="bt" href="#${q.t}${q.h ? '~' + q.h : ''}">${ICO.livro} Ver no resumo</a><button class="bt-texto" type="button" data-qrelatar="${q.id}">${ICO.bandeira} ${qRel[q.id] ? 'Reportada' : 'Reportar'}</button><button class="bt bt-p" type="button" data-qprox>Próxima ${ICO.dir}</button></div>`
-      : '<p class="qq-dica">Teclas C e E</p>';
+    const alternativas = me
+      ? `<div class="qq-opcoes" role="group" aria-label="Alternativas">${q.o.map((h, i) => {
+        const k = LETRAS[i], cls = r ? (k === q.g ? ' certa' : k === r.u ? ' errada' : '') : '';
+        return `<button class="qq-op${cls}" type="button" data-qresp="${k}"${r ? ' disabled' : ''}><span class="qq-k">${k}</span><span class="qq-ot">${h}</span></button>`;
+      }).join('')}</div>`
+      : `<div class="qq-resp">${bt('C', 'Certo')}${bt('E', 'Errado')}</div>`;
+    const gab = me ? q.g : q.g === 'C' ? 'CERTO' : 'ERRADO';
+    const ultimaQ = s.pos + 1 >= N;
+    const resultado = r ? `<div class="qq-res qq-res-${r.ok ? 'ok' : 'err'}" role="status"><p class="qq-res-t">${r.ok ? ICO.check + ' Você acertou' : ICO.fechar + ' Você errou'}<span class="qq-gab">Gabarito: ${gab}</span></p><div class="qq-com">${q.c}</div></div>
+      <div class="qq-acoes"><a class="bt" href="#${q.t}${q.h ? '~' + q.h : ''}">${ICO.livro} Ver no resumo</a><button class="bt-texto" type="button" data-qrelatar="${q.id}">${ICO.bandeira} ${qRel[q.id] ? 'Reportada' : 'Reportar'}</button><button class="bt bt-p" type="button" data-qprox>${ultimaQ ? 'Ver resultado' : 'Próxima'} ${ICO.dir}</button></div>`
+      : `<p class="qq-dica">${me ? `Teclas ${LETRAS.slice(0, q.o.length).join(', ')} ou 1 a ${q.o.length}` : 'Teclas C e E'}</p>`;
+    const tempo = s.modo === 'nenhum' ? '' : `<span class="qq-tempo${s.modo === 'limite' && s.limite - decorrido(s) <= 60 ? ' pouco' : ''}" title="${s.modo === 'limite' ? 'Tempo restante' : 'Tempo decorrido'}">${ICO.relogio}<span id="ui-qtempo">${textoTempo(s)}</span>${s.modo === 'limite' ? '<span class="qq-tempo-r">restantes</span>' : ''}</span>`;
     vista.innerHTML = `<div class="doc c-${m.cor}"><div class="qq">
-      <div class="qq-barra"><button class="bt-texto" type="button" data-qsair>${ICO.voltar} Filtros e desempenho</button><span class="qq-fase">${fase}</span><span class="qq-placar">Nesta sessão: ${plural(s.a, 'acerto', 'acertos')} em ${s.n}</span></div>
+      <div class="qq-barra"><button class="bt-texto" type="button" data-qencerrar>${ICO.fechar} Encerrar caderno</button><span class="qq-fase">Questão ${s.pos + 1} de ${N}</span>${tempo}<span class="qq-placar">Neste caderno: ${plural(acertos, 'acerto', 'acertos')} em ${feitas}</span></div>
+      <div class="qq-prog" role="progressbar" aria-label="Progresso do caderno" aria-valuemin="0" aria-valuemax="${N}" aria-valuenow="${feitas}"><span style="width:${Math.round(100 * feitas / N)}%"></span></div>
       <article class="qq-card" aria-label="Questão ${numQ(q.id)}">
-        <div class="qq-meta"><span class="q-dif q-dif-${q.d}">${DIF[q.d]}</span><a class="qq-tema" href="#${q.t}">${esc(docs[q.t].titulo)}</a>${ultima}<button class="bt-fav" type="button" data-qfav="${q.id}" aria-pressed="${fav}" title="${fav ? 'Tirar das favoritas' : 'Guardar nas favoritas'}">${fav ? ICO.estrelaCheia : ICO.estrela}<span class="sr">Favorita</span></button></div>
+        <div class="qq-meta"><span class="q-dif q-dif-${q.d}">${DIF[q.d]}</span><span class="q-banca">${me ? 'Múltipla escolha' : 'Certo ou Errado'} · ${bancaDe(q) === 'F' ? 'FGV' : 'CEBRASPE'}</span><a class="qq-tema" href="#${q.t}">${esc(docs[q.t].titulo)}</a>${ultima}<button class="bt-fav" type="button" data-qfav="${q.id}" aria-pressed="${fav}" title="${fav ? 'Tirar das favoritas' : 'Guardar nas favoritas'}">${fav ? ICO.estrelaCheia : ICO.estrela}<span class="sr">Favorita</span></button></div>
         <div class="qq-enun">${q.e}</div>
-        <div class="qq-resp">${bt('C', 'Certo')}${bt('E', 'Errado')}</div>
+        ${alternativas}
         ${resultado}
       </article></div></div>`;
     const foco = r ? $('[data-qprox]', vista) : null;
     if (foco) foco.focus({ preventScroll: true });
+    iniciarTick();
+  }
+  // Resultado do caderno: acertos, erros e em branco, desempenho por tópico e as questões a rever.
+  function renderResultado(m) {
+    const s = qSessao;
+    pararTick();
+    document.title = `Resultado do caderno · ${m.nome} · Missão Fiscal`;
+    const qs = s.ids.map(id => QID[id]), N = qs.length;
+    const sit = q => { const r = s.resp[q.id]; return !r ? 'b' : r.ok ? 'a' : 'e'; };
+    const ac = qs.filter(q => sit(q) === 'a').length, er = qs.filter(q => sit(q) === 'e').length, br = N - ac - er;
+    const pc = [ac, er, br].map(n => Math.round(100 * n / N));
+    const soma = pc[0] + pc[1] + pc[2];
+    if (soma !== 100) pc[pc.indexOf(Math.max(...pc))] += 100 - soma;
+    const [pA, pE, pB] = pc;
+    const total = decorrido(s), media = ac + er ? total / (ac + er) : 0;
+    // por tópico
+    const mapa = new Map();
+    qs.forEach(q => { const x = mapa.get(q.t) || { id: q.t, a: 0, e: 0, b: 0, n: 0 }; x[sit(q)]++; x.n++; mapa.set(q.t, x); });
+    const temas = temasDe(m).filter(id => mapa.has(id)).map(id => mapa.get(id));
+    const topo = campo => temas.filter(x => x[campo]).sort((x, y) => y[campo] - x[campo] || y[campo] / y.n - x[campo] / x.n || y.n - x.n).slice(0, 3);
+    const itemTopo = (x, campo, um, varios) => `<li><a href="#${x.id}">${esc(docs[x.id].titulo)}</a> · ${plural(x[campo], um, varios)} de ${x.n} (${Math.round(100 * x[campo] / x.n)}%)</li>`;
+    const maisAc = topo('a'), maisEr = topo('e');
+    const destaque = `<div class="qt-dest"><div><h3 class="ok">${ICO.check} Mais acertos</h3>${maisAc.length ? `<ol>${maisAc.map(x => itemTopo(x, 'a', 'acerto', 'acertos')).join('')}</ol>` : '<p class="qr-nada">Nenhum acerto neste caderno.</p>'}</div>
+      <div><h3 class="err">${ICO.fechar} Mais erros</h3>${maisEr.length ? `<ol>${maisEr.map(x => itemTopo(x, 'e', 'erro', 'erros')).join('')}</ol>` : '<p class="qr-nada">Nenhum erro neste caderno.</p>'}</div></div>`;
+    const linhasTemas = temas.map(x => {
+      const p = k => Math.round(100 * x[k] / x.n);
+      return `<li class="qt-top"><div><a href="#${x.id}">${esc(docs[x.id].titulo)}</a><span class="qt-top-meta">${x.a} ${x.a === 1 ? 'acerto' : 'acertos'} · ${x.e} ${x.e === 1 ? 'erro' : 'erros'}${x.b ? ` · ${x.b} em branco` : ''} · ${plural(x.n, 'questão', 'questões')}</span></div>
+        <div class="qr-seg" aria-hidden="true"><span class="a" style="width:${p('a')}%"></span><span class="e" style="width:${p('e')}%"></span><span class="b" style="width:${p('b')}%"></span></div><span class="qt-top-pct">${p('a')}%</span></li>`;
+    }).join('');
+    // por formato e banca (só quando o caderno mistura)
+    const grupos = [['Certo ou Errado · CEBRASPE', q => !ehME(q)], ['Múltipla escolha · CEBRASPE', q => ehME(q) && bancaDe(q) === 'C'], ['Múltipla escolha · FGV', q => ehME(q) && bancaDe(q) === 'F']]
+      .map(([rot, fn]) => { const l = qs.filter(fn); return { rot, n: l.length, a: l.filter(q => sit(q) === 'a').length, e: l.filter(q => sit(q) === 'e').length }; }).filter(g => g.n);
+    const tabGrupos = grupos.length > 1 ? `<section><h2 class="qt-sec-t">Por tipo de questão</h2><table class="qr-grupos"><thead><tr><th>Tipo</th><th>Questões</th><th>Acertos</th><th>Erros</th><th>Acerto</th></tr></thead><tbody>${grupos.map(g => `<tr><td>${g.rot}</td><td>${g.n}</td><td>${g.a}</td><td>${g.e}</td><td>${Math.round(100 * g.a / g.n)}%</td></tr>`).join('')}</tbody></table></section>` : '';
+    // questões a rever
+    const rev = qs.filter(q => sit(q) !== 'a').map(q => {
+      const r = s.resp[q.id], me = ehME(q), gab = me ? q.g : q.g === 'C' ? 'Certo' : 'Errado';
+      const marcou = r ? (me ? r.u : r.u === 'C' ? 'Certo' : 'Errado') : '';
+      const txt = textoPuro(q.e).replace(/\s+/g, ' ').trim();
+      return `<details class="qr-q"><summary><span class="qr-st ${sit(q)}">${r ? 'Errou' : 'Em branco'}</span><span class="qr-q-t">${esc(docs[q.t].titulo)} · ${numQ(q.id)} — ${esc(txt.length > 130 ? txt.slice(0, 130) + '…' : txt)}</span><span class="qr-q-g">${r ? `Você marcou ${esc(marcou)} · ` : ''}Gabarito: ${esc(gab)}</span></summary>
+        <div class="qr-q-corpo"><div class="qq-com">${q.c}</div><div class="qq-acoes"><a class="bt" href="#${q.t}${q.h ? '~' + q.h : ''}">${ICO.livro} Ver no resumo</a></div></div></details>`;
+    }).join('');
+    const tile = (v, r, sub, cls) => `<div class="qn${cls ? ' ' + cls : ''}"><span class="qn-v">${v}</span><span class="qn-r">${r}</span><span class="qn-s">${sub}</span></div>`;
+    const formatoTxt = s.f.formato === 'ce' ? 'Certo ou Errado' : s.f.formato === 'me' ? 'Múltipla escolha' : 'Certo ou Errado e múltipla escolha';
+    const bancaTxt = s.f.banca === 'ambas' ? '' : ' · ' + BANCAS[s.f.banca];
+    const aviso = s.esgotou ? `<p class="qr-aviso" role="status">O tempo acabou${br ? `: ${plural(br, 'questão ficou', 'questões ficaram')} sem resposta` : ''}.</p>` : '';
+    const refazer = er + br;
+    vista.innerHTML = `<div class="doc c-${m.cor}"><div class="qr">
+      <header class="qr-cab"><h1 class="sec-tit">Resultado do caderno</h1><p class="qr-sub">${esc(m.nome)} · ${plural(N, 'questão', 'questões')} · ${formatoTxt}${bancaTxt}</p></header>
+      ${aviso}
+      <div class="qt-num">${tile(pA + '%', 'de acerto', `${plural(ac, 'questão certa', 'questões certas')} de ${N}`, 'qn-ok')}${tile(pE + '%', 'de erro', plural(er, 'questão errada', 'questões erradas'), 'qn-err')}${br ? tile(pB + '%', 'em branco', plural(br, 'questão sem resposta', 'questões sem resposta')) : tile(temas.length, temas.length === 1 ? 'tópico' : 'tópicos', 'neste caderno')}${s.modo === 'nenhum' ? tile(N, N === 1 ? 'questão' : 'questões', 'no caderno') : tile(mmss(total), 'de tempo', `${media ? `média de ${mmss(media)} por questão respondida` : 'nenhuma questão respondida'}${s.modo === 'limite' ? ` · limite de ${s.f.limMin} min` : ''}`)}</div>
+      <div><div class="qr-barra" role="img" aria-label="${pA}% de acerto, ${pE}% de erro${br ? `, ${pB}% em branco` : ''}"><span class="a" style="width:${pA}%"></span><span class="e" style="width:${pE}%"></span>${br ? `<span class="b" style="width:${pB}%"></span>` : ''}</div>
+        <ul class="qr-leg"><li><i style="background:var(--ok)"></i>Acertos · ${ac}</li><li><i style="background:var(--err)"></i>Erros · ${er}</li>${br ? `<li><i style="background:var(--ink-3)"></i>Em branco · ${br}</li>` : ''}</ul></div>
+      <section><h2 class="qt-sec-t">Desempenho por tópico</h2>${destaque}<ul class="qt-top-lista">${linhasTemas}</ul></section>
+      ${tabGrupos}
+      ${rev ? `<section><h2 class="qt-sec-t">Para rever${dica('Questões que você errou ou deixou em branco neste caderno. Abra para ver o comentário.')}</h2><div class="qr-rev">${rev}</div></section>` : ''}
+      <div class="qr-acoes">${refazer ? `<button class="bt bt-p" type="button" data-qrefazer>${ICO.raio} Refazer as erradas e em branco (${refazer})</button>` : ''}<button class="bt" type="button" data-qnovo>${ICO.voltar} Novo caderno</button></div>
+    </div></div>`;
+    window.scrollTo(0, 0);
   }
   function responderQuestao(u) {
     const s = qSessao;
-    if (!s || !s.atual || s.resposta) return;
-    const q = QID[s.atual], ok = u === q.g, antes = qResp[q.id] ? Object.assign({}, qResp[q.id]) : null;
+    if (!s || s.fim || s.resposta) return;
+    if (tempoEsgotado(s)) { encerrarCaderno(true); renderQuestao(MAT[s.mat]); return; }
+    const q = QID[s.ids[s.pos]], ok = u === q.g, antes = qResp[q.id] ? Object.assign({}, qResp[q.id]) : null;
     const r = qResp[q.id] || { n: 0, a: 0 };
     qResp[q.id] = { u, ok: ok ? 1 : 0, n: (r.n || 0) + 1, a: (r.a || 0) + (ok ? 1 : 0), em: new Date().toISOString() };
     guarda.gravar('questoes', qResp);
@@ -3365,24 +3554,41 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     dia.q++;
     if (ok) dia.a++;
     guarda.gravar('atividade', atividade);
-    s.feitas.add(q.id);
-    s.ultima = q.id;
-    s.n++; if (ok) s.a++;
+    s.resp[q.id] = { u, ok: ok ? 1 : 0 };
     s.resposta = { u, ok, antes };
     renderQuestao(MAT[s.mat]);
     atualizarContadores();
   }
   function proximaDaSessao() {
-    if (!qSessao || !qSessao.resposta) return;
-    qSessao.atual = null;
-    renderQuestao(MAT[qSessao.mat]);
+    const s = qSessao;
+    if (!s || s.fim || !s.resposta) return;
+    s.resposta = null;
+    if (s.pos + 1 >= s.ids.length) encerrarCaderno(false); else s.pos++;
+    renderQuestao(MAT[s.mat]);
     window.scrollTo(0, 0);
   }
-  function naTelaDeQuestao() { return qSessao && rota && rota.v === 'mat' && rota.aba === 'questoes' && rota.mat === qSessao.mat && qSessao.atual; }
+  function pedirEncerrar() {
+    const s = qSessao;
+    if (!s || s.fim) return;
+    const faltam = s.ids.length - Object.keys(s.resp).length;
+    const fechar = () => { encerrarCaderno(false); renderQuestao(MAT[s.mat]); };
+    if (!faltam) { fechar(); return; }
+    abrirDialogo({
+      titulo: 'Encerrar o caderno?',
+      corpo: `<p class="dlg-sub">${plural(faltam, 'questão ficará sem resposta', 'questões ficarão sem resposta')} e ${faltam === 1 ? 'contará' : 'contarão'} como em branco no resultado.</p>`,
+      botoes: [{ rot: 'Continuar respondendo' }, { rot: 'Ver o resultado', principal: true, acao: () => { fechar(); } }]
+    });
+  }
+  function naTelaDeQuestao() { return qSessao && !qSessao.fim && rota && rota.v === 'mat' && rota.aba === 'questoes' && rota.mat === qSessao.mat; }
   function teclaQuestao(e) {
     if (!naTelaDeQuestao()) return false;
-    const k = e.key.toLowerCase();
-    if ((k === 'c' || k === 'e') && !qSessao.resposta) { e.preventDefault(); responderQuestao(k.toUpperCase()); return true; }
+    const q = QID[qSessao.ids[qSessao.pos]], k = e.key.toLowerCase();
+    if (!qSessao.resposta) {
+      if (ehME(q)) {
+        const i = k.length === 1 ? ('abcde'.indexOf(k) >= 0 ? 'abcde'.indexOf(k) : '12345'.indexOf(k)) : -1;
+        if (i >= 0 && i < q.o.length) { e.preventDefault(); responderQuestao(LETRAS[i]); return true; }
+      } else if (k === 'c' || k === 'e') { e.preventDefault(); responderQuestao(k.toUpperCase()); return true; }
+    }
     if ((e.key === 'Enter' || e.key === 'ArrowRight') && qSessao.resposta && !e.target.closest('a, button')) { e.preventDefault(); proximaDaSessao(); return true; }
     return false;
   }
@@ -3419,9 +3625,20 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     let b;
     if ((b = t.closest('[data-qresp]'))) { responderQuestao(b.dataset.qresp); return; }
     if (t.closest('[data-qprox]')) { proximaDaSessao(); return; }
-    if (t.closest('[data-qsair]')) { qSessao = null; renderQInicio(m); return; }
+    if (t.closest('[data-qencerrar]')) { pedirEncerrar(); return; }
+    if (t.closest('[data-qnovo]')) { pararTick(); qSessao = null; renderQInicio(m); return; }
+    if (t.closest('[data-qrefazer]')) {
+      const s = qSessao;
+      if (!s) return;
+      const ids = s.ids.filter(id => !(s.resp[id] && s.resp[id].ok));
+      if (!ids.length) return;
+      iniciarCaderno(m, ids, Object.assign({}, s.f, { tempo: s.f.tempo === 'limite' ? 'cron' : s.f.tempo }));
+      renderQuestao(m); window.scrollTo(0, 0); return;
+    }
     if ((b = t.closest('[data-qcomecar]'))) {
-      qSessao = { mat: m.id, f: qFiltro(m), sem: Math.floor(Math.random() * 2 ** 31), feitas: new Set(), rodada: 1, atual: null, n: 0, a: 0 };
+      const f = qFiltro(m), ids = montarCaderno(m, f, Math.floor(Math.random() * 2 ** 31));
+      if (!ids.length) return;
+      iniciarCaderno(m, ids, f);
       renderQuestao(m); window.scrollTo(0, 0); return;
     }
     if ((b = t.closest('[data-qfav]'))) {
@@ -3436,11 +3653,23 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     if ((b = t.closest('[data-qrelatar]'))) { dialogoRelato(b.dataset.qrelatar); return; }
     if ((b = t.closest('[data-qrel-rem]'))) { delete qRel[b.dataset.qrelRem]; guarda.gravar('qrep', qRel); renderQInicio(m, true); return; }
     if ((b = t.closest('[data-qordem]'))) { alterar(f => { f.ordem = b.dataset.qordem; }); return; }
+    if ((b = t.closest('[data-qformato]'))) { alterar(f => { f.formato = b.dataset.qformato; }); return; }
+    if ((b = t.closest('[data-qbanca]'))) { alterar(f => { f.banca = b.dataset.qbanca; }); return; }
+    if ((b = t.closest('[data-qtempo]'))) { alterar(f => { f.tempo = b.dataset.qtempo; }); return; }
+    if ((b = t.closest('[data-qqtd]'))) { alterar(f => { f.qtd = Number(b.dataset.qqtd) || 0; }); return; }
     if ((b = t.closest('[data-qmostrar]'))) { alterar(f => { f.mostrar = b.dataset.qmostrar; }); return; }
     if ((b = t.closest('[data-qdif]'))) { alterar(f => { const x = b.dataset.qdif; f.dif = f.dif.includes(x) ? f.dif.filter(y => y !== x) : f.dif.concat(x); }); return; }
     if (t.closest('[data-qtemas-todos]')) { alterar(f => { f.temas = []; }); const d = $('.qt-temas', vista); if (d) d.open = true; }
   });
   document.addEventListener('change', e => {
+    const num = e.target.closest && e.target.closest('[data-qqtd-in], [data-qlim-in]');
+    if (num && rota && rota.v === 'mat' && rota.aba === 'questoes' && !qSessao) {
+      const m = MAT[rota.mat], f = qFiltro(m), v = parseInt(num.value, 10);
+      if (num.matches('[data-qqtd-in]')) f.qtd = v > 0 ? v : 0; else f.limMin = v > 0 ? Math.min(v, 600) : 60;
+      gravarQFiltro(m, f);
+      renderQInicio(m, true);
+      return;
+    }
     const c = e.target.closest && e.target.closest('[data-qtema]');
     if (!c || !rota || rota.v !== 'mat' || rota.aba !== 'questoes') return;
     const m = MAT[rota.mat], f = qFiltro(m);
@@ -5680,18 +5909,18 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     document.title = 'Questões · Missão Fiscal';
     const tudo = qEstat(QS);
     const cartoes = D.materias.map(m => {
-      const lista = questoesDe(m), st = qEstat(lista), nErr = lista.filter(q => qResp[q.id] && !qResp[q.id].ok).length;
+      const lista = questoesDe(m), st = qEstat(lista), nErr = lista.filter(q => qResp[q.id] && !qResp[q.id].ok).length, nME = lista.filter(ehME).length;
       if (!lista.length) return `<div class="disc c-${m.cor}"><div class="disc-cab"><span class="aba">${esc(m.sigla)}</span><h2 class="disc-nome">${esc(m.nome)}</h2></div><p class="disc-dados">Em preparação</p></div>`;
       const rot = st.feitas ? (st.ineditas ? 'Continuar' : 'Revisar') : 'Começar';
       return `<a class="disc c-${m.cor} revelar" href="#${m.id}_questoes" aria-label="Questões de ${esc(m.nome)}">
         <div class="disc-cab"><span class="aba">${esc(m.sigla)}</span><h2 class="disc-nome">${esc(m.nome)}</h2><span class="disc-ir">${ICO.dir}</span></div>
-        <p class="disc-dados">${plural(st.total, 'questão', 'questões')}${st.resp ? ` · ${st.pct}% de acerto em ${plural(st.resp, 'resposta', 'respostas')}` : ' · nenhuma resposta ainda'}</p>
+        <p class="disc-dados">${plural(st.total, 'questão', 'questões')}${nME ? ` (${nME} de múltipla escolha)` : ''}${st.resp ? ` · ${st.pct}% de acerto em ${plural(st.resp, 'resposta', 'respostas')}` : ' · nenhuma resposta ainda'}</p>
         <div class="disc-prog">${barraProg('Feitas', Math.round(100 * st.feitas / st.total), `${st.feitas}/${st.total}`)}</div>
         <p class="disc-ult"><span>${rot}</span>${nErr ? `<span class="disc-ult-h">${plural(nErr, 'errada', 'erradas')}</span>` : ''}</p>
       </a>`;
     }).join('');
     vista.innerHTML = `<div class="inicio"><section>${abasQuestoes('questoes')}
-      <div class="disc-barra"><h1>Questões${dica('Certo ou Errado sobre os tópicos de cada disciplina, elaboradas a partir dos resumos (não são questões de prova).')}</h1>
+      <div class="disc-barra"><h1>Questões${dica('Certo ou Errado e múltipla escolha (estilo CEBRASPE e FGV) sobre os tópicos de cada disciplina, elaboradas a partir dos resumos (não são questões de prova).')}</h1>
         <p class="qh-tot">${plural(tudo.feitas, 'feita', 'feitas')} de ${tudo.total}${tudo.resp ? ` · ${tudo.pct}% de acerto` : ''}</p></div>
       <div class="disc-grade">${cartoes}</div></section></div>`;
     revelar(vista);

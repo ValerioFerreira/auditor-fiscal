@@ -1,7 +1,7 @@
 # Questões turbo — Estrutura e Elementos da Constituição
 <!-- cobertura
 Estrutura da CF/88 = 8c7a95cf6c
-Elementos da Constituição (José Afonso da Silva) = 3afccd382d
+Elementos da Constituição (José Afonso da Silva) = 8b877e5d7f
 Supremacia da Constituição = 69be5dec90
 Pegadinhas CEBRASPE = 70ac88a841
 -->

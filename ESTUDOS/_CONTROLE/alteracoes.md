@@ -208,3 +208,47 @@
 |---|---|---|
 | CONFIRMADA | Livro Razão com três referenciais (comercial, IR e ITG 2000 (R1)) | Aprovado por você |
 | INCOMPLETA | Teto do MEI (R$ 81.000) com aviso separado sobre projetos de lei complementar | Ressalva incluída entre parênteses na própria linha da dispensa; teto mantido |
+
+## v013 — 07/10/2026 (resumos de 06/10/2026 e ajustes pedidos)
+### Direito Tributário
+
+| Classificação | Como estava no resumo | Como ficou na base |
+|---|---|---|
+| CONFIRMADA | "LC regula as limitações; EC pode acrescentar, mas não reduzir, excepcionar ou suprimir" | Mantido, com a base (CF, art. 146, II; art. 60, §4º, IV) |
+| DIVERGÊNCIA | "STF considera cláusulas pétreas: anterioridade, noventena e imunidade recíproca; imunidades de templos, partidos, sindicatos, educação e assistência social, livros" | Mantido como no resumo, com ⚠️: a ADI 939 trata expressamente da anterioridade e da imunidade recíproca; fonte do restante a confirmar (pendência 🔴) |
+| INCOMPLETA | Legalidade: lei para instituir, extinguir, reduzir, majorar, fato gerador, alíquota, base de cálculo e penalidades | Rol completo do CTN, art. 97 (com o inciso VI) e §§1º e 2º (majoração e atualização monetária) |
+| INCOMPLETA | MP: "exceto matérias de LC (empréstimos compulsórios, impostos e contribuições residuais (I) e sobre bens e serviços (II) — IBS e CBS —, IGF, imposto seletivo)" | Matérias listadas com os artigos; imposto seletivo "nos termos de lei complementar" (art. 153, VIII), com alíquotas por lei ordinária (§6º, VI); acrescentado o art. 62, §2º (efeitos no exercício seguinte) |
+| INCOMPLETA | Exceções à legalidade (II, IE, IPI, IOF; CIDE-Combustíveis; ICMS-Combustíveis; atualização da base; prazo de recolhimento) | Acrescentados os fundamentos (CF, arts. 153, §1º, 177, §4º, I, "b", 155, §§4º e 5º; CTN, arts. 96, 97, §2º, e 160), a Súmula 160 do STJ e a SV 50 |
+| CONFIRMADA | "O valor da taxa pode ser fixado por ato infralegal, com teto em lei"; "ART tem natureza de taxa" | Conferido no STF, Tema 829 (RE 838.284), com a tese e o limite da correção monetária |
+| REORGANIZAÇÃO | — | Nova pasta `04 - Limitações ao Poder de Tributar`, sem renumerar as demais (preserva os temas já lidos) |
+
+### Contabilidade Geral e Avançada
+
+| Classificação | Como estava no resumo | Como ficou na base |
+|---|---|---|
+| INCORRETA | Venda à vista: "aumenta pl da receita (+pl, débito)" | Receita lançada a **crédito** (+PL); o custo da mercadoria vendida é **débito** (−PL), com crédito em Estoque; o PL aumenta no lucro (R$ 2.000); "misto aumentativo" mantido |
+| INCOMPLETA | Valores de juros e descontos (10%) sem o lançamento numérico | Valores calculados a partir dos dados (R$ 400 e R$ 4.400; R$ 5.400 e R$ 600; R$ 4.500 e R$ 500) |
+| INCOMPLETA | Desconto de duplicatas: três hipóteses no vencimento | Lançamentos de cada hipótese e o paralelo com o empréstimo |
+| CONFIRMADA | Classificação dos dezessete fatos (permutativo, modificativo, misto) | Mantida |
+| INCOMPLETA | Balancete: conceito, elementos mínimos, colunas, sintético e analítico | Mantidos; acrescentado o que o balancete não detecta |
+| REORGANIZAÇÃO | — | Dois temas novos em `05 - Escrituração`: `exemplos-de-escrituracao.md` e `balancete-de-verificacao.md` |
+
+### Direito Constitucional
+
+| Classificação | Como estava na base | Como ficou na base |
+|---|---|---|
+| REORGANIZAÇÃO | Quadro-resumo da CF/88 em texto corrido (formato perdido na edição pelo site) | Tabela de doze linhas; "ver divergência abaixo" passou a "acima", porque a nota sobre a forma da CF/88 está acima do quadro |
+| REORGANIZAÇÃO | Visão geral da hierarquia das normas em bloco de texto | Imagem da pirâmide de Kelsen (a descrição completa vai no texto alternativo); acrescentada a norma fundamental hipotética, já registrada em `conceito-e-concepcoes.md` |
+| INCOMPLETA | Art. 4º em uma linha corrida | Quadro dos dez princípios com descrição breve, bases (CF, arts. 5º, XLII e XLIII, e 84, XIX; Lei 13.445/2017, art. 27) e mnemônico IPA · NI · DS · RCA |
+
+### Direito Administrativo
+
+| Classificação | Como estava | Como ficou na base |
+|---|---|---|
+| REORGANIZAÇÃO | Duas tabelas ("Escolas" e "Outros critérios") | Uma tabela, "Critérios para definição do Direito Administrativo", com os oito critérios e a imagem em balões; as questões Q012 a Q024 passaram a citar a nova seção |
+| INCOMPLETA | Seis critérios novos (Poder Executivo, legalista, relações jurídicas, teleológico, negativo, Administração Pública) e os complementos anteriores | Textos do resumo e do complemento unidos, sem perda; sinônimos do resumo (subjetivista/italiano; exegético/empírico/caótico/francês; finalista/finalístico; residual) |
+| INCOMPLETA | Escolas das prerrogativas públicas e do serviço público (resumo de 04/10) | Reescritas no mesmo padrão (ideia e crítica) e incluídas na tabela, sem perda; acrescentada a denominação "do poder público" |
+| CONFIRMADA | Influências estrangeiras (razoabilidade citada em Portugal e na Alemanha) | Mantido como no resumo, com registro da dupla atribuição (pendência 🔴) |
+| INCOMPLETA | Fontes primárias e secundárias | Acrescentados o papel da súmula vinculante e do controle concentrado (CF, arts. 102, §2º, e 103-A) e dos costumes (suprem lacunas) |
+| INCOMPLETA | Principais mudanças recentes | Leis de referência: Lei 13.848/2019 (agências), EC 19/1998 (administração gerencial) e Lei 13.140/2015 (mediação) |
+| REORGANIZAÇÃO | — | Dois temas novos em `01 - Introdução ao Direito Administrativo`: `direito-administrativo-brasileiro.md` e `fontes-do-direito-administrativo.md` |

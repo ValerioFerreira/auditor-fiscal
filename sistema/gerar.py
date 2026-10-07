@@ -9,6 +9,9 @@ Uso (na raiz do projeto):
                                          mostra só o texto dos temas ainda sem questões turbo
     python sistema/gerar.py --cobrir "<Matéria>/Questões Turbo/<tema>.md" [...]
                                          registra que as questões do tema cobrem o texto atual
+    python sistema/gerar.py --questoes-pendentes --me ["Matéria"]
+    python sistema/gerar.py --cobrir "<Matéria>/Questões Múltipla Escolha/<tema>.md" [...]
+                                         o mesmo para as questões de múltipla escolha
 
 Não depende de nenhum pacote externo. Mantenha o código compatível com Python 3.9: o build da
 Vercel (vercel.json) roda este script com o python3 da imagem de build. A ordem das matérias e
@@ -34,6 +37,8 @@ Questões turbo: cada tema pode ter um arquivo de questões de Certo/Errado com 
 pasta "Questões Turbo" da matéria (ver a seção "Questões turbo"). A linha "cobertura" desse
 arquivo guarda o hash de cada seção do tema quando as questões foram feitas; assim, só o texto
 novo ou alterado precisa ser lido para fazer questões novas (--questoes-pendentes).
+Questões de múltipla escolha (CEBRASPE e FGV): mesmo esquema, na pasta "Questões Múltipla
+Escolha" da matéria (ver a seção "Questões de múltipla escolha").
 
 Também com --servir, o administrador (botão "Entrar", no alto à direita) edita os temas e as
 partes do resumo sintético direto no site. O servidor confere o login, converte o texto editado
@@ -78,7 +83,8 @@ CONTROLE = "_CONTROLE"
 ORDEM_CONTROLE = ["diario-de-estudos", "assuntos-estudados", "pendencias", "alteracoes"]
 PASTA_SINTETICO = "Resumo Sintético"
 PASTA_QUESTOES = "Questões Turbo"
-PASTAS_ESPECIAIS = (PASTA_SINTETICO, PASTA_QUESTOES)  # dentro da matéria, mas não são temas
+PASTA_QUESTOES_ME = "Questões Múltipla Escolha"
+PASTAS_ESPECIAIS = (PASTA_SINTETICO, PASTA_QUESTOES, PASTA_QUESTOES_ME)  # dentro da matéria, mas não são temas
 ROTA_RELATO = "/__estudos/relato"
 # Conta (login com Google + dados no Neon). Valores públicos, não segredos: vêm das variáveis
 # de ambiente ESTUDOS_GOOGLE_CLIENT_ID e ESTUDOS_NEON_API ou do arquivo sistema/conta.json.
@@ -1269,24 +1275,140 @@ def ler_questoes(texto: str) -> tuple[dict, list[dict], list[str]]:
     return cobertura, questoes, erros
 
 
+# ----------------------------------------------------------------------------- questões de múltipla escolha
+# Arquivo "ESTUDOS/<Matéria>/Questões Múltipla Escolha/<tema>.md" (mesmo nome do arquivo do tema):
+#
+#   # Questões de múltipla escolha — Taxas
+#   <!-- cobertura ... -->          (escrita por --cobrir, nunca à mão)
+#
+#   ## M001 · médio · FGV · Espécies de taxa
+#   Enunciado (um ou mais parágrafos; afirmativas I, II, III em parágrafos próprios).
+#   - A) alternativa
+#   - B) alternativa
+#   - C) alternativa
+#   - D) alternativa
+#   - E) alternativa
+#   - Gabarito: C
+#   - Comentário: por que a alternativa certa está certa e as principais erradas, erradas.
+#
+# O número (M001...) é a identidade da questão no site: não renumere. A banca é o ESTILO da
+# questão (CEBRASPE ou FGV). Quatro alternativas (A-D) ou cinco (A-E).
+
+BANCAS_ME = {"cebraspe": "C", "fgv": "F"}
+RE_QUESTAO_ME = re.compile(r"^##\s+M(\d{1,4})\s*·\s*([^·]+?)\s*·\s*([^·]+?)\s*·\s*(.+?)\s*$")
+RE_OPCAO_ME = re.compile(r"^-\s*([A-E])\)\s*(.*?)\s*$")
+RE_GABARITO_ME = re.compile(r"^-\s*Gabarito:\s*([A-E])\b\s*\.?\s*$", re.I)
+
+
+def ler_questoes_me(texto: str) -> tuple[dict, list[dict], list[str]]:
+    """(cobertura, questões, erros de formato) de um arquivo de questões de múltipla escolha."""
+    cobertura = {}
+    m = RE_COBERTURA.search(texto)
+    if m:
+        for linha in m.group(1).splitlines():
+            if " = " in linha:
+                nome, h = linha.rsplit(" = ", 1)
+                cobertura[nome.strip()] = h.strip()
+    questoes, erros, atual = [], [], None
+
+    def fechar(q):
+        if q is None:
+            return
+        rot = f"M{q['n']:03d}"
+        q["enun"] = "\n".join(q["enun"]).strip()
+        q["com"] = "\n".join(q["com"]).strip()
+        if q["dif"] not in DIFICULDADES:
+            erros.append(f"{rot}: dificuldade '{q['dif']}' (use fácil, médio ou difícil)")
+            q["dif"] = "médio"
+        letras = [x[0] for x in q["ops"]]
+        if letras not in (list("ABCD"), list("ABCDE")):
+            erros.append(f"{rot}: alternativas {''.join(letras) or 'ausentes'} (use A-D ou A-E, em ordem)")
+            return
+        if len({" ".join(x[1].split()).lower() for x in q["ops"]}) < len(q["ops"]):
+            erros.append(f"{rot}: duas alternativas iguais")
+        if q["gab"] is None:
+            erros.append(f"{rot}: falta a linha '- Gabarito: C' (a letra da alternativa certa)")
+            return
+        if q["gab"] not in letras:
+            erros.append(f"{rot}: o gabarito {q['gab']} não é uma das alternativas")
+            return
+        if not q["enun"]:
+            erros.append(f"{rot}: enunciado vazio")
+            return
+        if not q["com"]:
+            erros.append(f"{rot}: falta o comentário")
+        if any(x["n"] == q["n"] for x in questoes):
+            erros.append(f"{rot}: número repetido (a segunda foi ignorada)")
+            return
+        questoes.append(q)
+
+    for linha in RE_COBERTURA.sub("", texto).replace("\r\n", "\n").split("\n"):
+        mq = RE_QUESTAO_ME.match(linha)
+        if mq:
+            fechar(atual)
+            banca = BANCAS_ME.get(mq.group(3).strip().lower())
+            if banca is None:
+                erros.append(f"M{int(mq.group(1)):03d}: banca '{mq.group(3).strip()}' (use CEBRASPE ou FGV)")
+                banca = "C"
+            atual = {"n": int(mq.group(1)), "dif": mq.group(2).strip().lower(), "banca": banca,
+                     "sec": mq.group(4).strip(), "enun": [], "ops": [], "gab": None, "com": [],
+                     "fase": "e"}
+            continue
+        if linha.startswith("## "):
+            erros.append(f"título fora do formato '## M001 · médio · FGV · Seção': {linha[:60]}")
+            fechar(atual)
+            atual = None
+            continue
+        if atual is None:
+            continue
+        s = linha.strip()
+        rot = f"M{atual['n']:03d}"
+        mo = RE_OPCAO_ME.match(s)
+        if mo and atual["fase"] in ("e", "o"):
+            atual["ops"].append((mo.group(1), mo.group(2)))
+            atual["fase"] = "o"
+            continue
+        mg = RE_GABARITO_ME.match(s)
+        if mg and atual["fase"] in ("e", "o"):
+            atual["gab"] = mg.group(1).upper()
+            atual["fase"] = "g"
+            continue
+        mc = RE_COMENTARIO.match(s)
+        if mc and atual["fase"] == "g":
+            atual["com"].append(mc.group(1))
+            atual["fase"] = "c"
+            continue
+        if atual["fase"] == "e":
+            atual["enun"].append(linha)
+        elif atual["fase"] == "c":
+            atual["com"].append(linha)
+        elif s:
+            erros.append(f"{rot}: texto solto entre as alternativas, o gabarito e o comentário: {s[:50]}")
+    fechar(atual)
+    return cobertura, questoes, erros
+
+
 def paragrafos_html(r: "Renderizador", md: str) -> str:
     blocos = [" ".join(x.split()) for x in re.split(r"\n\s*\n", md) if x.strip()]
     return "".join(f"<p>{r.inline(b, False)}</p>" for b in blocos)
 
 
-def arquivo_de_questoes(tema: dict) -> str:
-    return f"{tema['materiaNome']}/{PASTA_QUESTOES}/{posixpath.basename(tema['caminho'])}"
+def arquivo_de_questoes(tema: dict, me: bool = False) -> str:
+    pasta = PASTA_QUESTOES_ME if me else PASTA_QUESTOES
+    return f"{tema['materiaNome']}/{pasta}/{posixpath.basename(tema['caminho'])}"
 
 
-def questoes_pendentes(base: "Base", filtro: str = "") -> str:
+def questoes_pendentes(base: "Base", filtro: str = "", me: bool = False) -> str:
     """Só o texto que ainda não virou questão: seções novas ou alteradas desde a última cobertura
-    (e a lista curta das questões que já citam essas seções, para conferir e não repetir)."""
+    (e a lista curta das questões que já citam essas seções, para conferir e não repetir).
+    Com me=True, olha as questões de múltipla escolha em vez das de Certo ou Errado."""
     alvo = chave_secao(filtro)
     saida = []
+    chave_q, chave_cob, prefixo = ("questoes_me", "cobertura_me", "M") if me else ("questoes", "cobertura", "Q")
     for d in base.docs:
         if alvo and alvo not in chave_secao(d["materiaNome"]):
             continue
-        cob = d.get("cobertura", {})
+        cob = d.get(chave_cob, {})
         secoes = secoes_do_tema(d["md"])
         pend = [s for s in secoes if cob.get(s["t"]) != s["hash"]]
         atuais = {s["t"] for s in secoes}
@@ -1298,12 +1420,16 @@ def questoes_pendentes(base: "Base", filtro: str = "") -> str:
             mae[chave_secao(s["t"])] = s["t"]
             for sub in s["subs"]:
                 mae.setdefault(chave_secao(sub), s["t"])
-        qs = d.get("questoes", [])
+        qs = d.get(chave_q, [])
         ultima = max([q["n"] for q in qs], default=0)
         nomes_pend = {s["t"] for s in pend}
         saida.append(f"\n{'=' * 78}\nTEMA: {d['titulo']}  ({d['caminho']})")
-        saida.append(f"Arquivo de questões: ESTUDOS/{arquivo_de_questoes(d)}"
-                     + (f"  ({len(qs)} questões; próxima: Q{ultima + 1:03d})" if qs
+        por_banca = ""
+        if me and qs:
+            por_banca = (f" ({sum(1 for q in qs if q['banca'] == 'C')} CEBRASPE, "
+                         f"{sum(1 for q in qs if q['banca'] == 'F')} FGV)")
+        saida.append(f"Arquivo de questões: ESTUDOS/{arquivo_de_questoes(d, me)}"
+                     + (f"  ({len(qs)} questões{por_banca}; próxima: {prefixo}{ultima + 1:03d})" if qs
                         else "  (ainda não existe: criar)"))
         if removidas:
             saida.append("Seções que saíram do tema (confira as questões que as citam): "
@@ -1316,12 +1442,17 @@ def questoes_pendentes(base: "Base", filtro: str = "") -> str:
                          "não repita):")
             for q in ligadas:
                 enun = " ".join(q["enun"].split())
-                saida.append(f"  - Q{q['n']:03d} · {q['dif']} · {q['sec']} · "
-                             f"{'CERTO' if q['gab'] == 'C' else 'ERRADO'} · {enun[:150]}")
+                if me:
+                    saida.append(f"  - M{q['n']:03d} · {q['dif']} · {'FGV' if q['banca'] == 'F' else 'CEBRASPE'}"
+                                 f" · {q['sec']} · gabarito {q['gab']} · {enun[:150]}")
+                else:
+                    saida.append(f"  - Q{q['n']:03d} · {q['dif']} · {q['sec']} · "
+                                 f"{'CERTO' if q['gab'] == 'C' else 'ERRADO'} · {enun[:150]}")
         for s in pend:
             saida.append(f"\n--- seção: {s['t']} ---\n{s['texto']}")
     if not saida:
-        return "Nada pendente: as questões turbo cobrem todo o texto atual dos temas."
+        return ("Nada pendente: as questões de múltipla escolha cobrem todo o texto atual dos temas."
+                if me else "Nada pendente: as questões turbo cobrem todo o texto atual dos temas.")
     return "\n".join(saida).strip() + "\n"
 
 
@@ -1335,12 +1466,14 @@ def cobrir(base: "Base", alvos: list[str]) -> list[str]:
             if rel.startswith(prefixo):
                 rel = rel[len(prefixo):]
         partes = rel.split("/")
+        me = len(partes) > 2 and partes[1] == PASTA_QUESTOES_ME
         tema = next((d for d in base.docs if d["materiaNome"] == partes[0]
                      and posixpath.basename(d["caminho"]) == partes[-1]), None)
         if tema is None:
-            msgs.append(f"{alvo}: tema não encontrado (use '<Matéria>/{PASTA_QUESTOES}/<tema>.md')")
+            msgs.append(f"{alvo}: tema não encontrado (use '<Matéria>/{PASTA_QUESTOES}/<tema>.md' "
+                        f"ou '<Matéria>/{PASTA_QUESTOES_ME}/<tema>.md')")
             continue
-        caminho = BASE / arquivo_de_questoes(tema)
+        caminho = BASE / arquivo_de_questoes(tema, me)
         if not caminho.is_file():
             msgs.append(f"{alvo}: o arquivo de questões ainda não existe")
             continue
@@ -1354,7 +1487,7 @@ def cobrir(base: "Base", alvos: list[str]) -> list[str]:
         else:
             texto = bloco + texto
         escrever(caminho, texto)
-        msgs.append(f"{arquivo_de_questoes(tema)}: cobertura de {len(secoes)} seções gravada")
+        msgs.append(f"{arquivo_de_questoes(tema, me)}: cobertura de {len(secoes)} seções gravada")
     return msgs
 
 
@@ -1362,16 +1495,18 @@ def gravar_relato(questao_id: str, motivo: str) -> str:
     """Acrescenta ao arquivo de relatos (em ENTRADA/) a questão reportada pelo leitor."""
     tema_id, _, num = questao_id.partition(":")
     caminho = localizar_doc(tema_id)
-    if caminho is None or not re.fullmatch(r"Q\d{1,4}", num):
+    if caminho is None or not re.fullmatch(r"[QM]\d{1,4}", num):
         raise ValueError("questão desconhecida")
     rel_tema = caminho.relative_to(BASE)
-    arq = BASE / rel_tema.parts[0] / PASTA_QUESTOES / caminho.name
-    _, questoes, _ = ler_questoes(arq.read_text(encoding="utf-8")) if arq.is_file() else ({}, [], [])
+    pasta_q = PASTA_QUESTOES_ME if num[0] == "M" else PASTA_QUESTOES
+    leitor = ler_questoes_me if num[0] == "M" else ler_questoes
+    arq = BASE / rel_tema.parts[0] / pasta_q / caminho.name
+    _, questoes, _ = leitor(arq.read_text(encoding="utf-8")) if arq.is_file() else ({}, [], [])
     q = next((x for x in questoes if x["n"] == int(num[1:])), None)
     enun = " ".join(q["enun"].split()) if q else "(não encontrada no arquivo)"
     agora = datetime.now().strftime("%d/%m/%Y %H:%M")
     entrada = (f"\n## {agora} · {rel_tema.parts[0]} · {caminho.stem} · {num}\n"
-               f"- Arquivo: ESTUDOS/{rel_tema.parts[0]}/{PASTA_QUESTOES}/{caminho.name}\n"
+               f"- Arquivo: ESTUDOS/{rel_tema.parts[0]}/{pasta_q}/{caminho.name}\n"
                f"- Enunciado: {enun}\n- Motivo: {' '.join(motivo.split())}\n")
     RELATOS.parent.mkdir(parents=True, exist_ok=True)
     novo = not RELATOS.exists()
@@ -1381,7 +1516,7 @@ def gravar_relato(questao_id: str, motivo: str) -> str:
                     "marcou como errada ou duvidosa. Conferir, corrigir o arquivo de questões e "
                     "mover este arquivo para processados/.\n")
         f.write(entrada)
-    return f"{rel_tema.parts[0]}/{PASTA_QUESTOES}/{caminho.name} {num}"
+    return f"{rel_tema.parts[0]}/{pasta_q}/{caminho.name} {num}"
 
 
 class Base:
@@ -1607,28 +1742,33 @@ class Base:
         for d in self.docs_brutos:
             temas[(d["materiaNome"], posixpath.basename(d["caminho"]))] = d
         for pasta in sorted(BASE.iterdir()):
-            qpasta = pasta / PASTA_QUESTOES
-            if not pasta.is_dir() or pasta.name == CONTROLE or not qpasta.is_dir():
+            if not pasta.is_dir() or pasta.name == CONTROLE:
                 continue
-            for p in sorted(qpasta.glob("*.md")):
-                rel = p.relative_to(BASE).as_posix()
-                doc_q = {"caminho": rel}
-                tema = temas.get((pasta.name, p.name))
-                if tema is None:
-                    self.aviso(doc_q, "arquivo de questões sem tema com o mesmo nome na matéria")
+            for nome_pasta, leitor, sufixo in ((PASTA_QUESTOES, ler_questoes, ""),
+                                                (PASTA_QUESTOES_ME, ler_questoes_me, "_me")):
+                qpasta = pasta / nome_pasta
+                if not qpasta.is_dir():
                     continue
-                cobertura, questoes, erros = ler_questoes(p.read_text(encoding="utf-8"))
-                for e in erros:
-                    self.aviso(doc_q, e)
-                tema.update(arquivo_questoes=rel, cobertura=cobertura, questoes=questoes)
+                for p in sorted(qpasta.glob("*.md")):
+                    rel = p.relative_to(BASE).as_posix()
+                    doc_q = {"caminho": rel}
+                    tema = temas.get((pasta.name, p.name))
+                    if tema is None:
+                        self.aviso(doc_q, "arquivo de questões sem tema com o mesmo nome na matéria")
+                        continue
+                    cobertura, questoes, erros = leitor(p.read_text(encoding="utf-8"))
+                    for e in erros:
+                        self.aviso(doc_q, e)
+                    tema.update({"arquivo_questoes" + sufixo: rel, "cobertura" + sufixo: cobertura,
+                                 "questoes" + sufixo: questoes})
 
     def montar_questoes(self) -> list[dict]:
         """Questões de todos os temas, na ordem do material (tema, seção citada, número)."""
         saida = []
         for pos, d in enumerate(self.docs):
-            if not d.get("questoes"):
+            if not d.get("questoes") and not d.get("questoes_me"):
                 continue
-            doc_q = {"caminho": d["arquivo_questoes"]}
+            doc_q = {"caminho": d.get("arquivo_questoes") or d["arquivo_questoes_me"]}
             r = Renderizador(self, d)
             # A seção citada pode ser qualquer título do tema; o próprio título do tema (ou
             # "(início)") aponta para o texto antes da primeira seção.
@@ -1639,7 +1779,7 @@ class Base:
             for nome in (INICIO_TEMA, d["titulo"]):
                 secs.setdefault(chave_secao(nome), (-1, "", d["titulo"]))
             itens = []
-            for q in d["questoes"]:
+            for q in d.get("questoes", []):
                 achada = secs.get(chave_secao(RE_NOME_BANCA.sub("", q["sec"])))
                 if achada is None:
                     self.aviso(doc_q, f"Q{q['n']:03d}: seção '{q['sec']}' não existe no tema")
@@ -1655,6 +1795,28 @@ class Base:
                     "id": f"{d['id']}:Q{q['n']:03d}", "t": d["id"], "n": q["n"],
                     "d": DIFICULDADES[q["dif"]], "s": achada[2], "h": achada[1],
                     "e": enun, "g": q["gab"], "c": com}))
+            # múltipla escolha: "o" = alternativas (html), "b" = estilo da banca (C ou F)
+            doc_me = {"caminho": d.get("arquivo_questoes_me", doc_q["caminho"])}
+            for q in d.get("questoes_me", []):
+                rot = f"M{q['n']:03d}"
+                achada = secs.get(chave_secao(RE_NOME_BANCA.sub("", q["sec"])))
+                if achada is None:
+                    self.aviso(doc_me, f"{rot}: seção '{q['sec']}' não existe no tema")
+                    achada = (10 ** 6, "", q["sec"])
+                enun = paragrafos_html(r, q["enun"])
+                com = paragrafos_html(r, q["com"])
+                ops = [r.inline(" ".join(txt.split()), False) for _, txt in q["ops"]]
+                campos = [("enunciado", enun), ("comentário", com)]
+                campos += [(f"alternativa {q['ops'][i][0]}", h) for i, h in enumerate(ops)]
+                for campo, h in campos:
+                    vazou = RE_VAZOU.search(texto_de_html(h))
+                    if vazou:
+                        self.aviso(doc_me, f"{rot}: marcação não convertida no {campo} "
+                                           f"({vazou.group(0)!r})")
+                itens.append(((pos, achada[0], 100000 + q["n"]), {
+                    "id": f"{d['id']}:{rot}", "t": d["id"], "n": q["n"],
+                    "d": DIFICULDADES[q["dif"]], "s": achada[2], "h": achada[1],
+                    "e": enun, "g": q["gab"], "c": com, "o": ops, "b": q["banca"]}))
             saida.extend(x for _, x in sorted(itens, key=lambda y: y[0]))
         return saida
 
@@ -2832,12 +2994,12 @@ def main(argv: list[str]) -> int:
         base = Base()
         base.carregar()
         i = argv.index("--questoes-pendentes" if "--questoes-pendentes" in argv else "--cobrir")
-        args = [a for a in argv[i + 1:] if not a.startswith("--")]
+        args = [a for a in argv[i + 1:] + argv[:i] if not a.startswith("--")]
         if "--cobrir" in argv:
             for msg in cobrir(base, args):
                 print(msg)
         else:
-            print(questoes_pendentes(base, args[0] if args else ""))
+            print(questoes_pendentes(base, args[0] if args else "", me="--me" in argv))
         return 0
     verificar = "--verificar" in argv
     base, dados, tamanho = gerar(escrever_saida=not verificar)
@@ -2853,11 +3015,14 @@ def main(argv: list[str]) -> int:
     com_mapa = sum(1 for d in base.docs if d.get("mapa"))
     print(f"Mapas mentais: {com_mapa} de {n_temas} temas ({base.n_nos} ramos) · "
           f"Resumo sintético: {len(base.sinteticos)} arquivo(s)")
-    por_materia = {}
+    por_materia, por_materia_me = {}, {}
     for q in dados["questoes"]:
-        por_materia[q["t"].split(".")[0]] = por_materia.get(q["t"].split(".")[0], 0) + 1
-    print(f"Questões turbo: {len(dados['questoes'])} (" + " · ".join(
+        alvo_q = por_materia_me if "o" in q else por_materia
+        alvo_q[q["t"].split(".")[0]] = alvo_q.get(q["t"].split(".")[0], 0) + 1
+    print(f"Questões turbo: {sum(por_materia.values())} (" + " · ".join(
         f"{m['sigla']} {por_materia.get(m['id'], 0)}" for m in base.materias) + ")")
+    print(f"Múltipla escolha: {sum(por_materia_me.values())} (" + " · ".join(
+        f"{m['sigla']} {por_materia_me.get(m['id'], 0)}" for m in base.materias) + ")")
     print("Resumo geral: " + " · ".join(
         f"{m['sigla']} {m['geral']['paginas']} págs." for m in base.materias))
     if not verificar:

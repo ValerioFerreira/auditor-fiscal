@@ -63,7 +63,7 @@
 |---|---|---|
 | **Reformador** | Congresso Nacional | Emendas constitucionais (art. 60) |
 | **Decorrente** | Assembleias Legislativas (e Câmara Legislativa do DF) | Constituições estaduais e Lei Orgânica do DF |
-| **Revisor** | Congresso Nacional, em sessão unicameral | Emendas de revisão (ADCT, art. 3º) — **exaurido** |
+| **Revisor** | Congresso Nacional, em sessão unicameral, 5 anos após a promulgação da CF/88 | Emendas de revisão (ADCT, art. 3º) — **exaurido** |
 
 ### Reformador: limitações ao poder de emendar (CF, art. 60)
 

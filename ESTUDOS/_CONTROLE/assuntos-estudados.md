@@ -1,6 +1,6 @@
 # Assuntos Estudados — Visão Geral
 
-> Versão da base: **v012** (05/10/2026) · ✅ consolidado · 🔶 consolidado com pendência (ver `pendencias.md`)
+> Versão da base: **v013** (07/10/2026) · ✅ consolidado · 🔶 consolidado com pendência (ver `pendencias.md`)
 
 ## Direito Tributário
 
@@ -15,6 +15,8 @@
 | 03 - Espécies Tributárias | `emprestimo-compulsorio.md` | Hipóteses; LC; anterioridade; Plano Collor | ✅ |
 | 03 - Espécies Tributárias | `contribuicoes-especiais.md` | Espécies; competência; regras do art. 149; CIDEs; corporativas, OAB e sindicais; COSIP; contribuição estadual transitória | ✅ |
 | 03 - Espécies Tributárias | `contribuicoes-sociais-e-previdenciarias.md` | Residuais x nominadas; sociais gerais; FGTS; seguridade (art. 195); CBS; RGPS x RPPS; EC 103 | 🔶 |
+| 04 - Limitações ao Poder de Tributar | `limitacoes-ao-poder-de-tributar.md` | Conceito; lei complementar x emenda; cláusulas pétreas (ADI 939) | 🔶 |
+| 04 - Limitações ao Poder de Tributar | `principio-da-legalidade-tributaria.md` | Reserva de lei (CTN, art. 97); lei delegada; medida provisória; matérias reservadas à LC; exceções; ART e Tema 829 | ✅ |
 
 ## Contabilidade Geral e Avançada
 
@@ -30,6 +32,8 @@
 | 04 - Atos e Fatos Administrativos | `atos-e-fatos-administrativos.md` | Atos x fatos; permutativos, modificativos e mistos | ✅ |
 | 05 - Escrituração | `escrituracao-e-livros-contabeis.md` | Obrigatoriedade e dispensa; livros (Diário, Razão, Caixa, razonete); livros da S.A.; formalidades intrínsecas e extrínsecas; escrituração resumida | ✅ |
 | 05 - Escrituração | `lancamentos-e-retificacao.md` | Elementos do lançamento; processo manual x mecanizado; fórmulas; erros; estorno, transferência e complementação | ✅ |
+| 05 - Escrituração | `exemplos-de-escrituracao.md` | Dezessete fatos com lançamento e classificação; momentos; desconto de duplicatas | ✅ |
+| 05 - Escrituração | `balancete-de-verificacao.md` | Conceito; elementos mínimos; 2, 4, 6 e 8 colunas; sintético x analítico; limites | ✅ |
 
 ## Direito Constitucional
 
@@ -48,7 +52,9 @@
 
 | Pasta | Arquivo | Assunto | Status |
 |---|---|---|---|
-| 01 - Introdução ao Direito Administrativo | `conceito-e-objeto-do-direito-administrativo.md` | Origem; conceito; função administrativa e objeto; escolas e critérios | ✅ |
+| 01 - Introdução ao Direito Administrativo | `conceito-e-objeto-do-direito-administrativo.md` | Origem; conceito; função administrativa e objeto; critérios para definição (oito, com imagem) | ✅ |
+| 01 - Introdução ao Direito Administrativo | `direito-administrativo-brasileiro.md` | Formação; influências estrangeiras; principais mudanças recentes | ✅ |
+| 01 - Introdução ao Direito Administrativo | `fontes-do-direito-administrativo.md` | Fontes primárias e secundárias; lei em sentido amplo; atos normativos administrativos | ✅ |
 | 02 - Regime Jurídico Administrativo | `regime-juridico-administrativo.md` | Público x privado; supremacia e indisponibilidade; interesse primário x secundário | ✅ |
 | 03 - Organização Administrativa | `administracao-direta-e-indireta.md` | Entidades; órgãos; indireta; tutela | ✅ |
 | 04 - Princípios da Administração Pública | `principios-expressos.md` | LIMPE; nepotismo | 🔶 |

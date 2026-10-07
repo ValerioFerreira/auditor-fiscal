@@ -25,7 +25,7 @@
 | Produz efeitos desde | A promulgação | A promulgação (plenamente, até vir a restrição) | A regulamentação (efeitos plenos) |
 | Exemplos | Art. 2º (separação dos Poderes), art. 1º | Art. 5º, XIII (livre exercício de profissão, "atendidas as qualificações que a lei estabelecer") | Art. 37, VII (greve de servidor "nos termos e limites definidos em lei específica"); arts. 196 e 205 (programáticas) |
 
-- Obs.: seu material usa também o termo "eficácia prospectiva" para a contida; Michel Temer a chama de **redutível ou restringível**.
+- Obs.: há ainda o termo "eficácia prospectiva" para a contida; Michel Temer a chama de **redutível ou restringível**.
 
 ### Eficácia contida — formas de restrição
 

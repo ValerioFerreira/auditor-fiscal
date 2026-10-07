@@ -20,23 +20,20 @@
 - **Critério residual (negativo)**: é função administrativa **tudo o que não for legislativo nem judiciário** (e não for função de governo).
 - Os três Poderes exercem a função administrativa, a **típica** no Executivo e a **atípica** no Legislativo e no Judiciário.
 
-## Escolas e critérios para conceituar o Direito Administrativo
+## Critérios para definição do Direito Administrativo
 
-| Escola | Fundamento | Críticas |
+| Critério (outras denominações) | Ideia | Crítica |
 |---|---|---|
-| **Escola das prerrogativas públicas** (*puissance publique*, Hauriou) | Estuda os **atos de autoridade ou império** (praticados com **prerrogativas públicas**), em oposição aos **atos de gestão** (em **horizontalidade** com o cidadão) | **Exclui** os atos praticados **sem prerrogativas públicas**, mas **regidos pelo direito público** |
+| **Escola das prerrogativas públicas** (do poder público; *puissance publique*, Hauriou) | Estuda os **atos de autoridade ou império** (praticados com **prerrogativas públicas**), em oposição aos **atos de gestão** (em **horizontalidade** com o cidadão) | **Exclui** os atos praticados **sem prerrogativas públicas**, mas **regidos pelo direito público** |
 | **Escola do serviço público** (Duguit e Jèze) | Estuda a **prestação do serviço público**. **Sentido amplo**: toda a atividade prestada pelo Estado. **Sentido estrito**: atividade **material** exercida pelo Estado, com regras do direito público | **Difícil conceituação** de "serviço público"; **exclui** outras atividades administrativas, como o **poder de polícia** |
+| **Poder Executivo** (subjetivista; italiano) | Disciplina que rege a **atuação do Poder Executivo**: limita o Direito Administrativo às atividades do Executivo | Desconsidera que os **demais Poderes** também exercem, **atipicamente**, atividades eminentemente administrativas, e que o próprio Executivo executa tarefas **não tratadas** pelo direito administrativo |
+| **Legalista** (exegético, empírico, caótico ou francês) | Ciência responsável por estudar o **direito positivo** (conjunto de leis e outras normas) | O direito **não se resume a leis**: há **interpretação**, **princípios**, **costumes** e outras fontes |
+| **Relações jurídicas** | Conjunto de normas que rege a **relação entre a Administração e o administrado** | Há relações entre eles **não regidas** pelo direito administrativo (**outros ramos** também regulam relações entre Estado e cidadão), e há **relações internas** dos entes, que não envolvem os administrados |
+| **Teleológico** (finalista, finalístico) | Sistema de normas jurídicas que regula a **atividade concreta do Estado** para o cumprimento dos **fins estatais** (disciplina as atividades finalísticas) | **Vago**: não há definição precisa dos fins estatais |
+| **Negativo** (residual) | **Atividades desenvolvidas para os fins estatais**, **excluindo-se** a legislação e a jurisdição (ou **somente a jurisdição**, a depender do autor), bem como as atividades de **nível constitucional** e as **disciplinadas pelo direito privado**. É a atividade do Estado que **não** é legislativa nem jurisdicional (por exclusão); a **função política ou de governo** também fica fora do objeto | O direito administrativo **não é puro**: admite regras do **direito privado** em algumas situações. Também é **insuficiente**: não descreve as características positivas |
+| **Administração Pública** | **Conjunto de princípios e normas** (ordenamento jurídico) que regem a **função administrativa** (excluídas as funções não administrativas), bem como seus **agentes e órgãos**, que utilizam bens e instrumentos para cumprir os **fins do Estado** | **Critério mais adotado no Brasil** |
 
-### Outros critérios (complemento)
-
-| Critério | Ideia | Crítica |
-|---|---|---|
-| **Poder Executivo** | Limita o Direito Administrativo às atividades do Executivo | Os demais Poderes também exercem, **atipicamente**, funções administrativas |
-| **Relações jurídicas** | Rege as relações entre a Administração e os administrados | Outros ramos também regulam relações entre Estado e cidadão; há **relações internas** da Administração |
-| **Teleológico** | Disciplina as **atividades finalísticas** do Estado | **Vago**: é difícil delimitar os fins do Estado |
-| **Negativo ou residual** | É a atividade do Estado que **não** é legislativa nem jurisdicional (por exclusão); a **função política ou de governo** também fica fora do objeto | **Insuficiente**: não descreve as características positivas |
-| **Legalista (exegético, empírico ou caótico)** | Estuda o **direito positivo** (leis e normas) | Também abrange **princípios, costumes** e outras fontes |
-| **Administração Pública** | Conjunto de normas que regem a **Administração Pública** | **Critério mais aceito no Brasil** |
+![Mapa dos oito critérios para definir o Direito Administrativo, em balões: prerrogativas públicas, serviço público, Poder Executivo, legalista, relações jurídicas, teleológico, negativo e Administração Pública, cada um com a ideia central e a crítica resumidas; o critério da Administração Pública é o mais adotado no Brasil.](conceito-e-objeto-do-direito-administrativo - imagem 1.png)
 
 ## Pegadinhas
 
@@ -54,6 +51,8 @@
 
 ## Relações com outros assuntos
 
+- Formação, influências e tendências do direito administrativo brasileiro → `direito-administrativo-brasileiro.md`
+- Fontes do direito administrativo → `fontes-do-direito-administrativo.md`
 - Regime jurídico administrativo (prerrogativas e sujeições) → `../02 - Regime Jurídico Administrativo/regime-juridico-administrativo.md`
 - Organização da Administração → `../03 - Organização Administrativa/administracao-direta-e-indireta.md`
 - Função administrativa e princípios → `../04 - Princípios da Administração Pública/principios-implicitos.md`
@@ -72,9 +71,12 @@
   - Relações internas, com os administrados e atividades delegadas a particulares
   - Exclui a função política e as funções típicas do Legislativo e do Judiciário
   - Critério residual
-- Escolas
+- Critérios para definição (oito)
   - Prerrogativas públicas: atos de império x atos de gestão
   - Serviço público: sentido amplo x estrito
-- Outros critérios
-  - Poder Executivo, relações jurídicas, teleológico, negativo, legalista
-  - Administração Pública: o mais aceito
+  - Poder Executivo (subjetivista, italiano)
+  - Legalista (exegético, empírico, caótico, francês)
+  - Relações jurídicas
+  - Teleológico (finalista)
+  - Negativo (residual)
+  - Administração Pública: o mais adotado no Brasil

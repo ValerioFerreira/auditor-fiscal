@@ -8,7 +8,7 @@ Regime político = 0d403a99fc
 Estado Democrático de Direito (José Afonso da Silva) = 899030675a
 Art. 2º — Separação dos Poderes = fd77b0ec15
 Art. 3º — Objetivos fundamentais = 1384326637
-Art. 4º — Princípios nas relações internacionais = 1fe2438a53
+Art. 4º — Princípios nas relações internacionais = e2b43cf1d5
 Pegadinhas = 2900f146da
 Base legal / referência = 22fac59e50
 -->
@@ -382,3 +382,68 @@ O parágrafo único do art. 4º estabelece que a integração dos povos da Amér
 A reciprocidade entre as nações figura entre os princípios que, segundo o art. 4º, regem a República Federativa do Brasil nas suas relações internacionais.
 - Gabarito: ERRADO
 - Comentário: O rol do art. 4º é: independência nacional, prevalência dos direitos humanos, autodeterminação dos povos, não intervenção, igualdade entre os Estados, defesa da paz, solução pacífica dos conflitos, repúdio ao terrorismo e ao racismo, cooperação entre os povos e concessão de asilo político. A reciprocidade não consta.
+
+## Q075 · fácil · Art. 4º — Princípios nas relações internacionais
+No plano externo, o princípio da independência nacional expressa a soberania do Estado brasileiro, que decide seus rumos sem subordinação a outro Estado.
+- Gabarito: CERTO
+- Comentário: A independência nacional (art. 4º, I) traduz a soberania externa: o Estado decide por si, sem subordinação a outro.
+
+## Q076 · médio · Art. 4º — Princípios nas relações internacionais
+O princípio da prevalência dos direitos humanos, previsto para as relações internacionais, esgota-se na proteção diplomática de nacionais no exterior e não orienta a adesão do Brasil a tratados sobre a matéria.
+- Gabarito: ERRADO
+- Comentário: Nas relações externas, a proteção da pessoa humana tem primazia (art. 4º, II) e orienta a adesão a tratados de direitos humanos, cuja hierarquia interna é tratada no tema da hierarquia das normas.
+
+## Q077 · fácil · Art. 4º — Princípios nas relações internacionais
+Por força do princípio da igualdade entre os Estados, a condição jurídica de Estado soberano é a mesma para o país de pequena extensão territorial e para a potência econômica e militar.
+- Gabarito: CERTO
+- Comentário: Todos os Estados têm a mesma condição jurídica de Estados soberanos, independentemente de tamanho ou poder (art. 4º, V).
+
+## Q078 · difícil · Art. 4º — Princípios nas relações internacionais
+O princípio da não intervenção veda apenas a ocupação militar do território de outro Estado, não alcançando outras formas de ingerência nos assuntos internos de nação estrangeira.
+- Gabarito: ERRADO
+- Comentário: A não intervenção (art. 4º, IV) significa que nenhum Estado interfere nos assuntos internos de outro, o que não se limita à ação militar.
+
+## Q079 · fácil · Art. 4º — Princípios nas relações internacionais
+Em razão do princípio da defesa da paz, a Constituição veda que o Brasil declare guerra em qualquer hipótese.
+- Gabarito: ERRADO
+- Comentário: A paz é a regra, mas a guerra pode ser declarada em caso de agressão estrangeira (CF, art. 84, XIX), que é a exceção.
+
+## Q080 · médio · Art. 4º — Princípios nas relações internacionais
+Negociação, mediação, arbitragem e jurisdição internacional são caminhos compatíveis com o princípio da solução pacífica dos conflitos, que repele a força como meio de resolver controvérsias entre Estados.
+- Gabarito: CERTO
+- Comentário: O art. 4º, VII, exige que as controvérsias sejam resolvidas por meios pacíficos, como negociação, mediação, arbitragem ou jurisdição internacional, e não pela força.
+
+## Q081 · difícil · Art. 4º — Princípios nas relações internacionais
+O repúdio ao terrorismo e ao racismo, embora arrolado entre os princípios das relações internacionais, repercute na ordem interna, na qual essas condutas configuram crimes inafiançáveis.
+- Gabarito: CERTO
+- Comentário: O art. 4º, VIII, condena o terrorismo e o racismo, e no plano interno ambos são crimes inafiançáveis (CF, art. 5º, XLII e XLIII).
+
+## Q082 · fácil · Art. 4º — Princípios nas relações internacionais
+A cooperação entre os povos, como princípio das relações internacionais do Brasil, tem por finalidade o progresso da humanidade.
+- Gabarito: CERTO
+- Comentário: O art. 4º, IX, prevê a cooperação entre os povos para o progresso da humanidade, por meio da colaboração entre Estados e organismos internacionais.
+
+## Q083 · difícil · Art. 4º — Princípios nas relações internacionais
+A cooperação entre os povos para o progresso da humanidade, prevista em inciso do art. 4º, confunde-se com a busca de integração dos povos da América Latina, tratada no parágrafo único, por constituírem um mesmo princípio.
+- Gabarito: ERRADO
+- Comentário: A cooperação para o progresso da humanidade é um dos dez princípios (inciso IX). A integração latino-americana consta do parágrafo único e visa à formação de uma comunidade latino-americana de nações, como comando distinto.
+
+## Q084 · médio · Art. 4º — Princípios nas relações internacionais
+A concessão de asilo político é ato vinculado, de modo que o Brasil está obrigado a acolher todo estrangeiro que o requeira.
+- Gabarito: ERRADO
+- Comentário: O asilo político é ato discricionário do Estado (Lei 13.445/2017, art. 27), embora a sua concessão seja princípio do art. 4º, X.
+
+## Q085 · médio · Art. 4º — Princípios nas relações internacionais
+Estrangeiro perseguido por motivos políticos em seu país de origem que obtém abrigo em sede de missão diplomática brasileira recebe asilo diplomático, uma das formas de asilo político, ao lado do asilo territorial.
+- Gabarito: CERTO
+- Comentário: O asilo político acolhe pessoa perseguida por motivos políticos e pode ser diplomático ou territorial (Lei 13.445/2017, art. 27).
+
+## Q086 · médio · Art. 4º — Princípios nas relações internacionais
+Os incisos VI e VII do art. 4º da CF tratam, respectivamente, da defesa da paz e da solução pacífica dos conflitos.
+- Gabarito: CERTO
+- Comentário: A ordem dos incisos é: I independência nacional; II prevalência dos direitos humanos; III autodeterminação; IV não intervenção; V igualdade entre os Estados; VI defesa da paz; VII solução pacífica dos conflitos; VIII repúdio ao terrorismo e ao racismo; IX cooperação entre os povos; X asilo político.
+
+## Q087 · difícil · Art. 4º — Princípios nas relações internacionais
+O repúdio ao terrorismo e ao racismo, a cooperação entre os povos e a concessão de asilo político correspondem, na ordem, aos incisos IX, X e XI do art. 4º da CF.
+- Gabarito: ERRADO
+- Comentário: O art. 4º tem dez incisos: o repúdio ao terrorismo e ao racismo é o VIII, a cooperação entre os povos é o IX e o asilo político é o X.

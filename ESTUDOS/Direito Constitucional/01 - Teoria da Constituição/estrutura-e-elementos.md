@@ -12,7 +12,7 @@
 
 ## Elementos da Constituição (José Afonso da Silva)
 
-| Elemento | O que regula | Exemplos na CF/88 |
+| Elementos | O que regulam | Exemplos na CF/88 |
 |---|---|---|
 | **Orgânicos** | Estrutura do Estado e do poder | Título III (Organização do Estado), Título IV (Organização dos Poderes), Forças Armadas e Segurança Pública, Tributação e Orçamento |
 | **Limitativos** | Direitos e garantias fundamentais que **limitam o poder do Estado** — **exceto direitos sociais** | Título II (direitos individuais, nacionalidade, direitos políticos) |

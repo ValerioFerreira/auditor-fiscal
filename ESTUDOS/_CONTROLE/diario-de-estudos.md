@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v012** (05/10/2026)
+> Versão atual da base: **v013** (07/10/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -128,3 +128,28 @@
 
 - **Decisões suas:** as pastas de Direito Administrativo foram renumeradas (`01 - Introdução ao Direito Administrativo`, `02 - Regime Jurídico Administrativo`, `03 - Organização Administrativa`, `04 - Princípios da Administração Pública`), com as referências cruzadas ajustadas (os quatro temas que tinham referência a pastas aparecem como "mudou" nas leituras); os adendos ao Livro Razão (três referenciais) foram aprovados; o teto do MEI ficou em R$ 81.000, com ressalva entre parênteses sobre os projetos de lei complementar em tramitação.
 - **Modo E-book (pedido seu):** novo modo em Aparência, com papel de tom quente (Papel, Sépia e Noite), letra serifada, coluna estreita centralizada, margens largas, contraste e brilho baixos.
+
+## 07/10/2026 — Resumos de 06/10/2026, ajustes pedidos nos temas e questões de múltipla escolha (v013)
+
+- **Origem:** arquivo "06_10_26 - Resumos - Auditor Fiscal.docx", com quatro títulos de matéria: Direito Tributário, Contabilidade Geral e Avançada, Direito Constitucional (sem conteúdo abaixo; pendência 🔴) e Direito Administrativo.
+- **Organização:** nova pasta `04 - Limitações ao Poder de Tributar` em Tributário (dois temas); em Contabilidade, dois temas novos em `05 - Escrituração`; em Administrativo, dois temas novos em `01 - Introdução ao Direito Administrativo`.
+- **Ajustes pedidos por você:** quadro-resumo da CF/88 refeito em tabela; visão geral da hierarquia das normas transformada em **imagem da pirâmide de Kelsen** (modelo de três níveis mais difundido nos materiais, com os tratados de direitos humanos, os supralegais e a norma fundamental hipotética); Art. 4º com **quadro dos dez princípios** e mnemônico (IPA · NI · DS · RCA); **critérios para definição do Direito Administrativo** unidos numa tabela única (as duas escolas do resumo de 04/10 reescritas no mesmo padrão dos seis critérios novos, sem perda), com **imagem em balões** (critério, ideia central e crítica).
+
+### Direito Tributário (estudo de 06/10/2026)
+- Limitações ao poder de tributar (visão geral: lei complementar x emenda, cláusulas pétreas) e princípio da legalidade tributária (reserva de lei, lei delegada, medida provisória, exceções, jurisprudência).
+- **Principais enriquecimentos:** CTN, art. 97 completo (com o inciso VI) e §§1º e 2º; CF, arts. 62, §§1º, III, e 2º, e 68, §1º; rol atual das matérias reservadas à LC (IBS, CBS e imposto seletivo, após a EC 132/2023); fundamentos das exceções (CF, arts. 153, §1º, 177, §4º, I, "b", e 155, §§4º e 5º); Súmula 160 do STJ; SV 50; Tema 829 do STF (RE 838.284); ADI 939 como paradigma das cláusulas pétreas tributárias.
+
+### Contabilidade Geral e Avançada (estudo de 06/10/2026)
+- Exemplos de escrituração (dezessete fatos, com lançamentos e classificação) e balancete de verificação (conceito, elementos mínimos, tipos por colunas, sintético e analítico).
+- **Principais enriquecimentos:** valores calculados a partir dos dados (juros, descontos, custo da venda); lançamentos das três hipóteses de vencimento no desconto de duplicatas; o que o balancete não prova. **Correção:** na venda à vista, a receita é lançada a **crédito** (o resumo indicava débito).
+
+### Direito Administrativo (estudo de 06/10/2026)
+- Critérios para definição do Direito Administrativo (oito); direito administrativo brasileiro (formação, influências e tendências); fontes do direito administrativo.
+- **Principais enriquecimentos:** leis de referência das tendências (Lei 13.848/2019, EC 19/1998 e Lei 13.140/2015); súmula vinculante e controle concentrado como fontes que vinculam a Administração (CF, arts. 102, §2º, e 103-A); papel dos costumes (suprem lacunas e não contrariam a lei).
+
+### Direito Constitucional
+- O título veio sem conteúdo abaixo (pendência 🔴); os ajustes pedidos foram feitos nos temas já existentes.
+
+- **Questões turbo (Certo ou Errado):** 161 novas (Tributário 50, Contabilidade 52, Constitucional 19 e Administrativo 40), no total de 1.043 na base.
+- **Questões de múltipla escolha (pedido seu):** nova funcionalidade. Quatro agentes, um por matéria (`questoes-multipla-<matéria>`), seguem as instruções comuns (instruções comuns em .claude/questoes) e o guia de estilo da CEBRASPE e da FGV de cada disciplina (pasta guias-me, pesquisa de 06/10/2026). **469 questões**: Tributário 124, Contabilidade 140, Constitucional 105 e Administrativo 100, metade em cada estilo de banca, com alternativas de A a E.
+- **Site:** a aba **Questões** passou a montar um **caderno**: formato (Certo ou Errado, múltipla escolha ou ambas), estilo da banca (CEBRASPE, FGV ou ambas), quantidade (10, 20, 30, 50, 100, outro número ou todas) e tempo (sem tempo, cronômetro ou tempo limite). No fim, o resultado mostra o percentual de acerto, de erro e em branco, o tempo, os tópicos com mais acertos e mais erros, o desempenho por tipo de questão e as questões a rever, com a opção de refazer as erradas.

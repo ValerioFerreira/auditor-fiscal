@@ -2,19 +2,9 @@
 
 ## Visão geral
 
-```text
-Constituição (normas originárias e derivadas)
-+ tratados de DH aprovados pelo rito do art. 5º, §3º (equivalentes a EC)
-        ↓
-Tratados de DH aprovados pelo rito comum → status SUPRALEGAL
-        ↓
-Normas infraconstitucionais PRIMÁRIAS (sem hierarquia entre si)
-LC, LO, lei delegada, MP, decreto legislativo, resolução, decreto autônomo,
-tratados internacionais comuns
-        ↓
-Normas infralegais SECUNDÁRIAS
-decretos regulamentares, portarias, instruções normativas...
-```
+![Pirâmide de Kelsen. No topo, a Constituição (normas originárias e derivadas) e os tratados de direitos humanos aprovados pelo rito do art. 5º, §3º (equivalentes a EC). Abaixo, os tratados de direitos humanos aprovados pelo rito comum, com status supralegal. Depois, as normas infraconstitucionais primárias, sem hierarquia entre si: lei complementar, lei ordinária, lei delegada, medida provisória, decreto legislativo, resolução, decreto autônomo e tratados internacionais comuns. Na base, as normas infralegais secundárias: decretos regulamentares, portarias, instruções normativas e resoluções administrativas. Acima da pirâmide, a norma fundamental hipotética, que fundamenta a Constituição.](hierarquia-das-normas - imagem 1.png)
+
+- Para **Kelsen**, cada norma retira a validade de uma **norma superior**, até a **norma fundamental hipotética** (pressuposta, não posta), que fundamenta a Constituição → `conceito-e-concepcoes.md`.
 
 ## Normas constitucionais
 
