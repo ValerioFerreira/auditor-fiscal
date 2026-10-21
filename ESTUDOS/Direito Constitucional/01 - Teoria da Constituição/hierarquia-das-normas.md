@@ -74,6 +74,8 @@
 - Poder regulamentar — Direito Administrativo (a estudar)
 - Poder constituinte → `poder-constituinte.md`
 - Processo legislativo — a estudar
+- Recepção, revogação e repristinação diante de uma nova Constituição → `direito-constitucional-intertemporal.md`
+- Unidade da Constituição e normas originárias → `interpretacao-constitucional.md`
 
 ## Mapa mental
 

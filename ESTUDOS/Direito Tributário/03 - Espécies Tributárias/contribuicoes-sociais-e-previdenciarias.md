@@ -98,6 +98,9 @@
 ## Relações com outros assuntos
 
 - Visão geral e regras comuns → `contribuicoes-especiais.md`
+- Noventena das contribuições da seguridade (art. 195, §6º) e MP → `../04 - Limitações ao Poder de Tributar/anterioridade-e-noventena.md`
+- Alíquotas diferenciadas (art. 195, §9º) e isonomia → `../04 - Limitações ao Poder de Tributar/principio-da-isonomia-tributaria.md`
+- Progressividade das contribuições dos segurados → `../04 - Limitações ao Poder de Tributar/capacidade-contributiva.md`
 - Seguridade social (Direito Previdenciário/Constitucional) — a estudar
 
 ## Mapa mental

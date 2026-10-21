@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v013** (07/10/2026)
+> Versão atual da base: **v014** (21/10/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -153,3 +153,28 @@
 - **Questões turbo (Certo ou Errado):** 161 novas (Tributário 50, Contabilidade 52, Constitucional 19 e Administrativo 40), no total de 1.043 na base.
 - **Questões de múltipla escolha (pedido seu):** nova funcionalidade. Quatro agentes, um por matéria (`questoes-multipla-<matéria>`), seguem as instruções comuns (instruções comuns em .claude/questoes) e o guia de estilo da CEBRASPE e da FGV de cada disciplina (pasta guias-me, pesquisa de 06/10/2026). **469 questões**: Tributário 124, Contabilidade 140, Constitucional 105 e Administrativo 100, metade em cada estilo de banca, com alternativas de A a E.
 - **Site:** a aba **Questões** passou a montar um **caderno**: formato (Certo ou Errado, múltipla escolha ou ambas), estilo da banca (CEBRASPE, FGV ou ambas), quantidade (10, 20, 30, 50, 100, outro número ou todas) e tempo (sem tempo, cronômetro ou tempo limite). No fim, o resultado mostra o percentual de acerto, de erro e em branco, o tempo, os tópicos com mais acertos e mais erros, o desempenho por tipo de questão e as questões a rever, com a opção de refazer as erradas.
+
+## 21/10/2026 — Resumos de 21/10/2026 e resumo sintético (v014)
+
+- **Origem:** quatro arquivos de matéria (Tributário, Contabilidade, Constitucional e Administrativo) e o "Sintético (1).docx", com quatro disciplinas misturadas.
+- **Resumo sintético:** o arquivo foi separado pelos títulos de disciplina ("Direito Constitucional", "DIREITO ADMINISTRATIVO", "CONTABILIDADE" e "TRIBUTÁRIO"), sem mudar o texto, e cada trecho virou a **parte 03** do sintético da matéria correspondente (`03 - 2026-10-21`; as cinco imagens de Contabilidade ficaram ao lado). "Contabilidade" e "Tributário" foram associados a Contabilidade Geral e Avançada e a Direito Tributário.
+- **Organização:** nova pasta `06 - Demonstrações Contábeis` em Contabilidade (três temas); em Tributário, oito temas novos em `04 - Limitações ao Poder de Tributar`; em Constitucional, dois temas novos em `01 - Teoria da Constituição`, a teoria geral dos direitos fundamentais ampliada e um tema novo na mesma pasta; em Administrativo, `sistemas-administrativos` em `01` e dois temas novos em `03 - Organização Administrativa` (um deles com a sua imagem). Todos os temas foram ligados entre si, dentro e fora da matéria.
+
+### Direito Tributário (estudo de 21/10/2026)
+- Isonomia; capacidade contributiva (progressividade, Súmulas 656 e 668, EC 132, sigilo bancário); vedação ao confisco e multas; irretroatividade e hipótese de incidência; anterioridade e noventena (com medidas provisórias e o quadro-resumo com a legalidade); liberdade de tráfego e princípios federativos; transparência, segurança jurídica e princípios da EC 132; imunidades (conceito e classificações).
+- **Principais enriquecimentos:** CF, art. 145 (§§1º, 3º e 4º), 150 (II, III, IV, V, §5º), 151, 152, 153 (§4º), 155 (§1º, VI, e §6º, II), 156 (§1º), 182 (§4º), 195 (§§6º e 9º) e 237; CTN, arts. 104, 106, 113-A, 175 e 206; **LC 236/2026** (novo art. 113-A do CTN: multas de 75%, 100% e 150%) conferida no Planalto; LC 105/2001 e a constitucionalidade do acesso do Fisco a dados bancários; Súmula 584 (superada); lista do art. 150, VI.
+
+### Contabilidade Geral e Avançada (estudo de 21/10/2026)
+- Demonstrações contábeis (Lei 6.404/1976 e NBC TG 26), balanço patrimonial (estrutura, ativo, passivo) e patrimônio líquido (contas, reservas, ações em tesouraria, absorção de prejuízos, exemplo numérico). A primeira parte do resumo (atos e fatos, livros, contas, razonete e fórmulas) já estava na base; acrescentei só a limitação do razonete.
+- **Principais enriquecimentos e correções:** a fonte das contas do PL é a Lei 6.404/1976 (o resumo dizia "CTN"); coligadas (influência significativa, presumida a partir de 20% do capital votante) e controladas (art. 243); ARLP (vendas, adiantamentos ou empréstimos: art. 179, II); art. 176 da Lei 6.404 (DFC e DVA); aviso sobre o CPC 06 (R1 x R2) no arrendamento; correção do termo "montante subscrito" no capital social.
+
+### Direito Constitucional (estudo de 21/10/2026)
+- Direito constitucional intertemporal; interpretação constitucional (correntes, mutação, métodos, princípios, interpretação conforme); direitos fundamentais (terminologia, direitos e garantias, gerações, status de Jellinek, catalogados) e, em tema próprio, características, dimensões, limites, eficácia e eficácia horizontal.
+- **Principais enriquecimentos:** LINDB, art. 2º, §3º (repristinação); Lei 9.868/1999, art. 28, parágrafo único; Häberle e Hesse; STF, RE 201.819 (eficácia horizontal direta).
+
+### Direito Administrativo (estudo de 21/10/2026)
+- Fontes (agora com os entendimentos judiciais vinculantes como fonte primária), sistemas administrativos, Estado e governo (conceitos, funções, federação, sistemas e formas de governo) e Administração Pública (sentidos, atividades e atividades-meio e fim, com a sua imagem).
+- **Principais enriquecimentos:** artigos da Constituição para os pontos comuns da federação; CF, art. 52, I (impeachment) e art. 5º, XXXV.
+
+- **Questões turbo (Certo ou Errado):** 365 novas, no total de 1.408 (Tributário 406, Contabilidade 352, Constitucional 377 e Administrativo 273).
+- **Questões de múltipla escolha:** 203 novas, no total de 672 (Tributário 209, Contabilidade 171, Constitucional 150 e Administrativo 142).

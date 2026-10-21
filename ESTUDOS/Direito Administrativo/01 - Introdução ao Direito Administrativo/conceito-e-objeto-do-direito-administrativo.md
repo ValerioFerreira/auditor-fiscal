@@ -57,6 +57,9 @@
 - Organização da Administração → `../03 - Organização Administrativa/administracao-direta-e-indireta.md`
 - Função administrativa e princípios → `../04 - Princípios da Administração Pública/principios-implicitos.md`
 - Funções típicas e atípicas dos Poderes (art. 2º) → `../../Direito Constitucional/02 - Princípios Fundamentais/principios-fundamentais.md`
+- Sistemas administrativos (contencioso administrativo x jurisdição una) → `sistemas-administrativos.md`
+- Administração Pública em sentido amplo e estrito, objetivo e subjetivo → `../03 - Organização Administrativa/administracao-publica-sentidos-e-atividades.md`
+- Estado, governo e as funções estatais → `../03 - Organização Administrativa/estado-e-governo.md`
 
 ## Mapa mental
 

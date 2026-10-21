@@ -11,7 +11,7 @@
 | II — a **majoração** de tributos ou a sua **redução** |
 | III — a **definição do fato gerador** da obrigação principal e do seu **sujeito passivo** |
 | IV — a **fixação de alíquota** e da **base de cálculo** |
-| V — a **cominação de penalidades** para ações ou omissões contrárias a seus dispositivos |
+| V — a **cominação (previsão) de penalidades** para ações ou omissões contrárias a seus dispositivos |
 | VI — as hipóteses de **exclusão, suspensão e extinção** de créditos tributários e de **dispensa ou redução de penalidades** |
 
 - **Majoração** (CTN, art. 97, §§1º e 2º): inclui a **modificação da base de cálculo** que torne o tributo **mais oneroso**; a **atualização do valor monetário** da base de cálculo **não** é majoração.
@@ -26,7 +26,7 @@
 - **Matérias tributárias reservadas à lei complementar** (vedadas à medida provisória):
   - **empréstimos compulsórios** (CF, art. 148);
   - **impostos e contribuições residuais** (CF, arts. 154, I, e 195, §4º);
-  - **impostos sobre bens e serviços**: **IBS** (CF, art. 156-A) e **CBS** (CF, art. 195, V);
+  - **imposto e contribuição sobre bens e serviços:** **IBS** (CF, art. 156-A) e **CBS** (CF, art. 195, V);
   - **imposto sobre grandes fortunas** — IGF (CF, art. 153, VII);
   - **imposto seletivo** — produção, extração, comercialização ou importação de bens e serviços **prejudiciais à saúde ou ao meio ambiente** (CF, art. 153, VIII: "nos termos de lei complementar"; as **alíquotas** são fixadas em **lei ordinária**, §6º, VI).
 - **Medida provisória que institui ou majora imposto**: só produz efeitos no **exercício financeiro seguinte** se for **convertida em lei** até o **último dia do exercício** em que foi editada — **exceto** para II, IE, IPI, IOF e imposto extraordinário de guerra (CF, art. 62, §2º).
@@ -67,7 +67,9 @@
 - Taxas e sua base de cálculo → `../03 - Espécies Tributárias/taxas.md`
 - Empréstimo compulsório e impostos residuais, reservados à LC → `../03 - Espécies Tributárias/emprestimo-compulsorio.md`; `../03 - Espécies Tributárias/impostos.md`
 - Medida provisória e lei delegada como espécies normativas → `../../Direito Constitucional/01 - Teoria da Constituição/hierarquia-das-normas.md`
-- Anterioridade — a estudar
+- Anterioridade e noventena (e o quadro-resumo com a legalidade) → `anterioridade-e-noventena.md`
+- Multas tributárias e razoabilidade → `vedacao-ao-confisco.md`
+- Pedágio como preço público → `liberdade-de-trafego-e-principios-federativos.md`
 
 ## Mapa mental
 

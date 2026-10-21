@@ -2,7 +2,7 @@
 <!-- cobertura
 Conceito = 99615be267
 Obrigatoriedade e dispensa = 9f11e1fc6c
-Livros contábeis = b6d5295735
+Livros contábeis = 6b9d1fce73
 Livros obrigatórios das sociedades anônimas (Lei 6.404/1976, art. 100) = a2a6da11dc
 Formalidades da escrituração (ITG 2000 (R1)) = b448fb4af0
 Escrituração resumida do Diário (CC, art. 1.184) = 240c6c242f
@@ -204,3 +204,13 @@ A escrituração resumida do Diário é opção geral, aplicável a qualquer con
 O balanço patrimonial e o resultado econômico, transcritos no Diário, são assinados exclusivamente pelo contador habilitado, pois a ele cabe a atribuição exclusiva da escrituração.
 - Gabarito: ERRADO
 - Comentário: Esses demonstrativos são assinados pelo contador habilitado **e** pelo empresário ou pela sociedade empresária (CC, art. 1.184). A exclusividade do contador na escrituração não elimina a assinatura do titular.
+
+## Q040 · médio · Livros contábeis
+O razonete, instrumento de análise que simplifica o Razão em forma de "T", auxilia a conferir o método das partidas dobradas, embora seja limitado para detectar erros de escrituração.
+- Gabarito: CERTO
+- Comentário: O razonete ajuda a verificar o método das partidas dobradas, mas sua capacidade de detectar erros é limitada. Não é livro obrigatório.
+
+## Q041 · difícil · Livros contábeis
+Por permitir conferir o método das partidas dobradas, o razonete assegura a detecção de todos os erros de escrituração, o que o torna instrumento suficiente de controle do Razão.
+- Gabarito: ERRADO
+- Comentário: O razonete auxilia a conferir as partidas dobradas, mas é limitado na detecção de erros. Conferir a igualdade entre débitos e créditos não revela todos os erros.

@@ -39,6 +39,7 @@
 
 - Classificações → `classificacao-das-constituicoes.md`
 - Hierarquia (Kelsen) → `hierarquia-das-normas.md`
+- Interpretação constitucional → `interpretacao-constitucional.md`
 
 ## Mapa mental
 

@@ -68,6 +68,8 @@
 - Greve de servidor (art. 37, VII) → `Direito Administrativo/04 - Princípios da Administração Pública/principios-implicitos.md` (Continuidade)
 - ADCT e eficácia exaurida → `estrutura-e-elementos.md`
 - ADO e mandado de injunção — a estudar
+- Interpretação constitucional (máxima efetividade, força normativa) → `interpretacao-constitucional.md`
+- Eficácia dos direitos fundamentais (jurídica, técnica, social e horizontal) → `../03 - Direitos e Garantias Fundamentais/caracteristicas-limites-e-eficacia-dos-direitos-fundamentais.md`
 
 ## Mapa mental
 

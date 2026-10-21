@@ -1,22 +1,23 @@
 # Questões de múltipla escolha — Fontes do Direito Administrativo
 <!-- cobertura
-Classificação = f7d0831e29
+Classificação = 33662684a4
 Lei em sentido amplo = 1640748c6d
-Fontes secundárias = df811e9614
-Pegadinhas = a4cfabc374
-Base legal / referência = 533a7e4dae
+Entendimentos judiciais vinculantes (fonte primária) = b265cfb481
+Fontes secundárias = 5094c3c76c
+Pegadinhas = b796a88404
+Base legal / referência = 1cbf39f645
 -->
 
 ## M001 · fácil · CEBRASPE · Classificação
 Quanto à classificação das fontes do direito administrativo, assinale a opção correta.
 
 - A) A jurisprudência, a doutrina e os costumes são fontes primárias.
-- B) As fontes primárias, também chamadas de formais, são as leis em sentido amplo.
+- B) As fontes primárias, também chamadas de formais, compreendem as leis em sentido amplo e os entendimentos judiciais vinculantes.
 - C) As fontes secundárias são as escritas e organizadas.
 - D) A lei é fonte secundária, por estar materializada em texto.
 - E) A doutrina é fonte primária, por construir os conceitos do ramo.
 - Gabarito: B
-- Comentário: as fontes primárias (formais, organizadas, escritas) são as leis em sentido amplo; as secundárias (materiais, não organizadas, não escritas) são a jurisprudência, a doutrina e os costumes. As demais alternativas trocam as categorias.
+- Comentário: as fontes primárias (formais, organizadas, escritas) compreendem as leis em sentido amplo e os entendimentos judiciais vinculantes; as secundárias (materiais, não organizadas, não escritas) são a jurisprudência, a doutrina e os costumes. As demais alternativas trocam as categorias.
 
 ## M002 · médio · FGV · Lei em sentido amplo
 De acordo com a doutrina, a lei em sentido amplo, fonte primária do direito administrativo, caracteriza-se
@@ -38,7 +39,7 @@ Acerca das fontes secundárias do direito administrativo, assinale a opção cor
 - D) Os costumes podem contrariar a lei, desde que reiterados e considerados obrigatórios.
 - E) As súmulas vinculantes não vinculam a Administração, por serem jurisprudência.
 - Gabarito: A
-- Comentário: o costume é prática reiterada tida como obrigatória e atua *praeter legem*, para suprir lacunas, sem contrariar a lei (legalidade). B generaliza: em regra a jurisprudência não vincula; C ignora que a doutrina é a base da formação dos institutos; D admite costume contra a lei; E esquece que as súmulas vinculantes vinculam (CF, art. 103-A).
+- Comentário: o costume é prática reiterada tida como obrigatória e atua *praeter legem*, para suprir lacunas, sem contrariar a lei (legalidade). B generaliza: em regra a jurisprudência não vincula; C ignora que a doutrina é a base da formação dos institutos; D admite costume contra a lei; E esquece que as súmulas vinculantes, fonte primária, vinculam a Administração (CF, art. 103-A).
 
 ## M004 · difícil · FGV · Fontes secundárias
 Em reunião no Município Alfa, discutiu-se a observância de três fontes do direito administrativo: (i) súmula vinculante do STF sobre tema de pessoal; (ii) tese doutrinária de renomado autor que contraria a literalidade de lei municipal; e (iii) costume local, reiterado e tido como obrigatório, que também contraria a lei municipal.
@@ -51,7 +52,7 @@ De acordo com a Constituição Federal e com a doutrina, a orientação correta 
 - D) a súmula vinculante e a doutrina vinculam a Administração, ao passo que o costume só vale quando regulamentado por decreto.
 - E) a súmula vinculante vincula a Administração, a doutrina orienta a interpretação sem prevalecer sobre a lei, e o costume só supre lacunas, não podendo contrariar a lei.
 - Gabarito: E
-- Comentário: as súmulas vinculantes vinculam a Administração (CF, art. 103-A); a doutrina constrói conceitos e orienta a interpretação; o costume atua *praeter legem* e não contraria a lei, em razão da legalidade. A e B erram na classificação ou na vinculação; C e D atribuem ao costume e à doutrina efeitos que o tema não reconhece.
+- Comentário: as súmulas vinculantes, entendimento judicial vinculante e fonte primária, vinculam a Administração (CF, art. 103-A); a doutrina, fonte secundária, constrói conceitos e orienta a interpretação; o costume, também secundário, atua *praeter legem* e não contraria a lei, em razão da legalidade. A erra ao tornar primárias a doutrina e o costume; B erra ao tratar a súmula vinculante como fonte secundária que não vincula; C e D atribuem ao costume e à doutrina efeitos que o tema não reconhece.
 
 ## M005 · médio · CEBRASPE · Lei em sentido amplo
 Acerca dos atos normativos administrativos, assinale a opção correta.
@@ -86,10 +87,10 @@ Com relação às fontes do direito administrativo e à natureza normativa dos a
 - D) As leis em sentido estrito têm natureza normativa secundária, por serem infraconstitucionais.
 - E) A jurisprudência, por ter natureza normativa primária, é fonte primária do direito administrativo.
 - Gabarito: C
-- Comentário: há dois sentidos de primária e secundária. Quanto à fonte, é primária a lei em sentido amplo, que inclui os atos normativos administrativos; quanto à natureza normativa, estes são secundários porque não inovam. A e B misturam os dois sentidos; D erra ao tratar a lei em sentido estrito como secundária; E atribui natureza primária à jurisprudência, que é fonte secundária.
+- Comentário: há dois sentidos de primária e secundária. Quanto à fonte, é primária a lei em sentido amplo, que inclui os atos normativos administrativos; quanto à natureza normativa, estes são secundários porque não inovam. A e B misturam os dois sentidos; D erra ao tratar a lei em sentido estrito como secundária; E atribui natureza primária à jurisprudência em geral, que é fonte secundária (só os entendimentos judiciais vinculantes são fonte primária).
 
 ## M008 · médio · FGV · Fontes secundárias
-Avalie as afirmativas a seguir, sobre as fontes secundárias do direito administrativo.
+Avalie as afirmativas a seguir, sobre as fontes do direito administrativo.
 
 I. A doutrina constrói os conceitos e orienta a interpretação, sendo, no direito administrativo, a base da formação dos institutos.
 
@@ -116,7 +117,7 @@ Assinale a opção que apresenta, respectivamente, exemplos de fonte primária e
 - D) Lei em sentido amplo; costume.
 - E) Constituição Federal; lei ordinária.
 - Gabarito: D
-- Comentário: a lei em sentido amplo é fonte primária; o costume, a jurisprudência e a doutrina são fontes secundárias. A, B e C põem fontes secundárias na primeira posição ou invertem os grupos; E cita duas espécies de lei em sentido amplo, ambas primárias.
+- Comentário: a lei em sentido amplo é fonte primária; o costume, a jurisprudência (em regra, sem força vinculante) e a doutrina são fontes secundárias. A, B e C põem fontes secundárias na primeira posição ou invertem os grupos; E cita duas espécies de lei em sentido amplo, ambas primárias.
 
 ## M010 · médio · FGV · Lei em sentido amplo
 O Município Alfa editou decreto regulamentar que, a pretexto de dar execução a lei municipal, instituiu obrigação nova para os comerciantes locais, sem previsão naquela lei.
@@ -130,3 +131,103 @@ Considerando a natureza normativa dos atos que compõem a lei em sentido amplo, 
 - E) válido, pois o decreto situa-se acima da lei na hierarquia normativa, desde que editado pelo chefe do Poder Executivo.
 - Gabarito: B
 - Comentário: o decreto executivo esmiúça a lei ou a regulamenta, mas é ato normativo secundário e infralegal, que não inova na ordem jurídica; a obrigação nova só poderia ser criada por lei. A e C conferem ao decreto força inovadora; D nega que seja fonte, quando integra a lei em sentido amplo; E inverte a hierarquia.
+
+## M011 · fácil · CEBRASPE · Entendimentos judiciais vinculantes (fonte primária)
+Quanto aos entendimentos judiciais vinculantes como fonte do direito administrativo, assinale a opção correta.
+
+- A) São fonte secundária, por terem origem jurisprudencial.
+- B) Produzem efeitos apenas entre as partes do processo em que foram proferidos.
+- C) Abrangem as súmulas editadas por qualquer tribunal superior.
+- D) Têm efeitos *erga omnes*, e não apenas *inter partes*.
+- E) Restringem-se às súmulas vinculantes, não alcançando as decisões em controle concentrado.
+- Gabarito: D
+- Comentário: os entendimentos judiciais vinculantes são fonte primária e têm efeitos *erga omnes*, isto é, valem para todos, e não somente para os envolvidos. A confunde-os com a jurisprudência em geral, que é secundária; B inverte os efeitos; C ignora que as súmulas vinculantes são exclusivas do STF (CF, art. 103-A); E esquece as decisões em ADI e ADC (CF, art. 102, § 2º).
+
+## M012 · difícil · FGV · Entendimentos judiciais vinculantes (fonte primária)
+Em reunião na Secretaria de Administração do Município Beta, discutiu-se se o Município, que não foi parte em determinada ação direta de inconstitucionalidade julgada pelo Supremo Tribunal Federal, deveria observar o que ali se decidiu. Um dos presentes sustentou que a jurisprudência é fonte secundária e, em regra, não obrigatória para a Administração.
+
+À luz da classificação das fontes do direito administrativo, a orientação correta é a de que
+
+- A) a decisão em ação direta de inconstitucionalidade é fonte primária e tem efeitos *erga omnes*, alcançando o Município ainda que ele não tenha sido parte do processo.
+- B) a decisão é fonte secundária e vincula apenas as partes da ação, pois os efeitos *inter partes* são a regra nas decisões do Supremo Tribunal Federal.
+- C) a decisão é fonte primária, mas de efeitos *inter partes*, de modo que o Município só a observaria se tivesse integrado o processo como parte.
+- D) a decisão é fonte subsidiária, que o Município pode afastar por razões de conveniência, porque a jurisprudência, em regra, não é obrigatória.
+- E) a decisão só obriga o Município se for convertida em súmula vinculante, pois somente estas têm efeitos *erga omnes*.
+- Gabarito: A
+- Comentário: as decisões em ADI e ADC (CF, art. 102, § 2º) são entendimentos judiciais vinculantes, fonte primária, com efeitos *erga omnes* e não *inter partes*. D aplica a regra geral da jurisprudência, que tem exceções justamente para o controle concentrado e as súmulas vinculantes; B e C invertem os efeitos ou a natureza; E esquece que as decisões em ADI e ADC também têm efeitos *erga omnes*.
+
+## M013 · médio · CEBRASPE · Entendimentos judiciais vinculantes (fonte primária)
+Com relação às súmulas vinculantes, assinale a opção correta.
+
+- A) Podem ser editadas por qualquer tribunal, desde que reiteradas as decisões sobre o tema.
+- B) São fonte secundária, porque a jurisprudência, em regra, não é obrigatória para a Administração.
+- C) Têm efeitos *inter partes*, restritos aos envolvidos no precedente que as originou.
+- D) Têm como fundamento o art. 102, § 2º, da Constituição Federal, o mesmo que trata das decisões em ADI e ADC.
+- E) Constituem fonte primária, são exclusivas do Supremo Tribunal Federal e têm efeitos *erga omnes*.
+- Gabarito: E
+- Comentário: as súmulas vinculantes (CF, art. 103-A) são exclusivas do STF, têm efeitos *erga omnes* e integram, com o controle concentrado, os entendimentos judiciais vinculantes, fonte primária. A estende a competência a qualquer tribunal; B aplica a regra geral da jurisprudência, da qual elas são exceção; C inverte os efeitos; D troca o dispositivo (o art. 102, § 2º, trata das ADI e ADC).
+
+## M014 · difícil · FGV · Fontes secundárias
+Avalie as afirmativas a seguir, relativas à jurisprudência e aos entendimentos judiciais vinculantes no direito administrativo.
+
+I. As decisões em ação direta de inconstitucionalidade e em ação declaratória de constitucionalidade e as súmulas vinculantes são fonte primária, com efeitos *erga omnes*.
+
+II. A jurisprudência, conjunto de decisões de mesmo teor sobre determinada matéria, é fonte secundária e, em regra, sem força vinculante, ressalvados os entendimentos judiciais vinculantes.
+
+III. A repercussão geral, no Superior Tribunal de Justiça, e os recursos repetitivos, no Supremo Tribunal Federal, são decisões específicas que firmam jurisprudência.
+
+Está correto o que se afirma em
+
+- A) I, apenas.
+- B) II, apenas.
+- C) I e II, apenas.
+- D) II e III, apenas.
+- E) I, II e III.
+- Gabarito: C
+- Comentário: I e II reproduzem o tema (CF, arts. 102, § 2º, e 103-A). A afirmativa III é falsa porque troca os tribunais: a repercussão geral é do STF e os recursos repetitivos, do STJ.
+
+## M015 · médio · CEBRASPE · Fontes secundárias
+No que se refere à jurisprudência como fonte do direito administrativo, assinale a opção correta.
+
+- A) É formada por conjunto de decisões de mesmo teor, exaradas exclusivamente pelo Poder Judiciário.
+- B) A súmula dá publicidade à jurisprudência e a organiza.
+- C) A repercussão geral é o instrumento que firma jurisprudência no âmbito do Superior Tribunal de Justiça.
+- D) É fonte primária e vincula a Administração em qualquer hipótese.
+- E) Forma-se por decisões de teor diverso reunidas pelos tribunais superiores.
+- Gabarito: B
+- Comentário: a súmula dá publicidade e organiza a jurisprudência, que é conjunto de decisões de mesmo teor, exaradas pelos tribunais, mas não somente pelo Judiciário. A restringe a origem ao Judiciário; C troca o tribunal (a repercussão geral é do STF); D ignora que a jurisprudência é fonte secundária, sem força vinculante, salvo as exceções; E descaracteriza o requisito do mesmo teor.
+
+## M016 · médio · FGV · Fontes secundárias
+Em autarquia estadual, há décadas, os servidores seguem determinado procedimento informal de registro de pedidos de certidão, sobre o qual a lei é omissa. Tanto os servidores quanto os administrados acreditam tratar-se de regra obrigatória. A Procuradoria foi consultada sobre se tal prática pode ser reconhecida como costume, fonte secundária do direito administrativo.
+
+Para que a prática seja reconhecida como costume, é necessário que seja aplicada por longo período, que não contrarie a lei e que
+
+- A) esteja reduzida a escrito e organizada em ato normativo da própria autarquia.
+- B) seja confirmada em súmula vinculante do Supremo Tribunal Federal.
+- C) tenha sido editada pelo Poder Legislativo, como espécie de lei em sentido amplo.
+- D) esteja prevista em decreto regulamentar, que lhe confira natureza normativa primária.
+- E) seja observada com a consciência de sua obrigatoriedade, ou seja, a crença de que se trata de norma.
+- Gabarito: E
+- Comentário: o costume é conjunto de regras informais, observadas de forma uniforme e constante, aplicado em regra na ausência de lei e com consciência de sua obrigatoriedade. A e D exigem formalização, incompatível com fonte não escrita; B e C exigem origem em fonte primária, quando o costume é, por definição, fonte secundária.
+
+## M017 · fácil · CEBRASPE · Classificação
+Assinale a opção que preenche corretamente as lacunas do texto a seguir. As fontes ______, também chamadas de formais, incluem as leis e os entendimentos judiciais vinculantes; as fontes ______, também denominadas mediatas ou subsidiárias, são, em regra, ______ para a Administração.
+
+- A) primárias; secundárias; não obrigatórias
+- B) secundárias; primárias; obrigatórias
+- C) primárias; secundárias; obrigatórias
+- D) secundárias; primárias; não obrigatórias
+- E) materiais; formais; obrigatórias
+- Gabarito: A
+- Comentário: as fontes primárias (formais, organizadas, escritas) incluem as leis em sentido amplo e os entendimentos judiciais vinculantes; as secundárias (materiais, não organizadas, não escritas, mediatas ou subsidiárias) são jurisprudência, doutrina e costumes e, em regra, não obrigatórias. As demais alternativas invertem os grupos ou a obrigatoriedade.
+
+## M018 · médio · FGV · Fontes secundárias
+Sobre as fontes do direito administrativo, todas as afirmativas a seguir estão corretas, **EXCETO**:
+
+- A) A jurisprudência é fonte secundária ou subsidiária e, em regra, não tem força vinculante.
+- B) A súmula dá publicidade à jurisprudência e a organiza.
+- C) O costume atua para suprir lacunas e não pode contrariar a lei.
+- D) A doutrina, por influenciar a criação de leis, é fonte primária e vincula a Administração.
+- E) As súmulas vinculantes são exclusivas do Supremo Tribunal Federal e têm efeitos *erga omnes*.
+- Gabarito: D
+- Comentário: a doutrina é fonte secundária, não vinculante; orienta e fundamenta decisões e pode influenciar a criação de leis, mas não se torna fonte primária por isso. As demais reproduzem o tema (CF, art. 103-A, quanto à E).

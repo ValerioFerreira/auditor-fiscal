@@ -45,6 +45,7 @@
 - Lançamentos, fórmulas e retificação → `lancamentos-e-retificacao.md`
 - Partidas dobradas → `../03 - Contas/contas-e-partidas-dobradas.md`
 - Exemplos de lançamentos → `exemplos-de-escrituracao.md`
+- Balanço patrimonial e demais demonstrações → `../06 - Demonstrações Contábeis/demonstracoes-contabeis.md`
 
 ## Mapa mental
 

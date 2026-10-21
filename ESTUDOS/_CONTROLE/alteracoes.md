@@ -252,3 +252,55 @@
 | INCOMPLETA | Fontes primárias e secundárias | Acrescentados o papel da súmula vinculante e do controle concentrado (CF, arts. 102, §2º, e 103-A) e dos costumes (suprem lacunas) |
 | INCOMPLETA | Principais mudanças recentes | Leis de referência: Lei 13.848/2019 (agências), EC 19/1998 (administração gerencial) e Lei 13.140/2015 (mediação) |
 | REORGANIZAÇÃO | — | Dois temas novos em `01 - Introdução ao Direito Administrativo`: `direito-administrativo-brasileiro.md` e `fontes-do-direito-administrativo.md` |
+
+## v014 — 21/10/2026 (resumos de 21/10/2026 e resumo sintético)
+### Direito Tributário
+
+| Classificação | Como estava no resumo | Como ficou na base |
+|---|---|---|
+| IMPRECISA | Vedação às isenções heterônomas: "veda-se qualquer ente em relação a outro" | O texto expresso (CF, art. 151, III) veda à União; para os demais entes a vedação decorre da autonomia (mantida a frase do resumo, com essa explicação) |
+| INCOMPLETA | Multas: "até que se edite LC federal (editou-se a 236/26, 75% como regra)" | Conferido no Planalto: CTN, art. 113-A (75%, 100% e 150%); ficam de fora as multas isoladas desvinculadas de valor de crédito ou tributo |
+| DIVERGÊNCIA | "STF: a progressividade deve incidir sobre todas as espécies tributárias" | Mantido como "segundo o material" (afirmação mais ampla que a usual) |
+| CONFIRMADA | LC 105/2001: acesso do Fisco a dados bancários constitucional (transferência do sigilo) | Mantido, com a base (CF, art. 145, §1º) |
+| CONFIRMADA | Súmulas 656 e 668 do STF (progressividade do ITBI e do IPTU) | Mantidas |
+| INCOMPLETA | Anterioridade: exceções e medidas provisórias | Acrescentados CTN, art. 104 e CF, art. 62, §2º e 195, §6º; ressalva "salvo lei mais favorável" explicada (vale para o inciso III) |
+| INCOMPLETA | Irretroatividade: "não há exceções, porém há" | Acrescentado o CTN, art. 106 (lei interpretativa e retroatividade benigna) e a Súmula 584 (superada) |
+| IMPRECISA | Segurança jurídica: "direito a certidões negativas de débito" ao formalizar a dívida | Certidão **positiva com efeitos de negativa** (CTN, art. 206) |
+| INCOMPLETA | Imunidades: conceito e classificações | Acrescentados o CTN, art. 175 (exclusão do crédito e obrigações acessórias) e a lista do art. 150, VI (detalhamento: a estudar) |
+| REORGANIZAÇÃO | — | Oito temas novos em `04 - Limitações ao Poder de Tributar` |
+
+### Contabilidade Geral e Avançada
+
+| Classificação | Como estava no resumo | Como ficou na base |
+|---|---|---|
+| INCORRETA | Contas do PL: "No CTN" e reservas de lucros: "CTN" | Lei 6.404/1976 (art. 178, §2º, III, e art. 182, §4º) |
+| IMPRECISA | Capital social: "montante subscrito = capital social integralizado" | Subscrito = o que os sócios se comprometeram a entregar; a integralizar = redutora; **subscrito − a integralizar = integralizado** |
+| IMPRECISA | Coligadas: "pelo menos 20% das ações" | Influência significativa, presumida a partir de 20% do capital votante (Lei 6.404/1976, art. 243, §§4º e 5º); controladas por preponderância nas deliberações |
+| INCOMPLETA | ARLP: direito "decorrente de vendas" | Vendas, adiantamentos ou empréstimos (Lei 6.404/1976, art. 179, II) |
+| DIVERGÊNCIA | Receitas diferidas: não circulante, independentemente do prazo | Mantido como no resumo, com a ressalva de que parte da doutrina as classifica pelo prazo |
+| IMPRECISA | Arrendamento financeiro x operacional (roteiro de indícios) | Mantido, com ⚠️: o roteiro é do CPC 06 (R1); o CPC 06 (R2) eliminou a distinção para o arrendatário |
+| INCOMPLETA | DFC dispensada com PL inferior a R$ 2 milhões; DVA só para companhias abertas | Fundamentos (Lei 6.404/1976, art. 176, V e §6º) |
+| CONFIRMADA | Exemplo da emissão de ações (caixa 14.500; capital 10.000; reserva de capital 4.500) | Conferido |
+| CONFIRMADA | Primeira parte (atos e fatos, livros, contas, razonete, fórmulas) | Já estava na base; acrescentada a limitação do razonete na detecção de erros |
+| REORGANIZAÇÃO | — | Nova pasta `06 - Demonstrações Contábeis`, com três temas |
+
+### Direito Constitucional
+
+| Classificação | Como estava no resumo | Como ficou na base |
+|---|---|---|
+| INCOMPLETA | Repristinação: "só com disposição expressa" | Base: LINDB, art. 2º, §3º |
+| DIVERGÊNCIA | Alteração da repartição de competências: "de maior para menor grau, somente nesse sentido" | Mantido como "segundo o material" (sem base doutrinária identificada) |
+| INCOMPLETA | Interpretação conforme a Constituição | Base: Lei 9.868/1999, art. 28, parágrafo único |
+| INCOMPLETA | Eficácia horizontal direta | Acrescentado o STF, RE 201.819 |
+| CONFIRMADA | Gerações dos direitos fundamentais | Já estava na base; ampliada com os status, a terminologia e os catalogados |
+| REORGANIZAÇÃO | — | Dois temas novos em `01 - Teoria da Constituição` e um em `03 - Direitos e Garantias Fundamentais` |
+
+### Direito Administrativo
+
+| Classificação | Como estava | Como ficou na base |
+|---|---|---|
+| DIVERGÊNCIA | Súmulas vinculantes e controle concentrado tratados como "vinculam" dentro das fontes secundárias | Reclassificados como **fonte primária** (entendimentos judiciais vinculantes), como no resumo de 21/10; questões de fontes ajustadas |
+| INCOMPLETA | Sistemas administrativos e decisão definitiva do Legislativo | Base: CF, art. 5º, XXXV, e art. 52, I |
+| INCOMPLETA | Pontos comuns da federação | Artigos da Constituição acrescentados; sobreposição com Constitucional mantida e ligada |
+| REORGANIZAÇÃO | Imagem do resumo (Administração Pública: sentidos e atividades) | Inserida no tema, com o conteúdo no texto alternativo |
+| REORGANIZAÇÃO | — | Três temas novos (`sistemas-administrativos`, `estado-e-governo`, `administracao-publica-sentidos-e-atividades`) |

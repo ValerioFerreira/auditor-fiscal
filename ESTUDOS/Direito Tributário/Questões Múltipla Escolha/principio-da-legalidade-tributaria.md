@@ -1,7 +1,7 @@
 # Questões de múltipla escolha — Princípio da Legalidade Tributária
 <!-- cobertura
-Conceito = 7d0fe870ad
-Veículos normativos = 75c17d5de5
+Conceito = 8358b1e639
+Veículos normativos = b772e32fc9
 Exceções ao princípio da legalidade = 8ad04f1026
 Jurisprudência importante = 5524da6836
 Pegadinhas = 103bc73c74
@@ -166,3 +166,14 @@ O Conselho Regional de Engenharia do Estado Gama, por resolução, atualizou o v
 - E) A resolução é inválida, pois a ART tem natureza de imposto, e a sua alteração depende de lei complementar.
 - Gabarito: C
 - Comentário: a ART tem natureza de taxa, e o STF admite que seu valor seja fixado por ato infralegal, em proporção razoável com os custos da atuação estatal, dentro do índice de correção monetária e desde que a lei estabeleça o teto (Tema 829, RE 838.284); o ato do conselho não pode atualizar o valor acima dos índices legalmente previstos. A e D ignoram o teto legal; B nega a possibilidade de ato infralegal; E erra a natureza do tributo.
+
+## M014 · médio · CEBRASPE · Conceito
+Acerca da reserva de lei em matéria tributária, assinale a opção correta.
+
+- A) As hipóteses de exclusão, suspensão e extinção de créditos tributários, bem como a dispensa ou a redução de penalidades, são matérias reservadas à lei.
+- B) A cominação de penalidades pode ser feita por decreto, pois a multa não é tributo.
+- C) A fixação da alíquota e da base de cálculo pode ser feita por decreto, desde que o fato gerador esteja definido em lei.
+- D) As hipóteses de dispensa ou redução de penalidades podem ser definidas por norma infralegal.
+- E) A definição do sujeito passivo da obrigação principal dispensa lei, bastando que o fato gerador esteja previsto em lei.
+- Gabarito: A
+- Comentário: o art. 97, VI, do CTN reserva à lei as hipóteses de exclusão, suspensão e extinção de créditos tributários e de dispensa ou redução de penalidades. B contraria o art. 97, V, pois a cominação de penalidades exige lei, embora a multa não seja tributo; C e E contrariam os incisos III e IV; D contraria o inciso VI.

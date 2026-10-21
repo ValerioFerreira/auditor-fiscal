@@ -135,6 +135,9 @@
 - Tratados de direitos humanos (status supralegal) → `hierarquia-das-normas.md`
 - Anterioridade tributária → Direito Tributário, limitações ao poder de tributar (a estudar)
 - Processo legislativo, intervenção federal, estado de defesa e de sítio — a estudar
+- Mutação constitucional e métodos de interpretação → `interpretacao-constitucional.md`
+- Efeitos de uma nova Constituição sobre a ordem anterior → `direito-constitucional-intertemporal.md`
+- Cláusulas pétreas e proibição do retrocesso dos direitos fundamentais → `../03 - Direitos e Garantias Fundamentais/caracteristicas-limites-e-eficacia-dos-direitos-fundamentais.md`
 
 ## Mapa mental
 

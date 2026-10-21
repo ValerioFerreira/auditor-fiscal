@@ -68,6 +68,8 @@
 
 - Tipos de capital → `capital.md`
 - Contas patrimoniais → `../03 - Contas/contas-e-partidas-dobradas.md`
+- Bens, direitos, obrigações e PL no balanço → `../06 - Demonstrações Contábeis/balanco-patrimonial.md`
+- Contas do patrimônio líquido → `../06 - Demonstrações Contábeis/patrimonio-liquido.md`
 
 ## Mapa mental
 

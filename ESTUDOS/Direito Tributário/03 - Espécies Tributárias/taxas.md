@@ -140,6 +140,9 @@
 ## Relações com outros assuntos
 
 - COSIP → `contribuicoes-especiais.md`
+- Pedágio (preço público, não taxa) → `../04 - Limitações ao Poder de Tributar/liberdade-de-trafego-e-principios-federativos.md`
+- Taxa de polícia e custo da atividade (não confisco) → `../04 - Limitações ao Poder de Tributar/vedacao-ao-confisco.md`
+- Valor da taxa fixado por ato infralegal (Tema 829) → `../04 - Limitações ao Poder de Tributar/principio-da-legalidade-tributaria.md`
 - Direito de petição e certidões → `Direito Administrativo/04 - Princípios da Administração Pública/principios-expressos.md` (Publicidade)
 - Poder de polícia — Direito Administrativo (a estudar)
 - Competências legislativas da União (art. 22) — Direito Constitucional (a estudar)

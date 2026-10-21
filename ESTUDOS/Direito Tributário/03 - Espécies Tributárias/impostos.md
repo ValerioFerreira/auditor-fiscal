@@ -42,6 +42,9 @@
 - Vinculação (FG x arrecadação) → `../02 - Tributo/natureza-juridica-e-classificacao.md`
 - Taxa não pode ter base de cálculo própria de imposto → `taxas.md`
 - Contribuições residuais (paralelo) → `contribuicoes-sociais-e-previdenciarias.md`
+- Capacidade contributiva, progressividade e impostos reais e pessoais → `../04 - Limitações ao Poder de Tributar/capacidade-contributiva.md`
+- Imunidades (impostos) → `../04 - Limitações ao Poder de Tributar/imunidades-tributarias.md`
+- Anterioridade e noventena dos impostos → `../04 - Limitações ao Poder de Tributar/anterioridade-e-noventena.md`
 - Impostos em espécie e competência — a estudar
 
 ## Mapa mental

@@ -22,7 +22,7 @@
 | **Diário** | Os fatos contábeis, dia a dia, em **ordem cronológica**. **Não substitui** o Razão | **Obrigatório** para o empresário e a sociedade empresária (CC, art. 1.180), exceto o pequeno empresário. Pode ser substituído por **fichas** na escrituração mecanizada ou eletrônica |
 | **Razão** | O **movimento analítico** das contas escrituradas no Diário e constantes do balanço; registra os fatos **sistematicamente, por tipo de conta** | **Facultativo** pela legislação comercial/societária; **obrigatório** pelo regulamento do imposto de renda (RIR/2018, Decreto nº 9.580/2018) para as entidades que declaram pelo **lucro real**, que devem manter também os livros de **Registro de Inventário**, de **Registro de Compras** e de **Apuração do Lucro Real (LALUR)** |
 | **Caixa** | Os **recebimentos e pagamentos**, em ordem cronológica | No **lucro presumido**, a pessoa jurídica que mantiver Livro Caixa com **toda a movimentação financeira, inclusive bancária**, não precisa manter a escrituração contábil nos termos da legislação comercial (Lei 8.981/1995, art. 45, parágrafo único) |
-| **Razonete** | Simplificação do Razão em forma de **"T"**: lado esquerdo = **saldo devedor** (débitos); lado direito = **saldo credor** (créditos) | Instrumento didático e de análise; não é livro obrigatório |
+| **Razonete** | Simplificação do Razão em forma de **"T"**: lado esquerdo = **saldo devedor** (débitos); lado direito = **saldo credor** (créditos) | Instrumento didático e de análise; **ajuda a conferir o método das partidas dobradas** do Razão, mas é **limitado na detecção de erros**; não é livro obrigatório |
 
 > ⚠️ **O Razão depende do referencial:** pela legislação comercial é facultativo; pelo IR (lucro real) é obrigatório; e a ITG 2000 (R1), ao tratar das formalidades, cita o Razão entre os "livros contábeis obrigatórios", ao lado do Diário.
 
@@ -90,6 +90,7 @@
 - Contas, razonete e partidas dobradas → `../03 - Contas/contas-e-partidas-dobradas.md`
 - Fatos contábeis que são escriturados → `../04 - Atos e Fatos Administrativos/atos-e-fatos-administrativos.md`
 - Escrituração como técnica contábil → `../01 - Noções Introdutórias/nocoes-introdutorias.md`
+- Demonstrações contábeis elaboradas a partir da escrituração → `../06 - Demonstrações Contábeis/demonstracoes-contabeis.md`
 
 ## Mapa mental
 

@@ -16,8 +16,6 @@
 | **França** | **Atos administrativos**, **autoexecutoriedade**, **prerrogativas**… |
 | **Estados Unidos** | **Jurisprudência**, **unicidade de jurisdição**, **controle jurisdicional**… |
 
-> No material de estudo, a **razoabilidade** aparece tanto na influência portuguesa quanto na alemã.
-
 ## Principais mudanças recentes
 
 | Tendência | Em que consiste |

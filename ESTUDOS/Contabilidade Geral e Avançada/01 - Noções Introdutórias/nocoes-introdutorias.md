@@ -53,6 +53,8 @@
 ## Relações com outros assuntos
 
 - Patrimônio → `../02 - Patrimônio/patrimonio.md`
+- Demonstrações contábeis (S.A. e NBC TG 26) → `../06 - Demonstrações Contábeis/demonstracoes-contabeis.md`
+- Balanço patrimonial → `../06 - Demonstrações Contábeis/balanco-patrimonial.md`
 
 ## Mapa mental
 

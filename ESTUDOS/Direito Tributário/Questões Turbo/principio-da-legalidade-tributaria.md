@@ -1,7 +1,7 @@
 # Questões turbo — Princípio da Legalidade Tributária
 <!-- cobertura
-Conceito = 7d0fe870ad
-Veículos normativos = 75c17d5de5
+Conceito = 8358b1e639
+Veículos normativos = b772e32fc9
 Exceções ao princípio da legalidade = 8ad04f1026
 Jurisprudência importante = 5524da6836
 Pegadinhas = 103bc73c74

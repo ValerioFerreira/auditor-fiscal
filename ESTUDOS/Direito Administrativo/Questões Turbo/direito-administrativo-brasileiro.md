@@ -1,7 +1,7 @@
 # Questões turbo — Direito Administrativo Brasileiro: Formação, Influências e Tendências
 <!-- cobertura
 Formação = d817a08579
-Influências estrangeiras = dfbb65ae3b
+Influências estrangeiras = 761932fab8
 Principais mudanças recentes = 6fca9e1b34
 Pegadinhas = f4729e522e
 Base legal / referência = fe71c89d27
@@ -101,3 +101,13 @@ Pela tendência de centralidade da pessoa humana, a supremacia do interesse púb
 Denomina-se fuga do Direito Administrativo para o direito privado a adoção, no setor público, de maior número de instrumentos do direito privado, com vistas à eficiência.
 - Gabarito: CERTO
 - Comentário: Nessa tendência, o setor público passa a empregar mais instrumentos do direito privado, em busca de eficiência.
+
+## Q020 · médio · Influências estrangeiras
+A razoabilidade, no Direito Administrativo brasileiro, é atribuída exclusivamente à influência portuguesa, sem relação com o direito alemão.
+- Gabarito: ERRADO
+- Comentário: A razoabilidade é associada tanto à influência portuguesa quanto à alemã. À Alemanha atribuem-se ainda os conceitos jurídicos indeterminados e a segurança jurídica.
+
+## Q021 · médio · Influências estrangeiras
+O mandado de segurança figura entre os institutos que a doutrina relaciona à influência do direito britânico sobre o Direito Administrativo brasileiro.
+- Gabarito: CERTO
+- Comentário: Do Reino Unido (influência britânica) vieram o mandado de segurança e o mandado de injunção, o devido processo legal e a regulação estatal.

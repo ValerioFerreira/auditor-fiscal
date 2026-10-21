@@ -1,7 +1,7 @@
 # Questões de múltipla escolha — Direito Administrativo Brasileiro: Formação, Influências e Tendências
 <!-- cobertura
 Formação = d817a08579
-Influências estrangeiras = dfbb65ae3b
+Influências estrangeiras = 761932fab8
 Principais mudanças recentes = 6fca9e1b34
 Pegadinhas = f4729e522e
 Base legal / referência = fe71c89d27

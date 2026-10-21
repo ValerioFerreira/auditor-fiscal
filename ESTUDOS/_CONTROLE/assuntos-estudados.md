@@ -1,6 +1,6 @@
 # Assuntos Estudados — Visão Geral
 
-> Versão da base: **v013** (07/10/2026) · ✅ consolidado · 🔶 consolidado com pendência (ver `pendencias.md`)
+> Versão da base: **v014** (21/10/2026) · ✅ consolidado · 🔶 consolidado com pendência (ver `pendencias.md`)
 
 ## Direito Tributário
 
@@ -17,6 +17,14 @@
 | 03 - Espécies Tributárias | `contribuicoes-sociais-e-previdenciarias.md` | Residuais x nominadas; sociais gerais; FGTS; seguridade (art. 195); CBS; RGPS x RPPS; EC 103 | 🔶 |
 | 04 - Limitações ao Poder de Tributar | `limitacoes-ao-poder-de-tributar.md` | Conceito; lei complementar x emenda; cláusulas pétreas (ADI 939) | 🔶 |
 | 04 - Limitações ao Poder de Tributar | `principio-da-legalidade-tributaria.md` | Reserva de lei (CTN, art. 97); lei delegada; medida provisória; matérias reservadas à LC; exceções; ART e Tema 829 | ✅ |
+| 04 - Limitações ao Poder de Tributar | `principio-da-isonomia-tributaria.md` | Conceito; jurisprudência (oito situações); SIMPLES | ✅ |
+| 04 - Limitações ao Poder de Tributar | `capacidade-contributiva.md` | Art. 145, §1º; equidade; impostos reais e pessoais; progressividade; Súmulas 656 e 668; EC 132; sigilo bancário | ✅ |
+| 04 - Limitações ao Poder de Tributar | `vedacao-ao-confisco.md` | Efeito confiscatório; multas; LC 236/2026 | ✅ |
+| 04 - Limitações ao Poder de Tributar | `irretroatividade-tributaria.md` | Exceções; cinco aspectos da hipótese de incidência; CSLL e IR | ✅ |
+| 04 - Limitações ao Poder de Tributar | `anterioridade-e-noventena.md` | Anterioridade; noventena; exceções; medidas provisórias; quadro-resumo | ✅ |
+| 04 - Limitações ao Poder de Tributar | `liberdade-de-trafego-e-principios-federativos.md` | Tráfego e pedágio; uniformidades; isenções heterônomas; não discriminação | ✅ |
+| 04 - Limitações ao Poder de Tributar | `transparencia-seguranca-juridica-e-novos-principios.md` | Transparência; segurança jurídica; princípios da EC 132 | ✅ |
+| 04 - Limitações ao Poder de Tributar | `imunidades-tributarias.md` | Não incidência, imunidade, isenção e alíquota zero; classificações | 🔶 |
 
 ## Contabilidade Geral e Avançada
 
@@ -34,6 +42,9 @@
 | 05 - Escrituração | `lancamentos-e-retificacao.md` | Elementos do lançamento; processo manual x mecanizado; fórmulas; erros; estorno, transferência e complementação | ✅ |
 | 05 - Escrituração | `exemplos-de-escrituracao.md` | Dezessete fatos com lançamento e classificação; momentos; desconto de duplicatas | ✅ |
 | 05 - Escrituração | `balancete-de-verificacao.md` | Conceito; elementos mínimos; 2, 4, 6 e 8 colunas; sintético x analítico; limites | ✅ |
+| 06 - Demonstrações Contábeis | `demonstracoes-contabeis.md` | Lei 6.404 (art. 176); NBC TG 26; disposições | ✅ |
+| 06 - Demonstrações Contábeis | `balanco-patrimonial.md` | Estrutura; ativo (circulante, ARLP, investimentos, imobilizado, intangível); passivo | 🔶 |
+| 06 - Demonstrações Contábeis | `patrimonio-liquido.md` | Contas da Lei 6.404; reservas; ações em tesouraria; absorção de prejuízos; exemplo | ✅ |
 
 ## Direito Constitucional
 
@@ -45,8 +56,11 @@
 | 01 - Teoria da Constituição | `poder-constituinte.md` | Originário, derivado (reformador, decorrente, revisor), difuso e supranacional; cláusulas pétreas | ✅ |
 | 01 - Teoria da Constituição | `eficacia-e-aplicabilidade-das-normas.md` | Regras x princípios; plena, contida, limitada; outras classificações | ✅ |
 | 01 - Teoria da Constituição | `hierarquia-das-normas.md` | Pirâmide; tratados; LC x LO; decretos | ✅ |
+| 01 - Teoria da Constituição | `direito-constitucional-intertemporal.md` | Revogação, recepção, repristinação e situações específicas | ✅ |
+| 01 - Teoria da Constituição | `interpretacao-constitucional.md` | Correntes; mutação; métodos; princípios; interpretação conforme | ✅ |
 | 02 - Princípios Fundamentais | `principios-fundamentais.md` | Arts. 1º a 4º: fundamentos; forma de Estado, de governo e regime político; Estado Democrático de Direito; separação dos Poderes; objetivos; relações internacionais | ✅ |
-| 03 - Direitos e Garantias Fundamentais | `teoria-geral-dos-direitos-fundamentais.md` | Gerações (dimensões) | ✅ |
+| 03 - Direitos e Garantias Fundamentais | `teoria-geral-dos-direitos-fundamentais.md` | Terminologia; direitos e garantias; gerações; status; catalogados | ✅ |
+| 03 - Direitos e Garantias Fundamentais | `caracteristicas-limites-e-eficacia-dos-direitos-fundamentais.md` | Características; dimensões; limites; eficácias; eficácia horizontal | ✅ |
 
 ## Direito Administrativo
 
@@ -55,7 +69,10 @@
 | 01 - Introdução ao Direito Administrativo | `conceito-e-objeto-do-direito-administrativo.md` | Origem; conceito; função administrativa e objeto; critérios para definição (oito, com imagem) | ✅ |
 | 01 - Introdução ao Direito Administrativo | `direito-administrativo-brasileiro.md` | Formação; influências estrangeiras; principais mudanças recentes | ✅ |
 | 01 - Introdução ao Direito Administrativo | `fontes-do-direito-administrativo.md` | Fontes primárias e secundárias; lei em sentido amplo; atos normativos administrativos | ✅ |
+| 01 - Introdução ao Direito Administrativo | `sistemas-administrativos.md` | Sistema inglês x francês; decisão definitiva do Legislativo | ✅ |
 | 02 - Regime Jurídico Administrativo | `regime-juridico-administrativo.md` | Público x privado; supremacia e indisponibilidade; interesse primário x secundário | ✅ |
+| 03 - Organização Administrativa | `estado-e-governo.md` | Estado; funções; federação; governo; formas e sistemas | ✅ |
+| 03 - Organização Administrativa | `administracao-publica-sentidos-e-atividades.md` | Função administrativa; sentidos; atividades-meio e fim (com imagem) | ✅ |
 | 03 - Organização Administrativa | `administracao-direta-e-indireta.md` | Entidades; órgãos; indireta; tutela | ✅ |
 | 04 - Princípios da Administração Pública | `principios-expressos.md` | LIMPE; nepotismo | 🔶 |
 | 04 - Princípios da Administração Pública | `principios-implicitos.md` | Razoabilidade, autotutela, motivação, continuidade, segurança jurídica e demais | ✅ |

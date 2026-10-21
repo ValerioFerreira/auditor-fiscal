@@ -57,6 +57,7 @@
 
 - Princípios → pasta `../04 - Princípios da Administração Pública/`
 - Organização administrativa → `../03 - Organização Administrativa/administracao-direta-e-indireta.md`
+- Função administrativa e Administração Pública (sentidos) → `../03 - Organização Administrativa/administracao-publica-sentidos-e-atividades.md`
 
 ## Mapa mental
 

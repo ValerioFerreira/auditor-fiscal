@@ -89,6 +89,7 @@
 - Situação líquida → `../02 - Patrimônio/patrimonio.md`
 - Escrituração (livros e formalidades) → `../05 - Escrituração/escrituracao-e-livros-contabeis.md`
 - Lançamentos, fórmulas e retificação → `../05 - Escrituração/lancamentos-e-retificacao.md`
+- Exemplos numéricos de fatos contábeis → `../05 - Escrituração/exemplos-de-escrituracao.md`
 
 ## Mapa mental
 

@@ -35,6 +35,7 @@
 
 - Patrimônio e equação patrimonial → `patrimonio.md`
 - Contas redutoras → `../03 - Contas/contas-e-partidas-dobradas.md`
+- Capital social no patrimônio líquido e demais contas do PL → `../06 - Demonstrações Contábeis/patrimonio-liquido.md`
 
 ## Mapa mental
 

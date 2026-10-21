@@ -33,7 +33,15 @@
 ## Relações com outros assuntos
 
 - Princípio da legalidade tributária → `principio-da-legalidade-tributaria.md`
-- Anterioridade, imunidades e demais princípios — a estudar
+- Isonomia → `principio-da-isonomia-tributaria.md`
+- Capacidade contributiva, progressividade e sigilo bancário → `capacidade-contributiva.md`
+- Vedação ao confisco e multas → `vedacao-ao-confisco.md`
+- Irretroatividade → `irretroatividade-tributaria.md`
+- Anterioridade e noventena → `anterioridade-e-noventena.md`
+- Liberdade de tráfego, uniformidades, isenções heterônomas e não discriminação → `liberdade-de-trafego-e-principios-federativos.md`
+- Transparência, segurança jurídica e princípios da EC 132/2023 → `transparencia-seguranca-juridica-e-novos-principios.md`
+- Imunidades → `imunidades-tributarias.md`
+- Direitos fundamentais e cláusulas pétreas → `../../Direito Constitucional/03 - Direitos e Garantias Fundamentais/teoria-geral-dos-direitos-fundamentais.md`
 - Competência tributária — a estudar
 - Cláusulas pétreas e limites ao poder de reforma → `../../Direito Constitucional/01 - Teoria da Constituição/poder-constituinte.md`
 

@@ -53,6 +53,8 @@
 ## Relações com outros assuntos
 
 - Regime jurídico das estatais → `../02 - Regime Jurídico Administrativo/regime-juridico-administrativo.md`
+- Estado, governo, federação e as funções estatais → `estado-e-governo.md`
+- Sentidos da Administração Pública e atividades-meio e fim → `administracao-publica-sentidos-e-atividades.md`
 
 ## Mapa mental
 

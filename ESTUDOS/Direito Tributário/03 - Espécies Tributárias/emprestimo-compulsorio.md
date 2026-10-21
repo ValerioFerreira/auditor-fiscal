@@ -56,7 +56,8 @@
 ## Relações com outros assuntos
 
 - Arrecadação vinculada → `../02 - Tributo/natureza-juridica-e-classificacao.md`
-- Anterioridade (Limitações ao poder de tributar) — a estudar
+- Anterioridade e exceções (urgência; investimento público) → `../04 - Limitações ao Poder de Tributar/anterioridade-e-noventena.md`
+- Matéria reservada à lei complementar (vedada à MP) → `../04 - Limitações ao Poder de Tributar/principio-da-legalidade-tributaria.md`
 
 ## Mapa mental
 

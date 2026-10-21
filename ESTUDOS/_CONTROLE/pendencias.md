@@ -14,6 +14,10 @@
 
 - **Contabilidade — venda à vista com lucro (resumo de 06/10/2026):** o resumo classifica como **misto aumentativo** (permuta do custo + lucro); relato de gabarito de banca trata a operação como **modificativo aumentativo** (receita e custo como fatos separados). Mantive o seu, e as questões evitam cobrar só essa classificação. Quer que eu registre a divergência no tema?
 
+- **Direito Constitucional — competências e rigidez (resumo de 21/10/2026):** o resumo diz que a repartição de competências pode passar "de maior para menor grau, somente nesse sentido" e que "quanto mais rígidas ou abstratas as normas, mais mutações". Mantive as duas frases como estão (a primeira com "segundo o material"). Qual é a fonte?
+
+- **Direito Administrativo — repercussão geral e recursos repetitivos (resumo de 21/10/2026):** o material os trata como jurisprudência (fonte secundária), mas o CPC, art. 927, dá força vinculante a alguns desses precedentes. Quer uma nota no tema?
+
 *As quatro pendências da carga inicial foram resolvidas por você em 27/09/2026 (ver `alteracoes.md`, v002).*
 
 ## 🟠 Acompanhar (jurisprudência/legislação em aberto)
@@ -42,7 +46,7 @@
 
 ## ⚪ Assuntos mencionados, mas ainda não consolidados (estudar)
 
-- **Tributário:** competência tributária; anterioridades e imunidades (demais limitações ao poder de tributar; legalidade já consolidada em 06/10/2026); obrigação tributária (art. 113); impostos em espécie; transação tributária.
+- **Tributário:** competência tributária; imunidades em espécie (art. 150, VI, em detalhe); obrigação tributária (art. 113); impostos em espécie; transação tributária.
 - **Constitucional:** processo legislativo (MP, LC, EC); controle de constitucionalidade (ADI, ADO, mandado de injunção); competências legislativas (art. 22); estado de defesa e de sítio; direitos fundamentais em espécie.
 - **Administrativo:** poderes administrativos (polícia, regulamentar, hierárquico); atos administrativos (anulação, revogação, convalidação); serviços públicos e concessões; agentes públicos (estabilidade, greve); improbidade; processo administrativo (Lei 9.784/99); bens públicos.
-- **Contabilidade:** demonstrações contábeis (Balanço Patrimonial, DRE).
+- **Contabilidade:** DRE, DFC, DVA, DMPL e DLPA em detalhe (o conjunto e o balanço patrimonial já estão consolidados).

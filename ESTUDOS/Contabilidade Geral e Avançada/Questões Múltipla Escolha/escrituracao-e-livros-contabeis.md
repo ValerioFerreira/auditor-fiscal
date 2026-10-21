@@ -2,7 +2,7 @@
 <!-- cobertura
 Conceito = 99615be267
 Obrigatoriedade e dispensa = 9f11e1fc6c
-Livros contábeis = b6d5295735
+Livros contábeis = 6b9d1fce73
 Livros obrigatórios das sociedades anônimas (Lei 6.404/1976, art. 100) = a2a6da11dc
 Formalidades da escrituração (ITG 2000 (R1)) = b448fb4af0
 Escrituração resumida do Diário (CC, art. 1.184) = 240c6c242f
@@ -205,3 +205,14 @@ Segundo o regulamento do imposto de renda (RIR/2018, Decreto nº 9.580/2018), a 
 - E) Razão, Registro de Inventário, Registro de Compras e LALUR.
 - Gabarito: E
 - Comentário: para as entidades do lucro real, o RIR/2018 exige o Livro Razão e os livros de Registro de Inventário, de Registro de Compras e de Apuração do Lucro Real (LALUR). A e B incluem o Livro Caixa, que não consta da relação; C omite o LALUR; D omite o Razão.
+
+## M017 · médio · CEBRASPE · Livros contábeis
+A respeito do razonete, assinale a opção correta.
+
+- A) Ajuda a conferir o método das partidas dobradas do Razão, mas é limitado na detecção de erros.
+- B) Substitui o Livro Razão das entidades que declaram pelo lucro real, desde que seja mantido o Diário.
+- C) Permite detectar todos os erros de lançamento, pois registra os débitos à esquerda e os créditos à direita.
+- D) É livro obrigatório para o empresário e a sociedade empresária, por força do Código Civil.
+- E) Registra os recebimentos e pagamentos em ordem cronológica, sendo exigido da pessoa jurídica tributada pelo lucro presumido.
+- Gabarito: A
+- Comentário: o razonete é a simplificação do Razão em forma de T, que auxilia a conferir o método das partidas dobradas, mas é limitado na detecção de erros, e não é livro obrigatório. B e D atribuem-lhe papel de livro obrigatório ou substituto; C nega a limitação; E descreve o Livro Caixa.
