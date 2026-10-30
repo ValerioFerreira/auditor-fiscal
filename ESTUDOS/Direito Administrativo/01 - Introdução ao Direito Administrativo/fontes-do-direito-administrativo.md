@@ -5,7 +5,7 @@
 | Fontes | Também chamadas | O que são |
 |---|---|---|
 | **Primárias** | Formais, organizadas, escritas | **Leis** (em sentido amplo) e **entendimentos judiciais vinculantes** |
-| **Secundárias** | Materiais, não organizadas, não escritas, **mediatas** ou **subsidiárias** | **Jurisprudência, doutrina e costumes**; em regra, **não obrigatórias** para a administração |
+| **Secundárias** | Materiais, não organizadas, não escritas, **mediatas** ou **subsidiárias** | **Jurisprudência, doutrina, costumes e analogia**; em regra, **não obrigatórias** para a administração |
 
 ## Lei em sentido amplo
 

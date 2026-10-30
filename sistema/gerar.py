@@ -112,8 +112,9 @@ MATERIAS = {
     "Contabilidade Geral e Avançada": ("CONT", "m2"),
     "Direito Constitucional": ("CONST", "m3"),
     "Direito Administrativo": ("ADM", "m4"),
+    "Língua Portuguesa": ("PORT", "m5"),
 }
-CORES_LIVRES = ["m5", "m6", "m7", "m8"]
+CORES_LIVRES = ["m6", "m7", "m8"]
 PALAVRAS_POR_MINUTO = 180
 
 
@@ -521,6 +522,17 @@ class Renderizador:
         if editor:
             return f"<code>{html.escape(c, quote=False)}</code>"
         registrar = registrar and not self.bruto
+        ref, _, sec = c.partition("#")
+        if ref.endswith(".md") and sec.strip():  # `tema.md#Título da seção`: link para a seção
+            alvo = self.base.resolver(ref.strip(), self.doc)
+            if alvo:
+                destino, _ = alvo
+                if registrar:
+                    self.base.ligar(self.doc, destino)
+                return self.base.link(destino, sec.strip(), self.doc, slug(sec))
+            if registrar:
+                self.aviso(f"referência não encontrada: `{c}`")
+            return f"<code>{html.escape(c, quote=False)}</code>"
         if c.endswith(".md") or c.endswith("/"):
             alvo = self.base.resolver(c, self.doc)
             if alvo:
@@ -1565,11 +1577,12 @@ class Base:
         if origem["materia"] != "controle" and destino["id"] != origem["id"]:
             self.citado_em.setdefault(destino["id"], set()).add(origem["id"])
 
-    def link(self, destino: dict, rotulo: str, origem: dict) -> str:
+    def link(self, destino: dict, rotulo: str, origem: dict, secao: str | None = None) -> str:
         m = self.materia_por_id[destino["materia"]]
         sigla = f' data-sig="{m["sigla"]}"' if destino["materia"] != origem["materia"] else ""
         dica = " › ".join(x for x in (m["nome"], destino["assuntoNome"], destino["titulo"]) if x)
-        return (f'<a class="xref c-{m["cor"]}" href="#{destino["id"]}"{sigla} '
+        alvo = destino["id"] + (f"~{secao}" if secao else "")
+        return (f'<a class="xref c-{m["cor"]}" href="#{alvo}"{sigla} '
                 f'title="{esc(dica)}">{esc(rotulo)}</a>')
 
     # -- carga

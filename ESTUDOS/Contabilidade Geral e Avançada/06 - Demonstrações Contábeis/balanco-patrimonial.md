@@ -33,10 +33,10 @@
 **Realizável a longo prazo (ARLP)**
 
 - **Direitos realizáveis após o término do exercício seguinte** (normalmente, 12 meses): títulos a receber (pelo prazo de realização do direito).
-- **Direitos com pessoas ligadas, em negócio não usual** (**independentemente do prazo de vencimento**): empréstimos a **coligadas**, **diretores** ou **acionistas** (por força de lei).
-  - **Coligadas**: a investidora tem **influência significativa**, **presumida** quando detém **20% ou mais do capital votante** (Lei 6.404/1976, art. 243, §§4º e 5º); no material: "pelo menos 20% das ações, ou capacidade de influir nas decisões patrimoniais (é subjetivo)". **Controladas**: a companhia tem **preponderância nas deliberações** e poder de eleger a maioria dos administradores (no material: mais de 50% das ações).
+- **Direitos com pessoas ligadas, em negócio não usual** (se não for o negócio da empresa emprestar dinheiro, exemplo: bancos, **independentemente do prazo de vencimento**): empréstimos a **coligadas**, **diretores** ou **acionistas** (por força de lei).
+  - **Coligadas**: a investidora tem **influência significativa**, **presumida** quando detém **20% ou mais do capital votante** (Lei 6.404/1976, art. 243, §§4º e 5º) ou capacidade de influir nas decisões patrimoniais (é subjetivo). **Controladas**: a companhia tem **preponderância nas deliberações** e poder de eleger a maioria dos administradores (de regra, mais de 50% do capital votante).
 - Para um direito ser classificado no ARLP **independentemente do prazo**, precisa, **cumulativamente**: (1) ser **decorrente de vendas** (ou adiantamentos ou empréstimos: Lei 6.404/1976, art. 179, II); (2) estar relacionado com **controladas, coligadas, diretores, acionistas ou participantes no lucro**; (3) **operação não usual**.
-- **Nota**: com exceção das **disponibilidades**, no ARLP podem figurar **todas as demais contas** representativas de aplicações de recursos em bens e direitos, **inclusive despesas pagas antecipadamente** do circulante, desde que tenham **prazo de realização superior a 12 meses ou ao ciclo operacional** (ex.: **estoques de longo prazo**, **clientes de longo prazo**).
+- **Nota**: com exceção das **disponibilidades**, no ARLP podem figurar **todas as demais contas** representativas de aplicações de recursos em bens e direitos, **inclusive despesas pagas antecipadamente** do circulante, desde que tenham **prazo de realização superior a 12 meses ou ao ciclo operacional** (a parcela que for realizável somente após o final do exercício seguinte vai para o ARLP, ex.: **estoques de longo prazo**, **clientes de longo prazo**).
 
 **Investimentos**
 

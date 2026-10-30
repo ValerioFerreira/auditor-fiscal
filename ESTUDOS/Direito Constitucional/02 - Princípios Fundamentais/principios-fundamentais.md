@@ -64,7 +64,7 @@
   - **transitória (temporária)**: impede a perpetuação no poder;
   - **responsável**: o governante deve **prestar contas** ao povo;
   - fundada na **igualdade formal** das pessoas (a discriminação é intolerável).
-- ⚠️ **Forma de governo (república) não é sistema de governo (presidencialismo)**: o plebiscito de 1993 definiu as duas escolhas (ADCT, art. 2º).
+- ⚠️ **Forma de governo (república) não é sistema de governo (presidencialismo)**: o plebiscito de 1993 definiu as duas escolhas (ADCT, art. 2º). Sistemas de governo (Direito Administrativo) → `../../Direito Administrativo/03 - Organização Administrativa/estado-e-governo.md#Sistemas de governo: relação entre Legislativo e Executivo`.
 
 ## Regime político
 
@@ -115,7 +115,7 @@
 | Poder | Função típica | Funções atípicas (exemplos) |
 |---|---|---|
 | **Legislativo** | Legislar e fiscalizar | **Administrar** (gestão de seu pessoal); **julgar** (Senado julga o Presidente nos crimes de responsabilidade — art. 52, I) |
-| **Executivo** | Administrar | **Legislar** (medida provisória — art. 62; lei delegada — art. 68); **julgar** (processos administrativos) |
+| **Executivo** | Administrar | **Legislar** (medida provisória — art. 62; lei delegada — art. 68); **julgar\*** (processos administrativos, sem decisão definitiva) |
 | **Judiciário** | Julgar | **Legislar** (regimentos internos dos tribunais — art. 96, I, "a"); **administrar** (organização de seus serviços e de seu pessoal) |
 
 ## Art. 3º — Objetivos fundamentais

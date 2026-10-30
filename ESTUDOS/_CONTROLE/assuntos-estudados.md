@@ -1,6 +1,6 @@
 # Assuntos Estudados — Visão Geral
 
-> Versão da base: **v014** (21/10/2026) · ✅ consolidado · 🔶 consolidado com pendência (ver `pendencias.md`)
+> Versão da base: **v015** (30/10/2026) · ✅ consolidado · 🔶 consolidado com pendência (ver `pendencias.md`)
 
 ## Direito Tributário
 
@@ -76,3 +76,7 @@
 | 03 - Organização Administrativa | `administracao-direta-e-indireta.md` | Entidades; órgãos; indireta; tutela | ✅ |
 | 04 - Princípios da Administração Pública | `principios-expressos.md` | LIMPE; nepotismo | 🔶 |
 | 04 - Princípios da Administração Pública | `principios-implicitos.md` | Razoabilidade, autotutela, motivação, continuidade, segurança jurídica e demais | ✅ |
+
+## Língua Portuguesa
+
+Ainda sem temas próprios: só o resumo sintético (parte 01, de 30/10/2026) foi enviado.

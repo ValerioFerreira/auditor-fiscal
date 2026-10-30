@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v014** (21/10/2026)
+> Versão atual da base: **v015** (30/10/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -178,3 +178,10 @@
 
 - **Questões turbo (Certo ou Errado):** 365 novas, no total de 1.408 (Tributário 406, Contabilidade 352, Constitucional 377 e Administrativo 273).
 - **Questões de múltipla escolha:** 203 novas, no total de 672 (Tributário 209, Contabilidade 171, Constitucional 150 e Administrativo 142).
+
+## 30/10/2026 — Resumo sintético e nova disciplina Língua Portuguesa (v015)
+
+- **Origem:** o arquivo "Sintético.md", com quatro disciplinas misturadas ("Direito Constitucional", "CONTABILIDADE", "TRIBUTÁRIO" e "PORTUGUÊS").
+- **Resumo sintético:** separado pelos títulos de disciplina, sem mudar o texto, e salvo como a **parte 04** de Constitucional, Contabilidade e Tributário (`04 - 2026-10-30`) e como a **parte 01** da nova disciplina (`01 - 2026-10-30`). Na parte de Português, a imagem que vinha embutida no arquivo foi gravada ao lado (`01 - 2026-10-30 - imagem 1.png`), como nas outras partes. Na exibição, os títulos numerados seguem em sequência.
+- **Nova disciplina: Língua Portuguesa** (sigla PORT, cor m5): criadas a pasta da matéria, o `Resumo Sintético/` (com `LEIA-ME.txt`), a entrada em `MATERIAS` de `gerar.py` e os agentes e guias de banca de questões (Certo ou Errado e múltipla escolha). Ainda não há temas próprios nem questões; as abas de resumos, mapas e questões aparecem vazias até a chegada dos primeiros resumos. As pastas `Questões Turbo/` e `Questões Múltipla Escolha/` serão criadas junto com o primeiro tema.
+- Os guias de banca de Português foram escritos de conhecimento geral, sem pesquisa na web; vale complementá-los quando os primeiros temas entrarem.

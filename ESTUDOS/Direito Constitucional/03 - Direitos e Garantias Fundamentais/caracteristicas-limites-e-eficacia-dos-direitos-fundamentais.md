@@ -16,6 +16,8 @@
 | **Efetividade** | O **poder público** tem a missão de **concretizá-los** |
 | **Proibição do retrocesso** (efeito *cliquet*) | **Não podem ser enfraquecidos ou suprimidos**, impedindo a revogação ou a substituição das normas que os instituem por outras que façam o contrário |
 
+> Frase mnemônica: "**Historic**amente, a **relatividade** **efetiv**amente **proíbe** o **univers**o de ser **indivisí**vel. **Complementa** dizendo que é **impres**sionante como os **alien**s **renuncia**m à **concorrência**."
+
 ## Dimensão dupla
 
 | Dimensão | Conteúdo |
@@ -28,7 +30,7 @@
 | Teoria | Ideia |
 |---|---|
 | **Interna (absoluta)** | Os limites do direito são **imanentes ou intrínsecos**; aspectos **extrínsecos não influenciam** a fixação dos limites. O **núcleo essencial** é **insuscetível de violação**, **independentemente do caso concreto** |
-| **Externa (relativa)** | **Fatores extrínsecos** determinam os limites e o núcleo essencial; os conflitos se resolvem por **harmonização e proporcionalidade**. O núcleo essencial também é **inviolável**, mas é **definido pelo caso concreto** |
+| **Externa (relativa)** | **Fatores extrínsecos** determinam os limites e o núcleo essencial; os conflitos se resolvem por **harmonização e proporcionalidade**. O núcleo essencial também é **inviolável**, mas é **definido pelo caso concreto;** "*prima facie" -* à primeira vista, são posteriormente definidos no caso concreto |
 | **Limites dos limites** | A **lei pode impor restrições** aos direitos fundamentais, **observando o núcleo essencial inviolável**: **limita as restrições**, com a **proporcionalidade**. **Não está prevista expressamente** na CF, mas o dever de proteção ao núcleo essencial está previsto **implicitamente** |
 
 ### Tipos de eficácia

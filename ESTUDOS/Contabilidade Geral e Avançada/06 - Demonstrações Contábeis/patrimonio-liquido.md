@@ -36,7 +36,7 @@
 
 ## Ajustes de avaliação patrimonial
 
-- **Contrapartidas de aumentos ou diminuições de valor** atribuídos a elementos do **ativo e do passivo**, decorrentes da **avaliação a valor justo**, **enquanto não computadas no resultado** (art. 182, §3º).
+- **Contrapartidas de aumentos ou diminuições (neste caso, retificadora/redutora) de valor** atribuídos a elementos do **ativo e do passivo**, decorrentes da **avaliação a valor justo**, **enquanto não computadas no resultado** (art. 182, §3º).
 
 ## Ações em tesouraria
 
