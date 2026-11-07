@@ -316,3 +316,11 @@
 | DIVERGÊNCIA | Ganho na venda de imobilizado | Lei, art. 187, IV: "outras receitas", depois do resultado operacional; CPC 26, FGV e FCC: dentro das operacionais |
 | INCOMPLETA | Estrutura do CPC 26 nas aulas | Acrescentadas as mudanças à vista (CPC 51/IFRS 18 em 2027; IBS e CBS fora da receita bruta) |
 
+## v017 — 07/11/2026 (Fixação em detalhes: onda 2 de resoluções)
+
+### Contabilidade Geral e Avançada
+
+| Classificação | Como estava | Como ficou na base |
+|---|---|---|
+| INCOMPLETA | 16 questões só com gabarito ("resolução a caminho") | Resolução própria e minuciosa (F0002, F0003, F0102, F0105, F0227, F0228, F0296, F0297, F0298, F0299, F0300, F0301, F0345, F0936, F0938, F0942), com os comentários de Igor Cintra e Gilmar Possati reescritos onde havia |
+| REORGANIZAÇÃO | F0227 com o balancete em imagem | Balancete transcrito como tabela; imagem removida |

@@ -47,7 +47,7 @@
 - **Datas originais dos estudos:** não informadas no arquivo inicial.
 - Termo "eficácia prospectiva" (sinônimo de eficácia contida no seu material): mantido; não é a nomenclatura mais usual (Temer: "redutível ou restringível").
 
-- **Fixação em detalhes — DRE:** 937 das 945 questões ainda estão com "resolução a caminho". Continuar em ondas, na ordem de riqueza (balancetes completos e formas de cobrança ainda não cobertas primeiro). Questões com balancete em imagem (cerca de 60) devem ganhar a tabela transcrita quando forem resolvidas.
+- **Fixação em detalhes — DRE:** 921 das 945 questões ainda estão com "resolução a caminho". Continuar em ondas, na ordem de riqueza (balancetes completos e formas de cobrança ainda não cobertas primeiro). Questões com balancete em imagem (cerca de 60) devem ganhar a tabela transcrita quando forem resolvidas.
 - **Fixação em detalhes — JCP:** divergência registrada (despesa financeira para o fisco e para Possati; destinação do resultado pela ICPC 08). Confirmar com as resoluções das questões que cobram o tema.
 
 ## ⚪ Assuntos mencionados, mas ainda não consolidados (estudar)

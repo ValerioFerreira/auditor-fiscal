@@ -115,7 +115,26 @@ O valor pode ser observado em conta
 - D) integrante da despesa operacional.
 - E) integrante do custo das mercadorias vendidas.
 - Gabarito: A
-- Resolução: a caminho
+### O que a questão pede
+Onde fica, na DRE de uma **prestadora de serviços**, o saldo de **tributos incidentes sobre vendas** (ISS, PIS e Cofins sobre o faturamento).
+
+### A regra
+Tributos sobre vendas e serviços são **dedução da receita bruta** (Lei 6.404/76, art. 187, I). A receita bruta menos as deduções dá a receita líquida. Gabarito **A**.
+
+### Por que as outras estão erradas
+- **B) redutora da receita líquida:** a receita líquida **já é** o resultado depois de tirar os tributos. Abaixo dela vem o custo, não tributo.
+- **C) despesa financeira:** é ligada a juros e encargos de dinheiro, não a vendas.
+- **D) despesa operacional:** fica abaixo do lucro bruto; os tributos sobre vendas ficam acima.
+- **E) CMV:** custo do que se vendeu; além disso, prestadora de serviços tem **custo dos serviços prestados**.
+
+### Pegadinhas
+- **Tributo sobre o lucro × tributo sobre a venda:** IR e CSLL ficam depois do LAIR; ICMS, ISS, PIS e Cofins ficam nas deduções.
+- **IPI:** sai do faturamento bruto antes de chegar à receita bruta.
+- ⚠️ **Reforma Tributária:** pela orientação técnica do CFC, IBS e CBS (que substituirão PIS, Cofins, ICMS e ISS) **não integram** a receita bruta. Acompanhe como as bancas vão cobrar.
+
+### Leve para as próximas
+1. Tributo **sobre a venda** = dedução da receita bruta.
+2. Fonte: resolução do professor Igor Cintra, reescrita e ampliada.
 
 ## F0003 · FGV · 2026 · AMAZUL · ME
 - Fontes: TecConcursos 3 (3814597) · Igor Cintra 42
@@ -132,7 +151,37 @@ Na Demonstração do Resultado mensal da sociedade empresária, relativa ao mês
 - D) R$120.000.
 - E) R$200.000.
 - Gabarito: D
-- Resolução: a caminho
+### O que a questão pede
+O **lucro bruto** de dezembro: receita − CMV. As despesas administrativas e comerciais estão ali para distrair.
+
+### Cálculos prévios
+**CMV:** todo o estoque de 80.000 foi vendido e não houve compras, então CMV = 80.000 (EI 80.000 + compras 0 − EF 0).
+
+### Passo a passo
+```dre
+@ Vendas à vista | 200.000 | receita-bruta
+@ Estoque vendido | 80.000 | cmv
+@ Despesas administrativas | 40.000 | despesas-administrativas
+@ Despesas comerciais | 20.000 | despesas-vendas
+> Sem deduções: a receita de vendas é a própria receita líquida.
++ Receita líquida | 200.000 | Vendas à vista
++ (–) CMV | (80.000) | Estoque vendido
+= Lucro bruto | 120.000
+> Pare no lucro bruto: as despesas administrativas e comerciais vêm depois.
+! Despesas administrativas; Despesas comerciais
+```
+
+Gabarito **D (120.000)**.
+
+### Pegadinhas
+- **A (60.000)** = 120.000 − 40.000 − 20.000: é o resultado operacional, não o lucro bruto.
+- **B (80.000)** = 120.000 − 40.000: tirou só as administrativas.
+- **C (100.000)** = 120.000 − 20.000: tirou só as comerciais.
+- **E (200.000):** é a receita; esqueceu o CMV.
+
+### Leve para as próximas
+1. Lucro bruto = receita líquida − CMV. Despesas, de qualquer tipo, vêm abaixo.
+2. Fonte: resolução do professor Igor Cintra, reescrita.
 
 ## F0004 · CEBRASPE · 2026 · TCE MG · ME
 - Fontes: TecConcursos 4 (3816107)
@@ -2074,7 +2123,88 @@ A Demonstração do Resultado do Exercício da empresa Santo Antônio Ltda., em 
 - D) 87.000,00
 - E) 85.500,00
 - Gabarito: C
-- Resolução: a caminho
+### O que a questão pede
+O **resultado operacional** da DRE do **ano inteiro** (01/01 a 31/12/2022). A DRE dada vai só até 30/11; é preciso somar os efeitos de dezembro. Como a pergunta usa "resultado operacional", a referência é a **Lei 6.404/76 (art. 187, IV)**: as despesas financeiras ficam **dentro** do bloco operacional.
+
+### Cálculos prévios
+**1) Leia a DRE de janeiro a novembro sem se perder nos sinais.** A tabela está mal formatada: a depreciação (22.000) e as administrativas (60.000) aparecem sem o sinal de menos. Confira pela soma:
+
+| Linha | Valor |
+|---|---|
+| Receita líquida | 300.000 |
+| (–) CMV | (150.000) |
+| = Lucro bruto | 150.000 |
+| (–) Despesas gerais: depreciação 22.000 + amortização 15.000 + administrativas e comerciais 60.000 | (97.000) |
+| (–) Despesas financeiras | (3.000) |
+| = Resultado operacional até 30/11 | **50.000** |
+
+A soma fecha (150.000 − 97.000 − 3.000 = 50.000). Isso confirma que todas são despesas, mesmo sem o sinal.
+
+**2) Separe os fatos de dezembro em "mexe no resultado" e "não mexe":**
+
+| Fato de dezembro | Efeito no resultado |
+|---|---|
+| Venda à vista 70.000, CMV 30.000 | +70.000 de receita e −30.000 de CMV |
+| Pagamento a fornecedores 25.000 | nenhum (caixa ↓, passivo ↓) |
+| Depreciação 3.000 e amortização 1.500 | −4.500 |
+| Juros sobre empréstimos 3.000 | −3.000 (despesa financeira, mesmo sem pagamento) |
+| Recebimento de clientes 18.000 | nenhum (caixa ↑, clientes ↓) |
+
+### Passo a passo
+```dre
+@ Receita líquida jan–nov | 300.000 | receita-liquida
+@ Venda de dezembro | 70.000 | receita-liquida
+@ CMV jan–nov | 150.000 | cmv
+@ CMV de dezembro | 30.000 | cmv
+@ Depreciação jan–nov | 22.000 | despesas-administrativas
+@ Depreciação de dezembro | 3.000 | despesas-administrativas
+@ Amortização jan–nov | 15.000 | despesas-administrativas
+@ Amortização de dezembro | 1.500 | despesas-administrativas
+@ Administrativas e comerciais | 60.000 | despesas-administrativas
+@ Despesas financeiras jan–nov | 3.000 | resultado-financeiro
+@ Juros de dezembro | 3.000 | resultado-financeiro
+@ Pagamento a fornecedores | 25.000 | fora-outros
+@ Recebimento de clientes | 18.000 | fora-outros
+@ Balanço patrimonial de 30/11 | 540.000 | fora-ativo
+> Pagamentos, recebimentos e o balanço inteiro não passam pela DRE: risque-os antes de começar.
+! Pagamento a fornecedores; Recebimento de clientes; Balanço patrimonial de 30/11
+> A DRE é do ano: some a receita de dezembro à de janeiro a novembro.
++ Receita líquida | 370.000 | Receita líquida jan–nov; Venda de dezembro
++ (–) CMV | (180.000) | CMV jan–nov; CMV de dezembro
+= Lucro bruto | 190.000
+> Depreciação e amortização dos onze meses mais as de dezembro; as administrativas e comerciais não mudaram.
++ (–) Depreciação | (25.000) | Depreciação jan–nov; Depreciação de dezembro
++ (–) Amortização | (16.500) | Amortização jan–nov; Amortização de dezembro
++ (–) Administrativas e comerciais | (60.000) | Administrativas e comerciais
+> Pela Lei, a despesa financeira entra antes do resultado operacional. Os juros de dezembro contam por competência, pagos ou não.
++ (–) Despesas financeiras | (6.000) | Despesas financeiras jan–nov; Juros de dezembro
+= Resultado operacional | 82.500
+```
+
+**Atalho:** 50.000 (até novembro) + 40.000 (venda − CMV) − 4.500 (depreciação e amortização) − 3.000 (juros) = **82.500**. Gabarito **C**.
+
+### O que ignorar e por quê
+- **Pagamento a fornecedores (25.000) e recebimento de clientes (18.000):** só trocam um ativo por outro ou reduzem ativo e passivo juntos. Não há receita nem despesa.
+- **O balanço patrimonial inteiro** (PECLD, dividendos a pagar, propriedade para investimento, reserva legal…): é foto do patrimônio, não fluxo do resultado. O "lucro acumulado de 50.000" só confirma o resultado até novembro.
+- **Dividendos a pagar (45.000):** destinação do lucro, nunca despesa.
+
+### O que mais poderia estar ali
+- **Fatos de dezembro que mexeriam no resultado:** despesa com PECLD, perda de estoque, receita de aluguel da propriedade para investimento, salários do mês (despesa mesmo sem pagamento).
+- **Fatos que não mexeriam:** compra de estoque, aquisição de imobilizado, integralização de capital, captação ou amortização do principal de empréstimos, declaração de dividendos.
+
+### Pegadinhas
+- **A (42.500)** = 50.000 − 4.500 − 3.000: esqueceu a venda de dezembro.
+- **B (112.500)** = 50.000 + 70.000 − 4.500 − 3.000: somou a venda e esqueceu o CMV de 30.000.
+- **D (87.000)** = 50.000 + 40.000 − 3.000: esqueceu a depreciação e a amortização (despesas sem saída de caixa).
+- **E (85.500)** = 50.000 + 40.000 − 4.500: esqueceu os juros, talvez por não terem sido pagos.
+- **Resultado operacional × CPC:** se a pergunta fosse o "resultado antes do resultado financeiro" (CPC 26), seriam 88.500, porque os 6.000 de juros sairiam do bloco.
+
+### Leve para as próximas
+1. "DRE de 31/12" com dados até novembro: **acumule**, não calcule só dezembro.
+2. Para cada fato novo, pergunte: muda o PL por receita ou despesa? Se só mexe em caixa, clientes ou fornecedores, fica fora.
+3. Depreciação, amortização e juros apropriados são despesa por competência, mesmo sem pagamento.
+4. Resultado operacional (Lei) inclui as despesas financeiras.
+5. Fonte: resolução do professor Igor Cintra, reescrita e ampliada.
 
 ## F0103 · CEBRASPE · 2024 · CODEVASF · CE
 - Fontes: TecConcursos 103 (3142934) · Igor Cintra 101 · Possati 8
@@ -2171,7 +2301,80 @@ Com base apenas nas informações fornecidas e após o lançamento das transaç�
 - D) R$ 78.820,00
 - E) R$ 66.820,00
 - Gabarito: E
-- Resolução: a caminho
+### O que a questão pede
+O **resultado do exercício** (lucro líquido) de 01/01 a 31/12/20X0. A DRE dada vai até 30/11 (resultado de 41.750); some os efeitos dos seis fatos de dezembro, separando os que passam pela DRE dos que são só patrimoniais.
+
+### Cálculos prévios
+**1) Confira a DRE até novembro:** 140.000 − 50.000 = 90.000 de lucro bruto; − 4.800 − 3.960 − 24.240 − 2.500 − 12.750 = **41.750**. O "lucros acumulados" do balanço tem o mesmo valor.
+
+**2) Classifique os fatos de dezembro:**
+
+| Fato | Passa pela DRE? | Efeito |
+|---|---|---|
+| 1. Venda a prazo 36.000, CMV 10.200 | Sim | +36.000 e −10.200 |
+| 2. Compra a prazo 25.000 + transporte, seguro e manuseio 5.000 | Não | Estoque ↑ 30.000 e fornecedores ↑ 30.000. Os gastos acessórios **entram no custo do estoque** (CPC 16, item 11), não são despesa |
+| 3. Integralização de capital 12.000 | Não | Caixa ↑ e capital social ↑ (PL, sem resultado) |
+| 4. Pagamento a fornecedores 15.000 | Não | Caixa ↓ e fornecedores ↓ |
+| 5. Depreciação 400 e amortização 330 | Sim | −730 |
+| 6. Dividendos 10.000 | Não | Destinação do lucro: reduz lucros acumulados e cria dividendos a pagar |
+
+### Passo a passo
+```dre
+@ Receita de vendas jan–nov | 140.000 | receita-bruta
+@ Venda de dezembro | 36.000 | receita-bruta
+@ CMV jan–nov | 50.000 | cmv
+@ CMV de dezembro | 10.200 | cmv
+@ Depreciação jan–nov | 4.800 | despesas-administrativas
+@ Depreciação de dezembro | 400 | despesas-administrativas
+@ Amortização jan–nov | 3.960 | despesas-administrativas
+@ Amortização de dezembro | 330 | despesas-administrativas
+@ Despesas de vendas e administrativas | 24.240 | despesas-vendas
+@ Salários e encargos sociais | 12.750 | despesas-administrativas
+@ Despesa de juros | 2.500 | resultado-financeiro
+@ Compra de mercadorias + gastos acessórios | 30.000 | fora-ativo
+@ Integralização de capital | 12.000 | fora-pl
+@ Pagamento a fornecedores | 15.000 | fora-outros
+@ Dividendos distribuídos | 10.000 | fora-destinacao
+> Primeiro, risque o que não é receita nem despesa: compra (vira estoque), integralização (PL), pagamento (caixa) e dividendos (destinação do lucro).
+! Compra de mercadorias + gastos acessórios; Integralização de capital; Pagamento a fornecedores; Dividendos distribuídos
+> Receita do ano: onze meses mais a venda de dezembro (a prazo, mas a receita é por competência).
++ Receita de vendas | 176.000 | Receita de vendas jan–nov; Venda de dezembro
++ (–) CMV | (60.200) | CMV jan–nov; CMV de dezembro
+= Lucro bruto | 115.800
+> Despesas operacionais: some às de novembro a depreciação e a amortização de dezembro.
++ (–) Depreciação | (5.200) | Depreciação jan–nov; Depreciação de dezembro
++ (–) Amortização | (4.290) | Amortização jan–nov; Amortização de dezembro
++ (–) Despesas de vendas e administrativas | (24.240) | Despesas de vendas e administrativas
++ (–) Salários e encargos sociais | (12.750) | Salários e encargos sociais
++ (–) Despesa de juros | (2.500) | Despesa de juros
+= Resultado do exercício | 66.820
+```
+
+**Atalho:** 41.750 + 25.800 (36.000 − 10.200) − 730 = **66.820**. Gabarito **E**.
+
+### O que ignorar e por quê
+- **Gastos de transporte, seguro e manuseio (5.000):** são custo de aquisição. Vão para o estoque e só virarão CMV quando essas mercadorias forem vendidas.
+- **Compra de 25.000:** estoque (ativo). Compra não é despesa; despesa é o custo do que **saiu**.
+- **Integralização (12.000):** aumento de capital. Dinheiro dos sócios não é receita.
+- **Dividendos (10.000):** distribuição do lucro, que aparece na DLPA ou na DMPL, nunca na DRE.
+- **O balanço de 30/11:** a propriedade para investimento tem o mesmo valor do lucro (41.750) por coincidência; é ativo e não entra.
+
+### O que mais poderia estar ali
+- **Iria para o custo do estoque, e não para a DRE:** frete, seguro e carga e descarga na compra, tributos não recuperáveis, imposto de importação.
+- **Também ficaria fora:** aumento de capital com reservas, constituição de reservas, juros sobre capital próprio tratados como distribuição (ver a divergência no grupo de participações).
+
+### Pegadinhas
+- **A (56.820)** = 66.820 − 10.000: tratou os dividendos como despesa.
+- **B (67.550)** = 66.820 + 730: esqueceu a depreciação e a amortização de dezembro.
+- **C (61.820)** = 66.820 − 5.000: lançou o transporte, o seguro e o manuseio da compra como despesa.
+- **D (78.820)** = 66.820 + 12.000: tratou a integralização de capital como receita.
+- Cada distrator testa **um** fato patrimonial. Classificar fato a fato, como na tabela, evita todos.
+
+### Leve para as próximas
+1. Fato novo? Pergunte: é receita ou despesa (muda o PL pelo resultado)? Compra, pagamento, recebimento, aporte e dividendo não são.
+2. Gastos para trazer a mercadoria até o depósito vão para o estoque; gastos para levar a mercadoria ao cliente são despesa com vendas.
+3. Dividendos saem do lucro **depois** de apurado: nunca reduzem o resultado do exercício.
+4. Fonte: resolução do professor Igor Cintra, reescrita e ampliada.
 
 ## F0106 · FGV · 2024 · MACAEPREV · ME
 - Fontes: TecConcursos 106 (3153310)
@@ -4624,11 +4827,23 @@ As contas listadas a seguir podem ser classificadas como Receitas Financeiras na
 ## F0227 · FGV · 2018 · MPE AL · ME
 - Fontes: TecConcursos 227 (670996)
 - Prova: FGV - Aud (MPE AL)/MPE AL/2018
-- Grupos: lair, lucro-liquido, ir-csll
+- Grupos: receita-bruta, calculo-cmv, cmv, resultado-bruto, despesas-administrativas, despesas-vendas, outras-receitas-despesas, resultado-financeiro, lair, ir-csll, lucro-liquido, fora-destinacao
 
 Uma entidade apresentou os seguintes saldos em seu balancete de 31/12/2017:
 
-![imagem](questoes - imagem F0227-1.png){largura=35%}
+| Conta | Valor |
+|---|---:|
+| Vendas de mercadorias | R$ 500.000 |
+| Estoque final de mercadorias | R$ 100.000 |
+| Estoque inicial de mercadorias | R$ 150.000 |
+| Venda de ativo imobilizado | R$ 100.000 |
+| Compras de mercadorias | R$ 300.000 |
+| Custo do ativo imobilizado vendido | R$ 70.000 |
+| Despesas administrativas | R$ 50.000 |
+| Despesas comerciais | R$ 40.000 |
+| Dividendos | R$ 10.000 |
+| Despesa financeira | R$ 30.000 |
+| Reserva para contingências | R$ 12.000 |
 
 Imposto sobre a renda e contribuição social: 34% sobre o lucro antes do imposto sobre a renda e contribuição social.
 
@@ -4640,7 +4855,70 @@ Assinale a opção que indica o lucro líquido apresentado pela entidade, em 31/
 - D) R$ 39.600,00.
 - E) R$ 59.400,00.
 - Gabarito: D
-- Resolução: a caminho
+### O que a questão pede
+O **lucro líquido** de 2017, com IR e CSLL de 34% sobre o LAIR. Tudo é tributável e dedutível: não há ajuste fiscal, é só aplicar 34%.
+
+### Cálculos prévios
+**1) CMV pelo inventário:** EI + compras − EF = 150.000 + 300.000 − 100.000 = **350.000**. Repare na ordem: o balancete traz o estoque **final** antes do **inicial**.
+
+**2) Venda de imobilizado:** não é receita de vendas. Só o **ganho** entra: 100.000 (preço) − 70.000 (custo do bem vendido) = **30.000** de outras receitas.
+
+**3) IR e CSLL:** 34% × LAIR.
+
+### Passo a passo
+```dre
+@ Vendas de mercadorias | 500.000 | receita-bruta
+@ Estoque inicial de mercadorias | 150.000 | calculo-cmv
+@ Compras de mercadorias | 300.000 | calculo-cmv
+@ Estoque final de mercadorias | 100.000 | calculo-cmv
+@ Despesas administrativas | 50.000 | despesas-administrativas
+@ Despesas comerciais | 40.000 | despesas-vendas
+@ Venda de ativo imobilizado | 100.000 | outras-receitas-despesas
+@ Custo do ativo imobilizado vendido | 70.000 | outras-receitas-despesas
+@ Despesa financeira | 30.000 | resultado-financeiro
+@ Dividendos | 10.000 | fora-destinacao
+@ Reserva para contingências | 12.000 | fora-destinacao
+> Dividendos e reserva para contingências são destinação do lucro: ficam fora.
+! Dividendos; Reserva para contingências
+> CMV = estoque inicial + compras − estoque final.
++ Vendas de mercadorias | 500.000 | Vendas de mercadorias
++ (–) CMV | (350.000) | Estoque inicial de mercadorias; Compras de mercadorias; Estoque final de mercadorias
+= Lucro bruto | 150.000
++ (–) Despesas administrativas | (50.000) | Despesas administrativas
++ (–) Despesas comerciais | (40.000) | Despesas comerciais
++ (–) Despesa financeira | (30.000) | Despesa financeira
+= Resultado operacional (Lei) | 30.000
+> Venda do imobilizado: entra só o ganho (100.000 − 70.000), como outras receitas.
++ (+) Ganho na venda de imobilizado | 30.000 | Venda de ativo imobilizado; Custo do ativo imobilizado vendido
+= LAIR | 60.000
+> IR e CSLL: 34% × 60.000 = 20.400.
++ (–) IR e CSLL (34%) | (20.400) |
+= Lucro líquido | 39.600
+```
+
+Gabarito **D (39.600)**.
+
+### O que ignorar e por quê
+- **Dividendos (10.000):** distribuição do lucro, depois de apurado.
+- **Reserva para contingências (12.000):** retenção do lucro no PL (art. 195 da Lei 6.404/76), também destinação.
+- Nenhuma das duas reduz o LAIR nem o lucro líquido.
+
+### O que mais poderia estar ali
+- **Também destinação:** reserva legal, reserva estatutária, reserva de lucros a realizar, retenção de lucros, JCP tratados como distribuição.
+- **Também outras receitas e despesas:** perda na venda de investimentos ou de intangível, baixa de imobilizado por sinistro.
+
+### Pegadinhas
+- **A (29.600)** = 39.600 − 10.000: tirou os dividendos depois do IR.
+- **B (31.680)** = 66% × 48.000: tirou a reserva para contingências antes do IR (60.000 − 12.000).
+- **C (33.000)** = 66% × 50.000: tirou os dividendos antes do IR (60.000 − 10.000).
+- **E (59.400)** = 66% × 90.000: esqueceu a despesa financeira de 30.000.
+- **Venda de imobilizado como receita bruta:** quem soma 100.000 às vendas e esquece o custo do bem infla o lucro.
+- **Estoque final listado antes do inicial:** troque e o CMV vira 250.000 (errado).
+
+### Leve para as próximas
+1. LL = LAIR × (1 − alíquota) quando tudo é tributável e dedutível: 60.000 × 0,66.
+2. Venda de ativo não circulante: só o **resultado** (preço − valor contábil) entra na DRE.
+3. Dividendos e reservas nunca entram no cálculo do LAIR nem do IR.
 
 ## F0228 · FGV · 2018 · MPE AL · ME
 - Fontes: TecConcursos 228 (671488)
@@ -4655,7 +4933,30 @@ Na elaboração da Demonstração do Resultado do Exercício de uma entidade, as
 - D) retificadores da receita operacional.
 - E) retificadores da receita financeira.
 - Gabarito: C
-- Resolução: a caminho
+### O que a questão pede
+Onde entram, na DRE, as **comissões e despesas bancárias** de operações de desconto de títulos, concessão de crédito e repasses.
+
+### A regra
+São **custos de obter dinheiro emprestado**: remuneram o banco pela operação de crédito, como os juros. Por isso são **despesas financeiras**. A doutrina (Manual de Contabilidade Societária, Fipecafi) lista na despesa financeira, além dos juros, os descontos concedidos, as comissões e despesas bancárias e as variações monetárias passivas.
+
+Gabarito **C**.
+
+### Por que as outras estão erradas
+- **A) despesas operacionais:** genérico demais. Pela Lei, as financeiras até ficam dentro do bloco operacional, mas a classificação específica pedida é despesa financeira.
+- **B) outras despesas operacionais:** é o grupo residual das operacionais (por exemplo, perdas de estoque). Não acolhe encargos de crédito.
+- **D) retificadores da receita operacional:** as deduções da receita são devoluções, abatimentos, descontos incondicionais e tributos sobre vendas, todos ligados à venda e não a empréstimos.
+- **E) retificadores da receita financeira:** a receita financeira não se apresenta líquida dessas despesas; elas são despesa financeira própria. O que a Lei permite é mostrar as despesas financeiras "deduzidas das receitas" em um resultado financeiro líquido (art. 187, III).
+
+### O que mais poderia estar ali (despesas financeiras)
+Juros passivos, IOF de empréstimos, descontos financeiros concedidos a clientes por pagamento antecipado, variações monetárias e cambiais passivas, apropriação do AVP de compras a prazo.
+
+### Pegadinhas
+- **Desconto financeiro concedido** (por pagamento antecipado) é despesa financeira; **desconto comercial** (incondicional, na nota) é dedução da receita.
+- **Tarifas de manutenção de conta** e serviços bancários sem relação com crédito têm tratamento discutido; muitos autores as põem em despesas administrativas. A questão fala em operações de crédito: financeira, sem dúvida.
+
+### Leve para as próximas
+1. Custa para captar ou manter dinheiro de terceiros? Despesa financeira.
+2. Está ligado à venda (preço, nota, devolução)? Dedução da receita.
 
 ## F0229 · CEBRASPE · 2018 · PF · CE
 - Fontes: TecConcursos 229 (686550)
@@ -6219,7 +6520,51 @@ A partir da tabela acima, julgue os itens que se seguem, com base na legislaçã
 O lucro bruto da empresa é superior a R$ 750 milhões.
 
 - Gabarito: CERTO
-- Resolução: a caminho
+### O que a questão pede
+O **lucro bruto** (= resultado bruto) e se ele passa de R$ 750 milhões. Valores em milhões.
+
+### Cálculos prévios
+"Receita de vendas" aqui é a receita **bruta**: há tributos sobre vendas a deduzir. Nenhum cálculo prévio além disso.
+
+### Passo a passo
+```dre
+@ receita de vendas | 1.879,4 | receita-bruta
+@ tributos sobre vendas | 300 | deducoes
+@ custo dos produtos vendidos | 820 | cmv
+@ despesas com vendas | 180 | despesas-vendas
+@ despesas administrativas | 125 | despesas-administrativas
+@ receita de equivalência patrimonial | 35 | equivalencia
+@ receitas financeiras | 93 | resultado-financeiro
+@ despesas financeiras | 124,5 | resultado-financeiro
+@ ganhos de capital | 5 | outras-receitas-despesas
+> Receita bruta menos os tributos sobre vendas.
++ Receita de vendas | 1.879,4 | receita de vendas
++ (–) Tributos sobre vendas | (300) | tributos sobre vendas
+= Receita líquida | 1.579,4
+> Indústria: o custo é o dos produtos vendidos (CPV), no mesmo lugar do CMV.
++ (–) Custo dos produtos vendidos | (820) | custo dos produtos vendidos
+= Lucro bruto | 759,4
+> 759,4 > 750: o item está CERTO. O resto da tabela fica abaixo do lucro bruto.
+! despesas com vendas; despesas administrativas; receita de equivalência patrimonial; receitas financeiras; despesas financeiras; ganhos de capital
+```
+
+Gabarito **CERTO** (759,4 milhões).
+
+### O que ignorar e por quê
+Despesas com vendas e administrativas, equivalência, receitas e despesas financeiras e ganhos de capital: todas vêm depois do lucro bruto.
+
+### O que mais poderia estar ali
+- **Custo:** CMV (comércio), CPV (indústria) ou CSP (serviços), todos na mesma linha.
+- **Deduções:** devoluções, abatimentos, descontos incondicionais.
+
+### Pegadinhas
+- Esquecer os tributos sobre vendas: 1.879,4 − 820 = 1.059,4. O item continuaria certo, mas outro item do mesmo bloco (a F0938) cobra o efeito disso.
+- O valor fica **perto** do limite (759,4 × 750) de propósito: confira a conta antes de marcar.
+
+### Leve para as próximas
+1. Lucro bruto = receita bruta − deduções − custo das vendas.
+2. CMV, CPV e CSP ocupam a mesma linha da DRE.
+3. Fonte: resolução do professor Gilmar Possati, reescrita.
 
 ## F0297 · CEBRASPE · 2014 · SUFRAMA · CE
 - Fontes: TecConcursos 297 (166203)
@@ -6245,7 +6590,29 @@ A partir da tabela acima, julgue os itens que se seguem, com base na legislaçã
 O conjunto de despesas administrativas e de vendas é também denominado despesas operacionais.
 
 - Gabarito: CERTO
-- Resolução: a caminho
+### O que a questão pede
+Se "despesas operacionais" é também o nome do conjunto de despesas administrativas e de vendas. É teoria; a tabela é só o contexto.
+
+### A regra
+A Lei 6.404/76, art. 187, III, chama de **despesas operacionais** o bloco entre o lucro bruto e o resultado operacional: despesas com vendas, despesas financeiras líquidas das receitas financeiras, despesas gerais e administrativas e outras despesas operacionais.
+
+Vendas e administrativas são o **núcleo** desse bloco, e a doutrina e as bancas chamam esse conjunto de despesas operacionais. Por isso o item está certo, embora a Lei inclua mais coisas.
+
+| Pela Lei, dentro de "despesas operacionais" | Pelo CPC 26 |
+|---|---|
+| Vendas, gerais e administrativas, outras operacionais | Iguais |
+| Despesas financeiras líquidas | Saem do bloco: vão para o resultado financeiro, abaixo |
+| Equivalência patrimonial | Linha própria, antes do resultado financeiro |
+
+Gabarito **CERTO**.
+
+### Pegadinhas
+- **Item incompleto não é item errado** na CEBRASPE: o conjunto de vendas e administrativas é chamado de despesas operacionais, ainda que não seja o conjunto **inteiro**. Ficaria errado se dissesse "**somente** as despesas administrativas e de vendas são operacionais".
+- **CMV não é despesa operacional:** ele fica acima do lucro bruto.
+
+### Leve para as próximas
+1. Despesas operacionais = tudo entre o lucro bruto e o resultado operacional (Lei).
+2. Na Lei, as financeiras estão dentro; no CPC 26, fora do bloco operacional.
 
 ## F0298 · FCC · 2014 · TRF 3 · ME
 - Fontes: TecConcursos 298 (171832)
@@ -6260,7 +6627,54 @@ Em 01/12/2012, uma empresa efetuou uma venda pelo valor de R$ 500.000,00 para se
 - D) 35.000,00 e uma Receita Financeira igual a R$ 3.000,00.
 - E) 70.000,00 e uma Receita Financeira igual a R$ 3.000,00.
 - Gabarito: D
-- Resolução: a caminho
+### O que a questão pede
+O efeito em **2012** de uma venda a prazo (recebimento em 30/10/2014) feita em 01/12/2012: quanto vai para o **resultado bruto** e quanto para a **receita financeira**. O tema é o ajuste a valor presente (AVP) de vendas a prazo longo.
+
+### Cálculos prévios
+**1) A receita de vendas é o valor presente na data da venda:** 465.000 (CPC 12 e CPC 47). Os 35.000 restantes (500.000 − 465.000) são juros embutidos, que **não são receita de venda**: viram receita financeira ao longo do prazo.
+
+**2) Resultado bruto:** 465.000 − 430.000 (CMV) = **35.000**.
+
+**3) Receita financeira de 2012:** a parte dos juros que transcorreu em dezembro. É a variação do valor presente: 468.000 − 465.000 = **3.000**. Os 32.000 restantes serão apropriados em 2013 e 2014.
+
+### Passo a passo
+```dre
+@ Venda a prazo (valor nominal) | 500.000 | receita-bruta
+@ AVP da venda (juros embutidos) | 35.000 | deducoes
+@ CMV | 430.000 | cmv
+@ Juros apropriados em dezembro | 3.000 | resultado-financeiro
+@ Juros a apropriar em 2013 e 2014 | 32.000 | fora-ativo
+> A receita bruta pode aparecer pelo valor nominal, com o AVP como dedução, ou já pelo valor presente. O resultado bruto é o mesmo.
++ Receita bruta de vendas | 500.000 | Venda a prazo (valor nominal)
++ (–) AVP sobre vendas | (35.000) | AVP da venda (juros embutidos)
+= Receita líquida | 465.000
++ (–) CMV | (430.000) | CMV
+= Resultado bruto | 35.000
+> Em dezembro passou um mês: o valor presente subiu de 465.000 para 468.000. Essa diferença é receita financeira de 2012.
++ (+) Receita financeira (AVP apropriado) | 3.000 | Juros apropriados em dezembro
+> Os 32.000 de juros que ainda vão transcorrer ficam como redutora de clientes, no ativo, até 2013 e 2014.
+! Juros a apropriar em 2013 e 2014
+```
+
+Gabarito **D** (resultado bruto 35.000 e receita financeira 3.000).
+
+### O que ignorar e por quê
+Nada a ignorar, mas cuidado com o **momento**: os 35.000 de juros não são receita de 2012 inteira, só a parte que transcorreu em dezembro.
+
+### O que mais poderia estar ali
+- **Dedução da receita:** devoluções, abatimentos, tributos sobre vendas.
+- **Outras apropriações financeiras:** AVP de compras a prazo (despesa financeira), juros sobre clientes em atraso.
+
+### Pegadinhas
+- **A (70.000)** = 500.000 − 430.000: ignorou o AVP.
+- **E (70.000 e 3.000):** ignorou o AVP na receita e ainda reconheceu a receita financeira, contando os juros duas vezes.
+- **B (35.000 e 35.000):** jogou todos os juros como receita financeira em 2012, sem respeitar a competência.
+- **C (38.000):** somou a receita financeira dentro do resultado bruto. A receita financeira vem **depois** do resultado bruto.
+
+### Leve para as próximas
+1. Venda a prazo longo (ou relevante): receita = valor presente; a diferença vira receita financeira com o tempo (Lei 6.404/76, art. 183, VIII; CPC 12).
+2. Receita financeira do período = valor presente no fim − valor presente no início.
+3. AVP de vendas aparece como dedução da receita bruta, ao lado das devoluções e dos tributos.
 
 ## F0299 · FCC · 2014 · TRF 3 · ME
 - Fontes: TecConcursos 299 (171834)
@@ -6275,7 +6689,60 @@ Uma empresa adquiriu um estoque de mercadorias para revenda no valor de R$ 520.0
 - D) 85.000,00.
 - E) 83.000,00.
 - Gabarito: E
-- Resolução: a caminho
+### O que a questão pede
+O **resultado bruto** de uma compra e de uma venda, as duas a prazo, com o preço à vista informado. É AVP nas duas pontas, mais um frete de compra.
+
+### Cálculos prévios
+**1) Custo do estoque:**
+- preço à vista da compra: 425.000 (CPC 16, item 18: a diferença para o preço a prazo é despesa de juros, não custo);
+- frete pago pela empresa para retirar a mercadoria: + 2.000;
+- **custo = 427.000**.
+
+**2) Receita da venda:** preço à vista, 510.000. A diferença para os 600.000 é receita financeira ao longo de 390 dias.
+
+**3) Resultado bruto:** 510.000 − 427.000 = **83.000**.
+
+### Passo a passo
+```dre
+@ Venda a prazo (nominal) | 600.000 | receita-bruta
+@ AVP da venda | 90.000 | deducoes
+@ Compra a prazo (nominal) | 520.000 | calculo-cmv
+@ AVP da compra | 95.000 | calculo-cmv
+@ Frete da compra | 2.000 | calculo-cmv
+@ Juros da compra (ao longo de 400 dias) | 95.000 | resultado-financeiro
+@ Juros da venda (ao longo de 390 dias) | 90.000 | resultado-financeiro
+> Receita: o valor nominal menos os juros embutidos dá o valor à vista.
++ Receita bruta | 600.000 | Venda a prazo (nominal)
++ (–) AVP sobre vendas | (90.000) | AVP da venda
+= Receita líquida | 510.000
+> Custo: preço à vista da compra (520.000 − 95.000 de juros) + frete para trazer a mercadoria.
++ (–) CMV | (427.000) | Compra a prazo (nominal); AVP da compra; Frete da compra
+= Resultado bruto | 83.000
+> Os juros das duas pontas são resultado financeiro, apropriado ao longo dos prazos. Não entram no resultado bruto.
+! Juros da compra (ao longo de 400 dias); Juros da venda (ao longo de 390 dias)
+```
+
+Gabarito **E (83.000)**.
+
+### O que ignorar e por quê
+- **Os 95.000 de juros da compra e os 90.000 da venda:** são despesa e receita financeiras, apropriadas ao longo do tempo, abaixo do resultado bruto.
+- **Os prazos (400 e 390 dias):** só servem para a apropriação dos juros; não mudam o resultado bruto.
+
+### O que mais poderia estar ali
+- **No custo:** seguro do transporte, carga e descarga, tributos não recuperáveis.
+- **Fora do custo:** frete para entregar ao cliente (despesa com vendas), armazenagem depois da compra (despesa), tributos recuperáveis (ativo).
+
+### Pegadinhas
+- **A (80.000)** = 600.000 − 520.000: ignorou o AVP e o frete.
+- **B (78.000)** = 600.000 − 522.000: considerou o frete, mas ignorou o AVP.
+- **C (173.000)** = 600.000 − 427.000: fez o AVP só na compra.
+- **D (85.000)** = 510.000 − 425.000: esqueceu o frete da compra.
+- Cada distrator erra **uma** das três peças: AVP da venda, AVP da compra ou frete.
+
+### Leve para as próximas
+1. Compra a prazo: estoque pelo preço à vista; venda a prazo: receita pelo preço à vista.
+2. Frete de compra pago pelo comprador entra no custo; frete de venda é despesa com vendas.
+3. Monte as três peças separadas (receita, custo, juros) antes de responder.
 
 ## F0300 · FCC · 2014 · TRF 3 · ME
 - Fontes: TecConcursos 300 (172528)
@@ -6330,7 +6797,73 @@ O Lucro Bruto apurado pela Cia. Especial, em 2012, foi, em R$,
 - D) 320.000,00.
 - E) 472.000,00.
 - Gabarito: A
-- Resolução: a caminho
+### O que a questão pede
+O **lucro bruto** de 2012 a partir de um balancete que mistura contas de resultado com contas de ativo, passivo e PL. Lucro bruto = receita bruta − deduções − CMV.
+
+### Cálculos prévios
+**Triagem do balancete.** Só três tipos de conta chegam ao lucro bruto:
+- **Receita bruta:** Receita bruta de vendas (550.000).
+- **Deduções:** Impostos sobre vendas (44.000), Devolução de vendas (30.000), Abatimentos sobre vendas (4.000). Total: 78.000.
+- **Custo:** CMV (230.000).
+
+Todo o resto é despesa abaixo do lucro bruto ou conta patrimonial.
+
+### Passo a passo
+```dre
+@ Receita Bruta de Vendas | 550.000 | receita-bruta
+@ Impostos sobre Vendas | 44.000 | deducoes
+@ Devolução de vendas | 30.000 | deducoes
+@ Abatimentos sobre vendas | 4.000 | deducoes
+@ Custo das Mercadorias Vendidas | 230.000 | cmv
+@ Despesa com Salários | 22.000 | despesas-administrativas
+@ Despesa de Depreciação | 15.000 | despesas-administrativas
+@ Despesa com Estimativa de perdas com CLD | 2.000 | despesas-vendas
+@ Despesa com Vendas | 15.000 | despesas-vendas
+@ Resultado de Equivalência Patrimonial (negativo) | 3.000 | equivalencia
+@ Despesa Financeira | 2.000 | resultado-financeiro
+@ Lucro na venda de Imóvel | 12.000 | outras-receitas-despesas
+@ Despesa com Imposto de Renda e CSLL | 5.000 | ir-csll
+@ Disponibilidades, Clientes, Estoques e demais ativos | — | fora-ativo
+@ Contas a pagar, Empréstimos, Salários e Impostos a recolher | — | fora-passivo
+@ Capital, Reservas e Ações em Tesouraria | — | fora-pl
+> Separe as contas patrimoniais (ativo, passivo e PL): não entram na DRE.
+! Disponibilidades, Clientes, Estoques e demais ativos; Contas a pagar, Empréstimos, Salários e Impostos a recolher; Capital, Reservas e Ações em Tesouraria
+> Receita bruta menos as três deduções: tributos sobre vendas, devoluções e abatimentos.
++ Receita bruta de vendas | 550.000 | Receita Bruta de Vendas
++ (–) Impostos sobre vendas | (44.000) | Impostos sobre Vendas
++ (–) Devoluções de vendas | (30.000) | Devolução de vendas
++ (–) Abatimentos sobre vendas | (4.000) | Abatimentos sobre vendas
+= Receita líquida | 472.000
++ (–) CMV | (230.000) | Custo das Mercadorias Vendidas
+= Lucro bruto | 242.000
+> Pare aqui. As despesas operacionais, a equivalência, o resultado financeiro, o ganho na venda do imóvel e o IR ficam abaixo do lucro bruto.
+! Despesa com Salários; Despesa de Depreciação; Despesa com Estimativa de perdas com CLD; Despesa com Vendas; Resultado de Equivalência Patrimonial (negativo); Despesa Financeira; Lucro na venda de Imóvel; Despesa com Imposto de Renda e CSLL
+```
+
+Gabarito **A (242.000)**.
+
+### O que ignorar e por quê
+- **Estoques (45.000):** saldo final, ativo. O CMV já foi dado pronto; o estoque só serviria para calcular o CMV pela fórmula (EI + compras − EF).
+- **Estimativa de perdas com CLD (6.000):** é o **saldo** retificador de clientes (ativo). A **despesa** do ano é a de 2.000. Não confunda saldo com despesa.
+- **Seguros pagos antecipadamente (14.000):** despesa antecipada, ativo. Só vira despesa com o passar do prazo.
+- **Investimentos na coligada (43.000), Marca (24.000), Máquinas (150.000) e depreciação acumulada (20.000):** ativo não circulante.
+- **Ações em tesouraria (5.000), Reservas e Capital:** PL.
+
+### O que mais poderia estar ali
+- **Nas deduções:** vendas canceladas, descontos incondicionais, ICMS, PIS, Cofins e ISS sobre vendas, AVP de vendas a prazo.
+- **No custo:** custo dos produtos vendidos (indústria) ou dos serviços prestados.
+
+### Pegadinhas
+- **E (472.000):** é a receita líquida; esqueceu o CMV.
+- **D (320.000)** = 550.000 − 230.000: esqueceu todas as deduções.
+- **B (276.000)** = 550.000 − 44.000 − 230.000: tirou só os impostos e esqueceu devoluções e abatimentos.
+- **C (225.000)** = 242.000 − 15.000 − 2.000: desceu além do lucro bruto e tirou despesas com vendas.
+- **Abatimento sobre vendas × abatimento sobre compras:** o de vendas reduz a receita; o de compras reduz o custo do estoque.
+
+### Leve para as próximas
+1. Balancete misturado: **primeiro a triagem** (resultado × patrimonial), depois a montagem.
+2. Lucro bruto = receita bruta − (tributos sobre vendas + devoluções + abatimentos + descontos incondicionais) − CMV.
+3. "Estimativa de perdas" sem a palavra "despesa" é saldo do ativo; "Despesa com estimativa" é a despesa do período.
 
 ## F0301 · FCC · 2014 · TRF 3 · ME
 - Fontes: TecConcursos 301 (172530)
@@ -6385,7 +6918,81 @@ O Lucro Líquido apurado pela Cia. Especial, em 2012, foi, em R$,
 - D) 176.000,00.
 - E) 234.000,00.
 - Gabarito: B
-- Resolução: a caminho
+### O que a questão pede
+O **lucro líquido** de 2012, a partir do mesmo balancete da questão anterior (F0300). Parte do lucro bruto de 242.000 e desce a DRE até o fim.
+
+### Cálculos prévios
+- **Lucro bruto:** 550.000 − 44.000 − 30.000 − 4.000 − 230.000 = **242.000** (ver a F0300).
+- **Despesas operacionais:**
+  - com vendas: 15.000 + 2.000 de PECLD = 17.000;
+  - administrativas e gerais: salários 22.000 + depreciação 15.000 = 37.000.
+- **Equivalência negativa (3.000):** é despesa (perda) do investimento na coligada.
+- **IR e CSLL:** já vêm prontos (5.000). Não recalcule.
+
+### Passo a passo
+```dre
+@ Receita Bruta de Vendas | 550.000 | receita-bruta
+@ Impostos sobre Vendas | 44.000 | deducoes
+@ Devolução de vendas | 30.000 | deducoes
+@ Abatimentos sobre vendas | 4.000 | deducoes
+@ Custo das Mercadorias Vendidas | 230.000 | cmv
+@ Despesa com Vendas | 15.000 | despesas-vendas
+@ Despesa com Estimativa de perdas com CLD | 2.000 | despesas-vendas
+@ Despesa com Salários | 22.000 | despesas-administrativas
+@ Despesa de Depreciação | 15.000 | despesas-administrativas
+@ Resultado de Equivalência Patrimonial (negativo) | 3.000 | equivalencia
+@ Despesa Financeira | 2.000 | resultado-financeiro
+@ Lucro na venda de Imóvel | 12.000 | outras-receitas-despesas
+@ Despesa com Imposto de Renda e CSLL | 5.000 | ir-csll
+@ Estimativa de perdas com CLD (saldo) | 6.000 | fora-ativo
+@ Seguros Pagos Antecipadamente | 14.000 | fora-ativo
+@ Demais contas de ativo, passivo e PL | — | fora-outros
+> Risque o patrimonial. Atenção a dois "falsos amigos": o saldo da estimativa de perdas (6.000, ativo) e os seguros antecipados (14.000, ativo).
+! Estimativa de perdas com CLD (saldo); Seguros Pagos Antecipadamente; Demais contas de ativo, passivo e PL
+> Até o lucro bruto, igual à F0300.
++ Receita bruta | 550.000 | Receita Bruta de Vendas
++ (–) Deduções | (78.000) | Impostos sobre Vendas; Devolução de vendas; Abatimentos sobre vendas
+= Receita líquida | 472.000
++ (–) CMV | (230.000) | Custo das Mercadorias Vendidas
+= Lucro bruto | 242.000
+> Despesas operacionais. Pela Lei, a equivalência e o resultado financeiro também ficam dentro do bloco operacional.
++ (–) Despesas com vendas | (17.000) | Despesa com Vendas; Despesa com Estimativa de perdas com CLD
++ (–) Despesas administrativas | (37.000) | Despesa com Salários; Despesa de Depreciação
++ (–) Equivalência patrimonial negativa | (3.000) | Resultado de Equivalência Patrimonial (negativo)
++ (–) Despesa financeira | (2.000) | Despesa Financeira
+= Resultado operacional (Lei) | 183.000
+> Pela Lei, o lucro na venda do imóvel é "outras receitas", depois do resultado operacional. Pelo CPC entraria antes, mas o LAIR é o mesmo.
++ (+) Lucro na venda de imóvel | 12.000 | Lucro na venda de Imóvel
+= LAIR | 195.000
++ (–) IR e CSLL | (5.000) | Despesa com Imposto de Renda e CSLL
+= Lucro líquido | 190.000
+```
+
+Gabarito **B (190.000)**.
+
+### O que ignorar e por quê
+- **Saldo da estimativa de perdas (6.000):** retificadora de clientes. A despesa do ano é só a de 2.000.
+- **Seguros pagos antecipadamente (14.000):** ainda não viraram despesa (vencem em 7 meses).
+- **Ações em tesouraria (5.000):** redução do PL, não despesa.
+- **Reserva de incentivos fiscais (4.000) e reserva legal (10.000):** destinação ou retenção do lucro, no PL.
+- **Depreciação acumulada (20.000):** saldo retificador do imobilizado; a despesa do ano é a de 15.000.
+
+### O que mais poderia estar ali
+- **Outras receitas e despesas:** perda na venda de imobilizado, baixa de intangível, ganho na venda de investimentos.
+- **Despesas com vendas:** comissões, propaganda, frete de entrega.
+- **Depois do LAIR:** participações (debêntures, empregados, administradores, partes beneficiárias), na ordem DEAPI.
+
+### Pegadinhas
+- **A (193.000)** = 190.000 + 3.000: ignorou a equivalência negativa.
+- **C (196.000)** = 190.000 + 6.000: somou a equivalência como receita (+3.000 em vez de −3.000).
+- **D (176.000)** = 190.000 − 14.000: tratou os seguros antecipados como despesa.
+- **E (234.000)** = 190.000 + 44.000: esqueceu os impostos sobre vendas.
+- **"(negativo)" no nome da conta** muda o sinal: equivalência negativa é perda.
+
+### Leve para as próximas
+1. Lucro líquido pela Lei: LB − despesas operacionais (vendas, administrativas, equivalência, financeiras) = resultado operacional ± outras receitas e despesas = LAIR − IR e CSLL − participações.
+2. Saldo de conta retificadora ≠ despesa do período (PECLD e depreciação acumulada).
+3. Despesa antecipada é ativo até o período a que se refere.
 
 ## F0302 · CEBRASPE · 2014 · TC DF · CE
 - Fontes: TecConcursos 302 (183635)
@@ -7498,7 +8105,76 @@ Determinada empresa comercial levantou, ao final do mês, os saldos contábeis a
 | vendas de mercadorias | 9.200 |
 
 - Gabarito: CERTO
-- Resolução: a caminho
+### O que a questão pede
+Duas afirmações, e as duas precisam estar certas:
+1. **CMV > 4.300**;
+2. **lucro bruto < 3.000**.
+
+O CMV sai pela fórmula do inventário periódico.
+
+### Cálculos prévios
+**1) Compras líquidas:** compras − devoluções de compras − abatimentos sobre compras = 5.000 − 300 − 100 = **4.600**.
+
+**2) CMV = EI + compras líquidas − EF** = 1.000 + 4.600 − 1.000 = **4.600** (> 4.300 ✔).
+
+**3) Receita líquida:** vendas 9.200 − devoluções de vendas 400 − ICMS sobre vendas 1.500 = **7.300**.
+
+**4) Lucro bruto:** 7.300 − 4.600 = **2.700** (< 3.000 ✔).
+
+### Passo a passo
+```dre
+@ estoque saldo início do mês | 1.000 | calculo-cmv
+@ compras de mercadorias | 5.000 | calculo-cmv
+@ devolução de compras | 300 | calculo-cmv
+@ abatimento sobre compras | 100 | calculo-cmv
+@ estoque saldo final do mês | 1.000 | calculo-cmv
+@ vendas de mercadorias | 9.200 | receita-bruta
+@ devolução de vendas | 400 | deducoes
+@ ICMS sobre vendas | 1.500 | deducoes
+@ frete sobre vendas | 200 | despesas-vendas
+@ ICMS a recolher | 2.000 | fora-passivo
+@ ICMS a recuperar | 850 | fora-ativo
+> Os saldos de ICMS a recolher (passivo) e a recuperar (ativo) são patrimoniais: fora.
+! ICMS a recolher; ICMS a recuperar
+> CMV pelo inventário: estoque inicial + compras líquidas (compras − devoluções − abatimentos) − estoque final.
++ Estoque inicial | 1.000 | estoque saldo início do mês
++ (+) Compras líquidas | 4.600 | compras de mercadorias; devolução de compras; abatimento sobre compras
++ (–) Estoque final | (1.000) | estoque saldo final do mês
+= CMV | 4.600
+> Agora a receita: vendas − devoluções de vendas − ICMS sobre vendas.
++ Vendas de mercadorias | 9.200 | vendas de mercadorias
++ (–) Devoluções de vendas | (400) | devolução de vendas
++ (–) ICMS sobre vendas | (1.500) | ICMS sobre vendas
+= Receita líquida | 7.300
++ (–) CMV | (4.600) |
+= Lucro bruto | 2.700
+> O frete sobre vendas é despesa com vendas, abaixo do lucro bruto.
+! frete sobre vendas
+```
+
+Gabarito **CERTO** (CMV 4.600 > 4.300 e lucro bruto 2.700 < 3.000).
+
+### O que ignorar e por quê
+- **ICMS a recuperar (850):** é o saldo do **direito** contra o fisco (ativo). Quando a compra foi registrada, o ICMS recuperável já foi separado para essa conta; por isso "compras de mercadorias" já está **líquida** do imposto e não se tira de novo.
+- **ICMS a recolher (2.000):** saldo da **obrigação** (passivo), resultado do ICMS sobre vendas menos o compensado. A dedução da receita é a conta "ICMS sobre vendas" (1.500), não o saldo a recolher.
+- **Frete sobre vendas (200):** despesa com vendas (leva a mercadoria ao cliente), abaixo do lucro bruto.
+
+### O que mais poderia estar ali
+- **Somam no custo das compras:** frete e seguro sobre compras, tributos não recuperáveis.
+- **Subtraem:** descontos incondicionais obtidos, ICMS, PIS e Cofins recuperáveis.
+- **Nas deduções da receita:** abatimentos sobre vendas, descontos incondicionais concedidos, PIS e Cofins sobre faturamento.
+
+### Pegadinhas
+- **Tirar o ICMS a recuperar das compras:** o CMV cairia para 3.750 (< 4.300) e você marcaria errado.
+- **Usar o ICMS a recolher como dedução:** lucro bruto = 2.200. Por sorte a conclusão não muda aqui, mas o raciocínio está errado.
+- **Frete sobre vendas no CMV:** confunde "sobre vendas" com "sobre compras".
+- **Devolução de compras × devolução de vendas:** a primeira reduz o custo; a segunda reduz a receita.
+
+### Leve para as próximas
+1. CMV = EI + (compras − devoluções − abatimentos − tributos recuperáveis + fretes e seguros da compra) − EF.
+2. Contas "a recolher" e "a recuperar" são saldos patrimoniais; a DRE usa as contas "sobre vendas" e "sobre compras".
+3. Item com duas afirmações ligadas por "e": as duas precisam estar certas.
+4. Fonte: resolução do professor Gilmar Possati, reescrita e ampliada.
 
 ## F0346 · CEBRASPE · 2013 · SEFAZ ES · ME
 - Fontes: TecConcursos 346 (134649)
@@ -23443,7 +24119,36 @@ O lucro bruto é o resultado da receita bruta das vendas deduzidas as devoluçõ
 os cancelamentos, os abatimentos, os impostos sobre vendas e o custo das mercadorias vendidas.
 
 - Gabarito: CERTO
-- Resolução: a caminho
+### O que a questão pede
+Se o lucro bruto é receita bruta − devoluções − cancelamentos − abatimentos − impostos sobre vendas − CMV.
+
+### A regra
+Lei 6.404/76, art. 187, I e II:
+
+| Linha | |
+|---|---|
+| Receita bruta | |
+| (–) Devoluções e vendas canceladas | dedução |
+| (–) Abatimentos e descontos incondicionais | dedução |
+| (–) Tributos sobre vendas (ICMS, ISS, PIS, Cofins) | dedução |
+| = Receita líquida | |
+| (–) CMV | custo |
+| = Lucro bruto | |
+
+O item descreve exatamente essa sequência. Gabarito **CERTO**.
+
+### Pegadinhas
+- **Faltam os descontos incondicionais** no item. Na CEBRASPE, item incompleto não é item errado, porque o item não diz "somente".
+- **IPI:** não é dedução da receita bruta; sai antes, do faturamento bruto (é cobrado por fora).
+- **Descontos condicionais** (financeiros) não são dedução: são despesa financeira.
+
+### O que mais poderia estar ali
+Nas deduções: AVP de vendas a prazo, ICMS-ST quando a empresa é substituta (como o IPI, por fora do preço). ⚠️ Pela orientação do CFC para a Reforma Tributária, IBS e CBS nem entram na receita bruta.
+
+### Leve para as próximas
+1. Lucro bruto = receita bruta − deduções − custo das vendas.
+2. Dedução = ligada à venda; despesa financeira = ligada ao dinheiro.
+3. Fonte: resolução do professor Gilmar Possati, reescrita e ampliada.
 
 ## F0937 · CEBRASPE · 2014 · PF · CE
 - Fontes: Possati 30
@@ -23481,7 +24186,65 @@ A partir da tabela acima, julgue o item, com base na legislação societária e 
 da empresa. Nesse caso, o valor do tributo será superior a R$ 190 milhões.
 
 - Gabarito: ERRADO
-- Resolução: a caminho
+### O que a questão pede
+O **IR e CSLL de 40% sobre o lucro contábil** (o LAIR) e se o tributo passa de R$ 190 milhões. É preciso descer a DRE inteira até o LAIR, com todas as linhas da tabela. Valores em milhões.
+
+### Cálculos prévios
+- Lucro bruto: 1.879,4 − 300 − 820 = **759,4** (ver a F0296).
+- **Resultado financeiro líquido:** 93 − 124,5 = **−31,5**.
+- Tributo = 40% × LAIR. Calcule o LAIR antes.
+
+### Passo a passo
+```dre
+@ receita de vendas | 1.879,4 | receita-bruta
+@ tributos sobre vendas | 300 | deducoes
+@ custo dos produtos vendidos | 820 | cmv
+@ despesas com vendas | 180 | despesas-vendas
+@ despesas administrativas | 125 | despesas-administrativas
+@ receita de equivalência patrimonial | 35 | equivalencia
+@ receitas financeiras | 93 | resultado-financeiro
+@ despesas financeiras | 124,5 | resultado-financeiro
+@ ganhos de capital | 5 | outras-receitas-despesas
+> Até o lucro bruto, como na F0296.
++ Receita de vendas | 1.879,4 | receita de vendas
++ (–) Tributos sobre vendas | (300) | tributos sobre vendas
++ (–) Custo dos produtos vendidos | (820) | custo dos produtos vendidos
+= Lucro bruto | 759,4
+> Despesas operacionais e equivalência.
++ (–) Despesas com vendas | (180) | despesas com vendas
++ (–) Despesas administrativas | (125) | despesas administrativas
++ (+) Equivalência patrimonial | 35 | receita de equivalência patrimonial
+> Resultado financeiro: as despesas superam as receitas.
++ (+) Receitas financeiras | 93 | receitas financeiras
++ (–) Despesas financeiras | (124,5) | despesas financeiras
+= Resultado operacional (Lei) | 457,9
+> Ganhos de capital (venda de ativo não circulante): outras receitas pela Lei.
++ (+) Ganhos de capital | 5 | ganhos de capital
+= LAIR | 462,9
+> Tributo: 40% × 462,9 = 185,16, que é menor que 190.
++ (–) IR e CSLL (40%) | (185,16) |
+= Lucro líquido | 277,74
+```
+
+Gabarito **ERRADO** (185,16 < 190).
+
+### O que ignorar e por quê
+Nada da tabela: todas as linhas entram no LAIR. O que a questão quer é que você **não esqueça** nenhuma.
+
+### O que mais poderia estar ali
+- **Entre o LAIR e o lucro líquido:** participações (debêntures, empregados, administradores, partes beneficiárias), calculadas depois do IR.
+- **Ajustes fiscais:** a questão manda aplicar 40% sobre o lucro contábil. Sem essa ordem, o IR real sairia do lucro tributável, que exclui por exemplo a receita de equivalência.
+
+### Pegadinhas
+- **Esquecer os tributos sobre vendas:** LAIR = 762,9 → tributo = 305,16, maior que 190 (marcaria certo).
+- **Somar as despesas financeiras como receita** ou esquecê-las: LAIR = 587,4 → tributo = 234,96 (marcaria certo).
+- **Esquecer a equivalência e os ganhos de capital:** LAIR = 422,9 → tributo = 169,16 (o item continuaria errado, mas por sorte).
+- O tributo sai do **LAIR**, não do lucro bruto (40% × 759,4 = 303,76).
+
+### Leve para as próximas
+1. Percentual sobre "lucro contábil" ou "lucro antes do IR" = percentual sobre o LAIR, com **todas** as receitas e despesas.
+2. Resultado financeiro líquido negativo **reduz** o LAIR.
+3. Fonte: resolução do professor Gilmar Possati, reescrita e ampliada.
 
 ## F0939 · CEBRASPE · 2016 · DPU · CE
 - Fontes: Possati 38
@@ -23533,7 +24296,28 @@ normatização contábil em vigor, julgue o seguinte item.
 As sociedades anônimas de capital aberto devem iniciar a apresentação da DRE pela receita líquida.
 
 - Gabarito: CERTO
-- Resolução: a caminho
+### O que a questão pede
+Por qual linha começa a DRE das companhias abertas pela **normatização contábil em vigor**.
+
+### A regra
+- **Lei 6.404/76, art. 187, I:** a DRE começa pela receita **bruta**, seguida das deduções.
+- **CPC 26 (R1), item 82(a):** a DRE começa por "**receitas**". Pelo pronunciamento de receitas (na época o CPC 30, hoje o CPC 47), a receita **exclui** os tributos sobre vendas e as demais deduções, que não são benefício econômico da entidade. Logo, a primeira linha é a receita **líquida**. A conciliação entre a receita bruta e a líquida vai para as notas explicativas.
+- As companhias abertas seguem os CPCs aprovados pela CVM. A CEBRASPE, quando diz "normatização contábil em vigor", cobra o CPC.
+
+Gabarito **CERTO**.
+
+### Pegadinhas
+- **"Conforme a Lei 6.404/76"** mudaria a resposta: a Lei começa pela receita bruta. Leia a referência que a banca dá.
+- **"Receitas" no CPC 26 = receita líquida.** Quem lê "receitas" como bruta erra.
+
+### O que mais poderia estar ali
+Outras diferenças entre a Lei e o CPC na mesma DRE: o resultado operacional não aparece no CPC, o resultado financeiro desce para depois do "resultado antes do resultado financeiro", e outras receitas e despesas sobem para o bloco operacional (ver Diferenças entre a Lei e o CPC, nas Estruturas).
+
+### Leve para as próximas
+1. "Normas contábeis", "CPC", "normatização em vigor": a DRE começa pela receita líquida.
+2. "Lei das S.A.", "legislação societária", "art. 187": começa pela receita bruta.
+3. ⚠️ A partir de 2027, o CPC 51 (IFRS 18) substitui o CPC 26. A primeira linha continua a ser a receita.
+4. Fonte: resolução do professor Gilmar Possati, reescrita.
 
 ## F0943 · CEBRASPE · 2014 · ANTAQ · CE
 - Fontes: Possati 58

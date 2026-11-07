@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v016** (07/11/2026)
+> Versão atual da base: **v017** (07/11/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -199,3 +199,14 @@
 - **Resoluções minuciosas (onda 1):** 8 questões (F0001, F0004, F0008, F0090, F0184, F0201, F0215, F0323), com quadro da DRE e passo a passo. As demais aparecem com "resolução a caminho".
 - **Site:** card na Visão geral de Contabilidade e página com as partes Estruturas (lado a lado + mapa de contas, com a busca "Onde vai esta conta?"), Contas, Nomes das etapas e Questões (caderno próprio, resultado por linha da DRE). Gerador: `carregar_fixacao` em `gerar.py`; interface: seção "Fixação em detalhes" em `modelo.html`.
 
+## 07/11/2026 — Fixação em detalhes: resoluções da onda 2 (v017)
+
+- **Resoluções minuciosas (onda 2):** 16 questões, cobrindo formas de cobrança que a onda 1 não tinha:
+  - DRE acumulada até novembro mais os fatos de dezembro (F0102, F0105);
+  - balancete misturado com ativo, passivo e PL até o lucro bruto e até o lucro líquido (F0300, F0301);
+  - CMV pelo inventário com devoluções, abatimentos e saldos de ICMS (F0345);
+  - IR e CSLL sobre o LAIR, com venda de imobilizado e destinação do lucro (F0227, F0938);
+  - AVP de venda e de compra (F0298, F0299);
+  - tabela SUFRAMA (F0296, F0297);
+  - teóricas ligadas a elas (F0002, F0003, F0228, F0936, F0942).
+- **Total:** 24 das 945 questões com resolução. O balancete da F0227, que estava em imagem, foi transcrito como tabela.
