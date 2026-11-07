@@ -397,7 +397,38 @@ a.fx-nome:hover { background: color-mix(in srgb, var(--m) 20%, var(--raised)); }
 .fx-mr-t small { flex-basis: 100%; font: 500 12px/16px var(--font-ui); color: var(--ink-3); }
 .fx-mr-b { padding: 0; border: 0; background: none; color: var(--ink); font: 700 14px/20px var(--font-ui); text-align: left; cursor: pointer; }
 .fx-mr-b:hover { color: var(--m); }
-.fx-mr-c { display: flex; flex-wrap: wrap; align-content: flex-start; gap: 6px; }
+.fx-mr-c { display: grid; align-content: start; gap: 10px; }
+.fx-cl { display: grid; gap: 6px; }
+.fx-cl-t { margin: 0; font: 700 12px/16px var(--font-ui); color: var(--ink-2); }
+.fx-cl-n { margin-left: 6px; font-weight: 500; color: var(--ink-3); }
+.fx-cl-c { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 6px; }
+.fx-sg { display: inline-flex; flex-wrap: wrap; gap: 4px; padding: 4px; border-radius: 8px; background: color-mix(in srgb, var(--m) 5%, transparent); border: 1px dashed var(--rule); }
+.fx-gd-ind { display: grid; gap: 24px; }
+.fx-gd-lista { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 10px; }
+.fx-gd-card { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 12px 14px; border: 1px solid var(--rule); border-radius: 12px; background: var(--raised); color: var(--ink); text-decoration: none; transition: border-color var(--dur-micro) var(--ease); }
+.fx-gd-card:hover { border-color: var(--m); }
+.fx-gd-num { font: 700 20px/24px var(--font-ui); color: var(--m); font-variant-numeric: tabular-nums; }
+.fx-gd-ct { display: grid; gap: 4px; }
+.fx-gd-ct strong { font: 700 14px/20px var(--font-ui); }
+.fx-gd-ct small { font: 500 12px/16px var(--font-ui); color: var(--ink-3); }
+.fx-gd-en { display: flex; flex-wrap: wrap; gap: 4px; }
+.fx-gd-en .fx-nome { font-size: 11px; }
+.fx-gd { display: grid; gap: 20px; max-width: 920px; }
+.fx-gd-cab { display: grid; gap: 8px; }
+.fx-gd-parte { margin: 0; font: 600 12px/16px var(--font-ui); color: var(--ink-3); text-transform: uppercase; letter-spacing: .04em; }
+.fx-gd-tit { margin: 0; font: 700 22px/28px var(--font-ui); }
+.fx-gd-q { padding: 16px; border: 1px solid var(--rule); border-radius: 12px; background: var(--raised); min-width: 0; }
+.fx-gd-ops { display: grid; gap: 6px; margin: 12px 0 0; padding: 0; list-style: none; }
+.fx-gd-ops li { display: flex; gap: 10px; align-items: baseline; padding: 6px 8px; border-radius: 8px; }
+.fx-gd-gab { margin: 12px 0 0; font: 500 13px/18px var(--font-ui); color: var(--ink-2); }
+.fx-gd-gab summary { cursor: pointer; }
+.fx-gd-q:has(.fx-gd-gab[open]) .fx-gd-ops li.certa { background: color-mix(in srgb, var(--m) 12%, transparent); }
+.fx-gd-corpo { display: grid; gap: 18px; }
+.fx-gd > *, .fx-gd-corpo > *, .fx-gd-res > *, .fx-gd-res .fx-res > * { min-width: 0; }
+.fx-gd-sec h3 { margin: 0 0 8px; font: 700 16px/22px var(--font-ui); color: var(--m); }
+.fx-gd-nav { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-top: 12px; border-top: 1px solid var(--rule); }
+.fx-chip-n { margin-left: 4px; color: var(--ink-3); font-weight: 600; }
+.fx-chip.hit .fx-chip-n { color: var(--ink-2); }
 .fx-tag { padding: 0 5px; border-radius: 4px; font: 700 10px/16px var(--font-ui); }
 .fx-tag-l { background: var(--info-bg); color: var(--ink-2); box-shadow: inset 0 0 0 1px var(--info-bd); }
 .fx-tag-c { background: var(--ok-soft); color: var(--ok); }
@@ -6209,13 +6240,50 @@ html:not([data-ebook]) .ebook-veu { display: none; }
   // e o mapa de contas aberto; uma única busca acende o grupo e as contas. As respostas das questões ficam
   // em "questoes" (ids "fix.<assunto>:F0001"), como as do caderno, e as favoritas em "qfav".
   const FX = D.fixacao || {};
-  const FX_SUB = { e: 'Estruturas', c: 'Contas', n: 'Nomes das etapas', q: 'Questões' };
+  const FX_SUB = { e: 'Estruturas', c: 'Contas', n: 'Nomes das etapas', g: 'Questões-modelo', q: 'Questões' };
   const FX_TOK = { '~notas': ['nas notas explicativas', 'nt'], '~desce': ['desce ↓', 'dc'], '~sobe': ['sobe para as operacionais ↑', 'sb'], '~nao': ['não existe', 'nx'] };
   const fxEst = { busca: '', sel: null, verFora: {}, contasQ: '', contasG: '' };
   let fxSessao = null;
   const fxNorm = s => (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
   const fxAssunto = (m, id) => (FX[m.id] || []).find(a => a.id === id);
   function fxContasDe(a, g) { return a.contas.filter(c => c.g === g); }
+  // Agrupamento de nomes parecidos: variantes (mesmas palavras, só muda plural, preposição ou maiúscula) viram um chip só;
+  // dentro de uma conta com muitos nomes, os chips se juntam pelo núcleo (a primeira palavra que não é genérica).
+  const FX_VAZIAS = new Set(['de', 'da', 'do', 'das', 'dos', 'com', 'sobre', 'para', 'por', 'pelo', 'pela', 'a', 'o', 'as', 'os', 'e', 'em', 'no', 'na', 'nos', 'nas', 'ao', 'aos', 'p', 'c', 's']);
+  const FX_GENERICAS = new Set(['despesa', 'receita', 'conta', 'valor', 'total', 'saldo', 'gasto', 'custo', 'resultado', 'outro', 'outra']);
+  function fxSingular(w) {
+    if (w.length <= 3) return w;
+    if (/oes$|aes$/.test(w)) return w.slice(0, -3) + 'ao';
+    if (/ais$/.test(w)) return w.slice(0, -2) + 'l';
+    if (/eis$/.test(w)) return w.slice(0, -3) + 'el';
+    if (/ns$/.test(w)) return w.slice(0, -2) + 'm';
+    if (/res$|zes$/.test(w)) return w.slice(0, -2);
+    return w.endsWith('s') ? w.slice(0, -1) : w;
+  }
+  const fxPalavras = n => fxNorm(n).replace(/[^a-z0-9]+/g, ' ').trim().split(' ').filter(w => w && !FX_VAZIAS.has(w)).map(fxSingular);
+  function fxVariantes(nomes) {
+    const mapa = new Map();
+    nomes.forEach(x => { const k = fxPalavras(x.n).join(' ') || fxNorm(x.n); if (!mapa.has(k)) mapa.set(k, []); mapa.get(k).push(x); });
+    return [...mapa.entries()].map(([k, l]) => { l.sort((p, q) => p.n.length - q.n.length); return { k, n: l[0].n, c: l[0].c, v: l.map(x => x.n) }; });
+  }
+  function fxNucleos(vs) {
+    const grupos = new Map();
+    vs.forEach(v => { const ws = v.k.split(' '); const nuc = ws.find(w => !FX_GENERICAS.has(w)) || ws[0]; if (!grupos.has(nuc)) grupos.set(nuc, []); grupos.get(nuc).push(v); });
+    const lista = [...grupos.values()].map(l => l.sort((p, q) => p.n.length - q.n.length));
+    const juntos = lista.filter(l => l.length > 1).sort((p, q) => q.length - p.length), soltos = lista.filter(l => l.length === 1).flat();
+    return soltos.length ? juntos.concat([soltos]) : juntos;
+  }
+  function fxChip(v, t, extra) {
+    const hit = t && v.v.some(n => fxNorm(n).includes(t));
+    const tit = (v.v.length > 1 ? v.v.join(' · ') + '\n' : '') + (v.c ? v.c.t + ' · ' + v.c.e : '');
+    return `<span class="fx-chip${t ? hit ? ' hit' : ' dim' : ''}${extra || ''}" data-v="${esc(v.v.join('|'))}" title="${esc(tit)}">${esc(v.n)}${v.v.length > 1 ? `<span class="fx-chip-n">+${v.v.length - 1}</span>` : ''}</span>`;
+  }
+  // Uma conta: rótulo + chips agrupados pelo núcleo.
+  function fxCluster(c, t, rotulo) {
+    const vs = fxVariantes(c.n.map(n => ({ n, c })));
+    const corpo = vs.length > 8 ? fxNucleos(vs).map(l => `<span class="fx-sg">${l.map(v => fxChip(v, t)).join('')}</span>`).join('') : vs.map(v => fxChip(v, t)).join('');
+    return `<div class="fx-cl">${rotulo ? `<p class="fx-cl-t">${esc(c.t)}<span class="fx-cl-n">${plural(c.n.length, 'nome', 'nomes')}</span></p>` : ''}<div class="fx-cl-c">${corpo}</div></div>`;
+  }
   function fxGruposOrdem(a) {
     const vistos = [];
     a.grade.forEach(([l, c]) => [l, c].forEach(x => { if (a.grupos[x] && !vistos.includes(x)) vistos.push(x); }));
@@ -6235,22 +6303,24 @@ html:not([data-ebook]) .ebook-veu { display: none; }
   function renderFixacao(m, extra) {
     const lista = FX[m.id];
     const [aid, subRaw] = (extra || '').split('.');
+    const subM = /^([a-z])(\d*)$/.exec(subRaw || '');
     const a = fxAssunto(m, aid) || (lista.length === 1 ? lista[0] : null);
     if (!a) {
       document.title = `Fixação em detalhes · ${m.nome} · Missão Fiscal`;
       vista.innerHTML = `<div class="doc c-${m.cor}"><header class="sec-cab"><h1 class="sec-tit">Fixação em detalhes</h1></header><div class="vg-links">${lista.map(x => `<a class="vg-link" href="#${m.id}_fixacao~${x.id}"><span>${esc(x.titulo)}</span>${ICO.dir}</a>`).join('')}</div></div>`;
       return;
     }
-    const sub = FX_SUB[subRaw] ? subRaw : 'e';
+    const sub = subM && FX_SUB[subM[1]] && (subM[1] !== 'g' || (a.guia || []).length) ? subM[1] : 'e';
     if (fxEst.a !== a.id) { fxEst.a = a.id; fxEst.sel = null; fxEst.busca = ''; }
     document.title = `${FX_SUB[sub]} · ${a.titulo} · Fixação · Missão Fiscal`;
-    const abas = Object.keys(FX_SUB).map(k => `<a class="fx-sub" href="#${m.id}_fixacao~${a.id}${k === 'e' ? '' : '.' + k}"${k === sub ? ' aria-current="page"' : ''}>${FX_SUB[k]}${k === 'q' ? `<span class="n">${a.questoes.length}</span>` : k === 'c' ? `<span class="n">${a.contas.length}</span>` : ''}</a>`).join('');
+    const abas = Object.keys(FX_SUB).filter(k => k !== 'g' || (a.guia || []).length).map(k => `<a class="fx-sub" href="#${m.id}_fixacao~${a.id}${k === 'e' ? '' : '.' + k}"${k === sub ? ' aria-current="page"' : ''}>${FX_SUB[k]}${k === 'q' ? `<span class="n">${a.questoes.length}</span>` : k === 'c' ? `<span class="n">${a.contas.length}</span>` : k === 'g' ? `<span class="n">${a.guia.length}</span>` : ''}</a>`).join('');
     vista.innerHTML = `<div class="doc fx c-${m.cor}"><header class="fx-cab"><p class="fx-migalha"><a href="#${m.id}">${esc(m.nome)}</a> · Fixação em detalhes</p><h1 class="sec-tit">${esc(a.titulo)}</h1>
       <nav class="fx-subs" aria-label="Partes do assunto">${abas}</nav></header><div id="ui-fx"></div></div>`;
     const alvo = $('#ui-fx');
     if (sub === 'e') fxEstruturas(m, a, alvo);
     else if (sub === 'c') fxContas(m, a, alvo);
     else if (sub === 'n') fxNomes(m, a, alvo);
+    else if (sub === 'g') fxGuia(m, a, alvo, subM[2] ? +subM[2] : 0);
     else fxQuestoes(m, a, alvo);
     if (!(sub === 'q' && fxSessao)) window.scrollTo(0, 0);
   }
@@ -6279,7 +6349,7 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     const nq = a.questoes.filter(q => q.gr.includes(id)).length;
     return `<div class="fx-painel"><div class="fx-painel-cab"><h2>${esc(g.t)}</h2>${g.b ? `<p class="fx-base">${g.b}</p>` : ''}<button class="bt-texto" type="button" data-fxg="">${ICO.fechar}<span class="sr">Fechar</span></button></div>
       ${g.n.length ? `<p class="fx-rot">Também chamado</p><div class="fx-chips">${g.n.map(n => `<span class="fx-nome">${esc(n)}</span>`).join('')}</div>` : ''}
-      ${cs.length ? `<p class="fx-rot">Contas que entram aqui · ${cs.length}</p><ul class="fx-contas">${cs.map(c => `<li><div class="fx-c-t">${esc(c.t)} <span class="fx-c-e">${esc(c.e)}</span></div>${c.o ? `<p class="fx-c-o">${esc(c.o)}</p>` : ''}<div class="fx-chips">${c.n.map(n => `<span class="fx-chip${t && fxNorm(n).includes(t) ? ' hit' : ''}">${esc(n)}</span>`).join('')}</div></li>`).join('')}</ul>` : ''}
+      ${cs.length ? `<p class="fx-rot">Contas que entram aqui · ${cs.length}</p><ul class="fx-contas">${cs.map(c => `<li><div class="fx-c-t">${esc(c.t)} <span class="fx-c-e">${esc(c.e)}</span></div>${c.o ? `<p class="fx-c-o">${esc(c.o)}</p>` : ''}${fxCluster(c, t, false)}</li>`).join('')}</ul>` : ''}
       <div class="leitura fx-texto">${g.h}</div>
       ${nq ? `<a class="bt" href="#${m.id}_fixacao~${a.id}.q" data-fxqgrupo="${id}">${ICO.raio} Questões deste grupo · ${nq}</a>` : ''}</div>`;
   }
@@ -6296,7 +6366,7 @@ html:not([data-ebook]) .ebook-veu { display: none; }
       const naLei = a.grade.some(r => r[0] === id), noCpc = a.grade.some(r => r[1] === id);
       const fora = id.startsWith('fora') || id === 'calculo-cmv';
       const aberto = !fora || fxEst.verFora[id] || (t && nomes.some(x => fxNorm(x.n).includes(t)));
-      const chips = nomes.length > 60 && !aberto ? '' : nomes.map(x => `<span class="fx-chip${t ? fxNorm(x.n).includes(t) ? ' hit' : ' dim' : ''}" title="${esc(x.c.t + ' · ' + x.c.e)}">${esc(x.n)}</span>`).join('');
+      const chips = nomes.length > 60 && !aberto ? '' : cs.map(c => fxCluster(c, t, cs.length > 1 || c.n.length > 8)).join('');
       return `<div class="fx-mr${g.s === '=' ? ' fx-mr-res' : ''}${fxEst.sel === id ? ' sel' : ''}" data-fxmr="${id}"><div class="fx-mr-t"><button class="fx-mr-b" type="button" data-fxg="${id}">${esc(g.t)}</button>${naLei ? '<span class="fx-tag fx-tag-l" title="Na Lei 6.404/76">L</span>' : ''}${noCpc ? '<span class="fx-tag fx-tag-c" title="No CPC 26">C</span>' : ''}${g.n.length ? `<small>${esc(g.n.slice(0, 3).join(' · '))}</small>` : ''}</div>
         <div class="fx-mr-c">${chips || (nomes.length ? `<button class="bt-texto" type="button" data-fxfora="${id}">Mostrar ${plural(nomes.length, 'nome', 'nomes')}</button>` : '')}</div></div>`;
     }).join('');
@@ -6318,7 +6388,7 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     const t = fxNorm(fxEst.busca.trim());
     $$('.fx-mr', vista).forEach(row => {
       let hits = 0;
-      $$('.fx-chip', row).forEach(ch => { const ok = t && fxNorm(ch.textContent).includes(t); ch.classList.toggle('hit', !!ok); ch.classList.toggle('dim', !!t && !ok); if (ok) hits++; });
+      $$('.fx-chip', row).forEach(ch => { const ok = t && fxNorm(ch.dataset.v || ch.textContent).includes(t); ch.classList.toggle('hit', !!ok); ch.classList.toggle('dim', !!t && !ok); if (ok) hits++; });
       row.classList.toggle('fx-mr-hit', hits > 0);
     });
   }
@@ -6357,6 +6427,29 @@ html:not([data-ebook]) .ebook-veu { display: none; }
   function fxNomes(m, a, alvo) {
     const ids = fxGruposOrdem(a).filter(id => !id.startsWith('fora') && id !== 'calculo-cmv');
     alvo.innerHTML = `<div class="fx-nomes">${ids.map(id => { const g = a.grupos[id]; return `<article class="fx-nm${g.s === '=' ? ' fx-nm-res' : ''}"><h2><span class="fx-s">${esc(g.s === '=' ? '(=)' : `(${g.s === '−' ? '–' : g.s})`)}</span>${esc(g.t)}</h2>${g.n.length ? `<div class="fx-chips">${g.n.map(n => `<span class="fx-nome">${esc(n)}</span>`).join('')}</div>` : ''}${g.b ? `<p class="fx-base">${g.b}</p>` : ''}<a class="bt-texto" href="#${m.id}_fixacao~${a.id}" data-fxir="${id}">Ver na estrutura ${ICO.dir}</a></article>`; }).join('')}</div>`;
+  }
+  // -- Questões-modelo: guia com as questões que mais ensinam, explicadas do enunciado à resposta
+  function fxGuia(m, a, alvo, n) {
+    const base = `#${m.id}_fixacao~${a.id}.g`;
+    const n2 = x => String(x).padStart(2, '0');
+    const g = a.guia.find(x => x.n === n);
+    if (!g) {
+      const partes = [];
+      a.guia.forEach(x => { let p = partes.find(y => y.t === x.p); if (!p) partes.push(p = { t: x.p, l: [] }); p.l.push(x); });
+      alvo.innerHTML = `<div class="fx-gd-ind">${partes.map(p => `<section><h2 class="qt-sec-t">${esc(p.t || 'Questões')}</h2><div class="fx-gd-lista">${p.l.map(x => { const q = fxQ(a, x.id); return `<a class="fx-gd-card" href="${base}${x.n}"><span class="fx-gd-num">${n2(x.n)}</span><span class="fx-gd-ct"><strong>${x.t}</strong><small>${x.f} · ${esc(q.b)} · ${esc(q.a)}${q.or && q.or !== '—' ? ' · ' + esc(q.or) : ''}</small>${x.en.length ? `<span class="fx-gd-en">${x.en.map(e => `<span class="fx-nome">${esc(e)}</span>`).join('')}</span>` : ''}</span>${ICO.dir}</a>`; }).join('')}</div></section>`).join('')}</div>`;
+      return;
+    }
+    const q = fxQ(a, g.id), i = a.guia.indexOf(g), ant = a.guia[i - 1], prox = a.guia[i + 1], me = q.tp === 'ME';
+    const gab = me ? q.g : q.g === 'C' ? 'CERTO' : 'ERRADO';
+    const nav = `<div class="fx-gd-nav">${ant ? `<a class="bt" href="${base}${ant.n}">${ICO.voltar} ${n2(ant.n)}</a>` : '<span></span>'}<a class="bt-texto" href="${base}">Todas as ${a.guia.length}</a>${prox ? `<a class="bt bt-p" href="${base}${prox.n}">${n2(prox.n)} ${ICO.dir}</a>` : '<span></span>'}</div>`;
+    alvo.innerHTML = `<article class="fx-gd">
+      <header class="fx-gd-cab"><p class="fx-gd-parte">${n2(g.n)} de ${a.guia.length}${g.p ? ' · ' + esc(g.p) : ''}</p><h2 class="fx-gd-tit">${g.t}</h2>${g.en.length ? `<div class="fx-chips">${g.en.map(e => `<span class="fx-nome">${esc(e)}</span>`).join('')}</div>` : ''}</header>
+      <section class="fx-gd-q"><p class="fx-prova"><strong>${q.f}</strong> · ${me ? 'Múltipla escolha' : 'Certo ou Errado'} · ${esc(q.p)}</p><div class="leitura">${q.e}</div>${me ? `<ol class="fx-gd-ops">${q.o.map((h, k) => `<li${LETRAS[k] === q.g ? ' class="certa"' : ''}><span class="qq-k">${LETRAS[k]}</span><span>${h}</span></li>`).join('')}</ol>` : ''}<details class="fx-gd-gab"><summary>Ver gabarito</summary><p><strong>${gab}</strong></p></details></section>
+      <div class="fx-gd-corpo">${g.r.map(s => `<section class="fx-gd-sec">${s.t ? `<h3>${s.t}</h3>` : ''}<div class="leitura">${s.h}</div></section>`).join('')}</div>
+      ${q.r.length ? `<details class="fx-sec fx-gd-res"><summary>Resolução da questão no caderno</summary>${fxResolucao(m, a, q)}</details>` : ''}
+      ${nav}</article>`;
+    $$('.fx-gd-corpo .fx-dre', alvo).forEach(el => fxQuadro(el, g.dre[+el.dataset.k]));
+    $$('.fx-gd-res .fx-dre', alvo).forEach(el => fxQuadro(el, q.dre[+el.dataset.k]));
   }
   // -- Questões
   const FX_BANCAS = ['CEBRASPE', 'FCC', 'FGV'];

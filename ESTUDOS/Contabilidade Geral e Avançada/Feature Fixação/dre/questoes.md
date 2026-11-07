@@ -1401,7 +1401,7 @@ As despesas apresentadas estão subclassificadas a fim de destacar os componente
 ## F0071 · CEBRASPE · 2024 · PC PE · ME
 - Fontes: TecConcursos 71 (2796036)
 - Prova: CEBRASPE (CESPE) - Ag Pol (PC PE)/PC PE/2024
-- Grupos: lucro-liquido
+- Grupos: estrutura, lucro-liquido, descontinuadas, outras-receitas-despesas, lucro-por-acao
 
 De acordo com as Normas Brasileiras de Contabilidade, a demonstração de resultado do exercício deve apresentar
 
@@ -1411,7 +1411,31 @@ De acordo com as Normas Brasileiras de Contabilidade, a demonstração de result
 - D) todos os custos, operacionais ou não, inclusive os custos de oportunidade.
 - E) contas de resultados abrangentes que tenham afetado a posição patrimonial dos sócios ou acionistas.
 - Gabarito: E
-- Resolução: a caminho
+### O que a questão pede
+O que a DRE **deve** apresentar segundo as normas brasileiras (Lei 6.404/76 e CPC 26 (R1)). Questão teórica, com a resposta mais aceitável para a CEBRASPE.
+
+### A regra
+- A DRE mostra as receitas, despesas, ganhos e perdas que formam o resultado do período, que **altera o patrimônio líquido**, isto é, a posição dos sócios (Lei 6.404/76, art. 187; CPC 26 (R1), item 82).
+- Os **outros resultados abrangentes** (ajustes de avaliação patrimonial, variação cambial de conversão, remensurações atuariais) também afetam o PL, mas, no Brasil, ficam na **demonstração do resultado abrangente** (DRA), separada da DRE.
+
+A alternativa **E** usa "resultados abrangentes" no sentido amplo: o que afetou a posição patrimonial dos sócios no período. É a mesma ideia que a CEBRASPE deu como certa em 2023 (F0131: a DRE apresenta resultados abrangentes que afetaram a posição patrimonial dos sócios). Gabarito **E**.
+
+⚠️ **Ressalva técnica:** em sentido estrito, os **outros** resultados abrangentes não entram na DRE; vão para a DRA (CPC 26 (R1), itens 81A e 82A). Se a banca escrevesse "outros resultados abrangentes", a alternativa estaria errada. Leia o adjetivo.
+
+### Por que as outras estão erradas
+- **A:** a Lei ainda separa o resultado operacional das outras receitas e outras despesas (art. 187, IV, com a redação da Lei 11.941/2009). Nenhuma norma manda **excluir** essa segregação; o que acabou foi o nome "não operacional".
+- **B:** o contrário. A DRE **deve** evidenciar o resultado das operações descontinuadas, em linha própria e líquido de tributos (CPC 26 (R1), item 82(ea); CPC 31, item 33).
+- **C:** a DRE mostra o **lucro por ação** (CPC 41), não dividendos por ação. Dividendos por ação ficam na DMPL ou nas notas (CPC 26 (R1), item 107), e não há separação entre majoritários e minoritários (a DRE consolidada separa o resultado entre controladores e **não controladores**, que é outra coisa).
+- **D:** custo de oportunidade não é registrado pela contabilidade financeira: não houve transação nem consumo de recursos da entidade.
+
+### Pegadinhas
+- **"Resultados abrangentes" × "outros resultados abrangentes":** o primeiro (sentido amplo) inclui o resultado do período; o segundo é só o que vai direto ao PL, fora da DRE.
+- **Não controladores ≠ minoritários de dividendos:** a DRE consolidada atribui o lucro a controladores e não controladores (CPC 26 (R1), item 81B).
+
+### Leve para as próximas
+1. DRE: resultado do período (receitas, despesas, ganhos e perdas), com operações continuadas e descontinuadas, até o lucro líquido e o lucro por ação.
+2. Outros resultados abrangentes: DRA. Dividendos por ação: DMPL ou notas.
+3. Na CEBRASPE, "a DRE apresenta resultados (abrangentes) que afetaram a posição patrimonial dos sócios" costuma ser dado como certo.
 
 ## F0072 · CEBRASPE · 2024 · MPE TO · CE
 - Fontes: TecConcursos 72 (2843228) · Igor Cintra 70
@@ -2642,14 +2666,37 @@ Assinale a opção que indica o lucro bruto relacionado à venda destes três ap
 ## F0120 · CEBRASPE · 2023 · POLC AL · CE
 - Fontes: TecConcursos 120 (2339070)
 - Prova: CEBRASPE (CESPE) - Per Crim (POLC AL)/POLC AL/Ciências Contábeis, Ciências Econômicas ou Administração/2023
-- Grupos: descontinuadas, lucro-liquido
+- Grupos: descontinuadas, continuadas, estrutura
 
 No que se refere à elaboração de demonstrações contábeis pela legislação societária e pelos pronunciamentos técnicos do Comitê de Pronunciamentos Contábeis (CPC), julgue o item que se segue.
 
 Havendo resultado de operações descontinuadas a reconhecer na demonstração do resultado do exercício, isso deve ser feito de forma detalhada, evidenciando os ganhos e as perdas envolvidas.
 
 - Gabarito: ERRADO
-- Resolução: a caminho
+### O que a questão pede
+Como o resultado das **operações descontinuadas** aparece na DRE: em valor detalhado (ganhos e perdas abertos) ou em montante único.
+
+### A regra
+O CPC 31, item 33(a), exige na DRE um **montante único**: o resultado líquido de tributos das operações descontinuadas, somado ao ganho ou à perda (também líquidos de tributos) na mensuração a valor justo menos despesas de venda ou na baixa dos ativos do grupo.
+
+A **abertura** desse valor (receitas, despesas, resultado antes dos tributos, tributos, ganho ou perda na mensuração) é exigida pelo item 33(b), mas pode ficar nas **notas explicativas** ou na própria demonstração, à escolha da entidade. Se vier na DRE, aparece numa seção identificada como operações descontinuadas, separada das continuadas.
+
+| O que | Onde |
+|---|---|
+| Linha única, líquida de tributos | DRE, depois do resultado das operações continuadas (CPC 26 (R1), item 82(ea)) |
+| Análise do montante (receitas, despesas, tributos, ganho ou perda) | Notas explicativas **ou** DRE (CPC 31, item 33(b)) |
+
+O item diz que o reconhecimento "deve ser feito de forma detalhada" na DRE. A norma pede o contrário: **valor único** na face da DRE, com o detalhe opcionalmente nas notas. Gabarito **ERRADO**.
+
+### Pegadinhas
+- **"Deve" × "pode":** o detalhamento na própria DRE é permitido, não obrigatório. A CEBRASPE gosta de transformar uma faculdade em dever.
+- **Valor líquido de tributos:** o resultado das descontinuadas vem **depois** do IR e da CSLL, nunca misturado ao LAIR.
+- **Venda de um imobilizado isolado** não é operação descontinuada: o ganho vai para outras receitas. Descontinuada é um componente (linha de negócio ou área geográfica importante).
+
+### Leve para as próximas
+1. Operações descontinuadas: **uma linha**, líquida de tributos, depois do resultado das operações continuadas.
+2. A abertura do valor vai para as notas ou para a DRE, à escolha da entidade (CPC 31, item 33(b)).
+3. A Lei 6.404/76 não trata do tema: a base é o CPC 26 (R1), item 82(ea), e o CPC 31.
 
 ## F0121 · FGV · 2023 · SRFB · ME
 - Fontes: TecConcursos 121 (2346652)
@@ -6381,34 +6428,34 @@ O Resultado Bruto com Mercadorias evidenciado na Demonstração do Resultado do 
 ## F0289 · FCC · 2015 · DPE RR · ME
 - Fontes: TecConcursos 289 (325267)
 - Prova: FCC - Téc Cont (DPE RR)/DPE RR/2015
-- Grupos: resultado-bruto, receita-bruta
+- Grupos: receita-bruta, calculo-cmv, cmv, resultado-bruto, fora-ativo, fora-passivo, fora-pl, fora-outros
 
 Atenção: Para responder à questão, considere as informações abaixo.
 
 O Balanço Patrimonial da empresa Brasil Comércio S.A., em 31/12/2013, é apresentado a seguir:
 
-ATIVO R$ PASSIVO E PATRIMÔNIO LÍQUIDO R$ Ativo Circulante Passivo Circulante
+| ATIVO | R$ | PASSIVO E PATRIMÔNIO LÍQUIDO | R$ |
+|---|---:|---|---:|
+| **Ativo Circulante** | | **Passivo Circulante** | |
+| Caixa e Equivalentes de Caixa | 100.000,00 | Fornecedores | 60.000,00 |
+| Estoques | 80.000,00 | Adiantamentos de Clientes | 70.000,00 |
+| Valores a Receber de Clientes | 120.000,00 | **Passivo Não Circulante** | |
+| Adiantamentos aos Fornecedores | 25.000,00 | Provisão para Riscos Trabalhistas | 30.000,00 |
+| **Ativo Não Circulante** | | **Patrimônio Líquido** | |
+| Outros valores a receber | 20.000,00 | Capital Social | 200.000,00 |
+| Imobilizado | 55.000,00 | Reservas de Lucros | 40.000,00 |
+| **Total do Ativo** | **400.000,00** | **Total do Passivo e Patrimônio Líquido** | **400.000,00** |
 
-| Conta | Valor |
-|---|---:|
-| Caixa e Equivalentes de Caixa | 100.000,00 |
-| Fornecedores | 60.000,00 |
-| Estoques | 80.000,00 |
-| Adiantamentos de Clientes | 70.000,00 |
-| Valores a Receber de Clientes | 120.000,00 |
+A empresa atua exclusivamente na compra e venda de mercadorias e, durante o ano de 2014, as seguintes operações foram contabilizadas pela Brasil Comércio S.A.:
 
-Passivo Não Circulante
-
-Adiantamentos aos Fornecedores 25.000,00 Provisão para Riscos Trabalhistas 30.000,00 Ativo Não Circulante Patrimônio Líquido
-
-| Conta | Valor |
-|---|---:|
-| Outros valores a receber | 20.000,00 |
-| Capital Social | 200.000,00 |
-| Imobilizado | 55.000,00 |
-| Reservas de Lucros | 40.000,00 |
-
-Total do Ativo 400.000,00 Total do Passivo e Patrimônio Líquido 400.000,00 A empresa atua exclusivamente na compra e venda de mercadorias e, durante o ano de 2014, as seguintes operações foram contabilizadas pela Brasil Comércio S.A.: Data Operação 03/07/14 Recebimento de todas as mercadorias correspondentes aos adiantamentos que haviam sido feitos aos fornecedores. 31/07/14 Recebimento do saldo de Valores a Receber de Clientes existente no Balanço Patrimonial de 31/12/2013. 22/08/14 Compra adicional de mercadorias pelo valor de R$ 15.000,00, tendo efetuado o pagamento à vista. 24/09/14 Entrega das mercadorias aos clientes que haviam efetuado adiantamentos para a empresa. 10/10/14 Pagamento de todo o saldo da conta Fornecedores. 07/11/14 Venda das mercadorias remanescentes no estoque por R$ 200.000,00, tendo recebido 90% do valor total das vendas no próprio ano de 2014. O saldo remanescente será recebido durante o ano 2015.
+| Data | Operação |
+|---|---|
+| 03/07/14 | Recebimento de todas as mercadorias correspondentes aos adiantamentos que haviam sido feitos aos fornecedores. |
+| 31/07/14 | Recebimento do saldo de Valores a Receber de Clientes existente no Balanço Patrimonial de 31/12/2013. |
+| 22/08/14 | Compra adicional de mercadorias pelo valor de R$ 15.000,00, tendo efetuado o pagamento à vista. |
+| 24/09/14 | Entrega das mercadorias aos clientes que haviam efetuado adiantamentos para a empresa. |
+| 10/10/14 | Pagamento de todo o saldo da conta Fornecedores. |
+| 07/11/14 | Venda das mercadorias remanescentes no estoque por R$ 200.000,00, tendo recebido 90% do valor total das vendas no próprio ano de 2014. O saldo remanescente será recebido durante o ano 2015. |
 
 Considere que não há incidência de qualquer tributo nas transações de compras e vendas efetuadas pela empresa e que é adotado o sistema de Inventário Periódico para avaliação do estoque.
 
@@ -6420,7 +6467,77 @@ Após o registro das operações, o resultado bruto evidenciado na Demonstraçã
 - D) 150.000,00.
 - E) 105.000,00.
 - Gabarito: D
-- Resolução: a caminho
+### O que a questão pede
+O **resultado bruto** (lucro bruto) de 2014 de uma empresa comercial, sem tributos, com **inventário periódico**. Resultado bruto = receita − CMV. O balanço de 2013 não é "enfeite": dele saem o estoque inicial, os adiantamentos a fornecedores (que viram estoque) e os adiantamentos de clientes (que viram receita).
+
+### Cálculos prévios
+**1) Classifique as seis operações de 2014:**
+
+| Data | Operação | Efeito no resultado bruto |
+|---|---|---|
+| 03/07 | Chegam as mercadorias pagas antes (adiantamento a fornecedores) | **Estoque +25.000** (sai o adiantamento do ativo, entra estoque) |
+| 31/07 | Recebimento dos 120.000 de clientes | nenhum (caixa ↑, clientes ↓) |
+| 22/08 | Compra à vista | **Compras +15.000** |
+| 24/09 | Entrega aos clientes que tinham adiantado | **Receita +70.000** (o passivo "adiantamentos de clientes" vira receita na entrega, CPC 47) |
+| 10/10 | Pagamento dos 60.000 a fornecedores | nenhum (caixa ↓, passivo ↓) |
+| 07/11 | Venda de todo o estoque restante por 200.000 | **Receita +200.000** (a parte a receber em 2015 também é receita de 2014) |
+
+**2) CMV pelo inventário periódico:** a última operação vende **todas** as mercadorias que sobraram, então o estoque final é **zero**.
+
+| Item | Valor |
+|---|---:|
+| Estoque inicial (balanço de 2013) | 80.000 |
+| (+) Mercadorias recebidas pelos adiantamentos a fornecedores | 25.000 |
+| (+) Compra de 22/08 | 15.000 |
+| (–) Estoque final | 0 |
+| **CMV** | **120.000** |
+
+### Passo a passo
+```dre
+@ Entrega aos clientes que tinham adiantado (24/09) | 70.000 | receita-bruta
+@ Venda das mercadorias remanescentes (07/11) | 200.000 | receita-bruta
+@ Estoque inicial | 80.000 | calculo-cmv
+@ Mercadorias recebidas dos adiantamentos a fornecedores | 25.000 | calculo-cmv
+@ Compra à vista de 22/08 | 15.000 | calculo-cmv
+@ Estoque final | 0 | calculo-cmv
+@ Recebimento de clientes (31/07) | 120.000 | fora-outros
+@ Pagamento a fornecedores (10/10) | 60.000 | fora-outros
+@ Parcela da venda a receber em 2015 | 20.000 | fora-ativo
+@ Provisão para riscos trabalhistas | 30.000 | fora-passivo
+@ Capital social e reservas de lucros | 240.000 | fora-pl
+> Recebimentos e pagamentos só mexem no caixa. A parcela a receber em 2015 é saldo de clientes, mas a venda inteira já é receita de 2014. Provisão e PL ficam no balanço.
+! Recebimento de clientes (31/07); Pagamento a fornecedores (10/10); Parcela da venda a receber em 2015; Provisão para riscos trabalhistas; Capital social e reservas de lucros
+> Receita: a entrega das mercadorias adiantadas (o passivo vira receita) mais a venda de 07/11 pelo valor total, recebido ou não.
++ Receita de vendas | 270.000 | Entrega aos clientes que tinham adiantado (24/09); Venda das mercadorias remanescentes (07/11)
+> CMV: tudo o que estava disponível para venda saiu, porque o estoque final é zero.
++ (–) CMV | (120.000) | Estoque inicial; Mercadorias recebidas dos adiantamentos a fornecedores; Compra à vista de 22/08; Estoque final
+= Resultado bruto | 150.000
+```
+
+Gabarito **D (150.000)**.
+
+### O que ignorar e por quê
+- **Recebimento dos 120.000 de clientes e pagamento dos 60.000 a fornecedores:** regime de competência; caixa não é receita nem despesa.
+- **Os 10% da venda que só serão recebidos em 2015:** o prazo de recebimento não adia a receita. A venda inteira (200.000) é de 2014.
+- **Provisão para riscos trabalhistas, capital e reservas:** saldos do balanço. Uma eventual **variação** da provisão seria despesa operacional, abaixo do resultado bruto.
+- **Imobilizado e outros valores a receber:** não mudam no ano e não entram no lucro bruto.
+
+### O que mais poderia estar ali
+- **Na receita:** qualquer passivo de contrato que se realiza (adiantamento de clientes, assinaturas, serviços pagos antes) vira receita na entrega.
+- **No CMV:** adiantamento a fornecedores só entra quando a mercadoria chega; frete e seguro na compra e tributos não recuperáveis também compõem o custo.
+- **Abaixo do resultado bruto** (fora desta pergunta): despesas com pessoal, provisões, depreciação do imobilizado.
+
+### Pegadinhas
+- **A (270.000):** é a receita; esqueceu o CMV.
+- **B (175.000)** = 270.000 − 80.000 − 15.000: esqueceu que os **25.000 adiantados a fornecedores viraram estoque** e foram vendidos.
+- **C (80.000)** = 200.000 − 120.000: esqueceu a receita dos **70.000 adiantados pelos clientes**.
+- **E (105.000)** = 200.000 − 80.000 − 15.000: ignorou os dois adiantamentos (o de clientes na receita e o de fornecedores no custo).
+- **Adiantamento de cliente não é receita no recebimento**, e adiantamento a fornecedor não é estoque no pagamento: os dois só mudam de natureza com a **entrega** da mercadoria.
+
+### Leve para as próximas
+1. Balanço inicial + operações do ano: procure as contas que "viram" resultado (adiantamentos de clientes → receita; adiantamentos a fornecedores → estoque → CMV).
+2. Inventário periódico: CMV = EI + compras − EF. "Vendeu as mercadorias remanescentes" = EF zero.
+3. Receita a prazo é receita do período da venda; o recebimento futuro só gera saldo de clientes.
 
 ## F0290 · CEBRASPE · 2015 · TELEBRAS · CE
 - Fontes: TecConcursos 290 (340669)
@@ -7253,14 +7370,14 @@ Reversão da provisão para créditos de liquidação duvidosa R$ 3.000,00 Juros
 ## F0311 · FGV · 2014 · ALBA · ME
 - Fontes: TecConcursos 311 (217362)
 - Prova: FGV - TNS (ALBA)/ALBA/Ciências Contábeis/2014
-- Grupos: receita-liquida, resultado-financeiro, equivalencia, fora-destinacao, receita-bruta, despesas-administrativas, despesas-vendas, lucro-liquido, outras-receitas-despesas
+- Grupos: receita-liquida, calculo-cmv, cmv, resultado-bruto, despesas-administrativas, despesas-vendas, outras-receitas-despesas, equivalencia, resultado-antes-financeiro, resultado-financeiro, lair, fora-destinacao
 
 Em 31/12/2013 uma empresa apresentava os seguintes saldos em suas contas:
 
-Vendas líquidas R$ 400.000,00 Estoque inicial de mercadorias zero
-
 | Conta | Valor |
 |---|---:|
+| Vendas líquidas | R$ 400.000,00 |
+| Estoque inicial de mercadorias | zero |
 | Estoque final de mercadorias | R$ 10.000,00 |
 | Compras de mercadorias | R$ 150.000,00 |
 | Dividendos pagos | R$ 30.000,00 |
@@ -7269,8 +7386,12 @@ Vendas líquidas R$ 400.000,00 Estoque inicial de mercadorias zero
 | Juros sobre capital próprio | R$ 30.000,00 |
 | Despesas administrativas | R$ 45.000,00 |
 | Despesas gerais | R$ 65.000,00 |
+| Despesa com a provisão para créditos de liquidação duvidosa | R$ 8.000,00 |
+| Venda de ativo imobilizado | R$ 200.000,00 |
+| Parcela dos resultados de empresas investidas reconhecida por meio do método de equivalência patrimonial | R$ 60.000,00 |
+| Custo do ativo imobilizado | R$ 100.000.00 |
 
-Despesa com a provisão para créditos de liquidação duvidosa R$ 8.000,00 Venda de ativo imobilizado R$ 200.000,00 Parcela dos resultados de empresas investidas reconhecida por meio do método de equivalência patrimonial R$ 60.000,00 Custo do ativo imobilizado R$ 100.000.00 Considerando que as receitas e as despesas se referem, exclusivamente, ao ano de 2013, o resultado do exercício, antes dos impostos e contribuições, apresentado na Demonstração do Resultado do Exercício da empresa, em 31/12/2013. foi de
+Considerando que as receitas e as despesas se referem, exclusivamente, ao ano de 2013, o resultado do exercício, antes dos impostos e contribuições, apresentado na Demonstração do Resultado do Exercício da empresa, em 31/12/2013. foi de
 
 - A) R$ 272.000,00.
 - B) R$ 312.000,00.
@@ -7278,7 +7399,69 @@ Despesa com a provisão para créditos de liquidação duvidosa R$ 8.000,00 Vend
 - D) R$ 362.000,00.
 - E) R$ 372.000,00.
 - Gabarito: E
-- Resolução: a caminho
+### O que a questão pede
+O **resultado antes dos impostos e contribuições** (LAIR) de 2013. Três pontos decidem a questão: o CMV pelo inventário, o **ganho** (e não o preço) na venda do imobilizado e o tratamento dos **juros sobre capital próprio**.
+
+### Cálculos prévios
+- **CMV:** estoque inicial 0 + compras 150.000 − estoque final 10.000 = **140.000**.
+- **Ganho na venda do imobilizado:** preço 200.000 − custo 100.000 = **100.000**. O enunciado não informa depreciação acumulada; o "custo do ativo imobilizado" é tratado como o valor contábil baixado.
+- **Resultado financeiro:** 120.000 − 50.000 = **+70.000**.
+- **JCP (30.000) e dividendos pagos (30.000):** remuneração dos sócios. Pela ICPC 08 (R1), vão direto ao PL; **não** entram na DRE.
+
+### Passo a passo
+```dre
+@ Vendas líquidas | 400.000 | receita-liquida
+@ Estoque inicial de mercadorias | 0 | calculo-cmv
+@ Compras de mercadorias | 150.000 | calculo-cmv
+@ Estoque final de mercadorias | 10.000 | calculo-cmv
+@ Despesas administrativas | 45.000 | despesas-administrativas
+@ Despesas gerais | 65.000 | despesas-administrativas
+@ Despesa com a provisão para créditos de liquidação duvidosa | 8.000 | despesas-vendas
+@ Venda de ativo imobilizado | 200.000 | outras-receitas-despesas
+@ Custo do ativo imobilizado | 100.000 | outras-receitas-despesas
+@ Equivalência patrimonial (parcela dos resultados das investidas) | 60.000 | equivalencia
+@ Receitas financeiras | 120.000 | resultado-financeiro
+@ Despesas financeiras | 50.000 | resultado-financeiro
+@ Juros sobre capital próprio | 30.000 | fora-destinacao
+@ Dividendos pagos | 30.000 | fora-destinacao
+> JCP e dividendos remuneram os sócios: saem do lucro, não o formam (ICPC 08).
+! Juros sobre capital próprio; Dividendos pagos
++ Vendas líquidas | 400.000 | Vendas líquidas
++ (–) CMV | (140.000) | Estoque inicial de mercadorias; Compras de mercadorias; Estoque final de mercadorias
+= Lucro bruto | 260.000
++ (–) Despesas administrativas e gerais | (110.000) | Despesas administrativas; Despesas gerais
++ (–) Despesa com PCLD | (8.000) | Despesa com a provisão para créditos de liquidação duvidosa
+> Na DRE entra o ganho (preço − valor contábil), não o preço de venda.
++ Outras receitas (ganho na venda do imobilizado) | 100.000 | Venda de ativo imobilizado; Custo do ativo imobilizado
++ Resultado de equivalência patrimonial | 60.000 | Equivalência patrimonial (parcela dos resultados das investidas)
+= Resultado antes do resultado financeiro | 302.000
++ Resultado financeiro | 70.000 | Receitas financeiras; Despesas financeiras
+= Resultado antes dos tributos sobre o lucro | 372.000
+```
+
+Gabarito **E (372.000)**.
+
+### O que ignorar e por quê
+- **Dividendos pagos:** destinação do lucro (DLPA ou DMPL).
+- **JCP:** para a FGV, aqui, também é destinação. Veja a divergência nas pegadinhas.
+- **O preço de venda do imobilizado (200.000) inteiro:** só o ganho passa pela DRE.
+
+### O que mais poderia estar ali
+- **Outras receitas e despesas:** perda na baixa de imobilizado, ganho na venda de investimentos.
+- **Equivalência negativa:** perda que reduziria o resultado.
+
+### Pegadinhas
+- **C (342.000)** = 372.000 − 30.000: tratou o **JCP como despesa financeira** (ou os dividendos pagos como despesa; o efeito numérico é o mesmo).
+- **B (312.000)** = 372.000 − 60.000: esqueceu a equivalência patrimonial.
+- **A (272.000)** = 372.000 − 100.000: esqueceu o ganho na venda do imobilizado.
+- **D (362.000)** = 372.000 − 10.000: não descontou o estoque final (usou as compras de 150.000 como CMV).
+- **JCP — divergência:** para o **fisco**, é despesa financeira dedutível (Lei 9.249/95, art. 9º), e parte da doutrina o mostra assim; pela **ICPC 08 (R1)**, contabilmente, é distribuição de resultado, lançada direto no PL. A FGV seguiu a ICPC 08. A empresa que o lança como despesa para fins fiscais deve revertê-lo na DRE societária.
+- **Ganho na venda do imobilizado:** pela Lei, "outras receitas" vêm depois do resultado operacional; pelo CPC 26, ficam no bloco operacional. Para o LAIR, o lugar não muda o total.
+
+### Leve para as próximas
+1. Venda de imobilizado: na DRE vai o **ganho ou a perda** (preço − valor contábil).
+2. JCP: leia a banca e o comando. Contabilmente (ICPC 08), não é despesa; fiscalmente, é dedutível.
+3. Equivalência positiva soma; negativa subtrai. No CPC 26, ambas ficam antes do resultado financeiro.
 
 ## F0312 · FGV · 2014 · Pref Recife · ME
 - Fontes: TecConcursos 312 (221106)
@@ -7313,7 +7496,7 @@ A empresa Robalo S.A. realizou a venda de um automóvel utilizado pela sua diret
 ## F0314 · FCC · 2014 · TCE GO · ME
 - Fontes: TecConcursos 314 (228380)
 - Prova: FCC - ACE (TCE-GO)/TCE GO/Orçamento e Finanças/2014
-- Grupos: cmv, resultado-financeiro, participacoes, ir-csll, lucro-liquido, equivalencia, fora-destinacao, receita-bruta, despesas-administrativas, despesas-vendas, outras-receitas-despesas
+- Grupos: receita-bruta, cmv, resultado-bruto, despesas-vendas, despesas-administrativas, resultado-financeiro, equivalencia, outras-receitas-despesas, lair, ir-csll, participacoes, lucro-liquido, fora-ativo, fora-passivo, fora-pl, fora-destinacao
 
 Atenção: Considere as informações abaixo, para responder à questão.
 
@@ -7321,48 +7504,45 @@ Os Balancetes de Verificação da Cia. Forte apresentavam, no período 2009/2010
 
 Cia. Forte − Balancete de Verificação
 
-| Conta | Débito | Crédito |
-|---|---:|---:|
 | Saldos Devedores | 2009 | 2010 |
-| Saldos Credores | 2009 | 2010 |
-| Aplicações Financeiras (1) (2) | 5.000 | 0 |
-| Capital Social | 50.000 | 60.000 |
-| Capital a Realizar | 10.000 | 0 |
-| Contas a Pagar | 13.000 | 12.050 |
-| Clientes | 32.000 | 38.500 |
-| Depreciação Acumulada | 12.000 | 5.500 |
-| CMV | 28.000 | 34.000 |
-| Empréstimos a Pagar (5) | 0 | 15.000 |
-| Depreciação | 1.000 | 4.500 |
-| Financiamentos a Pagar (6) | 16.000 | 17.000 |
-| Despesas com Créditos de Liquidação Duvidosa | 200 | 500 |
-| Fornecedores | 8.000 | 15.950 |
-| Despesas de Pessoal | 20.000 | 38.000 |
-| Notas Promissórias a Pagar (4) | 9.000 | 0 |
-| Despesas de Vendas | 26.400 | 20.000 |
-
-Provisão para Crédito de Liquidação
-
-| Conta | Débito | Crédito |
 |---|---:|---:|
-| Duvidosa (PCLD) | 200 | 500 |
+| Aplicações Financeiras (1) (2) | 5.000 | 0 |
+| Capital a Realizar | 10.000 | 0 |
+| Clientes | 32.000 | 38.500 |
+| CMV | 28.000 | 34.000 |
+| Depreciação | 1.000 | 4.500 |
+| Despesas com Créditos de Liquidação Duvidosa | 200 | 500 |
+| Despesas de Pessoal | 20.000 | 38.000 |
+| Despesas de Vendas | 26.400 | 20.000 |
 | Despesas Financeiras | 3.800 | 1.960 |
-| Receitas de Aplicações Financeiras | 10.200 | 600 |
 | Disponibilidades | 4.000 | 1.000 |
-| Reservas de Lucros (7) | 2.000 | 0 |
 | Equipamentos | 15.000 | 15.000 |
-| Reservas Legais (7) | 4.000 | 0 |
 | Estoques | 1.960 | 4.500 |
-| Resultado da Venda de Imobilizado | 0 | 4.000 |
 | Imóveis (3) | 22.000 | 27.000 |
-| Resultado de Equivalência Patrimonial | 1.200 | 760 |
 | Participações Societárias | 4.240 | 5.000 |
-| Vendas | 68.000 | 104.500 |
 | Perdas com Clientes | 0 | 900 |
+| Veículos (3) | 20.000 | 45.000 |
+| **Total de Saldo Devedor** | **193.600** | **235.860** |
 
-Veículos (3) 20.000 45.000
+| Saldos Credores | 2009 | 2010 |
+|---|---:|---:|
+| Capital Social | 50.000 | 60.000 |
+| Contas a Pagar | 13.000 | 12.050 |
+| Depreciação Acumulada | 12.000 | 5.500 |
+| Empréstimos a Pagar (5) | 0 | 15.000 |
+| Financiamentos a Pagar (6) | 16.000 | 17.000 |
+| Fornecedores | 8.000 | 15.950 |
+| Notas Promissórias a Pagar (4) | 9.000 | 0 |
+| Provisão para Crédito de Liquidação Duvidosa (PCLD) | 200 | 500 |
+| Receitas de Aplicações Financeiras | 10.200 | 600 |
+| Reservas de Lucros (7) | 2.000 | 0 |
+| Reservas Legais (7) | 4.000 | 0 |
+| Resultado da Venda de Imobilizado | 0 | 4.000 |
+| Resultado de Equivalência Patrimonial | 1.200 | 760 |
+| Vendas | 68.000 | 104.500 |
+| **Total de Saldo Credor** | **193.600** | **235.860** |
 
-Total de Saldo Devedor 193.600  235.860 Total de Saldo Credor 193.600 235.860 A empresa forneceu, ainda, as informações complementares abaixo:
+A empresa forneceu, ainda, as informações complementares abaixo:
 
 (1) Os saldos apresentados correspondem aos saldos finais das contas listadas. Apenas os resultados dos exercícios não estão apurados. (2) A conta de Aplicações Financeiras constituíam-se em aplicações em quotas de Fundo de Investimento, resgatáveis em quatro anos. Ao final de 2010, a empresa resgata antecipadamente o investimento, auferindo um rendimento de R$ 600,00. (3) Ao final do segundo exercício, a direção da empresa opta por renovar integralmente a sua frota de veículos que acumulava depreciações, até a data da baixa, de 55%. No mesmo período, a empresa adquire uma nova frota de veículos, no valor R$ 45.000,00 e adquire novos imóveis. (4) Título vencível em 90 dias. (5) Empréstimos contraídos ao final do exercício de 2010, contratados com prazo de cinco anos e juros contratuais de 1,5% a.a. pagáveis mensalmente no ultimo dia útil do mês. (6) A empresa renegocia com a instituição financeira parte do saldo de seus financiamentos quitando R$ 13.000,00 repactuando o restante da dívida juntamente com novos financiamentos a taxas mais vantajosas e prazo de quitação para 60 meses, com carência de dois anos. (7) No início de 2010, a empresa integraliza totalmente o Capital a Realizar e aumenta o Capital Social, utilizando todo o saldo inicial de Reserva Legal e de Reservas nos Lucros. Na mesma ocasião, os sócios subscrevem e integralizam em moeda corrente parcela do capital. (8) Dos resultados finais apurados, quando positivos, a empresa provisiona 20% para o Imposto de Renda e Contribuições, 10% para Participação nos Lucros para os Administradores e 10% para Participação nos Lucros aos Empregados. Distribuindo o Lucro Líquido 5% para Reserva Legal, 50% para Dividendos e o restante para Reservas de Lucros.
 
@@ -7374,7 +7554,108 @@ O Resultado Líquido apurado em 2010 foi um
 - D) prejuízo de R$ 8.000,00
 - E) lucro de R$ 10.000,00
 - Gabarito: A
-- Resolução: a caminho
+### O que a questão pede
+O **lucro líquido de 2010** a partir de um balancete com dois anos lado a lado. É preciso montar a DRE até o LAIR, tirar o IR e depois as **participações** de empregados e administradores, cada uma sobre o que sobra da anterior (Lei 6.404/76, arts. 189 e 190).
+
+### Cálculos prévios
+**1) Leia só a coluna 2010** e separe as contas de resultado. O lado do saldo diz o sinal: saldo **devedor** é despesa; **credor** é receita ou ganho.
+
+| Conta de resultado de 2010 | Lado | Valor |
+|---|---|---:|
+| Vendas | credor | 104.500 |
+| CMV | devedor | 34.000 |
+| Depreciação | devedor | 4.500 |
+| Despesas com créditos de liquidação duvidosa | devedor | 500 |
+| Despesas de pessoal | devedor | 38.000 |
+| Despesas de vendas | devedor | 20.000 |
+| Perdas com clientes | devedor | 900 |
+| Despesas financeiras | devedor | 1.960 |
+| Receitas de aplicações financeiras | credor | 600 |
+| Resultado de equivalência patrimonial | credor | 760 |
+| Resultado da venda de imobilizado | credor | 4.000 |
+
+**2) Tributos e participações** (nota 8: 20% de IR e contribuições; 10% para empregados e 10% para administradores):
+
+| Etapa | Base | Valor |
+|---|---:|---:|
+| LAIR | | 10.000 |
+| (–) IR e contribuições (20%) | 10.000 | (2.000) |
+| = Resultado antes das participações | | 8.000 |
+| (–) Empregados (10%) | 8.000 | (800) |
+| (–) Administradores (10%) | 8.000 − 800 = 7.200 | (720) |
+| **= Lucro líquido** | | **6.480** |
+
+A ordem é a do art. 190: **empregados antes dos administradores**, mesmo que o enunciado cite os administradores primeiro.
+
+### Passo a passo
+```dre
+@ Vendas | 104.500 | receita-bruta
+@ CMV | 34.000 | cmv
+@ Despesas de Vendas | 20.000 | despesas-vendas
+@ Despesas com Créditos de Liquidação Duvidosa | 500 | despesas-vendas
+@ Perdas com Clientes | 900 | despesas-vendas
+@ Despesas de Pessoal | 38.000 | despesas-administrativas
+@ Depreciação | 4.500 | despesas-administrativas
+@ Despesas Financeiras | 1.960 | resultado-financeiro
+@ Receitas de Aplicações Financeiras | 600 | resultado-financeiro
+@ Resultado de Equivalência Patrimonial | 760 | equivalencia
+@ Resultado da Venda de Imobilizado | 4.000 | outras-receitas-despesas
+@ IR e contribuições (20% do LAIR) | 2.000 | ir-csll
+@ Participação dos empregados (10%) | 800 | participacoes
+@ Participação dos administradores (10%) | 720 | participacoes
+@ Clientes, estoques, aplicações, imobilizado e participações societárias | — | fora-ativo
+@ Contas a pagar, fornecedores, empréstimos e financiamentos | — | fora-passivo
+@ Capital social e reservas | — | fora-pl
+@ Reserva legal (5%) e dividendos (50%) | — | fora-destinacao
+> Use só a coluna de 2010 e risque o que é balanço. A destinação (reserva legal e dividendos) vem depois do lucro líquido.
+! Clientes, estoques, aplicações, imobilizado e participações societárias; Contas a pagar, fornecedores, empréstimos e financiamentos; Capital social e reservas; Reserva legal (5%) e dividendos (50%)
++ Vendas | 104.500 | Vendas
++ (–) CMV | (34.000) | CMV
+= Lucro bruto | 70.500
+> Despesas operacionais: as de vendas levam a despesa com PCLD e as perdas com clientes; as administrativas levam pessoal e depreciação.
++ (–) Despesas com vendas | (21.400) | Despesas de Vendas; Despesas com Créditos de Liquidação Duvidosa; Perdas com Clientes
++ (–) Despesas administrativas | (42.500) | Despesas de Pessoal; Depreciação
+> Pela Lei, o resultado financeiro líquido e a equivalência ficam no bloco operacional; o ganho na venda do imobilizado vem depois do resultado operacional.
++ (–) Despesas financeiras líquidas | (1.360) | Despesas Financeiras; Receitas de Aplicações Financeiras
++ Resultado de equivalência patrimonial | 760 | Resultado de Equivalência Patrimonial
+= Resultado operacional | 6.000
++ Outras receitas (ganho na venda de imobilizado) | 4.000 | Resultado da Venda de Imobilizado
+= LAIR | 10.000
++ (–) IR e contribuições | (2.000) | IR e contribuições (20% do LAIR)
+= Resultado antes das participações | 8.000
+> Participações em sequência (art. 190): empregados sobre 8.000; administradores sobre o que sobrou (7.200).
++ (–) Participação dos empregados | (800) | Participação dos empregados (10%)
++ (–) Participação dos administradores | (720) | Participação dos administradores (10%)
+= Lucro líquido | 6.480
+```
+
+Gabarito **A (lucro de 6.480)**.
+
+### O que ignorar e por quê
+- **A coluna de 2009:** é outro exercício. Ela só serve para conferir movimentos (a depreciação acumulada caiu de 12.000 para 5.500 porque os veículos velhos, com 11.000 acumulados — 55% de 20.000 —, foram baixados: 12.000 + 4.500 − 11.000 = 5.500).
+- **Notas (2) a (7):** resgate de aplicação, compra de veículos e imóveis, empréstimo novo, renegociação de financiamentos e aumento de capital são fatos patrimoniais. O rendimento do resgate (600) e o ganho na venda dos veículos (4.000) **já estão** no balancete; não os some de novo.
+- **Juros contratuais do empréstimo novo (nota 5):** contraído no fim de 2010, não gerou juros no ano.
+- **PCLD (500, credor):** saldo retificador de clientes. A despesa é a conta "Despesas com créditos de liquidação duvidosa".
+- **Reserva legal (5%) e dividendos (50%):** destinação do lucro líquido, na DLPA ou na DMPL.
+
+### O que mais poderia estar ali
+- **Nas participações:** debêntures (antes dos empregados), partes beneficiárias e fundos de assistência a empregados (depois dos administradores). Prejuízos acumulados reduziriam a base.
+- **Nas outras receitas e despesas:** ganho ou perda na baixa de investimentos e intangíveis.
+- **No resultado financeiro:** descontos condicionais, variações monetárias, juros de mora.
+
+### Pegadinhas
+- **E (10.000):** é o LAIR; parou antes do IR e das participações.
+- **C (7.280)** = 8.000 − 720: tirou só a participação dos administradores e esqueceu a dos empregados.
+- **Participações pela mesma base:** 10% de 8.000 para cada uma daria 6.400, que não está entre as alternativas, mas é o erro clássico. Cada participação usa o saldo que restou da anterior.
+- **Ordem do enunciado × ordem da Lei:** o enunciado cita administradores antes de empregados; o cálculo segue o art. 190 (empregados primeiro). Aqui, como as duas taxas são iguais, a ordem não muda o total, mas muda quanto cabe a cada um.
+- **Saldo credor de equivalência e de venda de imobilizado:** são **ganhos**. Tratá-los como perdas derruba o resultado.
+- ⚠️ **Participação de empregados — divergência:** pela Lei (art. 187, VI), vem depois do IR; pelo CPC 33, a participação dos empregados nos lucros é despesa operacional. Em questão com percentuais "depois do IR", siga a Lei.
+
+### Leve para as próximas
+1. Balancete com dois anos: trabalhe só na coluna pedida e use a outra para entender os movimentos.
+2. Saldo devedor = despesa; saldo credor = receita ou ganho (inclusive equivalência e resultado na venda de bens).
+3. IR primeiro; depois as participações, cada uma sobre o que sobrou da anterior, na ordem debêntures → empregados → administradores → partes beneficiárias → fundos (arts. 189 e 190).
+4. Destinação (reservas e dividendos) nunca entra na DRE.
 
 ## F0315 · CEBRASPE · 2014 · PF · CE
 - Fontes: TecConcursos 315 (243295)
@@ -8179,7 +8460,7 @@ Gabarito **CERTO** (CMV 4.600 > 4.300 e lucro bruto 2.700 < 3.000).
 ## F0346 · CEBRASPE · 2013 · SEFAZ ES · ME
 - Fontes: TecConcursos 346 (134649)
 - Prova: CEBRASPE (CESPE) - AFRE ES/SEFAZ ES/2013
-- Grupos: participacoes, receita-bruta, cmv, despesas-administrativas, lucro-liquido, outras-receitas-despesas
+- Grupos: receita-bruta, cmv, resultado-bruto, despesas-administrativas, outras-receitas-despesas, lucro-liquido, fora-ativo, fora-passivo, fora-pl
 
 Situação hipotética para a questão.
 
@@ -8190,12 +8471,7 @@ Determinada empresa apresentou o saldo, em reais, de suas contas contábeis em 3
 | receita antecipada | 3.000 |
 | capital social | 25.000 |
 | receita de vendas | 10.000 |
-
-aplicações financeiras com disponibilidade
-
-| Conta | Valor |
-|---|---:|
-| imediata | 3.000 |
+| aplicações financeiras com disponibilidade imediata | 3.000 |
 | salários a pagar | 1.000 |
 | estoque de material consumo | 2.000 |
 | empréstimos a pagar a longo prazo | 5.000 |
@@ -8212,12 +8488,7 @@ aplicações financeiras com disponibilidade
 | reservas de capital | 7.000 |
 | marcas e patentes | 10.000 |
 | receitas não operacionais | 6.000 |
-
-pesquisa e desenvolvimento de novos produtos
-
-| Conta | Valor |
-|---|---:|
-| (viáveis) | 9.000 |
+| pesquisa e desenvolvimento de novos produtos (viáveis) | 9.000 |
 | caixa | 10.000 |
 | reservas de lucros | 9.000 |
 | impostos a recolher | 4.000 |
@@ -8233,7 +8504,63 @@ Em relação à demonstração do resultado do exercício, assinale a opção co
 - D) As despesas com seguros são diferidas, portanto não constam da apuração do exercício e da demonstração do resultado do exercício.
 - E) Na demonstração do resultado do exercício, a referida empresa deve apresentar todos os itens de receitas e despesas realizados no período, portanto, o lucro do exercício apurado em 31/12/X1 corresponde a R$ 6.000,00.
 - Gabarito: C
-- Resolução: a caminho
+### O que a questão pede
+Julgar cinco afirmações sobre a DRE de um balancete de 2013. Antes de ler as alternativas, monte a DRE: elas cobram a margem bruta, a receita do período, o resultado com e sem a receita não operacional e a natureza das despesas com seguros.
+
+### Cálculos prévios
+- **Receita de vendas:** 10.000 (sem deduções no balancete, então é também a receita líquida).
+- **Lucro bruto:** 10.000 − 4.000 = **6.000** (margem bruta de **60%**).
+- **Despesas operacionais:** alimentação 5.000 + salários 1.000 + seguros 3.000 = **9.000**.
+- **Resultado operacional:** 6.000 − 9.000 = **prejuízo de 3.000**.
+- **Receitas não operacionais:** 6.000. **Lucro do exercício:** **3.000**.
+
+### Passo a passo
+```dre
+@ receita de vendas | 10.000 | receita-bruta
+@ custo da mercadoria vendida | 4.000 | cmv
+@ despesas com alimentação | 5.000 | despesas-administrativas
+@ despesas salários | 1.000 | despesas-administrativas
+@ despesas com seguros | 3.000 | despesas-administrativas
+@ receitas não operacionais | 6.000 | outras-receitas-despesas
+@ receita antecipada | 3.000 | fora-passivo
+@ pesquisa e desenvolvimento de novos produtos (viáveis) | 9.000 | fora-ativo
+@ estoque de material consumo | 2.000 | fora-ativo
+@ ações em tesouraria, reservas e ajustes de avaliação patrimonial | — | fora-pl
+@ demais contas de ativo e passivo | — | fora-outros
+> Triagem: a receita antecipada ainda não foi ganha (passivo); o desenvolvimento viável é intangível; o material de consumo em estoque é ativo.
+! receita antecipada; pesquisa e desenvolvimento de novos produtos (viáveis); estoque de material consumo; ações em tesouraria, reservas e ajustes de avaliação patrimonial; demais contas de ativo e passivo
++ Receita de vendas | 10.000 | receita de vendas
++ (–) CMV | (4.000) | custo da mercadoria vendida
+= Lucro bruto | 6.000
++ (–) Despesas operacionais | (9.000) | despesas com alimentação; despesas salários; despesas com seguros
+= Resultado operacional | (3.000)
+> Sem a receita não operacional, o resultado seria esse prejuízo de 3.000 (alternativa C).
++ Receitas não operacionais | 6.000 | receitas não operacionais
+= Lucro do exercício | 3.000
+```
+
+Gabarito **C**.
+
+### Por que as outras estão erradas
+- **A:** a definição de margem bruta está certa, mas o percentual não: 6.000 ÷ 10.000 = **60%**, não 69%.
+- **B:** a receita do período é 10.000 (mais 6.000 de não operacional). Os 3.000 de **receita antecipada** são passivo: o fato gerador (a entrega) ainda não aconteceu. Somar 10.000 + 3.000 é justamente o erro.
+- **D:** "despesas com seguros" já é a despesa apropriada no período. Seguro diferido seria "seguros a apropriar" ou "despesas antecipadas" (ativo).
+- **E:** o lucro é 3.000. Os 6.000 da alternativa coincidem com o lucro bruto e com a receita não operacional, não com o resultado.
+
+### O que ignorar e por quê
+- **Pesquisa e desenvolvimento (viáveis), 9.000:** o desenvolvimento de produto viável é ativo intangível (CPC 04 (R1), item 57). ⚠️ A fase de **pesquisa** é sempre despesa (item 54); o enunciado agrupa as duas, mas o adjetivo "viáveis" aponta para a parte capitalizável.
+- **Participações em controladas, marcas, edificações, empréstimos concedidos:** ativo não circulante.
+- **Ações em tesouraria, AAP e reservas:** PL.
+
+### Pegadinhas
+- ⚠️ **"Receitas não operacionais":** expressão extinta pela Lei 11.941/2009. Hoje o ganho na venda de bens do ativo não circulante é **outras receitas**. A CEBRASPE ainda usava o nome antigo em 2013; pelo CPC 26 esse ganho fica dentro do bloco operacional ("outras receitas e despesas").
+- **Receita antecipada não é receita do período**, por mais que o nome tenha "receita".
+- **Margem bruta** se calcula sobre a **receita líquida**.
+
+### Leve para as próximas
+1. Em ME de "assinale a correta" com balancete, monte a DRE inteira antes de ler as alternativas.
+2. Receita antecipada = passivo; despesa antecipada = ativo.
+3. Ganho na venda de imobilizado: "outras receitas" (Lei 6.404/76, art. 187, IV, pela Lei 11.941/2009); "não operacional" é o nome antigo.
 
 ## F0347 · CEBRASPE · 2013 · MJSP · CE
 - Fontes: TecConcursos 347 (135504)
@@ -10296,7 +10623,7 @@ A Receita Líquida apurada na demonstração do resultado do exercício, em 31/1
 ## F0445 · CEBRASPE · 2010 · TRE MT · ME
 - Fontes: TecConcursos 445 (343514)
 - Prova: CEBRASPE (CESPE) - AJ TRE MT/TRE MT/Administrativa/Contabilidade/2010
-- Grupos: lucro-liquido
+- Grupos: estrutura, receita-liquida, resultado-bruto, participacoes, lucro-liquido, lucro-por-acao, deducoes
 
 Considerando que, de acordo com a Lei n.º 6.404/1976, a DRE deve ser apresentada na forma dedutiva com os detalhes necessários das receitas, despesas, ganhos e perdas, definindo claramente o lucro ou prejuízo do exercício, e por ação, assinale a opção correta.
 
@@ -10306,7 +10633,27 @@ Considerando que, de acordo com a Lei n.º 6.404/1976, a DRE deve ser apresentad
 - D) São exemplos de participações deduzidas na DRE: debêntures, fornecedores, administradores e partes beneficiárias.
 - E) Os abatimentos concedidos não são discriminados na DRE.
 - Gabarito: C
-- Resolução: a caminho
+### O que a questão pede
+Qual afirmação sobre a DRE da Lei 6.404/76 (art. 187) está correta. Questão teórica sobre a sequência das linhas.
+
+### A regra
+A ordem do art. 187: receita bruta → deduções (incluídos os abatimentos) → receita líquida → custo → lucro bruto → despesas operacionais → lucro operacional → outras receitas e despesas → resultado antes do IR → IR → participações → **lucro líquido e lucro por ação**. O inciso VII põe o lucro líquido e o montante por ação **depois** das participações. Gabarito **C**.
+
+### Por que as outras estão erradas
+- **A:** receita líquida = receita bruta − **deduções** (tributos sobre vendas, devoluções, abatimentos). Tirar o custo das mercadorias leva ao **lucro bruto**, não à receita líquida.
+- **B:** o lucro bruto (o "lucro operacional bruto") vem **antes** das despesas operacionais. Depois delas se chega ao lucro operacional.
+- **D:** fornecedores são credores, não participantes do lucro. As participações são de debêntures, empregados, administradores, partes beneficiárias e fundos de assistência ou previdência de empregados (art. 187, VI).
+- **E:** os abatimentos são discriminados expressamente (art. 187, I).
+
+### Pegadinhas
+- **"Lucro operacional bruto" = lucro bruto.** Não confunda com "lucro operacional" (depois das despesas operacionais).
+- **Participações × dividendos:** participações reduzem o resultado e aparecem na DRE; dividendos não.
+- **Lucro por ação** é calculado sobre o lucro **depois** das participações.
+
+### Leve para as próximas
+1. Receita líquida = bruta − deduções; lucro bruto = líquida − custo.
+2. Participações: debêntures, empregados, administradores, partes beneficiárias e fundos (DEAPI), depois do IR.
+3. Lucro líquido e lucro por ação fecham a DRE (art. 187, VII).
 
 ## F0446 · FCC · 2010 · TRE AM · ME
 - Fontes: TecConcursos 446 (377109)
@@ -10372,7 +10719,7 @@ O frete pago sobre a venda é classificado, na demonstração do resultado do pe
 ## F0449 · CEBRASPE · 2010 · TRE BA · CE
 - Fontes: TecConcursos 449 (413106)
 - Prova: CEBRASPE (CESPE) - AJ (TRE BA)/TRE BA/Administrativa/Contabilidade/2010
-- Grupos: resultado-financeiro, deducoes, estrutura, receita-bruta, despesas-administrativas, cmv, despesas-vendas, lucro-liquido
+- Grupos: receita-bruta, deducoes, receita-liquida, cmv, resultado-bruto, despesas-administrativas, resultado-financeiro, lucro-liquido, fora-ativo, fora-passivo, fora-pl
 
 contas a pagar saldo (em R$ )
 
@@ -10427,7 +10774,86 @@ Os registros das operações típicas de uma empresa afetam a estrutura patrimon
 Após a incorporação do resultado apurado na DRE ao balanço patrimonial, o saldo do patrimônio líquido será igual a R$ 188.200.
 
 - Gabarito: ERRADO
-- Resolução: a caminho
+### O que a questão pede
+O **patrimônio líquido depois de incorporar o resultado** do exercício. São duas contas: o resultado da DRE e o saldo de lucros ou prejuízos acumulados, que o balancete esconde com "?". O caminho mais seguro é o do balanço: **PL = ativo − passivo** (as contas de resultado, depois de encerradas, já estão dentro do PL).
+
+### Cálculos prévios
+**1) Resultado do exercício:**
+
+| Linha | Valor |
+|---|---:|
+| Receita de vendas | 123.400 |
+| (–) Impostos sobre vendas | (24.500) |
+| (–) Abatimento sobre vendas | (12.000) |
+| (–) CMV | (42.610) |
+| = Lucro bruto | 44.290 |
+| (–) Salários 16.700 + manutenção 12.300 + administrativas 9.800 + energia 8.100 + depreciação 5.390 | (52.290) |
+| (–) Despesas financeiras | (3.300) |
+| **= Prejuízo do exercício** | **(11.300)** |
+
+**2) PL pelo balanço (já com o resultado):**
+
+| Item | Valor |
+|---|---:|
+| Ativo bruto (bancos, caixa, duplicatas, títulos, estoque, investimentos, imobilizado, marcas, impostos a recuperar, material de expediente e despesas antecipadas) | 586.800 |
+| (–) Retificadoras: provisão para perda de investimentos 89.000, depreciação acumulada 54.300, PCLD 12.300, provisão para desvalorização de estoques 11.200 | (166.800) |
+| = Ativo líquido | 420.000 |
+| (–) Passivo: promissórias 54.300, fornecedores 54.000, duplicatas descontadas 49.000, debêntures 22.000, contas a pagar 21.000, provisão para contingências 21.000, cartões 6.500, energia 1.200, condomínio 900, impostos 700 | (230.600) |
+| **= Patrimônio líquido** | **189.400** |
+
+**3) Conferência pelo PL:** o "?" do balancete sai do fechamento débito = crédito. Sem ele, os créditos superam os débitos em 10.000, então o saldo é **devedor**: prejuízos acumulados de **10.000**. PL = capital 189.400 + reserva de lucros 21.300 − prejuízos acumulados 10.000 − prejuízo do ano 11.300 = **189.400**. Os dois caminhos batem.
+
+### Passo a passo
+```dre
+@ receita de vendas | 123.400 | receita-bruta
+@ impostos sobre vendas | 24.500 | deducoes
+@ abatimento sobre vendas | 12.000 | deducoes
+@ custo da mercadoria vendida | 42.610 | cmv
+@ despesa de salários | 16.700 | despesas-administrativas
+@ despesa de manutenção | 12.300 | despesas-administrativas
+@ despesas administrativas | 9.800 | despesas-administrativas
+@ despesa com energia | 8.100 | despesas-administrativas
+@ despesa de depreciação | 5.390 | despesas-administrativas
+@ despesas financeiras | 3.300 | resultado-financeiro
+@ provisões (perda de investimentos, PCLD, desvalorização de estoques) | 112.500 | fora-ativo
+@ despesas antecipadas de aluguéis, assinaturas e seguros | 8.500 | fora-ativo
+@ duplicatas descontadas | 49.000 | fora-passivo
+@ provisão para contingências judiciais | 21.000 | fora-passivo
+@ capital social e reserva de lucros | 210.700 | fora-pl
+@ resultados acumulados antes da DRE | — | fora-pl
+> As provisões são saldos retificadores; as despesas antecipadas são ativo; as duplicatas descontadas e a provisão para contingências são passivo.
+! provisões (perda de investimentos, PCLD, desvalorização de estoques); despesas antecipadas de aluguéis, assinaturas e seguros; duplicatas descontadas; provisão para contingências judiciais; capital social e reserva de lucros; resultados acumulados antes da DRE
++ Receita de vendas | 123.400 | receita de vendas
++ (–) Impostos e abatimentos | (36.500) | impostos sobre vendas; abatimento sobre vendas
+= Receita líquida | 86.900
++ (–) CMV | (42.610) | custo da mercadoria vendida
+= Lucro bruto | 44.290
++ (–) Despesas operacionais | (52.290) | despesa de salários; despesa de manutenção; despesas administrativas; despesa com energia; despesa de depreciação
++ (–) Despesas financeiras | (3.300) | despesas financeiras
+= Prejuízo do exercício | (11.300)
+```
+
+O PL depois do resultado é **189.400**, e não 188.200. Gabarito **ERRADO**.
+
+### O que ignorar e por quê
+- **Provisão para perda de investimentos, PCLD e provisão para desvalorização de estoques:** saldos que reduzem o ativo. Entram no cálculo do PL pelo balanço, mas **não** são despesas do período (não há "despesa com provisão" no balancete).
+- **Despesas antecipadas** (aluguéis, assinaturas, seguros): ativo; ainda não viraram despesa.
+- **Material de expediente:** estoque de consumo (ativo).
+- **Duplicatas descontadas:** em 2010 eram apresentadas como redutoras de duplicatas a receber; pelo CPC 48 são passivo (empréstimo). Nos dois casos reduzem o PL calculado pelo balanço no mesmo valor.
+
+### O que mais poderia estar ali
+- **Outras contas que somam ao PL:** reservas de capital, ajustes de avaliação patrimonial; **que reduzem:** ações em tesouraria, prejuízos acumulados.
+- **Itens que mudariam o resultado:** despesa com PCLD, perda por desvalorização de estoques (despesas do período, se viessem com esse nome).
+
+### Pegadinhas
+- **188.200 = 189.400 − 1.200:** é o que sai se a **despesa antecipada de seguros** (1.200, ativo) for tratada como despesa do período. A banca escolheu um valor colado no certo.
+- **Somar só capital + reservas − prejuízo do ano,** esquecendo os prejuízos acumulados escondidos no "?": daria 199.400.
+- **PL igual ao capital social:** coincidência deste balancete (reserva de lucros 21.300 = prejuízos acumulados 10.000 + prejuízo do ano 11.300). Não generalize.
+
+### Leve para as próximas
+1. Balancete com "?" no PL: ache o saldo pelo fechamento (débitos = créditos) ou calcule o PL direto por ativo − passivo.
+2. Retificadoras do ativo reduzem o PL calculado pelo balanço; despesas antecipadas aumentam o ativo.
+3. Prejuízo do exercício reduz o PL: PL final = PL antes do resultado ± resultado.
 
 ## F0450 · CEBRASPE · 2010 · TRE BA · CE
 - Fontes: TecConcursos 450 (413108)
@@ -11639,52 +12065,49 @@ Se uma empresa superavalia seu estoque final, isso indica que o seu lucro
 ## F0493 · FCC · 2009 · MPE SE · ME
 - Fontes: TecConcursos 493 (189628)
 - Prova: FCC - Ana (MPE SE)/MPE SE/Contabilidade/2009
-- Grupos: participacoes, receita-bruta, despesas-administrativas, cmv, despesas-vendas, resultado-financeiro, equivalencia, outras-receitas-despesas
+- Grupos: receita-bruta, cmv, resultado-bruto, despesas-vendas, despesas-administrativas, resultado-financeiro, equivalencia, outras-receitas-despesas, lucro-liquido, fora-ativo, fora-passivo, fora-pl
 
 Instruções: Para responder à questão, considere as informações a seguir oriundas do Departamento de Contabilidade da Cia. Margarida.
 I. Os saldos finais de suas contas no período 2007/2008 eram:<br>
 
-| Conta | Débito | Crédito |
-|---|---:|---:|
 | Saldos Devedores | 2007 | 2008 |
-| Saldos Credores | 2007 | 2008 |
-| Amortizações | 1.000,00 |  |
-| 1.000,00 Amortização Acumulada | 1.000,00 | 2.000,00 |
-| Benfeitorias em Propriedades de Terceiros | 4.000,00 |  |
-| 4.000,00 Capital Social | 15.000,00 | 27.000,00 |
-| Caixa | 500,00 |  |
-| 1.500,00 Contas a Pagar | 2.000,00 | 3.000,00 |
-| Clientes | 18.000,00 |  |
-| 27.500,00 Depreciação Acumulada | 3.000,00 | 2.000,00 |
-| Custo da Mercadoria Vendida | 20.000,00 |  |
-| 30.000,00 Duplicatas Descontadas | 0 | 10.000,00 |
-| Depreciações | 1.000,00 |  |
-| 2.000,00 Encargos e Salários a Pagar | 600,00 | 1.200,00 |
-| Despesas de Juros | 4.000,00 |  |
-| 4.500,00 Empréstimos a Pagar | 5.400,00 | 10.000,00 |
-| Despesas Administrativas | 3.000,00 |  |
-| 5.000,00 Fornecedores | 5.000,00 | 6.800,00 |
-| Despesas Comerciais | 4.300,00 |  |
-| 5.100,00 Juros a Pagar | 3.000,00 | 1.000,00 |
-| Despesas Tributárias | 4.400,00 |  |
-| 6.100,00 PDD | 300,00 | 500,00 |
-| Encargos e Salários | 12.000,00 |  |
-| 16.100,00 Reservas | 1.000,00 | 0 |
-| Estoques | 1.800,00 |  |
-| 3.000,00 Resultado c/Alienação de Veículos | 0 | 1.000,00 |
-| Imóveis | 2.500,00 |  |
-| 12.500,00 Vendas de Mercadorias | 50.000,00 | 70.000,00 |
+|---|---:|---:|
+| Amortizações | 1.000,00 | 1.000,00 |
+| Benfeitorias em Propriedades de Terceiros | 4.000,00 | 4.000,00 |
+| Caixa | 500,00 | 1.500,00 |
+| Clientes | 18.000,00 | 27.500,00 |
+| Custo da Mercadoria Vendida | 20.000,00 | 30.000,00 |
+| Depreciações | 1.000,00 | 2.000,00 |
+| Despesas de Juros | 4.000,00 | 4.500,00 |
+| Despesas Administrativas | 3.000,00 | 5.000,00 |
+| Despesas Comerciais | 4.300,00 | 5.100,00 |
+| Despesas Tributárias | 4.400,00 | 6.100,00 |
+| Encargos e Salários | 12.000,00 | 16.100,00 |
+| Estoques | 1.800,00 | 3.000,00 |
+| Imóveis | 2.500,00 | 12.500,00 |
 | Participações em Outras Companhias | 4.500,00 | 4.000,00 |
+| Perdas com Clientes | 0 | 1.200,00 |
+| Provisão para Devedores | 300,00 | 500,00 |
+| Resultado de Equivalência | 0 | 500,00 |
+| Veículos | 5.000,00 | 10.000,00 |
+| **Total** | **86.300,00** | **134.500,00** |
 
-Perdas com Clientes 0 1.200,00
-
-Provisão para Devedores 300,00 500,00
-
-Resultado de Equivalência 0 500,00
-
-Veículos 5.000,00 10.000,00
-
-Total 86.300,00 134.500,00 Total 86.300,00 134.500,00
+| Saldos Credores | 2007 | 2008 |
+|---|---:|---:|
+| Amortização Acumulada | 1.000,00 | 2.000,00 |
+| Capital Social | 15.000,00 | 27.000,00 |
+| Contas a Pagar | 2.000,00 | 3.000,00 |
+| Depreciação Acumulada | 3.000,00 | 2.000,00 |
+| Duplicatas Descontadas | 0 | 10.000,00 |
+| Encargos e Salários a Pagar | 600,00 | 1.200,00 |
+| Empréstimos a Pagar | 5.400,00 | 10.000,00 |
+| Fornecedores | 5.000,00 | 6.800,00 |
+| Juros a Pagar | 3.000,00 | 1.000,00 |
+| PDD | 300,00 | 500,00 |
+| Reservas | 1.000,00 | 0 |
+| Resultado c/Alienação de Veículos | 0 | 1.000,00 |
+| Vendas de Mercadorias | 50.000,00 | 70.000,00 |
+| **Total** | **86.300,00** | **134.500,00** |
 
 II. Dados complementares relativos a operações realizadas, na empresa, no exercício de 2008:<br>
 
@@ -11698,57 +12121,125 @@ O resultado apurado pela empresa em 2007 foi
 - D) um resultado deficitário.
 - E) inferior ao resultado de 2008.
 - Gabarito: C
-- Resolução: a caminho
+### O que a questão pede
+Comparar o **resultado de 2007** com o de 2008. É preciso apurar os dois a partir do balancete com as duas colunas. Os saldos de resultado ainda não foram encerrados em nenhum dos anos.
+
+### Cálculos prévios
+**Resultado de cada ano (saldo credor soma, saldo devedor subtrai):**
+
+| Conta | 2007 | 2008 |
+|---|---:|---:|
+| Vendas de mercadorias | 50.000 | 70.000 |
+| Resultado c/ alienação de veículos (ganho) | 0 | 1.000 |
+| (–) Custo da mercadoria vendida | (20.000) | (30.000) |
+| (–) Encargos e salários | (12.000) | (16.100) |
+| (–) Despesas tributárias | (4.400) | (6.100) |
+| (–) Despesas comerciais | (4.300) | (5.100) |
+| (–) Despesas administrativas | (3.000) | (5.000) |
+| (–) Despesas de juros | (4.000) | (4.500) |
+| (–) Depreciações | (1.000) | (2.000) |
+| (–) Amortizações | (1.000) | (1.000) |
+| (–) Perdas com clientes | 0 | (1.200) |
+| (–) Provisão para devedores (despesa) | (300) | (500) |
+| (–) Resultado de equivalência (saldo devedor: perda) | 0 | (500) |
+| **Resultado** | **0** | **(1.000)** |
+
+2007 fechou **zerado** (nem lucro nem prejuízo); 2008 teve **prejuízo de 1.000**. Zero é maior que −1.000.
+
+### Passo a passo
+Resultado de 2007:
+
+```dre
+@ Vendas de Mercadorias | 50.000,00 | receita-bruta
+@ Custo da Mercadoria Vendida | 20.000,00 | cmv
+@ Despesas Comerciais | 4.300,00 | despesas-vendas
+@ Provisão para Devedores | 300,00 | despesas-vendas
+@ Encargos e Salários | 12.000,00 | despesas-administrativas
+@ Despesas Tributárias | 4.400,00 | despesas-administrativas
+@ Despesas Administrativas | 3.000,00 | despesas-administrativas
+@ Depreciações | 1.000,00 | despesas-administrativas
+@ Amortizações | 1.000,00 | despesas-administrativas
+@ Despesas de Juros | 4.000,00 | resultado-financeiro
+@ PDD (saldo credor) | 300,00 | fora-ativo
+@ Capital, reservas e demais contas patrimoniais | — | fora-outros
+> "Provisão para Devedores" no lado devedor é a despesa do ano; a "PDD" do lado credor é o saldo retificador de clientes.
+! PDD (saldo credor); Capital, reservas e demais contas patrimoniais
++ Vendas de mercadorias | 50.000,00 | Vendas de Mercadorias
++ (–) CMV | (20.000,00) | Custo da Mercadoria Vendida
+= Lucro bruto | 30.000,00
++ (–) Despesas comerciais | (4.600,00) | Despesas Comerciais; Provisão para Devedores
++ (–) Despesas administrativas e gerais | (21.400,00) | Encargos e Salários; Despesas Tributárias; Despesas Administrativas; Depreciações; Amortizações
++ (–) Despesas de juros | (4.000,00) | Despesas de Juros
+= Resultado de 2007 | 0,00
+```
+
+Pela mesma conta, 2008 dá prejuízo de 1.000 (tabela acima). Gabarito **C (maior que o obtido em 2008)**.
+
+### Por que as outras estão erradas
+- **A (prejuízo de 1.000):** é o resultado de **2008**, não o de 2007.
+- **B (superavitário) e D (deficitário):** 2007 ficou exatamente em zero; nem lucro nem prejuízo.
+- **E (inferior ao de 2008):** é o contrário; 0 > −1.000.
+
+### O que ignorar e por quê
+- **Dados complementares de 2008** (troca da frota, aumento de capital, troca da dívida, compra de imóveis): só servem para as questões irmãs (F0494 e F0495) e para conferir o balancete.
+- **Saldos patrimoniais** (caixa, clientes, estoques, imóveis, fornecedores, capital).
+
+### Pegadinhas
+- **Duas contas parecidas em lados diferentes:** "Provisão para Devedores" (devedora, despesa) e "PDD" (credora, saldo). Somar as duas como despesa conta em dobro.
+- **Equivalência no lado devedor** é perda (2008: −500).
+- **Resultado zero** não é superávit nem déficit: a FCC usou isso para eliminar B e D de uma vez.
+
+### Leve para as próximas
+1. Balancete de dois anos: apure os dois resultados lado a lado, na mesma tabela.
+2. O lado do saldo diz a natureza: devedor = despesa ou perda; credor = receita ou ganho.
+3. Conferência: o total devedor do balancete tem de bater com o credor (86.300 em 2007; 134.500 em 2008).
 
 ## F0494 · FCC · 2009 · MPE SE · ME
 - Fontes: TecConcursos 494 (189720)
 - Prova: FCC - Ana (MPE SE)/MPE SE/Contabilidade/2009
-- Grupos: participacoes, receita-bruta, despesas-administrativas, cmv, despesas-vendas, resultado-financeiro, equivalencia, outras-receitas-despesas
+- Grupos: outras-receitas-despesas, fora-ativo
 
 Instruções: Para responder à questão, considere as informações a seguir oriundas do Departamento de Contabilidade da Cia. Margarida.
 I. Os saldos finais de suas contas no período 2007/2008 eram:<br>
 
-| Conta | Débito | Crédito |
-|---|---:|---:|
 | Saldos Devedores | 2007 | 2008 |
-| Saldos Credores | 2007 | 2008 |
-| Amortizações | 1.000,00 |  |
-| 1.000,00 Amortização Acumulada | 1.000,00 | 2.000,00 |
-| Benfeitorias em Propriedades de Terceiros | 4.000,00 |  |
-| 4.000,00 Capital Social | 15.000,00 | 27.000,00 |
-| Caixa | 500,00 |  |
-| 1.500,00 Contas a Pagar | 2.000,00 | 3.000,00 |
-| Clientes | 18.000,00 |  |
-| 27.500,00 Depreciação Acumulada | 3.000,00 | 2.000,00 |
-| Custo da Mercadoria Vendida | 20.000,00 |  |
-| 30.000,00 Duplicatas Descontadas | 0 | 10.000,00 |
-| Depreciações | 1.000,00 |  |
-| 2.000,00 Encargos e Salários a Pagar | 600,00 | 1.200,00 |
-| Despesas de Juros | 4.000,00 |  |
-| 4.500,00 Empréstimos a Pagar | 5.400,00 | 10.000,00 |
-| Despesas Administrativas | 3.000,00 |  |
-| 5.000,00 Fornecedores | 5.000,00 | 6.800,00 |
-| Despesas Comerciais | 4.300,00 |  |
-| 5.100,00 Juros a Pagar | 3.000,00 | 1.000,00 |
-| Despesas Tributárias | 4.400,00 |  |
-| 6.100,00 PDD | 300,00 | 500,00 |
-| Encargos e Salários | 12.000,00 |  |
-| 16.100,00 Reservas | 1.000,00 | 0 |
-| Estoques | 1.800,00 |  |
-| 3.000,00 Resultado c/Alienação de Veículos | 0 | 1.000,00 |
-| Imóveis | 2.500,00 |  |
-| 12.500,00 Vendas de Mercadorias | 50.000,00 | 70.000,00 |
+|---|---:|---:|
+| Amortizações | 1.000,00 | 1.000,00 |
+| Benfeitorias em Propriedades de Terceiros | 4.000,00 | 4.000,00 |
+| Caixa | 500,00 | 1.500,00 |
+| Clientes | 18.000,00 | 27.500,00 |
+| Custo da Mercadoria Vendida | 20.000,00 | 30.000,00 |
+| Depreciações | 1.000,00 | 2.000,00 |
+| Despesas de Juros | 4.000,00 | 4.500,00 |
+| Despesas Administrativas | 3.000,00 | 5.000,00 |
+| Despesas Comerciais | 4.300,00 | 5.100,00 |
+| Despesas Tributárias | 4.400,00 | 6.100,00 |
+| Encargos e Salários | 12.000,00 | 16.100,00 |
+| Estoques | 1.800,00 | 3.000,00 |
+| Imóveis | 2.500,00 | 12.500,00 |
 | Participações em Outras Companhias | 4.500,00 | 4.000,00 |
+| Perdas com Clientes | 0 | 1.200,00 |
+| Provisão para Devedores | 300,00 | 500,00 |
+| Resultado de Equivalência | 0 | 500,00 |
+| Veículos | 5.000,00 | 10.000,00 |
+| **Total** | **86.300,00** | **134.500,00** |
 
-Perdas com Clientes 0 1.200,00
-
-Provisão para Devedores 300,00 500,00
-
-Resultado de Equivalência 0 500,00
-
-Veículos 5.000,00 10.000,00
-
-Total 86.300,00 134.500,00 Total 86.300,00 134.500,00
+| Saldos Credores | 2007 | 2008 |
+|---|---:|---:|
+| Amortização Acumulada | 1.000,00 | 2.000,00 |
+| Capital Social | 15.000,00 | 27.000,00 |
+| Contas a Pagar | 2.000,00 | 3.000,00 |
+| Depreciação Acumulada | 3.000,00 | 2.000,00 |
+| Duplicatas Descontadas | 0 | 10.000,00 |
+| Encargos e Salários a Pagar | 600,00 | 1.200,00 |
+| Empréstimos a Pagar | 5.400,00 | 10.000,00 |
+| Fornecedores | 5.000,00 | 6.800,00 |
+| Juros a Pagar | 3.000,00 | 1.000,00 |
+| PDD | 300,00 | 500,00 |
+| Reservas | 1.000,00 | 0 |
+| Resultado c/Alienação de Veículos | 0 | 1.000,00 |
+| Vendas de Mercadorias | 50.000,00 | 70.000,00 |
+| **Total** | **86.300,00** | **134.500,00** |
 
 II. Dados complementares relativos a operações realizadas, na empresa, no exercício de 2008:<br>
 
@@ -11762,57 +12253,97 @@ O valor recebido na alienação dos veículos foi, em R$,
 - D) 4.000,00
 - E) 5.000,00
 - Gabarito: C
-- Resolução: a caminho
+### O que a questão pede
+O **preço recebido** no leilão dos veículos antigos. O balancete dá o **ganho** (1.000), não o preço. Preço = valor contábil baixado + ganho.
+
+### Cálculos prévios
+**1) Valor contábil dos veículos antigos** (vendidos no **início** de 2008, sem depreciação nesse ano):
+
+| Item | Valor |
+|---|---:|
+| Custo dos veículos antigos (saldo de 2007) | 5.000 |
+| (–) Depreciação acumulada (saldo de 2007) | (3.000) |
+| = Valor contábil | **2.000** |
+
+**2) Por que a depreciação acumulada de 2007 é toda dos veículos:** em 2008 ela recomeça do zero com os veículos novos. Veículos novos de 10.000 com vida útil de 5 anos → depreciação de **2.000** por ano, igual à despesa "Depreciações" de 2008 e ao saldo acumulado de 2008 (2.000). Logo, os 3.000 de 2007 saíram inteiros com os veículos antigos.
+
+**3) Preço de venda:** valor contábil 2.000 + ganho 1.000 = **3.000**.
+
+### Passo a passo
+```dre
+@ Veículos antigos (custo) | 5.000,00 | fora-ativo
+@ Depreciação acumulada dos veículos antigos | 3.000,00 | fora-ativo
+@ Resultado c/Alienação de Veículos | 1.000,00 | outras-receitas-despesas
+> Baixa: sai o custo (5.000) e sai a depreciação acumulada (3.000); o valor contábil baixado é 2.000.
+! Veículos antigos (custo); Depreciação acumulada dos veículos antigos
+> Na DRE de 2008 entra só o ganho: preço recebido − valor contábil.
++ Outras receitas (ganho na alienação) | 1.000,00 | Resultado c/Alienação de Veículos
+```
+
+Preço recebido = 2.000 + 1.000 = **3.000**. Gabarito **C**.
+
+### O que ignorar e por quê
+- **Veículos de 2008 (10.000):** são os novos; não entram no cálculo do preço dos antigos.
+- **Amortização acumulada:** é das benfeitorias em propriedades de terceiros, não dos veículos.
+
+### Pegadinhas
+- **A (1.000):** é o ganho, não o preço recebido.
+- **B (2.000):** é o valor contábil baixado.
+- **E (5.000):** é o custo original dos veículos antigos.
+- **D (4.000)** = 3.000 + 1.000: contou o ganho duas vezes.
+- **Esquecer a baixa da depreciação acumulada:** confundiria a queda de 3.000 para 2.000 no saldo com uma "reversão".
+
+### Leve para as próximas
+1. Ganho (ou perda) na venda de imobilizado = preço − (custo − depreciação acumulada).
+2. Preço = valor contábil + ganho (ou − perda).
+3. Use a variação da depreciação acumulada para descobrir quanto saiu na baixa: saldo inicial + depreciação do ano − baixa = saldo final.
 
 ## F0495 · FCC · 2009 · MPE SE · ME
 - Fontes: TecConcursos 495 (189725)
 - Prova: FCC - Ana (MPE SE)/MPE SE/Contabilidade/2009
-- Grupos: participacoes, receita-bruta, despesas-administrativas, cmv, despesas-vendas, resultado-financeiro, equivalencia, outras-receitas-despesas
+- Grupos: calculo-cmv, cmv, fora-ativo
 
 Instruções: Para responder à questão, considere as informações a seguir oriundas do Departamento de Contabilidade da Cia. Margarida.
 I. Os saldos finais de suas contas no período 2007/2008 eram:<br>
 
-| Conta | Débito | Crédito |
-|---|---:|---:|
 | Saldos Devedores | 2007 | 2008 |
-| Saldos Credores | 2007 | 2008 |
-| Amortizações | 1.000,00 |  |
-| 1.000,00 Amortização Acumulada | 1.000,00 | 2.000,00 |
-| Benfeitorias em Propriedades de Terceiros | 4.000,00 |  |
-| 4.000,00 Capital Social | 15.000,00 | 27.000,00 |
-| Caixa | 500,00 |  |
-| 1.500,00 Contas a Pagar | 2.000,00 | 3.000,00 |
-| Clientes | 18.000,00 |  |
-| 27.500,00 Depreciação Acumulada | 3.000,00 | 2.000,00 |
-| Custo da Mercadoria Vendida | 20.000,00 |  |
-| 30.000,00 Duplicatas Descontadas | 0 | 10.000,00 |
-| Depreciações | 1.000,00 |  |
-| 2.000,00 Encargos e Salários a Pagar | 600,00 | 1.200,00 |
-| Despesas de Juros | 4.000,00 |  |
-| 4.500,00 Empréstimos a Pagar | 5.400,00 | 10.000,00 |
-| Despesas Administrativas | 3.000,00 |  |
-| 5.000,00 Fornecedores | 5.000,00 | 6.800,00 |
-| Despesas Comerciais | 4.300,00 |  |
-| 5.100,00 Juros a Pagar | 3.000,00 | 1.000,00 |
-| Despesas Tributárias | 4.400,00 |  |
-| 6.100,00 PDD | 300,00 | 500,00 |
-| Encargos e Salários | 12.000,00 |  |
-| 16.100,00 Reservas | 1.000,00 | 0 |
-| Estoques | 1.800,00 |  |
-| 3.000,00 Resultado c/Alienação de Veículos | 0 | 1.000,00 |
-| Imóveis | 2.500,00 |  |
-| 12.500,00 Vendas de Mercadorias | 50.000,00 | 70.000,00 |
+|---|---:|---:|
+| Amortizações | 1.000,00 | 1.000,00 |
+| Benfeitorias em Propriedades de Terceiros | 4.000,00 | 4.000,00 |
+| Caixa | 500,00 | 1.500,00 |
+| Clientes | 18.000,00 | 27.500,00 |
+| Custo da Mercadoria Vendida | 20.000,00 | 30.000,00 |
+| Depreciações | 1.000,00 | 2.000,00 |
+| Despesas de Juros | 4.000,00 | 4.500,00 |
+| Despesas Administrativas | 3.000,00 | 5.000,00 |
+| Despesas Comerciais | 4.300,00 | 5.100,00 |
+| Despesas Tributárias | 4.400,00 | 6.100,00 |
+| Encargos e Salários | 12.000,00 | 16.100,00 |
+| Estoques | 1.800,00 | 3.000,00 |
+| Imóveis | 2.500,00 | 12.500,00 |
 | Participações em Outras Companhias | 4.500,00 | 4.000,00 |
+| Perdas com Clientes | 0 | 1.200,00 |
+| Provisão para Devedores | 300,00 | 500,00 |
+| Resultado de Equivalência | 0 | 500,00 |
+| Veículos | 5.000,00 | 10.000,00 |
+| **Total** | **86.300,00** | **134.500,00** |
 
-Perdas com Clientes 0 1.200,00
-
-Provisão para Devedores 300,00 500,00
-
-Resultado de Equivalência 0 500,00
-
-Veículos 5.000,00 10.000,00
-
-Total 86.300,00 134.500,00 Total 86.300,00 134.500,00
+| Saldos Credores | 2007 | 2008 |
+|---|---:|---:|
+| Amortização Acumulada | 1.000,00 | 2.000,00 |
+| Capital Social | 15.000,00 | 27.000,00 |
+| Contas a Pagar | 2.000,00 | 3.000,00 |
+| Depreciação Acumulada | 3.000,00 | 2.000,00 |
+| Duplicatas Descontadas | 0 | 10.000,00 |
+| Encargos e Salários a Pagar | 600,00 | 1.200,00 |
+| Empréstimos a Pagar | 5.400,00 | 10.000,00 |
+| Fornecedores | 5.000,00 | 6.800,00 |
+| Juros a Pagar | 3.000,00 | 1.000,00 |
+| PDD | 300,00 | 500,00 |
+| Reservas | 1.000,00 | 0 |
+| Resultado c/Alienação de Veículos | 0 | 1.000,00 |
+| Vendas de Mercadorias | 50.000,00 | 70.000,00 |
+| **Total** | **86.300,00** | **134.500,00** |
 
 II. Dados complementares relativos a operações realizadas, na empresa, no exercício de 2008:<br>
 
@@ -11826,7 +12357,42 @@ O valor das compras de mercadorias efetuadas no período é, em R$,
 - D) 31.200,00
 - E) 33.000,00
 - Gabarito: D
-- Resolução: a caminho
+### O que a questão pede
+O valor das **compras de mercadorias** de 2008. É a fórmula do CMV ao contrário: compras = CMV + estoque final − estoque inicial.
+
+### Cálculos prévios
+| Item | Valor |
+|---|---:|
+| CMV de 2008 | 30.000 |
+| (+) Estoque final (saldo de 2008) | 3.000 |
+| (–) Estoque inicial (saldo de 2007) | (1.800) |
+| **= Compras** | **31.200** |
+
+Conferência: 1.800 + 31.200 − 3.000 = 30.000.
+
+### Passo a passo
+```dre
+@ Estoques (saldo de 2007 = estoque inicial) | 1.800,00 | calculo-cmv
+@ Compras de 2008 (incógnita) | 31.200,00 | calculo-cmv
+@ Estoques (saldo de 2008 = estoque final) | 3.000,00 | calculo-cmv
+> CMV = EI + compras − EF. Com o CMV dado (30.000), as compras saem por diferença: 30.000 + 3.000 − 1.800.
++ (–) CMV | (30.000,00) | Estoques (saldo de 2007 = estoque inicial); Compras de 2008 (incógnita); Estoques (saldo de 2008 = estoque final)
+```
+
+Gabarito **D (31.200)**.
+
+### O que ignorar e por quê
+- **Fornecedores (5.000 → 6.800):** a variação mostra quanto ficou a pagar, não quanto foi comprado. Compras a prazo e pagamentos se misturam nesse saldo.
+- **Vendas de 2008:** não entram; o CMV já está pronto.
+
+### Pegadinhas
+- **E (33.000)** = 30.000 + 3.000: esqueceu de tirar o estoque inicial.
+- **Inverter os estoques** (30.000 + 1.800 − 3.000 = 28.800) é o erro de sinal mais comum; não está nas alternativas, mas aparece em outras provas.
+- **Saldo de 2007 = estoque inicial de 2008:** o fim de um ano é o começo do seguinte.
+
+### Leve para as próximas
+1. Compras = CMV + EF − EI (a fórmula do CMV isolando as compras).
+2. Balancete de dois anos: a coluna do ano anterior dá o estoque inicial.
 
 ## F0496 · FCC · 2009 · MPE SE · ME
 - Fontes: TecConcursos 496 (189729)
@@ -12348,7 +12914,7 @@ O resultado apresentado na demonstração do resultado do exercício de 2008 é 
 ## F0524 · CEBRASPE · 2009 · SEGER ES · CE
 - Fontes: TecConcursos 524 (1784075)
 - Prova: CEBRASPE (CESPE) - AE (SEGER ES)/SEGER ES/Ciências Contábeis/2009
-- Grupos: resultado-bruto, resultado-financeiro, ir-csll, deducoes, receita-bruta, despesas-administrativas, despesas-vendas
+- Grupos: receita-bruta, deducoes, receita-liquida, calculo-cmv, cmv, resultado-bruto, fora-ativo, fora-passivo, fora-pl
 
 conta (R$)
 
@@ -12367,11 +12933,6 @@ conta (R$)
 | despesa de manutenção e conservação | 600 |
 | energia a pagar | 600 |
 | despesa de energia | 650 |
-
-∈ ∈
-
-| Conta | Valor |
-|---|---:|
 | despesas financeiras | 650 |
 | devolução de vendas | 660 |
 | fretes sobre compras de mercadorias | 700 |
@@ -12421,12 +12982,85 @@ Tendo como base o balancete de verificação apresentado, julgue o item seguinte
 O resultado bruto apurado é igual a R$ 17.370.
 
 - Gabarito: ERRADO
-- Resolução: a caminho
+### O que a questão pede
+O **resultado bruto** (lucro bruto) a partir de um balancete de 2009 com 56 contas. O CMV sai pelo inventário, com fretes e seguros sobre compras somados ao custo.
+
+### Cálculos prévios
+**1) Receita líquida:**
+
+| Item | Valor |
+|---|---:|
+| Receita bruta de vendas | 24.590 |
+| (–) Devolução de vendas | (660) |
+| (–) Abatimento de vendas | (980) |
+| (–) Impostos sobre vendas | (2.100) |
+| **= Receita líquida** | **20.850** |
+
+**2) CMV pelo inventário:**
+
+| Item | Valor |
+|---|---:|
+| Estoque inicial | 6.000 |
+| (+) Compra de mercadorias | 600 |
+| (+) Fretes sobre compras | 700 |
+| (+) Seguros sobre compras | 300 |
+| (–) Abatimento de compras | (120) |
+| (–) Devolução de compras | (900) |
+| (–) Estoque final | (2.100) |
+| **= CMV** | **4.480** |
+
+**3) Resultado bruto:** 20.850 − 4.480 = **16.370**. O item diz 17.370.
+
+### Passo a passo
+```dre
+@ receita bruta de vendas | 24.590 | receita-bruta
+@ devolução de vendas | 660 | deducoes
+@ abatimento de vendas | 980 | deducoes
+@ impostos sobre vendas | 2.100 | deducoes
+@ estoque inicial de mercadorias para revenda | 6.000 | calculo-cmv
+@ compra de mercadorias para revenda | 600 | calculo-cmv
+@ fretes sobre compras de mercadorias | 700 | calculo-cmv
+@ seguros sobre compras de mercadorias | 300 | calculo-cmv
+@ abatimento de compras de mercadorias | 120 | calculo-cmv
+@ devolução de compras de mercadorias | 900 | calculo-cmv
+@ mercadorias para revenda - estoque final | 2.100 | calculo-cmv
+@ provisão para perda de estoques | 400 | fora-ativo
+@ material de consumo e peças de reposição | 3.100 | fora-ativo
+@ gastos pré-operacionais | 12.400 | fora-ativo
+@ demais contas de ativo, passivo e PL | — | fora-outros
+> A provisão para perda de estoques é saldo retificador; material de consumo e peças são estoques de uso; gastos pré-operacionais eram ativo diferido em 2009.
+! provisão para perda de estoques; material de consumo e peças de reposição; gastos pré-operacionais; demais contas de ativo, passivo e PL
++ Receita bruta de vendas | 24.590 | receita bruta de vendas
++ (–) Devoluções, abatimentos e impostos sobre vendas | (3.740) | devolução de vendas; abatimento de vendas; impostos sobre vendas
+= Receita líquida | 20.850
+> CMV com frete e seguro das compras somados ao custo.
++ (–) CMV | (4.480) | estoque inicial de mercadorias para revenda; compra de mercadorias para revenda; fretes sobre compras de mercadorias; seguros sobre compras de mercadorias; abatimento de compras de mercadorias; devolução de compras de mercadorias; mercadorias para revenda - estoque final
+= Resultado bruto | 16.370
+```
+
+Gabarito **ERRADO** (o resultado bruto é 16.370).
+
+### O que ignorar e por quê
+- **Provisão para perda de estoques (400):** saldo retificador; não muda o CMV calculado pela fórmula.
+- **Despesas operacionais, financeiras e IR:** abaixo do resultado bruto (são cobradas na F0525).
+- **Gastos pré-operacionais (12.400):** ⚠️ eram ativo diferido; hoje seriam despesa, mas, mesmo assim, abaixo do lucro bruto.
+
+### O que mais poderia estar ali
+- **No custo:** tributos não recuperáveis na compra, carga e descarga, imposto de importação.
+- **Nas deduções:** descontos incondicionais concedidos, PIS e Cofins.
+
+### Pegadinhas
+- **17.370 = 16.370 + 1.000:** é o resultado de quem **esquece os fretes (700) e os seguros (300) sobre compras** no CMV (CMV de 3.480, o valor da F0526). Os dois itens da prova se apoiam no mesmo erro.
+- **Abatimento de compras × abatimento de vendas:** um reduz o custo, o outro a receita. O quadro traz os dois.
+
+### Leve para as próximas
+1. Frete e seguro na compra **aumentam** o CMV (CPC 16 (R1), item 11).
+2. Resultado bruto = receita bruta − deduções − CMV.
 
 ## F0525 · CEBRASPE · 2009 · SEGER ES · CE
 - Fontes: TecConcursos 525 (1784134)
 - Prova: CEBRASPE (CESPE) - AE (SEGER ES)/SEGER ES/Ciências Contábeis/2009
-- Grupos: resultado-financeiro, ir-csll, lucro-liquido, deducoes, receita-bruta, despesas-administrativas, despesas-vendas
+- Grupos: receita-bruta, deducoes, receita-liquida, calculo-cmv, cmv, resultado-bruto, despesas-administrativas, resultado-financeiro, lair, ir-csll, lucro-liquido, fora-ativo, fora-passivo, fora-pl
 
 conta (R$)
 
@@ -12494,12 +13128,78 @@ Tendo como base o balancete de verificação apresentado, julgue o item seguinte
 O resultado líquido apurado é igual a R$ 5.420.
 
 - Gabarito: ERRADO
-- Resolução: a caminho
+### O que a questão pede
+O **resultado líquido** do mesmo balancete da F0524. Parte do resultado bruto de **16.370** e desce até o fim, com receitas financeiras e IR.
+
+### Cálculos prévios
+**Despesas operacionais do balancete:**
+
+| Conta | Valor |
+|---|---:|
+| Despesa de telefone | 500 |
+| Despesa de material de consumo | 540 |
+| Despesa de manutenção e conservação | 600 |
+| Despesa de energia | 650 |
+| Despesa de seguros | 750 |
+| Despesa de combustíveis | 800 |
+| Despesas com impostos e taxas | 1.130 |
+| Despesa de depreciação e amortização | 1.190 |
+| Despesa de salários | 3.000 |
+| **Total** | **9.160** |
+
+Resultado financeiro: receitas financeiras 1.340 − despesas financeiras 650 = **+690**.
+
+### Passo a passo
+```dre
+@ Resultado bruto (ver F0524) | 16.370 | resultado-bruto
+@ despesa de telefone | 500 | despesas-administrativas
+@ despesa de material de consumo | 540 | despesas-administrativas
+@ despesa de manutenção e conservação | 600 | despesas-administrativas
+@ despesa de energia | 650 | despesas-administrativas
+@ despesa de seguros | 750 | despesas-administrativas
+@ despesa de combustíveis | 800 | despesas-administrativas
+@ despesas com impostos e taxas | 1.130 | despesas-administrativas
+@ despesa de depreciação e amortização | 1.190 | despesas-administrativas
+@ despesa de salários | 3.000 | despesas-administrativas
+@ despesas financeiras | 650 | resultado-financeiro
+@ receitas financeiras | 1.340 | resultado-financeiro
+@ imposto de renda e contribuição social sobre o lucro | 1.140 | ir-csll
+@ provisões (créditos de liquidação duvidosa, perda de investimentos) | 1.800 | fora-ativo
+@ provisão para contingências trabalhistas | 5.400 | fora-passivo
+@ despesa antecipada de seguros e aluguéis antecipados | 6.600 | fora-ativo
+> Provisões no balancete são saldos (retificadoras do ativo ou passivo); despesa antecipada e aluguéis antecipados são ativo.
+! provisões (créditos de liquidação duvidosa, perda de investimentos); provisão para contingências trabalhistas; despesa antecipada de seguros e aluguéis antecipados
++ Resultado bruto | 16.370 | Resultado bruto (ver F0524)
++ (–) Despesas operacionais | (9.160) | despesa de telefone; despesa de material de consumo; despesa de manutenção e conservação; despesa de energia; despesa de seguros; despesa de combustíveis; despesas com impostos e taxas; despesa de depreciação e amortização; despesa de salários
++ Resultado financeiro | 690 | despesas financeiras; receitas financeiras
+= LAIR | 7.900
++ (–) IR e CSLL | (1.140) | imposto de renda e contribuição social sobre o lucro
+= Resultado líquido | 6.760
+```
+
+Gabarito **ERRADO** (o resultado líquido é 6.760).
+
+### O que ignorar e por quê
+- **Provisão para créditos de liquidação duvidosa (900), para perda de investimentos (900), para perda de estoques (400) e para contingências trabalhistas (5.400):** saldos de balanço (retificadoras do ativo ou passivo). Não há "despesa com provisão" no quadro.
+- **Despesa antecipada de seguros (2.300) e aluguéis antecipados (4.300):** ativo. A **despesa de seguros** (750) é que é do período.
+- **Material de consumo (1.200):** estoque; o consumo do ano já está na "despesa de material de consumo" (540).
+
+### O que mais poderia estar ali
+- **Abaixo do LAIR:** participações nos lucros (empregados, administradores).
+- **No resultado financeiro:** descontos condicionais, juros sobre atrasos de clientes.
+
+### Pegadinhas
+- **5.420 = 6.760 − 1.340:** é o resultado de quem **deixa de fora as receitas financeiras**. O valor do item fecha exatamente com esse erro.
+- **Duas contas de seguros:** "despesa de seguros" (resultado) e "despesa antecipada de seguros" (ativo). Só a primeira entra.
+
+### Leve para as próximas
+1. Resultado líquido = resultado bruto − despesas operacionais ± resultado financeiro − IR e CSLL.
+2. "Despesa de X" é resultado; "despesa antecipada de X" e "provisão para X" são balanço.
 
 ## F0526 · CEBRASPE · 2009 · SEGER ES · CE
 - Fontes: TecConcursos 526 (1784136)
 - Prova: CEBRASPE (CESPE) - AE (SEGER ES)/SEGER ES/Ciências Contábeis/2009
-- Grupos: resultado-financeiro, ir-csll, deducoes, receita-bruta, cmv, despesas-administrativas, despesas-vendas
+- Grupos: calculo-cmv, cmv, fora-ativo
 
 conta (R$)
 
@@ -12567,7 +13267,45 @@ Tendo como base o balancete de verificação apresentado, julgue o item seguinte
 O custo da mercadoria vendida do período é igual a R$ 3.480.
 
 - Gabarito: ERRADO
-- Resolução: a caminho
+### O que a questão pede
+O **CMV** do mesmo balancete da F0524, pela fórmula do inventário periódico.
+
+### Cálculos prévios
+| Item | Valor |
+|---|---:|
+| Estoque inicial de mercadorias para revenda | 6.000 |
+| (+) Compra de mercadorias para revenda | 600 |
+| (+) Fretes sobre compras de mercadorias | 700 |
+| (+) Seguros sobre compras de mercadorias | 300 |
+| (–) Abatimento de compras de mercadorias | (120) |
+| (–) Devolução de compras de mercadorias | (900) |
+| (–) Mercadorias para revenda – estoque final | (2.100) |
+| **= CMV** | **4.480** |
+
+### Passo a passo
+```dre
+@ estoque inicial de mercadorias para revenda | 6.000 | calculo-cmv
+@ compra de mercadorias para revenda | 600 | calculo-cmv
+@ fretes sobre compras de mercadorias | 700 | calculo-cmv
+@ seguros sobre compras de mercadorias | 300 | calculo-cmv
+@ abatimento de compras de mercadorias | 120 | calculo-cmv
+@ devolução de compras de mercadorias | 900 | calculo-cmv
+@ mercadorias para revenda - estoque final | 2.100 | calculo-cmv
+@ provisão para perda de estoques | 400 | fora-ativo
+> A provisão para perda de estoques é saldo retificador; não entra na fórmula.
+! provisão para perda de estoques
++ (–) CMV | (4.480) | estoque inicial de mercadorias para revenda; compra de mercadorias para revenda; fretes sobre compras de mercadorias; seguros sobre compras de mercadorias; abatimento de compras de mercadorias; devolução de compras de mercadorias; mercadorias para revenda - estoque final
+```
+
+Gabarito **ERRADO** (o CMV é 4.480).
+
+### Pegadinhas
+- **3.480 = 4.480 − 1.000:** é o CMV de quem **esquece os fretes (700) e os seguros (300) sobre compras**. O mesmo erro leva aos 17.370 da F0524.
+- **Devolução de compras reduz o custo** do mesmo jeito que o abatimento; as duas saem das compras.
+
+### Leve para as próximas
+1. CMV = EI + compras + fretes e seguros sobre compras − abatimentos e devoluções de compras − EF.
+2. Gasto para trazer a mercadoria é custo; para levar ao cliente é despesa com vendas.
 
 ## F0527 · CEBRASPE · 2009 · SEGER ES · CE
 - Fontes: TecConcursos 527 (1784181)
@@ -12685,7 +13423,7 @@ Ao ser realizada a venda das mercadorias, a receita líquida apresentada na demo
 ## F0530 · CEBRASPE · 2009 · IBRAM DF · CE
 - Fontes: TecConcursos 530 (1841769)
 - Prova: CEBRASPE (CESPE) - AAMA (IBRAM DF)/IBRAM DF/Contador/2009
-- Grupos: resultado-bruto, receita-liquida, resultado-financeiro, lair, participacoes, ir-csll, lucro-liquido, deducoes, receita-bruta, despesas-administrativas, despesas-vendas, outras-receitas-despesas, resultado-operacional
+- Grupos: estrutura, receita-bruta, deducoes, receita-liquida, cmv, resultado-bruto, despesas-operacionais, resultado-operacional, outras-receitas-despesas, lair, ir-csll, participacoes, lucro-liquido, lucro-por-acao
 
 Julgue o item a seguir, de acordo com os princípios e normas brasileiras de contabilidade e a legislação societária.
 
@@ -12704,7 +13442,31 @@ VI – as participações de debêntures, empregados, administradores e partes b
 VII – o lucro ou prejuízo líquido do exercício e o seu montante por ação do capital social.
 
 - Gabarito: ERRADO
-- Resolução: a caminho
+### O que a questão pede
+Se a lista de sete incisos reproduz o que a DRE "deve discriminar" pela legislação societária. É uma questão de **letra de lei**: o art. 187 da Lei 6.404/76 com a redação dada pela Lei 11.941/2009.
+
+### A regra
+| Inciso | Lei 6.404/76, art. 187 (redação atual) | O item |
+|---|---|---|
+| I | receita bruta, deduções das vendas, abatimentos e impostos | igual |
+| II | receita líquida, custo das mercadorias e serviços vendidos e lucro bruto | igual |
+| III | despesas com vendas, despesas financeiras deduzidas das receitas, despesas gerais e administrativas e **outras despesas operacionais** | fala em "outras despesas **e receitas** operacionais" |
+| IV | **lucro ou prejuízo operacional, as outras receitas e as outras despesas** (Lei 11.941/2009) | ⚠️ usa a redação antiga: "receitas e despesas **não operacionais**" |
+| V | resultado antes do IR e provisão para o imposto | igual |
+| VI | participações de debêntures, empregados, administradores, partes beneficiárias, mesmo na forma de instrumentos financeiros, e de fundos de assistência ou previdência de empregados, que não se caracterizem como despesa | igual (já na redação nova) |
+| VII | lucro ou prejuízo líquido e seu montante por ação do capital social | igual |
+
+O inciso IV é o erro principal: desde a MP 449/2008, convertida na Lei 11.941/2009, a Lei não fala mais em receitas e despesas não operacionais. Gabarito **ERRADO**.
+
+### Pegadinhas
+- **Item longo com um único inciso trocado:** a CEBRASPE costuma copiar a lei e mudar uma expressão. Confira inciso por inciso.
+- **Mistura de redações:** o item traz o inciso VI na redação nova ("mesmo na forma de instrumentos financeiros") e o IV na antiga ("não operacionais"). Essa combinação nunca existiu na lei.
+- **"Não operacional" saiu da lei**, mas a separação entre o resultado operacional e as outras receitas e despesas continua no art. 187, IV.
+
+### Leve para as próximas
+1. Art. 187, IV (atual): lucro ou prejuízo operacional, **outras receitas e outras despesas**.
+2. Art. 187, III: despesas financeiras **deduzidas das receitas** ficam dentro das operacionais na Lei.
+3. Art. 187, VI: só entram as participações que **não se caracterizem como despesa**.
 
 ## F0531 · CEBRASPE · 2009 · IBRAM DF · CE
 - Fontes: TecConcursos 531 (1842690)
@@ -14315,7 +15077,7 @@ O resultado antes dos impostos sobre lucro é de R$ 19.075.
 ## F0587 · CEBRASPE · 2008 · Pref Vila Velha · CE
 - Fontes: TecConcursos 587 (2193205)
 - Prova: CEBRASPE (CESPE) - APG (Vila Velha)/Pref Vila Velha/Contabilidade/2008
-- Grupos: resultado-financeiro, lair, ir-csll, equivalencia, deducoes, fora-destinacao, receita-bruta, cmv, despesas-administrativas, despesas-vendas
+- Grupos: receita-bruta, deducoes, receita-liquida, calculo-cmv, cmv, resultado-bruto, despesas-vendas, despesas-administrativas, resultado-financeiro, equivalencia, lair, ir-csll, fora-ativo, fora-passivo, fora-pl
 
 conta saldo em reais
 
@@ -14387,12 +15149,101 @@ Considerando o balancete de verificação de uma empresa apresentado na tabela a
 O valor do lucro antes do imposto de renda é de R$ 1.129,00.
 
 - Gabarito: CERTO
-- Resolução: a caminho
+### O que a questão pede
+O **lucro antes do imposto de renda** a partir de um balancete de 61 contas, de 2008. O CMV sai pelo inventário, e a equivalência patrimonial vem sem sinal.
+
+### Cálculos prévios
+**1) Receita líquida:** 13.249 − 116 (abatimento sobre vendas) − 1.330 (impostos sobre vendas) = **11.803**.
+
+**2) Compras líquidas e CMV pelo inventário (ver a F0588):**
+
+| Item | Valor |
+|---|---:|
+| Estoque inicial | 6.790 |
+| (+) Compra de mercadorias | 2.345 |
+| (+) Fretes de compras | 238 |
+| (+) Seguros sobre compras de mercadorias | 556 |
+| (–) Abatimento sobre compras | (90) |
+| (–) Devolução de compras | (1.234) |
+| = Compras líquidas | 1.815 |
+| (–) Estoque final | (900) |
+| **= CMV** | **7.705** |
+
+**3) O saldo "custo da mercadoria vendida 2.178":** o quadro está em ordem **crescente** de valor, e esse saldo aparece entre 7.659 e 8.769, justamente a faixa do CMV calculado (7.705). Com 2.178, nenhuma combinação de contas chega a 1.129; com o CMV pelo inventário, chega exatamente. Use o inventário e trate o 2.178 como erro de digitação do quadro.
+
+**4) Equivalência patrimonial (480):** o gabarito só fecha com ela **negativa** (perda). Testando as contas duvidosas (provisões, materiais, despesas antecipadas), essa é a única leitura que dá 1.129.
+
+### Passo a passo
+```dre
+@ vendas de mercadorias | 13.249,00 | receita-bruta
+@ abatimento sobre vendas | 116,00 | deducoes
+@ impostos sobre vendas | 1.330,00 | deducoes
+@ estoque inicial de mercadorias para revenda | 6.790,00 | calculo-cmv
+@ compra de mercadorias | 2.345,00 | calculo-cmv
+@ fretes de compras | 238,00 | calculo-cmv
+@ seguros sobre compras de mercadorias | 556,00 | calculo-cmv
+@ abatimento sobre compras | 90,00 | calculo-cmv
+@ devolução de compras | 1.234,00 | calculo-cmv
+@ estoque final de mercadorias para revenda | 900,00 | calculo-cmv
+@ custo da mercadoria vendida (saldo do quadro) | 2.178,00 | cmv
+@ fretes sobre vendas | 123,00 | despesas-vendas
+@ despesa de telefone | 190,00 | despesas-administrativas
+@ despesa de energia | 320,00 | despesas-administrativas
+@ despesa de aluguel | 800,00 | despesas-administrativas
+@ despesa de salários | 1.100,00 | despesas-administrativas
+@ despesa financeira | 69,00 | resultado-financeiro
+@ receita financeira | 113,00 | resultado-financeiro
+@ equivalência patrimonial | 480,00 | equivalencia
+@ imposto sobre o lucro | 230,00 | ir-csll
+@ provisões (devedores duvidosos, perda de investimentos) | 1.880,00 | fora-ativo
+@ material de consumo e material de limpeza | 750,00 | fora-ativo
+@ aluguel, seguros e assinaturas antecipados | 1.000,00 | fora-ativo
+@ provisão para contingências judiciais | 320,00 | fora-passivo
+@ reservas e capital social | — | fora-pl
+> Triagem: provisões são saldos; materiais e despesas antecipadas são ativo; a provisão para contingências é passivo. O saldo de CMV de 2.178 não conversa com o inventário: use a fórmula.
+! provisões (devedores duvidosos, perda de investimentos); material de consumo e material de limpeza; aluguel, seguros e assinaturas antecipados; provisão para contingências judiciais; reservas e capital social; custo da mercadoria vendida (saldo do quadro)
++ Vendas de mercadorias | 13.249,00 | vendas de mercadorias
++ (–) Abatimentos e impostos sobre vendas | (1.446,00) | abatimento sobre vendas; impostos sobre vendas
+= Receita líquida | 11.803,00
++ (–) CMV | (7.705,00) | estoque inicial de mercadorias para revenda; compra de mercadorias; fretes de compras; seguros sobre compras de mercadorias; abatimento sobre compras; devolução de compras; estoque final de mercadorias para revenda
+= Lucro bruto | 4.098,00
++ (–) Despesas com vendas | (123,00) | fretes sobre vendas
++ (–) Despesas administrativas | (2.410,00) | despesa de telefone; despesa de energia; despesa de aluguel; despesa de salários
++ Resultado financeiro | 44,00 | despesa financeira; receita financeira
++ (–) Equivalência patrimonial (perda) | (480,00) | equivalência patrimonial
+= Lucro antes do IR | 1.129,00
+> O imposto sobre o lucro vem depois.
+! imposto sobre o lucro
+```
+
+Gabarito **CERTO**.
+
+### O que ignorar e por quê
+- **Provisão para devedores duvidosos (900) e provisão para perda de investimentos (980):** saldos retificadores, não despesas do ano.
+- **Material de consumo (320) e material de limpeza (430):** estoques de consumo (ativo), sem informação de consumo no período.
+- **Aluguel antecipado, seguros antecipados, assinaturas antecipadas:** despesas pagas antes (ativo).
+- **Adiantamento de salários (890):** ativo (direito de descontar do empregado).
+- **Reserva de reavaliação (345):** PL. ⚠️ A reavaliação de ativos foi proibida pela Lei 11.638/2007; o saldo existente podia ser mantido até a realização.
+- **Imposto sobre o lucro (230):** abaixo do LAIR.
+
+### O que mais poderia estar ali
+- **Consumo de materiais:** se houvesse estoque inicial e final de material de consumo, o consumo seria despesa (como na F0646).
+- **Despesa com provisão para devedores duvidosos:** reduziria o LAIR, se viesse com esse nome.
+
+### Pegadinhas
+- **Somar o saldo de CMV (2.178) e também o CMV pelo inventário:** contaria o custo duas vezes. Nunca use os dois.
+- **Equivalência sem sinal:** quando o enunciado não diz, teste as duas possibilidades contra o valor do item; aqui só a perda fecha.
+- **Seguros sobre compras** entram no custo da mercadoria; **seguros antecipados** são ativo; despesa de seguros seria despesa do período. Três contas de "seguros", três destinos.
+
+### Leve para as próximas
+1. CMV = EI + compras + fretes e seguros sobre compras − abatimentos e devoluções de compras − EF.
+2. Balancete em ordem crescente de valor: um saldo fora da ordem é sinal de erro de digitação. Confira contra a fórmula.
+3. Provisões no balancete são saldos; despesas antecipadas, ativo.
 
 ## F0588 · CEBRASPE · 2008 · Pref Vila Velha · CE
 - Fontes: TecConcursos 588 (2193218)
 - Prova: CEBRASPE (CESPE) - APG (Vila Velha)/Pref Vila Velha/Contabilidade/2008
-- Grupos: resultado-financeiro, equivalencia, deducoes, fora-destinacao, receita-bruta, cmv, despesas-administrativas, despesas-vendas, ir-csll
+- Grupos: calculo-cmv, cmv, fora-ativo
 
 conta saldo em reais
 
@@ -14464,7 +15315,47 @@ Considerando o balancete de verificação de uma empresa apresentado na tabela a
 O valor das compras líquidas é de R$ 3.139,00.
 
 - Gabarito: ERRADO
-- Resolução: a caminho
+### O que a questão pede
+As **compras líquidas** do período, do mesmo balancete da F0587. Compras líquidas = compras + gastos que integram o custo (frete e seguro) − abatimentos − devoluções.
+
+### Cálculos prévios
+| Item | Valor |
+|---|---:|
+| Compra de mercadorias | 2.345 |
+| (+) Fretes de compras | 238 |
+| (+) Seguros sobre compras de mercadorias | 556 |
+| = Compras brutas com gastos | 3.139 |
+| (–) Abatimento sobre compras | (90) |
+| (–) Devolução de compras | (1.234) |
+| **= Compras líquidas** | **1.815** |
+
+O item diz **3.139**: é o valor **antes** de tirar os abatimentos e as devoluções.
+
+### Passo a passo
+```dre
+@ compra de mercadorias | 2.345,00 | calculo-cmv
+@ fretes de compras | 238,00 | calculo-cmv
+@ seguros sobre compras de mercadorias | 556,00 | calculo-cmv
+@ abatimento sobre compras | 90,00 | calculo-cmv
+@ devolução de compras | 1.234,00 | calculo-cmv
+@ estoque inicial de mercadorias para revenda | 6.790,00 | calculo-cmv
+@ estoque final de mercadorias para revenda | 900,00 | calculo-cmv
+> Compras líquidas: compras + frete + seguro − abatimento − devolução = 1.815.
++ Compras líquidas | 1.815,00 | compra de mercadorias; fretes de compras; seguros sobre compras de mercadorias; abatimento sobre compras; devolução de compras
+> O CMV usaria ainda os estoques: 6.790 + 1.815 − 900 = 7.705 (ver a F0587).
++ (–) CMV | (7.705,00) | estoque inicial de mercadorias para revenda; compra de mercadorias; fretes de compras; seguros sobre compras de mercadorias; abatimento sobre compras; devolução de compras; estoque final de mercadorias para revenda
+```
+
+Gabarito **ERRADO** (as compras líquidas são 1.815).
+
+### Pegadinhas
+- **Parar nas compras brutas:** o valor do item (3.139) soma frete e seguro, mas esquece de tirar abatimento e devolução.
+- **Abatimento sobre compras × abatimento sobre vendas:** o de compras reduz o custo; o de vendas reduz a receita (116, outra linha do mesmo quadro).
+- **Frete sobre vendas (123)** não é gasto de compra: é despesa com vendas.
+
+### Leve para as próximas
+1. Compras líquidas = compras + frete + seguro (e tributos não recuperáveis) − devoluções − abatimentos − descontos incondicionais obtidos − tributos recuperáveis.
+2. "Líquida" sempre pede as reduções; "bruta" é antes delas.
 
 ## F0589 · CEBRASPE · 2008 · Pref Vila Velha · CE
 - Fontes: TecConcursos 589 (2193280)
@@ -14978,21 +15869,64 @@ O valor do Resultado Bruto Operacional do Exercício é
 ## F0605 · FGV · 2007 · SEFAZ RJ · ME
 - Fontes: TecConcursos 605 (3942)
 - Prova: FGV - AFRE RJ/SEFAZ RJ/2007
-- Grupos: resultado-bruto, fora-destinacao, despesas-administrativas
+- Grupos: receita-bruta, calculo-cmv, cmv, resultado-bruto, despesas-vendas, despesas-administrativas, resultado-financeiro, fora-ativo, fora-passivo, fora-pl, fora-destinacao, fora-outros
 
 A empresa JJM Crianças e Cia., dedicada ao comércio de brinquedos, apurou o seguinte balanço patrimonial apurado em 31/12/2006:
 
-![imagem](questoes - imagem F0605-1.png){largura=46%}
+Balanço Patrimonial, JJM Crianças e Cia., apurado em 31/12/2006
+
+| Ativo | R$ | Passivo e PL | R$ |
+|---|---:|---|---:|
+| caixa | 55,00 | fornecedores | 600,00 |
+| clientes | 1.000,00 | salários a pagar | 380,00 |
+| estoques | 665,00 | empréstimos | 2.000,00 |
+| móveis e utensílios | 10.000,00 | capital social | 4.000,00 |
+| depreciação acumulada | −4.000,00 | lucros acumulados | 740,00 |
+| ativo total | 7.720,00 | passivo + PL | 7.720,00 |
 
 Considere as informações a seguir:
 
 O estoque é avaliado pelo critério PEPS e era composto por:
 
-![imagem](questoes - imagem F0605-2.png){largura=46%}
+| Mercadoria | custo unitário | quantidade estocada | valor total |
+|---|---:|---:|---:|
+| ioiô (unidade) | 1,00 | 300 | 300,00 |
+| bolinhas de gude (quilograma) | 2,00 | 40 | 80,00 |
+| bonecas de pano (unidade) | 3,00 | 95 | 285,00 |
 
 Os móveis e utensílios têm vida útil original estimada em 10 anos e valor residual nulo.
 
-Os empréstimos vencerão em 2010, mas cobram juros mensais de R$ 85,00 Durante o mês de janeiro de 2007, a empresa JJM Crianças e Cia. desenvolveu exclusivamente as seguintes transações (na ordem cronológica apresentada): i. Recebeu 1/4 do Contas a Receber em aberto no início do ano. ii. Os sócios aumentaram o Capital Social mediante subscrição de novas ações pelo valor nominal total de R$ 10.000,00. Entretanto, só integralizaram R$ 8.000,00, sendo R$ 5.000,00 em dinheiro e R$ 3.000,00 em um computador novo a ser utilizado nas atividades administrativas (cujo tempo de vida útil é 5 anos e valor residual nulo). iii. Pagou toda a dívida com Fornecedores que estava em aberto no início do ano. iv. Pagou os Salários a Pagar que eram devidos no início do ano. v. Comprou 1.000 unidades de ioiô ao custo unitário de R$ 1,00 cada; 25kg de bolinhas de gude ao custo unitário de R$ 3,00 cada quilo; 200 unidades de bonecas de pano ao custo unitário de R$ 3,50 cada. Essas compras foram negociadas para pagamento da seguinte forma: metade à vista e metade para pagamento em fevereiro próximo. vi. Contratou serviços de terceiros relativos ao desenvolvimento de uma campanha publicitária para veiculação na rádio local, cujos serviços foram executados e pagos ainda em janeiro, pelo valor total de R$ 500,00. vii. Reconheceu e pagou os juros do mês de janeiro, no valor de R$ 85,00. viii. Vendeu mercadorias à vista: 400 unidades de ioiô ao preço unitário de R$ 4,00 cada; 30kg de bolinhas de gude ao preço unitário de R$ 10,00 cada quilo; 150 unidades de bonecas de pano ao preço unitário de R$ 6,00 cada. ix. Vendeu mercadorias, cuja forma de pagamento foi negociada da seguinte forma: 1/3 à vista; 1/3 para recebimento em fevereiro próximo e o restante para recebimento em março próximo ? 800 unidades de ioiô ao preço unitário de R$ 4,50 cada; 20kg de bolinhas de gude ao preço unitário de R$ 12,00 cada quilo; 120 unidades de bonecas de pano ao preço unitário de R$ 7,50 cada. x. Reconheceu e provisionou a folha de pagamentos aos empregados, no valor total de R$ 400,00. xi. Depreciou os móveis e utensílios e o computador. xii. Identificou que o valor de venda das bonecas de pano, para o mês seguinte, deverá ser reduzido para R$ 5,00 por unidade, em função da entrada de um novo concorrente que importará bonecas de pano da China por um valor significativamente mais barato, apesar de a JJM Crianças e Cia. continuar comprando as bonecas de seu fornecedor tradicional. xiii. Amortizou, antecipadamente, metade dos empréstimos, pagando R$ 1.000,00 ao banco. O saldo remanescente continua vencendo no prazo inicialmente contratado. xiv. Distribuiu e pagou dividendos relativos ao lucro do mês de janeiro, no valor total de R$ 3.000,00.
+Os empréstimos vencerão em 2010, mas cobram juros mensais de R$ 85,00
+
+Durante o mês de janeiro de 2007, a empresa JJM Crianças e Cia. desenvolveu exclusivamente as seguintes transações (na ordem cronológica apresentada):
+
+i. Recebeu 1/4 do Contas a Receber em aberto no início do ano.
+
+ii. Os sócios aumentaram o Capital Social mediante subscrição de novas ações pelo valor nominal total de R$ 10.000,00. Entretanto, só integralizaram R$ 8.000,00, sendo R$ 5.000,00 em dinheiro e R$ 3.000,00 em um computador novo a ser utilizado nas atividades administrativas (cujo tempo de vida útil é 5 anos e valor residual nulo).
+
+iii. Pagou toda a dívida com Fornecedores que estava em aberto no início do ano.
+
+iv. Pagou os Salários a Pagar que eram devidos no início do ano.
+
+v. Comprou 1.000 unidades de ioiô ao custo unitário de R$ 1,00 cada; 25kg de bolinhas de gude ao custo unitário de R$ 3,00 cada quilo; 200 unidades de bonecas de pano ao custo unitário de R$ 3,50 cada. Essas compras foram negociadas para pagamento da seguinte forma: metade à vista e metade para pagamento em fevereiro próximo.
+
+vi. Contratou serviços de terceiros relativos ao desenvolvimento de uma campanha publicitária para veiculação na rádio local, cujos serviços foram executados e pagos ainda em janeiro, pelo valor total de R$ 500,00.
+
+vii. Reconheceu e pagou os juros do mês de janeiro, no valor de R$ 85,00.
+
+viii. Vendeu mercadorias à vista: 400 unidades de ioiô ao preço unitário de R$ 4,00 cada; 30kg de bolinhas de gude ao preço unitário de R$ 10,00 cada quilo; 150 unidades de bonecas de pano ao preço unitário de R$ 6,00 cada.
+
+ix. Vendeu mercadorias, cuja forma de pagamento foi negociada da seguinte forma: 1/3 à vista; 1/3 para recebimento em fevereiro próximo e o restante para recebimento em março próximo ? 800 unidades de ioiô ao preço unitário de R$ 4,50 cada; 20kg de bolinhas de gude ao preço unitário de R$ 12,00 cada quilo; 120 unidades de bonecas de pano ao preço unitário de R$ 7,50 cada.
+
+x. Reconheceu e provisionou a folha de pagamentos aos empregados, no valor total de R$ 400,00.
+
+xi. Depreciou os móveis e utensílios e o computador.
+
+xii. Identificou que o valor de venda das bonecas de pano, para o mês seguinte, deverá ser reduzido para R$ 5,00 por unidade, em função da entrada de um novo concorrente que importará bonecas de pano da China por um valor significativamente mais barato, apesar de a JJM Crianças e Cia. continuar comprando as bonecas de seu fornecedor tradicional.
+
+xiii. Amortizou, antecipadamente, metade dos empréstimos, pagando R$ 1.000,00 ao banco. O saldo remanescente continua vencendo no prazo inicialmente contratado.
+
+xiv. Distribuiu e pagou dividendos relativos ao lucro do mês de janeiro, no valor total de R$ 3.000,00.
 
 O saldo do Lucro Bruto, evidenciado na DRE apurada em 31/01/2007, é:
 
@@ -15002,7 +15936,82 @@ O saldo do Lucro Bruto, evidenciado na DRE apurada em 31/01/2007, é:
 - D) 5.370,00.
 - E) 5.319,24.
 - Gabarito: A
-- Resolução: a caminho
+### O que a questão pede
+O **lucro bruto** de janeiro de 2007 de uma loja de brinquedos, com estoque pelo **PEPS** e três mercadorias diferentes. Das 14 transações, só três chegam ao lucro bruto: a compra (v) e as duas vendas (viii e ix). Uma quarta (xii) é armadilha.
+
+### Cálculos prévios
+**1) Receita de vendas:**
+
+| Venda | Ioiô | Bolinhas de gude | Bonecas de pano | Total |
+|---|---:|---:|---:|---:|
+| viii (à vista) | 400 × 4,00 = 1.600,00 | 30 × 10,00 = 300,00 | 150 × 6,00 = 900,00 | 2.800,00 |
+| ix (parte à vista, parte a prazo) | 800 × 4,50 = 3.600,00 | 20 × 12,00 = 240,00 | 120 × 7,50 = 900,00 | 4.740,00 |
+| **Receita bruta** | | | | **7.540,00** |
+
+**2) CMV pelo PEPS** (as vendas consomem primeiro o estoque inicial, depois a compra de janeiro):
+
+| Mercadoria | Disponível | Vendido | Custo pelo PEPS | CMV |
+|---|---|---:|---|---:|
+| Ioiô | 300 a 1,00 + 1.000 a 1,00 | 1.200 | 1.200 a 1,00 | 1.200,00 |
+| Bolinhas de gude (kg) | 40 a 2,00 + 25 a 3,00 | 50 | 40 a 2,00 + 10 a 3,00 | 110,00 |
+| Bonecas de pano | 95 a 3,00 + 200 a 3,50 | 270 | 95 a 3,00 + 175 a 3,50 | 897,50 |
+| **Total** | | | | **2.207,50** |
+
+Sobram no estoque: 100 ioiôs a 1,00, 15 kg de bolinhas a 3,00 e **25 bonecas a 3,50** (232,50).
+
+**3) Transação xii (preço futuro das bonecas cai para 5,00):** o estoque se mede pelo **menor entre o custo e o valor realizável líquido** (CPC 16 (R1), item 9). O custo das 25 bonecas restantes é 3,50, abaixo de 5,00. **Não há perda** a reconhecer.
+
+### Passo a passo
+```dre
+@ Vendas à vista (viii) | 2.800,00 | receita-bruta
+@ Vendas a prazo (ix) | 4.740,00 | receita-bruta
+@ Estoque inicial (ioiô, gude e bonecas) | 665,00 | calculo-cmv
+@ Compras de janeiro (v) | 1.775,00 | calculo-cmv
+@ Estoque final pelo PEPS | 232,50 | calculo-cmv
+@ Campanha publicitária (vi) | 500,00 | despesas-vendas
+@ Folha de pagamentos de janeiro (x) | 400,00 | despesas-administrativas
+@ Depreciação dos móveis e do computador (xi) | — | despesas-administrativas
+@ Juros de janeiro (vii) | 85,00 | resultado-financeiro
+@ Recebimento de clientes, pagamentos a fornecedores e salários (i, iii, iv) | — | fora-outros
+@ Aumento de capital (ii) | 8.000,00 | fora-pl
+@ Amortização antecipada do empréstimo (xiii) | 1.000,00 | fora-passivo
+@ Dividendos de janeiro (xiv) | 3.000,00 | fora-destinacao
+> Recebimentos, pagamentos, integralização de capital, amortização de dívida e dividendos não passam pela DRE.
+! Recebimento de clientes, pagamentos a fornecedores e salários (i, iii, iv); Aumento de capital (ii); Amortização antecipada do empréstimo (xiii); Dividendos de janeiro (xiv)
+> A receita é o total das duas vendas; a forma de recebimento não importa.
++ Receita de vendas | 7.540,00 | Vendas à vista (viii); Vendas a prazo (ix)
+> CMV = EI 665,00 + compras 1.775,00 − EF 232,50 (100 ioiôs a 1,00 + 15 kg a 3,00 + 25 bonecas a 3,50). Dá o mesmo que a ficha PEPS.
++ (–) CMV | (2.207,50) | Estoque inicial (ioiô, gude e bonecas); Compras de janeiro (v); Estoque final pelo PEPS
+= Lucro bruto | 5.332,50
+> Publicidade, folha, depreciação e juros ficam abaixo do lucro bruto.
+! Campanha publicitária (vi); Folha de pagamentos de janeiro (x); Depreciação dos móveis e do computador (xi); Juros de janeiro (vii)
+```
+
+Gabarito **A (5.332,50)**.
+
+### O que ignorar e por quê
+- **i, iii, iv:** recebimento de clientes e pagamentos de fornecedores e salários de dezembro. Caixa.
+- **ii:** aumento de capital (subscrito 10.000, integralizado 8.000, inclusive o computador). PL e imobilizado.
+- **v (forma de pagamento):** metade à vista e metade em fevereiro não muda o custo do estoque.
+- **vi, vii, x, xi:** são despesas do mês (publicidade, juros, salários, depreciação), mas ficam **abaixo** do lucro bruto.
+- **xii:** o valor realizável líquido (5,00) continua acima do custo (3,50). Nada a ajustar.
+- **xiii e xiv:** amortização de principal (passivo) e dividendos (destinação).
+
+### O que mais poderia estar ali
+- **Perda por redução ao valor realizável líquido:** se o novo preço ficasse abaixo do custo (por exemplo, 3,00 contra 3,50), a perda de 0,50 por boneca reduziria o estoque e iria ao resultado (CPC 16 (R1), item 34).
+- **Outros critérios:** a média ponderada daria outro CMV; o UEPS não é aceito pelo CPC 16.
+- **Deduções da receita** (tributos sobre vendas, devoluções, descontos incondicionais), se houvesse.
+
+### Pegadinhas
+- **E (5.319,24)** = 7.540,00 − 2.220,76: é o lucro bruto pela **média ponderada** (como todas as compras vêm antes das vendas, a média fixa e a móvel coincidem). O enunciado pede PEPS.
+- **Achar que o item xii gera perda:** o preço futuro (5,00) é menor que o preço atual de venda, mas ainda maior que o custo. Só se ajusta quando o valor realizável fica **abaixo do custo**.
+- **Vendas a prazo e compras a prazo:** a forma de pagamento não muda receita nem custo.
+- **Gude em kg:** atenção à unidade; a ficha funciona igual.
+
+### Leve para as próximas
+1. Muitas transações: filtre primeiro as que mexem em receita bruta, deduções e CMV.
+2. PEPS com compras antes das vendas: o CMV leva os custos mais antigos; o estoque final fica com os mais recentes.
+3. Estoque = menor entre custo e valor realizável líquido. Queda de preço só gera perda se ficar abaixo do custo.
 
 ## F0606 · CEBRASPE · 2007 · TCU · CE
 - Fontes: TecConcursos 606 (5630)
@@ -17301,7 +18310,7 @@ Assinale a opção em que se apresentam o saldo do lucro bruto e o saldo da rece
 ## F0645 · CEBRASPE · 2007 · PGE PA · ME
 - Fontes: TecConcursos 645 (1113545)
 - Prova: CEBRASPE (CESPE) - Ass Proc (PGE PA)/PGE PA/Contabilidade/2007
-- Grupos: cmv, deducoes, receita-bruta, despesas-administrativas, despesas-vendas, resultado-financeiro
+- Grupos: calculo-cmv, cmv, fora-ativo
 
 Balancete de verificação para a questão.
 
@@ -17383,12 +18392,63 @@ O saldo do custo das mercadorias vendidas é igual a
 - C) R$ 1.500,00.
 - D) R$ 3.800,00.
 - Gabarito: B
-- Resolução: a caminho
+### O que a questão pede
+O **CMV** do mesmo balancete da F0646, pelo inventário periódico: estoque inicial + compras líquidas − estoque final.
+
+### Cálculos prévios
+| Item | Valor |
+|---|---:|
+| Estoque inicial de mercadorias | 100 |
+| (+) Compra de mercadorias | 3.000 |
+| (+) Fretes sobre compras | 800 |
+| (–) Estoque final de mercadorias para revenda | (1.600) |
+| **CMV** | **2.300** |
+
+### Passo a passo
+```dre
+@ estoque inicial de mercadorias | 100 | calculo-cmv
+@ compra de mercadorias | 3.000 | calculo-cmv
+@ fretes sobre compras | 800 | calculo-cmv
+@ estoque final de mercadorias para revenda | 1.600 | calculo-cmv
+@ estoque inicial de material de limpeza | 600 | despesas-administrativas
+@ compras de material de limpeza | 400 | despesas-administrativas
+@ estoque final de material de limpeza | 120 | despesas-administrativas
+@ fretes sobre vendas de mercadorias | 225 | despesas-vendas
+@ provisão para perda de estoques | 320 | fora-ativo
+@ impostos a recuperar | 485 | fora-ativo
+> Material de limpeza não é mercadoria: seu consumo é despesa administrativa. Frete sobre vendas é despesa com vendas. A provisão é saldo retificador e os impostos a recuperar são ativo.
+! estoque inicial de material de limpeza; compras de material de limpeza; estoque final de material de limpeza; fretes sobre vendas de mercadorias; provisão para perda de estoques; impostos a recuperar
+> CMV = EI + compras + fretes sobre compras − EF.
++ (–) CMV | (2.300) | estoque inicial de mercadorias; compra de mercadorias; fretes sobre compras; estoque final de mercadorias para revenda
+```
+
+Gabarito **B (2.300)**.
+
+### O que ignorar e por quê
+- **Material de limpeza (EI 600, compras 400, EF 120):** é material de consumo, não mercadoria para revenda. Entra nas despesas (880), não no CMV.
+- **Fretes sobre vendas (225):** gasto para levar a mercadoria ao cliente, despesa com vendas.
+- **Provisão para perda de estoques (320):** saldo retificador do estoque no balanço. Não muda o CMV calculado pela fórmula.
+- **Impostos a recuperar:** ativo; o valor das compras já é o que entra no estoque.
+
+### O que mais poderia estar ali
+- **Somam às compras:** seguros sobre compras, tributos não recuperáveis, imposto de importação, carga e descarga.
+- **Subtraem das compras:** devoluções de compras, abatimentos sobre compras, descontos incondicionais obtidos, tributos recuperáveis.
+
+### Pegadinhas
+- **D (3.800)** = 3.000 + 800: ficou só com as compras e os fretes, sem mexer nos estoques.
+- **C (1.500)** = 100 + 3.000 − 1.600: esqueceu os fretes sobre compras (800).
+- **A (4.600)** não sai de um erro simples de fórmula; elimine pelo cálculo.
+- **Misturar o material de limpeza no CMV:** daria 3.180, que não está nas alternativas, mas é o erro que a banca quer provocar ao colocar os dois estoques lado a lado.
+
+### Leve para as próximas
+1. CMV só com **mercadorias para revenda**; material de consumo vai para despesa.
+2. Frete na compra é custo; frete na venda é despesa.
+3. Provisão para perda de estoques no balancete é saldo, não entra na fórmula do CMV.
 
 ## F0646 · CEBRASPE · 2007 · PGE PA · ME
 - Fontes: TecConcursos 646 (1113552)
 - Prova: CEBRASPE (CESPE) - Ass Proc (PGE PA)/PGE PA/Contabilidade/2007
-- Grupos: lucro-liquido, deducoes, receita-bruta, despesas-administrativas, despesas-vendas, resultado-financeiro
+- Grupos: receita-bruta, deducoes, receita-liquida, calculo-cmv, cmv, resultado-bruto, despesas-vendas, despesas-administrativas, resultado-financeiro, lair, fora-ativo, fora-passivo, fora-pl
 
 Balancete de verificação para a questão.
 
@@ -17470,7 +18530,110 @@ O saldo do resultado líquido, antes de tributos, obtido na demonstração do re
 - C) R$ 11.950,00.
 - D) R$ 11.650,00.
 - Gabarito: D
-- Resolução: a caminho
+### O que a questão pede
+O **resultado antes dos tributos** (LAIR) a partir de um balancete de 66 contas misturadas, de 2007. Há duas armadilhas de cálculo: o CMV sai pelo inventário, e o **consumo de material de limpeza** também sai por inventário (estoque inicial + compras − estoque final).
+
+### Cálculos prévios
+**1) Receita líquida:** 22.500 − 180 (abatimento de vendas) − 300 (deduções de receitas) = **22.020**.
+
+**2) CMV pelo inventário (ver a F0645):** 100 + 3.000 + 800 − 1.600 = **2.300**.
+
+**3) Consumo de material de limpeza:** estoque inicial 600 + compras 400 − estoque final 120 = **880** de despesa.
+
+**4) Despesas e receitas do balancete:**
+
+| Conta | Grupo | Valor |
+|---|---|---:|
+| Fretes sobre vendas de mercadorias | vendas | 225 |
+| Despesa de amortização | administrativas | 110 |
+| Despesa de manutenção | administrativas | 128 |
+| Despesa de depreciação | administrativas | 150 |
+| Despesas de seguros | administrativas | 230 |
+| Despesas de conservação | administrativas | 245 |
+| Despesas de combustíveis | administrativas | 385 |
+| Despesas de telefone | administrativas | 432 |
+| Despesas de multas de trânsito | administrativas | 578 |
+| Despesas de salários | administrativas | 5.100 |
+| Consumo de material de limpeza | administrativas | 880 |
+| **Total das operacionais** | | **8.463** |
+| Despesas de juros | financeiro | (147) |
+| Receita de juros | financeiro | 540 |
+
+### Passo a passo
+```dre
+@ receita de vendas | 22.500 | receita-bruta
+@ abatimento de vendas | 180 | deducoes
+@ deduções de receitas | 300 | deducoes
+@ estoque inicial de mercadorias | 100 | calculo-cmv
+@ compra de mercadorias | 3.000 | calculo-cmv
+@ fretes sobre compras | 800 | calculo-cmv
+@ estoque final de mercadorias para revenda | 1.600 | calculo-cmv
+@ fretes sobre vendas de mercadorias | 225 | despesas-vendas
+@ despesa de amortização | 110 | despesas-administrativas
+@ despesa de manutenção | 128 | despesas-administrativas
+@ despesa de depreciação | 150 | despesas-administrativas
+@ despesas de seguros | 230 | despesas-administrativas
+@ despesas de conservação | 245 | despesas-administrativas
+@ despesas de combustíveis | 385 | despesas-administrativas
+@ despesas de telefone | 432 | despesas-administrativas
+@ despesas de multas de trânsito | 578 | despesas-administrativas
+@ despesas de salários | 5.100 | despesas-administrativas
+@ estoque inicial de material de limpeza | 600 | despesas-administrativas
+@ compras de material de limpeza | 400 | despesas-administrativas
+@ estoque final de material de limpeza | 120 | despesas-administrativas
+@ despesas de juros | 147 | resultado-financeiro
+@ receita de juros | 540 | resultado-financeiro
+@ materiais de expediente | 4.150 | fora-ativo
+@ provisão para perda de estoques | 320 | fora-ativo
+@ provisão para devedores duvidosos | 1.460 | fora-ativo
+@ provisão para perda de investimentos | 850 | fora-ativo
+@ gastos pré-operacionais | 22.000 | fora-ativo
+@ gastos em pesquisa e desenvolvimento de novos produtos | 198.000 | fora-ativo
+@ despesa antecipada de seguros | 600 | fora-ativo
+@ receita antecipada | 650 | fora-passivo
+@ assinaturas antecipadas de revistas | 850 | fora-passivo
+@ demais contas de ativo, passivo e PL | — | fora-outros
+> Triagem. Falsos amigos: provisões (saldos retificadores, não despesas), despesa antecipada (ativo), receita antecipada e assinaturas antecipadas (passivo), material de expediente (estoque), gastos pré-operacionais e P&D (ativo diferido e intangível, pela regra de 2007).
+! materiais de expediente; provisão para perda de estoques; provisão para devedores duvidosos; provisão para perda de investimentos; gastos pré-operacionais; gastos em pesquisa e desenvolvimento de novos produtos; despesa antecipada de seguros; receita antecipada; assinaturas antecipadas de revistas; demais contas de ativo, passivo e PL
++ Receita de vendas | 22.500 | receita de vendas
++ (–) Abatimentos e deduções | (480) | abatimento de vendas; deduções de receitas
+= Receita líquida | 22.020
++ (–) CMV | (2.300) | estoque inicial de mercadorias; compra de mercadorias; fretes sobre compras; estoque final de mercadorias para revenda
+= Lucro bruto | 19.720
++ (–) Despesas com vendas | (225) | fretes sobre vendas de mercadorias
+> Despesas administrativas: as contas "despesa" mais o consumo de material de limpeza (600 + 400 − 120 = 880).
++ (–) Despesas administrativas | (7.358) | despesa de amortização; despesa de manutenção; despesa de depreciação; despesas de seguros; despesas de conservação; despesas de combustíveis; despesas de telefone; despesas de multas de trânsito; despesas de salários
++ (–) Consumo de material de limpeza | (880) | estoque inicial de material de limpeza; compras de material de limpeza; estoque final de material de limpeza
++ Resultado financeiro líquido | 393 | despesas de juros; receita de juros
+= Resultado antes dos tributos | 11.650
+```
+
+Gabarito **D (11.650)**.
+
+### O que ignorar e por quê
+- **Provisões para perda de estoques, para devedores duvidosos e para perda de investimentos:** no balancete são **saldos** retificadores de ativo. A despesa do período teria nome próprio ("despesa com provisão…"), e não há nenhuma.
+- **Materiais de expediente (4.150):** estoque de material ainda não consumido (ativo). Só o que foi consumido vira despesa.
+- **Despesa antecipada de seguros:** ativo. **Receita antecipada** e **assinaturas antecipadas de revistas:** passivo (receita ainda não ganha).
+- **Gastos pré-operacionais (22.000) e pesquisa e desenvolvimento (198.000):** em 2007 iam para o ativo diferido. ⚠️ Hoje o diferido foi extinto (Lei 11.638/2007 e Lei 11.941/2009): gastos pré-operacionais são despesa; **pesquisa é sempre despesa** e desenvolvimento só vira intangível se cumprir os requisitos (CPC 04 (R1), itens 54 e 57).
+- **Lucros ou prejuízos acumulados, capital, reservas de capital:** PL.
+
+### O que mais poderia estar ali
+- **Consumo por inventário:** qualquer material de consumo (expediente, limpeza, combustível em estoque) segue a lógica EI + compras − EF.
+- **Outras despesas administrativas:** água, energia, aluguel, honorários (a despesa, não o "a pagar").
+- **No financeiro:** descontos obtidos ou concedidos condicionalmente, variações monetárias.
+
+### Pegadinhas
+- **B (19.720):** é o lucro bruto; parou antes das despesas.
+- **A (11.830)** = 11.650 + 180: não deduziu o abatimento de vendas.
+- **C (11.950)** = 11.650 + 300: não deduziu as "deduções de receitas".
+- **Contas "a pagar"** (honorários, aluguéis, energia, salários, telefone) são passivo, mesmo com nome parecido com despesa.
+- **Multa de trânsito** é despesa do período (para o IR, multa punitiva costuma ser indedutível, mas isso só mexe na base do imposto, não na DRE).
+
+### Leve para as próximas
+1. Estoque de material de consumo com EI, compras e EF: o consumo é despesa, calculado como o CMV.
+2. "Provisão para…" no balancete é saldo; despesa vem escrita como despesa.
+3. "Antecipada" do lado da despesa é ativo; do lado da receita, passivo.
+4. Questões de antes de 2008 com "gastos pré-operacionais" ou "P&D": ⚠️ respeite a regra da época para achar o gabarito, mas saiba que hoje vão para o resultado (pesquisa) ou para o intangível (desenvolvimento qualificado).
 
 ## F0647 · FCC · 2007 · ANS · ME
 - Fontes: TecConcursos 647 (1327234)
@@ -22479,7 +23642,7 @@ A empresa funcionou com uma margem operacional inferior a 10%.
 ## F0818 · CEBRASPE · 2002 · TJ AC · CE
 - Fontes: TecConcursos 818 (550215)
 - Prova: CEBRASPE (CESPE) - AJ (TJ AC)/TJ AC/Economista/2002
-- Grupos: resultado-bruto, receita-bruta, cmv, despesas-administrativas, deducoes, despesas-vendas
+- Grupos: receita-bruta, deducoes, receita-liquida, cmv, resultado-bruto, despesas-vendas, despesas-administrativas
 
 Texto IV – A empresa Kampa Ltda. iniciou suas atividades em 1.º/7/2001, dedicando-se à comercialização de produtos naturais originários da Amazônia, sendo, atualmente, seus produtos vendidos exclusivamente em mercados da região Norte.
 
@@ -22518,7 +23681,51 @@ Considerando ainda as informações do texto IV, julgue o item subsequente, rela
 A diferença entre a conta “vendas” e a soma das contas “custo da mercadoria vendida”, “impostos sobre vendas” e “despesas comerciais” representa o lucro bruto do período.
 
 - Gabarito: ERRADO
-- Resolução: a caminho
+### O que a questão pede
+Se **vendas − (CMV + impostos sobre vendas + despesas comerciais)** é o lucro bruto. O texto sobre a expansão para o Sudeste é contexto de outros itens; para este, só importa a definição de lucro bruto.
+
+### A regra
+Lucro bruto = receita líquida (receita bruta − deduções) − custo das vendas (Lei 6.404/76, art. 187, I e II). As **despesas comerciais** (com vendas) são despesas operacionais, deduzidas **depois** do lucro bruto (art. 187, III).
+
+### Cálculos prévios
+| Linha | Valor |
+|---|---:|
+| Vendas | 61.460 |
+| (–) Impostos sobre vendas | (2.100) |
+| = Receita líquida | 59.360 |
+| (–) CMV | (38.050) |
+| **= Lucro bruto** | **21.310** |
+
+A conta do item (61.460 − 38.050 − 2.100 − 4.100) dá **17.210**: é o lucro bruto já diminuído das despesas comerciais, um valor intermediário que não tem nome na DRE.
+
+### Passo a passo
+```dre
+@ vendas | 61.460 | receita-bruta
+@ impostos sobre vendas | 2.100 | deducoes
+@ custo da mercadoria vendida | 38.050 | cmv
+@ despesas comerciais | 4.100 | despesas-vendas
+@ despesas diversas | 420 | despesas-administrativas
+@ pró-labore | 8.200 | despesas-administrativas
+@ despesa de depreciação | 240 | despesas-administrativas
+@ despesa de amortização | 1.300 | despesas-administrativas
++ Vendas | 61.460 | vendas
++ (–) Impostos sobre vendas | (2.100) | impostos sobre vendas
+= Receita líquida | 59.360
++ (–) CMV | (38.050) | custo da mercadoria vendida
+= Lucro bruto | 21.310
+> As despesas comerciais ficam abaixo do lucro bruto, junto com as demais despesas operacionais.
+! despesas comerciais; despesas diversas; pró-labore; despesa de depreciação; despesa de amortização
+```
+
+Gabarito **ERRADO**.
+
+### Pegadinhas
+- **Despesa comercial não é dedução da receita:** dedução é tributo sobre vendas, devolução, abatimento e desconto incondicional. Comissões, fretes de entrega e propaganda são despesas com vendas.
+- **Despesas comerciais variáveis** (os 7% ou 17% do texto) continuam sendo despesas, não custo do produto. Entram na margem de contribuição da análise gerencial, não no CMV contábil.
+
+### Leve para as próximas
+1. Lucro bruto = receita bruta − deduções − custo das vendas. Nenhuma despesa operacional entra nessa conta.
+2. Item que mistura uma despesa de vendas com o CMV e os tributos é o modelo clássico de ERRADO.
 
 ## F0819 · CEBRASPE · 2002 · BANESE · CE
 - Fontes: TecConcursos 819 (979158)
@@ -23441,15 +24648,9 @@ Na Demonstração do Resultado do Exercício, figurarão como deduções da rece
 ## F0869 · VUNESP · 2026 · São José do Rio Preto/SP · ME
 - Fontes: Igor Cintra 36
 - Prova: VUNESP – Auditor Fiscal – São José do Rio Preto/SP – 2026
-- Grupos: receita-liquida, cmv, receita-bruta, despesas-administrativas, deducoes, despesas-vendas
+- Grupos: receita-bruta, deducoes, receita-liquida, cmv, despesas-vendas, fora-passivo
 
 Considere as informações a seguir da Companhia Industrial RP Ltda: – Venda de 1.600 unidades de um produto, ao preço unitário de R$ 576,00, com frete total de R$ 14.400,00 por conta do vendedor.
-
-![imagem](questoes - imagem F0869-1.png){largura=78%}
-
-![imagem](questoes - imagem F0869-2.png){largura=78%}
-
-![imagem](questoes - imagem F0869-3.png){largura=78%}
 
 – Na emissão de nota fiscal dessa venda, foi concedido um desconto de R$ 12.000,00.
 
@@ -23461,7 +24662,66 @@ Demais informações: – Custo dos produtos vendidos R$ 576.000,00 – Salário
 - D) R$ 921.600,00.
 - E) R$ 902.400,00.
 - Gabarito: C
-- Resolução: a caminho
+### O que a questão pede
+A **receita líquida de vendas** de uma indústria. É preciso separar: o que é dedução da receita (desconto na nota, ICMS, PIS, Cofins), o que nem é receita (IPI) e o que é despesa com vendas (frete por conta do vendedor, salários dos vendedores, publicidade).
+
+### Cálculos prévios
+**Receita bruta:** 1.600 × 576,00 = **921.600**. O IPI (10.080) é cobrado por fora e **não** compõe a receita bruta.
+
+**Três tipos de redução de preço, três lugares diferentes:**
+
+| Redução | Quando | Onde vai |
+|---|---|---|
+| Desconto incondicional | Na própria nota fiscal, sem depender de evento futuro | Dedução da receita bruta |
+| Abatimento | Depois da venda (defeito, atraso, avaria) | Dedução da receita bruta |
+| Desconto condicional | Depois, se o cliente cumprir uma condição (pagar antes do vencimento) | Despesa financeira |
+
+O desconto de 12.000 foi dado "na emissão da nota fiscal": é **incondicional**.
+
+### Passo a passo
+```dre
+@ Venda de 1.600 unidades a 576,00 | 921.600 | receita-bruta
+@ Desconto concedido na nota fiscal | 12.000 | deducoes
+@ ICMS | 92.160 | deducoes
+@ PIS sobre o faturamento | 15.200 | deducoes
+@ COFINS sobre o faturamento | 70.040 | deducoes
+@ IPI | 10.080 | fora-passivo
+@ Custo dos produtos vendidos | 576.000 | cmv
+@ Frete por conta do vendedor | 14.400 | despesas-vendas
+@ Salários dos vendedores | 16.800 | despesas-vendas
+@ Despesas com publicidade | 12.480 | despesas-vendas
+> O IPI não é receita da empresa. O CPV e as despesas com vendas ficam abaixo da receita líquida.
+! IPI; Custo dos produtos vendidos; Frete por conta do vendedor; Salários dos vendedores; Despesas com publicidade
++ Receita bruta | 921.600 | Venda de 1.600 unidades a 576,00
+> Deduções: desconto incondicional e os tributos sobre a receita.
++ (–) Desconto incondicional | (12.000) | Desconto concedido na nota fiscal
++ (–) ICMS | (92.160) | ICMS
++ (–) PIS e Cofins | (85.240) | PIS sobre o faturamento; COFINS sobre o faturamento
+= Receita líquida | 732.200
+```
+
+Gabarito **C (732.200)**.
+
+### O que ignorar e por quê
+- **IPI (10.080):** tributo por fora; o vendedor só o repassa ao fisco.
+- **Frete de 14.400 por conta do vendedor:** gasto para entregar ao cliente, despesa com vendas.
+- **CPV, salários dos vendedores e publicidade:** abaixo da receita líquida.
+
+### O que mais poderia estar ali
+- **Deduções:** devoluções de vendas, vendas canceladas, abatimentos, ISS (em serviços), AVP sobre vendas a prazo.
+- **Fora da receita:** IPI e ICMS-ST cobrados do cliente; ⚠️ IBS e CBS, pela orientação técnica do CFC de 2026, também não compõem a receita bruta.
+
+### Pegadinhas
+- **D (921.600):** é a receita bruta; não deduziu nada.
+- **B (717.800)** = 732.200 − 14.400: tirou também o frete de entrega, que é despesa com vendas.
+- **Somar o IPI à receita bruta e depois deduzi-lo** dá o mesmo resultado, mas não é o tratamento técnico: o IPI nem entra na receita bruta.
+- **Desconto na nota = incondicional = dedução.** Desconto por pagamento antecipado = condicional = despesa financeira.
+
+### Leve para as próximas
+1. Receita líquida = receita bruta − (devoluções + abatimentos + descontos incondicionais + tributos sobre a receita).
+2. IPI e ICMS-ST são cobrados por fora: não entram na receita bruta.
+3. Frete na venda por conta do vendedor é despesa com vendas, nunca dedução.
+4. Fonte: resolução do professor Igor Cintra, reescrita e ampliada.
 
 ## F0870 · VUNESP · 2026 · CM Nova Odessa/SP · ME
 - Fontes: Igor Cintra 37
@@ -23617,7 +24877,7 @@ O reconhecimento do desconto obtido pela sociedade empresária em 31/12/2023 é 
 ## F0878 · FCC · 2024 · TRT 11ª Região · ME
 - Fontes: Igor Cintra 65
 - Prova: FCC – Analista Judiciário – TRT 11ª Região – 2024
-- Grupos: lair, ir-csll, receita-bruta, despesas-administrativas, despesas-vendas, outras-receitas-despesas
+- Grupos: receita-bruta, deducoes, receita-liquida, cmv, resultado-bruto, despesas-vendas, despesas-administrativas, lair, fora-ativo, fora-passivo
 
 A indústria OMEGA Ltda. produziu, em março de 20X3, 2.000 unidades de seu produto, sendo que 1.500 unidades foram vendidas no período pelo preço final de venda de R$ 134,40 cada unidade. O custo variável unitário da mercadoria vendida foi de R$ 30,00 por unidade, mas a empresa incorreu ainda em R$ 64.000,00 de custos fixos indiretos de fabricação, distribuídos igualmente entre as unidades produzidas. Nesta transação de venda, houve a incidência de Imposto sobre a Circulação de Mercadorias e Prestação de Serviços (ICMS) à alíquota de 18% e incidência de Imposto sobre Produtos Industrializados (IPI) à alíquota de 12%. A entidade incorreu ainda em despesas de vendas de R$ 20.000,00 e outras despesas administrativas de R$ 15.000,00. Com base nas informações apresentadas e considerando que a entidade utiliza o método de custeio permitido pelo CPC16(R1) – Estoques, que não foram registradas outras receitas no período e que não havia estoque remanescente do mês anterior, o Resultado Antes dos Tributos sobre o Lucro da empresa OMEGA Ltda. no mês de março de 20X3 foi, em reais,
 
@@ -23627,7 +24887,76 @@ A indústria OMEGA Ltda. produziu, em março de 20X3, 2.000 unidades de seu prod
 - D) 37.800,00.
 - E) 3.600,00.
 - Gabarito: C
-- Resolução: a caminho
+### O que a questão pede
+O **resultado antes dos tributos sobre o lucro** (LAIR) de março de uma indústria. Duas decisões: tirar o **IPI** do preço final (ele não é receita) e usar o **custeio por absorção**, o único aceito pelo CPC 16 (R1), que leva os custos fixos de fabricação ao produto.
+
+### Cálculos prévios
+**1) Preço sem IPI.** O preço final de 134,40 já tem o IPI de 12% somado "por fora":
+
+| Item | Valor por unidade |
+|---|---:|
+| Preço da mercadoria (X) | 120,00 |
+| (+) IPI (12% × 120,00) | 14,40 |
+| = Preço final (1,12 X) | 134,40 |
+
+X = 134,40 ÷ 1,12 = **120,00**. Receita bruta = 1.500 × 120,00 = **180.000**.
+
+**2) ICMS sobre vendas:** 18% × 180.000 = **32.400** (dedução da receita).
+
+**3) Custo unitário por absorção:**
+
+| Item | Valor |
+|---|---:|
+| Custo variável por unidade | 30,00 |
+| (+) Custo fixo por unidade (64.000 ÷ 2.000 unidades **produzidas**) | 32,00 |
+| = Custo unitário | **62,00** |
+| CPV = 1.500 vendidas × 62,00 | **93.000** |
+| Fica no estoque: 500 × 62,00 | 31.000 |
+
+### Passo a passo
+```dre
+@ Receita bruta (1.500 × 120,00) | 180.000 | receita-bruta
+@ IPI destacado na nota (12%) | 21.600 | fora-passivo
+@ ICMS sobre vendas (18%) | 32.400 | deducoes
+@ Custo variável das unidades vendidas (1.500 × 30,00) | 45.000 | cmv
+@ Custo fixo absorvido pelas unidades vendidas (1.500 × 32,00) | 48.000 | cmv
+@ Custo das 500 unidades em estoque (500 × 62,00) | 31.000 | fora-ativo
+@ Despesas de vendas | 20.000 | despesas-vendas
+@ Outras despesas administrativas | 15.000 | despesas-administrativas
+> O IPI é cobrado do cliente e repassado ao fisco: não é receita da empresa. O custo das unidades não vendidas fica no estoque.
+! IPI destacado na nota (12%); Custo das 500 unidades em estoque (500 × 62,00)
++ Receita bruta | 180.000 | Receita bruta (1.500 × 120,00)
++ (–) ICMS sobre vendas | (32.400) | ICMS sobre vendas (18%)
+= Receita líquida | 147.600
+> Custeio por absorção: o custo fixo de fabricação vai para o produto (32,00 por unidade produzida).
++ (–) CPV | (93.000) | Custo variável das unidades vendidas (1.500 × 30,00); Custo fixo absorvido pelas unidades vendidas (1.500 × 32,00)
+= Lucro bruto | 54.600
++ (–) Despesas de vendas | (20.000) | Despesas de vendas
++ (–) Despesas administrativas | (15.000) | Outras despesas administrativas
+= Resultado antes dos tributos sobre o lucro | 19.600
+```
+
+Gabarito **C (19.600)**.
+
+### O que ignorar e por quê
+- **IPI (21.600):** tributo não cumulativo cobrado destacadamente do comprador; o vendedor é mero depositário. Não entra na receita bruta (Decreto-Lei 1.598/77, art. 12, § 4º, com a redação da Lei 12.973/2014). Se o enunciado desse a receita **com** IPI, ele seria deduzido.
+- **Custo fixo das 500 unidades não vendidas (16.000):** pelo custeio por absorção, fica no estoque e só vira custo quando elas forem vendidas.
+
+### O que mais poderia estar ali
+- **Deduções:** PIS e Cofins sobre o faturamento, devoluções, descontos incondicionais.
+- **Custos que também iriam para o produto:** mão de obra direta, depreciação das máquinas da fábrica, energia da produção.
+- **Despesas, nunca custo:** comissões de vendedores, propaganda, frete de entrega, salários da administração.
+
+### Pegadinhas
+- **E (3.600)** = 147.600 − 45.000 − 64.000 − 35.000: é o resultado pelo **custeio variável**, que lança todos os custos fixos (64.000) no período. O custeio variável é gerencial; o CPC 16 (R1) exige a absorção.
+- **Ratear o custo fixo pelas unidades vendidas** (64.000 ÷ 1.500) e não pelas produzidas: joga no resultado custo que pertence ao estoque.
+- **Calcular o ICMS sobre 134,40** ou deixar o IPI na receita: os dois inflam a receita e erram o resultado.
+
+### Leve para as próximas
+1. Preço "final" de indústria com IPI: divida por (1 + alíquota do IPI) para achar a receita bruta.
+2. Custeio por absorção: custo unitário = custo variável + custos fixos ÷ unidades **produzidas**.
+3. O custo das unidades não vendidas fica no estoque; só o das vendidas vai para o CPV.
+4. Fonte: resolução do professor Igor Cintra, reescrita e ampliada.
 
 ## F0879 · FCC · 2023 · Copergás · ME
 - Fontes: Igor Cintra 66
@@ -23700,7 +25029,7 @@ Assinale a opção que indica o resultado apurado em 31/12/2023, sem considerar 
 ## F0883 · VUNESP · 2023 · Pref. Araçatuba/SP · ME
 - Fontes: Igor Cintra 74
 - Prova: VUNESP – Fiscal Tributário – Pref. Araçatuba/SP – 2023
-- Grupos: receita-liquida, resultado-financeiro, ir-csll, lucro-liquido, despesas-administrativas, cmv, receita-bruta
+- Grupos: receita-liquida, cmv, resultado-bruto, despesas-administrativas, resultado-financeiro, lair, ir-csll, lucro-liquido, fora-ativo, fora-passivo, fora-pl
 
 A Cia Serviços Gerais é uma empresa prestadora de serviços de limpeza e conservação. Em 31.12.2022, a entidade apresentou o seguinte Balancete de Verificação:
 
@@ -23741,12 +25070,78 @@ O lucro líquido do exercício de 2022, totalizou, em R$:
 - D) 110.100,00.
 - E) 8.500,00.
 - Gabarito: C
-- Resolução: a caminho
+### O que a questão pede
+O **lucro líquido** de 2022 de uma prestadora de serviços. Como a pergunta é só o resultado final, basta somar as receitas e tirar as despesas, sem montar a DRE linha a linha (atalho de apuração do resultado).
+
+### Cálculos prévios
+**Contas de resultado do balancete:**
+
+| Receitas | Valor | Despesas e custos | Valor |
+|---|---:|---|---:|
+| Receita líquida | 1.200.000 | Custo dos serviços prestados | 990.000 |
+| Receita financeira | 26.700 | Despesa com depreciação | 35.000 |
+| | | Despesas com amortização | 5.500 |
+| | | Despesas gerais e administrativas | 20.000 |
+| | | Despesa financeira | 12.000 |
+| | | Despesa de IR e CSLL | 45.600 |
+| **Total** | **1.226.700** | **Total** | **1.108.100** |
+
+Lucro líquido = 1.226.700 − 1.108.100 = **118.600**.
+
+### Passo a passo
+```dre
+@ Receita líquida | 1.200.000 | receita-liquida
+@ Custo dos serviços prestados | 990.000 | cmv
+@ Despesa com depreciação | 35.000 | despesas-administrativas
+@ Despesas com amortização | 5.500 | despesas-administrativas
+@ Despesas gerais e administrativas | 20.000 | despesas-administrativas
+@ Despesa financeira | 12.000 | resultado-financeiro
+@ Receita financeira | 26.700 | resultado-financeiro
+@ Despesa de IR e CSLL | 45.600 | ir-csll
+@ Perda estimada de crédito de liquidação duvidosa – ativo | 56.000 | fora-ativo
+@ Material de expediente (estoque) | 70.000 | fora-ativo
+@ Salários a pagar | 900.000 | fora-passivo
+@ Reservas de lucro | 8.500 | fora-pl
+@ Demais contas de ativo, passivo e PL | — | fora-outros
+> A perda estimada com créditos é o saldo retificador (o próprio nome diz "ativo"); material de expediente é estoque; reservas são PL.
+! Perda estimada de crédito de liquidação duvidosa – ativo; Material de expediente (estoque); Salários a pagar; Reservas de lucro; Demais contas de ativo, passivo e PL
++ Receita líquida | 1.200.000 | Receita líquida
++ (–) Custo dos serviços prestados | (990.000) | Custo dos serviços prestados
+= Lucro bruto | 210.000
++ (–) Despesas operacionais | (60.500) | Despesa com depreciação; Despesas com amortização; Despesas gerais e administrativas
++ Resultado financeiro | 14.700 | Receita financeira; Despesa financeira
+= LAIR | 164.200
++ (–) IR e CSLL | (45.600) | Despesa de IR e CSLL
+= Lucro líquido | 118.600
+```
+
+Gabarito **C (118.600)**.
+
+### O que ignorar e por quê
+- **Perda estimada de crédito de liquidação duvidosa (56.000):** saldo do ativo, não despesa do ano.
+- **Material de expediente (70.000):** estoque de consumo.
+- **Amortização e depreciação acumuladas:** retificadoras do intangível e do imobilizado; as despesas do ano têm contas próprias.
+- **Reservas de lucro (8.500):** PL de anos anteriores.
+
+### O que mais poderia estar ali
+- **Em prestadora de serviços:** "custo dos serviços prestados" ocupa o lugar do CMV; deduções seriam ISS, PIS e Cofins.
+- **Outras despesas:** despesa com perdas estimadas em créditos (essa sim reduziria o lucro), multas, provisões trabalhistas.
+
+### Pegadinhas
+- **A (210.000)** = 1.200.000 − 990.000: é o lucro bruto.
+- **B (164.200)** = 118.600 + 45.600: é o LAIR; esqueceu o IR e a CSLL.
+- **D (110.100)** = 118.600 − 8.500: tirou as reservas de lucro, que são PL.
+- **E (8.500):** é o saldo das reservas de lucro.
+
+### Leve para as próximas
+1. Pergunta só pelo lucro líquido? Some receitas, subtraia despesas (inclusive IR e CSLL) e pronto.
+2. "Perda estimada… – ativo" é saldo; despesa com perda estimada é outra conta.
+3. Fonte: resolução do professor Igor Cintra, reescrita e ampliada.
 
 ## F0884 · VUNESP · 2023 · Pref. Itapevi/SP · ME
 - Fontes: Igor Cintra 75
 - Prova: VUNESP – Auditor – Pref. Itapevi/SP – 2023
-- Grupos: resultado-financeiro, lair, ir-csll, lucro-liquido, receita-bruta, despesas-administrativas, despesas-vendas, despesas-operacionais, outras-operacionais, receita-liquida, outras-receitas-despesas
+- Grupos: receita-liquida, cmv, resultado-bruto, despesas-vendas, despesas-administrativas, outras-operacionais, resultado-financeiro, lair, ir-csll, fora-ativo, fora-passivo, fora-pl
 
 Balancete de verificação apresentado pela empresa Pac Man Ltda. em 31 de dezembro de 2022. Balancete contábil em 31/12/2022 Descrição da conta contábil Reais
 
@@ -23793,7 +25188,71 @@ Assinale a alternativa que contenha o lucro antes do imposto de renda e da contr
 - D) 107.625
 - E) 71.750
 - Gabarito: D
-- Resolução: a caminho
+### O que a questão pede
+O **LAIR** a partir de um balancete com sinal: valores entre parênteses são saldos **credores** (receitas, passivo, PL); os demais, **devedores** (despesas, ativo). O ponto de partida já é a **receita líquida**.
+
+### Cálculos prévios
+| Receitas (credoras) | Valor | Despesas antes do IR (devedoras) | Valor |
+|---|---:|---|---:|
+| Receitas líquidas de vendas | 871.500 | CPV | 612.500 |
+| | | Despesas administrativas, tributárias e gerais | 98.000 |
+| | | Despesas de vendas | 42.000 |
+| | | Despesas financeiras | 9.625 |
+| | | Outras despesas operacionais | 1.750 |
+| **Total** | **871.500** | **Total** | **763.875** |
+
+LAIR = 871.500 − 763.875 = **107.625**. O IR e a CSLL correntes (35.875) vêm **depois** dessa linha.
+
+### Passo a passo
+```dre
+@ Receitas líquidas de vendas | 871.500 | receita-liquida
+@ CPV | 612.500 | cmv
+@ Despesas de vendas | 42.000 | despesas-vendas
+@ Despesas administrativas, tributárias e gerais | 98.000 | despesas-administrativas
+@ Outras despesas operacionais | 1.750 | outras-operacionais
+@ Despesas financeiras | 9.625 | resultado-financeiro
+@ Imposto de renda e contribuição social correntes | 35.875 | ir-csll
+@ Lucros a destinar | 43.750 | fora-pl
+@ Ajustes patrimoniais, capital e reservas de capital | 78.750 | fora-pl
+@ Incentivos fiscais de LP | 14.000 | fora-ativo
+@ IR e CSL a pagar | 19.250 | fora-passivo
+@ Demais contas de ativo e passivo | — | fora-outros
+> Saldos de balanço ficam fora, inclusive os "lucros a destinar" (PL) e o IR a pagar (passivo).
+! Lucros a destinar; Ajustes patrimoniais, capital e reservas de capital; Incentivos fiscais de LP; IR e CSL a pagar; Demais contas de ativo e passivo
++ Receita líquida | 871.500 | Receitas líquidas de vendas
++ (–) CPV | (612.500) | CPV
+= Lucro bruto | 259.000
++ (–) Despesas de vendas | (42.000) | Despesas de vendas
++ (–) Despesas administrativas, tributárias e gerais | (98.000) | Despesas administrativas, tributárias e gerais
++ (–) Outras despesas operacionais | (1.750) | Outras despesas operacionais
++ (–) Despesas financeiras | (9.625) | Despesas financeiras
+= LAIR | 107.625
+> A despesa de IR e CSLL vem depois do LAIR.
+! Imposto de renda e contribuição social correntes
+```
+
+Gabarito **D (107.625)**.
+
+### O que ignorar e por quê
+- **Lucros a destinar (43.750, credor):** saldo de PL de lucros ainda não destinados; não é receita do ano.
+- **IR e CSLL correntes (35.875):** despesa, mas abaixo do LAIR. **IR e CSL a pagar (19.250):** passivo.
+- **Incentivos fiscais de LP (14.000, devedor):** ativo.
+- **Deduções da receita:** o balancete já parte da receita **líquida**; não procure tributos sobre vendas.
+
+### O que mais poderia estar ali
+- **Antes do LAIR:** receitas financeiras, equivalência patrimonial, ganhos e perdas na venda de imobilizado.
+- **Depois do LAIR:** IR e CSLL diferidos, participações nos lucros.
+
+### Pegadinhas
+- **A (259.000)** = 871.500 − 612.500: é o lucro bruto.
+- **B (151.375)** = 107.625 + 43.750: somou os lucros a destinar como se fossem receita.
+- **E (71.750)** = 107.625 − 35.875: é o lucro líquido; descontou o IR, que vem depois do LAIR.
+- **Balancete com parênteses:** o sinal diz o lado. Parênteses = credor, sem parênteses = devedor. Na conferência, a soma de todos os saldos com sinal dá zero.
+
+### Leve para as próximas
+1. LAIR: todas as receitas menos todas as despesas, **exceto** IR e CSLL (e participações).
+2. Se o balancete começa na receita líquida, as deduções já saíram.
+3. Fonte: resolução do professor Igor Cintra, reescrita e ampliada.
 
 ## F0885 · FADESP · 2022 · SEFA/PA · ME
 - Fontes: Igor Cintra 76
@@ -24300,7 +25759,7 @@ O valor do lucro bruto foi de
 ## F0912 · IBGP · 2023 · Pref. Ouro Preto/MG · ME
 - Fontes: Igor Cintra 124
 - Prova: IBGP – Auditor Fiscal – Pref. Ouro Preto/MG – 2023
-- Grupos: deducoes
+- Grupos: calculo-cmv, cmv, deducoes, receita-bruta, resultado-bruto, fora-ativo, fora-passivo
 
 Considere as informações a seguir para responder a questão.
 
@@ -24313,7 +25772,81 @@ Considerando que esta foi a única venda do mês e a Luz do Mundo Ltda. não tin
 - C) R$ 24,50 e R$ 1.500,00.
 - D) R$ 27,50 e R$ 1.500,00.
 - Gabarito: C
-- Resolução: a caminho
+### O que a questão pede
+Duas coisas que vêm antes da DRE: o **custo unitário** de cada saco de cimento no estoque e o **ICMS a pagar** de janeiro. A revendedora vende ao consumidor final, então o IPI da compra **não** é recuperável, e o ICMS da compra **é**.
+
+### Cálculos prévios
+**1) Desmonte a nota fiscal de compra:** o valor total (27.500) é a mercadoria mais o IPI de 10% somado por fora.
+
+| Item | Valor |
+|---|---:|
+| Valor da mercadoria (27.500 ÷ 1,10) | 25.000 |
+| (+) IPI (10%) | 2.500 |
+| = Total da nota | 27.500 |
+| ICMS da compra (12% × 25.000; o IPI não entra na base) | 3.000 |
+
+**2) Custo do estoque:**
+
+| Item | Valor |
+|---|---:|
+| Total da nota | 27.500 |
+| (–) ICMS a recuperar | (3.000) |
+| = Custo do estoque | **24.500** |
+| Custo unitário (÷ 1.000 sacos) | **24,50** |
+
+O IPI fica no custo porque a revendedora não é contribuinte do IPI na venda ao consumidor final: não tem como compensá-lo.
+
+**3) ICMS a pagar no fim de janeiro:**
+
+| Item | Valor |
+|---|---:|
+| ICMS sobre a venda (18% × 25.000) | 4.500 |
+| (–) Crédito da compra | (3.000) |
+| = **ICMS a recolher** | **1.500** |
+
+### Passo a passo
+Para fixar, a DRE de janeiro até o lucro bruto (a questão não pede, mas é o próximo passo natural):
+
+```dre
+@ Venda de 450 sacos (nota fiscal) | 25.000,00 | receita-bruta
+@ ICMS sobre vendas (18%) | 4.500,00 | deducoes
+@ PIS e Cofins cumulativos (3,65% sobre 25.000 − 4.500) | 748,25 | deducoes
+@ Custo de 450 sacos a 24,50 | 11.025,00 | cmv
+@ ICMS a recuperar da compra | 3.000,00 | fora-ativo
+@ Estoque final: 550 sacos a 24,50 | 13.475,00 | fora-ativo
+@ ICMS a recolher (4.500 − 3.000) | 1.500,00 | fora-passivo
+> O crédito de ICMS da compra é ativo e, compensado com o débito da venda, deixa 1.500 a recolher (passivo). Nada disso é linha da DRE.
+! ICMS a recuperar da compra; Estoque final: 550 sacos a 24,50; ICMS a recolher (4.500 − 3.000)
++ Receita bruta | 25.000,00 | Venda de 450 sacos (nota fiscal)
++ (–) ICMS sobre vendas | (4.500,00) | ICMS sobre vendas (18%)
+> Pelo comando do enunciado (STF, Tema 69), o ICMS sai da base do PIS e da Cofins: 3,65% × 20.500.
++ (–) PIS e Cofins | (748,25) | PIS e Cofins cumulativos (3,65% sobre 25.000 − 4.500)
+= Receita líquida | 19.751,75
++ (–) CMV | (11.025,00) | Custo de 450 sacos a 24,50
+= Lucro bruto | 8.726,75
+```
+
+Gabarito **C (24,50 e 1.500,00)**.
+
+### O que ignorar e por quê
+- **PIS e Cofins da venda:** afetam a receita líquida, não o custo do estoque nem o ICMS a pagar. A informação sobre o Tema 69 do STF só serve à DRE.
+- **Quantidade vendida (450):** não muda o custo **unitário**; só o CMV.
+
+### O que mais poderia estar ali
+- **Iria para o custo:** frete e seguro da compra, IPI e ICMS não recuperáveis, imposto de importação.
+- **Sairia do custo:** ICMS, PIS e Cofins recuperáveis (regime não cumulativo), descontos incondicionais obtidos.
+
+### Pegadinhas
+- **D (27,50 e 1.500):** usou o crédito de ICMS para o imposto a pagar, mas esqueceu de tirá-lo do custo do estoque.
+- **A (24,50 e 1.200):** 1.200 = 4.500 − 3.300, com o crédito calculado sobre 27.500 (incluindo o IPI). O IPI não integra a base do ICMS quando a compra é para revenda entre contribuintes (CF, art. 155, § 2º, XI).
+- **IPI recuperável?** Só para quem é contribuinte do IPI (indústria ou equiparado). Revendedor ao consumidor final incorpora o IPI ao custo.
+- ⚠️ **Reforma Tributária:** IBS e CBS (LC 214/2025) substituirão gradualmente ICMS, PIS e Cofins até 2033; a lógica de crédito na compra e débito na venda continua.
+
+### Leve para as próximas
+1. Custo de aquisição = valor da nota (com IPI) − tributos **recuperáveis**.
+2. IPI: recuperável só para contribuinte do IPI; para o comércio varejista, é custo.
+3. ICMS a recolher = débito das vendas − crédito das compras.
+4. Fonte: resolução do professor Igor Cintra, reescrita e ampliada.
 
 ## F0913 · FGV · 2024 · Câmara Municipal · ME
 - Fontes: Igor Cintra 126

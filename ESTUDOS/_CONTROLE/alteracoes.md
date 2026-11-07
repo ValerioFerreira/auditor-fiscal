@@ -334,3 +334,15 @@
 | INCOMPLETA | 15 questões só com gabarito (F0614 a F0628) | Resolução própria e minuciosa, com quadro da DRE e passo a passo nas de cálculo |
 | REORGANIZAÇÃO | Tabelas de F0614, F0615, F0617, F0618, F0619 e F0624 a F0628 embaralhadas pela extração do PDF (valores soltos, colunas deslocadas) | Tabelas remontadas, com o mesmo texto e os mesmos valores; o último saldo do balancete do CBM-DF (depreciação acumulada) ficou "1.000.00 (assim no original)" |
 | INCOMPLETA | Questões de 2007 tratam pesquisa de novos produtos como ativo | Resoluções avisam que, hoje, pesquisa é despesa (CPC 04) ⚠️ |
+
+## v019 — 07/11/2026 (Fixação em detalhes: mapa agrupado, Questões-modelo e onda 4)
+
+### Contabilidade Geral e Avançada
+
+| Classificação | Como estava | Como ficou na base |
+|---|---|---|
+| REORGANIZAÇÃO | Mapa de contas com todos os nomes de uma linha da DRE numa lista corrida | Nomes agrupados por conta, variantes reunidas num chip e chips juntos pelo núcleo (só exibição; contas.md mantém todos os nomes) |
+| INCOMPLETA | — | Novo dre/guia.md: 30 questões-modelo explicadas do enunciado à resposta |
+| INCOMPLETA | 26 questões só com gabarito | Resolução minuciosa (F0071, F0120, F0289, F0311, F0314, F0346, F0445, F0449, F0493, F0494, F0495, F0524, F0525, F0526, F0530, F0587, F0588, F0605, F0645, F0646, F0818, F0869, F0878, F0883, F0884, F0912) |
+| REORGANIZAÇÃO | Enunciados embaralhados pela extração (F0289, F0311, F0314, F0346, F0493 a F0495, F0524, F0605) e imagens em F0605 e F0869 | Tabelas remontadas sem mudar texto nem valores; imagens da F0605 transcritas; esquemas de aula da F0869 retirados (o conceito entrou na resolução) |
+| IMPRECISA | contas.md: nome "Deduções da receita de vendas 10.800 17.000" | "Deduções da receita de vendas" (valores grudados no nome) |

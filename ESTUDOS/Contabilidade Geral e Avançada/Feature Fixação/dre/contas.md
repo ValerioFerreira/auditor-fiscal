@@ -66,7 +66,7 @@
 ## Deduções da receita (total)
 - Grupo: deducoes
 - Entra: (–) dedução da receita bruta
-- Nomes: Deduções da receita; Deduções da receita de vendas 10.800 17.000; Deduções de receitas; Deduções de vendas; Deduções sobre receita de vendas; Deduções sobre vendas; Descontos, abatimentos e tributos sobre as vendas
+- Nomes: Deduções da receita; Deduções da receita de vendas; Deduções de receitas; Deduções de vendas; Deduções sobre receita de vendas; Deduções sobre vendas; Descontos, abatimentos e tributos sobre as vendas
 - Obs: Total já somado das deduções.
 - Questões: F0465, F0466, F0479, F0480, F0557, F0558, F0559, F0560, F0582, F0583, F0645, F0646, F0691, F0692, F0693, F0694, F0704, F0705, F0706, F0707, F0708, F0709, F0761, F0762, F0763, F0764, F0765, F0769, F0770, F0771, F0801, F0802, F0803, F0804, F0805
 

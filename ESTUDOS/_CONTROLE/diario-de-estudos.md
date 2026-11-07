@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v018** (07/11/2026)
+> Versão atual da base: **v019** (07/11/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -224,3 +224,18 @@
   - **Participação de empregados:** fica depois do IR pela Lei e é despesa pelo CPC 33.
 - **Total:** 39 das 945 questões com resolução.
 - **Site:** a lista "Ficaram de fora" não mostra mais o "—" quando a conta não tem valor.
+
+## 07/11/2026 — Fixação em detalhes: mapa agrupado, Questões-modelo e onda 4 (v019)
+
+- **Mapa de contas agrupado** (pedido do dia):
+  - cada conta virou um bloco com os seus nomes;
+  - variantes que só mudam plural, preposição ou maiúscula viraram um chip só ("+N");
+  - contas com muitos nomes juntam os chips pelo núcleo.
+  
+  O painel do grupo usa o mesmo agrupamento.
+- **Aba Questões-modelo (dre/guia.md):** as 30 questões que mais ensinam, em seis partes, em ordem de curso. Cada uma tem enunciado, gabarito escondido e as seções Lendo o enunciado · O plano · Os cálculos, na ordem · O raciocínio · Pegadinhas · Checklist para reproduzir.
+- **Onda 4 de resoluções** (feita por um agente em paralelo):
+  - 26 questões, entre elas balancetes de dois anos, LALUR, JCP, lucro por ação, IPI, serviços, indústria e equivalência;
+  - enunciados de F0289, F0314, F0311, F0346, F0493 a F0495, F0524 e F0605 remontados; as imagens de F0605 transcritas;
+  - os esquemas de aula soltos no enunciado da F0869 foram retirados.
+- **Total:** 65 das 945 questões com resolução.

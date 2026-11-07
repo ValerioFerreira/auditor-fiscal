@@ -47,7 +47,9 @@
 - **Datas originais dos estudos:** não informadas no arquivo inicial.
 - Termo "eficácia prospectiva" (sinônimo de eficácia contida no seu material): mantido; não é a nomenclatura mais usual (Temer: "redutível ou restringível").
 
-- **Fixação em detalhes — DRE:** 906 das 945 questões ainda estão com "resolução a caminho". Continuar em ondas, na ordem de riqueza (balancetes completos e formas de cobrança ainda não cobertas primeiro). Questões com balancete em imagem (cerca de 60) devem ganhar a tabela transcrita quando forem resolvidas.
+- **Fixação em detalhes — DRE:** 880 das 945 questões ainda estão com "resolução a caminho". Continuar em ondas, na ordem de riqueza (balancetes completos e formas de cobrança ainda não cobertas primeiro). Questões com balancete em imagem (cerca de 60) devem ganhar a tabela transcrita quando forem resolvidas.
+- **Fixação em detalhes — F0720 sem resolução:** o balancete não fecha (débitos superam créditos em 7.900, valor igual a CMV 7.500 + estoque 400), e a DRE montada dá prejuízo de 3.415. O gabarito CERTO só sai tirando o PL de ativo − passivo. Conferir no original antes de resolver.
+- **Fixação em detalhes — F0587/F0588:** o quadro traz "custo da mercadoria vendida 2.178" fora da ordem crescente. O gabarito só fecha com o CMV pelo inventário (7.705) e com a equivalência (480) negativa; a resolução explica a leitura adotada. Conferir no original.
 - **Fixação em detalhes — JCP:** divergência registrada (despesa financeira para o fisco e para Possati; destinação do resultado pela ICPC 08). Confirmar com as resoluções das questões que cobram o tema.
 
 ## ⚪ Assuntos mencionados, mas ainda não consolidados (estudar)

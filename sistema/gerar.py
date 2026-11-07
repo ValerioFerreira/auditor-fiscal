@@ -1429,8 +1429,9 @@ def ler_questoes_me(texto: str) -> tuple[dict, list[dict], list[str]]:
 # O número F0001 é a identidade da questão (respostas guardadas como "fix.<assunto>:F0001").
 
 RE_FIX_SECAO = re.compile(r"^##\s+([a-z0-9-]+)\s*·\s*(.+?)\s*$")
-RE_FIX_CAMPO = re.compile(r"^-\s*(Sinal|Nomes|Base|Grupo|Entra|Obs|Questões|Fonte|Fontes|Prova|Grupos|Gabarito|Resolução):\s*(.*?)\s*$")
+RE_FIX_CAMPO = re.compile(r"^-\s*(Sinal|Nomes|Base|Grupo|Entra|Obs|Questões|Fonte|Fontes|Prova|Grupos|Gabarito|Resolução|Parte|Ensina):\s*(.*?)\s*$")
 RE_FIX_QUESTAO = re.compile(r"^##\s+F(\d{4})\s*·\s*([^·]+?)\s*·\s*([^·]*?)\s*·\s*([^·]*?)\s*·\s*(CE|ME)\s*$")
+RE_FIX_GUIA = re.compile(r"^##\s+(\d+)\s*·\s*(F\d{4})\s*·\s*(.+?)\s*$")
 RE_FIX_OPCAO = re.compile(r"^-\s*([A-E])\)\s*(.*?)\s*$")
 FIX_ESPECIAIS = ("~notas", "~desce", "~sobe", "~nao", "—", "-", "")
 
@@ -1640,30 +1641,8 @@ def carregar_fixacao(base: "Base", materia: dict, pasta: Path) -> dict:
                 res = res[1:]
             r = Renderizador(base, dict(doc, caminho=f"{rel}/questoes.md"))
             e_html, _ = html_fixacao(r, enun, av)
-            secoes, dres = [], []
-            if res and not pendente:
-                atual = {"t": "", "l": []}
-                blocos_sec = [atual]
-                cerca = False
-                for linha in res:
-                    if RE_CERCA.match(linha):
-                        cerca = not cerca
-                    mh = re.match(r"^###\s+(.*?)\s*$", linha)
-                    if mh and not cerca:
-                        atual = {"t": mh.group(1), "l": []}
-                        blocos_sec.append(atual)
-                    else:
-                        atual["l"].append(linha)
-                for b in blocos_sec:
-                    if not b["t"] and not "".join(b["l"]).strip():
-                        continue
-                    h, ds = html_fixacao(r, b["l"], av)
-                    # renumera os blocos dre desta seção na lista da questão
-                    for k in range(len(ds)):
-                        h = h.replace(f'data-k="{k}"', f'data-k="n{len(dres) + k}"', 1)
-                    dres.extend(ds)
-                    secoes.append({"t": r.inline(b["t"], False) if b["t"] else "", "h": h.replace('data-k="n', 'data-k="')})
-            gr = [x.strip() for x in campos.get("Grupos", "").split(",") if x.strip()]
+            secoes, dres = secoes_fixacao(r, res, av) if res and not pendente else ([], [])
+            gr =[x.strip() for x in campos.get("Grupos", "").split(",") if x.strip()]
             for g in gr:
                 if g not in grupos and g != "estrutura":
                     av(f"grupo '{g}' não existe na estrutura")
@@ -1673,8 +1652,61 @@ def carregar_fixacao(base: "Base", materia: dict, pasta: Path) -> dict:
                 "fs": campos.get("Fontes", ""), "gr": gr, "e": e_html,
                 "o": [r.inline(" ".join(t.split()), False) for _, t in ops] if tipo == "ME" else None,
                 "g": gab, "r": secoes, "dre": dres})
+
+    # guia: questões-modelo explicadas do enunciado à resposta (## 01 · F0003 · Título, com "- Parte:" e "- Ensina:")
+    guia = []
+    pg = pasta / "guia.md"
+    if pg.is_file():
+        av = avisador("guia.md")
+        existentes = {q["f"] for q in questoes}
+        vistos = set()
+        for cab, linhas in secoes_h2(pg.read_text(encoding="utf-8")):
+            mg = RE_FIX_GUIA.match(cab)
+            if not mg:
+                av(f"título fora do formato '## 01 · F0001 · Título': {cab[:60]}")
+                continue
+            f = mg.group(2)
+            if f not in existentes:
+                av(f"{f}: questão não existe em questoes.md")
+                continue
+            if f in vistos:
+                av(f"{f}: repetida no guia")
+                continue
+            vistos.add(f)
+            campos, resto = campos_iniciais(linhas)
+            r = Renderizador(base, dict(doc, caminho=f"{rel}/guia.md"))
+            secoes, dres = secoes_fixacao(r, resto, avisador("guia.md", f + ": "))
+            guia.append({"n": int(mg.group(1)), "f": f, "id": f"fix.{aid}:{f}", "t": r.inline(mg.group(3), False),
+                         "p": campos.get("Parte", ""), "en": lista_pv(campos.get("Ensina", "")),
+                         "r": secoes, "dre": dres})
     return {"id": aid, "titulo": titulo, "grade": grade, "grupos": grupos, "textos": blocos_texto,
-            "contas": contas, "questoes": questoes}
+            "contas": contas, "questoes": questoes, "guia": guia}
+
+
+def secoes_fixacao(r: "Renderizador", linhas: list[str], avisar) -> tuple[list[dict], list[dict]]:
+    """Texto de resolução (ou do guia) cortado nas seções ###; os blocos dre ganham numeração única."""
+    atual = {"t": "", "l": []}
+    blocos_sec = [atual]
+    cerca = False
+    for linha in linhas:
+        if RE_CERCA.match(linha):
+            cerca = not cerca
+        mh = re.match(r"^###\s+(.*?)\s*$", linha)
+        if mh and not cerca:
+            atual = {"t": mh.group(1), "l": []}
+            blocos_sec.append(atual)
+        else:
+            atual["l"].append(linha)
+    secoes, dres = [], []
+    for b in blocos_sec:
+        if not b["t"] and not "".join(b["l"]).strip():
+            continue
+        h, ds = html_fixacao(r, b["l"], avisar)
+        for k in range(len(ds)):
+            h = h.replace(f'data-k="{k}"', f'data-k="n{len(dres) + k}"', 1)
+        dres.extend(ds)
+        secoes.append({"t": r.inline(b["t"], False) if b["t"] else "", "h": h.replace('data-k="n', 'data-k="')})
+    return secoes, dres
 
 
 def paragrafos_html(r: "Renderizador", md: str) -> str:
@@ -2192,7 +2224,7 @@ class Base:
                 saida.setdefault(m["id"], []).append(assunto)
                 self.n_fixacao.append((m["sigla"], assunto["titulo"], len(assunto["questoes"]),
                                        sum(1 for q in assunto["questoes"] if q["r"]),
-                                       len(assunto["contas"])))
+                                       len(assunto["contas"]), len(assunto["guia"])))
         return saida
 
     def arvore_mapa(self, doc: dict, md: str) -> list[dict]:
@@ -3336,8 +3368,9 @@ def main(argv: list[str]) -> int:
         f"{m['sigla']} {por_materia_me.get(m['id'], 0)}" for m in base.materias) + ")")
     print("Resumo geral: " + " · ".join(
         f"{m['sigla']} {m['geral']['paginas']} págs." for m in base.materias))
-    for sig, tit, nq, nr, nc in getattr(base, "n_fixacao", []):
-        print(f"Fixação: {sig} · {tit} · {nq} questões ({nr} com resolução) · {nc} contas")
+    for sig, tit, nq, nr, nc, ng in getattr(base, "n_fixacao", []):
+        print(f"Fixação: {sig} · {tit} · {nq} questões ({nr} com resolução) · {nc} contas"
+              + (f" · guia com {ng} questões-modelo" if ng else ""))
     if not verificar:
         print(f"Gerado: {SAIDA_SITE.relative_to(RAIZ).as_posix()} ({tamanho // 1024} KB) e "
               f"{SAIDA_PAGINA_PRIVADA.relative_to(RAIZ).as_posix()}")

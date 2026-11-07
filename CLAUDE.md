@@ -52,6 +52,8 @@ Receber → identificar a matéria → identificar os assuntos → localizar o c
   - **Resoluções em ondas**, das questões mais ricas para as demais, no roteiro: o que pede · cálculos prévios · passo a passo · o que ignorar · o que mais poderia estar ali · pegadinhas · leve para as próximas.
   - As questões ficam só na página da Fixação (não entram no caderno da aba Questões), e as respostas usam os ids `fix.<assunto>:F0001`.
   - Visual escolhido por mim (07/11/2026): Lei e CPC lado a lado com o painel do grupo, mais o mapa de contas aberto e uma busca única "Onde vai esta conta?". A resolução de cálculo abre no quadro pronto, com o botão "Ver passo a passo".
+  - No mapa de contas (pedido meu de 07/11/2026), os nomes ficam agrupados por semelhança: cada conta é um bloco com seus nomes; variantes que só mudam plural, preposição ou maiúscula viram um chip só ("+N"); conta com muitos nomes junta os chips pelo núcleo (`fxVariantes` e `fxNucleos` em `modelo.html`).
+  - `guia.md` (aba **Questões-modelo**, pedido meu de 07/11/2026): as 30 questões que mais ensinam, em ordem de curso, cada uma explicada do enunciado à resposta (`## 01 · F0003 · Título`, `- Parte:`, `- Ensina:` e as seções Lendo o enunciado · O plano · Os cálculos, na ordem · O raciocínio · Pegadinhas · Checklist para reproduzir). O enunciado e a resolução do caderno vêm de questoes.md.
 - **Questões de múltipla escolha** (pedido meu de 06/10/2026): cada matéria tem também a pasta `Questões Múltipla Escolha/`, com um arquivo por tema, de mesmo nome, e as questões numeradas `M001...` (ver "Questões de múltipla escolha e caderno" em "Sistema de leitura"). Ao renomear, dividir ou unir um tema, faça o mesmo com esse arquivo, sem renumerar.
 
 ## Modelo de arquivo (adapte; use só as seções úteis)
