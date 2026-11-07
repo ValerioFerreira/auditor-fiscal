@@ -14,3 +14,6 @@ __pycache__/
 
 # Vínculo local com o projeto da Vercel (criado pela CLI)
 .vercel/
+
+# PDFs de origem da Fixação em detalhes (material pago, com marca d'água pessoal): só o conteúdo reescrito vai para o git
+ESTUDOS/**/Feature Fixação/*.pdf

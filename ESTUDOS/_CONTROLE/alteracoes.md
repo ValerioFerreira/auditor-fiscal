@@ -304,3 +304,15 @@
 | INCOMPLETA | Pontos comuns da federação | Artigos da Constituição acrescentados; sobreposição com Constitucional mantida e ligada |
 | REORGANIZAÇÃO | Imagem do resumo (Administração Pública: sentidos e atividades) | Inserida no tema, com o conteúdo no texto alternativo |
 | REORGANIZAÇÃO | — | Três temas novos (`sistemas-administrativos`, `estado-e-governo`, `administracao-publica-sentidos-e-atividades`) |
+
+## v016 — 07/11/2026 (Fixação em detalhes: DRE)
+
+### Contabilidade Geral e Avançada
+
+| Classificação | Como estava | Como ficou na base |
+|---|---|---|
+| REORGANIZAÇÃO | — | Nova pasta especial `Feature Fixação/` (PDFs fora do git) com o assunto `dre/` (estrutura.md, contas.md, questoes.md e imagens das questões) |
+| DIVERGÊNCIA | Aulas: JCP entre as despesas financeiras (Possati) | Catálogo e estrutura registram as duas posições: despesa financeira (fiscal) × destinação do resultado (ICPC 08) |
+| DIVERGÊNCIA | Ganho na venda de imobilizado | Lei, art. 187, IV: "outras receitas", depois do resultado operacional; CPC 26, FGV e FCC: dentro das operacionais |
+| INCOMPLETA | Estrutura do CPC 26 nas aulas | Acrescentadas as mudanças à vista (CPC 51/IFRS 18 em 2027; IBS e CBS fora da receita bruta) |
+

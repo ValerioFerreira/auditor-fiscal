@@ -84,7 +84,9 @@ ORDEM_CONTROLE = ["diario-de-estudos", "assuntos-estudados", "pendencias", "alte
 PASTA_SINTETICO = "Resumo Sintético"
 PASTA_QUESTOES = "Questões Turbo"
 PASTA_QUESTOES_ME = "Questões Múltipla Escolha"
-PASTAS_ESPECIAIS = (PASTA_SINTETICO, PASTA_QUESTOES, PASTA_QUESTOES_ME)  # dentro da matéria, mas não são temas
+PASTA_FIXACAO = "Feature Fixação"  # página "Fixação em detalhes" (ver carregar_fixacao)
+PASTAS_ESPECIAIS = (PASTA_SINTETICO, PASTA_QUESTOES, PASTA_QUESTOES_ME,
+                    PASTA_FIXACAO)  # dentro da matéria, mas não são temas
 ROTA_RELATO = "/__estudos/relato"
 # Conta (login com Google + dados no Neon). Valores públicos, não segredos: vêm das variáveis
 # de ambiente ESTUDOS_GOOGLE_CLIENT_ID e ESTUDOS_NEON_API ou do arquivo sistema/conta.json.
@@ -1400,6 +1402,281 @@ def ler_questoes_me(texto: str) -> tuple[dict, list[dict], list[str]]:
     return cobertura, questoes, erros
 
 
+# ----------------------------------------------------------------------------- Fixação em detalhes
+# Pasta "ESTUDOS/<Matéria>/Feature Fixação/<assunto>/" (a matéria recebe o card "Fixação em
+# detalhes"). Os PDFs de origem ficam na raiz de "Feature Fixação" (fora do git); cada assunto tem:
+#
+#   estrutura.md  "## Grade" (tabela Lei | CPC com os ids das linhas; "~notas", "~desce", "~sobe",
+#                 "~nao" ou "—" quando a linha não existe de um lado) e uma seção por linha:
+#                   ## receita-bruta · Receita bruta
+#                   - Sinal: +
+#                   - Nomes: Receita operacional bruta; Vendas brutas
+#                   - Base: Lei 6.404/76, art. 187, I
+#                   texto livre (markdown)
+#                 As seções "##" sem "id · " (Diferenças, Fora da DRE...) viram blocos de texto;
+#                 "## Mapa mental" é ignorada.
+#   contas.md     uma seção por conta: "## Nome", "- Grupo: id", "- Entra: ...", "- Nomes: a; b",
+#                 "- Obs: ...", "- Questões: F0001, F0002", "- Fonte: ...".
+#   questoes.md   "## F0001 · Banca · Ano · Órgão · CE|ME", "- Fontes:", "- Prova:", "- Grupos: a, b",
+#                 enunciado, "- A) ..." (ME), "- Gabarito: CERTO|ERRADO|A-E" e, depois, a resolução
+#                 ("- Resolução: a caminho" enquanto não houver). Na resolução, "### Título" abre um
+#                 bloco recolhível e um bloco ```dre``` vira o quadro da DRE com passo a passo:
+#                   @ Conta do enunciado | valor | destino (id de grupo, fora-*, ou "ignora")
+#                   > Texto do passo
+#                   + Linha da DRE | valor | Conta 1; Conta 2   (contas que acendem no passo)
+#                   = Subtotal | valor
+#                   ! Conta; Conta                            (riscadas neste passo)
+# O número F0001 é a identidade da questão (respostas guardadas como "fix.<assunto>:F0001").
+
+RE_FIX_SECAO = re.compile(r"^##\s+([a-z0-9-]+)\s*·\s*(.+?)\s*$")
+RE_FIX_CAMPO = re.compile(r"^-\s*(Sinal|Nomes|Base|Grupo|Entra|Obs|Questões|Fonte|Fontes|Prova|Grupos|Gabarito|Resolução):\s*(.*?)\s*$")
+RE_FIX_QUESTAO = re.compile(r"^##\s+F(\d{4})\s*·\s*([^·]+?)\s*·\s*([^·]*?)\s*·\s*([^·]*?)\s*·\s*(CE|ME)\s*$")
+RE_FIX_OPCAO = re.compile(r"^-\s*([A-E])\)\s*(.*?)\s*$")
+FIX_ESPECIAIS = ("~notas", "~desce", "~sobe", "~nao", "—", "-", "")
+
+
+def secoes_h2(texto: str) -> list[tuple[str, list[str]]]:
+    """[(título "##", linhas)] fora de blocos de código; o que vem antes do primeiro "##" é ignorado."""
+    texto = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f]", "", texto)  # restos de PDF travam o inline
+    secoes, atual, cerca = [], None, False
+    for linha in texto.replace("\r\n", "\n").split("\n"):
+        if RE_CERCA.match(linha):
+            cerca = not cerca
+        if not cerca and linha.startswith("## "):
+            atual = (linha, [])
+            secoes.append(atual)
+        elif atual is not None:
+            atual[1].append(linha)
+    return secoes
+
+
+def campos_iniciais(linhas: list[str]) -> tuple[dict, list[str]]:
+    """Campos "- Nome: valor" do início da seção e o resto das linhas."""
+    campos, k = {}, 0
+    while k < len(linhas):
+        s = linhas[k].strip()
+        m = RE_FIX_CAMPO.match(s)
+        if m and m.group(1) not in ("Gabarito", "Resolução"):
+            campos[m.group(1)] = m.group(2)
+        elif s:
+            break
+        k += 1
+    return campos, linhas[k:]
+
+
+def lista_pv(texto: str) -> list[str]:
+    return [x.strip() for x in re.split(r"\s*;\s*", texto or "") if x.strip()]
+
+
+def ler_bloco_dre(texto: str, avisar) -> dict:
+    """Bloco ```dre``` de uma resolução: itens do enunciado e passos com as linhas da DRE."""
+    itens, passos = [], []
+    for linha in texto.split("\n"):
+        s = linha.strip()
+        if not s or s.startswith("#"):
+            continue
+        sinal, resto = s[0], s[1:].strip()
+        partes = [x.strip() for x in resto.split("|")]
+        if sinal == "@":
+            itens.append({"n": partes[0], "v": partes[1] if len(partes) > 1 else "",
+                          "g": partes[2] if len(partes) > 2 else ""})
+        elif sinal == ">":
+            passos.append({"t": resto, "l": [], "x": []})
+        elif sinal in "+=!":
+            if not passos:
+                passos.append({"t": "", "l": [], "x": []})
+            if sinal == "!":
+                passos[-1]["x"].extend(lista_pv(resto))
+            else:
+                passos[-1]["l"].append({"s": sinal, "r": partes[0],
+                                        "v": partes[1] if len(partes) > 1 else "",
+                                        "de": lista_pv(partes[2]) if len(partes) > 2 else []})
+        else:
+            avisar(f"linha do bloco dre não reconhecida: {s[:50]}")
+    nomes = {i["n"] for i in itens}
+    for p in passos:
+        for ref in p["x"] + [d for l in p["l"] for d in l["de"]]:
+            if itens and ref not in nomes:
+                avisar(f"bloco dre: '{ref}' não está entre os itens (@)")
+    return {"itens": itens, "passos": passos}
+
+
+def html_fixacao(r: "Renderizador", linhas: list[str], avisar) -> tuple[str, list[dict]]:
+    """Markdown de um trecho da Fixação em HTML; blocos ```dre``` saem como <div class="fx-dre">."""
+    partes, dres, buf, i = [], [], [], 0
+    while i < len(linhas):
+        m = RE_CERCA.match(linhas[i])
+        if m and m.group(2) == "dre":
+            j = i + 1
+            while j < len(linhas) and not RE_CERCA.match(linhas[j]):
+                j += 1
+            partes.append(r.blocos(ler_blocos(buf)))
+            buf = []
+            dres.append(ler_bloco_dre("\n".join(linhas[i + 1:j]), avisar))
+            partes.append(f'<div class="fx-dre" data-k="{len(dres) - 1}"></div>')
+            i = j + 1
+            continue
+        buf.append(linhas[i])
+        i += 1
+    partes.append(r.blocos(ler_blocos(buf)))
+    h = "\n".join(p for p in partes if p)
+    vazou = RE_VAZOU.search(texto_de_html(h))
+    if vazou:
+        avisar(f"marcação não convertida ({vazou.group(0)!r})")
+    return h, dres
+
+
+def carregar_fixacao(base: "Base", materia: dict, pasta: Path) -> dict:
+    rel = pasta.relative_to(BASE).as_posix()
+    aid = slug(pasta.name)
+    doc = {"id": f"{materia['id']}.fix.{aid}", "tipo": "fix", "caminho": f"{rel}/estrutura.md",
+           "pasta_abs": pasta, "materia": materia["id"], "materiaNome": materia["nome"]}
+
+    def avisador(arquivo: str, prefixo: str = ""):
+        d = dict(doc, caminho=f"{rel}/{arquivo}")
+        return lambda msg: base.aviso(d, prefixo + msg)
+
+    # estrutura
+    texto = (pasta / "estrutura.md").read_text(encoding="utf-8")
+    titulo = titulo_do_md(texto) or pasta.name
+    av = avisador("estrutura.md")
+    grade, grupos, blocos_texto = [], {}, []
+    for cab, linhas in secoes_h2(texto):
+        nome = cab[3:].strip()
+        m = RE_FIX_SECAO.match(cab)
+        if nome.lower() == "grade":
+            for b in ler_blocos(linhas):
+                if b["t"] == "tabela":
+                    grade = [[c.strip() for c in (ln + ["", ""])[:2]] for ln in b["linhas"]]
+            continue
+        if chave_secao(nome) == chave_secao(TITULO_MAPA):
+            continue
+        r = Renderizador(base, doc)
+        if m:
+            campos, resto = campos_iniciais(linhas)
+            h, _ = html_fixacao(r, resto, av)
+            grupos[m.group(1)] = {"t": m.group(2), "s": campos.get("Sinal", ""),
+                                  "n": lista_pv(campos.get("Nomes", "")),
+                                  "b": r.inline(campos.get("Base", ""), False), "h": h}
+        else:
+            h, _ = html_fixacao(r, linhas, av)
+            blocos_texto.append({"t": nome, "h": h})
+    if not grade:
+        av("falta a seção '## Grade' com a tabela Lei | CPC")
+    for lei, cpc in grade:
+        for x in (lei, cpc):
+            if x not in FIX_ESPECIAIS and x not in grupos:
+                av(f"Grade: linha '{x}' sem seção '## {x} · Título'")
+
+    # contas
+    contas = []
+    pc = pasta / "contas.md"
+    if pc.is_file():
+        av = avisador("contas.md")
+        for cab, linhas in secoes_h2(pc.read_text(encoding="utf-8")):
+            campos, resto = campos_iniciais(linhas)
+            nome = cab[3:].strip()
+            g = campos.get("Grupo", "")
+            if g not in grupos:
+                av(f"conta '{nome[:40]}': grupo '{g}' não existe na estrutura")
+            contas.append({"t": nome, "g": g, "e": campos.get("Entra", ""),
+                           "n": lista_pv(campos.get("Nomes", "")), "o": campos.get("Obs", ""),
+                           "q": [x.strip() for x in campos.get("Questões", "").split(",") if x.strip()],
+                           "a": bool(campos.get("Fonte"))})
+
+    # questões
+    questoes = []
+    pq = pasta / "questoes.md"
+    if pq.is_file():
+        vistos = set()
+        for cab, linhas in secoes_h2(pq.read_text(encoding="utf-8")):
+            mq = RE_FIX_QUESTAO.match(cab)
+            if not mq:
+                avisador("questoes.md")(f"título fora do formato '## F0001 · Banca · Ano · Órgão · CE': {cab[:60]}")
+                continue
+            f = f"F{mq.group(1)}"
+            av = avisador("questoes.md", f + ": ")
+            if f in vistos:
+                av("número repetido (a segunda foi ignorada)")
+                continue
+            vistos.add(f)
+            tipo = mq.group(5)
+            campos, resto = campos_iniciais(linhas)
+            enun, ops, gab, res, fase = [], [], None, [], "e"
+            for linha in resto:
+                s = linha.strip()
+                if fase in ("e", "o"):
+                    mo = RE_FIX_OPCAO.match(s)
+                    if mo and tipo == "ME":
+                        ops.append((mo.group(1), mo.group(2)))
+                        fase = "o"
+                        continue
+                    mg = re.match(r"^-\s*Gabarito:\s*(CERTO|ERRADO|[A-E])\b", s, re.I)
+                    if mg:
+                        gab = mg.group(1).upper()
+                        fase = "g"
+                        continue
+                    if fase == "o" and s:
+                        av(f"texto solto depois das alternativas: {s[:50]}")
+                        continue
+                    enun.append(linha)
+                else:
+                    res.append(linha)
+            if tipo == "CE":
+                gab = {"CERTO": "C", "ERRADO": "E"}.get(gab or "", None)
+            if gab is None:
+                av("falta a linha '- Gabarito: ...' (CERTO/ERRADO ou a letra)")
+                continue
+            if tipo == "ME":
+                letras = [x[0] for x in ops]
+                if letras not in (list("ABCD"), list("ABCDE")):
+                    av(f"alternativas {''.join(letras) or 'ausentes'} (use A-D ou A-E, em ordem)")
+                elif gab not in letras:
+                    av(f"o gabarito {gab} não é uma das alternativas")
+            while res and not res[0].strip():
+                res.pop(0)
+            pendente = bool(res) and re.match(r"^-\s*Resolução:\s*a caminho", res[0].strip(), re.I)
+            if res and re.match(r"^-\s*Resolução:\s*$", res[0].strip()):
+                res = res[1:]
+            r = Renderizador(base, dict(doc, caminho=f"{rel}/questoes.md"))
+            e_html, _ = html_fixacao(r, enun, av)
+            secoes, dres = [], []
+            if res and not pendente:
+                atual = {"t": "", "l": []}
+                blocos_sec = [atual]
+                cerca = False
+                for linha in res:
+                    if RE_CERCA.match(linha):
+                        cerca = not cerca
+                    mh = re.match(r"^###\s+(.*?)\s*$", linha)
+                    if mh and not cerca:
+                        atual = {"t": mh.group(1), "l": []}
+                        blocos_sec.append(atual)
+                    else:
+                        atual["l"].append(linha)
+                for b in blocos_sec:
+                    if not b["t"] and not "".join(b["l"]).strip():
+                        continue
+                    h, ds = html_fixacao(r, b["l"], av)
+                    # renumera os blocos dre desta seção na lista da questão
+                    for k in range(len(ds)):
+                        h = h.replace(f'data-k="{k}"', f'data-k="n{len(dres) + k}"', 1)
+                    dres.extend(ds)
+                    secoes.append({"t": r.inline(b["t"], False) if b["t"] else "", "h": h.replace('data-k="n', 'data-k="')})
+            gr = [x.strip() for x in campos.get("Grupos", "").split(",") if x.strip()]
+            for g in gr:
+                if g not in grupos and g != "estrutura":
+                    av(f"grupo '{g}' não existe na estrutura")
+            questoes.append({
+                "id": f"fix.{aid}:{f}", "f": f, "b": mq.group(2).strip(), "a": mq.group(3).strip(),
+                "or": mq.group(4).strip(), "tp": tipo, "p": campos.get("Prova", ""),
+                "fs": campos.get("Fontes", ""), "gr": gr, "e": e_html,
+                "o": [r.inline(" ".join(t.split()), False) for _, t in ops] if tipo == "ME" else None,
+                "g": gab, "r": secoes, "dre": dres})
+    return {"id": aid, "titulo": titulo, "grade": grade, "grupos": grupos, "textos": blocos_texto,
+            "contas": contas, "questoes": questoes}
+
+
 def paragrafos_html(r: "Renderizador", md: str) -> str:
     blocos = [" ".join(x.split()) for x in re.split(r"\n\s*\n", md) if x.strip()]
     return "".join(f"<p>{r.inline(b, False)}</p>" for b in blocos)
@@ -1895,7 +2172,28 @@ class Base:
             "indice": indice,
             "pegadinhas": pegadinhas,
             "questoes": self.montar_questoes(),
+            "fixacao": self.montar_fixacao(),
         }
+
+    # -- Fixação em detalhes
+    def montar_fixacao(self) -> dict:
+        """Assuntos de "<Matéria>/Feature Fixação/<assunto>/" (estrutura.md, contas.md e
+        questoes.md), por matéria: {materia_id: [assunto, ...]}."""
+        saida: dict[str, list] = {}
+        self.n_fixacao = []
+        for m in self.materias:
+            raiz = BASE / m["nome"] / PASTA_FIXACAO
+            if not raiz.is_dir():
+                continue
+            for pasta in sorted(p for p in raiz.iterdir() if p.is_dir()):
+                if not (pasta / "estrutura.md").is_file():
+                    continue
+                assunto = carregar_fixacao(self, m, pasta)
+                saida.setdefault(m["id"], []).append(assunto)
+                self.n_fixacao.append((m["sigla"], assunto["titulo"], len(assunto["questoes"]),
+                                       sum(1 for q in assunto["questoes"] if q["r"]),
+                                       len(assunto["contas"])))
+        return saida
 
     def arvore_mapa(self, doc: dict, md: str) -> list[dict]:
         r = Renderizador(self, doc)
@@ -3038,6 +3336,8 @@ def main(argv: list[str]) -> int:
         f"{m['sigla']} {por_materia_me.get(m['id'], 0)}" for m in base.materias) + ")")
     print("Resumo geral: " + " · ".join(
         f"{m['sigla']} {m['geral']['paginas']} págs." for m in base.materias))
+    for sig, tit, nq, nr, nc in getattr(base, "n_fixacao", []):
+        print(f"Fixação: {sig} · {tit} · {nq} questões ({nr} com resolução) · {nc} contas")
     if not verificar:
         print(f"Gerado: {SAIDA_SITE.relative_to(RAIZ).as_posix()} ({tamanho // 1024} KB) e "
               f"{SAIDA_PAGINA_PRIVADA.relative_to(RAIZ).as_posix()}")

@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v015** (30/10/2026)
+> Versão atual da base: **v016** (07/11/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -185,3 +185,17 @@
 - **Resumo sintético:** separado pelos títulos de disciplina, sem mudar o texto, e salvo como a **parte 04** de Constitucional, Contabilidade e Tributário (`04 - 2026-10-30`) e como a **parte 01** da nova disciplina (`01 - 2026-10-30`). Na parte de Português, a imagem que vinha embutida no arquivo foi gravada ao lado (`01 - 2026-10-30 - imagem 1.png`), como nas outras partes. Na exibição, os títulos numerados seguem em sequência.
 - **Nova disciplina: Língua Portuguesa** (sigla PORT, cor m5): criadas a pasta da matéria, o `Resumo Sintético/` (com `LEIA-ME.txt`), a entrada em `MATERIAS` de `gerar.py` e os agentes e guias de banca de questões (Certo ou Errado e múltipla escolha). Ainda não há temas próprios nem questões; as abas de resumos, mapas e questões aparecem vazias até a chegada dos primeiros resumos. As pastas `Questões Turbo/` e `Questões Múltipla Escolha/` serão criadas junto com o primeiro tema.
 - Os guias de banca de Português foram escritos de conhecimento geral, sem pesquisa na web; vale complementá-los quando os primeiros temas entrarem.
+
+## 07/11/2026 — Fixação em detalhes: DRE (v016)
+
+- **Pedido:** página especial de Contabilidade, **Fixação em detalhes**, aberta por um card na Visão geral, para os PDFs da pasta `ESTUDOS/Contabilidade Geral e Avançada/Feature Fixação/`. Os PDFs ficam fora do git, e o conteúdo vai reescrito para `Feature Fixação/dre/`.
+- **Fontes:**
+  - aula de DRE do Igor Cintra (160 questões com resolução);
+  - aula de DRE do Gilmar Possati (60 questões comentadas);
+  - caderno TecConcursos "DRE - 851" (851 questões, só com gabarito).
+- **Questões sem repetição:** 945, todas com gabarito conferido. F0001 a F0851 seguem a numeração do caderno; as demais vêm só das aulas.
+- **Estruturas (dre/estrutura.md):** DRE da Lei 6.404/76 e do CPC 26 em grade alinhada, uma seção por linha (sinal, nomes alternativos, base legal, explicação e pegadinhas), mais as diferenças entre a Lei e o CPC, o que fica fora da DRE e as mudanças à vista.
+- **Catálogo de contas (dre/contas.md):** 80 contas e 1.205 nomes colhidos em todos os enunciados e na teoria, cada um ligado à linha da DRE e à forma como entra. Inclui o que fica fora (ativo, passivo, PL, destinação, caixa) e o que só entra no cálculo do CMV.
+- **Resoluções minuciosas (onda 1):** 8 questões (F0001, F0004, F0008, F0090, F0184, F0201, F0215, F0323), com quadro da DRE e passo a passo. As demais aparecem com "resolução a caminho".
+- **Site:** card na Visão geral de Contabilidade e página com as partes Estruturas (lado a lado + mapa de contas, com a busca "Onde vai esta conta?"), Contas, Nomes das etapas e Questões (caderno próprio, resultado por linha da DRE). Gerador: `carregar_fixacao` em `gerar.py`; interface: seção "Fixação em detalhes" em `modelo.html`.
+

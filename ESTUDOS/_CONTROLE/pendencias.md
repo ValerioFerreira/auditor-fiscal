@@ -27,6 +27,9 @@
 - **Reforma Tributária:** alíquotas da CBS e do Imposto Seletivo para 2027 ainda dependiam de lei ordinária na última verificação.
 - **Teto do MEI (R$ 81.000):** valor vigente conferido em 04/10/2026 (gov.br); há projetos de lei complementar em tramitação para elevá-lo (ressalva já inserida no tema, entre parênteses). Afeta a dispensa de escrituração do pequeno empresário (`05 - Escrituração/escrituracao-e-livros-contabeis.md`).
 
+- ⚠️ **CPC 51 (IFRS 18)** substitui o CPC 26 (R1) nos exercícios iniciados a partir de 1º/1/2027 (Resoluções CVM 237 e 238): a DRE passa a ter as categorias operacional, investimento e financiamento e novos subtotais. Acompanhar quando as bancas começarem a cobrar e atualizar Feature Fixação/dre/estrutura.md.
+- ⚠️ **IBS e CBS na DRE:** a Orientação Técnica CFC nº 1/2026 (não vinculante) entende que não compõem a receita bruta. A prática ainda não é uniforme; acompanhar.
+
 ## 🟡 Organização / fluxo de trabalho
 
 - **Neon, chaves novas (v008):** os comentários e o ritmo de estudo sincronizam como as chaves `comentarios` e `atividade`. Rode uma vez, no SQL Editor do Neon, o bloco de migração no fim de `sistema/neon.sql` (o `alter table ... estudos_dados_chave`). Sem isso, só essas duas chaves falham ao sincronizar; o resto continua funcionando.
@@ -43,6 +46,9 @@
 - **Concurso-alvo e data-base do edital:** saber qual concurso (e se a banca é mesmo CEBRASPE) ajuda a priorizar legislação estadual/municipal e a decidir como tratar a transição PIS/COFINS → CBS.
 - **Datas originais dos estudos:** não informadas no arquivo inicial.
 - Termo "eficácia prospectiva" (sinônimo de eficácia contida no seu material): mantido; não é a nomenclatura mais usual (Temer: "redutível ou restringível").
+
+- **Fixação em detalhes — DRE:** 937 das 945 questões ainda estão com "resolução a caminho". Continuar em ondas, na ordem de riqueza (balancetes completos e formas de cobrança ainda não cobertas primeiro). Questões com balancete em imagem (cerca de 60) devem ganhar a tabela transcrita quando forem resolvidas.
+- **Fixação em detalhes — JCP:** divergência registrada (despesa financeira para o fisco e para Possati; destinação do resultado pela ICPC 08). Confirmar com as resoluções das questões que cobram o tema.
 
 ## ⚪ Assuntos mencionados, mas ainda não consolidados (estudar)
 

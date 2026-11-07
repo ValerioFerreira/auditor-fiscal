@@ -43,6 +43,15 @@ Receber → identificar a matéria → identificar os assuntos → localizar o c
   - Ao criar uma matéria nova, crie também essa pasta, com o mesmo `LEIA-ME.txt`.
   - Partes que eu acrescentar ou editar pelo site entre as sessões entram no commit da sessão seguinte.
 - **Questões turbo:** cada matéria tem a pasta `Questões Turbo/`, com um arquivo de questões de Certo ou Errado por tema, de mesmo nome (ver "Questões turbo" em "Sistema de leitura"). Ao renomear, dividir ou unir um tema, faça o mesmo com o arquivo de questões dele, sem renumerar as questões.
+- **Fixação em detalhes** (pedido meu de 06/11/2026; hoje só em Contabilidade): os PDFs que eu mandar ficam na raiz de `ESTUDOS/<Matéria>/Feature Fixação/` (fora do git: material pago com marca d'água pessoal; nome e CPF nunca entram em arquivo nenhum). A cada leva, eu digo o que fazer. O conteúdo vai, reescrito, para uma subpasta por assunto (`dre/`):
+  - `estrutura.md`: grade Lei × CPC e uma seção por linha, com sinal, nomes alternativos, base e pegadinhas;
+  - `contas.md`: todas as contas e todos os nomes encontrados nos PDFs, cada um ligado a uma linha da DRE;
+  - `questoes.md`: todas as questões dos PDFs, sem repetição, numeradas `F0001...` (nunca renumere; F0001 a F0851 seguem o caderno TecConcursos).
+  - O formato e o bloco ```` ```dre ```` (quadro e passo a passo) estão no comentário de `carregar_fixacao` em `gerar.py`.
+  - Comentários de professor entram **sempre reescritos**, citando o professor.
+  - **Resoluções em ondas**, das questões mais ricas para as demais, no roteiro: o que pede · cálculos prévios · passo a passo · o que ignorar · o que mais poderia estar ali · pegadinhas · leve para as próximas.
+  - As questões ficam só na página da Fixação (não entram no caderno da aba Questões), e as respostas usam os ids `fix.<assunto>:F0001`.
+  - Visual escolhido por mim (07/11/2026): Lei e CPC lado a lado com o painel do grupo, mais o mapa de contas aberto e uma busca única "Onde vai esta conta?". A resolução de cálculo abre no quadro pronto, com o botão "Ver passo a passo".
 - **Questões de múltipla escolha** (pedido meu de 06/10/2026): cada matéria tem também a pasta `Questões Múltipla Escolha/`, com um arquivo por tema, de mesmo nome, e as questões numeradas `M001...` (ver "Questões de múltipla escolha e caderno" em "Sistema de leitura"). Ao renomear, dividir ou unir um tema, faça o mesmo com esse arquivo, sem renumerar.
 
 ## Modelo de arquivo (adapte; use só as seções úteis)
