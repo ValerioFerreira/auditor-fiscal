@@ -15156,11 +15156,38 @@ O estatuto da companhia prevê o pagamento das seguintes participações nos luc
 ## F0614 · CEBRASPE · 2007 · TRE TO · ME
 - Fontes: TecConcursos 614 (87688)
 - Prova: CEBRASPE (CESPE) - AJ TRE TO/TRE TO/Administrativa/Contabilidade/2007
-- Grupos: resultado-bruto, ir-csll, deducoes, receita-bruta, despesas-administrativas, lucro-liquido
+- Grupos: receita-bruta, deducoes, receita-liquida, calculo-cmv, cmv, resultado-bruto, fora-ativo, fora-passivo
 
-Texto para a questão data operação quantidade valor unitário em reais (estoque e receita bruta) valor total em reais saldo inicial do estoque ---------------- 28 647,40 18.127,20 2/1/2007 compra a prazo 15 581,00 8.715,00 5/1/2007 venda a prazo 17 1.200,00 20.400,00 8/1/2007 compra à vista 25 605,90 15.147,50 12/1/2007 devolução de compra 6 605,90 3.635,40 18/1/2007 venda à vista 32 1.280,00 40.960,00 21/1/2007 compra a prazo 16 664,00 10.624,00 25/1/2007 compra a prazo 5 730,40 3.652,00 29/1/2007 venda à vista 26 1.300,00 33.800,00 29/1/2007 abatimento de vendas do dia 5/1/2007
+A tabela a seguir apresenta resultados de operações realizadas por determinada empresa, em janeiro de 2007.
 
-800,00 A tabela acima apresenta resultados de operações realizadas por determinada empresa, em janeiro de 2007. A seguir, estão listadas outras informações referentes à contabilidade dessa empresa que também deverão ser consideradas para a questão. ⇒ despesas administrativas de janeiro pagas em 5/2/2007: R$ 5.200,00 ⇒ despesas de salários e encargos de janeiro pagos em 2/2/2007: R$ 12.500,00 ⇒ despesas de manutenção de janeiro pagas em 29/1/2007: R$ 13.250,00 ⇒ redução da receita antecipada em janeiro, com 8 unidades de mercadorias entregues, ocorrida em 20/1/2007: R$ 20.000,00 ⇒ aumento de despesas antecipadas em janeiro, com pagamento na data, ocorrido em 21/1/2007: R$ 7.500,00 ⇒ despesas de aluguel do mês de janeiro pagas em 28/1/2007: R$ 3.240,00 ⇒ ICMS sobre compras: 17% ⇒ ICMS sobre vendas: 17% ⇒ ICMS a recuperar do estoque inicial encontra-se no ativo circulante da empresa ⇒ saldo do disponível em 1.o/1/2007: R$ 95.800,00 ⇒ a empresa pagou o ICMS do período, com a utilização dos créditos tributários, em 29/1/2007 Considere apenas a incidência do ICMS e o controle de estoques permanente pelo PEPS.
+| Data | Operação | Quantidade | Valor unitário (estoque e receita bruta) | Valor total |
+|---|---|---:|---:|---:|
+| — | saldo inicial do estoque | 28 | 647,40 | 18.127,20 |
+| 2/1/2007 | compra a prazo | 15 | 581,00 | 8.715,00 |
+| 5/1/2007 | venda a prazo | 17 | 1.200,00 | 20.400,00 |
+| 8/1/2007 | compra à vista | 25 | 605,90 | 15.147,50 |
+| 12/1/2007 | devolução de compra | 6 | 605,90 | 3.635,40 |
+| 18/1/2007 | venda à vista | 32 | 1.280,00 | 40.960,00 |
+| 21/1/2007 | compra a prazo | 16 | 664,00 | 10.624,00 |
+| 25/1/2007 | compra a prazo | 5 | 730,40 | 3.652,00 |
+| 29/1/2007 | venda à vista | 26 | 1.300,00 | 33.800,00 |
+| 29/1/2007 | abatimento de vendas do dia 5/1/2007 | — | — | 800,00 |
+
+A seguir, estão listadas outras informações referentes à contabilidade dessa empresa que também deverão ser consideradas para a questão.
+
+- despesas administrativas de janeiro pagas em 5/2/2007: R$ 5.200,00
+- despesas de salários e encargos de janeiro pagos em 2/2/2007: R$ 12.500,00
+- despesas de manutenção de janeiro pagas em 29/1/2007: R$ 13.250,00
+- redução da receita antecipada em janeiro, com 8 unidades de mercadorias entregues, ocorrida em 20/1/2007: R$ 20.000,00
+- aumento de despesas antecipadas em janeiro, com pagamento na data, ocorrido em 21/1/2007: R$ 7.500,00
+- despesas de aluguel do mês de janeiro pagas em 28/1/2007: R$ 3.240,00
+- ICMS sobre compras: 17%
+- ICMS sobre vendas: 17%
+- ICMS a recuperar do estoque inicial encontra-se no ativo circulante da empresa
+- saldo do disponível em 1º/1/2007: R$ 95.800,00
+- a empresa pagou o ICMS do período, com a utilização dos créditos tributários, em 29/1/2007
+
+Considere apenas a incidência do ICMS e o controle de estoques permanente pelo PEPS.
 
 Desconsidere: PIS, PASEP, COFINS, CSLL, IRPJ, IPI, ISS, FGTS, II e IE.
 
@@ -15172,16 +15199,127 @@ Na demonstração do resultado do exercício (DRE) do mês de janeiro de 2007, o
 - D) 39.852,62.
 - E) 42.152,50.
 - Gabarito: E
-- Resolução: a caminho
+### O que a questão pede
+O **lucro bruto** de janeiro de uma empresa comercial com estoque permanente pelo **PEPS** (o primeiro que entra é o primeiro que sai) e com ICMS de 17% nas vendas. É a questão mais trabalhosa do caderno: exige ficha de estoque, receita realizada de adiantamento e deduções.
+
+### Cálculos prévios
+**1) Leia o cabeçalho da coluna:** "valor unitário (estoque e receita bruta)". Nas compras, o valor unitário é o **valor que vai para o estoque**, já sem o ICMS recuperável. Nas vendas, é o preço de venda (receita bruta). Não tire o ICMS das compras de novo.
+
+**2) Receita bruta.** São as três vendas da tabela **mais** a receita antecipada realizada em 20/1 (8 unidades entregues: o cliente já tinha pago, e a receita nasce na entrega, pelo CPC 47).
+
+| Venda | Valor |
+|---|---:|
+| 5/1 (17 un.) | 20.400,00 |
+| 18/1 (32 un.) | 40.960,00 |
+| 20/1, entrega da venda antecipada (8 un.) | 20.000,00 |
+| 29/1 (26 un.) | 33.800,00 |
+| **Receita bruta** | **115.160,00** |
+
+**3) Deduções:** ICMS de 17% × 115.160,00 = **19.577,20**; abatimento sobre vendas = **800,00**. Receita líquida = 115.160,00 − 19.577,20 − 800,00 = **94.782,80**.
+
+**4) Ficha de estoque pelo PEPS** (custo das saídas):
+
+| Data | Movimento | Saída pelo PEPS | Custo da saída | Fica no estoque |
+|---|---|---|---:|---|
+| 1/1 | saldo | — | — | 28 a 647,40 |
+| 2/1 | compra | — | — | 28 a 647,40 · 15 a 581,00 |
+| 5/1 | venda de 17 | 17 a 647,40 | 11.005,80 | 11 a 647,40 · 15 a 581,00 |
+| 8/1 | compra | — | — | … · 25 a 605,90 |
+| 12/1 | devolução de 6 da compra de 8/1 | — | — | 11 a 647,40 · 15 a 581,00 · 19 a 605,90 |
+| 18/1 | venda de 32 | 11 a 647,40 + 15 a 581,00 + 6 a 605,90 | 19.471,80 | 13 a 605,90 |
+| 20/1 | entrega de 8 (venda antecipada) | 8 a 605,90 | 4.847,20 | 5 a 605,90 |
+| 21/1 e 25/1 | compras | — | — | 5 a 605,90 · 16 a 664,00 · 5 a 730,40 |
+| 29/1 | venda de 26 | 5 a 605,90 + 16 a 664,00 + 5 a 730,40 | 17.305,50 | 0 |
+| | **CMV** | | **52.630,30** | |
+
+A devolução de compra **sai do lote de onde veio** (8/1, a 605,90), não do mais antigo.
+
+### Passo a passo
+```dre
+@ Vendas da tabela (5/1, 18/1 e 29/1) | 95.160,00 | receita-bruta
+@ Receita antecipada realizada (8 un. em 20/1) | 20.000,00 | receita-bruta
+@ ICMS sobre vendas (17%) | 19.577,20 | deducoes
+@ Abatimento de vendas | 800,00 | deducoes
+@ Custo das saídas pelo PEPS | 52.630,30 | cmv
+@ Despesas administrativas, salários, manutenção e aluguel | 34.190,00 | despesas-administrativas
+@ Despesas antecipadas pagas em 21/1 | 7.500,00 | fora-ativo
+@ Saldo do disponível em 1/1 | 95.800,00 | fora-ativo
+@ ICMS sobre compras (já fora do valor do estoque) | — | fora-ativo
+> O saldo de caixa, as despesas antecipadas (ativo) e o ICMS das compras (já tirado do valor do estoque) não entram no lucro bruto.
+! Despesas antecipadas pagas em 21/1; Saldo do disponível em 1/1; ICMS sobre compras (já fora do valor do estoque)
+> Receita bruta: as três vendas da tabela mais os 20.000 da receita antecipada que se realizou com a entrega.
++ Receita bruta | 115.160,00 | Vendas da tabela (5/1, 18/1 e 29/1); Receita antecipada realizada (8 un. em 20/1)
++ (–) ICMS sobre vendas | (19.577,20) | ICMS sobre vendas (17%)
++ (–) Abatimentos sobre vendas | (800,00) | Abatimento de vendas
+= Receita líquida | 94.782,80
+> CMV pela ficha PEPS, com as 8 unidades entregues em 20/1 também saindo do estoque.
++ (–) CMV | (52.630,30) | Custo das saídas pelo PEPS
+= Lucro bruto | 42.152,50
+> As despesas do mês vêm abaixo do lucro bruto (a questão seguinte, F0615, cobra o resultado com elas).
+! Despesas administrativas, salários, manutenção e aluguel
+```
+
+Gabarito **E (42.152,50)**.
+
+### O que ignorar e por quê
+- **Datas de pagamento** das despesas, "à vista" ou "a prazo" nas vendas e compras: a DRE é por competência.
+- **Saldo do disponível (95.800) e pagamento do ICMS em 29/1:** movimentos de caixa.
+- **Despesas antecipadas (7.500):** ativo; só viram despesa no mês a que se referem.
+- **"ICMS sobre compras: 17%":** o valor do estoque já vem líquido. A informação serve ao cálculo do ICMS a pagar, não ao lucro bruto.
+- **ICMS a recuperar do estoque inicial:** está no ativo; o estoque inicial (647,40 por unidade) já está líquido.
+
+### O que mais poderia estar ali
+- **Receitas realizadas de adiantamentos:** assinaturas, aluguéis recebidos antes, serviços pagos antecipadamente. Todas entram na receita quando o bem é entregue ou o serviço é prestado.
+- **Outras deduções:** devoluções de vendas, descontos incondicionais, PIS e Cofins sobre faturamento.
+- **Outros métodos de estoque:** média ponderada móvel (custo médio recalculado a cada entrada). O UEPS (último que entra, primeiro que sai) não é aceito pelo CPC 16.
+
+### Pegadinhas
+- **Esquecer a receita antecipada realizada:** a receita "de verdade" nasce na entrega, mesmo que o dinheiro tenha entrado antes. A alternativa **B (22.152,50)** fica exatamente 20.000 abaixo do gabarito.
+- **Tirar o ICMS das compras de novo:** baixa o CMV e infla o lucro bruto.
+- **Esquecer as 8 unidades entregues em 20/1** na ficha de estoque: muda todas as saídas seguintes pelo PEPS.
+- **Devolução de compra pelo custo errado:** sai do lote devolvido (605,90), não do primeiro lote.
+
+### Leve para as próximas
+1. Leia o cabeçalho das colunas: ele diz se o valor é de estoque (líquido) ou de nota (bruto).
+2. Receita antecipada realizada = receita do período e baixa de estoque na data da entrega.
+3. PEPS: monte a ficha linha a linha; cada venda consome os lotes mais antigos primeiro.
+4. ICMS sobre vendas incide sobre toda a receita bruta do mês, inclusive a realizada de adiantamentos.
 
 ## F0615 · CEBRASPE · 2007 · TRE TO · ME
 - Fontes: TecConcursos 615 (87689)
 - Prova: CEBRASPE (CESPE) - AJ TRE TO/TRE TO/Administrativa/Contabilidade/2007
-- Grupos: ir-csll, deducoes, receita-bruta, despesas-administrativas
+- Grupos: receita-bruta, deducoes, cmv, resultado-bruto, despesas-administrativas, lair, fora-ativo
 
-Texto para a questão data operação quantidade valor unitário em reais (estoque e receita bruta) valor total em reais saldo inicial do estoque ---------------- 28 647,40 18.127,20 2/1/2007 compra a prazo 15 581,00 8.715,00 5/1/2007 venda a prazo 17 1.200,00 20.400,00 8/1/2007 compra à vista 25 605,90 15.147,50 12/1/2007 devolução de compra 6 605,90 3.635,40 18/1/2007 venda à vista 32 1.280,00 40.960,00 21/1/2007 compra a prazo 16 664,00 10.624,00 25/1/2007 compra a prazo 5 730,40 3.652,00 29/1/2007 venda à vista 26 1.300,00 33.800,00 29/1/2007 abatimento de vendas do dia 5/1/2007
+A tabela a seguir apresenta resultados de operações realizadas por determinada empresa, em janeiro de 2007.
 
-800,00 A tabela acima apresenta resultados de operações realizadas por determinada empresa, em janeiro de 2007. A seguir, estão listadas outras informações referentes à contabilidade dessa empresa que também deverão ser consideradas para a questão. ⇒ despesas administrativas de janeiro pagas em 5/2/2007: R$ 5.200,00 ⇒ despesas de salários e encargos de janeiro pagos em 2/2/2007: R$ 12.500,00 ⇒ despesas de manutenção de janeiro pagas em 29/1/2007: R$ 13.250,00 ⇒ redução da receita antecipada em janeiro, com 8 unidades de mercadorias entregues, ocorrida em 20/1/2007: R$ 20.000,00 ⇒ aumento de despesas antecipadas em janeiro, com pagamento na data, ocorrido em 21/1/2007: R$ 7.500,00 ⇒ despesas de aluguel do mês de janeiro pagas em 28/1/2007: R$ 3.240,00 ⇒ ICMS sobre compras: 17% ⇒ ICMS sobre vendas: 17% ⇒ ICMS a recuperar do estoque inicial encontra-se no ativo circulante da empresa ⇒ saldo do disponível em 1.o/1/2007: R$ 95.800,00 ⇒ a empresa pagou o ICMS do período, com a utilização dos créditos tributários, em 29/1/2007 Considere apenas a incidência do ICMS e o controle de estoques permanente pelo PEPS.
+| Data | Operação | Quantidade | Valor unitário (estoque e receita bruta) | Valor total |
+|---|---|---:|---:|---:|
+| — | saldo inicial do estoque | 28 | 647,40 | 18.127,20 |
+| 2/1/2007 | compra a prazo | 15 | 581,00 | 8.715,00 |
+| 5/1/2007 | venda a prazo | 17 | 1.200,00 | 20.400,00 |
+| 8/1/2007 | compra à vista | 25 | 605,90 | 15.147,50 |
+| 12/1/2007 | devolução de compra | 6 | 605,90 | 3.635,40 |
+| 18/1/2007 | venda à vista | 32 | 1.280,00 | 40.960,00 |
+| 21/1/2007 | compra a prazo | 16 | 664,00 | 10.624,00 |
+| 25/1/2007 | compra a prazo | 5 | 730,40 | 3.652,00 |
+| 29/1/2007 | venda à vista | 26 | 1.300,00 | 33.800,00 |
+| 29/1/2007 | abatimento de vendas do dia 5/1/2007 | — | — | 800,00 |
+
+A seguir, estão listadas outras informações referentes à contabilidade dessa empresa que também deverão ser consideradas para a questão.
+
+- despesas administrativas de janeiro pagas em 5/2/2007: R$ 5.200,00
+- despesas de salários e encargos de janeiro pagos em 2/2/2007: R$ 12.500,00
+- despesas de manutenção de janeiro pagas em 29/1/2007: R$ 13.250,00
+- redução da receita antecipada em janeiro, com 8 unidades de mercadorias entregues, ocorrida em 20/1/2007: R$ 20.000,00
+- aumento de despesas antecipadas em janeiro, com pagamento na data, ocorrido em 21/1/2007: R$ 7.500,00
+- despesas de aluguel do mês de janeiro pagas em 28/1/2007: R$ 3.240,00
+- ICMS sobre compras: 17%
+- ICMS sobre vendas: 17%
+- ICMS a recuperar do estoque inicial encontra-se no ativo circulante da empresa
+- saldo do disponível em 1º/1/2007: R$ 95.800,00
+- a empresa pagou o ICMS do período, com a utilização dos créditos tributários, em 29/1/2007
+
+Considere apenas a incidência do ICMS e o controle de estoques permanente pelo PEPS.
 
 Desconsidere: PIS, PASEP, COFINS, CSLL, IRPJ, IPI, ISS, FGTS, II e IE.
 
@@ -15193,12 +15331,65 @@ O resultado da empresa, antes da aplicação do imposto de renda, corresponderá
 - D) lucro de R$ 7.962,50.
 - E) prejuízo de R$ 11.352,80.
 - Gabarito: D
-- Resolução: a caminho
+### O que a questão pede
+O **resultado antes do imposto de renda** (LAIR) de janeiro, com os mesmos dados da F0614. Parte do lucro bruto de **42.152,50** e tira as despesas do mês.
+
+### Cálculos prévios
+- **Lucro bruto:** 42.152,50 (ficha PEPS e receitas da F0614).
+- **Despesas de janeiro, pelo regime de competência:** todas as despesas "de janeiro" entram, pagas em janeiro ou em fevereiro.
+
+| Despesa de janeiro | Paga em | Entra? | Valor |
+|---|---|---|---:|
+| Administrativas | 5/2 | Sim | 5.200,00 |
+| Salários e encargos | 2/2 | Sim | 12.500,00 |
+| Manutenção | 29/1 | Sim | 13.250,00 |
+| Aluguel | 28/1 | Sim | 3.240,00 |
+| Despesas antecipadas (aumento) | 21/1 | **Não**: é ativo | 7.500,00 |
+| **Total** | | | **34.190,00** |
+
+### Passo a passo
+```dre
+@ Lucro bruto (ver F0614) | 42.152,50 | resultado-bruto
+@ Despesas administrativas | 5.200,00 | despesas-administrativas
+@ Salários e encargos | 12.500,00 | despesas-administrativas
+@ Manutenção | 13.250,00 | despesas-administrativas
+@ Aluguel | 3.240,00 | despesas-administrativas
+@ Aumento de despesas antecipadas | 7.500,00 | fora-ativo
+> As despesas antecipadas aumentaram: houve pagamento de despesa futura, que é ativo. Fora.
+! Aumento de despesas antecipadas
++ Lucro bruto | 42.152,50 | Lucro bruto (ver F0614)
+> Todas as despesas de janeiro, pagas ou não no mês.
++ (–) Despesas administrativas | (5.200,00) | Despesas administrativas
++ (–) Salários e encargos | (12.500,00) | Salários e encargos
++ (–) Manutenção | (13.250,00) | Manutenção
++ (–) Aluguel | (3.240,00) | Aluguel
+= Resultado antes do IR | 7.962,50
+```
+
+Gabarito **D (lucro de 7.962,50)**.
+
+### O que ignorar e por quê
+- **Datas de pagamento:** irrelevantes para a DRE. Despesa de janeiro paga em fevereiro é despesa de janeiro (e passivo no fim do mês).
+- **Despesas antecipadas (7.500):** pagamento de despesa de meses futuros. É ativo e vira despesa quando o período chegar.
+- **Saldo de caixa e pagamento do ICMS:** caixa.
+
+### O que mais poderia estar ali
+- **Despesas do mês ainda não pagas:** energia, telefone, juros incorridos, depreciação.
+- **Apropriação de despesas antecipadas de meses anteriores:** seguro ou aluguel pagos antes e que vencem no mês. Essa sim seria despesa de janeiro.
+
+### Pegadinhas
+- **A (prejuízo de 8.637,50)** = 7.962,50 − 16.600,00: tirou a receita antecipada realizada, líquida do ICMS (20.000 − 3.400), sem mexer no CMV.
+- **Somar o aumento de despesas antecipadas como despesa:** daria 462,50. Não é alternativa, mas é o erro clássico.
+- **Usar só as despesas pagas em janeiro:** confunde DRE (competência) com DFC (caixa).
+
+### Leve para as próximas
+1. Competência: "despesa de janeiro" é de janeiro, não importa quando foi paga.
+2. Aumento de despesa antecipada = pagamento adiantado (ativo); redução = despesa apropriada no período.
 
 ## F0616 · CEBRASPE · 2007 · TRE AP · ME
 - Fontes: TecConcursos 616 (96926)
 - Prova: CEBRASPE (CESPE) - AJ TRE AP/TRE AP/Administrativa/Contabilidade/2007
-- Grupos: lair, ir-csll, deducoes, receita-bruta, despesas-administrativas, despesas-vendas
+- Grupos: receita-bruta, deducoes, calculo-cmv, cmv, resultado-bruto, despesas-administrativas, lair, ir-csll, fora-ativo, fora-passivo, fora-pl
 
 Balancete para a questão balancete de verificação em 31/1/2007
 
@@ -15255,7 +15446,86 @@ Considerando o balancete de verificação apresentado, é correto afirmar que o 
 - D) R$ 25.343,00.
 - E) R$ 27.407,00.
 - Gabarito: D
-- Resolução: a caminho
+### O que a questão pede
+O **lucro antes do imposto de renda** a partir de um balancete com 40 contas misturadas. O CMV não vem pronto: sai pelo inventário periódico. O saldo de lucros acumulados vem com "???" de propósito: ele não é necessário.
+
+### Cálculos prévios
+**1) Receita líquida:** receita de vendas 48.200 − abatimento sobre receitas 1.100 − impostos sobre receita 9.640 = **37.460**.
+
+**2) CMV = estoque inicial + compras líquidas − estoque final:**
+
+| Item | Valor |
+|---|---:|
+| Estoque em 1º/1/2007 | 8.500 |
+| (+) Compras de mercadorias | 3.522 |
+| (+) Fretes sobre compras | 253 |
+| (–) Abatimento de compras | (175) |
+| (–) Devolução de compras | (950) |
+| (–) Estoque em 31/1/2007 | (2.140) |
+| **CMV** | **9.010** |
+
+**3) Despesas operacionais do balancete:** seguros 330 + aluguel 875 + energia 950 + salários 952 = **3.107**.
+
+### Passo a passo
+```dre
+@ receita de vendas | 48.200 | receita-bruta
+@ abatimento sobre receitas | 1.100 | deducoes
+@ impostos sobre receita | 9.640 | deducoes
+@ estoque em 1.o/1/2007 | 8.500 | calculo-cmv
+@ compras de mercadorias | 3.522 | calculo-cmv
+@ fretes sobre compras | 253 | calculo-cmv
+@ abatimento de compras | 175 | calculo-cmv
+@ devolução de compras | 950 | calculo-cmv
+@ estoque em 31/1/2007 | 2.140 | calculo-cmv
+@ despesa de seguros | 330 | despesas-administrativas
+@ despesa de aluguel | 875 | despesas-administrativas
+@ despesa de energia | 950 | despesas-administrativas
+@ despesa de salários | 952 | despesas-administrativas
+@ impostos sobre lucro | 6.082 | ir-csll
+@ gastos com desenvolvimento de produtos | 9.875 | fora-ativo
+@ receita antecipada | 2.580 | fora-passivo
+@ deságio e ágio na emissão de debêntures | — | fora-passivo
+@ provisão para devedores duvidosos | 3.580 | fora-ativo
+@ demais contas de ativo, passivo e PL | — | fora-outros
+> Triagem: o que é saldo de ativo, passivo ou PL sai. Atenção aos "falsos amigos": receita antecipada (passivo), provisão para devedores duvidosos (saldo, não despesa), gastos com desenvolvimento (ativo).
+! gastos com desenvolvimento de produtos; receita antecipada; deságio e ágio na emissão de debêntures; provisão para devedores duvidosos; demais contas de ativo, passivo e PL
++ Receita de vendas | 48.200 | receita de vendas
++ (–) Abatimentos e impostos sobre a receita | (10.740) | abatimento sobre receitas; impostos sobre receita
+= Receita líquida | 37.460
+> CMV pelo inventário: EI + compras + fretes − abatimentos − devoluções − EF.
++ (–) CMV | (9.010) | estoque em 1.o/1/2007; compras de mercadorias; fretes sobre compras; abatimento de compras; devolução de compras; estoque em 31/1/2007
+= Lucro bruto | 28.450
++ (–) Despesas operacionais | (3.107) | despesa de seguros; despesa de aluguel; despesa de energia; despesa de salários
+= Lucro antes do IR | 25.343
+> Os impostos sobre o lucro vêm depois desta linha.
+! impostos sobre lucro
+```
+
+Gabarito **D (25.343)**.
+
+### O que ignorar e por quê
+- **Impostos sobre lucro (6.082):** ficam **depois** do lucro antes do IR, por definição.
+- **Gastos com desenvolvimento de produtos (9.875):** ativo (na época, ativo diferido; hoje, intangível, se cumprir os requisitos do CPC 04).
+- **Receita antecipada (2.580):** passivo; só vira receita com a entrega.
+- **Provisão para devedores duvidosos (3.580):** saldo retificador de clientes; a despesa do período não foi informada.
+- **Ágio e deságio na emissão de debêntures:** contas do passivo (o deságio reduz a dívida) ou, em 2007, do PL. Não passam pela DRE nesse balancete.
+- **Caixa, banco, poupança, contas a receber, prédios, terrenos, veículos, capital, reservas, fornecedores…:** patrimoniais.
+
+### O que mais poderia estar ali
+- **No CMV:** seguro sobre compras, descontos incondicionais obtidos, ICMS recuperável (subtrai).
+- **Nas despesas:** depreciação e amortização do período. Aqui só há os saldos **acumulados**, que não são despesa.
+
+### Pegadinhas
+- **Tirar os impostos sobre o lucro:** 25.343 − 6.082 = 19.261 (seria o lucro líquido).
+- **Lançar o desenvolvimento como despesa:** 25.343 − 9.875 = 15.468.
+- **Esquecer devoluções e abatimentos de compras:** o CMV sobe para 10.135 e o resultado cai para 24.218.
+- **Fretes sobre compras** somam ao custo; não são despesa com vendas.
+- ⚠️ **Hoje**, pelo CPC 04, gasto com **pesquisa** é sempre despesa; gasto com **desenvolvimento** pode ser ativado se cumprir os requisitos (viabilidade técnica, intenção e capacidade de concluir e usar, benefício provável, mensuração confiável).
+
+### Leve para as próximas
+1. Balancete longo: triagem primeiro (resultado × patrimonial), depois a montagem.
+2. Compras líquidas = compras + fretes e seguros − devoluções − abatimentos − descontos obtidos.
+3. Saldos "acumulados" e "provisões" são patrimoniais; despesas vêm com o nome "despesa".
 
 ## F0617 · FCC · 2007 · TRF 3 · ME
 - Fontes: TecConcursos 617 (122558)
@@ -15266,24 +15536,19 @@ Atenção: Utilize apenas as informações a seguir, relativas ao exercício de 
 
 | Conta | Valor |
 |---|---:|
-| Compras | . |
-| Receitas financeiras | . |
-| Comissões sobre vendas | . |
-| Devolução de vendas | . |
-| Impostos sobre vendas | . |
-| Devolução de compras | . |
+| Compras | R$ 200.000,00 |
+| Receitas financeiras | R$ 13.000,00 |
+| Comissões sobre vendas | R$ 25.000,00 |
+| Devolução de vendas | R$ 15.000,00 |
+| Impostos sobre vendas | R$ 90.000,00 |
+| Devolução de compras | R$ 20.000,00 |
+| Estoque inicial de mercadorias | R$ 40.000,00 |
+| Receita bruta de vendas | R$ 505.000,00 |
+| Resultado não-operacional | R$ 8.000,00 |
+| Estoque final de mercadorias | R$ 60.000,00 |
+| Demais despesas operacionais | R$ 55.000,00 |
 
-Estoque inicial de mercadorias...
-
-| Conta | Valor |
-|---|---:|
-| Receita bruta de vendas | . |
-| Resultado não-operacional | . |
-| Estoque final de mercadorias | . |
-
-Demais despesas operacionais...
-
-R$ 200.000,00 R$ 13.000,00 R$ 25.000,00 R$ 15.000,00 R$ 90.000,00 R$ 20.000,00 R$ 40.000,00 R$ 505.000,00 R$ 8.000,00 R$ 60.000,00 R$ 55.000,00 O lucro bruto nas operações com mercadorias da companhia no exercício de 2006 equivaleu a, em R$,
+O lucro bruto nas operações com mercadorias da companhia no exercício de 2006 equivaleu a, em R$,
 
 - A) 215.000,00
 - B) 240.000,00
@@ -15291,7 +15556,55 @@ R$ 200.000,00 R$ 13.000,00 R$ 25.000,00 R$ 15.000,00 R$ 90.000,00 R$ 20.000,00 R
 - D) 285.000,00
 - E) 290.000,00
 - Gabarito: B
-- Resolução: a caminho
+### O que a questão pede
+O **lucro bruto** de 2006 da Cia. Onze de Agosto. É preciso calcular o CMV pelo inventário e a receita líquida.
+
+### Cálculos prévios
+**1) Receita líquida:** 505.000 − 15.000 (devolução de vendas) − 90.000 (impostos sobre vendas) = **400.000**.
+
+**2) CMV:** estoque inicial 40.000 + compras líquidas (200.000 − 20.000 de devolução de compras) − estoque final 60.000 = **160.000**.
+
+### Passo a passo
+```dre
+@ Receita bruta de vendas | 505.000 | receita-bruta
+@ Devolução de vendas | 15.000 | deducoes
+@ Impostos sobre vendas | 90.000 | deducoes
+@ Estoque inicial de mercadorias | 40.000 | calculo-cmv
+@ Compras | 200.000 | calculo-cmv
+@ Devolução de compras | 20.000 | calculo-cmv
+@ Estoque final de mercadorias | 60.000 | calculo-cmv
+@ Comissões sobre vendas | 25.000 | despesas-vendas
+@ Demais despesas operacionais | 55.000 | despesas-operacionais
+@ Receitas financeiras | 13.000 | resultado-financeiro
+@ Resultado não-operacional | 8.000 | outras-receitas-despesas
++ Receita bruta de vendas | 505.000 | Receita bruta de vendas
++ (–) Devolução de vendas | (15.000) | Devolução de vendas
++ (–) Impostos sobre vendas | (90.000) | Impostos sobre vendas
+= Receita líquida | 400.000
+> CMV = 40.000 + (200.000 − 20.000) − 60.000.
++ (–) CMV | (160.000) | Estoque inicial de mercadorias; Compras; Devolução de compras; Estoque final de mercadorias
+= Lucro bruto | 240.000
+> Comissões, demais despesas, receitas financeiras e o resultado não operacional ficam abaixo do lucro bruto.
+! Comissões sobre vendas; Demais despesas operacionais; Receitas financeiras; Resultado não-operacional
+```
+
+Gabarito **B (240.000)**.
+
+### O que ignorar e por quê
+Comissões sobre vendas (despesa com vendas), demais despesas operacionais, receitas financeiras e resultado não operacional: todos abaixo do lucro bruto.
+
+### O que mais poderia estar ali
+- **Compras líquidas:** abatimentos e descontos incondicionais obtidos (subtraem), fretes e seguros sobre compras (somam).
+- **Deduções:** abatimentos, descontos incondicionais, vendas canceladas.
+
+### Pegadinhas
+- **A (215.000)** = 240.000 − 25.000: tirou as comissões, que são despesa com vendas.
+- **Comissões "sobre vendas" não são dedução da receita:** são despesa com vendas. Dedução é o que reduz o **preço** (devolução, abatimento, desconto incondicional, tributo).
+- **Inverter os estoques:** com EI 60.000 e EF 40.000, o CMV vira 200.000.
+
+### Leve para as próximas
+1. Lucro bruto = RB − deduções − (EI + compras líquidas − EF).
+2. "Sobre vendas" no nome não garante dedução: comissão e frete sobre vendas são despesas com vendas.
 
 ## F0618 · FCC · 2007 · TRF 3 · ME
 - Fontes: TecConcursos 618 (122559)
@@ -15302,29 +15615,19 @@ Atenção: Utilize apenas as informações a seguir, relativas ao exercício de 
 
 | Conta | Valor |
 |---|---:|
-| Compras | . |
-| Receitas financeiras | . |
-| Comissões sobre vendas | . |
+| Compras | R$ 200.000,00 |
+| Receitas financeiras | R$ 13.000,00 |
+| Comissões sobre vendas | R$ 25.000,00 |
+| Devolução de vendas | R$ 15.000,00 |
+| Impostos sobre vendas | R$ 90.000,00 |
+| Devolução de compras | R$ 20.000,00 |
+| Estoque inicial de mercadorias | R$ 40.000,00 |
+| Receita bruta de vendas | R$ 505.000,00 |
+| Resultado não-operacional | R$ 8.000,00 |
+| Estoque final de mercadorias | R$ 60.000,00 |
+| Demais despesas operacionais | R$ 55.000,00 |
 
-R$ 200.000,00 R$ 13.000,00 R$ 25.000,00
-
-| Conta | Valor |
-|---|---:|
-| Devolução de vendas | . |
-| Impostos sobre vendas | . |
-| Devolução de compras | . |
-
-Estoque inicial de mercadorias...
-
-| Conta | Valor |
-|---|---:|
-| Receita bruta de vendas | . |
-| Resultado não-operacional | . |
-| Estoque final de mercadorias | . |
-
-Demais despesas operacionais...
-
-R$ 15.000,00 R$ 90.000,00 R$ 20.000,00 R$ 40.000,00 R$ 505.000,00 R$ 8.000,00 R$ 60.000,00 R$ 55.000,00 A companhia apurou lucro operacional líquido no exercício de 2006 no montante de, em R$,
+A companhia apurou lucro operacional líquido no exercício de 2006 no montante de, em R$,
 
 - A) 253.000,00
 - B) 240.000,00
@@ -15332,7 +15635,49 @@ R$ 15.000,00 R$ 90.000,00 R$ 20.000,00 R$ 40.000,00 R$ 505.000,00 R$ 8.000,00 R$
 - D) 181.000,00
 - E) 173.000,00
 - Gabarito: E
-- Resolução: a caminho
+### O que a questão pede
+O **lucro operacional líquido** de 2006 (mesmos dados da F0617). Na redação da Lei 6.404/76 vigente em 2006, é o resultado operacional (art. 187, IV), **antes** do resultado não operacional. As receitas financeiras ficam dentro do operacional.
+
+### Cálculos prévios
+- Lucro bruto: **240.000** (F0617).
+- Despesas operacionais: comissões 25.000 + demais 55.000 = 80.000.
+- Receitas financeiras: +13.000 (operacionais, pela Lei).
+
+### Passo a passo
+```dre
+@ Lucro bruto (ver F0617) | 240.000 | resultado-bruto
+@ Comissões sobre vendas | 25.000 | despesas-vendas
+@ Demais despesas operacionais | 55.000 | despesas-operacionais
+@ Receitas financeiras | 13.000 | resultado-financeiro
+@ Resultado não-operacional | 8.000 | outras-receitas-despesas
++ Lucro bruto | 240.000 | Lucro bruto (ver F0617)
++ (–) Comissões sobre vendas | (25.000) | Comissões sobre vendas
++ (–) Demais despesas operacionais | (55.000) | Demais despesas operacionais
+> Pela Lei, o resultado financeiro entra antes do resultado operacional.
++ (+) Receitas financeiras | 13.000 | Receitas financeiras
+= Lucro operacional líquido | 173.000
+> O resultado não operacional (hoje, "outras receitas e despesas") vem depois. Não entra.
+! Resultado não-operacional
+```
+
+Gabarito **E (173.000)**.
+
+### O que ignorar e por quê
+**Resultado não operacional (8.000):** fica depois do lucro operacional na Lei. Desde a Lei 11.941/2009 essa linha se chama "outras receitas e outras despesas" (art. 187, IV), e continua depois do resultado operacional.
+
+### O que mais poderia estar ali
+- **Dentro do operacional (Lei):** equivalência patrimonial, despesas financeiras, despesas administrativas, outras receitas e despesas operacionais (reversão de provisões, por exemplo).
+- **No não operacional (hoje, "outras receitas e despesas"):** ganhos e perdas na venda de imobilizado, investimentos e intangível.
+
+### Pegadinhas
+- **D (181.000)** = 173.000 + 8.000: somou o resultado não operacional.
+- **A (253.000)** = 240.000 + 13.000: esqueceu as despesas operacionais.
+- **B (240.000):** é o lucro bruto.
+- **Pelo CPC 26**, as receitas financeiras ficariam **fora** do bloco operacional ("resultado antes do resultado financeiro" = 160.000). A questão é pela Lei.
+
+### Leve para as próximas
+1. "Lucro operacional líquido" (Lei) = LB − despesas operacionais ± resultado financeiro ± equivalência.
+2. Não operacional / outras receitas e despesas: depois do resultado operacional.
 
 ## F0619 · FCC · 2007 · TRF 3 · ME
 - Fontes: TecConcursos 619 (122732)
@@ -15343,14 +15688,14 @@ Dados extraídos da contabilidade da Cia. Monte Alto, cujo objeto social é a re
 
 | Conta | Valor |
 |---|---:|
-| Devolução de Vendas | . |
-| Estoque Final | . |
-| Estoque Inicial | . |
-| ICMS Incidente sobre as Vendas | . |
-| Compras | . |
-| Receita Bruta de Vendas | . |
+| Devolução de Vendas | R$ 17.000,00 |
+| Estoque Final | R$ 28.000,00 |
+| Estoque Inicial | R$ 22.000,00 |
+| ICMS Incidente sobre as Vendas | R$ 85.000,00 |
+| Compras | R$ 242.000,00 |
+| Receita Bruta de Vendas | R$ 440.000,00 |
 
-R$ 17.000,00 R$ 28.000,00 R$ 22.000,00 R$ 85.000,00 R$ 242.000,00 R$ 440.000,00 O resultado bruto da companhia nesse exercício correspondeu a, em R$,
+O resultado bruto da companhia nesse exercício correspondeu a, em R$,
 
 - A) 99.000,00
 - B) 102.000,00
@@ -15358,7 +15703,45 @@ R$ 17.000,00 R$ 28.000,00 R$ 22.000,00 R$ 85.000,00 R$ 242.000,00 R$ 440.000,00 
 - D) 139.000,00
 - E) 198.000,00
 - Gabarito: B
-- Resolução: a caminho
+### O que a questão pede
+O **resultado bruto** da Cia. Monte Alto, com CMV pelo inventário.
+
+### Cálculos prévios
+- **Receita líquida:** 440.000 − 17.000 (devolução de vendas) − 85.000 (ICMS sobre vendas) = **338.000**.
+- **CMV:** 22.000 (EI) + 242.000 (compras) − 28.000 (EF) = **236.000**.
+
+### Passo a passo
+```dre
+@ Receita Bruta de Vendas | 440.000 | receita-bruta
+@ Devolução de Vendas | 17.000 | deducoes
+@ ICMS Incidente sobre as Vendas | 85.000 | deducoes
+@ Estoque Inicial | 22.000 | calculo-cmv
+@ Compras | 242.000 | calculo-cmv
+@ Estoque Final | 28.000 | calculo-cmv
++ Receita bruta de vendas | 440.000 | Receita Bruta de Vendas
++ (–) Devolução de vendas | (17.000) | Devolução de Vendas
++ (–) ICMS sobre vendas | (85.000) | ICMS Incidente sobre as Vendas
+= Receita líquida | 338.000
++ (–) CMV | (236.000) | Estoque Inicial; Compras; Estoque Final
+= Resultado bruto | 102.000
+```
+
+Gabarito **B (102.000)**.
+
+### O que ignorar e por quê
+Nada: todas as contas entram. A dificuldade é a **ordem embaralhada** da lista (estoque final antes do inicial).
+
+### O que mais poderia estar ali
+Abatimentos e descontos incondicionais (deduções); fretes, devoluções e abatimentos de compras (no CMV).
+
+### Pegadinhas
+- **E (198.000)** = 440.000 − 242.000: usou as compras no lugar do CMV e esqueceu as deduções.
+- **Trocar os estoques:** com EI 28.000 e EF 22.000, o CMV vira 248.000 e o resultado bruto, 90.000.
+- **Esquecer a devolução ou o ICMS:** o resultado bruto sobe 17.000 ou 85.000.
+
+### Leve para as próximas
+1. Compras ≠ CMV: o CMV ajusta as compras pela variação do estoque.
+2. Lista embaralhada: identifique EI e EF antes de calcular.
 
 ## F0620 · FCC · 2007 · TRF 3 · ME
 - Fontes: TecConcursos 620 (122733)
@@ -15373,7 +15756,27 @@ Consoante as Normas Brasileiras de Contabilidade, constituem exemplo de receitas
 - D) os resultados positivos na equivalência patrimonial.
 - E) ingressos provenientes de alienação de bens do ativo imobilizado.
 - Gabarito: E
-- Resolução: a caminho
+### O que a questão pede
+Qual item era **receita não operacional** na DRE, pela terminologia da época (2007).
+
+### A regra
+Antes da Lei 11.941/2009, o art. 187, IV, da Lei 6.404/76 previa as "receitas e despesas não operacionais": ganhos e perdas de capital, vindos da **baixa ou alienação de bens do ativo permanente** (imobilizado, investimentos, intangível). Hoje a linha se chama "**outras receitas e outras despesas**", e o conteúdo é o mesmo.
+
+Gabarito **E**. A rigor, o que entra na DRE é o **ganho** (preço − valor contábil), não o ingresso inteiro.
+
+### Por que as outras estão erradas
+- **A) juros de aplicações financeiras:** receita financeira, operacional pela Lei.
+- **B) dividendos de investimentos avaliados pela equivalência:** **não são receita**. Reduzem o valor do investimento, porque o lucro da investida já entrou pela equivalência (CPC 18).
+- **C) reversão de provisões para contingências:** outras receitas operacionais (ou redução da despesa que criou a provisão).
+- **D) equivalência patrimonial positiva:** operacional pela Lei; linha própria no CPC 26.
+
+### Pegadinhas
+- **Dividendos × equivalência:** quem avalia pelo custo reconhece dividendo como receita; quem avalia pela equivalência, não.
+- **Termo antigo:** prova recente fala em "outras receitas e despesas", não em "não operacionais".
+
+### Leve para as próximas
+1. Não operacional (antigo) = outras receitas e despesas (atual) = ganhos e perdas na venda ou baixa de ativo não circulante.
+2. Dividendo recebido de investida avaliada pela equivalência não é receita.
 
 ## F0621 · FCC · 2007 · TRF 4 · ME
 - Fontes: TecConcursos 621 (129421)
@@ -15409,7 +15812,51 @@ O lucro bruto da Cia. Avaré nesse exercício correspondeu, em R$, a
 - D) 38.500,00
 - E) 38.000,00
 - Gabarito: C
-- Resolução: a caminho
+### O que a questão pede
+O **lucro bruto** da Cia. Avaré. Os "−" antes de cada conta são só marcadores da lista, não sinais.
+
+### Cálculos prévios
+**Deduções da receita bruta:** descontos incondicionais 20.000 + PIS 3.300 + Cofins 15.200 + ICMS 36.000 = **74.500**.
+
+### Passo a passo
+```dre
+@ Receita Bruta de Vendas | 220.000,00 | receita-bruta
+@ Descontos Incondicionais Concedidos | 20.000,00 | deducoes
+@ PIS sobre Vendas | 3.300,00 | deducoes
+@ COFINS sobre Vendas | 15.200,00 | deducoes
+@ ICMS sobre Vendas | 36.000,00 | deducoes
+@ Custo das Mercadorias Vendidas | 105.500,00 | cmv
+@ Receitas Financeiras | 6.000,00 | resultado-financeiro
+@ Despesas Financeiras | 2.000,00 | resultado-financeiro
+@ Ganho na Equivalência Patrimonial | 15.000,00 | equivalencia
+@ Despesas de Comissões sobre Vendas | 4.000,00 | despesas-vendas
+@ Reversão de Provisões | 5.000,00 | outras-operacionais
+@ Outras Despesas Operacionais | 26.000,00 | outras-operacionais
+@ Resultado Não-operacional Positivo | 8.000,00 | outras-receitas-despesas
+@ Provisão para Imposto de Renda | 3.000,00 | ir-csll
+@ Provisão para Contribuição Social | 1.800,00 | ir-csll
+@ Participação dos Empregados no lucro | 2.500,00 | participacoes
++ Receita bruta de vendas | 220.000,00 | Receita Bruta de Vendas
++ (–) Descontos incondicionais | (20.000,00) | Descontos Incondicionais Concedidos
++ (–) PIS, Cofins e ICMS sobre vendas | (54.500,00) | PIS sobre Vendas; COFINS sobre Vendas; ICMS sobre Vendas
+= Receita líquida | 145.500,00
++ (–) CMV | (105.500,00) | Custo das Mercadorias Vendidas
+= Lucro bruto | 40.000,00
+> O resto vem abaixo do lucro bruto (as questões F0622 e F0623 descem a DRE).
+! Receitas Financeiras; Despesas Financeiras; Ganho na Equivalência Patrimonial; Despesas de Comissões sobre Vendas; Reversão de Provisões; Outras Despesas Operacionais; Resultado Não-operacional Positivo; Provisão para Imposto de Renda; Provisão para Contribuição Social; Participação dos Empregados no lucro
+```
+
+Gabarito **C (40.000)**.
+
+### Pegadinhas
+- **A (60.000)** = 40.000 + 20.000: esqueceu os descontos incondicionais.
+- **B (58.500)** = 40.000 + 18.500: esqueceu PIS e Cofins (lembrou só do ICMS).
+- **Desconto incondicional × condicional:** o incondicional (na nota) é dedução; o condicional (por pagamento antecipado) é despesa financeira.
+- **"Provisão para imposto de renda"** é o nome antigo da **despesa** de IR do período, não uma provisão do passivo comum.
+
+### Leve para as próximas
+1. Deduções = devoluções + abatimentos + descontos incondicionais + tributos sobre vendas (ICMS, PIS, Cofins, ISS).
+2. Sinais de marcador de lista não são sinais contábeis: classifique pela natureza da conta.
 
 ## F0622 · FCC · 2007 · TRF 4 · ME
 - Fontes: TecConcursos 622 (129422)
@@ -15445,7 +15892,54 @@ O lucro operacional líquido da Cia. Avaré nesse exercício foi, em R$,
 - D) 19.000,00
 - E) 14.000,00
 - Gabarito: A
-- Resolução: a caminho
+### O que a questão pede
+O **lucro operacional líquido** (Lei 6.404/76, art. 187, IV, na redação de 2006). Parte do lucro bruto de **40.000** (F0621).
+
+### Cálculos prévios
+Blocos operacionais pela Lei:
+- **Despesas com vendas:** comissões 4.000.
+- **Outras receitas e despesas operacionais:** reversão de provisões +5.000; outras despesas −26.000.
+- **Equivalência patrimonial:** +15.000.
+- **Resultado financeiro:** +6.000 − 2.000 = +4.000.
+
+### Passo a passo
+```dre
+@ Lucro bruto (ver F0621) | 40.000,00 | resultado-bruto
+@ Despesas de Comissões sobre Vendas | 4.000,00 | despesas-vendas
+@ Outras Despesas Operacionais | 26.000,00 | outras-operacionais
+@ Reversão de Provisões | 5.000,00 | outras-operacionais
+@ Ganho na Equivalência Patrimonial | 15.000,00 | equivalencia
+@ Receitas Financeiras | 6.000,00 | resultado-financeiro
+@ Despesas Financeiras | 2.000,00 | resultado-financeiro
+@ Resultado Não-operacional Positivo | 8.000,00 | outras-receitas-despesas
+@ IR, CSLL e participação dos empregados | 7.300,00 | ir-csll
++ Lucro bruto | 40.000,00 | Lucro bruto (ver F0621)
++ (–) Comissões sobre vendas | (4.000,00) | Despesas de Comissões sobre Vendas
++ (–) Outras despesas operacionais | (26.000,00) | Outras Despesas Operacionais
++ (+) Reversão de provisões | 5.000,00 | Reversão de Provisões
++ (+) Equivalência patrimonial | 15.000,00 | Ganho na Equivalência Patrimonial
++ (+) Receitas financeiras | 6.000,00 | Receitas Financeiras
++ (–) Despesas financeiras | (2.000,00) | Despesas Financeiras
+= Lucro operacional líquido | 34.000,00
+> O resultado não operacional, os tributos sobre o lucro e as participações vêm depois.
+! Resultado Não-operacional Positivo; IR, CSLL e participação dos empregados
+```
+
+Gabarito **A (34.000)**.
+
+### O que ignorar e por quê
+Resultado não operacional (8.000), IR (3.000), CSLL (1.800) e participação dos empregados (2.500): todos abaixo do resultado operacional.
+
+### Pegadinhas
+- **B (31.500)** = 34.000 − 2.500: tirou a participação dos empregados antes da hora.
+- **C (29.000)** = 34.000 − 5.000: ignorou a reversão de provisões.
+- **D (19.000)** = 34.000 − 15.000: ignorou a equivalência patrimonial.
+- **E (14.000)** = 34.000 − 15.000 − 5.000: ignorou a equivalência e a reversão.
+- **Reversão de provisão é receita** (ou redução de despesa): a provisão criada antes deixou de ser necessária.
+
+### Leve para as próximas
+1. Lei: lucro operacional inclui equivalência, resultado financeiro e outras receitas e despesas **operacionais**.
+2. Pelo CPC 26 não há "lucro operacional"; seria preciso montar o "resultado antes do resultado financeiro" (30.000, sem as financeiras).
 
 ## F0623 · FCC · 2007 · TRF 4 · ME
 - Fontes: TecConcursos 623 (129423)
@@ -15481,507 +15975,723 @@ O lucro líquido do exercício da Cia. Avaré nesse exercício montou, em R$, a
 - D) 37.200,00
 - E) 42.000,00
 - Gabarito: C
-- Resolução: a caminho
+### O que a questão pede
+O **lucro líquido** da Cia. Avaré: desce do lucro operacional (34.000, F0622) até o fim, com IR, CSLL e a participação dos empregados.
+
+### Cálculos prévios
+- LAIR = 34.000 + 8.000 (não operacional) = **42.000**.
+- IR e CSLL: vêm prontos (3.000 + 1.800). Não recalcule.
+- Participação dos empregados (2.500): pela Lei, **depois** do IR e da CSLL (art. 187, VI, e art. 190).
+
+### Passo a passo
+```dre
+@ Lucro operacional líquido (ver F0622) | 34.000,00 | resultado-operacional
+@ Resultado Não-operacional Positivo | 8.000,00 | outras-receitas-despesas
+@ Provisão para Imposto de Renda | 3.000,00 | ir-csll
+@ Provisão para Contribuição Social | 1.800,00 | ir-csll
+@ Participação dos Empregados no lucro | 2.500,00 | participacoes
++ Lucro operacional líquido | 34.000,00 | Lucro operacional líquido (ver F0622)
++ (+) Resultado não operacional | 8.000,00 | Resultado Não-operacional Positivo
+= LAIR | 42.000,00
++ (–) IR | (3.000,00) | Provisão para Imposto de Renda
++ (–) CSLL | (1.800,00) | Provisão para Contribuição Social
+= Lucro antes das participações | 37.200,00
+> Participação dos empregados: depois dos tributos sobre o lucro.
++ (–) Participação dos empregados | (2.500,00) | Participação dos Empregados no lucro
+= Lucro líquido | 34.700,00
+```
+
+Gabarito **C (34.700)**.
+
+### O que mais poderia estar ali
+Outras participações, na ordem DEAPI: **D**ebêntures, **E**mpregados, **A**dministradores, **P**artes beneficiárias, **I**nstrumentos com direito de participação (fundos de assistência de empregados). Cada uma calculada sobre o lucro que sobra depois da anterior.
+
+### Pegadinhas
+- **D (37.200):** parou antes da participação dos empregados.
+- **E (42.000):** é o LAIR.
+- **B (34.000):** é o lucro operacional.
+- **Participação × dividendo:** a participação dos empregados entra na DRE; os dividendos dos acionistas, não.
+- **CPC 33:** pela norma contábil, a participação de empregados é despesa com pessoal, dentro do operacional. Na Lei (e na maioria das questões de DRE), fica depois do IR. Veja a divergência no grupo Participações das Estruturas.
+
+### Leve para as próximas
+1. LAIR → (–) IR e CSLL → lucro antes das participações → (–) participações (DEAPI) → lucro líquido.
+2. IR dado pronto não se recalcula.
 
 ## F0624 · CEBRASPE · 2007 · CBM DF · CE
 - Fontes: TecConcursos 624 (365160)
 - Prova: CEBRASPE (CESPE) - Of BM (CBM DF)/CBM DF/Complementar/Ciências Contábeis/2007
-- Grupos: resultado-financeiro, participacoes, deducoes, receita-bruta, cmv, despesas-administrativas, despesas-vendas, ir-csll
+- Grupos: receita-bruta, deducoes, receita-liquida, cmv, resultado-bruto
 
-A tabela a seguir apresenta o balancete de verificação de uma empresa, em que os valores estão em reais. conta
+A tabela a seguir apresenta o balancete de verificação de uma empresa, em que os valores estão em reais.
 
-| Conta | Débito | Crédito |
-|---|---:|---:|
-| valor | 1 |  |
-| caixa | 250 | 2 |
-| condomínio a pagar | 870 | 3 |
-| seguros a pagar | 920 | 4 |
-| assinaturas antecipadas | 980 | 5 |
-| telefones pré-pagos | 980 | 6 |
-| provisão para perda de estoques | 1.100 | 7 |
-| despesa de condomínio | 1.280 | 8 |
-| aluguel a pagar | 2.140 | 9 |
-| despesa de telefone | 2.150 | 10 |
-| provisão para devedores duvidosos | 2.450 | 11 |
-| despesa de assinaturas | 2.490 | 12 |
-| telefone a pagar | 2.580 | 13 |
-| combustíveis a pagar | 2.580 | 14 |
-| aluguéis antecipados | 2.890 | 15 |
-| seguros antecipados | 3.150 | 16 |
-| despesa de Internet | 3.214 | 17 |
-| despesa de impostos e taxas | 3.325 | 18 |
-| serviços de Internet a pagar | 3.325 | 19 |
-| impostos a recuperar | 3.342 | 20 |
-| energia a pagar | 3.532 | 21 |
-| salários a pagar | 4.415 | 22 |
-| despesa de combustíveis e lubrificantes | 4.418 | 23 |
-| receita antecipada | 4.520 | 24 |
-| despesa de energia | 4.580 | 25 |
-| imposto e contribuição sobre lucro | 4.580 | 26 |
-| fornecedores | 4.870 | 27 |
-| adiantamento de salários | 4.980 | 28 |
-| suprimentos de informática | 5.400 | 29 |
-| despesa de seguros | 5.470 | 30 |
-| impostos a pagar | 5.524 | 31 |
-| notas promissórias a receber | 6.150 | 32 |
-| contas a pagar | 6.870 | 33 |
-| banco | 6.890 | 34 |
-| contas a receber | 7.150 | 35 |
-| títulos a receber | 8.410 | 36 |
-| deságio na emissão de debêntures de curto prazo | 8.570 | 37 |
-| provisão para perda de investimentos | 8.875 | 38 |
-| despesa de aluguel | 8.950 | 39 |
-| receita financeira | 8.980 | 40 |
-| despesa de salários | 9.850 | 41 |
-| financiamentos a pagar | 10.000 | 42 |
-| material de consumo | 10.480 | 43 |
-| empréstimos a pagar | 10.740 | 44 |
-| debêntures emitidas com resgate em longo prazo | 12.500 | 45 |
-| despesa financeira | 12.580 | 46 |
-| investimentos em ações | 13.250 | 47 |
-| abatimentos sobre vendas | 13.520 | 48 |
-| provisão para contingências judiciais | 14.500 | 49 |
-| lucros ou prejuízos acumulados após a apuração do resultado | 14.500 | 50 |
-| investimentos em debêntures | 14.580 | 51 |
-| empréstimos a diretores | 14.780 | 52 |
-| mercadorias para revenda | 14.870 | 53 |
-| impostos sobre vendas | 18.590 | 54 |
-| reservas | 19.041 | 55 |
-| debêntures a pagar em curto prazo | 20.000 | 56 |
-| despesa de depreciação | 20.580 | 57 |
-| impressoras e aparelhos de fax | 24.150 | 58 |
-| despesa de amortização | 25.000 | 59 |
-| aparelhos de ar-condicionado | 25.600 | 60 |
-| participações em coligadas | 25.800 | 61 |
-| televisores e reprodutores de DVD | 32.140 | 62 |
-| títulos a receber de longo prazo | 32.580 | 63 |
-| assinaturas a pagar | 33.120 | 64 |
-| investimentos em títulos públicos | 41.200 | 65 |
-| computadores e periféricos | 45.200 | 66 |
-| custo da mercadoria vendida | 52.400 | 67 |
-| debêntures adquiridas com resgate em longo prazo | 52.800 | 68 |
-| veículos leves | 68.500 | 69 |
-| títulos a pagar de longo prazo | 78.500 | 70 |
-| tratores e implementos agrícolas | 78.900 | 71 |
-| móveis e utensílios diversos | 90.000 | 72 |
-| terrenos | 125.000 | 73 |
-| prédios | 145.000 | 74 |
-| empréstimos a pagar de longo prazo | 187.500 | 75 |
-| equipamentos de manutenção e conservação | 198.500 | 76 |
-| receita operacional bruta | 198.500 | 77 |
-| apartamentos | 250.000 | 78 |
-| amortização acumulada | 250.000 | 79 |
-| pesquisa de novos produtos | 258.000 | 80 |
-| capital social | 380.000 | 81 |
-| máquinas e equipamentos de produção | 452.000 | 82 |
-| depreciação acumulada | 1.000.00 |  |
+| Nº | Conta | Saldo (R$) |
+|---:|---|---:|
+| 1 | caixa | 250 |
+| 2 | condomínio a pagar | 870 |
+| 3 | seguros a pagar | 920 |
+| 4 | assinaturas antecipadas | 980 |
+| 5 | telefones pré-pagos | 980 |
+| 6 | provisão para perda de estoques | 1.100 |
+| 7 | despesa de condomínio | 1.280 |
+| 8 | aluguel a pagar | 2.140 |
+| 9 | despesa de telefone | 2.150 |
+| 10 | provisão para devedores duvidosos | 2.450 |
+| 11 | despesa de assinaturas | 2.490 |
+| 12 | telefone a pagar | 2.580 |
+| 13 | combustíveis a pagar | 2.580 |
+| 14 | aluguéis antecipados | 2.890 |
+| 15 | seguros antecipados | 3.150 |
+| 16 | despesa de Internet | 3.214 |
+| 17 | despesa de impostos e taxas | 3.325 |
+| 18 | serviços de Internet a pagar | 3.325 |
+| 19 | impostos a recuperar | 3.342 |
+| 20 | energia a pagar | 3.532 |
+| 21 | salários a pagar | 4.415 |
+| 22 | despesa de combustíveis e lubrificantes | 4.418 |
+| 23 | receita antecipada | 4.520 |
+| 24 | despesa de energia | 4.580 |
+| 25 | imposto e contribuição sobre lucro | 4.580 |
+| 26 | fornecedores | 4.870 |
+| 27 | adiantamento de salários | 4.980 |
+| 28 | suprimentos de informática | 5.400 |
+| 29 | despesa de seguros | 5.470 |
+| 30 | impostos a pagar | 5.524 |
+| 31 | notas promissórias a receber | 6.150 |
+| 32 | contas a pagar | 6.870 |
+| 33 | banco | 6.890 |
+| 34 | contas a receber | 7.150 |
+| 35 | títulos a receber | 8.410 |
+| 36 | deságio na emissão de debêntures de curto prazo | 8.570 |
+| 37 | provisão para perda de investimentos | 8.875 |
+| 38 | despesa de aluguel | 8.950 |
+| 39 | receita financeira | 8.980 |
+| 40 | despesa de salários | 9.850 |
+| 41 | financiamentos a pagar | 10.000 |
+| 42 | material de consumo | 10.480 |
+| 43 | empréstimos a pagar | 10.740 |
+| 44 | debêntures emitidas com resgate em longo prazo | 12.500 |
+| 45 | despesa financeira | 12.580 |
+| 46 | investimentos em ações | 13.250 |
+| 47 | abatimentos sobre vendas | 13.520 |
+| 48 | provisão para contingências judiciais | 14.500 |
+| 49 | lucros ou prejuízos acumulados após a apuração do resultado | 14.500 |
+| 50 | investimentos em debêntures | 14.580 |
+| 51 | empréstimos a diretores | 14.780 |
+| 52 | mercadorias para revenda | 14.870 |
+| 53 | impostos sobre vendas | 18.590 |
+| 54 | reservas | 19.041 |
+| 55 | debêntures a pagar em curto prazo | 20.000 |
+| 56 | despesa de depreciação | 20.580 |
+| 57 | impressoras e aparelhos de fax | 24.150 |
+| 58 | despesa de amortização | 25.000 |
+| 59 | aparelhos de ar-condicionado | 25.600 |
+| 60 | participações em coligadas | 25.800 |
+| 61 | televisores e reprodutores de DVD | 32.140 |
+| 62 | títulos a receber de longo prazo | 32.580 |
+| 63 | assinaturas a pagar | 33.120 |
+| 64 | investimentos em títulos públicos | 41.200 |
+| 65 | computadores e periféricos | 45.200 |
+| 66 | custo da mercadoria vendida | 52.400 |
+| 67 | debêntures adquiridas com resgate em longo prazo | 52.800 |
+| 68 | veículos leves | 68.500 |
+| 69 | títulos a pagar de longo prazo | 78.500 |
+| 70 | tratores e implementos agrícolas | 78.900 |
+| 71 | móveis e utensílios diversos | 90.000 |
+| 72 | terrenos | 125.000 |
+| 73 | prédios | 145.000 |
+| 74 | empréstimos a pagar de longo prazo | 187.500 |
+| 75 | equipamentos de manutenção e conservação | 198.500 |
+| 76 | receita operacional bruta | 198.500 |
+| 77 | apartamentos | 250.000 |
+| 78 | amortização acumulada | 250.000 |
+| 79 | pesquisa de novos produtos | 258.000 |
+| 80 | capital social | 380.000 |
+| 81 | máquinas e equipamentos de produção | 452.000 |
+| 82 | depreciação acumulada | 1.000.00 (assim no original) |
 
 Com base nos dados fornecidos na tabela, julgue o item seguinte, referente ao balancete de verificação apresentado.
 
 A margem bruta apurada é maior que 65%.
 
 - Gabarito: CERTO
-- Resolução: a caminho
+### O que a questão pede
+A **margem bruta**: lucro bruto ÷ receita líquida. O item diz que passa de 65%. O balancete tem 82 contas, mas só cinco interessam.
+
+### Cálculos prévios
+- **Receita líquida:** receita operacional bruta 198.500 − abatimentos sobre vendas 13.520 − impostos sobre vendas 18.590 = **166.390**.
+- **Lucro bruto:** 166.390 − CMV 52.400 = **113.990**.
+- **Margem bruta:** 113.990 ÷ 166.390 = **68,5%** (> 65%).
+
+### Passo a passo
+```dre
+@ receita operacional bruta | 198.500 | receita-bruta
+@ abatimentos sobre vendas | 13.520 | deducoes
+@ impostos sobre vendas | 18.590 | deducoes
+@ custo da mercadoria vendida | 52.400 | cmv
+@ demais 78 contas (despesas e patrimoniais) | — | fora-outros
+> Só cinco contas chegam ao lucro bruto. Despesas e contas patrimoniais ficam fora desta conta.
+! demais 78 contas (despesas e patrimoniais)
++ Receita operacional bruta | 198.500 | receita operacional bruta
++ (–) Abatimentos sobre vendas | (13.520) | abatimentos sobre vendas
++ (–) Impostos sobre vendas | (18.590) | impostos sobre vendas
+= Receita líquida | 166.390
++ (–) CMV | (52.400) | custo da mercadoria vendida
+= Lucro bruto | 113.990
+> Margem bruta = 113.990 ÷ 166.390 = 68,5%.
+```
+
+Gabarito **CERTO**.
+
+### O que ignorar e por quê
+Todas as despesas, as receitas financeiras e as 70 contas patrimoniais: a margem bruta só usa receita líquida e CMV. "Mercadorias para revenda" (14.870) é o estoque, ativo; o CMV já vem pronto.
+
+### Pegadinhas
+- **Margem sobre a receita bruta:** 113.990 ÷ 198.500 = 57,4% (< 65%), e o item pareceria errado. Margens se calculam sobre a **receita líquida**.
+- **Confundir margem bruta com lucro bruto ÷ CMV** (isso é markup).
+
+### Leve para as próximas
+1. Margem bruta = lucro bruto ÷ receita líquida; margem líquida = lucro líquido ÷ receita líquida.
+2. Em balancete enorme, procure só as contas da etapa pedida.
 
 ## F0625 · CEBRASPE · 2007 · CBM DF · CE
 - Fontes: TecConcursos 625 (365162)
 - Prova: CEBRASPE (CESPE) - Of BM (CBM DF)/CBM DF/Complementar/Ciências Contábeis/2007
-- Grupos: resultado-financeiro, participacoes, deducoes, receita-bruta, cmv, despesas-administrativas, despesas-vendas, ir-csll
+- Grupos: receita-bruta, deducoes, cmv, resultado-bruto, despesas-administrativas, resultado-financeiro, lair, ir-csll, lucro-liquido
+A tabela a seguir apresenta o balancete de verificação de uma empresa, em que os valores estão em reais.
 
-625) A tabela a seguir apresenta o balancete de verificação de uma empresa, em que os valores estão em reais. conta
-
-| Conta | Débito | Crédito |
-|---|---:|---:|
-| valor | 1 |  |
-| caixa | 250 | 2 |
-| condomínio a pagar | 870 | 3 |
-| seguros a pagar | 920 | 4 |
-| assinaturas antecipadas | 980 | 5 |
-| telefones pré-pagos | 980 | 6 |
-| provisão para perda de estoques | 1.100 | 7 |
-| despesa de condomínio | 1.280 | 8 |
-| aluguel a pagar | 2.140 | 9 |
-| despesa de telefone | 2.150 | 10 |
-| provisão para devedores duvidosos | 2.450 | 11 |
-| despesa de assinaturas | 2.490 | 12 |
-| telefone a pagar | 2.580 | 13 |
-| combustíveis a pagar | 2.580 | 14 |
-| aluguéis antecipados | 2.890 | 15 |
-| seguros antecipados | 3.150 | 16 |
-| despesa de Internet | 3.214 | 17 |
-| despesa de impostos e taxas | 3.325 | 18 |
-| serviços de Internet a pagar | 3.325 | 19 |
-| impostos a recuperar | 3.342 | 20 |
-| energia a pagar | 3.532 | 21 |
-| salários a pagar | 4.415 | 22 |
-| despesa de combustíveis e lubrificantes | 4.418 | 23 |
-| receita antecipada | 4.520 | 24 |
-| despesa de energia | 4.580 | 25 |
-| imposto e contribuição sobre lucro | 4.580 | 26 |
-| fornecedores | 4.870 | 27 |
-| adiantamento de salários | 4.980 | 28 |
-| suprimentos de informática | 5.400 | 29 |
-| despesa de seguros | 5.470 | 30 |
-| impostos a pagar | 5.524 | 31 |
-| notas promissórias a receber | 6.150 | 32 |
-| contas a pagar | 6.870 | 33 |
-| banco | 6.890 | 34 |
-| contas a receber | 7.150 | 35 |
-| títulos a receber | 8.410 | 36 |
-| deságio na emissão de debêntures de curto prazo | 8.570 | 37 |
-| provisão para perda de investimentos | 8.875 | 38 |
-| despesa de aluguel | 8.950 | 39 |
-| receita financeira | 8.980 | 40 |
-| despesa de salários | 9.850 | 41 |
-| financiamentos a pagar | 10.000 | 42 |
-| material de consumo | 10.480 | 43 |
-| empréstimos a pagar | 10.740 | 44 |
-| debêntures emitidas com resgate em longo prazo | 12.500 | 45 |
-| despesa financeira | 12.580 | 46 |
-| investimentos em ações | 13.250 | 47 |
-| abatimentos sobre vendas | 13.520 | 48 |
-| provisão para contingências judiciais | 14.500 | 49 |
-| lucros ou prejuízos acumulados após a apuração do resultado | 14.500 | 50 |
-| investimentos em debêntures | 14.580 | 51 |
-| empréstimos a diretores | 14.780 | 52 |
-| mercadorias para revenda | 14.870 | 53 |
-| impostos sobre vendas | 18.590 | 54 |
-| reservas | 19.041 | 55 |
-| debêntures a pagar em curto prazo | 20.000 | 56 |
-| despesa de depreciação | 20.580 | 57 |
-| impressoras e aparelhos de fax | 24.150 | 58 |
-| despesa de amortização | 25.000 | 59 |
-| aparelhos de ar-condicionado | 25.600 | 60 |
-| participações em coligadas | 25.800 | 61 |
-| televisores e reprodutores de DVD | 32.140 | 62 |
-| títulos a receber de longo prazo | 32.580 | 63 |
-| assinaturas a pagar | 33.120 | 64 |
-| investimentos em títulos públicos | 41.200 | 65 |
-| computadores e periféricos | 45.200 | 66 |
-| custo da mercadoria vendida | 52.400 | 67 |
-| debêntures adquiridas com resgate em longo prazo | 52.800 | 68 |
-| veículos leves | 68.500 | 69 |
-| títulos a pagar de longo prazo | 78.500 | 70 |
-| tratores e implementos agrícolas | 78.900 | 71 |
-| móveis e utensílios diversos | 90.000 | 72 |
-| terrenos | 125.000 | 73 |
-| prédios | 145.000 | 74 |
-| empréstimos a pagar de longo prazo | 187.500 | 75 |
-| equipamentos de manutenção e conservação | 198.500 | 76 |
-| receita operacional bruta | 198.500 | 77 |
-| apartamentos | 250.000 | 78 |
-| amortização acumulada | 250.000 | 79 |
-| pesquisa de novos produtos | 258.000 | 80 |
-| capital social | 380.000 | 81 |
-| máquinas e equipamentos de produção | 452.000 | 82 |
-| depreciação acumulada | 1.000.00 |  |
+| Nº | Conta | Saldo (R$) |
+|---:|---|---:|
+| 1 | caixa | 250 |
+| 2 | condomínio a pagar | 870 |
+| 3 | seguros a pagar | 920 |
+| 4 | assinaturas antecipadas | 980 |
+| 5 | telefones pré-pagos | 980 |
+| 6 | provisão para perda de estoques | 1.100 |
+| 7 | despesa de condomínio | 1.280 |
+| 8 | aluguel a pagar | 2.140 |
+| 9 | despesa de telefone | 2.150 |
+| 10 | provisão para devedores duvidosos | 2.450 |
+| 11 | despesa de assinaturas | 2.490 |
+| 12 | telefone a pagar | 2.580 |
+| 13 | combustíveis a pagar | 2.580 |
+| 14 | aluguéis antecipados | 2.890 |
+| 15 | seguros antecipados | 3.150 |
+| 16 | despesa de Internet | 3.214 |
+| 17 | despesa de impostos e taxas | 3.325 |
+| 18 | serviços de Internet a pagar | 3.325 |
+| 19 | impostos a recuperar | 3.342 |
+| 20 | energia a pagar | 3.532 |
+| 21 | salários a pagar | 4.415 |
+| 22 | despesa de combustíveis e lubrificantes | 4.418 |
+| 23 | receita antecipada | 4.520 |
+| 24 | despesa de energia | 4.580 |
+| 25 | imposto e contribuição sobre lucro | 4.580 |
+| 26 | fornecedores | 4.870 |
+| 27 | adiantamento de salários | 4.980 |
+| 28 | suprimentos de informática | 5.400 |
+| 29 | despesa de seguros | 5.470 |
+| 30 | impostos a pagar | 5.524 |
+| 31 | notas promissórias a receber | 6.150 |
+| 32 | contas a pagar | 6.870 |
+| 33 | banco | 6.890 |
+| 34 | contas a receber | 7.150 |
+| 35 | títulos a receber | 8.410 |
+| 36 | deságio na emissão de debêntures de curto prazo | 8.570 |
+| 37 | provisão para perda de investimentos | 8.875 |
+| 38 | despesa de aluguel | 8.950 |
+| 39 | receita financeira | 8.980 |
+| 40 | despesa de salários | 9.850 |
+| 41 | financiamentos a pagar | 10.000 |
+| 42 | material de consumo | 10.480 |
+| 43 | empréstimos a pagar | 10.740 |
+| 44 | debêntures emitidas com resgate em longo prazo | 12.500 |
+| 45 | despesa financeira | 12.580 |
+| 46 | investimentos em ações | 13.250 |
+| 47 | abatimentos sobre vendas | 13.520 |
+| 48 | provisão para contingências judiciais | 14.500 |
+| 49 | lucros ou prejuízos acumulados após a apuração do resultado | 14.500 |
+| 50 | investimentos em debêntures | 14.580 |
+| 51 | empréstimos a diretores | 14.780 |
+| 52 | mercadorias para revenda | 14.870 |
+| 53 | impostos sobre vendas | 18.590 |
+| 54 | reservas | 19.041 |
+| 55 | debêntures a pagar em curto prazo | 20.000 |
+| 56 | despesa de depreciação | 20.580 |
+| 57 | impressoras e aparelhos de fax | 24.150 |
+| 58 | despesa de amortização | 25.000 |
+| 59 | aparelhos de ar-condicionado | 25.600 |
+| 60 | participações em coligadas | 25.800 |
+| 61 | televisores e reprodutores de DVD | 32.140 |
+| 62 | títulos a receber de longo prazo | 32.580 |
+| 63 | assinaturas a pagar | 33.120 |
+| 64 | investimentos em títulos públicos | 41.200 |
+| 65 | computadores e periféricos | 45.200 |
+| 66 | custo da mercadoria vendida | 52.400 |
+| 67 | debêntures adquiridas com resgate em longo prazo | 52.800 |
+| 68 | veículos leves | 68.500 |
+| 69 | títulos a pagar de longo prazo | 78.500 |
+| 70 | tratores e implementos agrícolas | 78.900 |
+| 71 | móveis e utensílios diversos | 90.000 |
+| 72 | terrenos | 125.000 |
+| 73 | prédios | 145.000 |
+| 74 | empréstimos a pagar de longo prazo | 187.500 |
+| 75 | equipamentos de manutenção e conservação | 198.500 |
+| 76 | receita operacional bruta | 198.500 |
+| 77 | apartamentos | 250.000 |
+| 78 | amortização acumulada | 250.000 |
+| 79 | pesquisa de novos produtos | 258.000 |
+| 80 | capital social | 380.000 |
+| 81 | máquinas e equipamentos de produção | 452.000 |
+| 82 | depreciação acumulada | 1.000.00 (assim no original) |
 
 Com base nos dados fornecidos na tabela, julgue o item seguinte, referente ao balancete de verificação apresentado.
 
 A margem líquida apurada é menor que 5%.
 
 - Gabarito: ERRADO
-- Resolução: a caminho
+### O que a questão pede
+A **margem líquida**: lucro líquido ÷ receita líquida. O item diz que é menor que 5%. É preciso montar a DRE inteira a partir do balancete de 82 contas.
+
+### Cálculos prévios
+**1) Lucro bruto:** 113.990 (ver F0624). Receita líquida: 166.390.
+
+**2) Despesas operacionais (todas as contas "despesa de…")**:
+
+| Despesa | Valor |
+|---|---:|
+| condomínio | 1.280 |
+| telefone | 2.150 |
+| assinaturas | 2.490 |
+| Internet | 3.214 |
+| impostos e taxas | 3.325 |
+| combustíveis e lubrificantes | 4.418 |
+| energia | 4.580 |
+| seguros | 5.470 |
+| aluguel | 8.950 |
+| salários | 9.850 |
+| depreciação | 20.580 |
+| amortização | 25.000 |
+| **Total** | **91.307** |
+
+**3) Resultado financeiro:** receita financeira 8.980 − despesa financeira 12.580 = **−3.600**.
+
+**4) Tributos sobre o lucro:** "imposto e contribuição sobre lucro" 4.580 (já dado).
+
+### Passo a passo
+```dre
+@ receita operacional bruta | 198.500 | receita-bruta
+@ abatimentos e impostos sobre vendas | 32.110 | deducoes
+@ custo da mercadoria vendida | 52.400 | cmv
+@ despesas de condomínio a amortização (12 contas) | 91.307 | despesas-administrativas
+@ receita financeira | 8.980 | resultado-financeiro
+@ despesa financeira | 12.580 | resultado-financeiro
+@ imposto e contribuição sobre lucro | 4.580 | ir-csll
+@ provisões para perdas (estoques, devedores duvidosos, investimentos) | — | fora-ativo
+@ antecipados, pré-pagos e a pagar | — | fora-outros
+> Fora: saldos de provisões, despesas antecipadas, contas a pagar e todo o resto patrimonial.
+! provisões para perdas (estoques, devedores duvidosos, investimentos); antecipados, pré-pagos e a pagar
++ Receita operacional bruta | 198.500 | receita operacional bruta
++ (–) Abatimentos e impostos sobre vendas | (32.110) | abatimentos e impostos sobre vendas
+= Receita líquida | 166.390
++ (–) CMV | (52.400) | custo da mercadoria vendida
+= Lucro bruto | 113.990
++ (–) Despesas operacionais | (91.307) | despesas de condomínio a amortização (12 contas)
++ (+) Receita financeira | 8.980 | receita financeira
++ (–) Despesa financeira | (12.580) | despesa financeira
+= Resultado antes dos tributos | 19.083
++ (–) Imposto e contribuição sobre lucro | (4.580) | imposto e contribuição sobre lucro
+= Lucro líquido | 14.503
+> Margem líquida = 14.503 ÷ 166.390 = 8,7%. Não é menor que 5%.
+```
+
+Gabarito **ERRADO** (margem líquida de 8,7%).
+
+### O que ignorar e por quê
+- **Provisões para perda de estoques (1.100), devedores duvidosos (2.450), perda de investimentos (8.875) e contingências (14.500):** saldos patrimoniais. As despesas que as criaram não aparecem no balancete.
+- **Seguros, aluguéis e assinaturas antecipados; telefones pré-pagos; suprimentos e material de consumo:** ativo (ainda não consumidos).
+- **Receita antecipada (4.520):** passivo.
+- **Pesquisa de novos produtos (258.000):** em 2007 era ativo diferido. ⚠️ Hoje, pelo CPC 04, pesquisa é **sempre despesa**: numa questão atual, esse valor derrubaria o resultado.
+- **Deságio na emissão de debêntures:** redutora do passivo.
+
+### Pegadinhas
+- **Margem sobre a receita bruta:** 14.503 ÷ 198.500 = 7,3%; o item continuaria errado, mas o critério está errado.
+- **Esquecer depreciação e amortização (45.580):** são despesas sem saída de caixa, mas despesas.
+- **Contar as contas "a pagar" como despesa:** são passivo; a despesa já está na conta "despesa de…".
+
+### Leve para as próximas
+1. Margem líquida = lucro líquido ÷ receita líquida.
+2. Em balancete, só é despesa o que tem nome de despesa; "antecipado", "a pagar" e "provisão para…" são patrimoniais.
 
 ## F0626 · CEBRASPE · 2007 · CBM DF · CE
 - Fontes: TecConcursos 626 (365165)
 - Prova: CEBRASPE (CESPE) - Of BM (CBM DF)/CBM DF/Complementar/Ciências Contábeis/2007
-- Grupos: resultado-financeiro, participacoes, deducoes, receita-bruta, cmv, despesas-administrativas, despesas-vendas, lucro-liquido, ir-csll
+- Grupos: lucro-liquido, fora-pl
 
-A tabela a seguir apresenta o balancete de verificação de uma empresa, em que os valores estão em reais. conta
+A tabela a seguir apresenta o balancete de verificação de uma empresa, em que os valores estão em reais.
 
-| Conta | Débito | Crédito |
-|---|---:|---:|
-| valor | 1 |  |
-| caixa | 250 | 2 |
-| condomínio a pagar | 870 | 3 |
-| seguros a pagar | 920 | 4 |
-| assinaturas antecipadas | 980 | 5 |
-| telefones pré-pagos | 980 | 6 |
-| provisão para perda de estoques | 1.100 | 7 |
-| despesa de condomínio | 1.280 | 8 |
-| aluguel a pagar | 2.140 | 9 |
-| despesa de telefone | 2.150 | 10 |
-| provisão para devedores duvidosos | 2.450 | 11 |
-| despesa de assinaturas | 2.490 | 12 |
-| telefone a pagar | 2.580 | 13 |
-| combustíveis a pagar | 2.580 | 14 |
-| aluguéis antecipados | 2.890 | 15 |
-| seguros antecipados | 3.150 | 16 |
-| despesa de Internet | 3.214 | 17 |
-| despesa de impostos e taxas | 3.325 | 18 |
-| serviços de Internet a pagar | 3.325 | 19 |
-| impostos a recuperar | 3.342 | 20 |
-| energia a pagar | 3.532 | 21 |
-| salários a pagar | 4.415 | 22 |
-| despesa de combustíveis e lubrificantes | 4.418 | 23 |
-| receita antecipada | 4.520 | 24 |
-| despesa de energia | 4.580 | 25 |
-| imposto e contribuição sobre lucro | 4.580 | 26 |
-| fornecedores | 4.870 | 27 |
-| adiantamento de salários | 4.980 | 28 |
-| suprimentos de informática | 5.400 | 29 |
-| despesa de seguros | 5.470 | 30 |
-| impostos a pagar | 5.524 | 31 |
-| notas promissórias a receber | 6.150 | 32 |
-| contas a pagar | 6.870 | 33 |
-| banco | 6.890 | 34 |
-| contas a receber | 7.150 | 35 |
-| títulos a receber | 8.410 | 36 |
-| deságio na emissão de debêntures de curto prazo | 8.570 | 37 |
-| provisão para perda de investimentos | 8.875 | 38 |
-| despesa de aluguel | 8.950 | 39 |
-| receita financeira | 8.980 | 40 |
-| despesa de salários | 9.850 | 41 |
-| financiamentos a pagar | 10.000 | 42 |
-| material de consumo | 10.480 | 43 |
-| empréstimos a pagar | 10.740 | 44 |
-| debêntures emitidas com resgate em longo prazo | 12.500 | 45 |
-| despesa financeira | 12.580 | 46 |
-| investimentos em ações | 13.250 | 47 |
-| abatimentos sobre vendas | 13.520 | 48 |
-| provisão para contingências judiciais | 14.500 | 49 |
-| lucros ou prejuízos acumulados após a apuração do resultado | 14.500 | 50 |
-| investimentos em debêntures | 14.580 | 51 |
-| empréstimos a diretores | 14.780 | 52 |
-| mercadorias para revenda | 14.870 | 53 |
-| impostos sobre vendas | 18.590 | 54 |
-| reservas | 19.041 | 55 |
-| debêntures a pagar em curto prazo | 20.000 | 56 |
-| despesa de depreciação | 20.580 | 57 |
-| impressoras e aparelhos de fax | 24.150 | 58 |
-| despesa de amortização | 25.000 | 59 |
-| aparelhos de ar-condicionado | 25.600 | 60 |
-| participações em coligadas | 25.800 | 61 |
-| televisores e reprodutores de DVD | 32.140 | 62 |
-| títulos a receber de longo prazo | 32.580 | 63 |
-| assinaturas a pagar | 33.120 | 64 |
-| investimentos em títulos públicos | 41.200 | 65 |
-| computadores e periféricos | 45.200 | 66 |
-| custo da mercadoria vendida | 52.400 | 67 |
-| debêntures adquiridas com resgate em longo prazo | 52.800 | 68 |
-| veículos leves | 68.500 | 69 |
-| títulos a pagar de longo prazo | 78.500 | 70 |
-| tratores e implementos agrícolas | 78.900 | 71 |
-| móveis e utensílios diversos | 90.000 | 72 |
-| terrenos | 125.000 | 73 |
-| prédios | 145.000 | 74 |
-| empréstimos a pagar de longo prazo | 187.500 | 75 |
-| equipamentos de manutenção e conservação | 198.500 | 76 |
-| receita operacional bruta | 198.500 | 77 |
-| apartamentos | 250.000 | 78 |
-| amortização acumulada | 250.000 | 79 |
-| pesquisa de novos produtos | 258.000 | 80 |
-| capital social | 380.000 | 81 |
-| máquinas e equipamentos de produção | 452.000 | 82 |
-| depreciação acumulada | 1.000.00 |  |
+| Nº | Conta | Saldo (R$) |
+|---:|---|---:|
+| 1 | caixa | 250 |
+| 2 | condomínio a pagar | 870 |
+| 3 | seguros a pagar | 920 |
+| 4 | assinaturas antecipadas | 980 |
+| 5 | telefones pré-pagos | 980 |
+| 6 | provisão para perda de estoques | 1.100 |
+| 7 | despesa de condomínio | 1.280 |
+| 8 | aluguel a pagar | 2.140 |
+| 9 | despesa de telefone | 2.150 |
+| 10 | provisão para devedores duvidosos | 2.450 |
+| 11 | despesa de assinaturas | 2.490 |
+| 12 | telefone a pagar | 2.580 |
+| 13 | combustíveis a pagar | 2.580 |
+| 14 | aluguéis antecipados | 2.890 |
+| 15 | seguros antecipados | 3.150 |
+| 16 | despesa de Internet | 3.214 |
+| 17 | despesa de impostos e taxas | 3.325 |
+| 18 | serviços de Internet a pagar | 3.325 |
+| 19 | impostos a recuperar | 3.342 |
+| 20 | energia a pagar | 3.532 |
+| 21 | salários a pagar | 4.415 |
+| 22 | despesa de combustíveis e lubrificantes | 4.418 |
+| 23 | receita antecipada | 4.520 |
+| 24 | despesa de energia | 4.580 |
+| 25 | imposto e contribuição sobre lucro | 4.580 |
+| 26 | fornecedores | 4.870 |
+| 27 | adiantamento de salários | 4.980 |
+| 28 | suprimentos de informática | 5.400 |
+| 29 | despesa de seguros | 5.470 |
+| 30 | impostos a pagar | 5.524 |
+| 31 | notas promissórias a receber | 6.150 |
+| 32 | contas a pagar | 6.870 |
+| 33 | banco | 6.890 |
+| 34 | contas a receber | 7.150 |
+| 35 | títulos a receber | 8.410 |
+| 36 | deságio na emissão de debêntures de curto prazo | 8.570 |
+| 37 | provisão para perda de investimentos | 8.875 |
+| 38 | despesa de aluguel | 8.950 |
+| 39 | receita financeira | 8.980 |
+| 40 | despesa de salários | 9.850 |
+| 41 | financiamentos a pagar | 10.000 |
+| 42 | material de consumo | 10.480 |
+| 43 | empréstimos a pagar | 10.740 |
+| 44 | debêntures emitidas com resgate em longo prazo | 12.500 |
+| 45 | despesa financeira | 12.580 |
+| 46 | investimentos em ações | 13.250 |
+| 47 | abatimentos sobre vendas | 13.520 |
+| 48 | provisão para contingências judiciais | 14.500 |
+| 49 | lucros ou prejuízos acumulados após a apuração do resultado | 14.500 |
+| 50 | investimentos em debêntures | 14.580 |
+| 51 | empréstimos a diretores | 14.780 |
+| 52 | mercadorias para revenda | 14.870 |
+| 53 | impostos sobre vendas | 18.590 |
+| 54 | reservas | 19.041 |
+| 55 | debêntures a pagar em curto prazo | 20.000 |
+| 56 | despesa de depreciação | 20.580 |
+| 57 | impressoras e aparelhos de fax | 24.150 |
+| 58 | despesa de amortização | 25.000 |
+| 59 | aparelhos de ar-condicionado | 25.600 |
+| 60 | participações em coligadas | 25.800 |
+| 61 | televisores e reprodutores de DVD | 32.140 |
+| 62 | títulos a receber de longo prazo | 32.580 |
+| 63 | assinaturas a pagar | 33.120 |
+| 64 | investimentos em títulos públicos | 41.200 |
+| 65 | computadores e periféricos | 45.200 |
+| 66 | custo da mercadoria vendida | 52.400 |
+| 67 | debêntures adquiridas com resgate em longo prazo | 52.800 |
+| 68 | veículos leves | 68.500 |
+| 69 | títulos a pagar de longo prazo | 78.500 |
+| 70 | tratores e implementos agrícolas | 78.900 |
+| 71 | móveis e utensílios diversos | 90.000 |
+| 72 | terrenos | 125.000 |
+| 73 | prédios | 145.000 |
+| 74 | empréstimos a pagar de longo prazo | 187.500 |
+| 75 | equipamentos de manutenção e conservação | 198.500 |
+| 76 | receita operacional bruta | 198.500 |
+| 77 | apartamentos | 250.000 |
+| 78 | amortização acumulada | 250.000 |
+| 79 | pesquisa de novos produtos | 258.000 |
+| 80 | capital social | 380.000 |
+| 81 | máquinas e equipamentos de produção | 452.000 |
+| 82 | depreciação acumulada | 1.000.00 (assim no original) |
 
 Com base nos dados fornecidos na tabela, julgue o item seguinte, referente ao balancete de verificação apresentado.
 
 O saldo do patrimônio líquido, antes da incorporação do resultado do exercício, é de R$ 399.038,00.
 
 - Gabarito: CERTO
-- Resolução: a caminho
+### O que a questão pede
+O **patrimônio líquido antes de incorporar o resultado do exercício**. O balancete traz o saldo de lucros acumulados **depois** da apuração do resultado (14.500). Para "voltar no tempo", é preciso tirar dele o lucro do período.
+
+### Cálculos prévios
+**1) Lucro líquido do período:** **14.503** (ver a DRE da F0625).
+
+**2) Lucros acumulados antes da apuração:** 14.500 (depois) − 14.503 (lucro) = **−3**, ou seja, saldo **devedor** de 3 (prejuízo acumulado).
+
+**3) PL antes do resultado:**
+
+| Conta do PL | Valor |
+|---|---:|
+| Capital social | 380.000 |
+| Reservas | 19.041 |
+| Lucros (prejuízos) acumulados antes do resultado | (3) |
+| **PL antes do resultado** | **399.038** |
+
+Gabarito **CERTO**.
+
+### O que ignorar e por quê
+- **Provisão para contingências (14.500):** passivo, embora tenha o mesmo valor dos lucros acumulados (coincidência proposital).
+- **Provisões para perdas:** retificadoras do ativo, não PL.
+
+### Pegadinhas
+- **Somar os 14.500 "após a apuração" ao PL:** daria 413.541, o PL **depois** do resultado.
+- **Achar que lucros acumulados antes do resultado é zero:** o saldo existia (negativo em 3) e entra no PL.
+
+### Leve para as próximas
+1. Lucros acumulados depois da apuração = saldo anterior + lucro líquido (− destinações). Para achar o anterior, desfaça a conta.
+2. Resultado do exercício passa pela DRE e só depois vai para o PL.
 
 ## F0627 · CEBRASPE · 2007 · CBM DF · CE
 - Fontes: TecConcursos 627 (365168)
 - Prova: CEBRASPE (CESPE) - Of BM (CBM DF)/CBM DF/Complementar/Ciências Contábeis/2007
-- Grupos: resultado-operacional, resultado-financeiro, participacoes, deducoes, receita-bruta, cmv, despesas-administrativas, despesas-vendas, ir-csll
+- Grupos: resultado-bruto, despesas-administrativas, resultado-financeiro, resultado-operacional, lair
 
-A tabela a seguir apresenta o balancete de verificação de uma empresa, em que os valores estão em reais. conta
+A tabela a seguir apresenta o balancete de verificação de uma empresa, em que os valores estão em reais.
 
-| Conta | Débito | Crédito |
-|---|---:|---:|
-| valor | 1 |  |
-| caixa | 250 | 2 |
-| condomínio a pagar | 870 | 3 |
-| seguros a pagar | 920 | 4 |
-| assinaturas antecipadas | 980 | 5 |
-| telefones pré-pagos | 980 | 6 |
-| provisão para perda de estoques | 1.100 | 7 |
-| despesa de condomínio | 1.280 | 8 |
-| aluguel a pagar | 2.140 | 9 |
-| despesa de telefone | 2.150 | 10 |
-| provisão para devedores duvidosos | 2.450 | 11 |
-| despesa de assinaturas | 2.490 | 12 |
-| telefone a pagar | 2.580 | 13 |
-| combustíveis a pagar | 2.580 | 14 |
-| aluguéis antecipados | 2.890 | 15 |
-| seguros antecipados | 3.150 | 16 |
-| despesa de Internet | 3.214 | 17 |
-| despesa de impostos e taxas | 3.325 | 18 |
-| serviços de Internet a pagar | 3.325 | 19 |
-| impostos a recuperar | 3.342 | 20 |
-| energia a pagar | 3.532 | 21 |
-| salários a pagar | 4.415 | 22 |
-| despesa de combustíveis e lubrificantes | 4.418 | 23 |
-| receita antecipada | 4.520 | 24 |
-| despesa de energia | 4.580 | 25 |
-| imposto e contribuição sobre lucro | 4.580 | 26 |
-| fornecedores | 4.870 | 27 |
-| adiantamento de salários | 4.980 | 28 |
-| suprimentos de informática | 5.400 | 29 |
-| despesa de seguros | 5.470 | 30 |
-| impostos a pagar | 5.524 | 31 |
-| notas promissórias a receber | 6.150 | 32 |
-| contas a pagar | 6.870 | 33 |
-| banco | 6.890 | 34 |
-| contas a receber | 7.150 | 35 |
-| títulos a receber | 8.410 | 36 |
-| deságio na emissão de debêntures de curto prazo | 8.570 | 37 |
-| provisão para perda de investimentos | 8.875 | 38 |
-| despesa de aluguel | 8.950 | 39 |
-| receita financeira | 8.980 | 40 |
-| despesa de salários | 9.850 | 41 |
-| financiamentos a pagar | 10.000 | 42 |
-| material de consumo | 10.480 | 43 |
-| empréstimos a pagar | 10.740 | 44 |
-| debêntures emitidas com resgate em longo prazo | 12.500 | 45 |
-| despesa financeira | 12.580 | 46 |
-| investimentos em ações | 13.250 | 47 |
-| abatimentos sobre vendas | 13.520 | 48 |
-| provisão para contingências judiciais | 14.500 | 49 |
-| lucros ou prejuízos acumulados após a apuração do resultado | 14.500 | 50 |
-| investimentos em debêntures | 14.580 | 51 |
-| empréstimos a diretores | 14.780 | 52 |
-| mercadorias para revenda | 14.870 | 53 |
-| impostos sobre vendas | 18.590 | 54 |
-| reservas | 19.041 | 55 |
-| debêntures a pagar em curto prazo | 20.000 | 56 |
-| despesa de depreciação | 20.580 | 57 |
-| impressoras e aparelhos de fax | 24.150 | 58 |
-| despesa de amortização | 25.000 | 59 |
-| aparelhos de ar-condicionado | 25.600 | 60 |
-| participações em coligadas | 25.800 | 61 |
-| televisores e reprodutores de DVD | 32.140 | 62 |
-| títulos a receber de longo prazo | 32.580 | 63 |
-| assinaturas a pagar | 33.120 | 64 |
-| investimentos em títulos públicos | 41.200 | 65 |
-| computadores e periféricos | 45.200 | 66 |
-| custo da mercadoria vendida | 52.400 | 67 |
-| debêntures adquiridas com resgate em longo prazo | 52.800 | 68 |
-| veículos leves | 68.500 | 69 |
-| títulos a pagar de longo prazo | 78.500 | 70 |
-| tratores e implementos agrícolas | 78.900 | 71 |
-| móveis e utensílios diversos | 90.000 | 72 |
-| terrenos | 125.000 | 73 |
-| prédios | 145.000 | 74 |
-| empréstimos a pagar de longo prazo | 187.500 | 75 |
-| equipamentos de manutenção e conservação | 198.500 | 76 |
-| receita operacional bruta | 198.500 | 77 |
-| apartamentos | 250.000 | 78 |
-| amortização acumulada | 250.000 | 79 |
-| pesquisa de novos produtos | 258.000 | 80 |
-| capital social | 380.000 | 81 |
-| máquinas e equipamentos de produção | 452.000 | 82 |
-| depreciação acumulada | 1.000.00 |  |
+| Nº | Conta | Saldo (R$) |
+|---:|---|---:|
+| 1 | caixa | 250 |
+| 2 | condomínio a pagar | 870 |
+| 3 | seguros a pagar | 920 |
+| 4 | assinaturas antecipadas | 980 |
+| 5 | telefones pré-pagos | 980 |
+| 6 | provisão para perda de estoques | 1.100 |
+| 7 | despesa de condomínio | 1.280 |
+| 8 | aluguel a pagar | 2.140 |
+| 9 | despesa de telefone | 2.150 |
+| 10 | provisão para devedores duvidosos | 2.450 |
+| 11 | despesa de assinaturas | 2.490 |
+| 12 | telefone a pagar | 2.580 |
+| 13 | combustíveis a pagar | 2.580 |
+| 14 | aluguéis antecipados | 2.890 |
+| 15 | seguros antecipados | 3.150 |
+| 16 | despesa de Internet | 3.214 |
+| 17 | despesa de impostos e taxas | 3.325 |
+| 18 | serviços de Internet a pagar | 3.325 |
+| 19 | impostos a recuperar | 3.342 |
+| 20 | energia a pagar | 3.532 |
+| 21 | salários a pagar | 4.415 |
+| 22 | despesa de combustíveis e lubrificantes | 4.418 |
+| 23 | receita antecipada | 4.520 |
+| 24 | despesa de energia | 4.580 |
+| 25 | imposto e contribuição sobre lucro | 4.580 |
+| 26 | fornecedores | 4.870 |
+| 27 | adiantamento de salários | 4.980 |
+| 28 | suprimentos de informática | 5.400 |
+| 29 | despesa de seguros | 5.470 |
+| 30 | impostos a pagar | 5.524 |
+| 31 | notas promissórias a receber | 6.150 |
+| 32 | contas a pagar | 6.870 |
+| 33 | banco | 6.890 |
+| 34 | contas a receber | 7.150 |
+| 35 | títulos a receber | 8.410 |
+| 36 | deságio na emissão de debêntures de curto prazo | 8.570 |
+| 37 | provisão para perda de investimentos | 8.875 |
+| 38 | despesa de aluguel | 8.950 |
+| 39 | receita financeira | 8.980 |
+| 40 | despesa de salários | 9.850 |
+| 41 | financiamentos a pagar | 10.000 |
+| 42 | material de consumo | 10.480 |
+| 43 | empréstimos a pagar | 10.740 |
+| 44 | debêntures emitidas com resgate em longo prazo | 12.500 |
+| 45 | despesa financeira | 12.580 |
+| 46 | investimentos em ações | 13.250 |
+| 47 | abatimentos sobre vendas | 13.520 |
+| 48 | provisão para contingências judiciais | 14.500 |
+| 49 | lucros ou prejuízos acumulados após a apuração do resultado | 14.500 |
+| 50 | investimentos em debêntures | 14.580 |
+| 51 | empréstimos a diretores | 14.780 |
+| 52 | mercadorias para revenda | 14.870 |
+| 53 | impostos sobre vendas | 18.590 |
+| 54 | reservas | 19.041 |
+| 55 | debêntures a pagar em curto prazo | 20.000 |
+| 56 | despesa de depreciação | 20.580 |
+| 57 | impressoras e aparelhos de fax | 24.150 |
+| 58 | despesa de amortização | 25.000 |
+| 59 | aparelhos de ar-condicionado | 25.600 |
+| 60 | participações em coligadas | 25.800 |
+| 61 | televisores e reprodutores de DVD | 32.140 |
+| 62 | títulos a receber de longo prazo | 32.580 |
+| 63 | assinaturas a pagar | 33.120 |
+| 64 | investimentos em títulos públicos | 41.200 |
+| 65 | computadores e periféricos | 45.200 |
+| 66 | custo da mercadoria vendida | 52.400 |
+| 67 | debêntures adquiridas com resgate em longo prazo | 52.800 |
+| 68 | veículos leves | 68.500 |
+| 69 | títulos a pagar de longo prazo | 78.500 |
+| 70 | tratores e implementos agrícolas | 78.900 |
+| 71 | móveis e utensílios diversos | 90.000 |
+| 72 | terrenos | 125.000 |
+| 73 | prédios | 145.000 |
+| 74 | empréstimos a pagar de longo prazo | 187.500 |
+| 75 | equipamentos de manutenção e conservação | 198.500 |
+| 76 | receita operacional bruta | 198.500 |
+| 77 | apartamentos | 250.000 |
+| 78 | amortização acumulada | 250.000 |
+| 79 | pesquisa de novos produtos | 258.000 |
+| 80 | capital social | 380.000 |
+| 81 | máquinas e equipamentos de produção | 452.000 |
+| 82 | depreciação acumulada | 1.000.00 (assim no original) |
 
 Com base nos dados fornecidos na tabela, julgue o item seguinte, referente ao balancete de verificação apresentado.
 
 O lucro operacional apurado no período, antes dos impostos e contribuições, é igual a R$ 10.103,00.
 
 - Gabarito: ERRADO
-- Resolução: a caminho
+### O que a questão pede
+O **lucro operacional antes dos impostos e contribuições** e se ele é igual a 10.103. Como não há outras receitas e despesas nem participações, coincide com o LAIR.
+
+### Cálculos prévios
+Pela DRE da F0625: lucro bruto 113.990 − despesas operacionais 91.307 − resultado financeiro líquido 3.600 = **19.083**.
+
+### Passo a passo
+```dre
+@ Lucro bruto (ver F0624) | 113.990 | resultado-bruto
+@ Despesas operacionais (12 contas) | 91.307 | despesas-administrativas
+@ receita financeira | 8.980 | resultado-financeiro
+@ despesa financeira | 12.580 | resultado-financeiro
++ Lucro bruto | 113.990 | Lucro bruto (ver F0624)
++ (–) Despesas operacionais | (91.307) | Despesas operacionais (12 contas)
++ (+) Receita financeira | 8.980 | receita financeira
++ (–) Despesa financeira | (12.580) | despesa financeira
+= Lucro operacional antes dos tributos | 19.083
+> 19.083 ≠ 10.103: o item está errado.
+```
+
+Gabarito **ERRADO** (19.083).
+
+### Pegadinhas
+- **Tirar o tributo sobre o lucro** (4.580): 14.503, que é o lucro **líquido**, não o operacional antes dos tributos.
+- **Somar contas "a pagar" às despesas** ou incluir o saldo das provisões: aumenta a despesa e derruba o resultado.
+- **Pelo CPC 26**, o "resultado antes do resultado financeiro" seria 22.683 (sem as financeiras). A questão segue a Lei: financeiras dentro do operacional.
+
+### Leve para as próximas
+1. Lucro operacional (Lei) = LB − despesas operacionais ± resultado financeiro ± equivalência.
+2. Sem outras receitas e despesas, lucro operacional = LAIR.
 
 ## F0628 · CEBRASPE · 2007 · CBM DF · CE
 - Fontes: TecConcursos 628 (365171)
 - Prova: CEBRASPE (CESPE) - Of BM (CBM DF)/CBM DF/Complementar/Ciências Contábeis/2007
-- Grupos: resultado-financeiro, participacoes, deducoes, receita-bruta, cmv, despesas-administrativas, despesas-vendas, lucro-liquido, ir-csll
+- Grupos: lucro-liquido, fora-pl
 
-A tabela a seguir apresenta o balancete de verificação de uma empresa, em que os valores estão em reais. conta
+A tabela a seguir apresenta o balancete de verificação de uma empresa, em que os valores estão em reais.
 
-| Conta | Débito | Crédito |
-|---|---:|---:|
-| valor | 1 |  |
-| caixa | 250 | 2 |
-| condomínio a pagar | 870 | 3 |
-| seguros a pagar | 920 | 4 |
-| assinaturas antecipadas | 980 | 5 |
-| telefones pré-pagos | 980 | 6 |
-| provisão para perda de estoques | 1.100 | 7 |
-| despesa de condomínio | 1.280 | 8 |
-| aluguel a pagar | 2.140 | 9 |
-| despesa de telefone | 2.150 | 10 |
-| provisão para devedores duvidosos | 2.450 | 11 |
-| despesa de assinaturas | 2.490 | 12 |
-| telefone a pagar | 2.580 | 13 |
-| combustíveis a pagar | 2.580 | 14 |
-| aluguéis antecipados | 2.890 | 15 |
-| seguros antecipados | 3.150 | 16 |
-| despesa de Internet | 3.214 | 17 |
-| despesa de impostos e taxas | 3.325 | 18 |
-| serviços de Internet a pagar | 3.325 | 19 |
-| impostos a recuperar | 3.342 | 20 |
-| energia a pagar | 3.532 | 21 |
-| salários a pagar | 4.415 | 22 |
-| despesa de combustíveis e lubrificantes | 4.418 | 23 |
-| receita antecipada | 4.520 | 24 |
-| despesa de energia | 4.580 | 25 |
-| imposto e contribuição sobre lucro | 4.580 | 26 |
-| fornecedores | 4.870 | 27 |
-| adiantamento de salários | 4.980 | 28 |
-| suprimentos de informática | 5.400 | 29 |
-| despesa de seguros | 5.470 | 30 |
-| impostos a pagar | 5.524 | 31 |
-| notas promissórias a receber | 6.150 | 32 |
-| contas a pagar | 6.870 | 33 |
-| banco | 6.890 | 34 |
-| contas a receber | 7.150 | 35 |
-| títulos a receber | 8.410 | 36 |
-| deságio na emissão de debêntures de curto prazo | 8.570 | 37 |
-| provisão para perda de investimentos | 8.875 | 38 |
-| despesa de aluguel | 8.950 | 39 |
-| receita financeira | 8.980 | 40 |
-| despesa de salários | 9.850 | 41 |
-| financiamentos a pagar | 10.000 | 42 |
-| material de consumo | 10.480 | 43 |
-| empréstimos a pagar | 10.740 | 44 |
-| debêntures emitidas com resgate em longo prazo | 12.500 | 45 |
-| despesa financeira | 12.580 | 46 |
-| investimentos em ações | 13.250 | 47 |
-| abatimentos sobre vendas | 13.520 | 48 |
-| provisão para contingências judiciais | 14.500 | 49 |
-| lucros ou prejuízos acumulados após a apuração do resultado | 14.500 | 50 |
-| investimentos em debêntures | 14.580 | 51 |
-| empréstimos a diretores | 14.780 | 52 |
-| mercadorias para revenda | 14.870 | 53 |
-| impostos sobre vendas | 18.590 | 54 |
-| reservas | 19.041 | 55 |
-| debêntures a pagar em curto prazo | 20.000 | 56 |
-| despesa de depreciação | 20.580 | 57 |
-| impressoras e aparelhos de fax | 24.150 | 58 |
-| despesa de amortização | 25.000 | 59 |
-| aparelhos de ar-condicionado | 25.600 | 60 |
-| participações em coligadas | 25.800 | 61 |
-| televisores e reprodutores de DVD | 32.140 | 62 |
-| títulos a receber de longo prazo | 32.580 | 63 |
-| assinaturas a pagar | 33.120 | 64 |
-| investimentos em títulos públicos | 41.200 | 65 |
-| computadores e periféricos | 45.200 | 66 |
-| custo da mercadoria vendida | 52.400 | 67 |
-| debêntures adquiridas com resgate em longo prazo | 52.800 | 68 |
-| veículos leves | 68.500 | 69 |
-| títulos a pagar de longo prazo | 78.500 | 70 |
-| tratores e implementos agrícolas | 78.900 | 71 |
-| móveis e utensílios diversos | 90.000 | 72 |
-| terrenos | 125.000 | 73 |
-| prédios | 145.000 | 74 |
-| empréstimos a pagar de longo prazo | 187.500 | 75 |
-| equipamentos de manutenção e conservação | 198.500 | 76 |
-| receita operacional bruta | 198.500 | 77 |
-| apartamentos | 250.000 | 78 |
-| amortização acumulada | 250.000 | 79 |
-| pesquisa de novos produtos | 258.000 | 80 |
-| capital social | 380.000 | 81 |
-| máquinas e equipamentos de produção | 452.000 | 82 |
-| depreciação acumulada | 1.000.00 |  |
+| Nº | Conta | Saldo (R$) |
+|---:|---|---:|
+| 1 | caixa | 250 |
+| 2 | condomínio a pagar | 870 |
+| 3 | seguros a pagar | 920 |
+| 4 | assinaturas antecipadas | 980 |
+| 5 | telefones pré-pagos | 980 |
+| 6 | provisão para perda de estoques | 1.100 |
+| 7 | despesa de condomínio | 1.280 |
+| 8 | aluguel a pagar | 2.140 |
+| 9 | despesa de telefone | 2.150 |
+| 10 | provisão para devedores duvidosos | 2.450 |
+| 11 | despesa de assinaturas | 2.490 |
+| 12 | telefone a pagar | 2.580 |
+| 13 | combustíveis a pagar | 2.580 |
+| 14 | aluguéis antecipados | 2.890 |
+| 15 | seguros antecipados | 3.150 |
+| 16 | despesa de Internet | 3.214 |
+| 17 | despesa de impostos e taxas | 3.325 |
+| 18 | serviços de Internet a pagar | 3.325 |
+| 19 | impostos a recuperar | 3.342 |
+| 20 | energia a pagar | 3.532 |
+| 21 | salários a pagar | 4.415 |
+| 22 | despesa de combustíveis e lubrificantes | 4.418 |
+| 23 | receita antecipada | 4.520 |
+| 24 | despesa de energia | 4.580 |
+| 25 | imposto e contribuição sobre lucro | 4.580 |
+| 26 | fornecedores | 4.870 |
+| 27 | adiantamento de salários | 4.980 |
+| 28 | suprimentos de informática | 5.400 |
+| 29 | despesa de seguros | 5.470 |
+| 30 | impostos a pagar | 5.524 |
+| 31 | notas promissórias a receber | 6.150 |
+| 32 | contas a pagar | 6.870 |
+| 33 | banco | 6.890 |
+| 34 | contas a receber | 7.150 |
+| 35 | títulos a receber | 8.410 |
+| 36 | deságio na emissão de debêntures de curto prazo | 8.570 |
+| 37 | provisão para perda de investimentos | 8.875 |
+| 38 | despesa de aluguel | 8.950 |
+| 39 | receita financeira | 8.980 |
+| 40 | despesa de salários | 9.850 |
+| 41 | financiamentos a pagar | 10.000 |
+| 42 | material de consumo | 10.480 |
+| 43 | empréstimos a pagar | 10.740 |
+| 44 | debêntures emitidas com resgate em longo prazo | 12.500 |
+| 45 | despesa financeira | 12.580 |
+| 46 | investimentos em ações | 13.250 |
+| 47 | abatimentos sobre vendas | 13.520 |
+| 48 | provisão para contingências judiciais | 14.500 |
+| 49 | lucros ou prejuízos acumulados após a apuração do resultado | 14.500 |
+| 50 | investimentos em debêntures | 14.580 |
+| 51 | empréstimos a diretores | 14.780 |
+| 52 | mercadorias para revenda | 14.870 |
+| 53 | impostos sobre vendas | 18.590 |
+| 54 | reservas | 19.041 |
+| 55 | debêntures a pagar em curto prazo | 20.000 |
+| 56 | despesa de depreciação | 20.580 |
+| 57 | impressoras e aparelhos de fax | 24.150 |
+| 58 | despesa de amortização | 25.000 |
+| 59 | aparelhos de ar-condicionado | 25.600 |
+| 60 | participações em coligadas | 25.800 |
+| 61 | televisores e reprodutores de DVD | 32.140 |
+| 62 | títulos a receber de longo prazo | 32.580 |
+| 63 | assinaturas a pagar | 33.120 |
+| 64 | investimentos em títulos públicos | 41.200 |
+| 65 | computadores e periféricos | 45.200 |
+| 66 | custo da mercadoria vendida | 52.400 |
+| 67 | debêntures adquiridas com resgate em longo prazo | 52.800 |
+| 68 | veículos leves | 68.500 |
+| 69 | títulos a pagar de longo prazo | 78.500 |
+| 70 | tratores e implementos agrícolas | 78.900 |
+| 71 | móveis e utensílios diversos | 90.000 |
+| 72 | terrenos | 125.000 |
+| 73 | prédios | 145.000 |
+| 74 | empréstimos a pagar de longo prazo | 187.500 |
+| 75 | equipamentos de manutenção e conservação | 198.500 |
+| 76 | receita operacional bruta | 198.500 |
+| 77 | apartamentos | 250.000 |
+| 78 | amortização acumulada | 250.000 |
+| 79 | pesquisa de novos produtos | 258.000 |
+| 80 | capital social | 380.000 |
+| 81 | máquinas e equipamentos de produção | 452.000 |
+| 82 | depreciação acumulada | 1.000.00 (assim no original) |
 
 Com base nos dados fornecidos na tabela, julgue o item seguinte, referente ao balancete de verificação apresentado.
 
 O saldo da conta lucros ou prejuízos acumulados antes da apuração do resultado do exercício é de R$ 258,00 credor.
 
 - Gabarito: ERRADO
-- Resolução: a caminho
+### O que a questão pede
+O **saldo de lucros ou prejuízos acumulados antes da apuração** do resultado. O item diz 258 credor.
+
+### Cálculos prévios
+- Lucros acumulados **depois** da apuração: 14.500 (credor).
+- Lucro líquido do período: 14.503 (F0625).
+- Antes da apuração: 14.500 − 14.503 = **−3**, saldo **devedor** de 3 (prejuízo acumulado de 3).
+
+Gabarito **ERRADO** (o saldo era devedor de 3, não credor de 258).
+
+### Pegadinhas
+- **258** lembra a conta "pesquisa de novos produtos" (258.000): número plantado para quem confunde valores do balancete.
+- **Credor × devedor:** lucros acumulados positivos = credor; prejuízos acumulados = devedor (reduz o PL).
+
+### Leve para as próximas
+1. Saldo anterior de lucros acumulados = saldo depois − lucro do período (+ destinações feitas).
+2. Lucro do período maior que o saldo final → o saldo anterior era prejuízo.
 
 ## F0629 · FCC · 2007 · TRE SE · ME
 - Fontes: TecConcursos 629 (396528)

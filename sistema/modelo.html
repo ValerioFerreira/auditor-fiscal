@@ -6453,7 +6453,7 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     const desenhar = () => {
       if (passo < 0) {
         const ign = b.itens.filter(i => /^(fora|ignora)/.test(i.g));
-        el.innerHTML = `<div class="fx-q"><div class="fx-q-cab"><span>DRE montada</span>${b.passos.length > 1 ? `<button class="bt" type="button" data-q="ini">${ICO.raio} Ver passo a passo</button>` : ''}</div>${tabela(linhasAte(b.passos.length - 1))}${ign.length ? `<p class="fx-rot">Ficaram de fora</p><div class="fx-chips">${ign.map(i => `<span class="fx-chip risc" title="${esc(i.g)}">${esc(i.n)}${i.v ? ' · ' + esc(i.v) : ''}</span>`).join('')}</div>` : ''}</div>`;
+        el.innerHTML = `<div class="fx-q"><div class="fx-q-cab"><span>DRE montada</span>${b.passos.length > 1 ? `<button class="bt" type="button" data-q="ini">${ICO.raio} Ver passo a passo</button>` : ''}</div>${tabela(linhasAte(b.passos.length - 1))}${ign.length ? `<p class="fx-rot">Ficaram de fora</p><div class="fx-chips">${ign.map(i => `<span class="fx-chip risc" title="${esc(i.g)}">${esc(i.n)}${i.v && i.v !== '—' ? ' · ' + esc(i.v) : ''}</span>`).join('')}</div>` : ''}</div>`;
       } else {
         const p = b.passos[passo];
         const usados = new Set(), agora = new Set(p.l.flatMap(l => l.de)), riscados = new Set();

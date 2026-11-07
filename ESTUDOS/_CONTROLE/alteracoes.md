@@ -324,3 +324,13 @@
 |---|---|---|
 | INCOMPLETA | 16 questões só com gabarito ("resolução a caminho") | Resolução própria e minuciosa (F0002, F0003, F0102, F0105, F0227, F0228, F0296, F0297, F0298, F0299, F0300, F0301, F0345, F0936, F0938, F0942), com os comentários de Igor Cintra e Gilmar Possati reescritos onde havia |
 | REORGANIZAÇÃO | F0227 com o balancete em imagem | Balancete transcrito como tabela; imagem removida |
+
+## v018 — 07/11/2026 (Fixação em detalhes: onda 3 de resoluções)
+
+### Contabilidade Geral e Avançada
+
+| Classificação | Como estava | Como ficou na base |
+|---|---|---|
+| INCOMPLETA | 15 questões só com gabarito (F0614 a F0628) | Resolução própria e minuciosa, com quadro da DRE e passo a passo nas de cálculo |
+| REORGANIZAÇÃO | Tabelas de F0614, F0615, F0617, F0618, F0619 e F0624 a F0628 embaralhadas pela extração do PDF (valores soltos, colunas deslocadas) | Tabelas remontadas, com o mesmo texto e os mesmos valores; o último saldo do balancete do CBM-DF (depreciação acumulada) ficou "1.000.00 (assim no original)" |
+| INCOMPLETA | Questões de 2007 tratam pesquisa de novos produtos como ativo | Resoluções avisam que, hoje, pesquisa é despesa (CPC 04) ⚠️ |

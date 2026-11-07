@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v017** (07/11/2026)
+> Versão atual da base: **v018** (07/11/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -210,3 +210,17 @@
   - tabela SUFRAMA (F0296, F0297);
   - teóricas ligadas a elas (F0002, F0003, F0228, F0936, F0942).
 - **Total:** 24 das 945 questões com resolução. O balancete da F0227, que estava em imagem, foi transcrito como tabela.
+
+## 07/11/2026 — Fixação em detalhes: resoluções da onda 3 (v018)
+
+- **Resoluções minuciosas (onda 3):** 15 questões de 2007, com formas de cobrança novas:
+  - ficha de estoque pelo PEPS com ICMS e receita antecipada realizada (F0614, F0615);
+  - balancetes de 40 e de 82 contas, com margem bruta, margem líquida, lucro operacional e PL antes do resultado (F0616, F0624 a F0628);
+  - DRE pela redação antiga da Lei (resultado não operacional), com reversão de provisões, equivalência e participação de empregados (F0617 a F0623).
+- **Enunciados consertados:** as tabelas de F0614, F0615, F0617, F0618, F0619 e F0624 a F0628 tinham saído embaralhadas do PDF; foram remontadas sem mudar o texto.
+- **Enriquecimentos:**
+  - **Pesquisa e desenvolvimento:** em 2007, os gastos de pesquisa eram ativo diferido. Hoje, pelo CPC 04, pesquisa é sempre despesa, e desenvolvimento só é ativado se cumprir os requisitos.
+  - **Dividendos de investidas pela equivalência:** não são receita.
+  - **Participação de empregados:** fica depois do IR pela Lei e é despesa pelo CPC 33.
+- **Total:** 39 das 945 questões com resolução.
+- **Site:** a lista "Ficaram de fora" não mostra mais o "—" quando a conta não tem valor.
