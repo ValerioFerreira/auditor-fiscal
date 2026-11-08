@@ -65,6 +65,8 @@
 
 - No quadro, **"EC"** é o **empréstimo compulsório** para guerra ou calamidade (CF, art. 148, I). Quanto ao ICMS-Combustíveis, a "deliberação" é dos Estados e do DF, em **convênio** (CONFAZ), **não decreto estadual** (→ `principio-da-legalidade-tributaria.md`).
 
+![Quadro-resumo em conjuntos: legalidade, anterioridade anual, noventena e lei complementar](anterioridade-e-noventena - imagem 1.png){largura=100%}
+
 ## Pegadinhas
 
 - "A lei que reduz uma isenção pode ser aplicada no mesmo exercício, pois não é majoração" → **ERRADO** (o STF a trata como aumento indireto: observa a anterioridade).

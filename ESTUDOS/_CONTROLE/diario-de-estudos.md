@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v019** (07/11/2026)
+> Versão atual da base: **v020** (07/11/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -239,3 +239,9 @@
   - enunciados de F0289, F0314, F0311, F0346, F0493 a F0495, F0524 e F0605 remontados; as imagens de F0605 transcritas;
   - os esquemas de aula soltos no enunciado da F0869 foram retirados.
 - **Total:** 65 das 945 questões com resolução.
+
+## 07/11/2026 — Diagrama do quadro-resumo de anterioridade e noventena (v020)
+
+- **Sem conteúdo novo de estudo.**
+- **Diagrama de conjuntos** (pedido do dia, feito a partir do quadro-resumo de `Direito Tributário/04 - Limitações ao Poder de Tributar/anterioridade-e-noventena.md`): quatro círculos em losango (legalidade à esquerda, anterioridade anual em cima, noventena embaixo, lei complementar à direita), com cada tributo na sua interseção. Entrou logo abaixo do quadro, como `anterioridade-e-noventena - imagem 1.png`.
+- **Site:** imagem com largura escolhida (`{largura=N%}`) pode passar dos 640 px e ocupar a coluna inteira.

@@ -547,6 +547,7 @@ a.fx-nome:hover { background: color-mix(in srgb, var(--m) 20%, var(--raised)); }
 .doc-corpo p { margin: 0 0 .85em; text-wrap: pretty; }
 .doc-corpo p.txt { white-space: pre-wrap; }
 .doc-corpo img { display: block; max-width: min(100%, 640px); height: auto; margin: .4em 0; border-radius: 8px; }
+.doc-corpo img[style*="width"] { max-width: 100%; } /* largura escolhida ({largura=N%}) vale mesmo acima de 640px */
 .doc-corpo p, .doc-corpo li { overflow-wrap: anywhere; text-align: justify; -webkit-hyphens: auto; hyphens: auto; }
 .doc-corpo .tabela p, .doc-corpo .tabela li, .doc-corpo .md-trecho p { text-align: left; }
 .doc-corpo ul, .doc-corpo ol { margin: 0 0 1em; padding-left: 1.4em; }

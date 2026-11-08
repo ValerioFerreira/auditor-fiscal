@@ -4,7 +4,7 @@ Segurança jurídica e não surpresa = b4c009dd22
 Anterioridade (anual, de exercício, geral ou comum) = 4cdec27fa7
 Noventena (anterioridade nonagesimal, privilegiada, qualificada ou mitigada) = 62d02b1bdf
 Medidas provisórias (60 + 60 dias) = 405ede1e86
-Quadro-resumo: legalidade, anterioridade e noventena = e43942877e
+Quadro-resumo: legalidade, anterioridade e noventena = 0fe26dfdaa
 Pegadinhas = 57071e62ac
 Base legal / referência = 23b3ce51f9
 -->

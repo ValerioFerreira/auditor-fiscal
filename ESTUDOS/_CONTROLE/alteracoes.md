@@ -346,3 +346,11 @@
 | INCOMPLETA | 26 questões só com gabarito | Resolução minuciosa (F0071, F0120, F0289, F0311, F0314, F0346, F0445, F0449, F0493, F0494, F0495, F0524, F0525, F0526, F0530, F0587, F0588, F0605, F0645, F0646, F0818, F0869, F0878, F0883, F0884, F0912) |
 | REORGANIZAÇÃO | Enunciados embaralhados pela extração (F0289, F0311, F0314, F0346, F0493 a F0495, F0524, F0605) e imagens em F0605 e F0869 | Tabelas remontadas sem mudar texto nem valores; imagens da F0605 transcritas; esquemas de aula da F0869 retirados (o conceito entrou na resolução) |
 | IMPRECISA | contas.md: nome "Deduções da receita de vendas 10.800 17.000" | "Deduções da receita de vendas" (valores grudados no nome) |
+
+## v020 — 07/11/2026 (diagrama do quadro-resumo de anterioridade e noventena)
+
+### Direito Tributário
+
+| Classificação | Como estava | Como ficou na base |
+|---|---|---|
+| REORGANIZAÇÃO | Quadro-resumo de legalidade, anterioridade e noventena só em tabela | Mesmo quadro também em diagrama de conjuntos (legalidade, anterioridade anual, noventena e lei complementar), logo abaixo da tabela; a tabela não mudou |

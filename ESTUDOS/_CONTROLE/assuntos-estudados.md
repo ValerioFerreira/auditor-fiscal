@@ -1,6 +1,6 @@
 # Assuntos Estudados — Visão Geral
 
-> Versão da base: **v019** (07/11/2026) · ✅ consolidado · 🔶 consolidado com pendência (ver `pendencias.md`)
+> Versão da base: **v020** (07/11/2026) · ✅ consolidado · 🔶 consolidado com pendência (ver `pendencias.md`)
 
 ## Direito Tributário
 
@@ -21,7 +21,7 @@
 | 04 - Limitações ao Poder de Tributar | `capacidade-contributiva.md` | Art. 145, §1º; equidade; impostos reais e pessoais; progressividade; Súmulas 656 e 668; EC 132; sigilo bancário | ✅ |
 | 04 - Limitações ao Poder de Tributar | `vedacao-ao-confisco.md` | Efeito confiscatório; multas; LC 236/2026 | ✅ |
 | 04 - Limitações ao Poder de Tributar | `irretroatividade-tributaria.md` | Exceções; cinco aspectos da hipótese de incidência; CSLL e IR | ✅ |
-| 04 - Limitações ao Poder de Tributar | `anterioridade-e-noventena.md` | Anterioridade; noventena; exceções; medidas provisórias; quadro-resumo | ✅ |
+| 04 - Limitações ao Poder de Tributar | `anterioridade-e-noventena.md` | Anterioridade; noventena; exceções; medidas provisórias; quadro-resumo (com diagrama de conjuntos) | ✅ |
 | 04 - Limitações ao Poder de Tributar | `liberdade-de-trafego-e-principios-federativos.md` | Tráfego e pedágio; uniformidades; isenções heterônomas; não discriminação | ✅ |
 | 04 - Limitações ao Poder de Tributar | `transparencia-seguranca-juridica-e-novos-principios.md` | Transparência; segurança jurídica; princípios da EC 132 | ✅ |
 | 04 - Limitações ao Poder de Tributar | `imunidades-tributarias.md` | Não incidência, imunidade, isenção e alíquota zero; classificações | 🔶 |
