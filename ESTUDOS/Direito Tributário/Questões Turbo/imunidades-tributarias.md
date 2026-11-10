@@ -3,7 +3,7 @@
 Não incidência, imunidade, isenção e alíquota zero = c3a361ad94
 Obrigação tributária = 01c74183a7
 Classificações das imunidades = d4fd40ce2d
-Onde estão as imunidades (a estudar) = 1a394b7b28
+Onde estão as imunidades = 7ed4c5d76c
 Pegadinhas = 0a3df7d0f8
 Base legal / referência = e3235a749e
 -->
@@ -103,12 +103,12 @@ A imunidade do IPI na exportação é específica ou tópica, enquanto a imunida
 - Gabarito: CERTO
 - Comentário: Quanto ao alcance, as imunidades gerais abrangem vários tributos e/ou entes; as específicas restringem-se a tributos e entes determinados.
 
-## Q020 · médio · Onde estão as imunidades (a estudar)
-Segundo o material, entre as imunidades genéricas do art. 150, VI, da CF está a das instituições de educação e de assistência social, inclusive daquelas que tenham finalidade lucrativa.
+## Q020 · médio · Onde estão as imunidades
+Entre as imunidades genéricas do art. 150, VI, da CF está a das instituições de educação e de assistência social, inclusive daquelas que tenham finalidade lucrativa.
 - Gabarito: ERRADO
 - Comentário: A imunidade alcança as instituições de educação e de assistência social sem fins lucrativos.
 
-## Q021 · difícil · Onde estão as imunidades (a estudar)
+## Q021 · difícil · Onde estão as imunidades
 Entre as imunidades do art. 150, VI, da CF consta a dos fonogramas e videofonogramas musicais produzidos no Brasil, incluída pela EC 75/2013.
 - Gabarito: CERTO
 - Comentário: O tema registra, entre as imunidades genéricas do art. 150, VI, a dos fonogramas e videofonogramas musicais produzidos no Brasil (EC 75/2013).

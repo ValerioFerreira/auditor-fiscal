@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v020** (07/11/2026)
+> Versão atual da base: **v022** (10/11/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -245,3 +245,42 @@
 - **Sem conteúdo novo de estudo.**
 - **Diagrama de conjuntos** (pedido do dia, feito a partir do quadro-resumo de `Direito Tributário/04 - Limitações ao Poder de Tributar/anterioridade-e-noventena.md`): quatro círculos em losango (legalidade à esquerda, anterioridade anual em cima, noventena embaixo, lei complementar à direita), com cada tributo na sua interseção. Entrou logo abaixo do quadro, como `anterioridade-e-noventena - imagem 1.png`.
 - **Site:** imagem com largura escolhida (`{largura=N%}`) pode passar dos 640 px e ocupar a coluna inteira.
+
+## 09/11/2026 — Resumos de cinco disciplinas e parte nova do sintético (v021)
+
+- **Resumo sintético:** o arquivo novo repetia quase toda a versão de 30/10. Entrou só o que era inédito, sem mudar o texto: Tributário, parte 05 (competência tributária); Língua Portuguesa, parte 02 (hífen, emprego das letras e expressões). Constitucional, Administrativo e Contabilidade não traziam texto novo.
+
+### Direito Tributário
+- Imunidades em espécie (recíproca, religiosa, partidos, sindicatos, educação e assistência, cultural, musical, outras, entidades beneficentes, ITCMD e IPVA) e competência tributária (tema e pasta novos).
+- **Principais enriquecimentos:** art. 155, §3º, na redação da EC 132/2023 (inclui o IBS e o Imposto Seletivo); art. 149-B, parágrafo único; EC 116/2022 (templos locatários); Temas 342, 685 e 1.140; SV 52 e 57; LC 187/2021.
+
+### Contabilidade Geral e Avançada
+- DRE: composição, CMV, participações, estrutura do CPC 26, Lei x CPC, natureza x função e ARE (tema novo).
+- **Principais enriquecimentos:** item que faltava no CPC 26 (despesas e receitas financeiras); limites legais das participações (arts. 46 e 152); divergência do JCP; CPC 51 à vista.
+
+### Direito Constitucional
+- Art. 5º, caput e incisos I a XXXI, em cinco temas novos.
+- **Principais enriquecimentos:** Tema 977 (celular), Tema 998 (revista íntima), Tema 855 (aviso prévio de reunião), RE 1.492.256 (fuga e ingresso em domicílio), Tema 225 (Fisco e sigilo bancário).
+
+### Direito Administrativo
+- Entidades, centralização, descentralização e desconcentração; órgãos públicos (integrados ao tema existente); autarquias; conselhos e OAB; agências reguladoras e executivas.
+- **Principais enriquecimentos:** ANPD e Lei 15.352/2026; ADI 2.135 (regime jurídico único); ADI 6.775 (aprovação legislativa de dirigentes); SV 27; Temas 877 e 1.054; Lei 14.133/2021, art. 75, §2º.
+
+### Língua Portuguesa
+- Primeiros temas da disciplina: fonologia; acentuação gráfica; hífen; emprego das letras; maiúsculas, siglas e abreviações; expressões problemáticas.
+- **Principais enriquecimentos:** exceção de "mal" antes de l; origem de "exceção"; acento de "mantém" pela regra das oxítonas.
+
+## 10/11/2026 — Fixação em detalhes: Balanço Patrimonial (v022)
+
+- **Pedido:** fazer para o Balanço Patrimonial o que foi feito para a DRE, com a estrutura da Lei original e as das alterações posteriores (e do CPC), explicando o que mudou em cada uma, e 30 questões resolvidas passo a passo, principalmente de classificação de contas e de lançamentos.
+- **Fontes:**
+  - aula de BP do Igor Cintra (140 questões com resolução);
+  - aula de BP do Gilmar Possati (117 questões comentadas);
+  - caderno TecConcursos "Contabilidade" (pasta `QUESTOES/`, 20 PDFs, 3.999 questões de toda a Contabilidade Geral).
+- **Recorte (decidido por você):** do caderno, só os assuntos de balanço, patrimônio líquido e lançamentos (escrituração, atos e fatos, balancete, plano de contas, equação patrimonial). O número da questão é o do caderno (F0001 a F4000); as 134 questões que só estão nas aulas vão de F4001 em diante.
+- **Questões sem repetição:** 993 (859 do caderno + 134 só das aulas), todas com gabarito. As 117 das aulas que estão no caderno levam o nome do professor em "Fontes".
+- **Estruturas (bp/estrutura.md):** linha do tempo em quatro versões — Lei 6.404/76 original, Lei 11.638/2007, Lei 11.941/2009 e CPC 26 (R1) —, cada uma com o balanço em T, o que entrou, mudou e saiu, e o texto "O que mudou"; uma seção por grupo (base legal, o que entra, pegadinhas); regras de classificação, outras alterações da Lei (arts. 176, 177, 183, 184, 299-A e 299-B), diferenças Lei × CPC e mudanças à vista.
+- **Catálogo de contas (bp/contas.md):** 80 contas e 449 nomes colhidos nos balancetes e listas dos enunciados, cada um ligado ao grupo do balanço.
+- **Questões-modelo (bp/guia.md):** 30 questões em sete partes (estrutura e evolução; classificar pelo prazo; exceções ao prazo; do balancete ao balanço; patrimônio líquido; lançamentos fato a fato; fatos do mês até o balanço final). As de lançamento têm um quadro novo: o diário e o balanço em T se montam lançamento a lançamento, com a conferência A = P + PL.
+- **Site:** a Fixação passou a aceitar estruturas com várias versões (linha do tempo) e o quadro de lançamentos; a página da questão que está no guia leva à explicação completa.
+- **Gerador:** o aviso "duas alternativas iguais" deixou de ignorar maiúsculas (as três questões de maiúsculas de Língua Portuguesa eram falso positivo).

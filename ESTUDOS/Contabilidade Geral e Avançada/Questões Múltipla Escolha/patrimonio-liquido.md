@@ -4,7 +4,7 @@ Conceito = 0b65139eb3
 Contas previstas na Lei 6.404/1976 (art. 178, §2º, III) = c5400f10d0
 Capital social = ce9e4f3652
 Reservas de capital = 96c4d0accf
-Ajustes de avaliação patrimonial = 5acb2b6303
+Ajustes de avaliação patrimonial = 26011499ab
 Ações em tesouraria = 91a77ea971
 Reservas de lucros = 5da4614cb1
 Lucros ou prejuízos acumulados = 4c72c9bcca
@@ -141,3 +141,14 @@ A Cia. Zeta S.A. mantém dois planos de remuneração de administradores. No Pla
 - E) No ativo não circulante; no passivo.
 - Gabarito: A
 - Comentário: a conta Opções Outorgadas Reconhecidas é apresentada junto às reservas de capital, no PL, se os serviços forem pagos em ações (a liquidar), e no passivo se forem pagos em dinheiro. B inverte; C e D tratam os dois planos do mesmo modo; E leva o primeiro ao ativo, que não é o caso.
+
+## M012 · médio · FGV · Ajustes de avaliação patrimonial
+Em 31/12/X1, uma companhia avaliou a valor justo um elemento de seu ativo e apurou diminuição de valor de R$ 30.000, que ainda não deve ser computada no resultado do exercício. Assinale a opção que indica o tratamento da contrapartida dessa diminuição.
+
+- A) Reconhecimento imediato como despesa no resultado do exercício.
+- B) Classificação em ajustes de avaliação patrimonial, como retificadora do patrimônio líquido.
+- C) Classificação em reservas de capital, como retificadora do patrimônio líquido.
+- D) Classificação em reservas de lucros, como aumento do patrimônio líquido.
+- E) Classificação no passivo, como obrigação da companhia.
+- Gabarito: B
+- Comentário: são ajustes de avaliação patrimonial as contrapartidas de aumentos ou diminuições de valor de elementos do ativo e do passivo, decorrentes da avaliação a valor justo, enquanto não computadas no resultado (art. 182, §3º); a diminuição tem caráter retificador. A contraria o "enquanto não computadas"; C, D e E levam a contrapartida a grupos que não recebem esses ajustes.

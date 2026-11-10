@@ -18,6 +18,18 @@
 
 - **Direito Administrativo — repercussão geral e recursos repetitivos (resumo de 21/10/2026):** o material os trata como jurisprudência (fonte secundária), mas o CPC, art. 927, dá força vinculante a alguns desses precedentes. Quer uma nota no tema?
 
+- **Resumo sintético — parte de 30/10/2026 em pasta errada:** o trecho "DIREITO ADMINISTRATIVO" está dentro da parte 04 (30/10/2026) do resumo sintético de Direito Constitucional (o título veio com negrito partido e não foi separado). No site, ele aparece no sintético de Constitucional, e não no de Administrativo. Autoriza mover esse trecho para uma nova parte de Administrativo?
+
+- **Direito Tributário — imunidade e sanções (resumo de 09/11/2026):** "Esta imunidade também se estende a todas as sanções de natureza tributária, exceto as previdenciárias". Não localizei o julgado. Mantive com ⚠️ em `imunidades-em-especie.md`. Qual é a fonte?
+
+- **Direito Constitucional — publicação proibida por juiz (resumo de 09/11/2026):** o resumo diz que é válida decisão judicial que proíba publicação de fatos por empresa jornalística, o que conflita com a ADPF 130, a Rcl 22.328 e o próprio resumo no inciso IX. Mantive com ⚠️ em `intimidade-domicilio-e-comunicacoes.md`. Qual é a fonte?
+
+- **Direito Constitucional — Marcha da Maconha e aborto (resumo de 09/11/2026):** a ADPF 187 trata das drogas; o resumo inclui o aborto. Mantive com ⚠️ em `liberdades-de-expressao-e-crenca.md`. Qual é a fonte?
+
+- **Direito Constitucional — transfusão em menor (resumo de 09/11/2026):** os Temas 952 e 1.069 tratam do paciente capaz; a afirmação sobre o menor ficou como "segundo o material". Qual é a fonte?
+
+- **Direito Administrativo — imunidade de autarquia em atividade estranha (resumo de 09/11/2026):** o art. 150, §2º, fala em finalidades essenciais ou delas decorrentes; a extensão a atividades estranhas com renda aplicada nas finalidades segue a lógica da SV 52, que é do art. 150, VI, "c". Mantive com ⚠️ em `autarquias.md`. Qual é a fonte?
+
 *As quatro pendências da carga inicial foram resolvidas por você em 27/09/2026 (ver `alteracoes.md`, v002).*
 
 ## 🟠 Acompanhar (jurisprudência/legislação em aberto)
@@ -27,7 +39,7 @@
 - **Reforma Tributária:** alíquotas da CBS e do Imposto Seletivo para 2027 ainda dependiam de lei ordinária na última verificação.
 - **Teto do MEI (R$ 81.000):** valor vigente conferido em 04/10/2026 (gov.br); há projetos de lei complementar em tramitação para elevá-lo (ressalva já inserida no tema, entre parênteses). Afeta a dispensa de escrituração do pequeno empresário (`05 - Escrituração/escrituracao-e-livros-contabeis.md`).
 
-- ⚠️ **CPC 51 (IFRS 18)** substitui o CPC 26 (R1) nos exercícios iniciados a partir de 1º/1/2027 (Resoluções CVM 237 e 238): a DRE passa a ter as categorias operacional, investimento e financiamento e novos subtotais. Acompanhar quando as bancas começarem a cobrar e atualizar Feature Fixação/dre/estrutura.md.
+- ⚠️ **CPC 51 (IFRS 18)** substitui o CPC 26 (R1) nos exercícios iniciados a partir de 1º/1/2027 (Resoluções CVM 237 e 238): a DRE passa a ter as categorias operacional, investimento e financiamento e novos subtotais. Acompanhar quando as bancas começarem a cobrar e atualizar Feature Fixação/dre/estrutura.md e bp/estrutura.md (no balanço, as regras de circulante e não circulante são mantidas).
 - ⚠️ **IBS e CBS na DRE:** a Orientação Técnica CFC nº 1/2026 (não vinculante) entende que não compõem a receita bruta. A prática ainda não é uniforme; acompanhar.
 
 ## 🟡 Organização / fluxo de trabalho
@@ -41,6 +53,7 @@
   - `administracao-direta-e-indireta.md`: empresa pública com "capital 100% público" x Lei 13.303/2016, art. 3º, parágrafo único (admite outras entidades públicas, mantida a maioria votante do ente controlador).
   - `regime-juridico-administrativo.md`: autorização legislativa para alienar imóveis (Lei 14.133/2021, art. 76) tem exceções, por exemplo para autarquias e fundações.
   - `classificacao-das-constituicoes.md`: o aviso "em prova prevalece" é orientação de estudo, não conteúdo constitucional.
+- **Fixação do BP, próximas ondas:** 963 das 993 questões estão com "resolução a caminho" (as 30 do guia têm a explicação completa). Muitos enunciados com balancete saíram da extração em bloco pré-formatado ou com colunas misturadas; serão remontados nas ondas de resolução, como na DRE. O caderno `QUESTOES/` também traz DFC, CPC 00, provisões, estoques e outros assuntos, que podem virar novas Fixações.
 - **Servidor do site (`--servir`):** ele guarda o código na memória; depois de mudanças em `gerar.py`, reinicie-o. Em 07/10/2026 ele foi reiniciado (o processo antigo havia sido encerrado).
 
 - **Concurso-alvo e data-base do edital:** saber qual concurso (e se a banca é mesmo CEBRASPE) ajuda a priorizar legislação estadual/municipal e a decidir como tratar a transição PIS/COFINS → CBS.
@@ -54,7 +67,7 @@
 
 ## ⚪ Assuntos mencionados, mas ainda não consolidados (estudar)
 
-- **Tributário:** competência tributária; imunidades em espécie (art. 150, VI, em detalhe); obrigação tributária (art. 113); impostos em espécie; transação tributária.
-- **Constitucional:** processo legislativo (MP, LC, EC); controle de constitucionalidade (ADI, ADO, mandado de injunção); competências legislativas (art. 22); estado de defesa e de sítio; direitos fundamentais em espécie.
-- **Administrativo:** poderes administrativos (polícia, regulamentar, hierárquico); atos administrativos (anulação, revogação, convalidação); serviços públicos e concessões; agentes públicos (estabilidade, greve); improbidade; processo administrativo (Lei 9.784/99); bens públicos.
-- **Contabilidade:** DRE, DFC, DVA, DMPL e DLPA em detalhe (o conjunto e o balanço patrimonial já estão consolidados).
+- **Tributário:** obrigação tributária (art. 113); impostos em espécie; transação tributária.
+- **Constitucional:** processo legislativo (MP, LC, EC); controle de constitucionalidade (ADI, ADO, mandado de injunção); competências legislativas (art. 22); estado de defesa e de sítio; art. 5º, incisos XXXII em diante; direitos sociais, nacionalidade e direitos políticos.
+- **Administrativo:** fundações públicas, empresas públicas e sociedades de economia mista em detalhe; poderes administrativos (polícia, regulamentar, hierárquico); atos administrativos (anulação, revogação, convalidação); serviços públicos e concessões; agentes públicos (estabilidade, greve); improbidade; processo administrativo (Lei 9.784/99); bens públicos.
+- **Contabilidade:** DFC, DVA, DMPL e DLPA em detalhe (o conjunto, o balanço patrimonial e a DRE já estão consolidados).

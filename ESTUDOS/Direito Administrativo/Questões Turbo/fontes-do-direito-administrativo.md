@@ -1,6 +1,6 @@
 # Questões turbo — Fontes do Direito Administrativo
 <!-- cobertura
-Classificação = 33662684a4
+Classificação = d1088f7624
 Lei em sentido amplo = 1640748c6d
 Entendimentos judiciais vinculantes (fonte primária) = b265cfb481
 Fontes secundárias = 5094c3c76c
@@ -11,7 +11,7 @@ Base legal / referência = 1cbf39f645
 ## Q001 · fácil · Classificação
 As fontes primárias do Direito Administrativo, também denominadas formais, são escritas e organizadas, ao passo que as secundárias, ditas materiais, não são escritas nem organizadas.
 - Gabarito: CERTO
-- Comentário: As fontes primárias (formais, organizadas, escritas) compreendem as leis em sentido amplo e os entendimentos judiciais vinculantes. As secundárias (materiais, não organizadas, não escritas) são a jurisprudência, a doutrina e os costumes.
+- Comentário: As fontes primárias (formais, organizadas, escritas) compreendem as leis em sentido amplo e os entendimentos judiciais vinculantes. As secundárias (materiais, não organizadas, não escritas) são a jurisprudência, a doutrina, os costumes e a analogia.
 
 ## Q002 · fácil · Classificação
 Por consistir em decisões escritas e organizadas pelos tribunais, a jurisprudência é classificada como fonte primária, ou formal, do Direito Administrativo.
@@ -132,3 +132,8 @@ A doutrina, embora não seja vinculante, orienta e fundamenta a tomada de decis�
 No plano constitucional, a força vinculante das súmulas vinculantes tem como fundamento o art. 103-A, ao passo que os efeitos erga omnes das decisões em ADI e ADC encontram previsão no art. 102, § 2º.
 - Gabarito: CERTO
 - Comentário: CF, art. 103-A (súmula vinculante, exclusiva do STF) e art. 102, § 2º (efeitos das decisões em controle concentrado), formam a base dos entendimentos judiciais vinculantes.
+
+## Q026 · fácil · Classificação
+A analogia figura entre as fontes primárias do Direito Administrativo, ao lado das leis em sentido amplo.
+- Gabarito: ERRADO
+- Comentário: A analogia integra as fontes secundárias, ao lado da jurisprudência, da doutrina e dos costumes. As primárias são as leis em sentido amplo e os entendimentos judiciais vinculantes.

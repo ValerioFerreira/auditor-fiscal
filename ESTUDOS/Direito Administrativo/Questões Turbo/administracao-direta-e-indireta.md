@@ -1,10 +1,11 @@
 # Questões turbo — Administração Direta e Indireta
 <!-- cobertura
-Administração direta = d85505d827
-Administração indireta = 5eeedc2862
+Administração direta = 03a3849b1c
+Órgãos públicos = c8c0927cc5
+Administração indireta = 3adb2f6486
 Controle (tutela) x hierarquia = 3bc69dbe2f
-Pegadinhas CEBRASPE = 7a93467335
-Base legal / referência = 5e929e3d5c
+Pegadinhas CEBRASPE = c2ef47f3d2
+Base legal / referência = a399999fda
 -->
 
 ## Q001 · fácil · Administração direta
@@ -85,7 +86,7 @@ As autarquias, pessoas jurídicas de direito público, são criadas diretamente 
 ## Q016 · médio · Administração indireta
 A sociedade de economia mista passa a existir diretamente com a publicação da lei específica que a institui, sendo desnecessário qualquer ato posterior para sua constituição.
 - Gabarito: ERRADO
-- Comentário: A lei específica apenas autoriza a criação da sociedade de economia mista (CF, art. 37, XIX). Somente a autarquia é criada diretamente por lei.
+- Comentário: A lei específica apenas autoriza a criação da sociedade de economia mista (CF, art. 37, XIX), que adquire personalidade com o registro do ato constitutivo. Criadas diretamente por lei são as autarquias e as fundações públicas de direito público.
 
 ## Q017 · difícil · Administração indireta
 As fundações públicas podem ter personalidade de direito público ou de direito privado; as de direito público, também denominadas autarquias fundacionais, podem, segundo a doutrina e o STF, ser criadas diretamente por lei.
@@ -136,3 +137,158 @@ O princípio da especialidade impõe que a lei que cria uma entidade da administ
 Situação hipotética: inconformado com decisão proferida pelo dirigente de uma autarquia federal no âmbito das atribuições legais da entidade, o ministro da pasta supervisora pretende reformá-la invocando sua condição de superior hierárquico. Nessa situação, a pretensão tem respaldo, pois as entidades da administração indireta subordinam-se aos órgãos da administração direta.
 - Gabarito: ERRADO
 - Comentário: Entre a administração direta e a indireta há vinculação (tutela ou controle finalístico), e não hierarquia. O controle se limita ao que a lei prevê.
+
+## Q027 · fácil · Administração direta
+A administração direta corresponde ao conjunto de órgãos das pessoas políticas ou federativas incumbidos do exercício centralizado da atividade administrativa.
+- Gabarito: CERTO
+- Comentário: A administração direta reúne os órgãos das pessoas políticas competentes para a atividade administrativa centralizada.
+
+## Q028 · fácil · Administração direta
+A administração direta circunscreve-se ao Poder Executivo, não alcançando as estruturas administrativas dos Poderes Legislativo e Judiciário.
+- Gabarito: ERRADO
+- Comentário: A administração direta existe em todos os Poderes e em todos os entes, embora a maior parte esteja subordinada ao Executivo.
+
+## Q029 · médio · Administração direta
+Conforme o Decreto-Lei nº 200/1967, a administração direta federal compreende os serviços integrados na estrutura administrativa da Presidência da República, nela incluída a Casa Civil, e dos ministérios, inclusive seus órgãos subordinados.
+- Gabarito: CERTO
+- Comentário: É a composição dada pelo DL 200/1967, norma de âmbito federal, mas adotada nos outros níveis da Federação.
+
+## Q030 · médio · Teorias da atuação do Estado por meio dos seus agentes
+A teoria do mandato foi afastada porque esse instituto contratual pressupõe duas pessoas com vontades próprias, condição que não se verifica quanto ao Estado.
+- Gabarito: CERTO
+- Comentário: O mandato exige duas vontades próprias, e o Estado não a possui. Por isso a teoria não é aceita.
+
+## Q031 · difícil · Teorias da atuação do Estado por meio dos seus agentes
+A teoria da representação, que aproxima o agente público da figura do tutor, foi rejeitada, entre outras razões, porque faria o Estado responder até mesmo pelos atos praticados pelo agente com excesso em relação aos poderes representativos.
+- Gabarito: ERRADO
+- Comentário: A crítica é oposta: ao ultrapassar os poderes da representação, o Estado não responderia pelos atos do agente. Além disso, a teoria equipara o Estado ao incapaz.
+
+## Q032 · fácil · Teorias da atuação do Estado por meio dos seus agentes
+Segundo a teoria do órgão, acolhida no Brasil, a vontade da pessoa jurídica exterioriza-se por meio de seus órgãos, integrados pelos agentes, em aplicação do princípio da imputação volitiva.
+- Gabarito: CERTO
+- Comentário: A teoria do órgão é a adotada no Brasil: a atuação dos agentes é imputada à pessoa jurídica. As teorias do mandato e da representação não são aceitas.
+
+## Q033 · médio · Capacidade processual
+Embora despersonalizado, o Senado Federal pode impetrar mandado de segurança para resguardar suas competências.
+- Gabarito: CERTO
+- Comentário: Os órgãos mais elevados do poder público, de natureza constitucional, excepcionam a regra da ausência de capacidade processual e podem impetrar mandado de segurança na defesa de suas competências.
+
+## Q034 · difícil · Capacidade processual
+A legitimação conferida pelo Código de Defesa do Consumidor para promover a liquidação e a execução de indenização restringe-se às entidades personalizadas da administração, excluídos os órgãos despersonalizados.
+- Gabarito: ERRADO
+- Comentário: O CDC, art. 82, III, legitima as entidades e os órgãos da administração, mesmo sem personalidade jurídica, destinados à defesa dos interesses do Código.
+
+## Q035 · médio · Capacidade processual
+Situação hipotética: a seção de protocolo de determinado ministério impetrou, em nome próprio, mandado de segurança para resguardar suas atribuições. Nessa situação, a impetração é admissível, pois a capacidade processual se estende a todos os órgãos públicos.
+- Gabarito: ERRADO
+- Comentário: A regra é que órgãos não têm capacidade processual. A exceção para o mandado de segurança alcança os órgãos mais elevados, de natureza constitucional, e não órgãos de mera execução.
+
+## Q036 · médio · Criação dos órgãos públicos
+Por meio de decreto autônomo, o chefe do Poder Executivo pode criar órgão público, desde que a medida não implique aumento de despesa.
+- Gabarito: ERRADO
+- Comentário: O decreto autônomo trata de organização e funcionamento, sem aumento de despesa e sem criação ou extinção de órgãos (CF, art. 84, VI, "a"). A criação de órgão no Executivo exige lei em sentido formal.
+
+## Q037 · médio · Criação dos órgãos públicos
+Situação hipotética: o Presidente da República, por decreto, redistribuiu atribuições entre departamentos de um ministério, sem aumento de despesa e sem criar ou extinguir órgão. Nessa situação, a medida prescinde de lei em sentido formal.
+- Gabarito: CERTO
+- Comentário: A organização e o funcionamento da administração, nessas condições, podem ser feitos por decreto autônomo (CF, art. 84, VI, "a").
+
+## Q038 · fácil · Criação dos órgãos públicos
+A lei que cria órgão da administração direta do Poder Executivo pode resultar de projeto de iniciativa de qualquer parlamentar, ante a inexistência de reserva de iniciativa na matéria.
+- Gabarito: ERRADO
+- Comentário: A lei em sentido formal que cria esses órgãos é de iniciativa do chefe do Executivo, com aprovação do Legislativo.
+
+## Q039 · difícil · Criação dos órgãos públicos
+A Câmara dos Deputados dispõe, por ato próprio, sobre a criação de cargos de seus serviços, embora a fixação da respectiva remuneração dependa de lei.
+- Gabarito: CERTO
+- Comentário: A Câmara e o Senado atuam por atos próprios quanto à sua organização e à criação de cargos, empregos e funções, mas a remuneração depende de lei (CF, arts. 51, IV, e 52, XIII).
+
+## Q040 · médio · Criação dos órgãos públicos
+Os tribunais e os tribunais de contas, em razão de sua autonomia, criam seus órgãos por ato próprio, dispensada a edição de lei.
+- Gabarito: ERRADO
+- Comentário: No Judiciário e nos demais órgãos citados, a criação se dá por lei de iniciativa do STF, do STJ, dos TJs, dos MPs e dos TCs, conforme o caso. Os atos próprios são a forma das Casas Legislativas.
+
+## Q041 · médio · Outras classificações dos órgãos
+O órgão simples caracteriza-se por concentrar um só centro de competência, o que não impede que conte com diversos cargos.
+- Gabarito: CERTO
+- Comentário: O que define o órgão simples é a inexistência de outros órgãos em sua estrutura, e não o número de cargos.
+
+## Q042 · fácil · Outras classificações dos órgãos
+Por reunir diversos órgãos menores em sua estrutura, o Ministério da Justiça classifica-se como órgão simples.
+- Gabarito: ERRADO
+- Comentário: Órgão que reúne órgãos menores, com desconcentração, é composto. O simples é o "final da linha", como as portarias.
+
+## Q043 · médio · Outras classificações dos órgãos
+A Presidência da República, não obstante conte com numerosos servidores, é órgão singular ou unipessoal, pois suas decisões e sua atuação se dão por agente único.
+- Gabarito: CERTO
+- Comentário: Quanto à situação funcional, o órgão singular decide por agente único, chefe ou representante. O colegiado manifesta-se pela atuação conjunta de seus membros.
+
+## Q044 · médio · Outras classificações dos órgãos
+Quanto às funções, órgãos ativos são aqueles voltados ao aconselhamento e à elucidação de matérias, mediante a emissão de pareceres.
+- Gabarito: ERRADO
+- Comentário: O item descreve os órgãos consultivos. Os ativos expressam decisões estatais para o cumprimento dos fins da pessoa jurídica, como os ministérios.
+
+## Q045 · fácil · Outras classificações dos órgãos
+Quanto às funções exercidas, o Tribunal de Contas da União enquadra-se como órgão de controle.
+- Gabarito: CERTO
+- Comentário: Órgãos de controle são os que fiscalizam e controlam, como o TCU.
+
+## Q046 · médio · Outras classificações dos órgãos
+Na classificação quanto à estrutura adotada por parte da doutrina, os órgãos burocráticos organizam-se como coletividade horizontal, ao passo que os colegiados apresentam estrutura hierárquica vertical.
+- Gabarito: ERRADO
+- Comentário: Os conceitos foram invertidos: burocráticos têm estrutura hierárquica vertical; colegiados são coletividade horizontal.
+
+## Q047 · fácil · Administração indireta
+As entidades da administração indireta, por serem dotadas de personalidade jurídica própria, gozam de autonomia política em relação ao ente que as instituiu.
+- Gabarito: ERRADO
+- Comentário: Essas entidades têm personalidade própria e são vinculadas à administração direta, mas não têm autonomia política.
+
+## Q048 · médio · Administração indireta
+Embora atualmente só existam entidades da administração indireta vinculadas ao Poder Executivo, a Constituição Federal não impede que venham a surgir entidades vinculadas aos demais Poderes.
+- Gabarito: CERTO
+- Comentário: O vínculo exclusivo com o Executivo é apenas o quadro atual, e não uma imposição constitucional.
+
+## Q049 · médio · Características gerais
+A previsão legal exigida para a criação e a extinção de entidades da administração indireta faz-se, em regra, por lei ordinária, reservando-se à lei complementar, até hoje não editada, a definição das áreas de atuação das fundações.
+- Gabarito: CERTO
+- Comentário: A lei ordinária é a regra. A lei complementar serve só para definir as áreas de atuação das fundações, embora nunca tenha sido editada.
+
+## Q050 · médio · Características gerais
+O consórcio público constituído com personalidade de direito público assume a forma de associação pública e integra a administração indireta.
+- Gabarito: CERTO
+- Comentário: É a previsão da Lei 11.107/2005, art. 6º, §1º.
+
+## Q051 · difícil · Características gerais
+A doutrina majoritária reconhece os consórcios públicos como uma quinta espécie de entidade da administração indireta, ao lado das autarquias, das fundações públicas, das empresas públicas e das sociedades de economia mista.
+- Gabarito: ERRADO
+- Comentário: A condição de quinta forma é sustentada por minoria doutrinária.
+
+## Q052 · médio · Instituição das entidades
+As autarquias e as fundações públicas de direito público são criadas diretamente por lei específica, não dependendo do registro de ato constitutivo para adquirir personalidade jurídica.
+- Gabarito: CERTO
+- Comentário: O registro do ato constitutivo, após a autorização legal, é o procedimento próprio das demais entidades, de direito privado.
+
+## Q053 · médio · Instituição das entidades
+Nas entidades de direito privado da administração indireta, a personalidade jurídica é adquirida com a edição do decreto do chefe do Poder Executivo que veicula o ato constitutivo.
+- Gabarito: ERRADO
+- Comentário: O decreto ainda não basta: o ato constitutivo deve ser levado a registro no órgão competente, e é com esse registro que a entidade adquire personalidade.
+
+## Q054 · difícil · Instituição das entidades
+Situação hipotética: autorizada por lei específica a instituição de fundação pública de direito privado, foi editado o respectivo ato constitutivo. Nessa situação, a entidade adquirirá personalidade jurídica com o registro desse ato na Junta Comercial.
+- Gabarito: ERRADO
+- Comentário: Para fundações, o registro se faz no Registro Civil de Pessoas Jurídicas. A Junta Comercial é o órgão competente para as estatais.
+
+## Q055 · médio · Instituição das entidades
+Por regra, a criação e a extinção de entidades da administração indireta demandam a mesma forma.
+- Gabarito: CERTO
+- Comentário: É a regra da simetria, que comporta exceção quanto às empresas estatais.
+
+## Q056 · difícil · Instituição das entidades
+Segundo o STF, autorização legislativa genérica pode viabilizar a desestatização de empresas estatais, desde que não confira carta branca ao Poder Executivo e estabeleça política pública delineada.
+- Gabarito: CERTO
+- Comentário: É a exceção à simetria reconhecida na ADI 6.241.
+
+## Q057 · difícil · Instituição das entidades
+Segundo o STF, ainda que a lei autorizadora de determinada empresa estatal preveja lei específica para sua extinção, a autorização legislativa genérica é suficiente para a desestatização dessa entidade.
+- Gabarito: ERRADO
+- Comentário: A autorização genérica não vale quando a lei autorizadora da entidade exigir lei específica para a sua extinção (ADI 6.241).

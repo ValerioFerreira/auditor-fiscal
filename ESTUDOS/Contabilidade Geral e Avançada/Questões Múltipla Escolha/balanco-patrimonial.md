@@ -1,7 +1,7 @@
 # Questões de múltipla escolha — Balanço Patrimonial
 <!-- cobertura
 Conceito e estrutura = c2e2dcfaeb
-Ativo = 02f36a1024
+Ativo = 779042cd9b
 Passivo = e64f5d2ba3
 Pegadinhas = 455f5151c8
 Base legal / referência = aaa48b83bc
@@ -135,3 +135,80 @@ Acerca do realizável a longo prazo (ARLP), assinale a opção correta.
 - E) Com exceção das disponibilidades, podem figurar no ARLP as demais contas de aplicação de recursos em bens e direitos, como estoques e clientes de longo prazo, se o prazo de realização superar 12 meses ou o ciclo operacional.
 - Gabarito: E
 - Comentário: no ARLP cabem todas as contas de aplicação de recursos em bens e direitos, exceto as disponibilidades, inclusive despesas antecipadas, estoques e clientes de longo prazo, quando o prazo de realização supera 12 meses ou o ciclo operacional. A e B contrariam essa regra; C exige operação não usual; D ignora o ciclo operacional maior que o exercício.
+
+## M012 · médio · FGV · Circulante (capital de giro)
+Em 31/12/X1, o ativo circulante de uma sociedade empresária apresentava, entre outros itens: valores já transferidos e ainda em processo de transferência entre instituições financeiras; prêmios de seguros a vencer, pagos em X1, com cobertura em X2; e duplicatas a receber de clientes, realizáveis em X2. Assinale a opção que indica, respectivamente, o grupo do ativo circulante em que esses itens são classificados.
+
+- A) Disponibilidades; direitos realizáveis no curso do exercício social subsequente; despesas antecipadas.
+- B) Direitos realizáveis no curso do exercício social subsequente; despesas antecipadas; disponibilidades.
+- C) Despesas antecipadas; disponibilidades; direitos realizáveis no curso do exercício social subsequente.
+- D) Disponibilidades; despesas antecipadas; direitos realizáveis no curso do exercício social subsequente.
+- E) Direitos realizáveis no curso do exercício social subsequente; disponibilidades; despesas antecipadas.
+- Gabarito: D
+- Comentário: os numerários em trânsito integram as disponibilidades; os prêmios de seguros a vencer são despesas antecipadas, pagas no exercício atual; as duplicatas a receber são direitos realizáveis no curso do exercício seguinte. As demais opções trocam a ordem desses grupos.
+
+## M013 · fácil · CEBRASPE · Circulante (capital de giro)
+Com relação aos direitos realizáveis no curso do exercício social subsequente, assinale a opção correta.
+
+- A) Os estoques são direitos realizáveis pessoais, por dependerem de terceiros para a sua realização.
+- B) As duplicatas a receber são direitos realizáveis reais, por representarem bens da empresa.
+- C) Os estoques são direitos realizáveis reais, e as duplicatas a receber, direitos realizáveis pessoais.
+- D) Os títulos a recuperar integram as disponibilidades, em razão da sua liquidez imediata.
+- E) Os saldos em bancos integram os direitos realizáveis pessoais, por constituírem créditos com terceiros.
+- Gabarito: C
+- Comentário: bens da empresa, como os estoques, são direitos realizáveis reais; créditos com terceiros, como duplicatas a receber e títulos a recuperar, são direitos realizáveis pessoais. A e B invertem as categorias; D e E confundem esses direitos com as disponibilidades, grupo em que estão os bancos.
+
+## M014 · médio · CEBRASPE · Não circulante
+Nos termos da Lei nº 6.404/1976, presume-se a influência significativa da investidora sobre a coligada quando aquela
+
+- A) detiver 20% ou mais do capital votante da investida.
+- B) detiver 20% ou mais do capital total da investida, votante ou não.
+- C) detiver 10% ou mais do capital votante da investida.
+- D) detiver mais de 50% do capital votante da investida.
+- E) puder eleger a maioria dos administradores da investida.
+- Gabarito: A
+- Comentário: a influência significativa é presumida quando a investidora detém 20% ou mais do capital votante (Lei 6.404/1976, art. 243, §§4º e 5º). B troca o capital votante pelo total; C reduz o percentual; D e E descrevem a controlada, em que há preponderância nas deliberações e poder de eleger a maioria dos administradores.
+
+## M015 · médio · FGV · Não circulante
+Uma sociedade empresária analisa um contrato de arrendamento à luz do roteiro de classificação previsto no CPC 06 (R1). Assinale a opção que indica característica própria do arrendamento financeiro, segundo esse roteiro.
+
+- A) Os riscos e os benefícios do ativo permanecem com o arrendador durante todo o contrato.
+- B) O período do arrendamento abrange a menor parte da vida útil do ativo arrendado.
+- C) O valor residual do ativo, ao final do contrato, é superior ao seu valor justo.
+- D) O ativo é de alta especialização, de modo que apenas o arrendatário pode usá-lo sem grandes modificações.
+- E) Os valores pagos ao longo do contrato totalizam fração reduzida do valor justo do ativo.
+- Gabarito: D
+- Comentário: no roteiro do CPC 06 (R1), são indicadores do arrendamento financeiro a transferência da propriedade ao final, o valor residual abaixo do justo, o prazo pela maior parte da vida útil, os pagamentos que totalizam o valor justo e a alta especialização do ativo. A descreve o arrendamento operacional; B, C e E invertem os indicadores.
+
+## M016 · médio · CEBRASPE · Não circulante
+Com o CPC 06 (R2), no que se refere à contabilização pelo arrendatário, é correto afirmar que
+
+- A) se mantém a distinção entre arrendamento financeiro e operacional, com reconhecimento do ativo apenas no primeiro.
+- B) o arrendatário deixou de distinguir arrendamento financeiro de operacional e reconhece, em regra, um ativo de direito de uso.
+- C) todo arrendamento passa a ser tratado como despesa do período, vedado o reconhecimento de ativo pelo arrendatário.
+- D) o arrendatário reconhece o bem como imobilizado próprio somente quando há transferência da propriedade ao final do contrato.
+- E) a classificação do contrato passa a depender exclusivamente do valor residual do ativo ao término do arrendamento.
+- Gabarito: B
+- Comentário: com o CPC 06 (R2) (IFRS 16), o arrendatário deixou de distinguir arrendamento financeiro de operacional e reconhece, em regra, um ativo de direito de uso. A mantém a distinção superada para o arrendatário; C nega o reconhecimento do ativo; D e E criam critérios que não correspondem à regra.
+
+## M017 · médio · FGV · Não circulante
+Em X1, uma sociedade empresária realizou gastos relativos a um recurso incorpóreo que a entidade controla e do qual espera benefícios futuros. O recurso, contudo, não é separável da entidade nem resulta de direitos contratuais ou legais. Assinale a opção que indica o tratamento desses gastos.
+
+- A) Classificação no intangível, por se tratar de bem incorpóreo controlado pela entidade.
+- B) Classificação no imobilizado, por se destinar à manutenção das atividades da companhia.
+- C) Reconhecimento como despesa, por não atender a um dos requisitos cumulativos do intangível.
+- D) Classificação em investimentos, por não se destinar à manutenção das atividades da companhia.
+- E) Classificação no realizável a longo prazo, por gerar benefícios depois do exercício seguinte.
+- Gabarito: C
+- Comentário: para ser intangível, o item deve ser, cumulativamente, identificável (separável ou resultante de direitos contratuais ou legais), controlável e gerador de benefícios futuros; se não puder ser classificado como intangível, é despesa. Faltou a identificabilidade, o que afasta A. B é próprio de bens corpóreos; D e E não se aplicam a esse tipo de gasto.
+
+## M018 · fácil · FGV · Não circulante
+Em 31/12/X1, uma companhia apresentava, entre outros, os seguintes itens: marcas e patentes; veículos adquiridos em operação que transferiu à companhia o risco, o benefício e o controle; e ações de coligadas. Assinale a opção que indica, respectivamente, o subgrupo do ativo não circulante em que esses itens são classificados.
+
+- A) Intangível; imobilizado; investimentos.
+- B) Imobilizado; intangível; investimentos.
+- C) Investimentos; imobilizado; intangível.
+- D) Intangível; investimentos; imobilizado.
+- E) Imobilizado; investimentos; intangível.
+- Gabarito: A
+- Comentário: marcas e patentes são bens incorpóreos e vão ao intangível; os veículos adquiridos em operação que transfere à companhia o risco, o benefício e o controle são bens corpóreos e vão ao imobilizado; as ações de coligadas são participações em outras sociedades e vão a investimentos. As demais opções alternam esses subgrupos.

@@ -1,8 +1,8 @@
 # Questões turbo — Características, Limites e Eficácia dos Direitos Fundamentais
 <!-- cobertura
-Características = 8e17ae8b44
+Características = fb0128a21a
 Dimensão dupla = 4272cf3908
-Limites e eficácias = 12dabfaf3b
+Limites e eficácias = a927fd8108
 Eficácia horizontal (efeito externo) = 2c0be12634
 Pegadinhas = a1a522b91a
 -->
@@ -116,3 +116,33 @@ Empregado que invoca sua privacidade em face do empregador, em relação privada
 A eficácia diagonal dos direitos fundamentais ocorre nas relações entre particulares em situação de plena paridade, sendo própria dos contratos civis entre iguais.
 - Gabarito: ERRADO
 - Comentário: A eficácia diagonal refere-se às relações assimétricas entre particulares, a exemplo das relações de trabalho.
+
+## Q023 · fácil · Características
+A característica da complementaridade indica que a plena efetivação dos direitos fundamentais pressupõe considerá-los como integrantes de um sistema interpretativo único.
+- Gabarito: CERTO
+- Comentário: A complementaridade determina que a plena efetivação considere a composição de um sistema interpretativo único.
+
+## Q024 · médio · Características
+Denomina-se concorrência a característica segundo a qual incumbe ao poder público a missão de concretizar os direitos fundamentais.
+- Gabarito: ERRADO
+- Comentário: Essa definição é a da efetividade. A concorrência significa que os direitos podem ser exercidos cumulativamente.
+
+## Q025 · médio · Características
+O direito à vida, em razão de sua primazia, constitui exceção à relatividade dos direitos fundamentais, não se sujeitando a limitação de nenhuma espécie.
+- Gabarito: ERRADO
+- Comentário: Pela relatividade, nenhum direito fundamental é absoluto: todos são limitáveis, no caso concreto, por outros direitos fundamentais.
+
+## Q026 · difícil · Limites e eficácias
+Segundo a teoria externa, os direitos são assegurados *prima facie*, tendo seus contornos definitivos estabelecidos diante do caso concreto.
+- Gabarito: CERTO
+- Comentário: Na teoria externa, fatores extrínsecos determinam os limites e o núcleo essencial, e os direitos, reconhecidos à primeira vista, são definidos no caso concreto.
+
+## Q027 · difícil · Limites e eficácias
+Para a teoria interna, somente à luz do caso concreto é possível identificar o núcleo essencial do direito fundamental, cuja violação pode ser admitida conforme as circunstâncias.
+- Gabarito: ERRADO
+- Comentário: Na teoria interna, o núcleo essencial é insuscetível de violação, independentemente do caso concreto. A definição pelo caso concreto pertence à teoria externa.
+
+## Q028 · fácil · Tipos de eficácia
+Diz-se dotada de eficácia técnica a norma que cumpre todos os requisitos técnicos exigidos.
+- Gabarito: CERTO
+- Comentário: A eficácia técnica exige que a norma cumpra todos os requisitos técnicos.

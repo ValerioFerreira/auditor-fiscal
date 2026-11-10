@@ -1,6 +1,6 @@
 # Assuntos Estudados — Visão Geral
 
-> Versão da base: **v020** (07/11/2026) · ✅ consolidado · 🔶 consolidado com pendência (ver `pendencias.md`)
+> Versão da base: **v022** (10/11/2026) · ✅ consolidado · 🔶 consolidado com pendência (ver `pendencias.md`)
 
 ## Direito Tributário
 
@@ -25,6 +25,8 @@
 | 04 - Limitações ao Poder de Tributar | `liberdade-de-trafego-e-principios-federativos.md` | Tráfego e pedágio; uniformidades; isenções heterônomas; não discriminação | ✅ |
 | 04 - Limitações ao Poder de Tributar | `transparencia-seguranca-juridica-e-novos-principios.md` | Transparência; segurança jurídica; princípios da EC 132 | ✅ |
 | 04 - Limitações ao Poder de Tributar | `imunidades-tributarias.md` | Não incidência, imunidade, isenção e alíquota zero; classificações | 🔶 |
+| 04 - Limitações ao Poder de Tributar | `imunidades-em-especie.md` | Recíproca, religiosa, partidos, sindicatos, educação e assistência; cultural; musical; outras imunidades; entidades beneficentes; ITCMD e IPVA | 🔶 |
+| 05 - Competência Tributária | `competencia-tributaria.md` | Conceito; competência para legislar; características; capacidade ativa; classificação (privativa, comum, cumulativa, residual, extraordinária e compartilhada) | ✅ |
 
 ## Contabilidade Geral e Avançada
 
@@ -45,6 +47,7 @@
 | 06 - Demonstrações Contábeis | `demonstracoes-contabeis.md` | Lei 6.404 (art. 176); NBC TG 26; disposições | ✅ |
 | 06 - Demonstrações Contábeis | `balanco-patrimonial.md` | Estrutura; ativo (circulante, ARLP, investimentos, imobilizado, intangível); passivo | 🔶 |
 | 06 - Demonstrações Contábeis | `patrimonio-liquido.md` | Contas da Lei 6.404; reservas; ações em tesouraria; absorção de prejuízos; exemplo | ✅ |
+| 06 - Demonstrações Contábeis | `demonstracao-do-resultado-do-exercicio.md` | Composição; CMV; participações; estrutura do CPC 26; Lei x CPC; natureza x função; ARE | ✅ |
 
 ## Direito Constitucional
 
@@ -61,6 +64,11 @@
 | 02 - Princípios Fundamentais | `principios-fundamentais.md` | Arts. 1º a 4º: fundamentos; forma de Estado, de governo e regime político; Estado Democrático de Direito; separação dos Poderes; objetivos; relações internacionais | ✅ |
 | 03 - Direitos e Garantias Fundamentais | `teoria-geral-dos-direitos-fundamentais.md` | Terminologia; direitos e garantias; gerações; status; catalogados | ✅ |
 | 03 - Direitos e Garantias Fundamentais | `caracteristicas-limites-e-eficacia-dos-direitos-fundamentais.md` | Características; dimensões; limites; eficácias; eficácia horizontal | ✅ |
+| 03 - Direitos e Garantias Fundamentais | `vida-igualdade-e-legalidade.md` | Art. 5º, caput e I a III: vida, segurança, igualdade, legalidade e reserva legal, tortura | 🔶 |
+| 03 - Direitos e Garantias Fundamentais | `liberdades-de-expressao-e-crenca.md` | Art. 5º, IV a IX: pensamento, resposta, crença, escusa de consciência, censura | 🔶 |
+| 03 - Direitos e Garantias Fundamentais | `intimidade-domicilio-e-comunicacoes.md` | Art. 5º, X a XII: intimidade, sigilo bancário, domicílio, interceptação | 🔶 |
+| 03 - Direitos e Garantias Fundamentais | `profissao-locomocao-reuniao-e-associacao.md` | Art. 5º, XIII a XXI: profissão, informação, locomoção, reunião, associação, representação | ✅ |
+| 03 - Direitos e Garantias Fundamentais | `direito-de-propriedade.md` | Art. 5º, XXII a XXXI: desapropriação, requisição, pequena propriedade, propriedade intelectual, herança | ✅ |
 
 ## Direito Administrativo
 
@@ -73,10 +81,20 @@
 | 02 - Regime Jurídico Administrativo | `regime-juridico-administrativo.md` | Público x privado; supremacia e indisponibilidade; interesse primário x secundário | ✅ |
 | 03 - Organização Administrativa | `estado-e-governo.md` | Estado; funções; federação; governo; formas e sistemas | ✅ |
 | 03 - Organização Administrativa | `administracao-publica-sentidos-e-atividades.md` | Função administrativa; sentidos; atividades-meio e fim (com imagem) | ✅ |
-| 03 - Organização Administrativa | `administracao-direta-e-indireta.md` | Entidades; órgãos; indireta; tutela | ✅ |
+| 03 - Organização Administrativa | `centralizacao-descentralizacao-e-desconcentracao.md` | Entidades políticas e administrativas; tipos de descentralização; desconcentração | ✅ |
+| 03 - Organização Administrativa | `administracao-direta-e-indireta.md` | Direta; órgãos (teorias, capacidade processual, criação, classificações); indireta; instituição das entidades; consórcios; tutela | ✅ |
+| 03 - Organização Administrativa | `autarquias.md` | Conceito; regime jurídico; prerrogativas; foro; conselhos profissionais e OAB; regime especial (com imagem) | 🔶 |
+| 03 - Organização Administrativa | `agencias-reguladoras-e-executivas.md` | Origem; rol; características; dirigentes; avocação; agências executivas | ✅ |
 | 04 - Princípios da Administração Pública | `principios-expressos.md` | LIMPE; nepotismo | 🔶 |
 | 04 - Princípios da Administração Pública | `principios-implicitos.md` | Razoabilidade, autotutela, motivação, continuidade, segurança jurídica e demais | ✅ |
 
 ## Língua Portuguesa
 
-Ainda sem temas próprios: só o resumo sintético (parte 01, de 30/10/2026) foi enviado.
+| Pasta | Arquivo | Assunto | Status |
+|---|---|---|---|
+| 01 - Fonologia | `fonologia-e-encontros-vocalicos.md` | Ortoepia e prosódia; fonema e letra; dígrafos; encontros vocálicos | ✅ |
+| 02 - Acentuação Gráfica | `acentuacao-grafica.md` | Regras gerais; hiato; acentos diferenciais; palavras incomuns; trema | ✅ |
+| 03 - Ortografia | `emprego-do-hifen.md` | Prefixos; regras especiais; compostas; encadeamento | ✅ |
+| 03 - Ortografia | `emprego-das-letras.md` | Ç, S, Z, SS, SC, J, G, X e CH | ✅ |
+| 03 - Ortografia | `maiusculas-siglas-e-abreviacoes.md` | Maiúsculas; siglas; abreviatura x abreviação | ✅ |
+| 03 - Ortografia | `expressoes-problematicas.md` | Mal e mau; há e a; porquês; onde e aonde; senão; pares semelhantes | ✅ |

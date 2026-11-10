@@ -130,7 +130,7 @@ Use os filtros acima da tabela para ver só uma classificação (ex.: redutoras 
 - Natureza das contas e movimentação → `contas-e-partidas-dobradas.md`
 - Grupos patrimoniais (ativo, passivo, PL) → `../02 - Patrimônio/patrimonio.md`
 - Lançamentos com essas contas → `../04 - Atos e Fatos Administrativos/atos-e-fatos-administrativos.md`
-- Balanço Patrimonial e DRE — a estudar
+- Balanço patrimonial → `../06 - Demonstrações Contábeis/balanco-patrimonial.md`; DRE → `../06 - Demonstrações Contábeis/demonstracao-do-resultado-do-exercicio.md`
 - Contas no balanço patrimonial (circulante, não circulante e PL) → `../06 - Demonstrações Contábeis/balanco-patrimonial.md`
 - Contas do patrimônio líquido (reservas, ações em tesouraria) → `../06 - Demonstrações Contábeis/patrimonio-liquido.md`
 

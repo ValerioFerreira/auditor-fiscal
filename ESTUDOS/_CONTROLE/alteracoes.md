@@ -354,3 +354,89 @@
 | Classificação | Como estava | Como ficou na base |
 |---|---|---|
 | REORGANIZAÇÃO | Quadro-resumo de legalidade, anterioridade e noventena só em tabela | Mesmo quadro também em diagrama de conjuntos (legalidade, anterioridade anual, noventena e lei complementar), logo abaixo da tabela; a tabela não mudou |
+
+## v021 — 09/11/2026 (resumos de cinco disciplinas)
+
+### Direito Tributário
+
+| Classificação | Como estava | Como ficou na base |
+|---|---|---|
+| IMPRECISA | Exceto II, IE e ICMS, nenhum imposto incide sobre energia, telecomunicações, petróleo, combustíveis e minerais | Redação da EC 132/2023: também IBS; e Imposto Seletivo em petróleo, combustíveis e minerais (CF, art. 155, §3º) |
+| INCORRETA | Parafiscalidade: atribuir a outro a "competência ativa" | Capacidade tributária ativa (a competência é indelegável) |
+| INCORRETA | Imóveis de autarquias "podendo ser isentos" | Imunes |
+| INCOMPLETA | IPVA: aeronaves agrícolas | Também aeronaves de operador certificado para serviços aéreos a terceiros |
+| IMPRECISA | Literomusicais: espetáculos de leitura com música | Obra que reúne letra e música |
+| INCOMPLETA | ICMS não incide (três hipóteses) | Acrescentado o ouro como ativo financeiro |
+| INCORRETA | "prominente comprador"; "Sob o ouro"; "PLDpub" | promitente comprador; sobre o ouro; pessoa jurídica de direito público |
+| REORGANIZAÇÃO | Tabela de classificação das competências em imagem | Tabela em texto, com o mesmo conteúdo |
+| DIVERGÊNCIA | Imunidade "se estende a todas as sanções de natureza tributária, exceto as previdenciárias" | Mantida com ⚠️; pendência aberta |
+
+### Contabilidade Geral e Avançada
+
+| Classificação | Como estava | Como ficou na base |
+|---|---|---|
+| INCOMPLETA | Estrutura mínima do CPC 26 sem "despesas e receitas financeiras"; resultado do período como subitem | Item g incluído; resultado líquido do período como item próprio |
+| INCORRETA | "Cada taxa não pode ser superior a 10% do resultado" | Teto legal só para administradores e partes beneficiárias (arts. 152, §1º, e 46, §2º) |
+| DIVERGÊNCIA | JCP entre as despesas financeiras | Mantido, com a divergência (Lei 9.249/1995 x ICPC 08) |
+| INCORRETA | "PASESP"; "cuso" | PASEP; custo |
+| REORGANIZAÇÃO | Quadro Lei x CPC em imagem | Tabela em texto, com o mesmo conteúdo |
+
+### Direito Constitucional
+
+| Classificação | Como estava | Como ficou na base |
+|---|---|---|
+| INCORRETA | Caput: "à prosperidade" | À propriedade |
+| INCORRETA | Inciso "XII" sobre profissão; "XIV" sobre desapropriação | XIII; XXIV |
+| INCORRETA | Autoridade fiscal: "satisfatória fundamentação judicial" | Fundamentação da autoridade administrativa, sem ordem judicial (LC 105/2001, art. 6º; Tema 225) |
+| INCORRETA | Reunião: "se em local público, independe de aviso prévio" | Independe de autorização, não de aviso (CF, art. 5º, XVI; Tema 855) |
+| IMPRECISA | Celular de preso em flagrante | Tese do Tema 977, com consentimento ou decisão judicial e a hipótese de encontro fortuito |
+| IMPRECISA | Revista íntima: regra só para menores e deficientes | Regra geral para visitantes, e revista invertida para esses grupos (Tema 998) |
+| INCOMPLETA | Imóvel urbano "não edificado" | Não edificado, subutilizado ou não utilizado |
+| DIVERGÊNCIA | Pena de morte vedada até em nova Constituição | Mantida, com a posição do STF sobre o poder originário |
+| DIVERGÊNCIA | Decisão judicial que proíbe publicação é válida | Mantida com ⚠️; pendência aberta (ADPF 130; Rcl 22.328) |
+| INCORRETA | "reposta"; "perscutio criminis" | resposta; persecutio criminis |
+
+### Direito Administrativo
+
+| Classificação | Como estava | Como ficou na base |
+|---|---|---|
+| INCORRETA | ANPD criada por medida provisória, fora da Lei 13.848/2019 | MP convertida na Lei 15.352/2026; 12 agências no rol |
+| INCOMPLETA | Regime jurídico único abolido pela EC 19/1998 | Acrescentada a ADI 2.135, com efeitos prospectivos |
+| IMPRECISA | Delegação a pessoa jurídica de direito privado | Permissão também a pessoa física (Lei 8.987/1995) |
+| IMPRECISA | Ato constitutivo levado à "junta comercial para registro civil de PJ" | Junta Comercial ou Registro Civil de Pessoas Jurídicas |
+| IMPRECISA | Legislativo cria órgãos por atos próprios | Texto da CF: cargos, empregos e funções, com remuneração em lei |
+| INCOMPLETA | Remessa necessária só na execução da dívida ativa | Também sentença proferida contra a autarquia (CPC, art. 496) |
+| DIVERGÊNCIA | Consórcio de direito privado fora da administração | Mantido, registrando a divergência |
+| INCORRETA | Lista com "11 em lei + ANPD (medida provisória)" | Atualizada |
+| CONFIRMADA | Legislação estadual só condiciona dirigentes de agências | ADI 6.775 |
+
+### Língua Portuguesa
+
+| Classificação | Como estava | Como ficou na base |
+|---|---|---|
+| INCORRETA | "Exceder/Exceção" como exceção da regra de -ceder | Exceder forma excesso; exceção vem de excetuar |
+| INCORRETA | Aonde: "locais com ideia de tempo" | Ideia de movimento |
+| INCORRETA | "matérias afim"; "transcursão"; "delize"; "trâsnfuga"; "camtãu"; "proposição" (a cerca de) | afins; transcurso; deslize; trânsfuga; catãu; preposição |
+| INCOMPLETA | Mal: hífen só antes de vogal e h | Também antes de l (mal-limpo) |
+| IMPRECISA | Mantém e intervém como acentos diferenciais | Acentuadas pela regra das oxítonas |
+| REORGANIZAÇÃO | Quadro de regras de acentuação em imagem | Tabela em texto, com o mesmo conteúdo |
+
+### Resumo sintético
+
+| Classificação | Como estava | Como ficou na base |
+|---|---|---|
+| REORGANIZAÇÃO | Arquivo novo com o conteúdo de 30/10 mais trechos inéditos | Salvos só os trechos inéditos, como partes novas, com o texto intacto |
+
+## v022 — 10/11/2026 (Fixação em detalhes: Balanço Patrimonial)
+
+### Contabilidade Geral e Avançada
+
+| Classificação | Como estava | Como ficou na base |
+|---|---|---|
+| REORGANIZAÇÃO | — | Novo assunto `Feature Fixação/bp/` (estrutura.md, contas.md, questoes.md e guia.md); PDFs em `ASSUNTOS/` e `QUESTOES/`, fora do git |
+| IMPRECISA | Aula (Possati, questão do CNPq): "a Lei 11.638/2007 estabeleceu o ativo não circulante" | Foi a Lei 11.941/2009; a 11.638 criou o intangível no ativo permanente (estrutura e questão-modelo 01) |
+| DIVERGÊNCIA | Aula (Igor Cintra): mútuo usual a coligada em 90 dias → gabarito E (ativo circulante da investidora) | Gabarito oficial B (passivo circulante no balanço da coligada); as duas leituras explicadas na questão-modelo 11 |
+| DIVERGÊNCIA | Aula (Possati): item da PCDF ("há duas contas credoras fora do passivo") admitiria duas leituras | Mantido o gabarito da banca (ERRADO: são três), com a observação do professor (questão-modelo 12) |
+| CONFIRMADA | Tá Fácil (PIAUÍPREV 2024): gabarito preliminar D | Definitivo C (ativo total de 639.200), conferido pelos lançamentos (questão-modelo 29) |
+| REORGANIZAÇÃO | Tabelas embaralhadas pela extração (F2241, F2743, F2747, F2812, F2834, F2857, F2925, F2926) e balancete em imagem (F2925) | Tabelas remontadas sem mudar texto nem valores; imagem da F2925 transcrita |
+| INCOMPLETA | Gerador: aviso de alternativas iguais ignorava maiúsculas | Comparação respeita maiúsculas (falso positivo em M001, M003 e M006 de maiúsculas, siglas e abreviações) |

@@ -31,9 +31,9 @@
 | **Quanto à necessidade de regulamentação** | **Incondicionadas**: **não dependem de lei** para surtir efeitos (ex.: imunidade recíproca) · **Condicionadas**: **dependem de regulamentação** (ex.: imunidade às **instituições de educação e de assistência social sem fins lucrativos**) |
 | **Quanto ao alcance** | **Gerais ou genéricas**: **vários tributos e/ou entes** juntos (ex.: imunidade recíproca) · **Específicas, tópicas ou especiais**: mais restritas, a **tributos e entes específicos** (ex.: imunidade do **IPI** na exportação) |
 
-## Onde estão as imunidades (a estudar)
+## Onde estão as imunidades
 
-- **Imunidades genéricas do art. 150, VI** (a detalhar em tema próprio): **recíproca** (entes sobre patrimônio, renda e serviços uns dos outros); **templos de qualquer culto**; **partidos políticos**, entidades sindicais de trabalhadores, **instituições de educação e de assistência social** sem fins lucrativos; **livros, jornais, periódicos e o papel** destinado à sua impressão; **fonogramas e videofonogramas musicais** produzidos no Brasil (EC 75/2013).
+- **Imunidades genéricas do art. 150, VI** (detalhadas em `imunidades-em-especie.md`): **recíproca** (entes sobre patrimônio, renda e serviços uns dos outros); **templos de qualquer culto**; **partidos políticos**, entidades sindicais de trabalhadores, **instituições de educação e de assistência social** sem fins lucrativos; **livros, jornais, periódicos e o papel** destinado à sua impressão; **fonogramas e videofonogramas musicais** produzidos no Brasil (EC 75/2013).
 - **Cláusulas pétreas**: ver o tema de limitações, com o ⚠️ sobre a fonte.
 
 ## Pegadinhas
@@ -55,7 +55,8 @@
 - Isonomia e pacto federativo (origem das imunidades ontológicas) → `principio-da-isonomia-tributaria.md`; `liberdade-de-trafego-e-principios-federativos.md`
 - Imunidade e ICMS-Exportações → `liberdade-de-trafego-e-principios-federativos.md`
 - Imunidade e imposto → `../03 - Espécies Tributárias/impostos.md`
-- Competência tributária — a estudar
+- Imunidades em espécie → `imunidades-em-especie.md`
+- Competência tributária → `../05 - Competência Tributária/competencia-tributaria.md`
 
 ## Mapa mental
 

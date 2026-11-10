@@ -115,7 +115,7 @@ O Município Rô invoca a imunidade recíproca, e a Fundação Sigma, instituiç
 - Gabarito: B
 - Comentário: as imunidades incondicionadas não dependem de lei para surtir efeitos (exemplo: recíproca); as condicionadas dependem de regulamentação (exemplo: instituições de educação e assistência social sem fins lucrativos). A inverte as categorias; C e D tratam as duas igualmente; E mistura com a classificação quanto à forma de previsão.
 
-## M010 · médio · CEBRASPE · Onde estão as imunidades (a estudar)
+## M010 · médio · CEBRASPE · Onde estão as imunidades
 Acerca das imunidades genéricas do art. 150, VI, da Constituição Federal, assinale a opção correta.
 
 - A) A imunidade recíproca abrange somente o patrimônio dos entes, não alcançando a renda nem os serviços.

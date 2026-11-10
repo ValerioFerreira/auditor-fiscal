@@ -42,7 +42,7 @@
 - Transparência, segurança jurídica e princípios da EC 132/2023 → `transparencia-seguranca-juridica-e-novos-principios.md`
 - Imunidades → `imunidades-tributarias.md`
 - Direitos fundamentais e cláusulas pétreas → `../../Direito Constitucional/03 - Direitos e Garantias Fundamentais/teoria-geral-dos-direitos-fundamentais.md`
-- Competência tributária — a estudar
+- Competência tributária → `../05 - Competência Tributária/competencia-tributaria.md`
 - Cláusulas pétreas e limites ao poder de reforma → `../../Direito Constitucional/01 - Teoria da Constituição/poder-constituinte.md`
 
 ## Mapa mental

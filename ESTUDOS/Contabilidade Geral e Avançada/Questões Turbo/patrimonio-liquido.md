@@ -4,7 +4,7 @@ Conceito = 0b65139eb3
 Contas previstas na Lei 6.404/1976 (art. 178, §2º, III) = c5400f10d0
 Capital social = ce9e4f3652
 Reservas de capital = 96c4d0accf
-Ajustes de avaliação patrimonial = 5acb2b6303
+Ajustes de avaliação patrimonial = 26011499ab
 Ações em tesouraria = 91a77ea971
 Reservas de lucros = 5da4614cb1
 Lucros ou prejuízos acumulados = 4c72c9bcca
@@ -157,3 +157,13 @@ Uma companhia emite 20.000 ações de valor nominal R$ 2,00 por R$ 3,00 cada, co
 Na emissão de 20.000 ações de valor nominal R$ 2,00 por R$ 3,00 cada, com custo de emissão de R$ 1.000, a reserva de capital é de R$ 20.000 e o custo de emissão vai para despesa do período.
 - Gabarito: ERRADO
 - Comentário: O custo de emissão não é despesa: reduz o PL. A reserva é de R$ 19.000 (60.000 − 40.000 − 1.000).
+
+## Q030 · médio · Ajustes de avaliação patrimonial
+A contrapartida da diminuição do valor justo atribuído a elemento do ativo, enquanto não computada no resultado, é registrada em ajustes de avaliação patrimonial, com caráter retificador do patrimônio líquido.
+- Gabarito: CERTO
+- Comentário: Nas diminuições de valor, os ajustes de avaliação patrimonial funcionam como conta retificadora, ou redutora (art. 182, §3º, da Lei 6.404/1976).
+
+## Q031 · médio · Ajustes de avaliação patrimonial
+As variações de valor justo de elementos patrimoniais são levadas a ajustes de avaliação patrimonial somente depois de computadas no resultado do exercício, como etapa posterior à sua apuração.
+- Gabarito: ERRADO
+- Comentário: A conta abriga essas contrapartidas justamente enquanto não computadas no resultado (art. 182, §3º, da Lei 6.404/1976).

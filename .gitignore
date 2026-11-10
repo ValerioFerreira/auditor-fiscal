@@ -17,3 +17,4 @@ __pycache__/
 
 # PDFs de origem da Fixação em detalhes (material pago, com marca d'água pessoal): só o conteúdo reescrito vai para o git
 ESTUDOS/**/Feature Fixação/*.pdf
+ESTUDOS/**/Feature Fixação/**/*.pdf

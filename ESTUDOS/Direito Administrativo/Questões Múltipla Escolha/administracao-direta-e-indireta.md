@@ -1,10 +1,11 @@
 # Questões de múltipla escolha — Administração Direta e Indireta
 <!-- cobertura
-Administração direta = d85505d827
-Administração indireta = 5eeedc2862
+Administração direta = 03a3849b1c
+Órgãos públicos = c8c0927cc5
+Administração indireta = 3adb2f6486
 Controle (tutela) x hierarquia = 3bc69dbe2f
-Pegadinhas CEBRASPE = 7a93467335
-Base legal / referência = 5e929e3d5c
+Pegadinhas CEBRASPE = c2ef47f3d2
+Base legal / referência = a399999fda
 -->
 
 ## M001 · fácil · CEBRASPE · Administração direta
@@ -222,3 +223,189 @@ Assinale a opção que apresenta a resposta correta.
 - E) A Superintendência é órgão da autarquia, sem personalidade jurídica própria, e a autarquia, pessoa jurídica de direito público, é vinculada, e não subordinada, ao ministério.
 - Gabarito: E
 - Comentário: a Superintendência é centro de competência (órgão) da autarquia, sem personalidade jurídica, e a autarquia é pessoa de direito público vinculada ao ministério, sem hierarquia, apenas com controle finalístico. A e B conferem personalidade ao órgão; C e D confundem entidade e órgão ou admitem subordinação hierárquica entre pessoas distintas.
+
+## M017 · fácil · CEBRASPE · Teorias da atuação do Estado por meio dos seus agentes
+Acerca das teorias que explicam a atuação do Estado por meio de seus agentes, assinale a opção correta.
+
+- A) A teoria do mandato é a adotada no Brasil, pois o agente é mandatário da pessoa jurídica.
+- B) Pela teoria do órgão, adotada no Brasil, a vontade da pessoa jurídica é manifestada por órgãos, dos quais os agentes fazem parte.
+- C) A teoria da representação é a adotada no Brasil, equiparando-se o agente a um tutor.
+- D) A teoria do mandato foi afastada por equiparar o Estado ao incapaz.
+- E) A teoria da representação foi afastada por pressupor um contrato entre duas pessoas com vontades próprias.
+- Gabarito: B
+- Comentário: o Brasil adota a teoria do órgão, ou da imputação volitiva. A e C apontam teorias rejeitadas; D e E trocam as críticas: equiparar o Estado ao incapaz é o defeito da representação, e pressupor duas vontades em um contrato é o do mandato.
+
+## M018 · difícil · FGV · Teorias da atuação do Estado por meio dos seus agentes
+Em seminário, Ana sustentou que o agente público atua como um tutor do Estado, que seria representado à semelhança de um incapaz. Ao final, os participantes foram chamados a identificar essa teoria e a situação dela no direito brasileiro.
+
+Assinale a opção correta.
+
+- A) Ana descreve a teoria do mandato, rejeitada porque o mandato pressupõe duas pessoas com vontades próprias.
+- B) Ana descreve a teoria do órgão, adotada no Brasil, segundo a qual o agente exprime vontade própria em nome do Estado.
+- C) Ana descreve a teoria da representação, não aceita porque equipara o Estado ao incapaz e porque, excedidos os poderes, o Estado não responderia pelos atos do agente.
+- D) Ana descreve a teoria da representação, adotada no Brasil com base no princípio da imputação volitiva.
+- E) Ana descreve a teoria da representação, não aceita porque o contrato de mandato não se aplica às pessoas jurídicas de direito público.
+- Gabarito: C
+- Comentário: comparar o agente a um tutor é a teoria da representação, não aceita por equiparar o Estado ao incapaz e por deixar o Estado sem responder quando o agente ultrapassa os poderes. A e B identificam outra teoria; D atribui à representação o princípio próprio da teoria do órgão; E acerta a teoria, mas usa a crítica dirigida ao mandato.
+
+## M019 · médio · CEBRASPE · Capacidade processual
+Quanto à capacidade processual dos órgãos públicos, assinale a opção correta.
+
+- A) Os órgãos mais elevados do poder público, de natureza constitucional, podem impetrar mandado de segurança na defesa de suas competências.
+- B) Por não terem personalidade jurídica, os órgãos públicos jamais podem estar em juízo.
+- C) Os órgãos subalternos têm capacidade processual para a defesa de suas atribuições de execução.
+- D) O CDC veda que órgão da administração sem personalidade jurídica atue na defesa dos interesses que tutela.
+- E) A capacidade processual dos órgãos públicos é a regra, pois decorre das competências que a lei lhes atribui.
+- Gabarito: A
+- Comentário: a regra é a ausência de capacidade processual, com exceção dos órgãos mais elevados, de natureza constitucional, para impetrar mandado de segurança na defesa de suas competências, e da hipótese do CDC, art. 82, III. B ignora as exceções; C estende a capacidade a órgãos de mera execução; D contraria o CDC; E inverte regra e exceção.
+
+## M020 · médio · FGV · Capacidade processual
+A Coordenadoria de Defesa do Consumidor do Estado Alfa, órgão da Administração direta sem personalidade jurídica e destinado à defesa dos interesses protegidos pelo Código de Defesa do Consumidor, pretende promover a liquidação e a execução de indenização. A parte contrária alega que o órgão não pode atuar em juízo.
+
+A alegação
+
+- A) procede, pois órgãos públicos, por não terem personalidade jurídica, nunca dispõem de capacidade processual.
+- B) procede, pois a capacidade processual dos órgãos restringe-se ao mandado de segurança impetrado por órgãos independentes.
+- C) não procede, pois o órgão adquire personalidade jurídica própria ao ser destinado à defesa do consumidor.
+- D) não procede, pois o CDC legitima entidades e órgãos da administração, mesmo sem personalidade jurídica, destinados à defesa dos interesses do Código.
+- E) não procede, pois qualquer órgão público tem capacidade processual plena para atuar nas matérias de sua competência.
+- Gabarito: D
+- Comentário: o CDC, art. 82, III, legitima entidades e órgãos da administração, mesmo sem personalidade jurídica, destinados à defesa dos interesses do Código. A e B ignoram essa exceção; C chega ao resultado com fundamento falso, pois o órgão continua sem personalidade; E generaliza a exceção.
+
+## M021 · médio · CEBRASPE · Criação dos órgãos públicos
+A respeito da criação de órgãos públicos, assinale a opção correta.
+
+- A) No Poder Executivo, a criação de órgão da administração direta pode ocorrer por decreto autônomo.
+- B) No âmbito do Poder Judiciário, a criação de órgãos depende de lei de iniciativa do respectivo tribunal, conforme o caso.
+- C) Os órgãos do Ministério Público e dos Tribunais de Contas podem ser criados por ato interno, independentemente de lei.
+- D) A Câmara dos Deputados depende de lei de iniciativa do Presidente da República para dispor sobre sua organização e seu funcionamento.
+- E) No Poder Executivo, a lei que cria órgão da administração direta é de iniciativa privativa do Poder Legislativo.
+- Gabarito: B
+- Comentário: no Judiciário e nas demais instituições, a criação depende de lei de iniciativa do STF, do STJ, dos TJs, dos MPs ou dos TCs, conforme o caso. A e E erram o regime do Executivo (lei em sentido formal, de iniciativa do chefe do Executivo); C dispensa a lei; D contraria o art. 51, IV, da CF, que prevê atos próprios da Câmara.
+
+## M022 · difícil · FGV · Criação dos órgãos públicos
+O Presidente da República estuda editar decreto para:
+
+I. redistribuir atribuições internas de um ministério, sem aumento de despesa e sem criação ou extinção de órgãos;
+
+II. criar nova secretaria, órgão da administração direta;
+
+III. extinguir um departamento, sem aumento de despesa.
+
+À luz da Constituição Federal, pode ser veiculado por decreto autônomo o que consta em
+
+- A) I, apenas.
+- B) II, apenas.
+- C) I e II, apenas.
+- D) I e III, apenas.
+- E) I, II e III.
+- Gabarito: A
+- Comentário: o decreto autônomo trata da organização e do funcionamento da administração, desde que não implique aumento de despesa nem criação ou extinção de órgãos (CF, art. 84, VI, "a"). II e III dependem de lei em sentido formal, pois envolvem criação e extinção de órgãos, ainda que sem aumento de despesa.
+
+## M023 · fácil · FGV · Criação dos órgãos públicos
+O Senado Federal pretende, por ato próprio, dispor sobre sua organização e seu funcionamento, criar cargos em sua estrutura e fixar a remuneração desses cargos.
+
+À luz da Constituição Federal, a pretensão é
+
+- A) integralmente válida, pois a autonomia do Senado Federal abrange todas essas matérias.
+- B) integralmente inválida, pois toda criação de cargo depende de lei de iniciativa do Presidente da República.
+- C) válida quanto à organização, ao funcionamento e à criação de cargos, mas a remuneração depende de lei.
+- D) válida quanto à remuneração e inválida quanto à criação de cargos, que depende de lei.
+- E) válida quanto à organização e ao funcionamento, mas a criação de cargos e a remuneração dependem de lei.
+- Gabarito: C
+- Comentário: a Câmara e o Senado, por atos próprios, dispõem sobre sua organização, seu funcionamento e a criação e a extinção de cargos, empregos e funções, mas a remuneração depende de lei (CF, arts. 51, IV, e 52, XIII). A dispensa a lei para a remuneração; B exige lei para tudo; D inverte as matérias; E exige lei também para a criação dos cargos.
+
+## M024 · fácil · CEBRASPE · Outras classificações dos órgãos
+Assinale a opção correta no que se refere às classificações dos órgãos públicos.
+
+- A) Órgão simples é aquele que possui apenas um cargo em sua estrutura.
+- B) Órgãos compostos têm um só centro de competência, sem desconcentração.
+- C) Nos órgãos colegiados, as decisões são tomadas por agente único.
+- D) Órgão simples tem um só centro de competência, ainda que com vários cargos, inexistindo outros órgãos em sua estrutura.
+- E) A Presidência da República é órgão colegiado, e os tribunais são órgãos singulares.
+- Gabarito: D
+- Comentário: o órgão simples tem um só centro de competência, ainda que com vários cargos. A confunde centro de competência com cargo; B descreve o órgão simples, pois nos compostos há desconcentração; C e E invertem singulares e colegiados.
+
+## M025 · médio · FGV · Outras classificações dos órgãos
+Relacione cada espécie de órgão público, segundo as funções que exerce, à descrição correspondente.
+
+1. Órgãos ativos.
+
+2. Órgãos de controle.
+
+3. Órgãos consultivos.
+
+( ) Emitem pareceres, com finalidade de aconselhamento e elucidação.
+
+( ) Fiscalizam e controlam, como ocorre com o TCU.
+
+( ) Expressam decisões estatais para o cumprimento dos fins da pessoa jurídica, como os ministérios.
+
+A sequência correta, de cima para baixo, é
+
+- A) 1 – 2 – 3.
+- B) 1 – 3 – 2.
+- C) 2 – 1 – 3.
+- D) 3 – 1 – 2.
+- E) 3 – 2 – 1.
+- Gabarito: E
+- Comentário: quem emite pareceres é órgão consultivo (3); quem fiscaliza, como o TCU, é órgão de controle (2); e quem expressa decisões para os fins da pessoa jurídica, como os ministérios, é órgão ativo (1). A sequência é 3 – 2 – 1.
+
+## M026 · difícil · CEBRASPE · Características gerais
+Acerca dos consórcios públicos, assinale a opção correta.
+
+- A) O consórcio público com personalidade de direito público constitui associação pública e integra a administração indireta.
+- B) Há consenso doutrinário de que o consórcio público com personalidade de direito privado não integra a administração pública.
+- C) A doutrina majoritária considera os consórcios públicos uma quinta forma de entidade da administração indireta.
+- D) Todo consórcio público tem personalidade de direito público.
+- E) O consórcio público com personalidade de direito público não integra a administração indireta, por resultar de ajuste entre entes.
+- Gabarito: A
+- Comentário: com personalidade de direito público, o consórcio é associação pública e integra a administração indireta (Lei nº 11.107/2005, art. 6º, § 1º). B ignora que, para os de direito privado, há divergência doutrinária; C atribui à maioria o que é posição minoritária; D nega a possibilidade de personalidade privada; E contraria a própria lei.
+
+## M027 · médio · CEBRASPE · Características gerais
+Assinale a opção **INCORRETA** quanto às características gerais das entidades da administração indireta.
+
+- A) Têm personalidade jurídica própria, com capacidade de autoadministração e receita própria.
+- B) Têm finalidade específica, definida em lei.
+- C) Sua criação e extinção condicionam-se à previsão legal, exigindo-se, como regra, lei complementar.
+- D) Sujeitam-se a controle finalístico ou supervisão ministerial, sem subordinação.
+- E) Não têm autonomia política.
+- Gabarito: C
+- Comentário: a previsão legal se faz por lei ordinária; a lei complementar só é reservada para definir as áreas de atuação de fundações, e nunca foi editada. As demais opções reproduzem as características gerais das entidades da administração indireta.
+
+## M028 · difícil · FGV · Instituição das entidades
+Lei do Estado Alfa, publicada em 10 de março, autorizou a instituição da Empresa Pública Beta. Em 5 de abril, o Governador editou por decreto o ato constitutivo; em 2 de maio, o futuro diretor assinou contrato em nome da entidade; e em 20 de maio o ato constitutivo foi registrado na Junta Comercial.
+
+Quanto à aquisição da personalidade jurídica, é correto afirmar que a Empresa Pública Beta a adquiriu
+
+- A) em 10 de março, pois a lei específica cria diretamente a entidade.
+- B) em 5 de abril, pois o decreto que edita o ato constitutivo confere personalidade à entidade.
+- C) em 2 de maio, pois a personalidade decorre da prática do primeiro ato em nome da entidade.
+- D) em 20 de maio, pois a personalidade é adquirida com o registro do ato constitutivo no órgão competente.
+- E) em nenhuma das datas, pois o registro deveria ter sido feito no Registro Civil de Pessoas Jurídicas.
+- Gabarito: D
+- Comentário: nas entidades de direito privado, a lei autoriza a instituição, o chefe do Executivo edita o ato constitutivo por decreto e a personalidade surge com o registro no órgão competente, que é a Junta Comercial para as estatais. A trata a empresa pública como entidade criada diretamente por lei; B e C antecipam o momento da aquisição; E troca o órgão, pois o Registro Civil é competente para as fundações.
+
+## M029 · médio · FGV · Instituição das entidades
+Lei federal de caráter genérico instituiu programa de desestatização, delineando a política pública a ser seguida, sem dispor especificamente sobre cada empresa. A lei autorizadora da Empresa Pública Beta nada prevê sobre a exigência de lei específica para sua extinção. Entidade sindical alega que a desestatização de Beta viola a regra da simetria.
+
+À luz da jurisprudência do Supremo Tribunal Federal, a alegação é
+
+- A) procedente, pois a criação e a extinção de empresas estatais devem observar sempre a mesma forma.
+- B) procedente, pois a simetria não admite exceção quando se trata de entidade da Administração indireta.
+- C) improcedente, pois a desestatização de empresas estatais independe de qualquer autorização legislativa.
+- D) improcedente, pois a regra da simetria aplica-se apenas às autarquias e às fundações públicas.
+- E) improcedente, pois autorização legislativa genérica pode autorizar a desestatização, desde que estabeleça política pública delineada, sem dar carta branca ao Executivo.
+- Gabarito: E
+- Comentário: a simetria tem exceção nas empresas estatais: a autorização legislativa genérica pode autorizar a desestatização, desde que não dê carta branca ao Executivo e salvo se a lei autorizadora exigir lei específica para a extinção (ADI 6.241). A e B ignoram essa exceção; C dispensa a autorização legislativa; D inventa uma restrição à regra da simetria.
+
+## M030 · fácil · CEBRASPE · Administração direta
+A respeito da administração direta, assinale a opção correta.
+
+- A) Existe somente no Poder Executivo.
+- B) Segundo o DL nº 200/1967, é composta pelos serviços integrados na estrutura administrativa da Presidência da República e dos ministérios.
+- C) É exclusiva da esfera federal, não existindo em Estados e Municípios.
+- D) É formada pelas entidades administrativas, às quais compete a atividade descentralizada.
+- E) Segundo o DL nº 200/1967, é composta pelas autarquias e pelas fundações públicas federais.
+- Gabarito: B
+- Comentário: o DL 200/1967, de âmbito federal, mas adotado nos outros níveis da Federação, compõe a administração direta com os serviços integrados na estrutura da Presidência da República e dos ministérios. A e C ignoram que ela existe em todos os Poderes e entes; D e E descrevem a administração indireta.

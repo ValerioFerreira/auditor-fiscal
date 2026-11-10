@@ -1,7 +1,7 @@
 # Questões turbo — Balanço Patrimonial
 <!-- cobertura
 Conceito e estrutura = c2e2dcfaeb
-Ativo = 02f36a1024
+Ativo = 779042cd9b
 Passivo = e64f5d2ba3
 Pegadinhas = 455f5151c8
 Base legal / referência = aaa48b83bc
@@ -166,3 +166,93 @@ O que distingue o passivo circulante do não circulante é a natureza das contas
 Obrigação com fornecedores exigível somente após o término do exercício seguinte figura no passivo não circulante, pois a classificação depende do prazo de exigibilidade.
 - Gabarito: CERTO
 - Comentário: O passivo não circulante reúne as mesmas contas do circulante, mas com exigibilidade posterior ao exercício seguinte.
+
+## Q033 · fácil · Circulante (capital de giro)
+A expressão bens numerários designa as disponibilidades, grupo que reúne caixa e equivalentes, saldos em bancos e numerários em trânsito.
+- Gabarito: CERTO
+- Comentário: Disponibilidades e bens numerários são sinônimos, e o grupo abrange caixa e equivalentes, bancos e numerários em trânsito.
+
+## Q034 · médio · Circulante (capital de giro)
+Os encargos financeiros pagos antecipadamente, por já ter ocorrido o desembolso, são despesa do período do pagamento e não compõem o ativo.
+- Gabarito: ERRADO
+- Comentário: Encargos financeiros antecipados são despesas antecipadas: aplicações de recursos em despesas do exercício seguinte, registradas no ativo circulante.
+
+## Q035 · médio · Não circulante
+No balanço levantado em 31/12/X1 por empresa cujo ciclo operacional não supera doze meses, título a receber com vencimento em 15/3/X3 deve figurar no ativo realizável a longo prazo.
+- Gabarito: CERTO
+- Comentário: O vencimento ocorre depois do término do exercício seguinte (X2), o que caracteriza direito realizável a longo prazo.
+
+## Q036 · fácil · Não circulante
+No balanço levantado em 31/12/X1 por empresa cujo ciclo operacional não supera doze meses, título a receber com vencimento em 10/11/X2 deve figurar no ativo realizável a longo prazo, pois seu prazo de realização é superior a seis meses.
+- Gabarito: ERRADO
+- Comentário: O direito se realiza no curso do exercício seguinte, de modo que pertence ao circulante. Seis meses não é critério de classificação.
+
+## Q037 · difícil · Não circulante
+Instituição financeira que, em operação usual de seu negócio, empresta recursos a coligada com vencimento em 90 dias classifica o crédito segundo o prazo de realização, sem aplicação da regra que impõe o realizável a longo prazo independentemente do vencimento.
+- Gabarito: CERTO
+- Comentário: A regra pressupõe negócio não usual. Se emprestar dinheiro é o próprio negócio da entidade, como nos bancos, o critério volta a ser o prazo.
+
+## Q038 · médio · Não circulante
+Para classificar um direito no ativo realizável a longo prazo independentemente do prazo de vencimento, é suficiente que o devedor seja coligada, controlada, diretor, acionista ou participante nos lucros.
+- Gabarito: ERRADO
+- Comentário: Os requisitos são cumulativos: decorrer de vendas, adiantamentos ou empréstimos; envolver essas pessoas; e tratar-se de operação não usual (Lei 6.404/1976, art. 179, II).
+
+## Q039 · médio · Não circulante
+A regra que desloca para o ativo realizável a longo prazo os créditos com pessoas ligadas, em operações não usuais, restringe-se a coligadas, controladas, diretores e acionistas, sem alcançar os participantes nos lucros.
+- Gabarito: ERRADO
+- Comentário: Os participantes no lucro integram o rol de pessoas ligadas ao lado de controladas, coligadas, diretores e acionistas.
+
+## Q040 · fácil · Não circulante
+Os estoques classificam-se sempre no ativo circulante, ainda que parcela deles somente venha a se realizar após o término do exercício seguinte.
+- Gabarito: ERRADO
+- Comentário: A parcela realizável somente após o final do exercício seguinte vai para o realizável a longo prazo, a exemplo dos estoques de longo prazo.
+
+## Q041 · fácil · Não circulante
+A parcela dos créditos com clientes realizável somente após o final do exercício seguinte deve ser apresentada no ativo realizável a longo prazo.
+- Gabarito: CERTO
+- Comentário: Clientes de longo prazo são exemplo de conta do circulante cuja parcela de realização mais distante migra para o ARLP.
+
+## Q042 · difícil · Não circulante
+A influência significativa, nota característica da coligada, somente se configura quando a investidora detém 20% ou mais do capital votante da investida.
+- Gabarito: ERRADO
+- Comentário: Os 20% geram apenas presunção (Lei 6.404/1976, art. 243, §§4º e 5º). A influência também pode decorrer da capacidade de influir nas decisões, critério subjetivo.
+
+## Q043 · médio · Não circulante
+Caracteriza-se como controlada a sociedade em que a investidora tem preponderância nas deliberações e poder de eleger a maioria dos administradores, situação em regra associada à titularidade de mais de 50% do capital votante.
+- Gabarito: CERTO
+- Comentário: O controle se define pela preponderância nas deliberações e pelo poder de eleger a maioria dos administradores; de regra, mais de 50% do capital votante.
+
+## Q044 · médio · Não circulante
+Imóvel mantido por indústria para locação a terceiros, sem relação com sua atividade-fim, classifica-se no grupo investimentos do ativo não circulante.
+- Gabarito: CERTO
+- Comentário: Por não se destinar à manutenção das atividades, o imóvel para aluguel fica em investimentos. Se o aluguel fosse a atividade-fim, seria imobilizado.
+
+## Q045 · fácil · Não circulante
+O grupo investimentos do ativo não circulante restringe-se às participações societárias permanentes.
+- Gabarito: ERRADO
+- Comentário: Além das participações permanentes, abrange direitos de qualquer natureza não classificáveis no circulante e não destinados à manutenção das atividades.
+
+## Q046 · fácil · Não circulante
+Veículo obtido por meio de operação que transfira à companhia o risco, o benefício e o controle do bem integra o imobilizado.
+- Gabarito: CERTO
+- Comentário: O imobilizado inclui os bens decorrentes de operações que transfiram à companhia o risco, o benefício e o controle.
+
+## Q047 · médio · Não circulante
+Segundo o roteiro do CPC 06 (R1), no arrendamento financeiro os riscos e benefícios permanecem com o arrendador, ao passo que, no operacional, são assumidos pelo arrendatário.
+- Gabarito: ERRADO
+- Comentário: É o inverso: no financeiro ficam com o arrendatário; no operacional, com o arrendador.
+
+## Q048 · difícil · Não circulante
+Empresa arrenda, por oito anos, máquina altamente especializada, cuja vida útil é de dez anos, com valor residual abaixo do justo. Consoante o roteiro do CPC 06 (R1), tais características apontam para arrendamento financeiro.
+- Gabarito: CERTO
+- Comentário: Período que cobre a maior parte da vida útil, valor residual abaixo do justo e alta especialização são indícios de arrendamento financeiro no roteiro do CPC 06 (R1).
+
+## Q049 · difícil · Não circulante
+Sob o CPC 06 (R2), o arrendatário continua a segregar os arrendamentos em financeiros e operacionais, reconhecendo ativo de direito de uso apenas em relação aos primeiros.
+- Gabarito: ERRADO
+- Comentário: Com o CPC 06 (R2), correlato à IFRS 16, o arrendatário deixou de fazer essa distinção e reconhece, em regra, um ativo de direito de uso.
+
+## Q050 · difícil · Não circulante
+Elemento incorpóreo somente atende ao requisito de identificação exigido do intangível quando for separável da entidade para venda ou transferência, de modo que direito meramente contratual ou legal não o satisfaz.
+- Gabarito: ERRADO
+- Comentário: A identificabilidade decorre da separabilidade ou de direitos contratuais ou legais; basta uma das duas situações.

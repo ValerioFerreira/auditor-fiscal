@@ -1338,7 +1338,8 @@ def ler_questoes_me(texto: str) -> tuple[dict, list[dict], list[str]]:
         if letras not in (list("ABCD"), list("ABCDE")):
             erros.append(f"{rot}: alternativas {''.join(letras) or 'ausentes'} (use A-D ou A-E, em ordem)")
             return
-        if len({" ".join(x[1].split()).lower() for x in q["ops"]}) < len(q["ops"]):
+        # sem .lower(): em Língua Portuguesa há alternativas que só diferem nas maiúsculas (de propósito)
+        if len({" ".join(x[1].split()) for x in q["ops"]}) < len(q["ops"]):
             erros.append(f"{rot}: duas alternativas iguais")
         if q["gab"] is None:
             erros.append(f"{rot}: falta a linha '- Gabarito: C' (a letra da alternativa certa)")
@@ -1426,14 +1427,29 @@ def ler_questoes_me(texto: str) -> tuple[dict, list[dict], list[str]]:
 #                   + Linha da DRE | valor | Conta 1; Conta 2   (contas que acendem no passo)
 #                   = Subtotal | valor
 #                   ! Conta; Conta                            (riscadas neste passo)
+#                 Um bloco ```lanc``` vira o diário + balanço em T, montado lançamento a lançamento
+#                 (ver ler_bloco_lanc): "@ Conta | valor | grupo" (saldo inicial), "> fato", "D Conta | valor | grupo",
+#                 "C Conta | valor | grupo" e "= Conferência | valor"; grupo = id da estrutura ou "resultado".
+#
+#   Grade com mais de duas colunas (BP): cada coluna é uma versão da estrutura (linha do tempo no site).
+#   O cabeçalho da tabela dá o nome das versões; "~ texto" é célula vazia com nota; os grupos levam
+#   "- Lado: A|P|L|R|·" (lado do balanço) e "- Dentro: id; id" (grupos que podem contê-lo). A seção "##"
+#   com o mesmo nome de uma coluna é o texto "O que mudou" daquela versão. Na seção Grade, "- Linha:",
+#   "- Linhas:", "- Etapas:" e "- Quadro:" trocam os rótulos da página (o padrão é o da DRE).
+#   guia.md: questão do guia ganha, na página da questão, o link para a explicação ("gd").
 # O número F0001 é a identidade da questão (respostas guardadas como "fix.<assunto>:F0001").
 
 RE_FIX_SECAO = re.compile(r"^##\s+([a-z0-9-]+)\s*·\s*(.+?)\s*$")
-RE_FIX_CAMPO = re.compile(r"^-\s*(Sinal|Nomes|Base|Grupo|Entra|Obs|Questões|Fonte|Fontes|Prova|Grupos|Gabarito|Resolução|Parte|Ensina):\s*(.*?)\s*$")
+RE_FIX_CAMPO = re.compile(r"^-\s*(Sinal|Lado|Dentro|Nomes|Base|Grupo|Entra|Obs|Questões|Fonte|Fontes|Prova|Grupos|Gabarito|Resolução|Parte|Ensina|Linha|Linhas|Etapas|Quadro):\s*(.*?)\s*$")
 RE_FIX_QUESTAO = re.compile(r"^##\s+F(\d{4})\s*·\s*([^·]+?)\s*·\s*([^·]*?)\s*·\s*([^·]*?)\s*·\s*(CE|ME)\s*$")
 RE_FIX_GUIA = re.compile(r"^##\s+(\d+)\s*·\s*(F\d{4})\s*·\s*(.+?)\s*$")
 RE_FIX_OPCAO = re.compile(r"^-\s*([A-E])\)\s*(.*?)\s*$")
 FIX_ESPECIAIS = ("~notas", "~desce", "~sobe", "~nao", "—", "-", "")
+
+
+def fix_especial(x: str) -> bool:
+    """Célula da grade sem grupo: as marcas fixas e as notas livres ("~ texto")."""
+    return x in FIX_ESPECIAIS or x.startswith("~ ")
 
 
 def secoes_h2(texto: str) -> list[tuple[str, list[str]]]:
@@ -1502,18 +1518,56 @@ def ler_bloco_dre(texto: str, avisar) -> dict:
     return {"itens": itens, "passos": passos}
 
 
+def ler_bloco_lanc(texto: str, avisar) -> dict:
+    """Bloco ```lanc``` (lançamentos de uma resolução do BP), desenhado como diário + balanço em T:
+         @ Conta | valor | grupo        saldo antes dos fatos (grupo = id da estrutura ou "resultado")
+         > Texto do fato e do raciocínio  (abre um passo)
+         D Conta | valor | grupo        débito do passo
+         C Conta | valor | grupo        crédito do passo
+         = Rótulo | valor               conferência mostrada no passo (total de um grupo, por exemplo)
+       Os saldos são somados no navegador pela natureza do grupo (ativo: D − C; passivo e PL: C − D)."""
+    saldos, passos = [], []
+    for linha in texto.split("\n"):
+        s = linha.strip()
+        if not s or s.startswith("#"):
+            continue
+        sinal, resto = s[0], s[1:].strip()
+        partes = [x.strip() for x in resto.split("|")]
+        item = {"n": partes[0], "v": partes[1] if len(partes) > 1 else "", "g": partes[2] if len(partes) > 2 else ""}
+        if sinal == "@":
+            saldos.append(item)
+        elif sinal == ">":
+            passos.append({"t": resto, "d": [], "c": [], "q": []})
+        elif sinal in "DC=" and len(s) > 1 and s[1] == " ":
+            if not passos:
+                passos.append({"t": "", "d": [], "c": [], "q": []})
+            passos[-1]["d" if sinal == "D" else "c" if sinal == "C" else "q"].append(item)
+        else:
+            avisar(f"linha do bloco lanc não reconhecida: {s[:50]}")
+    for p in passos:
+        num = lambda v: float(re.sub(r"[^\d,-]", "", v).replace(",", ".") or 0)
+        try:
+            dd, cc = sum(num(x["v"]) for x in p["d"]), sum(num(x["v"]) for x in p["c"])
+        except ValueError:
+            dd = cc = 0
+        if abs(dd - cc) > 0.005:
+            avisar(f"bloco lanc: débitos ({dd:g}) e créditos ({cc:g}) diferentes no passo '{p['t'][:40]}'")
+    return {"tipo": "lanc", "saldos": saldos, "passos": passos}
+
+
 def html_fixacao(r: "Renderizador", linhas: list[str], avisar) -> tuple[str, list[dict]]:
-    """Markdown de um trecho da Fixação em HTML; blocos ```dre``` saem como <div class="fx-dre">."""
+    """Markdown de um trecho da Fixação em HTML; blocos ```dre``` e ```lanc``` saem como <div class="fx-dre">."""
     partes, dres, buf, i = [], [], [], 0
     while i < len(linhas):
         m = RE_CERCA.match(linhas[i])
-        if m and m.group(2) == "dre":
+        if m and m.group(2) in ("dre", "lanc"):
             j = i + 1
             while j < len(linhas) and not RE_CERCA.match(linhas[j]):
                 j += 1
             partes.append(r.blocos(ler_blocos(buf)))
             buf = []
-            dres.append(ler_bloco_dre("\n".join(linhas[i + 1:j]), avisar))
+            corpo = "\n".join(linhas[i + 1:j])
+            dres.append(ler_bloco_dre(corpo, avisar) if m.group(2) == "dre" else ler_bloco_lanc(corpo, avisar))
             partes.append(f'<div class="fx-dre" data-k="{len(dres) - 1}"></div>')
             i = j + 1
             continue
@@ -1541,14 +1595,20 @@ def carregar_fixacao(base: "Base", materia: dict, pasta: Path) -> dict:
     texto = (pasta / "estrutura.md").read_text(encoding="utf-8")
     titulo = titulo_do_md(texto) or pasta.name
     av = avisador("estrutura.md")
-    grade, grupos, blocos_texto = [], {}, []
+    grade, colunas, rotulos, grupos, blocos_texto = [], [], {}, {}, []
     for cab, linhas in secoes_h2(texto):
         nome = cab[3:].strip()
         m = RE_FIX_SECAO.match(cab)
         if nome.lower() == "grade":
+            for ln in linhas:  # rótulos opcionais da página: "- Linha:", "- Etapas:", "- Quadro:"
+                mc = RE_FIX_CAMPO.match(ln.strip())
+                if mc and mc.group(1) in ("Linha", "Linhas", "Etapas", "Quadro"):
+                    rotulos[mc.group(1).lower()] = mc.group(2)
             for b in ler_blocos(linhas):
                 if b["t"] == "tabela":
-                    grade = [[c.strip() for c in (ln + ["", ""])[:2]] for ln in b["linhas"]]
+                    n = max(2, len(b["cab"]))
+                    colunas = [texto_de_html(c).strip() if "<" in c else c.strip() for c in b["cab"]][:n]
+                    grade = [[c.strip() for c in (ln + [""] * n)[:n]] for ln in b["linhas"]]
             continue
         if chave_secao(nome) == chave_secao(TITULO_MAPA):
             continue
@@ -1557,6 +1617,7 @@ def carregar_fixacao(base: "Base", materia: dict, pasta: Path) -> dict:
             campos, resto = campos_iniciais(linhas)
             h, _ = html_fixacao(r, resto, av)
             grupos[m.group(1)] = {"t": m.group(2), "s": campos.get("Sinal", ""),
+                                  "l": campos.get("Lado", ""), "d": lista_pv(campos.get("Dentro", "")),
                                   "n": lista_pv(campos.get("Nomes", "")),
                                   "b": r.inline(campos.get("Base", ""), False), "h": h}
         else:
@@ -1564,10 +1625,14 @@ def carregar_fixacao(base: "Base", materia: dict, pasta: Path) -> dict:
             blocos_texto.append({"t": nome, "h": h})
     if not grade:
         av("falta a seção '## Grade' com a tabela Lei | CPC")
-    for lei, cpc in grade:
-        for x in (lei, cpc):
-            if x not in FIX_ESPECIAIS and x not in grupos:
+    for linha_g in grade:
+        for x in linha_g:
+            if not fix_especial(x) and x not in grupos:
                 av(f"Grade: linha '{x}' sem seção '## {x} · Título'")
+    for gid, g in grupos.items():
+        for d in g["d"]:
+            if d not in grupos:
+                av(f"{gid}: 'Dentro: {d}' não é um grupo da estrutura")
 
     # contas
     contas = []
@@ -1679,7 +1744,23 @@ def carregar_fixacao(base: "Base", materia: dict, pasta: Path) -> dict:
             guia.append({"n": int(mg.group(1)), "f": f, "id": f"fix.{aid}:{f}", "t": r.inline(mg.group(3), False),
                          "p": campos.get("Parte", ""), "en": lista_pv(campos.get("Ensina", "")),
                          "r": secoes, "dre": dres})
-    return {"id": aid, "titulo": titulo, "grade": grade, "grupos": grupos, "textos": blocos_texto,
+    def conferir_lanc(dres, avisar):
+        for b in dres:
+            if b.get("tipo") != "lanc":
+                continue
+            for it in b["saldos"] + [x for p in b["passos"] for x in p["d"] + p["c"]]:
+                if it["g"] not in grupos and it["g"] != "resultado":
+                    avisar(f"bloco lanc: grupo '{it['g']}' de '{it['n'][:30]}' não existe na estrutura")
+    for q in questoes:
+        conferir_lanc(q["dre"], avisador("questoes.md", q["f"] + ": "))
+    for x in guia:
+        conferir_lanc(x["dre"], avisador("guia.md", x["f"] + ": "))
+    guia_de = {x["f"]: x["n"] for x in guia}
+    for q in questoes:  # questão que também está no guia: a página da questão oferece o link
+        if q["f"] in guia_de:
+            q["gd"] = guia_de[q["f"]]
+    return {"id": aid, "titulo": titulo, "grade": grade, "colunas": colunas, "rot": rotulos,
+            "grupos": grupos, "textos": blocos_texto,
             "contas": contas, "questoes": questoes, "guia": guia}
 
 
@@ -3311,15 +3392,27 @@ class Manipulador(http.server.SimpleHTTPRequestHandler):
                              "avisos": avisos})
 
 
-def servir(porta: int) -> int:
+class ServidorLocal(http.server.ThreadingHTTPServer):
+    allow_reuse_address = False  # no Windows, True deixaria dois servidores na mesma porta
+
+
+def servir(porta: int, abrir: bool = False) -> int:
     manipulador = functools.partial(Manipulador, directory=str(PASTA_SITE))
-    try:
-        servidor = http.server.ThreadingHTTPServer(("127.0.0.1", porta), manipulador)
-    except OSError:
-        print(f"\nA porta {porta} já está em uso: o site pode já estar no ar em "
-              f"http://localhost:{porta}/")
+    servidor = None
+    for tentativa in range(porta, porta + 50):  # porta ocupada: tenta a seguinte
+        try:
+            servidor = ServidorLocal(("127.0.0.1", tentativa), manipulador)
+            break
+        except OSError:
+            continue
+    if servidor is None:
+        print(f"\nNenhuma porta livre entre {porta} e {porta + 49}.")
         return 1
-    print(f"\nSite no ar em http://localhost:{porta}/ (Ctrl+C para parar)", flush=True)
+    porta = servidor.server_address[1]
+    print(f"\nSite no ar em http://localhost:{porta}/ (Ctrl+C ou feche a janela para parar)", flush=True)
+    if abrir:
+        import webbrowser
+        webbrowser.open(f"http://localhost:{porta}/")
     with servidor:
         try:
             servidor.serve_forever()
@@ -3381,7 +3474,7 @@ def main(argv: list[str]) -> int:
     else:
         print("Nenhum aviso: todas as referências resolvem e não sobrou markdown sem conversão.")
     if "--servir" in argv and not verificar:
-        return servir(PORTA_LOCAL)
+        return servir(PORTA_LOCAL, "--abrir" in argv)
     return 0
 
 

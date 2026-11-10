@@ -45,7 +45,7 @@
 - Capacidade contributiva, progressividade e impostos reais e pessoais → `../04 - Limitações ao Poder de Tributar/capacidade-contributiva.md`
 - Imunidades (impostos) → `../04 - Limitações ao Poder de Tributar/imunidades-tributarias.md`
 - Anterioridade e noventena dos impostos → `../04 - Limitações ao Poder de Tributar/anterioridade-e-noventena.md`
-- Impostos em espécie e competência — a estudar
+- Competência tributária → `../05 - Competência Tributária/competencia-tributaria.md`; impostos em espécie — a estudar
 
 ## Mapa mental
 

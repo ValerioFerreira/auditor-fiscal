@@ -3,10 +3,10 @@
 Classificação dos princípios = c04b7286b1
 Art. 1º — Fundamentos da República Federativa do Brasil = 43bb58400a
 Forma de Estado = bbf4af7fd3
-Forma de governo = d5dfb4910a
+Forma de governo = ce584d2fb2
 Regime político = 0d403a99fc
 Estado Democrático de Direito (José Afonso da Silva) = 899030675a
-Art. 2º — Separação dos Poderes = fd77b0ec15
+Art. 2º — Separação dos Poderes = 84402351a2
 Art. 3º — Objetivos fundamentais = 1384326637
 Art. 4º — Princípios nas relações internacionais = e2b43cf1d5
 Pegadinhas = 2900f146da
@@ -447,3 +447,18 @@ Os incisos VI e VII do art. 4º da CF tratam, respectivamente, da defesa da paz 
 O repúdio ao terrorismo e ao racismo, a cooperação entre os povos e a concessão de asilo político correspondem, na ordem, aos incisos IX, X e XI do art. 4º da CF.
 - Gabarito: ERRADO
 - Comentário: O art. 4º tem dez incisos: o repúdio ao terrorismo e ao racismo é o VIII, a cooperação entre os povos é o IX e o asilo político é o X.
+
+## Q088 · médio · Forma de governo
+A nota de eletividade da república brasileira exige que todos os representantes sejam escolhidos pelo voto direto do povo, sendo com ela inconciliável qualquer forma de escolha indireta.
+- Gabarito: ERRADO
+- Comentário: Na república eletiva, os representantes são escolhidos pelo povo, direta ou indiretamente.
+
+## Q089 · médio · Art. 2º — Separação dos Poderes
+As decisões proferidas pelo Poder Executivo em processos administrativos, no exercício atípico da função de julgar, revestem-se de definitividade idêntica à das decisões do Poder Judiciário.
+- Gabarito: ERRADO
+- Comentário: O Executivo julga processos administrativos como função atípica, mas sem decisão definitiva.
+
+## Q090 · fácil · Art. 2º — Separação dos Poderes
+Ao organizar seus serviços e seu pessoal, o Poder Judiciário desempenha função atípica de natureza administrativa.
+- Gabarito: CERTO
+- Comentário: A função típica do Judiciário é julgar. Administrar, na organização de seus serviços e de seu pessoal, é função atípica.

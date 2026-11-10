@@ -1,6 +1,6 @@
 # Questões de múltipla escolha — Fontes do Direito Administrativo
 <!-- cobertura
-Classificação = 33662684a4
+Classificação = d1088f7624
 Lei em sentido amplo = 1640748c6d
 Entendimentos judiciais vinculantes (fonte primária) = b265cfb481
 Fontes secundárias = 5094c3c76c
@@ -17,7 +17,7 @@ Quanto à classificação das fontes do direito administrativo, assinale a opç�
 - D) A lei é fonte secundária, por estar materializada em texto.
 - E) A doutrina é fonte primária, por construir os conceitos do ramo.
 - Gabarito: B
-- Comentário: as fontes primárias (formais, organizadas, escritas) compreendem as leis em sentido amplo e os entendimentos judiciais vinculantes; as secundárias (materiais, não organizadas, não escritas) são a jurisprudência, a doutrina e os costumes. As demais alternativas trocam as categorias.
+- Comentário: as fontes primárias (formais, organizadas, escritas) compreendem as leis em sentido amplo e os entendimentos judiciais vinculantes; as secundárias (materiais, não organizadas, não escritas) são a jurisprudência, a doutrina, os costumes e a analogia. As demais alternativas trocam as categorias.
 
 ## M002 · médio · FGV · Lei em sentido amplo
 De acordo com a doutrina, a lei em sentido amplo, fonte primária do direito administrativo, caracteriza-se
@@ -219,7 +219,7 @@ Assinale a opção que preenche corretamente as lacunas do texto a seguir. As fo
 - D) secundárias; primárias; não obrigatórias
 - E) materiais; formais; obrigatórias
 - Gabarito: A
-- Comentário: as fontes primárias (formais, organizadas, escritas) incluem as leis em sentido amplo e os entendimentos judiciais vinculantes; as secundárias (materiais, não organizadas, não escritas, mediatas ou subsidiárias) são jurisprudência, doutrina e costumes e, em regra, não obrigatórias. As demais alternativas invertem os grupos ou a obrigatoriedade.
+- Comentário: as fontes primárias (formais, organizadas, escritas) incluem as leis em sentido amplo e os entendimentos judiciais vinculantes; as secundárias (materiais, não organizadas, não escritas, mediatas ou subsidiárias) são jurisprudência, doutrina, costumes e analogia e, em regra, não obrigatórias. As demais alternativas invertem os grupos ou a obrigatoriedade.
 
 ## M018 · médio · FGV · Fontes secundárias
 Sobre as fontes do direito administrativo, todas as afirmativas a seguir estão corretas, **EXCETO**:
@@ -231,3 +231,16 @@ Sobre as fontes do direito administrativo, todas as afirmativas a seguir estão 
 - E) As súmulas vinculantes são exclusivas do Supremo Tribunal Federal e têm efeitos *erga omnes*.
 - Gabarito: D
 - Comentário: a doutrina é fonte secundária, não vinculante; orienta e fundamenta decisões e pode influenciar a criação de leis, mas não se torna fonte primária por isso. As demais reproduzem o tema (CF, art. 103-A, quanto à E).
+
+## M019 · médio · FGV · Classificação
+Diante da ausência de norma específica, o parecerista do Município Alfa recorreu à analogia para orientar a solução de um caso administrativo. Em seguida, discutiu-se como a analogia se classifica entre as fontes do direito administrativo.
+
+Sobre o tema, é correto afirmar que a analogia é fonte
+
+- A) primária, também chamada de formal, por suprir a lacuna deixada pela lei.
+- B) primária, equiparada aos entendimentos judiciais vinculantes, por sua aplicação obrigatória.
+- C) secundária, ao lado da jurisprudência, da doutrina e dos costumes, em regra não obrigatória para a Administração.
+- D) secundária, mas sempre obrigatória para a Administração, por suprir a lacuna deixada pela lei.
+- E) inexistente no direito administrativo, por não se materializar em texto escrito e organizado.
+- Gabarito: C
+- Comentário: a analogia integra as fontes secundárias (materiais, não organizadas, não escritas, mediatas ou subsidiárias), com a jurisprudência, a doutrina e os costumes, e, em regra, não é obrigatória para a Administração. A e B a classificam como primária; D acerta a categoria, mas erra a obrigatoriedade; E nega sua condição de fonte, embora a ausência de forma escrita seja justamente traço das fontes secundárias.
