@@ -53,6 +53,11 @@
   - `administracao-direta-e-indireta.md`: empresa pública com "capital 100% público" x Lei 13.303/2016, art. 3º, parágrafo único (admite outras entidades públicas, mantida a maioria votante do ente controlador).
   - `regime-juridico-administrativo.md`: autorização legislativa para alienar imóveis (Lei 14.133/2021, art. 76) tem exceções, por exemplo para autarquias e fundações.
   - `classificacao-das-constituicoes.md`: o aviso "em prova prevalece" é orientação de estudo, não conteúdo constitucional.
+- **Pontos dos temas apontados pelos agentes de questões (10/11/2026), para você decidir se ajusto o texto** (as questões evitam esses pontos):
+  - `imunidades-em-especie.md` (Entidades beneficentes): o requisito diz só que os dirigentes "não recebem remuneração"; a LC 187/2021, art. 3º, §1º, admite exceções (diretores não estatutários com vínculo empregatício e dirigentes estatutários até um teto). A conferir na lei.
+  - `direito-de-propriedade.md` (Inciso XXVI): diz que, pelo Tema 961, a pequena propriedade rural é impenhorável "mesmo em débitos estranhos à sua atividade produtiva"; o Tema 961 trata de terrenos contínuos com área total inferior a 4 módulos fiscais, e a frase conflita com o próprio inciso (débitos da atividade produtiva).
+  - `intimidade-domicilio-e-comunicacoes.md` (Inciso XII): a prova encontrada por acaso na interceptação seria válida "independentemente do tipo de punição do novo delito"; há precedentes (HC 83.515) que exigem conexão quando o crime achado é punido com detenção.
+  - `direito-de-propriedade.md` (Inciso XXV): requisição administrativa descrita como "cessão temporária e gratuita", ao lado da indenização ulterior se houver dano.
 - **Fixação do BP, próximas ondas:** 963 das 993 questões estão com "resolução a caminho" (as 30 do guia têm a explicação completa). Muitos enunciados com balancete saíram da extração em bloco pré-formatado ou com colunas misturadas; serão remontados nas ondas de resolução, como na DRE. O caderno `QUESTOES/` também traz DFC, CPC 00, provisões, estoques e outros assuntos, que podem virar novas Fixações.
 - **Servidor do site (`--servir`):** ele guarda o código na memória; depois de mudanças em `gerar.py`, reinicie-o. Em 07/10/2026 ele foi reiniciado (o processo antigo havia sido encerrado).
 

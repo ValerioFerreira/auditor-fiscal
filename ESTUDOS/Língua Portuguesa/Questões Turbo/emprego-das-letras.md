@@ -1,4 +1,16 @@
 # Questões turbo — Emprego das Letras
+<!-- cobertura
+Uso do Ç = 39f418b89b
+Uso do S = 5acf3f0baa
+S ou Ç = df93e5c66d
+S ou Z = 84d635b320
+SS = 9d876b18eb
+SC = a5f44eac2f
+J ou G = 3d51c5233a
+X ou CH = 5f7acf0eac
+Pegadinhas = 1b3bbf8680
+Base legal / referência = 2c3701a4c1
+-->
 
 ## Q001 · médio · Uso do Ç
 A grafia de "redação" e a de "relação" são coerentes com a regra que indica o emprego de "-ção" em derivados de vocábulos terminados em "-tor" e "-tivo", como "redator" e "relativo".

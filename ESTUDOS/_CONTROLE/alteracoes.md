@@ -440,3 +440,7 @@
 | CONFIRMADA | Tá Fácil (PIAUÍPREV 2024): gabarito preliminar D | Definitivo C (ativo total de 639.200), conferido pelos lançamentos (questão-modelo 29) |
 | REORGANIZAÇÃO | Tabelas embaralhadas pela extração (F2241, F2743, F2747, F2812, F2834, F2857, F2925, F2926) e balancete em imagem (F2925) | Tabelas remontadas sem mudar texto nem valores; imagem da F2925 transcrita |
 | INCOMPLETA | Gerador: aviso de alternativas iguais ignorava maiúsculas | Comparação respeita maiúsculas (falso positivo em M001, M003 e M006 de maiúsculas, siglas e abreviações) |
+
+## v023 — 10/11/2026 (questões pendentes da v021)
+
+Sem alteração de conteúdo nos temas. Questões de múltipla escolha novas em Direito Tributário (12) e Direito Constitucional (77); cobertura gravada em Língua Portuguesa (Certo ou Errado e múltipla escolha). Pontos dos temas para confirmar em `pendencias.md`.

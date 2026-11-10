@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v022** (10/11/2026)
+> Versão atual da base: **v023** (10/11/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -284,3 +284,13 @@
 - **Questões-modelo (bp/guia.md):** 30 questões em sete partes (estrutura e evolução; classificar pelo prazo; exceções ao prazo; do balancete ao balanço; patrimônio líquido; lançamentos fato a fato; fatos do mês até o balanço final). As de lançamento têm um quadro novo: o diário e o balanço em T se montam lançamento a lançamento, com a conferência A = P + PL.
 - **Site:** a Fixação passou a aceitar estruturas com várias versões (linha do tempo) e o quadro de lançamentos; a página da questão que está no guia leva à explicação completa.
 - **Gerador:** o aviso "duas alternativas iguais" deixou de ignorar maiúsculas (as três questões de maiúsculas de Língua Portuguesa eram falso positivo).
+
+## 10/11/2026 — Questões pendentes da v021 (v023)
+
+- **Sem conteúdo novo de estudo:** nenhum tema foi alterado; a sessão só fechou as questões que ficaram por fazer na v021.
+- **Certo ou Errado (Língua Portuguesa):** os seis temas já tinham questões em todas as seções (246 no total); a cobertura foi gravada.
+- **Múltipla escolha:**
+  - Língua Portuguesa: as 99 questões já cobriam todas as seções; cobertura gravada.
+  - Direito Tributário: 12 questões novas (imunidades tributárias 1, imunidades em espécie 8, competência tributária 3); as antigas foram conferidas e continuam certas.
+  - Direito Constitucional: 77 questões novas (princípios fundamentais 3, características dos direitos fundamentais 3 e os cinco temas do art. 5º, com arquivo novo: vida, igualdade e legalidade 15; liberdades de expressão e crença 14; intimidade, domicílio e comunicações 16; profissão, locomoção, reunião e associação 14; direito de propriedade 12). Pontos com ⚠️ ou "segundo o material" ficaram fora das questões.
+- **Pontos dos temas para você decidir:** quatro trechos apontados pelos agentes de questões (ver `pendencias.md`); as questões não cobram esses pontos.

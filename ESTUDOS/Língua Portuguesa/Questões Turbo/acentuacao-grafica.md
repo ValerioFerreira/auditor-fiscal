@@ -1,4 +1,14 @@
 # Questões turbo — Acentuação Gráfica
+<!-- cobertura
+Finalidade = 81abc48b75
+Regras gerais = cda8b08e23
+Acentuação do hiato = 1e134d7686
+Acentos diferenciais = 166c1e3025
+Palavras incomuns que podem cair em prova = a1b55aecde
+Trema e verbos em -quar, -quir e -guar = c10035a512
+Pegadinhas = da76a7c564
+Base legal / referência = 9d65271d22
+-->
 
 ## Q001 · fácil · Finalidade
 A série "sabia", "sábia" e "sabiá" ilustra a função distintiva da acentuação gráfica.

@@ -3,7 +3,7 @@
 Não incidência, imunidade, isenção e alíquota zero = c3a361ad94
 Obrigação tributária = 01c74183a7
 Classificações das imunidades = d4fd40ce2d
-Onde estão as imunidades (a estudar) = 1a394b7b28
+Onde estão as imunidades = 7ed4c5d76c
 Pegadinhas = 0a3df7d0f8
 Base legal / referência = e3235a749e
 -->
@@ -144,3 +144,14 @@ Assinale a opção correta.
 - E) Todos os itens estão certos.
 - Gabarito: C
 - Comentário: I e II estão certos. O item III é errado: a imunidade recíproca é geral ou genérica, pois alcança vários tributos e entes juntos, ao contrário da imunidade do IPI na exportação, que é específica.
+
+## M012 · fácil · FGV · Onde estão as imunidades
+Em curso de capacitação, solicitou-se aos servidores do Município Alfa que identificassem as hipóteses contempladas pelas imunidades genéricas do art. 150, VI, da Constituição Federal. À luz do texto constitucional, assinale a alternativa que relaciona **apenas** hipóteses abrangidas por essas imunidades.
+
+- A) Patrimônio, renda ou serviços dos entes federativos uns dos outros; templos de qualquer culto; entidades sindicais de empregadores.
+- B) Partidos políticos; instituições de educação com fins lucrativos; livros, jornais e periódicos.
+- C) Entidades sindicais de trabalhadores; periódicos; tinta destinada à impressão de jornais.
+- D) Fonogramas musicais produzidos no exterior; jornais; partidos políticos.
+- E) Templos de qualquer culto; instituições de assistência social sem fins lucrativos; papel destinado à impressão de livros, jornais e periódicos.
+- Gabarito: E
+- Comentário: o art. 150, VI, protege os templos de qualquer culto, as instituições de educação e de assistência social sem fins lucrativos e os livros, jornais, periódicos e o papel destinado à sua impressão. A inclui os sindicatos de empregadores (só os de trabalhadores são abrangidos); B omite a exigência de ausência de fins lucrativos; C inclui a tinta, que não consta do texto (só o papel); D inclui fonogramas produzidos fora do Brasil, quando a EC 75/2013 exige produção no País.

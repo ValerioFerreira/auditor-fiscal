@@ -1,4 +1,12 @@
 # Questões turbo — Fonologia e Encontros Vocálicos
+<!-- cobertura
+Conceitos iniciais = f049626f02
+Sílabas = 3458056150
+Dígrafos = f21f2af6c7
+Encontros vocálicos = 30dc0ffb52
+Pegadinhas = 0e80bd3ae6
+Base legal / referência = 15d9fc3ea1
+-->
 
 ## Q001 · fácil · Conceitos iniciais
 A ortoepia ocupa-se da pronúncia adequada dos vocábulos, ao passo que a prosódia se volta para o estudo da sílaba e da acentuação correta.

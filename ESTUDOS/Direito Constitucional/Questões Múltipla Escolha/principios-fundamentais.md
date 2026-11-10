@@ -3,10 +3,10 @@
 Classificação dos princípios = c04b7286b1
 Art. 1º — Fundamentos da República Federativa do Brasil = 43bb58400a
 Forma de Estado = bbf4af7fd3
-Forma de governo = d5dfb4910a
+Forma de governo = ce584d2fb2
 Regime político = 0d403a99fc
 Estado Democrático de Direito (José Afonso da Silva) = 899030675a
-Art. 2º — Separação dos Poderes = fd77b0ec15
+Art. 2º — Separação dos Poderes = 84402351a2
 Art. 3º — Objetivos fundamentais = 1384326637
 Art. 4º — Princípios nas relações internacionais = e2b43cf1d5
 Pegadinhas = 2900f146da
@@ -256,3 +256,44 @@ No que se refere ao art. 4º da Constituição Federal, assinale a opção corre
 - E) A República buscará a integração econômica, política, social e cultural dos povos da América Latina, visando à formação de uma comunidade latino-americana de nações.
 - Gabarito: E
 - Comentário: É a literalidade do parágrafo único do art. 4º. A confunde princípios do art. 4º com fundamentos do art. 1º; B altera o alcance (América do Sul, apenas econômica e política) e a finalidade; C desloca os princípios para as relações internas; D contraria a igualdade entre os Estados, que têm a mesma condição jurídica independentemente de tamanho ou poder.
+
+## M021 · fácil · CEBRASPE · Forma de governo
+Acerca da forma de governo adotada pela Constituição Federal de 1988, assinale a opção correta.
+
+- A) A forma de governo diz respeito à relação entre os Poderes Legislativo e Executivo, e o Brasil adotou a república.
+- B) A república brasileira é representativa, pois o poder do povo se expressa por meio de representantes, e funda-se na igualdade formal das pessoas.
+- C) A monarquia caracteriza-se, em regra, pelo governo de um, temporário, eletivo e com responsabilidade política.
+- D) A república brasileira é eletiva apenas porque os representantes são escolhidos diretamente pelo povo, vedada a escolha indireta.
+- E) O plebiscito de 1993 definiu apenas a forma de governo, tendo o sistema de governo sido fixado diretamente pelo texto originário.
+- Gabarito: B
+- Comentário: A república brasileira é representativa (o poder do povo se expressa por representantes) e fundada na igualdade formal, sendo intolerável a discriminação. A descreve o sistema de governo, e não a forma, que é a relação entre governante e governados; C atribui à monarquia traços republicanos, pois ela é, em regra, vitalícia, hereditária e sem responsabilidade política; D ignora a escolha indireta; E erra porque o plebiscito de 1993 definiu a forma e o sistema (ADCT, art. 2º).
+
+## M022 · médio · CEBRASPE · Art. 2º — Separação dos Poderes
+Com relação às funções típicas e atípicas dos Poderes na Constituição Federal de 1988, assinale a opção correta.
+
+- A) A fiscalização é função atípica do Poder Legislativo, cuja única função típica é legislar.
+- B) A organização dos serviços e do pessoal dos tribunais é função típica do Poder Judiciário.
+- C) A edição de lei delegada pelo Presidente da República é exercício de função típica do Poder Executivo.
+- D) O Poder Executivo, ao decidir processos administrativos, exerce função atípica de julgar, sem decisão definitiva.
+- E) A gestão do pessoal das Casas legislativas é função típica do Poder Legislativo, por decorrer de sua autonomia.
+- Gabarito: D
+- Comentário: O Executivo julga, de forma atípica, nos processos administrativos, sem decisão definitiva. A erra porque legislar e fiscalizar são funções típicas do Legislativo; B e E tratam como típicas funções atípicas de administrar; C também, pois a lei delegada (art. 68) é exercício atípico da função legislativa pelo Executivo.
+
+## M023 · médio · FGV · Art. 2º — Separação dos Poderes
+Durante sessão de estudos sobre o art. 2º da Constituição Federal, Marina anotou as afirmativas a seguir.
+
+I. A separação dos Poderes tem por finalidade evitar arbitrariedades e o desrespeito aos direitos fundamentais.
+
+II. Legislativo, Executivo e Judiciário correspondem a funções distintas de um poder uno e indivisível.
+
+III. Por adotar a separação flexível, a Constituição autoriza o Poder Executivo a proferir, em processo administrativo, decisão com caráter definitivo, equivalente à jurisdicional.
+
+Está correto o que se afirma em
+
+- A) I, apenas.
+- B) III, apenas.
+- C) I e II, apenas.
+- D) II e III, apenas.
+- E) I, II e III.
+- Gabarito: C
+- Comentário: I aponta a finalidade da separação dos Poderes, e II reproduz a ideia de funções distintas de um poder uno e indivisível. III erra: a separação flexível admite que o Executivo julgue de forma atípica, em processos administrativos, mas sem decisão definitiva.

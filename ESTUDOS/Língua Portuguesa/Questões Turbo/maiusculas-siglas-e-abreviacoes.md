@@ -1,4 +1,11 @@
 # Questões turbo — Maiúsculas, Siglas e Abreviações
+<!-- cobertura
+Uso de maiúsculas = dd11542059
+Siglas = 4acb003b65
+Abreviatura x abreviação = 2ae3d72fa0
+Pegadinhas = 16c6765920
+Base legal / referência = c5acc6f40a
+-->
 
 ## Q001 · fácil · Uso de maiúsculas
 Nomes próprios, seja qual for sua natureza, grafam-se com inicial maiúscula, o que abrange tanto antropônimos quanto topônimos.

@@ -1,4 +1,11 @@
 # Questões de múltipla escolha — Maiúsculas, Siglas e Abreviações
+<!-- cobertura
+Uso de maiúsculas = dd11542059
+Siglas = 4acb003b65
+Abreviatura x abreviação = 2ae3d72fa0
+Pegadinhas = 16c6765920
+Base legal / referência = c5acc6f40a
+-->
 
 ## M001 · fácil · FGV · Uso de maiúsculas
 Assinale a frase em que o emprego das iniciais maiúsculas e minúsculas está correto.

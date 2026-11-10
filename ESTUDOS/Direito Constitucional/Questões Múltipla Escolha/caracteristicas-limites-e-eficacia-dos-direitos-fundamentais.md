@@ -1,8 +1,8 @@
 # Questões de múltipla escolha — Características, Limites e Eficácia dos Direitos Fundamentais
 <!-- cobertura
-Características = 8e17ae8b44
+Características = fb0128a21a
 Dimensão dupla = 4272cf3908
-Limites e eficácias = 12dabfaf3b
+Limites e eficácias = a927fd8108
 Eficácia horizontal (efeito externo) = 2c0be12634
 Pegadinhas = a1a522b91a
 -->
@@ -146,3 +146,44 @@ Em ação entre dois particulares, o autor invocou diretamente norma definidora 
 - E) indireta e mediata, e nas relações de trabalho é denominada horizontal.
 - Gabarito: B
 - Comentário: Prevalece no Brasil a eficácia direta e imediata (STF, RE 201.819), o que sustenta a tese do autor; nas relações assimétricas entre particulares, como as de trabalho, fala-se em eficácia diagonal. A, D e E adotam a teoria indireta e mediata, que a aplicabilidade imediata do art. 5º, § 1º, afasta, e A, C e E atribuem à eficácia nas relações de trabalho denominação diversa de diagonal.
+
+## M013 · médio · CEBRASPE · Características
+Julgue os itens a seguir, relativos às características dos direitos fundamentais.
+
+I Pela universalidade, há um núcleo mínimo de direitos outorgado a todos, o que não impede que alguns direitos sejam titularizados apenas por grupos específicos, como os trabalhadores.
+
+II Pela complementaridade, os direitos fundamentais podem ser exercidos cumulativamente pelo mesmo titular.
+
+III Pela imprescritibilidade, o titular pode dispor definitivamente dos direitos fundamentais, desde que o faça de forma expressa.
+
+Assinale a opção correta.
+
+- A) Apenas o item I está certo.
+- B) Apenas o item III está certo.
+- C) Apenas os itens I e II estão certos.
+- D) Apenas os itens II e III estão certos.
+- E) Todos os itens estão certos.
+- Gabarito: A
+- Comentário: O item I descreve a universalidade, que respeita as particularidades: núcleo mínimo para todos e direitos de grupos específicos. O item II atribui à complementaridade a definição da concorrência; a complementaridade diz respeito à composição de um sistema interpretativo único. O item III mistura a imprescritibilidade (os direitos não se perdem com o tempo) com uma disposição que a irrenunciabilidade proíbe.
+
+## M014 · médio · FGV · Características
+Em seminário, Joana sustentou que a Constituição, ao reconhecer direitos fundamentais titularizados apenas pelos trabalhadores, teria violado a universalidade dos direitos fundamentais. À luz das características desses direitos, a tese de Joana
+
+- A) procede, pois a universalidade exige que todo direito fundamental seja titularizado por todos os seres humanos, sem exceção.
+- B) procede, pois direitos de grupos específicos rompem a indivisibilidade, que exige um sistema único de proteção.
+- C) não procede, pois a universalidade aplica-se apenas aos direitos de primeira geração.
+- D) não procede, pois a universalidade, respeitadas as particularidades, assegura um núcleo mínimo a todos e admite direitos titularizados só por grupos específicos.
+- E) não procede, pois a historicidade autoriza o legislador a suprimir direitos fundamentais à medida que deixem de ser necessários.
+- Gabarito: D
+- Comentário: A universalidade significa que os direitos são comuns a todos os humanos, respeitadas as particularidades: há um núcleo mínimo outorgado a todos, e alguns direitos, como os dos trabalhadores, são titularizados só por grupos específicos. A ignora essas particularidades; B confunde universalidade com indivisibilidade; C cria restrição inexistente; E contraria a proibição do retrocesso, pois a historicidade indica ampliação progressiva, e não supressão.
+
+## M015 · difícil · CEBRASPE · Limites e eficácias
+Acerca das teorias sobre os limites dos direitos fundamentais, assinale a opção correta.
+
+- A) Para a teoria interna, fatores extrínsecos ao direito são decisivos para a fixação de seus limites.
+- B) Para a teoria externa, o núcleo essencial pode ser violado quando a proporcionalidade o justificar no caso concreto.
+- C) Por não estar expressa na Constituição, a proteção do núcleo essencial não se impõe ao legislador que restringe direitos fundamentais.
+- D) Para a teoria interna, o núcleo essencial é definido em cada caso concreto, por harmonização entre direitos.
+- E) Para a teoria externa, os direitos são assegurados *prima facie*, isto é, à primeira vista, e seus limites são posteriormente definidos no caso concreto.
+- Gabarito: E
+- Comentário: Na teoria externa (relativa), os direitos valem *prima facie* e seus limites e o núcleo essencial são definidos no caso concreto, por harmonização e proporcionalidade. A e D atribuem à teoria interna traços da externa; B erra porque, também na teoria externa, o núcleo essencial é inviolável; C ignora que o dever de proteção ao núcleo essencial está implícito na Constituição.

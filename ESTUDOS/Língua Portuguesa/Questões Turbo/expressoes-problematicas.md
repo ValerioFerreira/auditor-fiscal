@@ -1,4 +1,15 @@
 # Questões turbo — Expressões Problemáticas
+<!-- cobertura
+Mal x Mau = 9d2999933c
+Há x A = 0d232da957
+Porque x Por que x Porquê x Por quê = 7d74d46ee2
+Onde x Aonde = 4044aa982f
+Pares e expressões semelhantes = 071e690344
+Senão x Se não = 992cab0a7d
+Baixo x Abaixo x A baixo x Debaixo x De baixo x Embaixo x Em baixo x Por baixo = fef2731f4c
+Pegadinhas = 3f1162804b
+Base legal / referência = 85d82e1ce7
+-->
 
 ## Q001 · fácil · Mal x Mau
 Na frase "O fiscal estava de mau humor", o termo "mau" está corretamente empregado, por acompanhar substantivo.

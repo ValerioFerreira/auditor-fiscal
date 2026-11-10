@@ -1,4 +1,12 @@
 # Questões turbo — Emprego do Hífen
+<!-- cobertura
+Funções = 0eaba4da10
+União de prefixos = e4845331e7
+Regras especiais de prefixos = 480a4a3750
+Palavras compostas = 08868a8beb
+Pegadinhas = 8f6e739a4a
+Base legal / referência = 0e3b6cd62b
+-->
 
 ## Q001 · fácil · Funções
 O hífen presta-se a formar palavras compostas, a separar sílabas e a ligar pronomes oblíquos átonos.

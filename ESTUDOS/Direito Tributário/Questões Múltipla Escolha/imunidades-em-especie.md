@@ -1,4 +1,17 @@
 # Questões de múltipla escolha — Imunidades em Espécie
+<!-- cobertura
+Imunidade recíproca ou intergovernamental = 6d95bbdf1a
+Imunidade religiosa = 1a0826303f
+Partidos, sindicatos de trabalhadores, educação e assistência social = b8221cdbf8
+Imunidade cultural ou de imprensa = 10a7ba94b9
+Produção musical brasileira = 23b75c8e43
+Outras imunidades = adece05491
+Entidades beneficentes de assistência social = ffa13223ed
+ITCMD = 6c345003a3
+IPVA = ad2cf714eb
+Pegadinhas = 241b2dfd30
+Base legal / referência = 8cc237e38d
+-->
 
 ## M001 · fácil · CEBRASPE · Imunidade recíproca ou intergovernamental
 Com base na Constituição Federal, assinale a opção correta acerca do alcance da imunidade recíproca.
@@ -526,3 +539,107 @@ Acerca da incidência do IPVA após a EC 132/2023, assinale a opção correta.
 - E) O imposto alcança tratores e máquinas agrícolas.
 - Gabarito: C
 - Comentário: é a regra do art. 155, §6º, III, da CF quanto às plataformas. O imposto também incide sobre veículos aquáticos (A); só aeronaves agrícolas e de operador certificado para serviços aéreos a terceiros ficam fora (B); a pesca pode ser industrial, artesanal, científica ou de subsistência (D); tratores e máquinas agrícolas estão excluídos (E).
+
+## M046 · fácil · FGV · Partidos, sindicatos de trabalhadores, educação e assistência social
+O Partido Político Alfa, sem fins lucrativos e em dia com os requisitos legais, é proprietário de uma sala comercial alugada a terceiro, cujos aluguéis são integralmente aplicados em suas finalidades essenciais. A Fundação Beta, instituída pelo partido, é proprietária do imóvel em que funciona sua sede, utilizado nas finalidades essenciais. O Município Gama lançou o IPTU sobre os dois imóveis e a taxa de coleta domiciliar de lixo sobre o imóvel da fundação. À luz da Constituição Federal e da jurisprudência do STF, assinale a afirmativa correta.
+
+- A) O IPTU é devido sobre os dois imóveis, pois a imunidade do art. 150, VI, "c", alcança apenas as instituições de educação e de assistência social.
+- B) O IPTU é indevido apenas sobre a sede da fundação, pois o imóvel alugado a terceiro perde a imunidade, ainda que os aluguéis se destinem às finalidades essenciais.
+- C) O IPTU e a taxa são indevidos, pois a imunidade dos partidos políticos e de suas fundações alcança todos os tributos incidentes sobre o seu patrimônio.
+- D) O IPTU é indevido sobre os dois imóveis, mas a taxa é devida, pois a imunidade alcança os impostos, e não as taxas.
+- E) O IPTU é indevido apenas sobre a sala alugada, pois a imunidade dos partidos políticos não se estende às fundações por eles instituídas.
+- Gabarito: D
+- Comentário: o art. 150, VI, "c", veda impostos (e a CBS) sobre o patrimônio dos partidos políticos, inclusive suas fundações, e o imóvel alugado a terceiros permanece imune se os aluguéis se destinam às atividades essenciais (SV 52); a taxa, porém, não é alcançada. A omite os partidos; B contraria a SV 52; C estende a imunidade à taxa; E exclui as fundações.
+
+## M047 · médio · CEBRASPE · Imunidade recíproca ou intergovernamental
+A respeito do fundamento e da natureza da imunidade recíproca, assinale a opção correta.
+
+- A) Destina-se a proteger a capacidade contributiva dos entes federativos e pode ser suprimida por emenda constitucional, por não integrar o núcleo do pacto federativo.
+- B) Protege a autonomia financeira dos entes federativos, decorre do pacto federativo e constitui cláusula pétrea.
+- C) Protege a autonomia financeira dos entes federativos, mas, por ser regra de política fiscal, pode ser restringida por lei complementar.
+- D) Decorre do princípio da livre concorrência e protege apenas a União, que não pode ser tributada pelos demais entes.
+- E) Protege a autonomia financeira dos entes federativos, decorre do pacto federativo e alcança tanto os impostos quanto as taxas cobrados entre eles.
+- Gabarito: B
+- Comentário: a imunidade recíproca protege a autonomia financeira dos entes, expressão do pacto federativo, e é cláusula pétrea. A e C admitem sua supressão ou restrição; D erra o fundamento e ignora a reciprocidade da vedação; E estende a imunidade às taxas, que ela não alcança.
+
+## M048 · fácil · CEBRASPE · Tributos indiretos: contribuinte de direito x contribuinte de fato
+Nos tributos indiretos, denomina-se contribuinte de fato aquele que
+
+- A) é eleito pela lei para recolher o tributo, ainda que transfira o ônus econômico a terceiro.
+- B) pratica o fato gerador sem ter sido indicado pela lei como sujeito passivo da obrigação.
+- C) responde pelo tributo em razão de sucessão, sem ter praticado o fato gerador.
+- D) recebe o produto da arrecadação do tributo, na condição de sujeito ativo da obrigação.
+- E) efetivamente arca com o ônus do tributo, embora não seja o eleito pela lei para recolhê-lo.
+- Gabarito: E
+- Comentário: contribuinte de fato é quem efetivamente arca com o ônus do tributo; contribuinte de direito é o eleito pela lei para recolhê-lo (A). B, C e D descrevem figuras que nada têm a ver com a repercussão do ônus. A distinção importa porque a imunidade só aproveita ao ente que seja contribuinte de direito (Tema 342).
+
+## M049 · difícil · CEBRASPE · Imunidade cultural ou de imprensa
+Acerca da imunidade cultural ou de imprensa (CF, art. 150, VI, "d"), assinale a opção correta, considerando a jurisprudência do STF.
+
+- A) Alcança os componentes eletrônicos destinados, exclusivamente, a integrar unidade didática com fascículos.
+- B) Alcança os componentes eletrônicos que acompanham fascículos didáticos, ainda que também se prestem a outras finalidades.
+- C) Não constitui cláusula pétrea, pois a Constituição a prevê como limitação ao poder de tributar, e não como proteção a direito individual.
+- D) É imunidade subjetiva, que recai sobre as editoras e as livrarias, e não sobre os bens por elas produzidos ou comercializados.
+- E) Alcança os componentes eletrônicos que integram unidade didática com fascículos, mas não os suportes próprios de livros eletrônicos.
+- Gabarito: A
+- Comentário: segundo o STF, a imunidade alcança componentes eletrônicos destinados exclusivamente a integrar unidade didática com fascículos (Tema 259). B suprime a exclusividade; C ignora que a imunidade protege a liberdade de expressão e, por isso, é cláusula pétrea; D inverte a natureza objetiva da imunidade; E contraria a SV 57, que inclui os suportes próprios de livros eletrônicos.
+
+## M050 · médio · FGV · Produção musical brasileira
+A Produtora Alfa gravou, em estúdio no Brasil, o DVD de um concerto de música instrumental, sem letra, composta e executada por músicos brasileiros, e passou a comercializá-lo também em arquivo digital. O Estado Beta exigiu ICMS sobre a comercialização, sob o argumento de que a imunidade da produção musical brasileira alcança somente obras literomusicais gravadas em CD ou vinil. À luz da Constituição Federal, assinale a afirmativa correta.
+
+- A) A exigência é válida, pois a imunidade alcança apenas os fonogramas, e não os videofonogramas.
+- B) A exigência é válida, pois a obra sem letra não é literomusical e, por isso, não está protegida.
+- C) A exigência é inválida, pois a imunidade alcança videofonogramas com obras musicais ou literomusicais, inclusive os arquivos digitais que os contenham.
+- D) A exigência é válida quanto ao arquivo digital, pois a imunidade alcança apenas os suportes materiais.
+- E) A exigência é inválida, pois a imunidade alcança qualquer obra audiovisual produzida no Brasil, independentemente de seu conteúdo musical.
+- Gabarito: C
+- Comentário: o art. 150, VI, "e", alcança fonogramas e videofonogramas (DVDs) produzidos no Brasil com obras musicais ou literomusicais de autores ou intérpretes brasileiros, bem como os suportes materiais ou arquivos digitais que os contenham. A exclui os videofonogramas; B esquece que a obra musical (só melodia) também é protegida; D exclui os arquivos digitais; E dispensa o conteúdo musical.
+
+## M051 · médio · FGV · Entidades beneficentes de assistência social
+A Associação Alfa, pessoa jurídica de direito privado sem fins lucrativos que presta serviços na área da educação, pretende gozar da imunidade às contribuições para a seguridade social prevista no art. 195, § 7º, da Constituição Federal. Considerando os requisitos da LC 187/2021, analise as afirmativas a seguir.
+
+I. A atuação na área da educação não impede o enquadramento como entidade beneficente, que abrange as áreas de assistência social, saúde e educação.
+
+II. A entidade deve apresentar certidão negativa de débitos perante a Receita Federal e a Procuradoria-Geral, bem como comprovar regularidade no FGTS.
+
+III. O estatuto pode prever que, em caso de extinção, o patrimônio remanescente seja partilhado entre os associados, quitadas as obrigações da entidade.
+
+Está correto o que se afirma em
+
+- A) I, somente.
+- B) II, somente.
+- C) III, somente.
+- D) I e II, somente.
+- E) I, II e III.
+- Gabarito: D
+- Comentário: I está certa: são entidades que prestam serviços nas áreas de assistência social, saúde e educação. II está certa: a certidão negativa e a regularidade no FGTS constam do art. 3º da LC 187/2021. III está errada: a entidade deve prever a destinação de seu patrimônio a outras entidades beneficentes, em caso de extinção.
+
+## M052 · médio · FGV · Outras imunidades
+Acerca das hipóteses de não incidência previstas na Constituição Federal, assinale (V) para a afirmativa verdadeira e (F) para a falsa.
+
+(  ) O ICMS não incide sobre operações que destinem mercadorias ao exterior.
+
+(  ) A celebração do casamento é gratuita.
+
+(  ) O ouro, quando definido em lei como ativo financeiro ou instrumento cambial, sujeita-se ao IOF e ao ICMS.
+
+As afirmativas são, na ordem apresentada, respectivamente,
+
+- A) V – V – F.
+- B) V – V – V.
+- C) V – F – V.
+- D) F – V – F.
+- E) F – F – V.
+- Gabarito: A
+- Comentário: V, pois o ICMS não incide sobre operações que destinem mercadorias ou serviços ao exterior (CF, art. 155, §2º, X). V, pois a celebração do casamento é gratuita (art. 226, §1º). F, pois sobre o ouro ativo financeiro ou instrumento cambial incide apenas o IOF (art. 153, §5º), e o próprio art. 155, §2º, X, afasta o ICMS.
+
+## M053 · difícil · CEBRASPE · IPVA
+Considerando as hipóteses em que, nos termos da Constituição Federal, com a redação dada pela EC 132/2023, o IPVA não alcança veículos aquáticos e aéreos, assinale a opção correta.
+
+- A) O imposto não alcança as embarcações de qualquer pessoa jurídica, independentemente de outorga para a prestação de serviços de transporte aquaviário.
+- B) O imposto não alcança as aeronaves de qualquer pessoa jurídica que as utilize em sua atividade empresarial.
+- C) O imposto não alcança as plataformas que se locomovem na água por meios próprios, desde que destinadas à exploração de petróleo.
+- D) O imposto não alcança as embarcações de pessoa física que pratique pesca, mas alcança as de pessoa jurídica dedicada à pesca industrial.
+- E) O imposto não alcança as aeronaves de operador certificado para prestar serviços aéreos a terceiros nem as embarcações de pessoa jurídica com outorga para serviços de transporte aquaviário.
+- Gabarito: E
+- Comentário: o art. 155, §6º, III, da CF exclui do IPVA, entre outros, as aeronaves agrícolas e as de operador certificado para prestar serviços aéreos a terceiros, e as embarcações de pessoa jurídica com outorga para serviços de transporte aquaviário. A e B dispensam essas condições; C exige finalidade, quando as plataformas ficam fora independentemente dela; D ignora que a exclusão alcança a pesca de pessoa física ou jurídica, inclusive industrial.

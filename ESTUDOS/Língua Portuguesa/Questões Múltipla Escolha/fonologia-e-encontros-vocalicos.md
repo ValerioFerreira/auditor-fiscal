@@ -1,4 +1,12 @@
 # Questões de múltipla escolha — Fonologia e Encontros Vocálicos
+<!-- cobertura
+Conceitos iniciais = f049626f02
+Sílabas = 3458056150
+Dígrafos = f21f2af6c7
+Encontros vocálicos = 30dc0ffb52
+Pegadinhas = 0e80bd3ae6
+Base legal / referência = 15d9fc3ea1
+-->
 
 ## M001 · fácil · FGV · Conceitos iniciais
 Em uma aula sobre os estudos dedicados aos sons da língua, um professor escreveu no quadro as definições a seguir. Assinale a opção em que a definição apresentada está correta.

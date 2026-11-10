@@ -1,4 +1,12 @@
 # Questões de múltipla escolha — Competência Tributária
+<!-- cobertura
+Conceito = f7c25e68d2
+Competência tributária x competência para legislar sobre Direito Tributário = 19453130b4
+Características = 8c5a719eae
+Classificação = 0a144c7347
+Pegadinhas = 9423d0e207
+Base legal / referência = 29254321f6
+-->
 
 ## M001 · fácil · CEBRASPE · Conceito
 Acerca da competência tributária, assinale a opção correta.
@@ -358,3 +366,36 @@ As afirmativas são, na ordem apresentada, respectivamente,
 - E) F – F – V.
 - Gabarito: D
 - Comentário: V, pois a residual é exclusiva da União (CF, art. 154, I). F, pois a competência extraordinária é da União e seu não exercício não autoriza outro ente a exercê-la. V, pois se trata de competência comum.
+
+## M030 · médio · FGV · Facultatividade e Lei de Responsabilidade Fiscal
+A União jamais instituiu o imposto sobre grandes fortunas, embora a Constituição Federal lhe atribua competência para fazê-lo. No Congresso Nacional, discute-se projeto de lei que declara a renúncia definitiva da União a essa competência; na Assembleia Legislativa do Estado Alfa, projeto que institui o imposto no território estadual, em razão da omissão federal. Diante desse cenário, assinale a afirmativa correta.
+
+- A) A omissão da União é inválida, pois o exercício da competência tributária é obrigatório desde a promulgação da Constituição.
+- B) O projeto federal pode ser aprovado validamente, pois quem pode deixar de exercer a competência também pode dela abrir mão em caráter definitivo.
+- C) O projeto estadual pode ser aprovado validamente, pois a omissão prolongada da União transfere aos Estados a competência para instituir o imposto.
+- D) A União pode continuar sem instituir o imposto, mas não pode renunciar à competência, que também não passa a outro ente em razão da omissão.
+- E) A União pode renunciar à competência por lei complementar, hipótese em que ela passa aos Estados e ao Distrito Federal.
+- Gabarito: D
+- Comentário: o IGF é exemplo de competência não exercida, o que a facultatividade admite; a competência, porém, é irrenunciável, e seu não exercício não autoriza pessoa jurídica de direito público diversa a exercê-la (CTN, art. 8º). A nega a facultatividade; B e E admitem a renúncia (E ainda transfere a competência); C contraria a incaducabilidade.
+
+## M031 · fácil · CEBRASPE · Privativa
+Assinale a opção que apresenta somente impostos de competência privativa da União.
+
+- A) IR, ITR e IPVA.
+- B) II, IS e IGF.
+- C) IPI, IOF e ITCMD.
+- D) IE, ISS e IR.
+- E) ICMS, IPI e II.
+- Gabarito: B
+- Comentário: o imposto de importação, o imposto seletivo e o imposto sobre grandes fortunas competem à União, ao lado de IE, IPI, IOF, IEG, IR e ITR. O IPVA (A), o ITCMD (C) e o ICMS (E) são dos Estados e do DF; o ISS (D) é dos Municípios e do DF.
+
+## M032 · médio · CEBRASPE · Compartilhada
+Nos termos da Constituição Federal, com a redação dada pela EC 132/2023, compete aos Estados, ao Distrito Federal e aos Municípios, por meio do Comitê Gestor do IBS,
+
+- A) instituir o IBS por resolução, dispensada a lei complementar nacional.
+- B) fixar a alíquota do IBS de cada ente, vedada a edição de lei específica pelos entes.
+- C) julgar, em caráter definitivo, as ações judiciais relativas ao imposto.
+- D) arrecadar o imposto e repassar à União o produto da arrecadação, para posterior distribuição aos entes.
+- E) decidir o contencioso administrativo relativo ao imposto.
+- Gabarito: E
+- Comentário: o art. 156-B da CF inclui, entre as atribuições exercidas por meio do Comitê Gestor, a decisão do contencioso administrativo, ao lado do regulamento único e da arrecadação, compensação e distribuição do produto. A dispensa a lei complementar nacional que institui o IBS; B contraria a alíquota fixada por lei específica de cada ente (art. 156-A); C troca o contencioso administrativo pelo judicial; D insere a União na distribuição, que se faz diretamente entre Estados, DF e Municípios.

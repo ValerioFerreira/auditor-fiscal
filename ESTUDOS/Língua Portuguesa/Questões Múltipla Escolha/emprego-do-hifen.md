@@ -1,4 +1,12 @@
 # Questões de múltipla escolha — Emprego do Hífen
+<!-- cobertura
+Funções = 0eaba4da10
+União de prefixos = e4845331e7
+Regras especiais de prefixos = 480a4a3750
+Palavras compostas = 08868a8beb
+Pegadinhas = 8f6e739a4a
+Base legal / referência = 0e3b6cd62b
+-->
 
 ## M001 · fácil · FGV · Funções
 Na frase "Procure-o no depósito de guarda-chuvas.", os hifens têm, respectivamente, a função de
