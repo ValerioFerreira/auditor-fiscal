@@ -98,6 +98,51 @@
   2. **arrecadar** o imposto, efetuar as **compensações** e **distribuir** o produto da arrecadação entre Estados, DF e Municípios;
   3. **decidir o contencioso administrativo**.
 
+## Bis in idem e bitributação
+
+| | Bis in idem | Bitributação |
+|---|---|---|
+| **Quem tributa** | O **mesmo ente** (mesma pessoa jurídica de direito público) | **Entes distintos** |
+| **O quê** | O mesmo fato gerador, em mais de um tributo | O mesmo fato gerador |
+| **Regra** | **Não há vedação expressa** na CF | **Vedada**, em regra: é **invasão de competência** tributária |
+
+### Bis in idem
+
+- Incidência de **mais de um tributo do mesmo ente sobre o mesmo fato gerador**. A CF **não o proíbe expressamente**; o limite está na **competência residual** da União, que não pode criar:
+  - **imposto** novo com fato gerador ou base de cálculo **próprios dos impostos já discriminados** na CF (art. 154, I);
+  - **contribuição** residual de seguridade com fato gerador ou base de cálculo de **outra contribuição** já prevista; ela **pode coincidir com a de um imposto** (art. 195, §4º; STF, RE 228.321).
+- Exemplos, todos da **União**:
+  1. **IRPJ e CSLL**: incidem sobre o **lucro** das empresas.
+  2. **PIS/PASEP e COFINS**: incidem sobre a **receita ou o faturamento**. A COFINS financia a **seguridade social** (saúde, previdência e assistência social; art. 195, I, "b"); o PIS/PASEP, o seguro-desemprego, outras ações da previdência social e o abono salarial (art. 239). Serão substituídos pela **CBS** a partir de 2027.
+  3. **PIS/PASEP-Importação e COFINS-Importação**: incidem sobre a **importação de bens e serviços** (art. 195, IV). Também serão substituídos pela **CBS**.
+
+### Bitributação
+
+- Incidência sobre o **mesmo fato gerador** por tributos de **entes distintos**; em regra, é **invasão de competência** tributária.
+- **Exceções:**
+  1. **Imposto extraordinário de guerra (IEG)** (CF, art. 154, II): na iminência ou no caso de guerra externa, a União pode instituir impostos extraordinários **compreendidos ou não em sua competência**, inclusive com fato gerador ou base de cálculo de imposto já existente de outro ente (ex.: **ICMS extraordinário**). Se o fato gerador for de competência da própria União, o caso é de **bis in idem** (ex.: **IR extraordinário**).
+  2. **Dupla tributação internacional da renda**: o rendimento obtido no Brasil por pessoa com **residência fiscal no exterior** é tributado aqui (país da fonte) e, se a legislação do país de residência alcançar as rendas obtidas fora dele, também lá. Para reduzir essas situações, que desestimulam o investimento, o Brasil é signatário de diversos **tratados para evitar a dupla tributação**.
+
+## Quadro geral da competência por espécie
+
+<!-- colunas: 20 28 26 26 -->
+| Espécie | União | Estados e DF | Municípios e DF |
+|---|---|---|---|
+| **Impostos**<br>privativa · CF, arts. 153, 155 e 156 | II, IE, IR, IPI, IOF, ITR, IGF e **IS** (imposto seletivo) | ICMS, ITCMD e IPVA | ISS, ITBI e IPTU |
+| **IBS**<br>compartilhada · CF, art. 156-A | — | **IBS**, em conjunto com os Municípios | **IBS**, em conjunto com os Estados |
+| **Impostos residuais**<br>CF, art. 154, I | Novos impostos, por **lei complementar** | — | — |
+| **Imposto extraordinário (IEG)**<br>CF, art. 154, II | Na iminência ou no caso de **guerra externa** | — | — |
+| **Taxas**<br>comum · CF, art. 145, II | Exercício regular do **poder de polícia**<br>Utilização de **serviços públicos específicos e divisíveis** | Exercício regular do **poder de polícia**<br>Utilização de **serviços públicos específicos e divisíveis** | Exercício regular do **poder de polícia**<br>Utilização de **serviços públicos específicos e divisíveis** |
+| **Contribuição de melhoria**<br>comum · CF, art. 145, III | Obras públicas **federais** que gerem valorização imobiliária | Obras públicas **estaduais/distritais** que gerem valorização imobiliária | Obras públicas **municipais/distritais** que gerem valorização imobiliária |
+| **Empréstimos compulsórios**<br>CF, art. 148 | Despesas extraordinárias de **calamidade pública** ou de **guerra externa ou sua iminência** (I)<br>**Investimento público urgente** e de relevante interesse nacional (II) | — | — |
+| **Contribuições sociais**<br>CF, arts. 149 e 195 | Regra, incluindo a **CBS** (art. 195, V) e as **residuais** da seguridade, por lei complementar (art. 195, §4º) | Custeio do **regime próprio de previdência** dos servidores estaduais/distritais (art. 149, §1º) | Custeio do **regime próprio de previdência** dos servidores municipais/distritais (art. 149, §1º) |
+| **CIDE**<br>CF, art. 149 | Intervenção no domínio econômico | — | — |
+| **Contribuições corporativas**<br>CF, art. 149 | Interesse das **categorias profissionais ou econômicas** | — | — |
+| **COSIP**<br>CF, art. 149-A | — | — | Custeio, expansão e melhoria da **iluminação pública** e de **sistemas de monitoramento** para segurança e preservação de logradouros públicos |
+
+- **DF** acumula os impostos estaduais e os municipais; em **Território Federal**, a União institui os estaduais e, se o Território não for dividido em Municípios, também os municipais (CF, art. 147).
+- **Transição da Reforma:** o **ICMS** e o **ISS** deixam de existir em **2033**, substituídos pelo IBS (EC 132/2023, art. 22); o **IPI** tem as alíquotas reduzidas a zero a partir de **2027**, salvo para produtos com industrialização incentivada na Zona Franca de Manaus (ADCT, art. 126, III).
+
 ## Pegadinhas
 
 - "A Constituição institui os tributos" → **ERRADO** (apenas outorga a competência).
@@ -110,11 +155,18 @@
 - "O IEG exige lei complementar" → **ERRADO** (lei ordinária ou MP; a residual é que exige LC).
 - "O imposto extraordinário pode ser instituído em caso de guerra civil" → **ERRADO** (guerra externa ou sua iminência).
 - "O imposto residual pode ter o fato gerador do ICMS" → **ERRADO** (deve ser diferente do de outro tributo de mesma natureza).
+- "A Constituição veda expressamente o bis in idem" → **ERRADO** (não há vedação expressa; IRPJ e CSLL incidem sobre o lucro).
+- "A bitributação é sempre inconstitucional" → **ERRADO** (o IEG pode ter o fato gerador de imposto de outro ente, como o ICMS).
+- "O IR extraordinário instituído pela União em caso de guerra externa é exemplo de bitributação" → **ERRADO** (mesmo ente: bis in idem).
+- "A taxa e a contribuição de melhoria são de competência privativa da União" → **ERRADO** (competência comum dos quatro entes).
+- "A COSIP pode ser instituída pelos Estados" → **ERRADO** (só Municípios e DF; CF, art. 149-A).
+- "Os Estados podem instituir contribuição de intervenção no domínio econômico" → **ERRADO** (CIDE é exclusiva da União; aos Estados cabe só a contribuição do regime próprio dos servidores).
 
 ## Base legal / referência
 
-- CF, arts. 24, I e §§1º a 4º, 30, II, 146, III, 147, 149, 149-A, 154, 156-A, 156-B e 195, §4º.
+- CF, arts. 24, I e §§1º a 4º, 30, II, 145, II e III, 146, III, 147, 148, 149, 149-A, 153, 154, 155, 156, 156-A, 156-B, 195, IV, V e §4º, e 239; ADCT, art. 126, III; EC 132/2023, art. 22.
 - CTN, arts. 6º a 8º, 18 e 76; LC 101/2000, art. 11.
+- STF, RE 228.321 (contribuição residual pode ter a base de cálculo de um imposto).
 
 ## Relações com outros assuntos
 
@@ -122,6 +174,10 @@
 - Imunidades em espécie → `../04 - Limitações ao Poder de Tributar/imunidades-em-especie.md`
 - Princípio da legalidade tributária → `../04 - Limitações ao Poder de Tributar/principio-da-legalidade-tributaria.md`
 - Impostos e competência residual → `../03 - Espécies Tributárias/impostos.md`
+- Contribuições residuais, PIS/COFINS e CBS → `../03 - Espécies Tributárias/contribuicoes-sociais-e-previdenciarias.md`
+- Empréstimos compulsórios → `../03 - Espécies Tributárias/emprestimo-compulsorio.md`
+- Contribuição de melhoria (competência comum) → `../03 - Espécies Tributárias/contribuicao-de-melhoria.md`
+- Contribuições especiais (CIDE, corporativas e COSIP) → `../03 - Espécies Tributárias/contribuicoes-especiais.md`
 - Taxas (competência comum) → `../03 - Espécies Tributárias/taxas.md`
 - Territórios federais e descentralização territorial → `../../Direito Administrativo/03 - Organização Administrativa/centralizacao-descentralizacao-e-desconcentracao.md`
 
@@ -144,3 +200,13 @@
   - Residual: LC, não cumulativa, fato gerador novo
   - Extraordinária: IEG, guerra externa
   - Compartilhada: IBS e Comitê Gestor
+- Bis in idem e bitributação
+  - Bis in idem: mesmo ente, sem vedação expressa
+  - Exemplos: IRPJ e CSLL; PIS e COFINS
+  - Bitributação: entes distintos, invasão de competência
+  - Exceções: IEG e dupla tributação internacional
+- Quadro por espécie
+  - Impostos privativos; IBS compartilhado
+  - Taxas e contribuição de melhoria: todos os entes
+  - Empréstimos compulsórios, CIDE e corporativas: União
+  - COSIP: Municípios e DF

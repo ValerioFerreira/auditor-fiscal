@@ -4,8 +4,10 @@ Conceito = f7c25e68d2
 Competência tributária x competência para legislar sobre Direito Tributário = 19453130b4
 Características = 8c5a719eae
 Classificação = 0a144c7347
-Pegadinhas = 9423d0e207
-Base legal / referência = 29254321f6
+Bis in idem e bitributação = 469d3aab5b
+Quadro geral da competência por espécie = 5a48a023c8
+Pegadinhas = 853e416d35
+Base legal / referência = 848aa5bdad
 -->
 
 ## Q001 · fácil · Conceito
@@ -292,3 +294,113 @@ O contencioso administrativo relativo ao IBS será decidido separadamente pelos 
 A arrecadação do IBS, a efetivação das compensações e a distribuição do produto arrecadado entre os entes competem ao Comitê Gestor.
 - Gabarito: CERTO
 - Comentário: CF, art. 156-B.
+
+## Q058 · fácil · Bis in idem e bitributação
+Configura bis in idem a exigência, por uma mesma pessoa jurídica de direito público, de mais de uma exação sobre idêntico fato gerador.
+- Gabarito: CERTO
+- Comentário: No bis in idem, é o mesmo ente que tributa o mesmo fato gerador em mais de um tributo. Quando os entes são distintos, fala-se em bitributação.
+
+## Q059 · fácil · Bis in idem e bitributação
+Ocorre bitributação quando um único ente federado institui dois tributos distintos sobre o mesmo fato gerador.
+- Gabarito: ERRADO
+- Comentário: A descrição é de bis in idem. A bitributação pressupõe entes distintos tributando o mesmo fato gerador.
+
+## Q060 · médio · Bis in idem
+Embora o texto constitucional não proíba expressamente o bis in idem, as regras da competência residual da União limitam a criação de novas exações sobre fatos já tributados.
+- Gabarito: CERTO
+- Comentário: Não há vedação expressa ao bis in idem; o limite está na competência residual: o imposto novo não pode ter fato gerador ou base de cálculo próprios dos impostos discriminados (CF, art. 154, I), e a contribuição residual não pode repetir os de outra contribuição já prevista (CF, art. 195, §4º).
+
+## Q061 · médio · Bis in idem
+A incidência do imposto de renda das pessoas jurídicas e da contribuição social sobre o lucro líquido sobre o lucro das empresas caracteriza bitributação, porquanto se trata de tributos de espécies diferentes.
+- Gabarito: ERRADO
+- Comentário: Os dois tributos são da União; mesmo ente sobre o mesmo fato gerador é bis in idem. O critério que distingue os institutos é o ente que tributa, e não a espécie do tributo.
+
+## Q062 · difícil · Bis in idem
+No exercício da competência residual, a União pode instituir, mediante lei complementar, nova contribuição para a seguridade social cuja base de cálculo seja idêntica à de contribuição social já prevista na Constituição, desde que observada a não cumulatividade.
+- Gabarito: ERRADO
+- Comentário: A contribuição residual não pode ter fato gerador ou base de cálculo de outra contribuição já prevista; a coincidência só é admitida com a de um imposto (CF, art. 195, §4º; STF, RE 228.321).
+
+## Q063 · difícil · Bis in idem
+O produto da arrecadação da COFINS financia o programa do seguro-desemprego e o abono salarial, ao passo que o da contribuição para o PIS/PASEP se destina à seguridade social em suas três vertentes.
+- Gabarito: ERRADO
+- Comentário: As destinações estão invertidas. A COFINS financia a seguridade social: saúde, previdência e assistência social (CF, art. 195, I, "b"). O PIS/PASEP financia o seguro-desemprego, outras ações da previdência social e o abono salarial (CF, art. 239).
+
+## Q064 · médio · Bis in idem
+A CBS substituirá a contribuição para o PIS/PASEP e a COFINS, inclusive nas modalidades incidentes sobre a importação de bens e serviços.
+- Gabarito: CERTO
+- Comentário: PIS/PASEP e COFINS (sobre receita ou faturamento) e PIS/PASEP-Importação e COFINS-Importação (CF, art. 195, IV) serão substituídos pela CBS, a partir de 2027.
+
+## Q065 · médio · Bis in idem
+A exigência simultânea da contribuição para o PIS/PASEP e da COFINS sobre o faturamento de uma mesma empresa exemplifica bis in idem, ainda que os recursos arrecadados tenham destinações diversas.
+- Gabarito: CERTO
+- Comentário: As duas contribuições são da União e incidem sobre a receita ou o faturamento: mesmo ente, mesmo fato gerador. A destinação diferente não altera a classificação.
+
+## Q066 · médio · Bitributação
+Situação hipotética: determinado município editou lei que institui tributo sobre a propriedade de veículos automotores, fato já alcançado pelo IPVA estadual. Nessa situação, configura-se bitributação, que, em regra, traduz invasão de competência tributária.
+- Gabarito: CERTO
+- Comentário: Entes distintos tributando o mesmo fato gerador é bitributação, vedada em regra por invadir a competência de outro ente. O IPVA é dos Estados e do DF.
+
+## Q067 · médio · Bitributação
+Se, em caso de guerra externa, a União instituir imposto extraordinário sobre a renda, haverá bis in idem, e não bitributação.
+- Gabarito: CERTO
+- Comentário: O IR já é da competência da União. Quando o fato gerador do IEG é de competência da própria União, o mesmo ente tributa duas vezes: bis in idem (CF, art. 154, II).
+
+## Q068 · difícil · Bitributação
+O ICMS extraordinário que a União venha a instituir na iminência de guerra externa caracteriza bis in idem, visto que um único ente, a União, exige o imposto extraordinário.
+- Gabarito: ERRADO
+- Comentário: O fato gerador do ICMS é de competência estadual; o Estado e a União passam a tributar o mesmo fato. Entes distintos: é bitributação, admitida excepcionalmente pela CF (art. 154, II).
+
+## Q069 · médio · Bitributação
+Por ser a bitributação vedada, o rendimento obtido no Brasil por pessoa com residência fiscal no exterior somente pode ser tributado pelo país de residência.
+- Gabarito: ERRADO
+- Comentário: A dupla tributação internacional da renda é exceção: o rendimento é tributado no Brasil, país da fonte, e também no país de residência, se a legislação deste alcançar as rendas obtidas fora dele.
+
+## Q070 · fácil · Bitributação
+Por desestimular o investimento, a dupla tributação internacional da renda é objeto de diversos tratados, de que o Brasil é signatário, voltados a reduzir essas situações.
+- Gabarito: CERTO
+- Comentário: O Brasil é signatário de diversos tratados para evitar a dupla tributação, justamente porque ela desestimula o investimento.
+
+## Q071 · fácil · Quadro geral da competência por espécie
+União, Estados, Distrito Federal e Municípios podem instituir taxas em razão do exercício regular do poder de polícia ou da utilização de serviços públicos específicos e divisíveis.
+- Gabarito: CERTO
+- Comentário: A competência para taxas é comum aos entes federados (CF, art. 145, II).
+
+## Q072 · difícil · Quadro geral da competência por espécie
+Situação hipotética: a União concluiu obra de duplicação de rodovia federal, da qual resultou valorização dos imóveis lindeiros situados no estado X. Nessa situação, sendo comum a competência para a contribuição de melhoria, o estado X pode instituí-la para alcançar a valorização decorrente da obra.
+- Gabarito: ERRADO
+- Comentário: A competência é comum, mas cada ente a exerce em relação às próprias obras: a União, pelas obras federais; os Estados, pelas estaduais (CF, art. 145, III). Obra federal só autoriza contribuição de melhoria da União.
+
+## Q073 · fácil · Quadro geral da competência por espécie
+Em situação de calamidade pública, os Estados podem instituir empréstimos compulsórios para atender às despesas extraordinárias dela decorrentes.
+- Gabarito: ERRADO
+- Comentário: O empréstimo compulsório é exclusivo da União (CF, art. 148). Estados e Municípios não têm essa competência.
+
+## Q074 · fácil · Quadro geral da competência por espécie
+Investimento público de caráter urgente e de relevante interesse nacional constitui fundamento para que a União institua empréstimo compulsório.
+- Gabarito: CERTO
+- Comentário: CF, art. 148, II. O inciso I trata das despesas extraordinárias de calamidade pública ou de guerra externa ou sua iminência.
+
+## Q075 · médio · Quadro geral da competência por espécie
+Diferentemente do IBS, cuja competência é compartilhada entre Estados, DF e Municípios, a CBS insere-se na competência da União, na condição de contribuição social.
+- Gabarito: CERTO
+- Comentário: A CBS é contribuição social da União (CF, art. 195, V); o IBS é imposto de competência compartilhada entre Estados, DF e Municípios (CF, art. 156-A).
+
+## Q076 · fácil · Quadro geral da competência por espécie
+Os Estados podem instituir contribuições no interesse de categorias profissionais ou econômicas atuantes em seu território.
+- Gabarito: ERRADO
+- Comentário: As contribuições corporativas, assim como a CIDE, são da União (CF, art. 149). Aos Estados cabe só a contribuição do regime próprio de previdência dos servidores (art. 149, §1º).
+
+## Q077 · médio · Quadro geral da competência por espécie
+A contribuição instituída pelos Municípios e pelo DF com fundamento no art. 149-A da CF pode custear, além da expansão e da melhoria da iluminação pública, sistemas de monitoramento para a segurança e a preservação de logradouros públicos.
+- Gabarito: CERTO
+- Comentário: A COSIP custeia a iluminação pública (custeio, expansão e melhoria) e os sistemas de monitoramento para segurança e preservação de logradouros públicos (CF, art. 149-A).
+
+## Q078 · médio · Quadro geral da competência por espécie
+Na transição da Reforma Tributária, o ICMS e o ISS deixam de existir em 2027, quando são integralmente substituídos pelo IBS.
+- Gabarito: ERRADO
+- Comentário: O ICMS e o ISS só deixam de existir em 2033, substituídos pelo IBS (EC 132/2023, art. 22). Em 2027, o marco é outro: as alíquotas do IPI vão a zero (salvo a exceção da Zona Franca de Manaus) e a CBS substitui o PIS/PASEP e a COFINS.
+
+## Q079 · difícil · Quadro geral da competência por espécie
+A redução a zero das alíquotas do IPI a partir de 2027 não alcança os produtos com industrialização incentivada na Zona Franca de Manaus.
+- Gabarito: CERTO
+- Comentário: ADCT, art. 126, III: as alíquotas do IPI vão a zero a partir de 2027, salvo para esses produtos.

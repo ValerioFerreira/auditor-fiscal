@@ -444,3 +444,22 @@
 ## v023 — 10/11/2026 (questões pendentes da v021)
 
 Sem alteração de conteúdo nos temas. Questões de múltipla escolha novas em Direito Tributário (12) e Direito Constitucional (77); cobertura gravada em Língua Portuguesa (Certo ou Errado e múltipla escolha). Pontos dos temas para confirmar em `pendencias.md`.
+
+## v024 — 11/11/2026 (bis in idem, bitributação e quadro geral de competências)
+
+### Direito Tributário
+
+| Classificação | Como estava no resumo | Como ficou na base |
+|---|---|---|
+| INCORRETA | Bis in idem: restrição à competência residual por "proibição de instituir novos impostos ou contribuições com FG ou BC **não discriminado** na CF" | O imposto residual não pode ter FG ou BC **próprios dos já discriminados** (art. 154, I); a contribuição residual não pode repetir os de outra contribuição, mas pode coincidir com os de um imposto (STF, RE 228.321) |
+| IMPRECISA | "PIS/PASEP e COFINS financiam a seguridade social (saúde, previdência e assistência social)" | A COFINS financia a seguridade (art. 195, I, "b"); o PIS/PASEP, o seguro-desemprego, outras ações da previdência e o abono salarial (art. 239) |
+| IMPRECISA | Dupla tributação internacional: tributação "no Brasil e no país de destino" | No Brasil (país da fonte) e no país de **residência fiscal**, se a lei de lá alcançar rendas obtidas no exterior |
+| INCOMPLETA | Tabela em imagem: empréstimo compulsório "em caso de guerra externa ou calamidade pública" | "Guerra externa **ou sua iminência**" (CF, art. 148, I) |
+| INCOMPLETA | Tabelas em imagem: contribuições sociais da União sem a CBS; impostos residuais e extraordinários sem hipótese | CBS (art. 195, V) e residuais de seguridade (art. 195, §4º) incluídas; residual por lei complementar e IEG na guerra externa ou sua iminência |
+| REORGANIZAÇÃO | Seis tabelas em imagem (impostos, taxas, contribuição de melhoria, empréstimos compulsórios, contribuições especiais) | Um quadro único por espécie em `competencia-tributaria.md`, abaixo de "Bis in idem e bitributação"; a tabela "Ente \| Impostos" da competência privativa foi mantida |
+
+### Resumo sintético
+
+| Classificação | Como estava | Como ficou na base |
+|---|---|---|
+| REORGANIZAÇÃO | "Sintético (3).docx" com cinco títulos de disciplina (três sem conteúdo) | Partes novas, com o texto intacto: Direito Tributário 06 e Contabilidade Geral e Avançada 05 |

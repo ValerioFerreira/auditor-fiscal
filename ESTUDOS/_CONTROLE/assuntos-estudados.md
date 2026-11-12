@@ -1,6 +1,6 @@
 # Assuntos Estudados — Visão Geral
 
-> Versão da base: **v023** (10/11/2026) · ✅ consolidado · 🔶 consolidado com pendência (ver `pendencias.md`)
+> Versão da base: **v024** (11/11/2026) · ✅ consolidado · 🔶 consolidado com pendência (ver `pendencias.md`)
 
 ## Direito Tributário
 
@@ -26,7 +26,7 @@
 | 04 - Limitações ao Poder de Tributar | `transparencia-seguranca-juridica-e-novos-principios.md` | Transparência; segurança jurídica; princípios da EC 132 | ✅ |
 | 04 - Limitações ao Poder de Tributar | `imunidades-tributarias.md` | Não incidência, imunidade, isenção e alíquota zero; classificações | 🔶 |
 | 04 - Limitações ao Poder de Tributar | `imunidades-em-especie.md` | Recíproca, religiosa, partidos, sindicatos, educação e assistência; cultural; musical; outras imunidades; entidades beneficentes; ITCMD e IPVA | 🔶 |
-| 05 - Competência Tributária | `competencia-tributaria.md` | Conceito; competência para legislar; características; capacidade ativa; classificação (privativa, comum, cumulativa, residual, extraordinária e compartilhada) | ✅ |
+| 05 - Competência Tributária | `competencia-tributaria.md` | Conceito; competência para legislar; características; capacidade ativa; classificação (privativa, comum, cumulativa, residual, extraordinária e compartilhada); bis in idem e bitributação; quadro geral por espécie | ✅ |
 
 ## Contabilidade Geral e Avançada
 

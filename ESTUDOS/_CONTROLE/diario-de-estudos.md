@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v023** (10/11/2026)
+> Versão atual da base: **v024** (11/11/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -294,3 +294,13 @@
   - Direito Tributário: 12 questões novas (imunidades tributárias 1, imunidades em espécie 8, competência tributária 3); as antigas foram conferidas e continuam certas.
   - Direito Constitucional: 77 questões novas (princípios fundamentais 3, características dos direitos fundamentais 3 e os cinco temas do art. 5º, com arquivo novo: vida, igualdade e legalidade 15; liberdades de expressão e crença 14; intimidade, domicílio e comunicações 16; profissão, locomoção, reunião e associação 14; direito de propriedade 12). Pontos com ⚠️ ou "segundo o material" ficaram fora das questões.
 - **Pontos dos temas para você decidir:** quatro trechos apontados pelos agentes de questões (ver `pendencias.md`); as questões não cobram esses pontos.
+
+## 11/11/2026 — Bis in idem, bitributação e quadro geral de competências (v024)
+
+- **Origem:** arquivos "Tributário - Resumos - Auditor Fiscal (2).docx" e "Sintético (3).docx".
+- **Resumo sintético:** o "Sintético (3).docx" foi separado pelos títulos de disciplina e salvo, sem alteração de texto, como a **parte 06** de Direito Tributário (bis in idem, bitributação e divisão de competências) e a **parte 05** de Contabilidade Geral e Avançada (reservas de lucros, reserva legal, dividendos e DLPA), ambas `2026-11-11`. Os títulos "Direito Constitucional", "Direito Administrativo" e "Português" vieram sem conteúdo.
+
+### Direito Tributário
+- Competência tributária: bis in idem e bitributação (conceitos, exemplos e exceções); quadro geral da competência por espécie, montado a partir de seis tabelas em imagem (impostos, taxas, contribuição de melhoria, empréstimos compulsórios e contribuições especiais), logo abaixo do resumo.
+- **Principais enriquecimentos:** limite da competência residual reescrito (imposto novo × contribuição residual, STF, RE 228.321); destinação do PIS/PASEP (art. 239) separada da COFINS; CBS, residuais de seguridade e "iminência" da guerra externa (art. 148, I) acrescentadas ao quadro; notas sobre DF e Território Federal (art. 147) e sobre a transição da Reforma (ICMS e ISS até 2032; IPI a zero a partir de 2027, salvo Zona Franca); seis pegadinhas novas.
+- **Questões:** Certo ou Errado, 22 novas em competência tributária (Q058 a Q079); múltipla escolha, 12 novas (M033 a M044, 6 CEBRASPE e 6 FGV).

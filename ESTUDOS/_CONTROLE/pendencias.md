@@ -32,6 +32,10 @@
 
 *As quatro pendências da carga inicial foram resolvidas por você em 27/09/2026 (ver `alteracoes.md`, v002).*
 
+- **Direito Tributário — dupla tributação internacional (resumo de 11/11/2026):** o resumo a coloca como "exceção" à bitributação, definida como invasão de competência; a rigor, a tributação por dois países não invade competência interna (cada país tem a sua). Mantive como no resumo, em `competencia-tributaria.md`. Quer uma frase de ressalva no tema?
+
+- **Direito Tributário — duas tabelas de impostos por ente:** a tabela "Ente | Impostos" (competência privativa) ficou mantida, e o quadro geral por espécie repete o que ela diz. Posso tirar a tabela antiga?
+
 ## 🟠 Acompanhar (jurisprudência/legislação em aberto)
 
 - **STF — ADIs 6.254 e outras (EC 103/2019):** maioria formada (jun/2024) pela inconstitucionalidade do art. 149, §§1º-A, 1º-B e 1º-C (contribuição de inativos acima do salário mínimo e contribuição extraordinária); julgamento suspenso por vista, sem conclusão na última verificação. Progressividade das alíquotas empatada. → atualizar `Direito Tributário/03 - Espécies Tributárias/contribuicoes-sociais-e-previdenciarias.md` quando concluído.

@@ -4,8 +4,10 @@ Conceito = f7c25e68d2
 Competência tributária x competência para legislar sobre Direito Tributário = 19453130b4
 Características = 8c5a719eae
 Classificação = 0a144c7347
-Pegadinhas = 9423d0e207
-Base legal / referência = 29254321f6
+Bis in idem e bitributação = 469d3aab5b
+Quadro geral da competência por espécie = 5a48a023c8
+Pegadinhas = 853e416d35
+Base legal / referência = 848aa5bdad
 -->
 
 ## M001 · fácil · CEBRASPE · Conceito
@@ -399,3 +401,151 @@ Nos termos da Constituição Federal, com a redação dada pela EC 132/2023, com
 - E) decidir o contencioso administrativo relativo ao imposto.
 - Gabarito: E
 - Comentário: o art. 156-B da CF inclui, entre as atribuições exercidas por meio do Comitê Gestor, a decisão do contencioso administrativo, ao lado do regulamento único e da arrecadação, compensação e distribuição do produto. A dispensa a lei complementar nacional que institui o IBS; B contraria a alíquota fixada por lei específica de cada ente (art. 156-A); C troca o contencioso administrativo pelo judicial; D insere a União na distribuição, que se faz diretamente entre Estados, DF e Municípios.
+
+## M033 · fácil · CEBRASPE · Bis in idem e bitributação
+Acerca do bis in idem e da bitributação, assinale a opção correta.
+
+- A) No bis in idem, o mesmo ente tributa o mesmo fato gerador por meio de mais de um tributo, prática que a Constituição Federal não veda expressamente.
+- B) Na bitributação, o mesmo ente federativo exige dois tributos distintos sobre o mesmo fato gerador, o que configura invasão de competência.
+- C) O bis in idem caracteriza-se pela incidência de tributos de entes distintos sobre o mesmo fato gerador e é vedado expressamente pela Constituição Federal.
+- D) A bitributação é admitida como regra no sistema constitucional, por decorrer da competência comum atribuída aos entes federativos.
+- E) A Constituição Federal veda expressamente tanto o bis in idem quanto a bitributação, sem admitir exceção a nenhum dos dois.
+- Gabarito: A
+- Comentário: o bis in idem é a incidência de mais de um tributo do mesmo ente sobre o mesmo fato gerador, sem vedação expressa na CF. B e C trocam os conceitos (na bitributação, os entes são distintos); D inverte a regra, pois a bitributação é, em regra, vedada por invasão de competência; E ignora que o bis in idem não é vedado expressamente e que a bitributação tem exceções.
+
+## M034 · médio · FGV · Bis in idem
+A empresa Beta S.A., contribuinte do imposto sobre a renda das pessoas jurídicas (IRPJ), impetrou mandado de segurança contra a exigência da contribuição social sobre o lucro líquido (CSLL), alegando que ambos os tributos recaem sobre o seu lucro e que essa dupla incidência configuraria bitributação vedada pela Constituição Federal. Diante desse cenário, assinale a afirmativa correta.
+
+- A) A alegação procede, pois a incidência de dois tributos sobre o lucro configura bitributação, vedada por constituir invasão de competência tributária.
+- B) A alegação procede, pois a Constituição Federal veda expressamente a incidência de mais de um tributo do mesmo ente sobre o mesmo fato gerador.
+- C) A alegação não procede, pois o IRPJ e a CSLL são tributos da União sobre o lucro, hipótese de bis in idem, que a Constituição não veda expressamente.
+- D) A alegação não procede, pois o IRPJ incide sobre o lucro e a CSLL incide sobre a receita ou o faturamento, inexistindo identidade de fato gerador.
+- E) A alegação não procede, pois a bitributação é sempre admitida quando um dos tributos envolvidos tem a natureza de contribuição social.
+- Gabarito: C
+- Comentário: IRPJ e CSLL são exigidos pelo mesmo ente (União) sobre o lucro, o que caracteriza bis in idem, e não bitributação; a CF não o veda expressamente. A qualifica mal o fenômeno (os entes não são distintos); B inventa vedação expressa; D erra a base da CSLL (receita e faturamento são do PIS/PASEP e da COFINS); E dá fundamento falso.
+
+## M035 · difícil · CEBRASPE · Bis in idem
+No que se refere aos limites que a competência residual da União impõe ao bis in idem, assinale a opção correta.
+
+- A) O imposto residual pode adotar o fato gerador de imposto já discriminado na Constituição Federal, desde que seja instituído por lei complementar.
+- B) A contribuição residual para a seguridade social não pode ter fato gerador nem base de cálculo coincidentes com os de qualquer imposto ou contribuição já previstos.
+- C) Por inexistir vedação expressa ao bis in idem, a União pode criar imposto novo com base de cálculo própria de imposto discriminado, desde que de sua competência.
+- D) A contribuição residual para a seguridade social pode reproduzir o fato gerador de outra contribuição já prevista, desde que não coincida com o de imposto.
+- E) Segundo o STF, a contribuição residual para a seguridade social pode ter base de cálculo coincidente com a de imposto, mas não com a de outra contribuição já prevista.
+- Gabarito: E
+- Comentário: o art. 195, §4º, da CF impede que a contribuição residual tenha fato gerador ou base de cálculo de outra contribuição, mas o STF (RE 228.321) admite a coincidência com imposto. A e C contrariam o art. 154, I (o imposto novo não pode ter fato gerador ou base de cálculo próprios dos impostos discriminados, ainda que da União); B amplia a vedação aos impostos; D inverte o limite.
+
+## M036 · médio · FGV · Bis in idem
+Acerca das contribuições que exemplificam o bis in idem no sistema tributário brasileiro, analise as afirmativas a seguir.
+
+I. O PIS/PASEP e a COFINS, ambos de competência da União, incidem sobre a receita ou o faturamento, e a COFINS financia a seguridade social.
+
+II. O PIS/PASEP destina-se a financiar o seguro-desemprego, outras ações da previdência social e o abono salarial.
+
+III. O PIS/PASEP-Importação e a COFINS-Importação configuram bitributação, pois incidem sobre a importação de bens e serviços e são instituídos por entes distintos.
+
+Está correto o que se afirma em
+
+- A) I, somente.
+- B) II, somente.
+- C) III, somente.
+- D) I e II, somente.
+- E) I, II e III.
+- Gabarito: D
+- Comentário: I está correta (a COFINS financia a seguridade social, CF, art. 195, I, "b"); II reproduz a destinação do PIS/PASEP (art. 239). III é falsa: as duas contribuições sobre a importação (art. 195, IV) são da União, o que configura bis in idem, e não bitributação.
+
+## M037 · médio · CEBRASPE · Bitributação
+Diante da iminência de guerra externa, a União instituiu dois impostos extraordinários: um com fato gerador idêntico ao do ICMS e outro com fato gerador idêntico ao do imposto sobre a renda. Nessa situação, verificam-se, respectivamente,
+
+- A) bis in idem e bitributação, ambos admitidos pela Constituição Federal.
+- B) bitributação e bis in idem, ambos admitidos pela Constituição Federal.
+- C) bitributação nos dois casos, admitida apenas quanto ao primeiro imposto.
+- D) bis in idem nos dois casos, por serem ambos os impostos instituídos pela União.
+- E) invasão de competência, vedada, no primeiro caso, e bis in idem, admitido, no segundo.
+- Gabarito: B
+- Comentário: o IEG pode ter fatos geradores compreendidos ou não na competência da União (CF, art. 154, II). Com o fato gerador do ICMS, imposto estadual, há bitributação admitida (exceção à vedação); com o do IR, imposto da própria União, há bis in idem. A inverte as figuras; C e D desconsideram que a classificação depende do titular do imposto originário; E trata como vedada a hipótese que a CF admite.
+
+## M038 · difícil · FGV · Bitributação
+Carlos, com residência fiscal no País Alfa, obteve rendimentos de investimentos realizados no Brasil. Os rendimentos foram tributados pelo Brasil, e a legislação do País Alfa, que alcança as rendas obtidas por seus residentes fora do território, também os tributou. Diante desse cenário, assinale a afirmativa correta.
+
+- A) Há dupla tributação internacional da renda, exceção à vedação da bitributação, que o Brasil busca reduzir por meio de tratados.
+- B) Há bis in idem, pois o mesmo fato gerador é alcançado por dois tributos sobre a renda, exigidos de um mesmo contribuinte.
+- C) A tributação pelo Brasil é inválida, pois o rendimento de pessoa com residência fiscal no exterior só pode ser tributado pelo país de residência.
+- D) A tributação pelo País Alfa configura invasão da competência tributária da União, vedada pela Constituição Federal sem exceções.
+- E) Há bitributação vedada, e o Brasil deve restituir o imposto, pois a tributação do país de residência prevalece sobre a do país da fonte.
+- Gabarito: A
+- Comentário: o rendimento obtido no Brasil por residente no exterior é tributado aqui (país da fonte) e, se a lei do país de residência alcançar as rendas obtidas fora dele, também lá; é a dupla tributação internacional, exceção à vedação da bitributação, que o Brasil procura reduzir por tratados para evitar a dupla tributação. B erra a figura (não é o mesmo ente); C e E negam a tributação na fonte; D trata como invasão de competência a exceção admitida.
+
+## M039 · fácil · CEBRASPE · Bis in idem e bitributação
+Assinale a opção que apresenta exemplo de bis in idem.
+
+- A) Instituição, pela União, de imposto extraordinário com fato gerador idêntico ao do ICMS, na iminência de guerra externa.
+- B) Tributação do rendimento obtido no Brasil por pessoa com residência fiscal no exterior, pelo Brasil e pelo país de residência.
+- C) Cobrança, por Município, de imposto sobre fato gerador que a Constituição Federal atribui à competência do Estado.
+- D) Incidência do PIS/PASEP-Importação e da COFINS-Importação, ambos da União, sobre a importação de bens e serviços.
+- E) Exigência, pelo Estado e pelo Município, de impostos distintos sobre um mesmo fato gerador praticado pelo contribuinte.
+- Gabarito: D
+- Comentário: as duas contribuições sobre a importação (CF, art. 195, IV) são da União e recaem sobre o mesmo fato, o que caracteriza bis in idem. A e B são exceções de bitributação (IEG com fato gerador de imposto de outro ente e dupla tributação internacional da renda); C e E envolvem entes distintos, o que configura bitributação por invasão de competência.
+
+## M040 · fácil · FGV · Quadro geral da competência por espécie
+O Estado Alfa editou duas leis: a primeira institui contribuição de intervenção no domínio econômico sobre a comercialização de minérios extraídos em seu território; a segunda institui contribuição para o custeio do regime próprio de previdência de seus servidores. À luz da Constituição Federal, assinale a afirmativa correta.
+
+- A) As duas contribuições são válidas, pois as contribuições especiais são de competência comum dos entes federativos.
+- B) Somente a contribuição previdenciária é válida, pois a CIDE é de competência exclusiva da União.
+- C) Somente a CIDE é válida, pois a contribuição para o regime próprio é de competência exclusiva da União.
+- D) As duas contribuições são inválidas, pois todas as contribuições especiais são de competência exclusiva da União.
+- E) Somente a CIDE é válida, pois os Estados podem instituí-la por meio de lei complementar estadual.
+- Gabarito: B
+- Comentário: a CIDE é de competência da União (CF, art. 149); aos Estados cabe apenas, entre as contribuições, a do regime próprio de previdência de seus servidores (art. 149, §1º). A trata as contribuições como competência comum; C e E invertem a validade das leis; D ignora a exceção do regime próprio.
+
+## M041 · fácil · CEBRASPE · Quadro geral da competência por espécie
+Com base na distribuição constitucional da competência tributária, assinale a opção correta.
+
+- A) O imposto seletivo é de competência dos Estados e do Distrito Federal.
+- B) Os Estados podem instituir empréstimo compulsório para investimento público urgente e de relevante interesse nacional.
+- C) Cada ente federativo pode instituir contribuição de melhoria decorrente de suas obras públicas que gerem valorização imobiliária.
+- D) As contribuições de interesse das categorias profissionais ou econômicas são de competência dos Municípios.
+- E) O imposto sobre a propriedade territorial rural é de competência dos Municípios e do Distrito Federal.
+- Gabarito: C
+- Comentário: a contribuição de melhoria é de competência comum (CF, art. 145, III): cada ente a institui em razão das suas próprias obras que gerem valorização imobiliária. O imposto seletivo (A) e o ITR (E) são da União (art. 153); o empréstimo compulsório (B) e as contribuições corporativas (D) também são exclusivos da União (arts. 148 e 149).
+
+## M042 · médio · FGV · Quadro geral da competência por espécie
+A Emenda Constitucional nº 132/2023 alterou o quadro dos tributos sobre o consumo. Considerando as regras de transição da Reforma Tributária, assinale a afirmativa correta.
+
+- A) O ICMS e o ISS deixarão de existir, substituídos pela CBS, contribuição social de competência da União.
+- B) O IPI será integralmente extinto e substituído pelo IBS, inclusive quanto à Zona Franca de Manaus.
+- C) O PIS/PASEP e a COFINS serão substituídos pelo IBS, imposto compartilhado entre Estados e Municípios.
+- D) O ISS será substituído pelo imposto seletivo, que passará à competência dos Municípios e do DF.
+- E) O ICMS e o ISS deixarão de existir, substituídos pelo IBS, e o IPI terá alíquota zero, salvo produtos incentivados na Zona Franca de Manaus.
+- Gabarito: E
+- Comentário: o ICMS e o ISS são substituídos pelo IBS (EC 132/2023, art. 22), e o IPI tem as alíquotas reduzidas a zero, salvo para produtos com industrialização incentivada na Zona Franca de Manaus (ADCT, art. 126, III). A troca o IBS pela CBS; B nega a ressalva da Zona Franca; C troca a CBS, que substitui o PIS/PASEP e a COFINS, pelo IBS; D atribui aos Municípios o imposto seletivo, que é da União.
+
+## M043 · difícil · CEBRASPE · Quadro geral da competência por espécie
+Considerando a competência tributária do Distrito Federal, assinale a opção correta.
+
+- A) O DF pode instituir o IPVA, o IPTU, a contribuição de melhoria decorrente de obras distritais e a contribuição de iluminação pública.
+- B) O DF pode instituir o ITCMD e o ITR, uma vez que acumula as competências tributárias atribuídas aos Estados e aos Municípios.
+- C) O DF pode instituir empréstimo compulsório para atender a despesas extraordinárias decorrentes de calamidade pública em seu território.
+- D) O DF pode instituir o ICMS e o ISS, mas não participa da competência relativa ao IBS, compartilhada entre os Estados e os Municípios.
+- E) O DF pode instituir, por lei complementar distrital, novos impostos não previstos na Constituição, no exercício da competência residual.
+- Gabarito: A
+- Comentário: o DF acumula os impostos estaduais (IPVA) e municipais (IPTU) (CF, art. 147), institui contribuição de melhoria pelas obras distritais (art. 145, III) e a COSIP (art. 149-A). B inclui o ITR, que é da União; C e E atribuem ao DF competências exclusivas da União (arts. 148 e 154, I); D exclui o DF do IBS, que ele exerce tanto com os Estados quanto com os Municípios (art. 156-A).
+
+## M044 · médio · FGV · Quadro geral da competência por espécie
+Acerca da competência tributária da União, analise as afirmativas a seguir.
+
+I. Compete à União instituir o imposto seletivo, que integra o rol de impostos de sua competência privativa.
+
+II. A União pode instituir empréstimo compulsório para investimento público de caráter urgente e de relevante interesse nacional.
+
+III. A CBS é contribuição social de competência da União, assim como as contribuições residuais da seguridade social, estas instituídas por lei complementar.
+
+Está correto o que se afirma em
+
+- A) I, somente.
+- B) II, somente.
+- C) III, somente.
+- D) I e II, somente.
+- E) I, II e III.
+- Gabarito: E
+- Comentário: I está correta (o imposto seletivo integra os impostos da União, CF, art. 153); II reproduz o art. 148, II; III está correta, pois a CBS (art. 195, V) e as contribuições residuais da seguridade, por lei complementar (art. 195, §4º), são da União.
