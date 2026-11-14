@@ -1790,6 +1790,208 @@ def secoes_fixacao(r: "Renderizador", linhas: list[str], avisar) -> tuple[list[d
     return secoes, dres
 
 
+# ----------------------------------------------------------------------------- Classificação de contas
+# Jogo da Fixação (pasta "Feature Fixação/classificacao/", arquivo jogo.md): aparece uma conta (só o
+# nome, ou o nome com uma história) e o leitor a classifica em todas as dimensões de JOGO_DIMS.
+#   ## id · Nome-padrão                      um conceito = uma classificação
+#   - Classe: tipo · grupo · natureza · normal|retificadora · prazo · subgrupo   ("-" = não se aplica)
+#   - Nomes: a; b; c                          cada nome vira uma carta (só o nome)
+#   - Depende: prazo; subgrupo                dimensões que o nome sozinho não decide (só as histórias perguntam)
+#   - Aceita: prazo=circulante                resposta alternativa válida (divergência explicada no Por quê)
+#   - Por quê: texto                          - Liga: bp:rlp | dre:cmv      - Questões: F0001, F0002
+#   ### Histórias
+#   - Nome mostrado | caso curto (F0123)      cada história vira uma carta
+# A retificadora é classificada no grupo que reduz. O id da carta ("<conceito>:<hash do texto>") guarda
+# as respostas no navegador (chave "classif"); não mude o texto de uma carta sem necessidade.
+
+JOGO_DIMS = [
+    ("tipo", "Tipo", [("patrimonial", "Patrimonial"), ("resultado", "Resultado")]),
+    ("grupo", "Grupo", [("ativo", "Ativo"), ("passivo", "Passivo"), ("pl", "PL"),
+                        ("receita", "Receita"), ("despesa", "Despesa ou custo")]),
+    ("natureza", "Natureza", [("devedora", "Devedora"), ("credora", "Credora")]),
+    ("retificadora", "Retificadora", [("normal", "Não"), ("retificadora", "Sim")]),
+    ("prazo", "Prazo", [("circulante", "Circulante"), ("nao-circulante", "Não circulante")]),
+    ("subgrupo", "Subgrupo", []),  # opções conforme o grupo (JOGO_SUB)
+]
+JOGO_SUB = {
+    "anc": [("rlp", "Realizável a longo prazo"), ("investimentos", "Investimentos"),
+            ("imobilizado", "Imobilizado"), ("intangivel", "Intangível")],
+    "pl": [("capital-social", "Capital social"), ("reservas-capital", "Reservas de capital"),
+           ("ajustes-avaliacao", "Ajustes de avaliação patrimonial"), ("reservas-lucros", "Reservas de lucros"),
+           ("acoes-tesouraria", "Ações em tesouraria"), ("lucros-prejuizos", "Lucros ou prejuízos acumulados"),
+           ("reservas-reavaliacao", "Reservas de reavaliação"), ("nao-controladores", "Participação de não controladores")],
+    "dre": [("receita-bruta", "Receita bruta"), ("deducoes", "Deduções da receita"), ("cmv", "Custo (CMV, CPV, CSP)"),
+            ("despesas-vendas", "Despesas com vendas"), ("despesas-administrativas", "Despesas administrativas"),
+            ("outras-operacionais", "Outras receitas e despesas operacionais"), ("equivalencia", "Equivalência patrimonial"),
+            ("resultado-financeiro", "Resultado financeiro"), ("outras-receitas-despesas", "Outras receitas e despesas (não operacionais)"),
+            ("ir-csll", "IR e CSLL"), ("participacoes", "Participações no resultado"),
+            ("descontinuadas", "Operações descontinuadas")],
+}
+RE_JOGO_CAMPO = re.compile(r"^-\s*(Classe|Nomes|Depende|Aceita|Por quê|Liga|Questões|Fonte):\s*(.*?)\s*$")
+
+
+def jogo_sub_de(cl: dict) -> str:
+    """Lista de subgrupos que cabe na classe ("anc", "pl", "dre") ou "" quando não há subgrupo."""
+    if cl["tipo"] == "resultado":
+        return "dre"
+    if cl["grupo"] == "pl":
+        return "pl"
+    if cl["grupo"] == "ativo" and cl["prazo"] == "nao-circulante":
+        return "anc"
+    return ""
+
+
+def jogo_conferir_classe(cl: dict) -> list[str]:
+    """Combinações impossíveis e natureza incoerente com o grupo e a retificadora."""
+    erros, ok = [], {k: {v for v, _ in ops} for k, _, ops in JOGO_DIMS}
+    for k in ("tipo", "grupo", "natureza", "retificadora"):
+        if cl[k] not in ok[k]:
+            erros.append(f"{k} '{cl[k]}' inválido")
+    if erros:
+        return erros
+    if (cl["tipo"] == "patrimonial") != (cl["grupo"] in ("ativo", "passivo", "pl")):
+        erros.append(f"grupo '{cl['grupo']}' não combina com o tipo '{cl['tipo']}'")
+    if cl["grupo"] in ("ativo", "passivo"):
+        if cl["prazo"] not in ok["prazo"]:
+            erros.append("ativo e passivo pedem o prazo (circulante ou nao-circulante)")
+    elif cl["prazo"] != "-":
+        erros.append(f"'{cl['grupo']}' não tem prazo (use -)")
+    lista = jogo_sub_de(cl)
+    if lista:
+        if cl["subgrupo"] not in {v for v, _ in JOGO_SUB[lista]}:
+            erros.append(f"subgrupo '{cl['subgrupo']}' não é de {lista.upper()}")
+    elif cl["subgrupo"] != "-":
+        erros.append(f"subgrupo '{cl['subgrupo']}' sem lugar nesta classe (use -)")
+    credora = cl["grupo"] in ("passivo", "pl", "receita")
+    if cl["retificadora"] == "retificadora":
+        credora = not credora
+    if cl["natureza"] != ("credora" if credora else "devedora"):
+        erros.append(f"natureza '{cl['natureza']}' incoerente com {cl['grupo']} {cl['retificadora']}")
+    return erros
+
+
+def carregar_jogo_classificacao(base: "Base", materia: dict, pasta: Path, outros: list[dict]) -> dict:
+    rel = pasta.relative_to(BASE).as_posix()
+    aid = slug(pasta.name)
+    doc = {"id": f"{materia['id']}.fix.{aid}", "tipo": "fix", "caminho": f"{rel}/jogo.md",
+           "pasta_abs": pasta, "materia": materia["id"], "materiaNome": materia["nome"]}
+    av = lambda msg: base.aviso(doc, msg)
+    texto = (pasta / "jogo.md").read_text(encoding="utf-8")
+    titulo = titulo_do_md(texto) or "Classificação de contas"
+    grupos_de = {o["id"]: o["grupos"] for o in outros}
+    existentes = {o["id"]: {q["f"] for q in o["questoes"]} for o in outros}
+
+    def ref_q(x: str) -> list:
+        """"F0123" = caderno Contabilidade (bp/); "DRE:F0123" = caderno de DRE (dre/). Link só se a questão está na base."""
+        a_q, f = ("dre", x[4:]) if x.startswith("DRE:") else ("bp", x)
+        return [x, a_q if f in existentes.get(a_q, set()) else "", f]
+    r = Renderizador(base, doc)
+    dims = [k for k, _, _ in JOGO_DIMS]
+    contas, cartas, ids, nome_de = [], [], set(), {}
+    for cab, linhas in secoes_h2(texto):
+        m = RE_FIX_SECAO.match(cab)
+        if not m:
+            av(f"título fora do formato '## id · Nome': {cab[:60]}")
+            continue
+        cid, nome = m.group(1), m.group(2)
+        if cid in ids:
+            av(f"{cid}: id repetido (o segundo foi ignorado)")
+            continue
+        ids.add(cid)
+        campos, historias, em_hist = {}, [], False
+        for ln in linhas:
+            s = ln.strip()
+            if re.match(r"^###\s+Hist", s, re.I):
+                em_hist = True
+                continue
+            if not s or s.startswith("<!--"):
+                continue
+            if em_hist:
+                if s.startswith("- "):
+                    historias.append(s[2:].strip())
+                elif historias:
+                    historias[-1] += " " + s
+                continue
+            mc = RE_JOGO_CAMPO.match(s)
+            if mc:
+                campos[mc.group(1)] = mc.group(2)
+            else:
+                av(f"{cid}: linha não reconhecida: {s[:50]}")
+        partes = [x.strip() for x in campos.get("Classe", "").split("·")]
+        if len(partes) != 6:
+            av(f"{cid}: 'Classe' precisa de 6 posições (tipo · grupo · natureza · retificadora · prazo · subgrupo)")
+            continue
+        cl = dict(zip(dims, partes))
+        for e in jogo_conferir_classe(cl):
+            av(f"{cid}: {e}")
+        dep = lista_pv(campos.get("Depende", ""))
+        for d in dep:
+            if d not in dims:
+                av(f"{cid}: 'Depende: {d}' não é uma dimensão ({', '.join(dims)})")
+        if "prazo" in dep and "subgrupo" not in dep and jogo_sub_de(cl) == "anc":
+            dep.append("subgrupo")  # sem o prazo, o subgrupo do ANC também fica em aberto
+        aceita = {}
+        for item in lista_pv(campos.get("Aceita", "")):
+            k, _, v = item.partition("=")
+            k, v = k.strip(), v.strip()
+            if k not in dims or not v:
+                av(f"{cid}: 'Aceita: {item}' fora do formato dimensão=valor")
+                continue
+            aceita.setdefault(k, []).append(v)
+        liga = campos.get("Liga", "")
+        if liga:
+            a_l, _, g_l = liga.partition(":")
+            if g_l not in grupos_de.get(a_l, {}):
+                av(f"{cid}: 'Liga: {liga}' não é um grupo de bp/ ou dre/")
+                liga = ""
+        qs = [x.strip() for x in campos.get("Questões", "").split(",") if x.strip()]
+        conta = {"id": cid, "t": nome, "c": cl, "dep": dep, "ac": aceita,
+                 "pq": r.inline(campos.get("Por quê", ""), False), "lg": liga,
+                 "q": [ref_q(f) for f in qs], "n": [], "h": []}
+        nomes = lista_pv(campos.get("Nomes", ""))
+        if not nomes and not historias:  # conta só com histórias vale (o nome sozinho não existe nas fontes)
+            av(f"{cid}: sem 'Nomes' nem histórias")
+        vistos = set()
+        for n in nomes:
+            k = sem_acentos(n).lower()
+            if k in vistos:
+                av(f"{cid}: nome repetido '{n}'")
+                continue
+            vistos.add(k)
+            outro = nome_de.get(k)
+            if outro and outro[1] != cl and not dep and not outro[2]:
+                av(f"{cid}: '{n}' também está em {outro[0]} com outra classe (marque 'Depende')")
+            nome_de.setdefault(k, (cid, cl, dep))
+            kid = f"{cid}:{resumo_hash(k)[:8]}"
+            conta["n"].append(n)
+            cartas.append({"id": kid, "k": cid, "n": n, "s": ""})
+        for h in historias:
+            mt = re.match(r"^(.*?)\s*\|\s*(.+?)\s*$", h)
+            if not mt:
+                av(f"{cid}: história sem 'Conta | caso': {h[:50]}")
+                continue
+            caso, fs = mt.group(2), []
+            mf = re.search(r"\s*\(((?:(?:DRE:)?F\d{4}[,;\s]*)+)\)\s*$", caso)
+            if mf:
+                fs = re.findall(r"(?:DRE:)?F\d{4}", mf.group(1))
+                caso = caso[:mf.start()].rstrip()
+            kid = f"{cid}:h{resumo_hash(sem_acentos(mt.group(1) + '|' + caso).lower())[:8]}"
+            conta["h"].append(kid)
+            cartas.append({"id": kid, "k": cid, "n": mt.group(1), "s": r.inline(caso, False),
+                           "f": [ref_q(f) for f in fs]})
+        contas.append(conta)
+    vistos_c = set()
+    for c in cartas:
+        if c["id"] in vistos_c:
+            av(f"{c['k']}: carta repetida '{c['n'][:40]}'")
+        vistos_c.add(c["id"])
+    opcoes = {k: [list(o) for o in ops] for k, _, ops in JOGO_DIMS}
+    return {"id": aid, "tipo": "jogo", "titulo": titulo, "contas": contas, "cartas": cartas,
+            "dims": [[k, t] for k, t, _ in JOGO_DIMS], "ops": opcoes,
+            "sub": {k: [list(o) for o in v] for k, v in JOGO_SUB.items()},
+            "questoes": [], "grupos": {}, "guia": []}
+
+
 def paragrafos_html(r: "Renderizador", md: str) -> str:
     blocos = [" ".join(x.split()) for x in re.split(r"\n\s*\n", md) if x.strip()]
     return "".join(f"<p>{r.inline(b, False)}</p>" for b in blocos)
@@ -2298,7 +2500,11 @@ class Base:
             raiz = BASE / m["nome"] / PASTA_FIXACAO
             if not raiz.is_dir():
                 continue
+            jogos = []
             for pasta in sorted(p for p in raiz.iterdir() if p.is_dir()):
+                if (pasta / "jogo.md").is_file():
+                    jogos.append(pasta)  # depois dos outros: liga as contas aos grupos de bp/ e dre/
+                    continue
                 if not (pasta / "estrutura.md").is_file():
                     continue
                 assunto = carregar_fixacao(self, m, pasta)
@@ -2306,6 +2512,12 @@ class Base:
                 self.n_fixacao.append((m["sigla"], assunto["titulo"], len(assunto["questoes"]),
                                        sum(1 for q in assunto["questoes"] if q["r"]),
                                        len(assunto["contas"]), len(assunto["guia"])))
+            for pasta in jogos:
+                jogo = carregar_jogo_classificacao(self, m, pasta, saida.get(m["id"], []))
+                saida.setdefault(m["id"], []).append(jogo)
+                self.n_jogos = getattr(self, "n_jogos", []) + [
+                    (m["sigla"], jogo["titulo"], len(jogo["contas"]), len(jogo["cartas"]),
+                     sum(1 for c in jogo["cartas"] if c["s"]))]
         return saida
 
     def arvore_mapa(self, doc: dict, md: str) -> list[dict]:
@@ -3464,6 +3676,8 @@ def main(argv: list[str]) -> int:
     for sig, tit, nq, nr, nc, ng in getattr(base, "n_fixacao", []):
         print(f"Fixação: {sig} · {tit} · {nq} questões ({nr} com resolução) · {nc} contas"
               + (f" · guia com {ng} questões-modelo" if ng else ""))
+    for sig, tit, nc, nk, nh in getattr(base, "n_jogos", []):
+        print(f"Fixação: {sig} · {tit} · {nc} contas · {nk} cartas ({nh} com história)")
     if not verificar:
         print(f"Gerado: {SAIDA_SITE.relative_to(RAIZ).as_posix()} ({tamanho // 1024} KB) e "
               f"{SAIDA_PAGINA_PRIVADA.relative_to(RAIZ).as_posix()}")

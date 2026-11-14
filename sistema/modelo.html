@@ -408,6 +408,98 @@ a.fx-nome:hover { background: color-mix(in srgb, var(--m) 20%, var(--raised)); }
 .fx-gd-card { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 12px 14px; border: 1px solid var(--rule); border-radius: 12px; background: var(--raised); color: var(--ink); text-decoration: none; transition: border-color var(--dur-micro) var(--ease); }
 .fx-gd-card:hover { border-color: var(--m); }
 .fx-gd-num { font: 700 20px/24px var(--font-ui); color: var(--m); font-variant-numeric: tabular-nums; }
+/* Classificação de contas (jogo da Fixação; renderJogo) */
+.jg-ini, .jg-prog-p, .jg-fim { display: grid; gap: 32px; max-width: 880px; }
+.jg-ini { gap: 24px; justify-items: start; }
+.jg-num { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; width: 100%; }
+.jg-num > div { display: grid; gap: 2px; padding: 16px 20px; border: 1px solid var(--rule); border-radius: 16px; background: var(--raised); }
+.jg-num strong { font: 700 30px/36px var(--font-display); letter-spacing: -.02em; color: var(--ink); font-variant-numeric: tabular-nums; }
+.jg-num > div:first-child strong { color: var(--m); }
+.jg-num span { display: inline-flex; align-items: center; gap: 4px; font: 500 13px/18px var(--font-ui); color: var(--ink-3); }
+.jg-cfg { display: grid; gap: 8px; width: 100%; }
+.jg-cfg-t { display: flex; align-items: center; gap: 4px; margin: 0; font: 600 12px/16px var(--font-ui); letter-spacing: .02em; color: var(--ink-3); text-transform: uppercase; }
+.jg-cfg .seg { max-width: 420px; }
+.jg-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.jg-chips .chip { padding: 0 12px; }
+.jg-jogo { display: grid; gap: 16px; max-width: 880px; }
+.jg-barra { display: flex; align-items: center; gap: 16px; font: 600 14px/20px var(--font-ui); color: var(--ink-2); }
+.jg-prog { font-variant-numeric: tabular-nums; }
+.jg-pl { display: inline-flex; align-items: center; gap: 12px; margin-right: auto; font-variant-numeric: tabular-nums; }
+.jg-pl > span { display: inline-flex; align-items: center; gap: 4px; }
+.jg-pl svg { width: 15px; height: 15px; }
+.jg-pl .ok { color: var(--ok); }
+.jg-pl .err { color: var(--err); }
+.jg-pl .jg-seq { color: var(--m); }
+.jg-trilho { height: 4px; overflow: hidden; border-radius: 9999px; background: var(--panel); }
+.jg-trilho span { display: block; height: 100%; border-radius: inherit; background: var(--m); transition: width var(--dur-micro) var(--ease); }
+.jg-carta { position: relative; display: grid; gap: 10px; padding: 32px 28px 28px; border: 1px solid color-mix(in srgb, var(--m) 28%, var(--rule)); border-radius: 20px; background: linear-gradient(180deg, color-mix(in srgb, var(--m) 7%, var(--raised)), var(--raised) 70%); box-shadow: var(--shadow-sm); }
+.jg-nome { margin: 0; font: 700 28px/34px var(--font-display); letter-spacing: -.02em; color: var(--ink); text-wrap: balance; }
+.jg-hist { margin: 0; max-width: 68ch; font: 400 17px/27px var(--font-read); color: var(--ink-2); font-style: italic; }
+.jg-com-h .jg-nome { font-size: 22px; line-height: 28px; }
+.jg-ja { justify-self: start; padding: 2px 10px; border-radius: 9999px; background: var(--panel); color: var(--ink-3); font: 600 11px/18px var(--font-ui); letter-spacing: .02em; text-transform: uppercase; }
+.jg-ja.jg-nova { background: color-mix(in srgb, var(--m) 14%, var(--raised)); color: var(--m); }
+.jg-ja.err { background: var(--err-soft); color: var(--err); }
+.jg-fils { display: grid; gap: 4px; }
+.jg-fil { display: grid; grid-template-columns: minmax(120px, 190px) minmax(0, 1fr); gap: 4px 16px; align-items: start; padding: 10px 12px; border-radius: 12px; border: 1px solid transparent; transition: background var(--dur-micro) var(--ease), border-color var(--dur-micro) var(--ease); }
+.jg-fil.ativa { border-color: color-mix(in srgb, var(--m) 35%, transparent); background: color-mix(in srgb, var(--m) 5%, transparent); }
+.jg-fil-t { display: flex; align-items: center; gap: 6px; margin: 0; min-height: 36px; font: 600 13px/18px var(--font-ui); color: var(--ink-2); }
+.jg-st { display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%; flex: none; }
+.jg-st svg { width: 12px; height: 12px; }
+.jg-ok .jg-st { background: var(--ok); color: var(--on-m); }
+.jg-erro .jg-st, .jg-falta .jg-st { background: var(--err); color: var(--on-m); }
+.jg-dep, .jg-sobra { opacity: .62; }
+.jg-ops { display: flex; flex-wrap: wrap; gap: 6px; }
+.jg-op { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 6px 12px 6px 6px; border: 1px solid var(--rule-2); border-radius: 10px; background: var(--raised); color: var(--ink); font: 600 14px/18px var(--font-ui); text-align: left; cursor: pointer; transition: background-color var(--dur-micro) var(--ease), border-color var(--dur-micro) var(--ease), color var(--dur-micro) var(--ease), transform var(--dur-micro) var(--ease); }
+.jg-op:hover:not(:disabled) { border-color: var(--ink-3); background: var(--hover); }
+.jg-op:active:not(:disabled) { transform: scale(.98); }
+.jg-op:disabled { cursor: default; color: var(--ink-3); }
+.jg-k { display: inline-grid; place-items: center; min-width: 22px; height: 22px; border-radius: 6px; background: var(--panel); color: var(--ink-3); font: 600 11px/1 var(--font-mono); }
+.jg-fil:not(.ativa) .jg-k { opacity: .5; }
+.jg-op.sel { border-color: var(--m); background: color-mix(in srgb, var(--m) 12%, var(--raised)); color: var(--ink); }
+.jg-op.sel .jg-k { background: var(--m); color: var(--on-m); opacity: 1; }
+.jg-op.certa { border-color: var(--ok); background: var(--ok-soft); color: var(--ok); }
+.jg-op.certa .jg-k { background: var(--ok); color: var(--on-m); opacity: 1; }
+.jg-op.errada { border-color: var(--err); background: var(--err-soft); color: var(--err); text-decoration: line-through; text-decoration-thickness: 1px; }
+.jg-op.errada .jg-k { background: var(--err); color: var(--on-m); opacity: 1; }
+.jg-nota { grid-column: 2; margin: 2px 0 0; font: 500 12px/16px var(--font-ui); color: var(--ink-3); }
+.jg-nota b { color: var(--ok); }
+.jg-fb { display: grid; gap: 6px; padding: 16px 20px; border-radius: 16px; border: 1px solid; }
+.jg-fb.ok { border-color: color-mix(in srgb, var(--ok) 40%, var(--rule)); background: color-mix(in srgb, var(--ok) 6%, var(--raised)); }
+.jg-fb.err { border-color: color-mix(in srgb, var(--err) 40%, var(--rule)); background: color-mix(in srgb, var(--err) 5%, var(--raised)); }
+.jg-fb-t { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin: 0; font: 700 16px/24px var(--font-ui); }
+.jg-fb.ok .jg-fb-t { color: var(--ok); }
+.jg-fb.err .jg-fb-t { color: var(--err); }
+.jg-fb-t svg { width: 18px; height: 18px; }
+.jg-fb-t span { color: var(--ink); font-weight: 600; }
+.jg-fb-c { margin: 0; font: 600 13px/18px var(--font-ui); color: var(--ink-2); }
+.jg-fb-p { margin: 0; font: 400 15px/24px var(--font-read); color: var(--ink); }
+.jg-fb-l { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; margin-left: -8px; }
+.jg-fb-q { font: 500 13px/18px var(--font-ui); color: var(--ink-3); }
+.jg-fb-q a { color: var(--m); }
+.jg-acoes { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.jg-fim-d { font: 600 14px/20px var(--font-ui); color: var(--ink); }
+.jg-rever { display: grid; gap: 8px; margin: 0 0 16px; padding: 0; list-style: none; }
+.jg-rever li { display: grid; gap: 2px; padding: 12px 16px; border: 1px solid var(--rule); border-radius: 12px; background: var(--raised); }
+.jg-rever strong { font: 700 14px/20px var(--font-ui); }
+.jg-rever span { font: 500 13px/18px var(--font-ui); color: var(--ink-2); }
+.jg-rever em { font: 600 12px/16px var(--font-ui); font-style: normal; color: var(--err); }
+.jg-cg { margin-bottom: 32px; }
+.jg-cg-n { margin-left: 4px; color: var(--ink-3); font-weight: 500; font-size: 14px; }
+.jg-dom { display: inline-block; margin-left: 6px; padding: 1px 8px; border-radius: 9999px; background: var(--ok-soft); color: var(--ok); font: 600 11px/16px var(--font-ui); }
+.jg-hs { display: grid; gap: 4px; margin: 4px 0 0; padding-left: 18px; font: 400 13px/19px var(--font-ui); color: var(--ink-2); }
+.jg-hs b { color: var(--ink); }
+.jg-vazio { color: var(--ink-3); font: 500 14px/20px var(--font-ui); }
+@media (max-width: 720px) {
+  .jg-num { grid-template-columns: minmax(0, 1fr); }
+  .jg-num > div { grid-template-columns: auto minmax(0, 1fr); align-items: baseline; gap: 12px; padding: 12px 16px; }
+  .jg-num strong { font-size: 24px; line-height: 30px; }
+  .jg-carta { padding: 24px 18px 20px; }
+  .jg-nome { font-size: 22px; line-height: 28px; }
+  .jg-fil { grid-template-columns: minmax(0, 1fr); padding: 8px; }
+  .jg-fil-t { min-height: 0; }
+  .jg-nota { grid-column: 1; }
+  .jg-barra { gap: 10px; }
+}
 .fx-gd-ct { display: grid; gap: 4px; }
 .fx-gd-ct strong { font: 700 14px/20px var(--font-ui); }
 .fx-gd-ct small { font: 500 12px/16px var(--font-ui); color: var(--ink-3); }
@@ -1887,6 +1979,7 @@ html:not([data-ebook]) .ebook-veu { display: none; }
   let marcas = guarda.ler('marcas', {});
   const comentarios = guarda.ler('comentarios', {});
   const atividade = guarda.ler('atividade', {}); // {AAAA-MM-DD: {q: respostas, a: acertos}}
+  const classif = guarda.ler('classif', {}); // jogo Classificação de contas: {idDaCarta: {n, a, cx, ult, prox, h, d}}
   let achados = [], achadoAtual = -1, titulosDoc = [], secaoAtualId = null, secaoAtual = '';
   let marcadoresPag = [], secoesGeral = [], pagAtual = 1, mapaAtivo = null;
 
@@ -3120,10 +3213,10 @@ html:not([data-ebook]) .ebook-veu { display: none; }
   function resumoBackup(x) {
     const nMarcas = new Set([].concat(...Object.values(x.marcas || {}).map(l => l.map(y => y.g)))).size;
     const nCom = new Set([].concat(...Object.values(x.comentarios || {}).map(l => l.map(y => y.g)))).size;
-    return `${plural(Object.keys(x.lidos || {}).length, 'tópico lido', 'tópicos lidos')}, ${plural(Object.keys(x.geral || {}).length, 'resumo geral com página marcada', 'resumos gerais com página marcada')}, ${plural(nMarcas, 'marcação', 'marcações')}, ${plural(nCom, 'comentário', 'comentários')} e ${plural(Object.keys(x.questoes || {}).length, 'questão respondida', 'questões respondidas')}.`;
+    return `${plural(Object.keys(x.lidos || {}).length, 'tópico lido', 'tópicos lidos')}, ${plural(Object.keys(x.geral || {}).length, 'resumo geral com página marcada', 'resumos gerais com página marcada')}, ${plural(nMarcas, 'marcação', 'marcações')}, ${plural(nCom, 'comentário', 'comentários')}, ${plural(Object.keys(x.questoes || {}).length, 'questão respondida', 'questões respondidas')} e ${plural(Object.keys(x.classif || {}).length, 'conta classificada', 'contas classificadas')}.`;
   }
   function exportar() {
-    const dados = { app: APP, versao: 3, exportadoEm: new Date().toISOString(), lidos, geral: geralLido, marcas, comentarios, atividade, favoritos, questoes: qResp, qfav: qFav, qrep: qRel };
+    const dados = { app: APP, versao: 3, exportadoEm: new Date().toISOString(), lidos, geral: geralLido, marcas, comentarios, atividade, favoritos, questoes: qResp, qfav: qFav, qrep: qRel, classif };
     const json = JSON.stringify(dados);
     abrirDialogo({
       titulo: 'Exportar cópia de segurança',
@@ -3214,10 +3307,12 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     // Questões: vale o registro da resposta mais recente (os contadores vêm junto com ele).
     Object.entries(x.questoes || {}).forEach(([id, v]) => { if (v && (!qResp[id] || (v.em || '') > (qResp[id].em || ''))) qResp[id] = v; });
     (x.qfav || []).forEach(id => { if (!qFav.includes(id)) qFav.push(id); });
+    // Classificação de contas: por carta, vale o registro da resposta mais recente.
+    Object.entries(x.classif || {}).forEach(([id, v]) => { if (v && (!classif[id] || (v.ult || 0) > (classif[id].ult || 0))) classif[id] = v; });
     Object.entries(x.qrep || {}).forEach(([id, v]) => { if (v && (!qRel[id] || (v.em || '') > (qRel[id].em || ''))) qRel[id] = v; });
     guarda.gravar('lidos', lidos); guarda.gravar('geral', geralLido); gravarMarcas(); guarda.gravar('favoritos', favoritos);
     guarda.gravar('questoes', qResp); guarda.gravar('qfav', qFav); guarda.gravar('qrep', qRel);
-    guarda.gravar('comentarios', comentarios); guarda.gravar('atividade', atividade);
+    guarda.gravar('comentarios', comentarios); guarda.gravar('atividade', atividade); guarda.gravar('classif', classif);
   }
 
   // ---------- Rotas ----------
@@ -4411,8 +4506,8 @@ html:not([data-ebook]) .ebook-veu { display: none; }
   // Data API com o token do Google: a política do banco (sistema/neon.sql) deixa cada pessoa acessar só
   // as próprias linhas. Só o administrador edita textos (servidor local, à parte). Configuração em
   // sistema/conta.json (README, "Login com Google").
-  const SYNC = ['lidos', 'geral', 'marcas', 'favoritos', 'questoes', 'qfav', 'qrep', 'qfiltro', 'ultimo', 'ordemDisciplinas', 'filtroTopicos', 'comentarios', 'atividade'];
-  const EM_MEMORIA = { lidos: () => lidos, geral: () => geralLido, marcas: () => marcas, favoritos: () => favoritos, questoes: () => qResp, qfav: () => qFav, qrep: () => qRel, comentarios: () => comentarios, atividade: () => atividade };
+  const SYNC = ['lidos', 'geral', 'marcas', 'favoritos', 'questoes', 'qfav', 'qrep', 'qfiltro', 'ultimo', 'ordemDisciplinas', 'filtroTopicos', 'comentarios', 'atividade', 'classif'];
+  const EM_MEMORIA = { lidos: () => lidos, geral: () => geralLido, marcas: () => marcas, favoritos: () => favoritos, questoes: () => qResp, qfav: () => qFav, qrep: () => qRel, comentarios: () => comentarios, atividade: () => atividade, classif: () => classif };
   const conta = { cfg: D.conta || null, user: null, estado: 'fora', msg: '', quando: 0, ocupado: false, repetir: false, ver: {}, aguarda: null };
   if (conta.cfg) conta.user = guarda.ler('google', null);
   const meta = Object.assign({ uid: null, sujos: {} }, guarda.ler('sync', {}));
@@ -6366,7 +6461,7 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     const lista = FX[m.id];
     const nq = lista.reduce((s, a) => s + a.questoes.length, 0), nr = lista.reduce((s, a) => s + a.questoes.filter(q => q.r.length || q.gd).length, 0);
     const feitas = lista.reduce((s, a) => s + a.questoes.filter(q => qResp[q.id]).length, 0);
-    const links = lista.map(a => `<a class="vg-link" href="#${m.id}_fixacao~${a.id}"><span>${esc(a.titulo)}</span><span class="vg-link-n">${plural(a.contas.length, 'conta', 'contas')} · ${plural(a.questoes.length, 'questão', 'questões')}</span>${ICO.dir}</a>`).join('');
+    const links = lista.map(a => `<a class="vg-link" href="#${m.id}_fixacao~${a.id}"><span>${esc(a.titulo)}</span><span class="vg-link-n">${a.tipo === 'jogo' ? `${plural(a.cartas.length, 'carta', 'cartas')} · ${a.cartas.length ? Math.round(100 * jgResumo(a).dom / a.cartas.length) : 0}% dominadas` : `${plural(a.contas.length, 'conta', 'contas')} · ${plural(a.questoes.length, 'questão', 'questões')}`}</span>${ICO.dir}</a>`).join('');
     return `<article class="vg vg-fixacao revelar"><p class="vg-rot">${ICO.alvo}Fixação em detalhes${dica('Assuntos difíceis em forma visual: estruturas lado a lado, todas as contas de cada grupo, os nomes que as bancas usam e as questões dos PDFs com resolução passo a passo.')}</p>
       <h2 class="vg-tit">${plural(lista.length, 'assunto', 'assuntos')}</h2>
       ${barraProg('Questões feitas', nq ? Math.round(100 * feitas / nq) : 0, `${feitas}/${nq}`)}<p class="vg-sit">${plural(nr, 'questão com resolução', 'questões com resolução')}</p>
@@ -6382,6 +6477,7 @@ html:not([data-ebook]) .ebook-veu { display: none; }
       vista.innerHTML = `<div class="doc c-${m.cor}"><header class="sec-cab"><h1 class="sec-tit">Fixação em detalhes</h1></header><div class="vg-links">${lista.map(x => `<a class="vg-link" href="#${m.id}_fixacao~${x.id}"><span>${esc(x.titulo)}</span>${ICO.dir}</a>`).join('')}</div></div>`;
       return;
     }
+    if (a.tipo === 'jogo') { renderJogo(m, a, subRaw || ''); return; }
     const sub = subM && FX_SUB[subM[1]] && (subM[1] !== 'g' || (a.guia || []).length) ? subM[1] : 'e';
     if (fxEst.a !== a.id) { fxEst.a = a.id; fxEst.sel = null; fxEst.busca = ''; fxEst.ver = 0; }
     fxA = a;
@@ -6831,11 +6927,336 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     if ('fxfav' in d) { const i = qFav.indexOf(d.fxfav); if (i >= 0) qFav.splice(i, 1); else qFav.push(d.fxfav); guarda.gravar('qfav', qFav); const on = i < 0; t.setAttribute('aria-pressed', on); t.innerHTML = (on ? ICO.estrelaCheia : ICO.estrela) + '<span class="sr">Favorita</span>'; }
   });
 
+  // ---------- Classificação de contas (jogo da Fixação) ----------
+  // Assunto da Fixação com tipo "jogo" (pasta classificacao/, arquivo jogo.md; ver carregar_jogo_classificacao em gerar.py).
+  // Rotas: #<matéria>_fixacao~classificacao (Jogar), ~classificacao.p (Progresso) e ~classificacao.c (Contas).
+  // Cada carta (um nome, ou um nome com uma história) tem um registro em "classif": n respostas, a acertos,
+  // cx caixa (0 a 6), ult e prox (ms), h últimos resultados ("1" acerto, "0" erro) e d erros por fileira.
+  // Agendador (jgEscolher): repetição espaçada por carta (JG_INT), com peso pela taxa de erro recente da conta
+  // inteira e pelas fileiras em que o leitor mais erra; a carta errada volta na mesma partida, e outra forma da
+  // mesma conta aparece antes dela. Mistura revisões vencidas, cartas novas e reforço das já dominadas.
+  const JG_INT = [0, 20 * 6e4, 864e5, 3 * 864e5, 7 * 864e5, 16 * 864e5, 35 * 864e5];
+  const JG_SUB_TIT = { anc: 'Subgrupo do ativo não circulante', pl: 'Subgrupo do PL', dre: 'Linha da DRE' };
+  const JG_FILTROS = [['tudo', 'Todas'], ['patrimonial', 'Patrimoniais'], ['resultado', 'De resultado'], ['retificadora', 'Retificadoras'], ['historia', 'Com história'], ['erros', 'As que mais erro']];
+  const jgEst = { filtro: 'tudo', qtd: 20, busca: '' };
+  let jgSessao = null;
+  const jgMapa = a => a._c || (a._c = Object.fromEntries(a.contas.map(c => [c.id, c])));
+  const jgCarta = (a, id) => (a._k || (a._k = Object.fromEntries(a.cartas.map(k => [k.id, k]))))[id];
+  const jgRot = (a, dim, v) => { const ops = dim === 'subgrupo' ? [].concat(...Object.values(a.sub)) : a.ops[dim]; const o = ops.find(x => x[0] === v); return o ? o[1] : v; };
+  const jgSubDe = (tipo, grupo, prazo) => tipo === 'resultado' ? 'dre' : grupo === 'pl' ? 'pl' : grupo === 'ativo' && prazo === 'nao-circulante' ? 'anc' : '';
+  const jgDimNome = (a, d) => a.dims.find(x => x[0] === d)[1];
+  // Fileiras que a resposta certa pede (as que valem "-" não existem; as de "Depende" não contam nas cartas só com o nome).
+  function jgPedidas(a, k) {
+    const c = jgMapa(a)[k.k];
+    return a.dims.map(d => d[0]).filter(d => c.c[d] !== '-' && !(!k.s && c.dep.includes(d)));
+  }
+  // Fileiras visíveis a partir do que o leitor já escolheu: nada da resposta vaza pela tela.
+  function jgVisiveis(esc) {
+    const v = ['tipo'];
+    if (esc.tipo) v.push('grupo');
+    v.push('natureza', 'retificadora');
+    if (esc.grupo === 'ativo' || esc.grupo === 'passivo') v.push('prazo');
+    if (jgSubDe(esc.tipo, esc.grupo, esc.prazo)) v.push('subgrupo');
+    return v;
+  }
+  function jgOpcoes(a, dim, esc) {
+    if (dim === 'grupo') return a.ops.grupo.filter(o => (esc.tipo === 'resultado') === (o[0] === 'receita' || o[0] === 'despesa'));
+    if (dim === 'subgrupo') return a.sub[jgSubDe(esc.tipo, esc.grupo, esc.prazo)] || [];
+    return a.ops[dim];
+  }
+  const jgClasseTxt = (a, c) => a.dims.map(d => d[0]).filter(d => c.c[d] !== '-').map(d => d === 'retificadora' ? (c.c[d] === 'retificadora' ? 'Retificadora' : '') : jgRot(a, d, c.c[d])).filter(Boolean).join(' · ');
+  // Taxa de erro recente de cada conta (últimas respostas de todas as cartas dela) e de cada fileira.
+  function jgTaxas(a) {
+    const conta = {}, dim = {};
+    a.cartas.forEach(k => {
+      const r = classif[k.id];
+      if (!r || !r.n) return;
+      const h = r.h || '', x = conta[k.k] || (conta[k.k] = { e: 0, t: 0 });
+      x.e += [...h].filter(c => c === '0').length; x.t += h.length;
+      jgPedidas(a, k).forEach(d => { const y = dim[d] || (dim[d] = { e: 0, t: 0 }); y.e += (r.d && r.d[d]) || 0; y.t += r.n; });
+    });
+    const tx = o => Object.fromEntries(Object.entries(o).map(([k, v]) => [k, v.t ? v.e / v.t : 0]));
+    return { conta: tx(conta), dim: tx(dim), dimTot: dim };
+  }
+  function jgPool(a, filtro) {
+    return a.cartas.filter(k => {
+      const c = jgMapa(a)[k.k], r = classif[k.id];
+      if (filtro === 'patrimonial' || filtro === 'resultado') return c.c.tipo === filtro;
+      if (filtro === 'retificadora') return c.c.retificadora === 'retificadora';
+      if (filtro === 'historia') return !!k.s;
+      if (filtro === 'erros') return !!(r && r.n && ((r.h || '').includes('0') || r.cx <= 1));
+      return true;
+    });
+  }
+  function jgSorteio(lista) { const tot = lista.reduce((s, x) => s + x.p, 0); let r = Math.random() * tot; for (const x of lista) { r -= x.p; if (r <= 0) return x; } return lista[lista.length - 1]; }
+  function jgEscolher(a, s) {
+    const agora = Date.now(), ult = s.hist.length ? jgCarta(a, s.hist[s.hist.length - 1].id).k : null;
+    // 1) a fila da própria partida (cartas erradas e outras formas da conta errada)
+    //    (no máximo uma em cada duas cartas: com muitos erros seguidos, a partida ainda traz contas novas)
+    const i = s.vezFila ? -1 : s.fila.findIndex(x => x.apos <= s.hist.length && jgCarta(a, x.id).k !== ult);
+    s.vezFila = i >= 0;
+    if (i >= 0) return s.fila.splice(i, 1)[0].id;
+    const feitas = new Set(s.hist.map(x => x.id).concat(s.fila.map(x => x.id))), tx = jgTaxas(a);
+    let cand = (s.ids ? s.ids.map(id => jgCarta(a, id)).filter(Boolean) : jgPool(a, s.filtro)).filter(k => !feitas.has(k.id));
+    if (cand.some(k => k.k !== ult)) cand = cand.filter(k => k.k !== ult);
+    // nenhuma conta passa de três aparições na partida enquanto houver outras (o erro puxa, mas não monopoliza)
+    const vezes = {};
+    s.hist.forEach(x => { const kk = jgCarta(a, x.id).k; vezes[kk] = (vezes[kk] || 0) + 1; });
+    if (cand.some(k => (vezes[k.k] || 0) < 3)) cand = cand.filter(k => (vezes[k.k] || 0) < 3);
+    if (!cand.length) { const f = s.fila.shift(); return f ? f.id : null; }
+    if (s.ids) return cand[0].id; // "Refazer as erradas": na ordem em que foram erradas
+    const vistasConta = new Set(a.cartas.filter(k => classif[k.id]).map(k => k.k));
+    const peso = k => {
+      const r = classif[k.id], ce = tx.conta[k.k] || 0, c = jgMapa(a)[k.k];
+      const armadilha = jgPedidas(a, k).reduce((t, d) => t + (tx.dim[d] || 0) * (d === 'natureza' && c.c.retificadora === 'retificadora' ? 2 : d === 'subgrupo' || d === 'prazo' ? 1.3 : 1), 0);
+      const hist = k.s ? 1.3 : 1;
+      if (!r || !r.n) return { k, cat: 'nova', p: (vistasConta.has(k.k) ? 0.6 + 1.5 * ce : 1.2) * hist };
+      if ((r.prox || 0) <= agora) return { k, cat: 'rev', p: (1 + Math.min(4, (agora - r.prox) / Math.max(JG_INT[r.cx] || 6e5, 6e5)) + 4 * ce + 2 * armadilha) * hist };
+      if (r.cx >= 3) return { k, cat: 'reforco', p: (0.3 + Math.min(3, (agora - r.ult) / 864e5 / 7)) * hist };
+      return { k, cat: 'cedo', p: 0.2 + 2 * ce };
+    };
+    const todos = cand.map(peso), por = c => todos.filter(x => x.cat === c);
+    // embaralha antes de ordenar: no empate de peso (cartas novas), a ordem do arquivo não pode decidir
+    for (let i = todos.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [todos[i], todos[j]] = [todos[j], todos[i]]; }
+    // Mistura: revisões vencidas, novas e reforço das dominadas; a categoria sem cartas cede a vez à seguinte.
+    const sorte = Math.random(), ordem = sorte < 0.55 ? ['rev', 'nova', 'reforco', 'cedo'] : sorte < 0.85 ? ['nova', 'rev', 'reforco', 'cedo'] : ['reforco', 'rev', 'nova', 'cedo'];
+    for (const c of ordem) {
+      const l = por(c).sort((x, y) => y.p - x.p).slice(0, 12);
+      if (l.length) return jgSorteio(l).k.id;
+    }
+    return null;
+  }
+  function jgComecar(m, a, ids) {
+    jgSessao = { mat: m.id, a: a.id, filtro: jgEst.filtro, qtd: ids ? ids.length : jgEst.qtd, ids: ids || null, hist: [], fila: [], esc: {}, res: null, atual: null, seq: 0, melhor: 0, inicio: Date.now() };
+    jgSessao.atual = jgEscolher(a, jgSessao);
+    if (!jgSessao.atual) jgSessao.fim = true;
+  }
+  function jgConferir(m, a) {
+    const s = jgSessao, k = jgCarta(a, s.atual), c = jgMapa(a)[k.k];
+    const vis = jgVisiveis(s.esc), pedidas = jgPedidas(a, k), por = {};
+    pedidas.forEach(d => {
+      const v = s.esc[d];
+      por[d] = !vis.includes(d) || !v ? 'falta' : v === c.c[d] || (c.ac[d] || []).includes(v) ? 'ok' : 'erro';
+    });
+    const ok = pedidas.every(d => por[d] === 'ok'), agora = Date.now();
+    const r = classif[k.id] || (classif[k.id] = { n: 0, a: 0, cx: 0, h: '', d: {} });
+    r.n++; if (ok) r.a++;
+    r.h = ((r.h || '') + (ok ? '1' : '0')).slice(-6);
+    r.cx = ok ? Math.min(6, (r.cx || 0) + 1) : Math.max(0, (r.cx || 0) - 2);
+    r.ult = agora; r.prox = agora + JG_INT[r.cx];
+    r.d = r.d || {};
+    pedidas.forEach(d => { if (por[d] !== 'ok') r.d[d] = (r.d[d] || 0) + 1; });
+    guarda.gravar('classif', classif);
+    const dia = atividade[hojeISO()] || (atividade[hojeISO()] = { q: 0, a: 0 });
+    dia.q++; if (ok) dia.a++;
+    guarda.gravar('atividade', atividade);
+    s.res = { por, ok };
+    s.hist.push({ id: k.id, ok, por });
+    s.seq = ok ? s.seq + 1 : 0; s.melhor = Math.max(s.melhor, s.seq);
+    s.rep = s.rep || {};
+    // Errou: a carta volta na mesma partida, e outra forma da mesma conta aparece antes dela; cada conta ocupa
+    // no máximo 4 vezes da partida por essa via, para o erro puxar a revisão sem tomar a partida inteira.
+    const daConta = s.hist.concat(s.fila).filter(x => jgCarta(a, x.id).k === k.k).length;
+    if (!ok && !s.ids && (!s.qtd || s.hist.length < s.qtd) && !s.rep[k.id] && daConta < 4) {
+      const n = s.hist.length;
+      s.rep[k.id] = 1;
+      if (!s.fila.some(x => x.id === k.id)) s.fila.push({ id: k.id, apos: n + 3 + Math.floor(Math.random() * 3), propria: 1 });
+      const feitas = new Set(s.hist.map(x => x.id).concat(s.fila.map(x => x.id)));
+      const irma = a.cartas.filter(x => x.k === k.k && !feitas.has(x.id));
+      if (irma.length && daConta < 3) s.fila.push({ id: irma[Math.floor(Math.random() * irma.length)].id, apos: n + 1 + Math.floor(Math.random() * 2) });
+    }
+  }
+  // Partida com limite: ao chegar nele, só as cartas erradas ainda pendentes voltam (uma vez cada); nada de cartas novas.
+  const jgExtra = s => s.qtd && s.hist.length >= s.qtd;
+  function jgProxima(m, a) {
+    const s = jgSessao;
+    s.esc = {}; s.res = null;
+    if (jgExtra(s)) {
+      s.fila = s.fila.filter(x => x.propria && !s.hist.slice(-1).some(h => h.id === x.id));
+      const ult = s.hist.length ? jgCarta(a, s.hist[s.hist.length - 1].id).k : null;
+      const i = Math.max(0, s.fila.findIndex(x => jgCarta(a, x.id).k !== ult));
+      const f = s.fila.splice(i, 1)[0];
+      s.atual = f ? f.id : null;
+    } else s.atual = jgEscolher(a, s);
+    if (!s.atual) s.fim = true;
+  }
+  function renderJogo(m, a, sub) {
+    sub = sub === 'p' || sub === 'c' ? sub : 'j';
+    const nomes = { j: 'Jogar', p: 'Progresso', c: 'Contas' };
+    document.title = `${nomes[sub]} · ${a.titulo} · Fixação · Missão Fiscal`;
+    const abas = Object.entries(nomes).map(([k, t]) => `<a class="fx-sub" href="#${m.id}_fixacao~${a.id}${k === 'j' ? '' : '.' + k}"${k === sub ? ' aria-current="page"' : ''}>${t}${k === 'c' ? `<span class="n">${a.contas.length}</span>` : ''}</a>`).join('');
+    vista.innerHTML = `<div class="doc fx jg c-${m.cor}"><header class="fx-cab"><p class="fx-migalha"><a href="#${m.id}">${esc(m.nome)}</a> · Fixação em detalhes</p><h1 class="sec-tit">${esc(a.titulo)}</h1>
+      <nav class="fx-subs" aria-label="Partes do jogo">${abas}</nav></header><div id="ui-jg"></div></div>`;
+    const alvo = $('#ui-jg');
+    if (sub === 'p') jgProgresso(m, a, alvo);
+    else if (sub === 'c') jgContas(m, a, alvo);
+    else jgTela(m, a, alvo);
+    window.scrollTo(0, 0);
+  }
+  function jgResumo(a) {
+    const rs = a.cartas.map(k => classif[k.id]).filter(r => r && r.n), agora = Date.now();
+    return { vistas: rs.length, dom: rs.filter(r => r.cx >= 3).length, venc: rs.filter(r => (r.prox || 0) <= agora).length, total: a.cartas.length };
+  }
+  const jgNumeros = (z, ajuda) => `<div class="jg-num"><div><strong>${z.total ? Math.round(100 * z.dom / z.total) : 0}%</strong><span>dominadas${ajuda ? dica('Carta dominada: acertada em pelo menos três revisões seguidas, com intervalos crescentes (20 minutos, 1 dia, 3 dias...). Um erro a faz recuar duas caixas.') : ''}</span></div><div><strong>${z.venc}</strong><span>para revisar agora</span></div><div><strong>${z.total - z.vistas}</strong><span>nunca vistas</span></div></div>`;
+  function jgTela(m, a, alvo) {
+    const s = jgSessao && jgSessao.a === a.id && jgSessao.mat === m.id ? jgSessao : null;
+    if (!s) {
+      const n = jgPool(a, jgEst.filtro).length;
+      alvo.innerHTML = `<section class="jg-ini">${jgNumeros(jgResumo(a), true)}
+        <div class="jg-cfg"><p class="jg-cfg-t">Contas${dica('Patrimoniais, de resultado, só as retificadoras, só as cartas com história ou só as que você mais erra. Em qualquer opção o jogo mistura revisões vencidas, cartas novas e reforço das que você já domina.')}</p><div class="jg-chips">${JG_FILTROS.map(([k, t]) => `<button class="chip" type="button" data-jgfiltro="${k}" aria-pressed="${jgEst.filtro === k}">${t}<span class="n">${jgPool(a, k).length}</span></button>`).join('')}</div></div>
+        <div class="jg-cfg"><p class="jg-cfg-t">Cartas por partida</p><div class="seg" role="radiogroup" aria-label="Cartas por partida">${[10, 20, 30, 0].map(q => `<button type="button" role="radio" data-jgqtd="${q}" aria-checked="${jgEst.qtd === q}">${q || 'Sem fim'}</button>`).join('')}</div></div>
+        <button class="bt bt-p bt-grande" type="button" data-jgcomecar${n ? '' : ' disabled'}>${ICO.raio} Jogar</button></section>`;
+      return;
+    }
+    if (s.fim) { jgFim(m, a, alvo); return; }
+    const k = jgCarta(a, s.atual), c = jgMapa(a)[k.k], r = classif[k.id];
+    const vis = jgVisiveis(s.esc), feito = !!s.res, ativa = feito ? null : vis.find(x => !s.esc[x]);
+    const fileira = d => {
+      const lista = d === 'subgrupo' ? (vis.includes(d) ? jgSubDe(s.esc.tipo, s.esc.grupo, s.esc.prazo) : jgSubDe(c.c.tipo, c.c.grupo, c.c.prazo)) : '';
+      const tit = d === 'subgrupo' ? JG_SUB_TIT[lista] : jgDimNome(a, d);
+      const st = feito ? (s.res.por[d] || (c.c[d] === '-' ? 'sobra' : 'dep')) : '';
+      const certa = c.c[d], escondida = feito && !vis.includes(d);
+      const ops = escondida ? (d === 'subgrupo' ? a.sub[lista] : d === 'grupo' ? a.ops.grupo.filter(o => (c.c.tipo === 'resultado') === (o[0] === 'receita' || o[0] === 'despesa')) : a.ops[d]) : jgOpcoes(a, d, s.esc);
+      const bts = ops.map(([v, t], i) => {
+        const sel = !escondida && s.esc[d] === v;
+        let cls = sel ? ' sel' : '';
+        if (feito && st !== 'dep' && st !== 'sobra') { if (v === certa || (c.ac[d] || []).includes(v)) cls += ' certa'; else if (sel) cls += ' errada'; }
+        else if (feito && st === 'sobra' && sel) cls += ' errada';
+        return `<button class="jg-op${cls}" type="button" data-jgop="${d}" data-v="${v}"${feito ? ' disabled' : ''}><span class="jg-k">${i + 1}</span>${esc(t)}</button>`;
+      }).join('');
+      const nota = !feito ? '' : st === 'dep' ? '<p class="jg-nota">Só o nome não decide: não conta nesta carta.</p>' : st === 'sobra' ? `<p class="jg-nota">Esta conta não tem ${d === 'prazo' ? 'prazo' : 'subgrupo'}.</p>` : st === 'falta' ? `<p class="jg-nota">Fileira que o seu caminho escondeu. Certa: <b>${esc(jgRot(a, d, certa))}</b></p>` : '';
+      const marca = feito && (st === 'ok' || st === 'erro' || st === 'falta') ? `<span class="jg-st">${st === 'ok' ? ICO.check : ICO.fechar}</span>` : '';
+      return `<div class="jg-fil${feito ? ' jg-' + st : ''}${d === ativa ? ' ativa' : ''}" data-dim="${d}"><p class="jg-fil-t">${marca}${esc(tit)}</p><div class="jg-ops">${bts}</div>${nota}</div>`;
+    };
+    // Depois de conferir, aparecem também as fileiras da resposta certa que o caminho escolhido escondeu.
+    const mostrar = feito ? vis.concat(jgPedidas(a, k).filter(d => !vis.includes(d))) : vis;
+    const completo = vis.every(d => s.esc[d]);
+    const num = s.hist.length + (feito ? 0 : 1), rotProg = s.qtd && num > s.qtd ? 'Revisão das erradas' : `Carta ${num}${s.qtd ? ` de ${s.qtd}` : ''}`;
+    const acertos = s.hist.filter(x => x.ok).length;
+    const vistosF = new Set();
+    const fs = (k.f || []).concat(k.s ? [] : c.q).filter(x => x[1] && !vistosF.has(x[0]) && vistosF.add(x[0])).slice(0, 8).map(([rot, as, f]) => `<a href="#${m.id}_fixacao~${as}.q" data-jgq="${as}:${f}">${esc(rot)}</a>`).join(', ');
+    const lg = c.lg ? c.lg.split(':') : null;
+    const selo = r && r.n ? `<span class="jg-ja${(r.h || '').endsWith('0') ? ' err' : ''}">${(r.h || '').endsWith('0') ? 'Errada da última vez' : 'Revisão'}</span>` : '<span class="jg-ja jg-nova">Nova</span>';
+    alvo.innerHTML = `<section class="jg-jogo">
+      <div class="jg-barra"><span class="jg-prog">${rotProg}</span><span class="jg-pl"><span class="ok">${ICO.check}${acertos}</span><span class="err">${ICO.fechar}${s.hist.length - acertos}</span>${s.seq >= 3 ? `<span class="jg-seq">${ICO.chama}${s.seq}</span>` : ''}</span><button class="bt-texto" type="button" data-jgencerrar>Encerrar</button></div>
+      ${s.qtd ? `<div class="jg-trilho" aria-hidden="true"><span style="width:${Math.min(100, Math.round(100 * s.hist.length / s.qtd))}%"></span></div>` : ''}
+      <article class="jg-carta${k.s ? ' jg-com-h' : ''}">${selo}<p class="jg-nome">${esc(k.n)}</p>${k.s ? `<p class="jg-hist">${k.s}</p>` : ''}</article>
+      <div class="jg-fils">${mostrar.map(fileira).join('')}</div>
+      ${feito ? `<div class="jg-fb ${s.res.ok ? 'ok' : 'err'}" role="status"><p class="jg-fb-t">${s.res.ok ? ICO.checkC + ' Certo' : ICO.fechar + ' Ainda não'}<span>${esc(c.t)}</span></p><p class="jg-fb-c">${esc(jgClasseTxt(a, c))}</p>${c.pq ? `<p class="jg-fb-p">${c.pq}</p>` : ''}
+        ${lg || fs ? `<div class="jg-fb-l">${lg ? `<a class="bt-texto" href="#${m.id}_fixacao~${lg[0]}" data-jgir="${c.lg}">Ver na estrutura ${ICO.dir}</a>` : ''}${fs ? `<span class="jg-fb-q">Questões: ${fs}</span>` : ''}</div>` : ''}</div>
+        <div class="jg-acoes"><button class="bt bt-p" type="button" data-jgprox>Próxima ${ICO.dir}</button></div>`
+      : `<div class="jg-acoes"><button class="bt bt-p" type="button" data-jgconferir${completo ? '' : ' disabled'}>Conferir</button>${dica('Teclas: os números escolhem na fileira destacada; Enter confere e passa para a próxima; Backspace desfaz a última escolha.')}</div>`}
+    </section>`;
+  }
+  function jgFim(m, a, alvo) {
+    const s = jgSessao, n = s.hist.length, ac = s.hist.filter(x => x.ok).length;
+    if (!n) { jgSessao = null; jgTela(m, a, alvo); return; }
+    const dims = {};
+    s.hist.forEach(x => Object.entries(x.por).forEach(([d, v]) => { const y = dims[d] || (dims[d] = { a: 0, t: 0 }); y.t++; if (v === 'ok') y.a++; }));
+    const erradas = [...new Set(s.hist.filter(x => !x.ok).map(x => x.id))];
+    const contasErr = [...new Set(erradas.map(id => jgCarta(a, id).k))].map(id => jgMapa(a)[id]);
+    const pct = Math.round(100 * ac / n), mins = Math.max(1, Math.round((Date.now() - s.inicio) / 6e4));
+    alvo.innerHTML = `<section class="jg-fim"><header class="qr-cab"><h2 class="sec-tit">${pct}% de acerto</h2><p class="qr-sub">${plural(n, 'carta', 'cartas')} · ${plural(mins, 'minuto', 'minutos')} · maior sequência ${s.melhor}</p></header>
+      <div class="qr-barra" aria-hidden="true"><span class="a" style="width:${pct}%"></span><span class="e" style="width:${100 - pct}%"></span></div>
+      <section><h2 class="qt-sec-t">Por fileira</h2><ul class="qt-top-lista">${a.dims.filter(([d]) => dims[d]).map(([d, t]) => { const y = dims[d], p = Math.round(100 * y.a / y.t); return `<li class="qt-top"><div><span class="jg-fim-d">${t}</span><span class="qt-top-meta">${y.a} de ${y.t}</span></div><div class="qt-trilho" aria-hidden="true"><span style="width:${p}%"></span></div><span class="qt-top-pct">${p}%</span></li>`; }).join('')}</ul></section>
+      ${contasErr.length ? `<section><h2 class="qt-sec-t">Contas a rever</h2><ul class="jg-rever">${contasErr.map(c => `<li><strong>${esc(c.t)}</strong><span>${esc(jgClasseTxt(a, c))}</span></li>`).join('')}</ul></section>` : ''}
+      <div class="jg-acoes">${erradas.length ? `<button class="bt bt-p" type="button" data-jgrefazer="${erradas.join(',')}">Refazer as erradas</button>` : ''}<button class="bt${erradas.length ? '' : ' bt-p'}" type="button" data-jgnovo>Jogar de novo</button><a class="bt-texto" href="#${m.id}_fixacao~${a.id}.p">Ver progresso</a></div></section>`;
+  }
+  // Grupos do mapa de domínio (onde a conta entra no balanço ou na DRE).
+  function jgGrupoDe(c) {
+    const x = c.c;
+    if (x.tipo === 'resultado') return x.subgrupo === 'deducoes' ? 'Deduções da receita' : x.grupo === 'receita' ? 'Receitas' : x.subgrupo === 'cmv' ? 'Custos' : 'Despesas';
+    if (x.grupo === 'pl') return 'Patrimônio líquido';
+    if (x.grupo === 'passivo') return x.prazo === 'circulante' ? 'Passivo circulante' : 'Passivo não circulante';
+    if (x.prazo === 'circulante') return 'Ativo circulante';
+    return { rlp: 'Realizável a longo prazo', investimentos: 'Investimentos', imobilizado: 'Imobilizado', intangivel: 'Intangível' }[x.subgrupo] || 'Ativo não circulante';
+  }
+  const JG_ORDEM_G = ['Ativo circulante', 'Realizável a longo prazo', 'Investimentos', 'Imobilizado', 'Intangível', 'Passivo circulante', 'Passivo não circulante', 'Patrimônio líquido', 'Receitas', 'Deduções da receita', 'Custos', 'Despesas'];
+  const jgOrdenarG = o => Object.entries(o).sort((x, y) => JG_ORDEM_G.indexOf(x[0]) - JG_ORDEM_G.indexOf(y[0]));
+  function jgProgresso(m, a, alvo) {
+    const z = jgResumo(a), tx = jgTaxas(a), grupos = {};
+    a.cartas.forEach(k => { const g = jgGrupoDe(jgMapa(a)[k.k]), r = classif[k.id], y = grupos[g] || (grupos[g] = { t: 0, v: 0, d: 0 }); y.t++; if (r && r.n) { y.v++; if (r.cx >= 3) y.d++; } });
+    const piores = Object.entries(tx.conta).filter(([, v]) => v > 0).sort((x, y) => y[1] - x[1]).slice(0, 10).map(([id, v]) => ({ c: jgMapa(a)[id], v }));
+    const linha = (rot, meta, p, nd) => `<li class="qt-top"><div><span class="jg-fim-d">${esc(rot)}</span><span class="qt-top-meta">${meta}</span></div><div class="qt-trilho" aria-hidden="true"><span style="width:${p}%"></span></div><span class="qt-top-pct${nd ? ' nd' : ''}">${nd ? '—' : p + '%'}</span></li>`;
+    alvo.innerHTML = `<section class="jg-prog-p">${jgNumeros(z, true)}
+      ${Object.keys(tx.dimTot).length ? `<section><h2 class="qt-sec-t">Acerto por fileira</h2><ul class="qt-top-lista">${a.dims.filter(([d]) => tx.dimTot[d]).map(([d, t]) => { const y = tx.dimTot[d]; return linha(t, `${y.t - y.e} de ${y.t}`, Math.round(100 * (1 - y.e / y.t))); }).join('')}</ul></section>` : ''}
+      <section><h2 class="qt-sec-t">Domínio por grupo</h2><ul class="qt-top-lista">${jgOrdenarG(grupos).map(([g, y]) => linha(g, `${y.d} de ${plural(y.t, 'carta dominada', 'cartas dominadas')} · ${y.v} vistas`, Math.round(100 * y.d / y.t), !y.v)).join('')}</ul></section>
+      ${piores.length ? `<section><h2 class="qt-sec-t">As contas que você mais erra</h2><ul class="jg-rever">${piores.map(x => `<li><strong>${esc(x.c.t)}</strong><span>${esc(jgClasseTxt(a, x.c))}</span><em>${Math.round(100 * x.v)}% de erro recente</em></li>`).join('')}</ul><div class="jg-acoes"><button class="bt bt-p" type="button" data-jgerros>${ICO.raio} Jogar só com as que mais erro</button></div></section>` : ''}
+    </section>`;
+  }
+  function jgContas(m, a, alvo) {
+    alvo.innerHTML = `<div class="fx-busca"><label class="fx-busca-in">${ICO.busca}<input type="search" id="ui-jg-busca" placeholder="Buscar uma conta, um nome ou uma classificação" value="${esc(jgEst.busca)}" autocomplete="off"></label></div><div id="ui-jg-lista"></div>`;
+    const desenhar = () => {
+      const t = fxNorm(jgEst.busca.trim());
+      const lista = a.contas.filter(c => !t || fxNorm([c.t, jgClasseTxt(a, c)].concat(c.n, c.h.map(id => { const k = jgCarta(a, id); return k ? k.n + ' ' + k.s : ''; })).join(' ')).includes(t));
+      const porG = {};
+      lista.forEach(c => (porG[jgGrupoDe(c)] = porG[jgGrupoDe(c)] || []).push(c));
+      $('#ui-jg-lista').innerHTML = lista.length ? jgOrdenarG(porG).map(([g, cs]) => `<section class="jg-cg"><h2 class="qt-sec-t">${esc(g)} <span class="jg-cg-n">${cs.length}</span></h2><ul class="fx-contas">${cs.map(c => {
+        const ks = a.cartas.filter(k => k.k === c.id), dom = ks.filter(k => classif[k.id] && classif[k.id].cx >= 3).length;
+        const hs = c.h.map(id => jgCarta(a, id)).filter(Boolean);
+        const lg = c.lg ? c.lg.split(':') : null;
+        return `<li><div class="fx-c-t">${esc(c.t)} <span class="fx-c-e">${esc(jgClasseTxt(a, c))}</span>${dom ? `<span class="jg-dom">${dom}/${ks.length}</span>` : ''}</div>${c.pq ? `<p class="fx-c-o">${c.pq}</p>` : ''}${c.dep.length ? `<p class="fx-c-o"><b>Depende do contexto:</b> ${esc(c.dep.map(d => jgDimNome(a, d).toLowerCase()).join(', '))}</p>` : ''}${fxCluster({ t: c.t, e: jgClasseTxt(a, c), n: c.n }, t, false)}${hs.length ? `<ul class="jg-hs">${hs.map(k => `<li><b>${esc(k.n)}</b> · ${k.s}</li>`).join('')}</ul>` : ''}${lg ? `<a class="bt-texto" href="#${m.id}_fixacao~${lg[0]}" data-jgir="${c.lg}">Ver na estrutura ${ICO.dir}</a>` : ''}</li>`;
+      }).join('')}</ul></section>`).join('') : '<p class="jg-vazio">Nenhuma conta encontrada.</p>';
+    };
+    desenhar();
+    $('#ui-jg-busca').addEventListener('input', e => { jgEst.busca = e.target.value; desenhar(); });
+  }
+  function jgEscolherOp(m, a, d, v) {
+    const s = jgSessao;
+    if (!s || s.res) return;
+    if (v === undefined) delete s.esc[d]; else s.esc[d] = v;
+    // trocar uma escolha de cima apaga as de baixo que deixaram de caber
+    if (d === 'tipo') { delete s.esc.grupo; delete s.esc.prazo; delete s.esc.subgrupo; }
+    if (d === 'grupo') { delete s.esc.prazo; delete s.esc.subgrupo; }
+    if (d === 'prazo') delete s.esc.subgrupo;
+    jgTela(m, a, $('#ui-jg'));
+  }
+  function jgAqui() {
+    if (!rota || rota.v !== 'mat' || rota.aba !== 'fixacao' || !MAT[rota.mat] || !FX[rota.mat]) return null;
+    const m = MAT[rota.mat], [aid, sub] = (rota.extra || '').split('.'), a = fxAssunto(m, aid);
+    return a && a.tipo === 'jogo' ? { m, a, sub: sub || '' } : null;
+  }
+  function jgTecla(e) {
+    const x = jgAqui();
+    if (!x || x.sub || !jgSessao || jgSessao.fim || jgSessao.a !== x.a.id) return false;
+    const { m, a } = x, s = jgSessao, alvo = $('#ui-jg');
+    if (s.res) { if (e.key === 'Enter' && !(e.target.closest && e.target.closest('a, button'))) { e.preventDefault(); jgProxima(m, a); jgTela(m, a, alvo); return true; } return false; }
+    const vis = jgVisiveis(s.esc), d = vis.find(y => !s.esc[y]);
+    if (e.key === 'Enter') { if (!d) { e.preventDefault(); jgConferir(m, a); jgTela(m, a, alvo); return true; } return false; }
+    if (e.key === 'Backspace') { const ult = vis.filter(y => s.esc[y]).pop(); if (ult) { e.preventDefault(); jgEscolherOp(m, a, ult, undefined); return true; } return false; }
+    const i = '123456789'.indexOf(e.key);
+    if (i < 0 || !d) return false;
+    const ops = jgOpcoes(a, d, s.esc);
+    if (i >= ops.length) return false;
+    e.preventDefault();
+    jgEscolherOp(m, a, d, ops[i][0]);
+    return true;
+  }
+  document.addEventListener('click', e => {
+    const x = jgAqui();
+    if (!x) return;
+    const t = e.target.closest('[data-jgfiltro],[data-jgqtd],[data-jgcomecar],[data-jgop],[data-jgconferir],[data-jgprox],[data-jgencerrar],[data-jgnovo],[data-jgrefazer],[data-jgerros],[data-jgir],[data-jgq]');
+    if (!t || t.disabled) return;
+    const { m, a } = x, d = t.dataset, alvo = $('#ui-jg');
+    if ('jgfiltro' in d) { jgEst.filtro = d.jgfiltro; jgTela(m, a, alvo); return; }
+    if ('jgqtd' in d) { jgEst.qtd = +d.jgqtd; jgTela(m, a, alvo); return; }
+    if ('jgcomecar' in d) { jgComecar(m, a); jgTela(m, a, alvo); window.scrollTo(0, 0); return; }
+    if ('jgop' in d) { jgEscolherOp(m, a, d.jgop, d.v); return; }
+    if ('jgconferir' in d) { jgConferir(m, a); jgTela(m, a, alvo); return; }
+    if ('jgprox' in d) { jgProxima(m, a); jgTela(m, a, alvo); window.scrollTo(0, 0); return; }
+    if ('jgencerrar' in d) { if (jgSessao) { jgSessao.fim = true; jgTela(m, a, alvo); } return; }
+    if ('jgnovo' in d) { jgSessao = null; jgTela(m, a, alvo); return; }
+    if ('jgrefazer' in d) { jgComecar(m, a, d.jgrefazer.split(',')); jgTela(m, a, alvo); window.scrollTo(0, 0); return; }
+    if ('jgerros' in d) { jgEst.filtro = 'erros'; jgComecar(m, a); ir({ v: 'mat', mat: m.id, aba: 'fixacao', extra: a.id }); return; }
+    if ('jgir' in d) { e.preventDefault(); const [as, g] = d.jgir.split(':'); fxEst.a = as; fxEst.sel = g; fxEst.busca = ''; ir({ v: 'mat', mat: m.id, aba: 'fixacao', extra: as }); const alvoA = fxAssunto(m, as); if (alvoA) fxEscolher(m, alvoA, g); return; }
+    if ('jgq' in d) { e.preventDefault(); const [as, f] = d.jgq.split(':'); fxSessao = { a: as, mat: m.id, ids: [`fix.${as}:${f}`], pos: 0, resp: {}, resposta: null, fim: false }; ir({ v: 'mat', mat: m.id, aba: 'fixacao', extra: as + '.q' }); }
+  }, true); // captura: os links do jogo agem antes do roteador geral de links (que ignora o clique já tratado)
+
   // ---------- Teclado ----------
   document.addEventListener('keydown', e => {
     const digitando = e.target.closest && e.target.closest('input, textarea, select, [contenteditable="true"]');
     if (dlg.open) return;
-    if (!digitando && !e.ctrlKey && !e.metaKey && !e.altKey && (teclaQuestao(e) || fxTecla(e))) return;
+    if (!digitando && !e.ctrlKey && !e.metaKey && !e.altKey && (teclaQuestao(e) || fxTecla(e) || jgTecla(e))) return;
     if ((e.key === '/' && !digitando) || ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k')) {
       e.preventDefault();
       fecharMenu();

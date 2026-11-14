@@ -2,6 +2,10 @@
 
 ## 🔴 Confirmar com você (intenção do resumo original)
 
+- **Classificação de contas — Compras e seus ajustes (v025):** no jogo, Compras, fretes e seguros sobre compras e as devoluções, abatimentos e descontos sobre compras estão como conta de resultado (custo, linha do CMV), a leitura do inventário periódico. A outra leitura (a compra vai direto para estoque, no ativo) não cabe como resposta alternativa no jogo. Mantenho assim ou tiro essas contas?
+
+- **Classificação de contas — Dividendo adicional proposto (v025):** fica no PL em conta própria (ICPC 08); como o jogo não tem o subgrupo "outras contas do PL", entrou em reservas de lucros, com a explicação no porquê. Mantenho ou tiro a conta do jogo?
+
 - **Direito Administrativo — resumo de 29/09/2026:** o arquivo "29_09_26 - Resumos - Auditor Fiscal.docx" tem o título "Direito Administrativo" no fim, mas nenhum conteúdo abaixo dele. Faltou colar essa parte? Se sim, mande-a para eu incorporar.
 
 - **Direito Tributário — resumo de 04/10/2026:** o arquivo "04_10_26 - Resumos - Auditor Fiscal.docx" tem o título "Direito Tributário" no começo, mas nenhum conteúdo abaixo dele. Faltou colar essa parte? Se sim, mande-a para eu incorporar.
@@ -47,6 +51,9 @@
 - ⚠️ **IBS e CBS na DRE:** a Orientação Técnica CFC nº 1/2026 (não vinculante) entende que não compõem a receita bruta. A prática ainda não é uniforme; acompanhar.
 
 ## 🟡 Organização / fluxo de trabalho
+
+- **Neon, chave nova (v025):** o progresso do jogo Classificação de contas sincroniza na chave `classif`. Rode uma vez, no SQL Editor do Neon, o bloco de migração da v025 no fim de `sistema/neon.sql`; sem isso, o jogo funciona e guarda no navegador, só não sincroniza.
+- **Classificação de contas — amostra de 10% (v025):** o banco saiu de 504 das 5.081 questões. Para ampliá-lo, é só pedir outra amostra (as dúvidas de cada bloco ficaram anotadas na sessão).
 
 - **Neon, chaves novas (v008):** os comentários e o ritmo de estudo sincronizam como as chaves `comentarios` e `atividade`. Rode uma vez, no SQL Editor do Neon, o bloco de migração no fim de `sistema/neon.sql` (o `alter table ... estudos_dados_chave`). Sem isso, só essas duas chaves falham ao sincronizar; o resto continua funcionando.
 

@@ -463,3 +463,11 @@ Sem alteração de conteúdo nos temas. Questões de múltipla escolha novas em 
 | Classificação | Como estava | Como ficou na base |
 |---|---|---|
 | REORGANIZAÇÃO | "Sintético (3).docx" com cinco títulos de disciplina (três sem conteúdo) | Partes novas, com o texto intacto: Direito Tributário 06 e Contabilidade Geral e Avançada 05 |
+
+## v025 — 14/11/2026 (Fixação: jogo Classificação de contas; sem resumo novo)
+
+### Contabilidade Geral e Avançada
+
+| Classificação | Como estava | Como ficou na base |
+|---|---|---|
+| REORGANIZAÇÃO | Sem banco de classificação de contas | Feature Fixação, classificacao/jogo.md (178 contas, 851 cartas), a partir de amostra equilibrada de 10% das questões; nenhum tema alterado |

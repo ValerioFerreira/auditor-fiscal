@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v024** (11/11/2026)
+> Versão atual da base: **v025** (14/11/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -304,3 +304,11 @@
 - Competência tributária: bis in idem e bitributação (conceitos, exemplos e exceções); quadro geral da competência por espécie, montado a partir de seis tabelas em imagem (impostos, taxas, contribuição de melhoria, empréstimos compulsórios e contribuições especiais), logo abaixo do resumo.
 - **Principais enriquecimentos:** limite da competência residual reescrito (imposto novo × contribuição residual, STF, RE 228.321); destinação do PIS/PASEP (art. 239) separada da COFINS; CBS, residuais de seguridade e "iminência" da guerra externa (art. 148, I) acrescentadas ao quadro; notas sobre DF e Território Federal (art. 147) e sobre a transição da Reforma (ICMS e ISS até 2032; IPI a zero a partir de 2027, salvo Zona Franca); seis pegadinhas novas.
 - **Questões:** Certo ou Errado, 22 novas em competência tributária (Q058 a Q079); múltipla escolha, 12 novas (M033 a M044, 6 CEBRASPE e 6 FGV).
+
+## 13 e 14/11/2026 — Fixação em detalhes: Classificação de contas (v025)
+
+- **Pedido:** um mini-game na Fixação de Contabilidade, ao lado de BP e DRE, para classificar contas (só o nome ou nome + história) em todas as dimensões, com registro de evolução e adaptação ao que se erra e ao que se acerta.
+- **Decisões suas (13/11):** perguntar também o subgrupo do PL e a linha da DRE; tudo numa tela só; contas antigas e controversas pela regra atual, com o histórico explicado e as duas respostas aceitas quando a doutrina diverge. **Em 14/11:** fonte reduzida a uma amostra de 10% das questões dos cadernos (504 de 5.081), em partes iguais pelos seis tipos de conta (84 questões cada: ativo circulante, ativo não circulante, passivo, PL, receitas e deduções, custos e despesas), escolhidas entre as mais ricas em contas de cada tipo.
+- **Banco (classificacao/jogo.md, na Feature Fixação):** 178 contas, 851 cartas (550 nomes, em todas as grafias da amostra, e 301 histórias reescritas a partir das questões, com a referência F / DRE:F).
+- **Jogo no site:** abas Jogar, Progresso e Contas; fileiras de botões que aparecem conforme as escolhas (tipo, grupo, natureza, retificadora, prazo e subgrupo), conferência fileira a fileira com o porquê e os links para a estrutura e para a questão; atalhos de teclado.
+- **Adaptação:** repetição espaçada por carta (20 min, 1, 3, 7, 16 e 35 dias); o erro faz a carta recuar e voltar na mesma partida, puxando outra grafia da mesma conta; peso extra para as contas e fileiras em que mais se erra; reforço das dominadas. Progresso na chave `classif`, sincronizada com a conta (migração no fim de `sistema/neon.sql`).

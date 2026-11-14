@@ -13,7 +13,7 @@ create table if not exists public.estudos_dados (
   primary key (user_id, chave),
   constraint estudos_dados_chave check (chave in (
     'lidos', 'geral', 'marcas', 'favoritos', 'questoes', 'qfav', 'qrep', 'qfiltro',
-    'ultimo', 'ordemDisciplinas', 'filtroTopicos', 'comentarios', 'atividade'
+    'ultimo', 'ordemDisciplinas', 'filtroTopicos', 'comentarios', 'atividade', 'classif'
   )),
   constraint estudos_dados_tamanho check (octet_length(valor::text) <= 3000000)
 );
@@ -37,4 +37,11 @@ grant select, insert, update, delete on public.estudos_dados to authenticated, a
 -- alter table public.estudos_dados add constraint estudos_dados_chave check (chave in (
 --   'lidos', 'geral', 'marcas', 'favoritos', 'questoes', 'qfav', 'qrep', 'qfiltro',
 --   'ultimo', 'ordemDisciplinas', 'filtroTopicos', 'comentarios', 'atividade'
+-- ));
+
+-- Quem criou a tabela antes da v025 (jogo Classificação de contas, chave 'classif') roda só este bloco, uma vez:
+-- alter table public.estudos_dados drop constraint estudos_dados_chave;
+-- alter table public.estudos_dados add constraint estudos_dados_chave check (chave in (
+--   'lidos', 'geral', 'marcas', 'favoritos', 'questoes', 'qfav', 'qrep', 'qfiltro',
+--   'ultimo', 'ordemDisciplinas', 'filtroTopicos', 'comentarios', 'atividade', 'classif'
 -- ));
