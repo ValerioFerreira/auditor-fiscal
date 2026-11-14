@@ -2,10 +2,6 @@
 
 ## 🔴 Confirmar com você (intenção do resumo original)
 
-- **Classificação de contas — Compras e seus ajustes (v025):** no jogo, Compras, fretes e seguros sobre compras e as devoluções, abatimentos e descontos sobre compras estão como conta de resultado (custo, linha do CMV), a leitura do inventário periódico. A outra leitura (a compra vai direto para estoque, no ativo) não cabe como resposta alternativa no jogo. Mantenho assim ou tiro essas contas?
-
-- **Classificação de contas — Dividendo adicional proposto (v025):** fica no PL em conta própria (ICPC 08); como o jogo não tem o subgrupo "outras contas do PL", entrou em reservas de lucros, com a explicação no porquê. Mantenho ou tiro a conta do jogo?
-
 - **Direito Administrativo — resumo de 29/09/2026:** o arquivo "29_09_26 - Resumos - Auditor Fiscal.docx" tem o título "Direito Administrativo" no fim, mas nenhum conteúdo abaixo dele. Faltou colar essa parte? Se sim, mande-a para eu incorporar.
 
 - **Direito Tributário — resumo de 04/10/2026:** o arquivo "04_10_26 - Resumos - Auditor Fiscal.docx" tem o título "Direito Tributário" no começo, mas nenhum conteúdo abaixo dele. Faltou colar essa parte? Se sim, mande-a para eu incorporar.

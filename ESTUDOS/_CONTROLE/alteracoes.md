@@ -471,3 +471,4 @@ Sem alteração de conteúdo nos temas. Questões de múltipla escolha novas em 
 | Classificação | Como estava | Como ficou na base |
 |---|---|---|
 | REORGANIZAÇÃO | Sem banco de classificação de contas | Feature Fixação, classificacao/jogo.md (178 contas, 851 cartas), a partir de amostra equilibrada de 10% das questões; nenhum tema alterado |
+| CONFIRMADA | Compras e seus ajustes como conta de resultado (linha do CMV); dividendo adicional proposto em reservas de lucros (pendências 🔴) | Mantidos por você em 14/11/2026; o porquê de cada um explica a outra leitura (inventário permanente: Estoques, no ativo; dividendo adicional: conta específica do PL, que não é reserva de lucros) |

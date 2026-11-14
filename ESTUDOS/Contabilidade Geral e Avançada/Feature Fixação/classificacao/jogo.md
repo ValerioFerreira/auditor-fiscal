@@ -1020,7 +1020,7 @@
 ## dividendo-adicional-proposto · Dividendo adicional proposto
 - Classe: patrimonial · pl · credora · normal · - · reservas-lucros
 - Nomes: Dividendo adicional; Dividendos adicionais propostos; Dividendos adicionais
-- Por quê: O dividendo acima do mínimo obrigatório, enquanto a assembleia não o aprova, não é obrigação presente: fica no PL, em conta específica, e só vai para o passivo quando declarado (ICPC 08 (R1)). A Lei não lhe dá subgrupo próprio; ele é apresentado junto das reservas de lucros, como lucro ainda à espera de deliberação.
+- Por quê: O dividendo acima do mínimo obrigatório, enquanto a assembleia não o aprova, não é obrigação presente: fica no PL, em conta específica, e só vai para o passivo quando declarado (ICPC 08 (R1)). A Lei não lhe dá subgrupo próprio: tecnicamente, ele é uma conta específica do PL, e **não** uma reserva de lucros (não está entre as reservas dos arts. 193 a 197 da Lei 6.404/76). O jogo o coloca em reservas de lucros só porque não tem a opção "outras contas do PL" e porque é a linha ao lado da qual ele costuma aparecer no balanço: ambos são lucro retido à espera de destinação. Em questão, se afirmarem que ele "é uma reserva de lucros", desconfie.
 - Liga: bp:reservas-lucros
 - Questões: F2183, F2186, F3179, F3211
 ### Histórias
@@ -1400,7 +1400,7 @@
 ## compras-mercadorias · Compras de mercadorias
 - Classe: resultado · despesa · devedora · normal · - · cmv
 - Nomes: Compras de mercadorias; Compra de mercadorias; Compra de mercadorias para revenda; Compra de mercadorias à vista; Compras do período; Compras; Aquisição de mercadorias; Aquisição de mercadorias para revenda
-- Por quê: No inventário periódico, a conta Compras acumula as aquisições do período e é encerrada no cálculo do CMV (estoque inicial + compras líquidas − estoque final); por isso o jogo a trata como conta de custo, na linha do CMV (CPC 16). Ela não vai para a DRE pelo saldo: compra não é despesa do período, e no inventário permanente a aquisição é debitada direto em Estoques, no ativo.
+- Por quê: No inventário periódico, a conta Compras acumula as aquisições do período e é encerrada no cálculo do CMV (estoque inicial + compras líquidas − estoque final); por isso o jogo a trata como conta de custo, na linha do CMV (CPC 16). Ela não vai para a DRE pelo saldo: compra não é despesa do período. **Atenção à outra leitura:** no inventário permanente não existe a conta Compras, porque a aquisição é debitada direto em Estoques (ativo circulante); e há autores que chamam Compras de conta patrimonial transitória. Em questão, veja qual sistema de inventário o enunciado adota: se ele mandar debitar Estoques, a classificação é do ativo. O jogo cobra a leitura do inventário periódico, a que as bancas usam no cálculo do CMV. O mesmo vale para fretes e seguros, devoluções, abatimentos e descontos incondicionais sobre compras.
 - Liga: dre:calculo-cmv
 - Questões: DRE:F0450, DRE:F0524, DRE:F0562, DRE:F0590, DRE:F0635, DRE:F0640, DRE:F0683, DRE:F0691, DRE:F0704, DRE:F0754, DRE:F0763, DRE:F0769
 ### Histórias
@@ -1410,7 +1410,7 @@
 ## fretes-seguros-compras · Fretes e seguros sobre compras
 - Classe: resultado · despesa · devedora · normal · - · cmv
 - Nomes: Fretes sobre compras; Frete sobre compras; Fretes sobre compras de mercadorias; Transporte sobre compras; Transportes sobre Compras; Seguro sobre compras; Seguros sobre compras; Seguro de compras; Seguros sobre compras de mercadorias; Carga e descarga de mercadorias adquiridas
-- Por quê: O gasto para trazer a mercadoria até o estabelecimento integra o custo de aquisição do estoque (CPC 16, item 11) e, por isso, entra no CMV, nunca nas despesas com vendas. Frete da compra é custo; frete da venda é despesa.
+- Por quê: O gasto para trazer a mercadoria até o estabelecimento integra o custo de aquisição do estoque (CPC 16, item 11) e, por isso, entra no CMV, nunca nas despesas com vendas. Frete da compra é custo; frete da venda é despesa. No inventário permanente, esse gasto vai direto para Estoques (ativo); o jogo cobra a leitura do inventário periódico (ver Compras de mercadorias).
 - Liga: dre:calculo-cmv
 - Questões: DRE:F0450, DRE:F0524, DRE:F0562, DRE:F0584, DRE:F0616, DRE:F0640, DRE:F0683, DRE:F0687, DRE:F0704, DRE:F0756, DRE:F0763, DRE:F0769
 ### Histórias
@@ -1421,7 +1421,7 @@
 ## devolucoes-compras · (–) Devoluções de compras
 - Classe: resultado · despesa · credora · retificadora · - · cmv
 - Nomes: Devolução de compras; Devolução de compras de mercadorias; Devolução de mercadorias adquiridas; Anulações de compras
-- Por quê: A mercadoria devolvida ao fornecedor desfaz parte da compra: reduz as compras brutas e, com elas, o CMV (CPC 16). Como retifica uma conta de custo, que é devedora, tem natureza credora.
+- Por quê: A mercadoria devolvida ao fornecedor desfaz parte da compra: reduz as compras brutas e, com elas, o CMV (CPC 16). Como retifica uma conta de custo, que é devedora, tem natureza credora. No inventário permanente, a devolução é creditada direto em Estoques (ativo); o jogo cobra a leitura do inventário periódico (ver Compras de mercadorias).
 - Liga: dre:calculo-cmv
 - Questões: DRE:F0524, DRE:F0571, DRE:F0590, DRE:F0600, DRE:F0616, DRE:F0640, DRE:F0687, DRE:F0691, DRE:F0704, DRE:F0754, DRE:F0769
 ### Histórias
@@ -1431,7 +1431,7 @@
 ## abatimentos-compras · (–) Abatimentos sobre compras
 - Classe: resultado · despesa · credora · retificadora · - · cmv
 - Nomes: Abatimento sobre compras; Abatimentos sobre compras; Abatimento de compras; Abatimento de compras de mercadorias; Abatimentos s/Compras
-- Por quê: Redução de preço obtida depois da compra, por avaria, defeito ou atraso: diminui o custo de aquisição e, portanto, o CMV. Retifica uma conta de custo, por isso é credora.
+- Por quê: Redução de preço obtida depois da compra, por avaria, defeito ou atraso: diminui o custo de aquisição e, portanto, o CMV. Retifica uma conta de custo, por isso é credora. No inventário permanente, o abatimento é creditado direto em Estoques (ativo); o jogo cobra a leitura do inventário periódico (ver Compras de mercadorias).
 - Liga: dre:calculo-cmv
 - Questões: DRE:F0524, DRE:F0571, DRE:F0584, DRE:F0600, DRE:F0616, DRE:F0640, DRE:F0683, DRE:F0687, DRE:F0691, DRE:F0754
 ### Histórias
@@ -1441,7 +1441,7 @@
 - Classe: resultado · despesa · credora · retificadora · - · cmv
 - Nomes: Descontos Comerciais sobre Compras; Descontos sobre compras; Desconto de compras; Deduções sobre compras
 - Depende: grupo; retificadora; subgrupo
-- Por quê: Desconto comercial dado pelo fornecedor na própria nota fiscal, sem nenhuma condição: reduz o custo da compra e o CMV (CPC 16, item 11). Se o desconto depender do pagamento antecipado (condicional), é receita financeira e não mexe nas compras.
+- Por quê: Desconto comercial dado pelo fornecedor na própria nota fiscal, sem nenhuma condição: reduz o custo da compra e o CMV (CPC 16, item 11). Se o desconto depender do pagamento antecipado (condicional), é receita financeira e não mexe nas compras. No inventário permanente, o desconto incondicional reduz direto o valor de Estoques (ativo); o jogo cobra a leitura do inventário periódico (ver Compras de mercadorias).
 - Liga: dre:calculo-cmv
 - Questões: DRE:F0640, DRE:F0683, DRE:F0691, DRE:F0756
 ### Histórias
