@@ -97,8 +97,8 @@ LIMITE_SINTETICO = 40_000_000  # bytes por parte enviada pelo site (.docx vem em
 # Edição pelo site (administrador). A senha não fica guardada em lugar nenhum: só o resultado do
 # PBKDF2-SHA256 com sal (iterações, sal, resultado), conferido pelo servidor local.
 ADMIN_USUARIO = "ADM"
-ADMIN_SENHA = (300000, "0c3cd0b72d4a3bc34ff431e942408fac",
-               "dd5447fc1e65bc7bb07bac3254d5be4a5674fb3eda3e0f819c6e5ed4bb9acf45")
+ADMIN_SENHA = (300000, "5da2aa2d662a966bbdcf52bef519be65",
+               "e5906edc3ea40b336ce23600a446b1e3cfd0441d14cb97781df8b0eeb01f907c")
 SESSAO_DIAS = 30  # o login vale neste navegador até "Sair" ou por 30 dias
 ROTA_ENTRAR, ROTA_SESSAO = "/__estudos/entrar", "/__estudos/sessao"
 ROTA_FONTE, ROTA_SALVAR = "/__estudos/fonte", "/__estudos/salvar"

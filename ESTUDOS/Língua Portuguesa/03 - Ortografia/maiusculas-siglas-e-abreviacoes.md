@@ -21,7 +21,7 @@
 
 | Tamanho | Grafia | Exemplos |
 |---|---|---|
-| **Até 3 letras** | Maiúsculas | |
+| **Até 3 letras** | Maiúsculas | PM, BRB |
 | **Mais de 3 letras, pronunciadas letra a letra** | Maiúsculas | BNDES, ICMS |
 | **Mais de 3 letras, pronunciadas como palavra inteira** | Só a primeira maiúscula | Uerj, Sudene, Detran |
 | **Exceções** | Maiúsculas e minúsculas juntas | UnB, CNPq |

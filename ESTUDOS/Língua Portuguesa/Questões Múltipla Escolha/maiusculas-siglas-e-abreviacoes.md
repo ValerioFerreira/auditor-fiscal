@@ -1,7 +1,7 @@
 # Questões de múltipla escolha — Maiúsculas, Siglas e Abreviações
 <!-- cobertura
 Uso de maiúsculas = dd11542059
-Siglas = 4acb003b65
+Siglas = cc3825f696
 Abreviatura x abreviação = 2ae3d72fa0
 Pegadinhas = 16c6765920
 Base legal / referência = c5acc6f40a
@@ -146,3 +146,14 @@ Considerando as regras de abreviar palavras, assinale a opção correta.
 - E) A abreviatura deve reproduzir integralmente a segunda sílaba da palavra.
 - Gabarito: A
 - Comentário: Na abreviatura, mantêm-se os acentos e usa-se ponto, como em *créd.*, *num.* e *secr.* Há diversas exceções, como *a. C.* e *cia.*, e *página* pode ser abreviada como *pág.* ou *p.*; da segunda sílaba, em regra, tomam-se apenas uma ou duas letras.
+
+## M013 · médio · CEBRASPE · Siglas
+Considerando as siglas *PM*, *BRB* e *ONU*, assinale a opção correta à luz das regras de grafia de siglas.
+
+- A) *ONU* deveria ser grafada *Onu*, com só a primeira maiúscula, pois a sigla é pronunciada como palavra inteira.
+- B) As três grafam-se em maiúsculas, pois a pronúncia só orienta a grafia de siglas com mais de três letras.
+- C) *PM* e *BRB* são abreviaturas, e não siglas, por representarem palavras com menos letras.
+- D) A grafia em maiúsculas alcança as siglas de até quatro letras, razão pela qual se escreve *UERJ*.
+- E) *PM* e *BRB* constituem exceções à regra geral das siglas, assim como ocorre com *UnB* e *CNPq*.
+- Gabarito: B
+- Comentário: Siglas de até três letras grafam-se em maiúsculas, como *PM* e *BRB*; a distinção pela pronúncia (letra a letra ou como palavra) só vale acima de três letras, por isso se escreve *ONU*, e não *Onu*, o que afasta A. *Uerj* tem quatro letras e é pronunciada como palavra, o que invalida D. *PM* e *BRB* são siglas (união das letras iniciais das palavras de um nome) e seguem a regra geral, ao contrário das exceções *UnB* e *CNPq*, o que afasta C e E.

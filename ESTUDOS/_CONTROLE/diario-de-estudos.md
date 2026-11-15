@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v025** (14/11/2026)
+> Versão atual da base: **v026** (15/11/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -313,3 +313,14 @@
 - **Jogo no site:** abas Jogar, Progresso e Contas; fileiras de botões que aparecem conforme as escolhas (tipo, grupo, natureza, retificadora, prazo e subgrupo), conferência fileira a fileira com o porquê e os links para a estrutura e para a questão; atalhos de teclado.
 - **Adaptação:** repetição espaçada por carta (20 min, 1, 3, 7, 16 e 35 dias); o erro faz a carta recuar e voltar na mesma partida, puxando outra grafia da mesma conta; peso extra para as contas e fileiras em que mais se erra; reforço das dominadas. Progresso na chave `classif`, sincronizada com a conta (migração no fim de `sistema/neon.sql`).
 - **Decisão sua (14/11):** Compras e seus ajustes (conta de custo, inventário periódico) e o dividendo adicional proposto (em reservas de lucros, por falta de subgrupo próprio no jogo) ficam no jogo, com a outra leitura explicada no porquê.
+
+## 15/11/2026 — Métodos próprios de interpretação constitucional (v026)
+
+- **Origem:** tabela dos sete métodos colada no chat, com o pedido de reescrevê-la para distinguir os métodos numa questão; a versão nova foi aprovada por você antes de ser gravada.
+- **Entram neste commit, como estão:** a sua edição pelo site em Língua Portuguesa (exemplos PM e BRB na tabela de siglas) e a troca do hash da senha de administrador em `gerar.py`.
+- **Questões de Língua Portuguesa (pela sua edição):** uma nova de Certo ou Errado (Q031) e uma de múltipla escolha (M013, CEBRASPE) em siglas de até três letras.
+
+### Direito Constitucional (estudo de 14/11/2026)
+- Interpretação constitucional: métodos próprios (jurídico clássico, tópico-problemático, hermenêutico-concretizador, científico-espiritual e normativo-estruturante) e outros métodos (originalismo e lógica do razoável).
+- **Principais enriquecimentos:** tabela nova com o autor, o ponto de partida / o que prevalece, como funciona e as palavras que denunciam cada método; quadro "Como não confundir" (cinco pares que a banca troca, entre eles método integrativo × princípio do efeito integrador); topoi e casuísmo (tópica), "ponta do iceberg" e programa + âmbito normativo (Müller), Constituição viva (originalismo); elementos do método clássico com a divergência lógico × sistemático (um elemento só em Canotilho, dois em Lenza) e os quatro de Savigny; comparação constitucional (Häberle) acrescentada aos outros métodos; quatro pegadinhas novas; mapa mental com o traço de cada método.
+- **Questões:** Certo ou Errado, 23 novas (Q029 a Q051), com ajustes na Q012 e na Q015; múltipla escolha, 15 novas (M016 a M030, 7 CEBRASPE e 8 FGV), com ajustes na M006 e na M009.

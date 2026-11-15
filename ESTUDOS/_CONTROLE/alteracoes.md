@@ -472,3 +472,17 @@ Sem alteração de conteúdo nos temas. Questões de múltipla escolha novas em 
 |---|---|---|
 | REORGANIZAÇÃO | Sem banco de classificação de contas | Feature Fixação, classificacao/jogo.md (178 contas, 851 cartas), a partir de amostra equilibrada de 10% das questões; nenhum tema alterado |
 | CONFIRMADA | Compras e seus ajustes como conta de resultado (linha do CMV); dividendo adicional proposto em reservas de lucros (pendências 🔴) | Mantidos por você em 14/11/2026; o porquê de cada um explica a outra leitura (inventário permanente: Estoques, no ativo; dividendo adicional: conta específica do PL, que não é reserva de lucros) |
+
+## v026 — 15/11/2026 (métodos próprios de interpretação constitucional)
+
+### Direito Constitucional
+
+| Classificação | Como estava no resumo | Como ficou na base |
+|---|---|---|
+| IMPRECISA | Método clássico: elemento "histórico (ideologia vigente)" | Histórico: contexto e ideologia **da época da elaboração** da norma |
+| DIVERGÊNCIA | Método clássico: "lógicos (sistemáticos, dentro do contexto de toda a constituição)" | Mantido como em Canotilho (**lógico ou sistemático**, um elemento só); registrado que há manuais (ex.: Lenza) que os separam (lógico = coerência entre as normas; sistemático = a norma no todo) |
+| INCOMPLETA | Elementos tradicionais sem origem | Savigny propôs **quatro** (gramatical, lógico, histórico e sistemático); o teleológico e o genético vieram depois |
+| INCOMPLETA | Sete métodos | Acrescentada a **comparação constitucional** (Häberle, o "quinto método"), que manuais como o de Lenza incluem entre os métodos |
+| IMPRECISA | Originalismo: "Não se aplica ao Brasil" | Doutrina norte-americana **não adotada no Brasil**, que admite a interpretação evolutiva e a mutação constitucional |
+| INCOMPLETA | Normativo-estruturante como "teoria concretista" | Mantido; acrescentado que o hermenêutico-concretizador (Hesse) também é concretista, com o critério para separar os dois no quadro "Como não confundir" |
+| REORGANIZAÇÃO | Tabela "Nº \| Método \| Ideia" | Tabela com autor, ponto de partida / o que prevalece, como funciona e palavras que denunciam, mais o quadro "Como não confundir" (cinco pares); todo o conteúdo anterior mantido; aprovada por você antes de gravar |

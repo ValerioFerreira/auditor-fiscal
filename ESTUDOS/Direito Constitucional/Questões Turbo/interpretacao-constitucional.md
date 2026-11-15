@@ -3,10 +3,10 @@
 Quem interpreta e para quê = dd0a2e838a
 Correntes sobre a atuação do juiz = 08c2f515fa
 Mutação constitucional = 337a4754c8
-Métodos próprios de interpretação constitucional = 0528ae9a63
+Métodos próprios de interpretação constitucional = 480a652eb7
 Princípios da interpretação constitucional = ca187ba0ec
 Interpretação conforme a Constituição = bb1e808d15
-Pegadinhas = 32d37018f3
+Pegadinhas = 4a38921726
 Base legal / referência = d46cfe84ce
 -->
 
@@ -68,7 +68,7 @@ No método hermenêutico-concretizador, que se vale do círculo hermenêutico en
 ## Q012 · difícil · Métodos próprios de interpretação constitucional
 No método jurídico ou hermenêutico clássico, que trata a Constituição como lei qualquer, o elemento genético busca a finalidade da norma, ao passo que o teleológico investiga a origem dos conceitos empregados.
 - Gabarito: ERRADO
-- Comentário: Os conceitos estão trocados. O elemento teleológico examina a finalidade; o genético, a origem dos conceitos. Também integram o método os elementos literal, lógico (sistemático) e histórico.
+- Comentário: Os conceitos estão trocados. O elemento teleológico examina a finalidade; o genético, a origem dos conceitos. Também integram o método os elementos literal, lógico ou sistemático (a norma dentro do contexto de toda a Constituição) e histórico.
 
 ## Q013 · médio · Métodos próprios de interpretação constitucional
 O método integrativo, ou científico-espiritual, tem caráter estático e se limita ao exame isolado do texto normativo, sem considerar o sistema de valores subjacente nem a realidade do Estado.
@@ -81,9 +81,9 @@ Na teoria concretista normativo-estruturante, a norma jurídica, mais ampla, nã
 - Comentário: Para o método normativo-estruturante, norma (programa e âmbito), normatividade e texto da norma são distintos, e a norma decorre da atuação dos três Poderes, considerado o contexto social.
 
 ## Q015 · fácil · Métodos próprios de interpretação constitucional
-O originalismo, método que busca o sentido original conferido pelos autores da norma segundo o entendimento público da época, é o critério predominantemente aplicado no Brasil.
+O originalismo, método que busca o sentido original da norma, seja a intenção de seus autores, seja o entendimento público da época, é o critério predominantemente aplicado no Brasil.
 - Gabarito: ERRADO
-- Comentário: O originalismo busca o sentido original dos autores da norma, mas não se aplica ao Brasil.
+- Comentário: O originalismo, de origem norte-americana, fixa o sentido no momento da elaboração, mas não é adotado no Brasil, que admite a interpretação evolutiva e a mutação constitucional.
 
 ## Q016 · difícil · Métodos próprios de interpretação constitucional
 Pela lógica do razoável, o intérprete não busca a verdade teórica nem se prende à literalidade, mas formula juízos de valor à luz das circunstâncias do caso, devendo fundamentar a solução mais razoável e justa de modo racional e público, o que viabiliza o controle social.
@@ -149,3 +149,118 @@ Na interpretação conforme com redução de texto, o dispositivo permanece ínt
 A decisão que realiza a interpretação conforme a Constituição no controle concentrado tem eficácia contra todos e efeito vinculante.
 - Gabarito: CERTO
 - Comentário: Lei 9.868/1999, art. 28, parágrafo único.
+
+## Q029 · fácil · Métodos próprios de interpretação constitucional
+Para o método jurídico, ou hermenêutico clássico, associado a Forsthoff, a Constituição deve ser interpretada da mesma forma que as leis em geral, pois é, em essência, uma lei.
+- Gabarito: CERTO
+- Comentário: É a tese da identidade (Constituição = lei). Por isso o método clássico aplica à Constituição os elementos tradicionais da hermenêutica, e o texto funciona como limite da interpretação.
+
+## Q030 · médio · Métodos próprios de interpretação constitucional
+No método jurídico, ou hermenêutico clássico, o texto constitucional é mero ponto de partida, podendo o intérprete superá-lo sempre que as particularidades do caso concreto o exigirem.
+- Gabarito: ERRADO
+- Comentário: No método clássico, o texto é o limite da interpretação. Deixar que o problema concreto se sobreponha à norma é traço do método tópico-problemático.
+
+## Q031 · médio · Métodos próprios de interpretação constitucional
+Dos elementos tradicionais de que se vale o método hermenêutico clássico, somente o gramatical, o lógico, o histórico e o sistemático foram propostos por Savigny, tendo o teleológico e o genético sido incorporados posteriormente.
+- Gabarito: CERTO
+- Comentário: Savigny propôs quatro elementos (gramatical, lógico, histórico e sistemático). O teleológico (finalidade) e o genético (origem dos conceitos) vieram depois. O "somente", aqui, é verdadeiro.
+
+## Q032 · fácil · Métodos próprios de interpretação constitucional
+Ao interpretar dispositivo constitucional, determinado tribunal examinou o sentido gramatical das palavras empregadas, o contexto da época de sua elaboração, o lugar do preceito no contexto de toda a Constituição e a sua finalidade. Esse modo de proceder caracteriza o método científico-espiritual.
+- Gabarito: ERRADO
+- Comentário: Os elementos gramatical, histórico, lógico ou sistemático e teleológico denunciam o método jurídico ou hermenêutico clássico, que trata a Constituição como lei. O científico-espiritual (Smend) busca os valores subjacentes ao texto e a integração do Estado.
+
+## Q033 · médio · Métodos próprios de interpretação constitucional
+Em julgamento de caso complexo, a corte tomou o próprio problema como ponto de partida e submeteu a debate aberto diversos lugares-comuns e pontos de vista argumentativos, testando-os até chegar à melhor solução. Essa forma de decidir corresponde à tópica pura, associada a Viehweg.
+- Gabarito: CERTO
+- Comentário: Problema como ponto de partida, topoi (lugares-comuns, pontos de vista) e debate de argumentos denunciam o método tópico-problemático, ou tópica pura, de Viehweg.
+
+## Q034 · médio · Métodos próprios de interpretação constitucional
+O método tópico-problemático é criticado pelo risco de casuísmo, porque, ao subordinar o problema à norma, reduz ao mínimo a margem de interpretação do aplicador.
+- Gabarito: ERRADO
+- Comentário: A crítica de casuísmo procede, mas a justificativa está invertida. Na tópica, o problema prevalece sobre a norma e a margem de interpretação é maior, e é justamente isso que gera o risco de casuísmo.
+
+## Q035 · difícil · Métodos próprios de interpretação constitucional
+Magistrado que, partindo da compreensão prévia que tem do sentido do dispositivo constitucional, realiza um movimento de ir e vir entre o texto e as circunstâncias do caso até concretizar a norma adota o método normativo-estruturante, já que este também se ocupa da concretização.
+- Gabarito: ERRADO
+- Comentário: Pré-compreensão e círculo hermenêutico ("ir e vir") denunciam o método hermenêutico-concretizador, de Hesse, centrado no intérprete. O normativo-estruturante, de Müller, também fala em concretização, mas gira em torno da estrutura da norma (texto ≠ norma; programa e âmbito normativo).
+
+## Q036 · difícil · Métodos próprios de interpretação constitucional
+No método hermenêutico-concretizador, o contexto com o qual o intérprete confronta o texto, no círculo hermenêutico, corresponde exclusivamente ao ambiente histórico e ideológico vigente ao tempo da elaboração da Constituição.
+- Gabarito: ERRADO
+- Comentário: No círculo hermenêutico de Hesse, o contexto é o caso e as circunstâncias da interpretação. O exame do contexto e da ideologia da época da elaboração é o elemento histórico do método clássico.
+
+## Q037 · médio · Métodos próprios de interpretação constitucional
+Corte constitucional que lê a Constituição como fator de integração da comunidade e do Estado, considerando os valores subjacentes ao texto e o todo dentro da realidade estatal, vale-se do método de Smend, também denominado valorativo ou sociológico.
+- Gabarito: CERTO
+- Comentário: É o método científico-espiritual ou integrativo (Smend), também chamado valorativo ou sociológico: parte dos valores e da realidade do Estado e trata a Constituição como instrumento de integração.
+
+## Q038 · difícil · Métodos próprios de interpretação constitucional
+Os métodos científico-espiritual e normativo-estruturante voltam-se para a realidade, mas com propósitos distintos: no primeiro, a realidade social serve para construir a norma a partir do texto, compondo o âmbito normativo; no segundo, busca-se nela o sistema de valores e a integração do Estado.
+- Gabarito: ERRADO
+- Comentário: Os papéis estão trocados. O científico-espiritual (Smend) procura na realidade os valores e a integração; o normativo-estruturante (Müller) usa a realidade, como âmbito normativo, para construir a norma a partir do texto.
+
+## Q039 · difícil · Métodos próprios de interpretação constitucional
+Ao escolher, entre duas interpretações possíveis de um dispositivo, aquela que mais favorece a integração política e social, o tribunal aplica o princípio do efeito integrador, que não se confunde com o método científico-espiritual, modo de interpretar a Constituição inteira à luz dos valores e da integração.
+- Gabarito: CERTO
+- Comentário: O efeito integrador é princípio de interpretação: entre as soluções possíveis, prefere a que favoreça a integração política e social. O método integrativo (Smend) é uma forma de ler toda a Constituição pelos valores e pela integração do Estado.
+
+## Q040 · médio · Métodos próprios de interpretação constitucional
+Na concepção de Müller, o texto é apenas a ponta do iceberg da norma, a qual se compõe do programa normativo, correspondente ao texto, e do âmbito normativo, que é a parcela da realidade social alcançada por ele.
+- Gabarito: CERTO
+- Comentário: Para o método normativo-estruturante, norma = programa normativo (o texto) + âmbito normativo (a parte da realidade social que o texto alcança). Texto e norma não se confundem.
+
+## Q041 · fácil · Métodos próprios de interpretação constitucional
+Entre os métodos de interpretação constitucional sistematizados por Canotilho, o jurídico é atribuído a Forsthoff; o científico-espiritual, a Smend; o normativo-estruturante, a Müller; e o tópico-problemático, a Hesse.
+- Gabarito: ERRADO
+- Comentário: O tópico-problemático é de Viehweg. Hesse é o autor do hermenêutico-concretizador. As demais associações estão corretas.
+
+## Q042 · fácil · Métodos próprios de interpretação constitucional
+Tribunal que atribui novo sentido a dispositivo constitucional, sem alteração de sua redação, por entender que a Constituição deve acompanhar a evolução da sociedade, alinha-se à ideia de Constituição viva, oposta ao originalismo.
+- Gabarito: CERTO
+- Comentário: A Constituição viva atualiza o sentido do texto; o originalismo o fixa no momento da elaboração. O Brasil admite a interpretação evolutiva e a mutação constitucional e não adota o originalismo.
+
+## Q043 · médio · Métodos próprios de interpretação constitucional
+Originário da doutrina norte-americana, o originalismo pode orientar-se tanto pela intenção dos autores da norma quanto pelo significado público que ela tinha à época de sua elaboração, contrapondo-se, em qualquer caso, à concepção de Constituição viva.
+- Gabarito: CERTO
+- Comentário: Nas duas vertentes (intenção original e significado público original), o sentido fica preso ao momento da elaboração, o que se opõe à Constituição viva, que atualiza o sentido.
+
+## Q044 · médio · Métodos próprios de interpretação constitucional
+A lógica do razoável, de Recaséns Siches, por rejeitar a lógica formal e privilegiar a solução mais justa para o caso concreto, autoriza o intérprete a afastar-se dos parâmetros legais quando estes conduzirem a resultado que ele repute injusto.
+- Gabarito: ERRADO
+- Comentário: A lógica do razoável busca a solução mais razoável e justa com compromisso com o direito, isto é, dentro dos parâmetros legais, e não à margem deles.
+
+## Q045 · difícil · Métodos próprios de interpretação constitucional
+Juíza que, afastando a dedução formal e a busca da verdade teórica, formula juízos de valor sobre as circunstâncias do caso para chegar à solução mais justa, fundamentando-a de forma racional e pública, aplica o método tópico-problemático.
+- Gabarito: ERRADO
+- Comentário: Juízos de valor, solução mais justa e rejeição da lógica formal denunciam a lógica do razoável (Recaséns Siches). A tópica também se volta ao caso, mas testa topoi num debate aberto de argumentos.
+
+## Q046 · fácil · Métodos próprios de interpretação constitucional
+Além dos cinco métodos de interpretação constitucional sistematizados por Canotilho, a doutrina registra outros, como o originalismo, de matriz norte-americana, e a lógica do razoável, desenvolvida por Recaséns Siches.
+- Gabarito: CERTO
+- Comentário: Canotilho sistematiza o jurídico (clássico), o tópico-problemático, o hermenêutico-concretizador, o científico-espiritual e o normativo-estruturante. Originalismo e lógica do razoável ficam fora desse rol.
+
+## Q047 · fácil · Métodos próprios de interpretação constitucional
+Ao interpretar instituto previsto na Constituição, determinada corte examinou como ele é disciplinado em outros ordenamentos jurídicos e valeu-se desse cotejo para fixar o seu sentido. Esse procedimento corresponde ao método da comparação constitucional, associado a Häberle.
+- Gabarito: CERTO
+- Comentário: Direito comparado e outros ordenamentos denunciam a comparação constitucional (Häberle), que manuais como o de Lenza incluem entre os métodos de interpretação constitucional.
+
+## Q048 · difícil · Métodos próprios de interpretação constitucional
+Ao propor a comparação constitucional como quinto método de interpretação, Häberle pretendeu substituir os quatro elementos de Savigny pelo cotejo com ordenamentos estrangeiros.
+- Gabarito: ERRADO
+- Comentário: A comparação é o "quinto método" justamente porque se soma aos quatro elementos de Savigny (gramatical, lógico, histórico e sistemático), e não porque os substitui.
+
+## Q049 · médio · Métodos próprios de interpretação constitucional
+Para Canotilho, o elemento lógico e o sistemático do método hermenêutico clássico formam um só elemento, que considera a norma no contexto de toda a Constituição.
+- Gabarito: CERTO
+- Comentário: Canotilho trata o "lógico ou sistemático" como um elemento só. Há manuais, como o de Lenza, que os separam: lógico = coerência entre as normas; sistemático = a norma no todo.
+
+## Q050 · difícil · Métodos próprios de interpretação constitucional
+Nos manuais que, como o de Lenza, separam os elementos lógico e sistemático do método hermenêutico clássico, o lógico situa a norma no todo da Constituição, ao passo que o sistemático verifica a coerência entre as normas.
+- Gabarito: ERRADO
+- Comentário: As definições estão trocadas. Para quem os separa, o lógico verifica a coerência entre as normas, e o sistemático situa a norma no todo. Canotilho, por sua vez, trata os dois como um só elemento.
+
+## Q051 · fácil · Métodos próprios de interpretação constitucional
+Intérprete que se atém ao sentido das palavras do dispositivo constitucional emprega o elemento filológico, também denominado literal, textual ou gramatical, do método hermenêutico clássico.
+- Gabarito: CERTO
+- Comentário: Filológico, literal, textual e gramatical são nomes do mesmo elemento, o que examina o texto da norma.

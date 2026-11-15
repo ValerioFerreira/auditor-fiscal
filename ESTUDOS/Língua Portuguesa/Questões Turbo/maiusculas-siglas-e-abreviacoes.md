@@ -1,7 +1,7 @@
 # Questões turbo — Maiúsculas, Siglas e Abreviações
 <!-- cobertura
 Uso de maiúsculas = dd11542059
-Siglas = 4acb003b65
+Siglas = cc3825f696
 Abreviatura x abreviação = 2ae3d72fa0
 Pegadinhas = 16c6765920
 Base legal / referência = c5acc6f40a
@@ -156,3 +156,8 @@ A abreviatura regular dispensa o ponto final, caso mantenha o acento do vocábul
 O método de abreviar palavras não comporta exceções, razão pela qual são inadmissíveis formas como "cia." e "apto.".
 - Gabarito: ERRADO
 - Comentário: Há diversas exceções, entre elas a. C., apto., cia. e pág. ou p.
+
+## Q031 · difícil · Siglas
+Caso fossem lidas como palavras, as siglas PM e BRB deveriam ser grafadas "Pm" e "Brb", uma vez que a sigla pronunciada como palavra inteira leva maiúscula apenas na letra inicial.
+- Gabarito: ERRADO
+- Comentário: O critério da pronúncia só se aplica às siglas com mais de três letras (Uerj, Sudene). As de até três letras, como PM e BRB, escrevem-se sempre inteiramente em maiúsculas.
