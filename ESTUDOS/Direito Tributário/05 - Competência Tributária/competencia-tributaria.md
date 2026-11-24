@@ -31,11 +31,11 @@
 
 ### Delegação da capacidade tributária ativa
 
-- Só **entre pessoas jurídicas de direito público**: não pode ser delegada a pessoa jurídica de direito privado, inclusive o **Sistema "S"** (SENAI, SENAC, SESC e SESI).
+- Só **entre pessoas jurídicas de direito público**: não pode ser delegada a pessoa jurídica de direito privado, inclusive o **Sistema "S"** (SENAI, SENAC, SESC e SESI) - Nota: contribuição ao SEBRAE é CIDE (Tema 227).
 - Quem recebe a capacidade ativa fica com as **garantias e os privilégios processuais** da pessoa que a delegou (CTN, art. 7º, §1º).
 - A pessoa que delegou pode **revogar a qualquer tempo, unilateralmente** (CTN, art. 7º, §2º).
 - **Não constitui delegação** o cometimento, a pessoa jurídica de direito privado, do **encargo ou função de arrecadar** tributos (CTN, art. 7º, §3º): os bancos recebem os pagamentos dos contribuintes e apenas repassam o valor à pessoa de direito público devida.
-- **Parafiscalidade:** ocorre quando o ente atribui a outro a **capacidade tributária ativa** **e** lhe **destina os recursos arrecadados**, que, de regra, iriam para ele mesmo. Exemplo: conselhos profissionais.
+- **Parafiscalidade:** ocorre quando o ente atribui a outro a **capacidade tributária ativa** **e** lhe **destina os recursos arrecadados**, que, de regra, iriam para ele mesmo. Exemplo: conselhos profissionais (OAB não é autarquia, é *sui generis -* STF, ADI 3.026).
 
 ### Facultatividade e Lei de Responsabilidade Fiscal
 

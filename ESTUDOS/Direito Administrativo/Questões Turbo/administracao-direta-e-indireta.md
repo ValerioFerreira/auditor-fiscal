@@ -2,7 +2,7 @@
 <!-- cobertura
 Administração direta = 03a3849b1c
 Órgãos públicos = c8c0927cc5
-Administração indireta = 3adb2f6486
+Administração indireta = 684ad0c5c6
 Controle (tutela) x hierarquia = 3bc69dbe2f
 Pegadinhas CEBRASPE = c2ef47f3d2
 Base legal / referência = a399999fda
@@ -292,3 +292,13 @@ Segundo o STF, autorização legislativa genérica pode viabilizar a desestatiza
 Segundo o STF, ainda que a lei autorizadora de determinada empresa estatal preveja lei específica para sua extinção, a autorização legislativa genérica é suficiente para a desestatização dessa entidade.
 - Gabarito: ERRADO
 - Comentário: A autorização genérica não vale quando a lei autorizadora da entidade exigir lei específica para a sua extinção (ADI 6.241).
+
+## Q058 · difícil · Administração indireta
+A circunstância de o capital de uma empresa pública ser considerado integralmente público não impede que outras entidades da administração indireta participem dele, desde que a maioria votante permaneça com o ente controlador.
+- Gabarito: CERTO
+- Comentário: A Lei 13.303/2016, art. 3º, admite a presença de outras pessoas jurídicas de direito público interno e de entidades da administração indireta no capital da empresa pública, mantida a maioria votante do ente controlador.
+
+## Q059 · difícil · Administração indireta
+Situação hipotética: determinado estado e uma autarquia estadual constituíram, mediante autorização legal, empresa pública, ficando o estado com 40% e a autarquia com 60% do capital votante. Nessa situação, a configuração é compatível com o regime da empresa pública, pois todo o capital permanece público.
+- Gabarito: ERRADO
+- Comentário: A participação de entidades da administração indireta é admitida, mas a maioria do capital votante deve permanecer com o ente controlador, o que não ocorre no caso.

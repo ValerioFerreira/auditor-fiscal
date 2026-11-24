@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v026** (15/11/2026)
+> Versão atual da base: **v027** (24/11/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -324,3 +324,29 @@
 - Interpretação constitucional: métodos próprios (jurídico clássico, tópico-problemático, hermenêutico-concretizador, científico-espiritual e normativo-estruturante) e outros métodos (originalismo e lógica do razoável).
 - **Principais enriquecimentos:** tabela nova com o autor, o ponto de partida / o que prevalece, como funciona e as palavras que denunciam cada método; quadro "Como não confundir" (cinco pares que a banca troca, entre eles método integrativo × princípio do efeito integrador); topoi e casuísmo (tópica), "ponta do iceberg" e programa + âmbito normativo (Müller), Constituição viva (originalismo); elementos do método clássico com a divergência lógico × sistemático (um elemento só em Canotilho, dois em Lenza) e os quatro de Savigny; comparação constitucional (Häberle) acrescentada aos outros métodos; quatro pegadinhas novas; mapa mental com o traço de cada método.
 - **Questões:** Certo ou Errado, 23 novas (Q029 a Q051), com ajustes na Q012 e na Q015; múltipla escolha, 15 novas (M016 a M030, 7 CEBRASPE e 8 FGV), com ajustes na M006 e na M009.
+
+## 24/11/2026 — Resumos de cinco disciplinas e parte nova do sintético (v027)
+
+- **Origem:** os seis arquivos de 24/11 (um por disciplina, mais o "Sintético (4)").
+- **Resumo sintético:** o arquivo era inédito em todas as disciplinas. Foi separado pelos títulos, sem alterar o texto, e salvo como a **parte 05** de Direito Constitucional, a **07** de Direito Tributário, a **04** de Direito Administrativo, a **06** de Contabilidade Geral e Avançada e a **03** de Língua Portuguesa (todas `2026-11-24`). A parte de Tributário começa com um bloco sobre estatais (1.8 a 1.14) que repete o que está na parte de Administrativo (ver `pendencias.md`).
+- **Agentes de questões parados:** os quatro que tinham sido interrompidos por limite (Português, Tributário ME, Constitucional ME e um C/E) já tinham sido concluídos na v023; não havia o que retomar. Nesta sessão as questões saíram com **teto de menos da metade** do usual.
+- **Questões novas (teto reduzido):** Certo ou Errado, 203 (Constitucional 80, Tributário 31, Administrativo 26, Contabilidade 48, Português 18); múltipla escolha, 89 (Constitucional 35, Tributário 13, Administrativo 11, Contabilidade 22, Português 8).
+
+### Direito Constitucional (estudo de 24/11/2026)
+- Art. 5º, incisos XXXII a LVIII, em cinco temas novos: consumidor, informação, petição e acesso à Justiça; segurança jurídica, juiz natural e júri; garantias penais e penas; extradição, asilo e refúgio; devido processo legal e garantias processuais.
+- **Principais enriquecimentos:** Tema 1.068 (execução imediata da pena do júri); SV 11, 14, 21, 28, 45 e 56; Súmulas 2, 297, 421, 544 e 603; Temas 22, 210, 237, 350, 365 e 483; Lei 13.445/2017, art. 82 (vedações à extradição); Lei 14.532/2023 (injúria racial); quadro dos crimes imprescritíveis, inafiançáveis e insuscetíveis de graça.
+
+### Direito Tributário (estudo de 24/11/2026)
+- Legislação tributária: fontes (CTN, art. 96), lei complementar, lei ordinária, MP, lei delegada, resoluções do Senado, tratados, decretos e normas complementares (tema novo); vigência temporal (tema novo). Entram também duas frases suas em competência tributária (SEBRAE e OAB).
+- **Principais enriquecimentos:** art. 195, §11 (remissão e anistia de contribuições sociais por LC); art. 62, §§2º e 10, e art. 68 da CF; Súmulas 575 do STF e 20 do STJ; LINDB, art. 1º; LC 95/1998, art. 8º; CTN, arts. 99, 100, 103 e 144.
+
+### Direito Administrativo (estudo de 24/11/2026)
+- Empresas estatais (tema novo): empresas públicas e sociedades de economia mista, criação e extinção, subsidiárias, regime, responsabilidade, privilégios, pessoal, dirigentes e licitações.
+- **Principais enriquecimentos:** ADI 7.331 (vedações do art. 17 da Lei 13.303/2016 são constitucionais, 2024); ADI 5.624 e ADI 6.241; Súmulas 517 e 556 do STF; Temas 130, 131 e 532; extinção da EIRELI (Lei 14.195/2021); tabela de empresa pública do tema de administração direta e indireta atualizada (capital integralmente público, com participação de outras entidades públicas, art. 3º).
+
+### Contabilidade Geral e Avançada (estudo de 24/11/2026)
+- Reservas de lucros e dividendos (pasta nova "07 - Destinação do Resultado"); DLPA; DMPL (com o modelo em imagem).
+- **Principais enriquecimentos:** limites e lançamentos de cada reserva (arts. 193 a 199); art. 202 (dividendo obrigatório e piso de 25%); art. 204 (limite dos dividendos intermediários por reservas de capital); CPC 23 (política, estimativa e erro); CPC 08, item 18, para a reserva de prêmio de debêntures, que a Lei 6.404/1976 não cita.
+
+### Língua Portuguesa (estudo de 24/11/2026)
+- Substantivos (tema novo, pasta "04 - Morfologia"): classes variáveis e invariáveis, classificações, gênero, formação, número, grau e sintagma.

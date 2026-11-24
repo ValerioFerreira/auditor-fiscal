@@ -2,7 +2,7 @@
 <!-- cobertura
 Conceito = f7c25e68d2
 Competência tributária x competência para legislar sobre Direito Tributário = 19453130b4
-Características = 8c5a719eae
+Características = d778a2c57a
 Classificação = 0a144c7347
 Bis in idem e bitributação = 469d3aab5b
 Quadro geral da competência por espécie = 5a48a023c8
@@ -404,3 +404,13 @@ Na transição da Reforma Tributária, o ICMS e o ISS deixam de existir em 2027,
 A redução a zero das alíquotas do IPI a partir de 2027 não alcança os produtos com industrialização incentivada na Zona Franca de Manaus.
 - Gabarito: CERTO
 - Comentário: ADCT, art. 126, III: as alíquotas do IPI vão a zero a partir de 2027, salvo para esses produtos.
+
+## Q080 · médio · Delegação da capacidade tributária ativa
+De acordo com o STF (Tema 227), a contribuição destinada ao SEBRAE tem natureza de contribuição de intervenção no domínio econômico.
+- Gabarito: CERTO
+- Comentário: O tema registra que a contribuição ao SEBRAE é CIDE (STF, Tema 227), ainda que o Sistema S, por ser formado por pessoas de direito privado, não possa receber delegação da capacidade tributária ativa.
+
+## Q081 · médio · Delegação da capacidade tributária ativa
+Por fiscalizar o exercício profissional, a OAB é, segundo o STF (ADI 3.026), autarquia idêntica aos demais conselhos profissionais, razão pela qual também se enquadra como exemplo de parafiscalidade.
+- Gabarito: ERRADO
+- Comentário: Os conselhos profissionais exemplificam a parafiscalidade, mas a OAB não é autarquia: é entidade sui generis (STF, ADI 3.026).

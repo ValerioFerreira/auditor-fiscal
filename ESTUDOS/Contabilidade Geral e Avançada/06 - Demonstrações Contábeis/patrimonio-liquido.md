@@ -93,7 +93,9 @@
 
 - Capital social e etapas do capital → `../02 - Patrimônio/capital.md`
 - Balanço patrimonial → `balanco-patrimonial.md`
-- Demonstrações (DLPA e DMPL) → `demonstracoes-contabeis.md`
+- Demonstrações (DLPA e DMPL) → `demonstracoes-contabeis.md`; `demonstracao-dos-lucros-ou-prejuizos-acumulados.md`; `demonstracao-das-mutacoes-do-patrimonio-liquido.md`
+- Reservas de lucros em detalhe (limites, lançamentos e reversões) → `../07 - Destinação do Resultado/reservas-de-lucros.md`
+- Dividendos (mínimo obrigatório, intermediários e propostos) → `../07 - Destinação do Resultado/dividendos.md`
 - Natureza das contas do PL → `../03 - Contas/classificacao-e-natureza-das-contas.md`
 - Equação patrimonial e situação líquida → `../02 - Patrimônio/patrimonio.md`
 

@@ -1,6 +1,6 @@
 # Assuntos Estudados — Visão Geral
 
-> Versão da base: **v026** (15/11/2026) · ✅ consolidado · 🔶 consolidado com pendência (ver `pendencias.md`)
+> Versão da base: **v027** (24/11/2026) · ✅ consolidado · 🔶 consolidado com pendência (ver `pendencias.md`)
 
 ## Direito Tributário
 
@@ -27,6 +27,8 @@
 | 04 - Limitações ao Poder de Tributar | `imunidades-tributarias.md` | Não incidência, imunidade, isenção e alíquota zero; classificações | 🔶 |
 | 04 - Limitações ao Poder de Tributar | `imunidades-em-especie.md` | Recíproca, religiosa, partidos, sindicatos, educação e assistência; cultural; musical; outras imunidades; entidades beneficentes; ITCMD e IPVA | 🔶 |
 | 05 - Competência Tributária | `competencia-tributaria.md` | Conceito; competência para legislar; características; capacidade ativa; classificação (privativa, comum, cumulativa, residual, extraordinária e compartilhada); bis in idem e bitributação; quadro geral por espécie | ✅ |
+| 06 - Legislação Tributária | `fontes-da-legislacao-tributaria.md` | Conceito (CTN, art. 96); fontes; lei complementar; lei ordinária; MP; lei delegada; resoluções do Senado; decretos legislativos; tratados; decretos; normas complementares | ✅ |
+| 06 - Legislação Tributária | `vigencia-da-legislacao-tributaria.md` | Vigência temporal; LINDB; vigência x eficácia; ultratividade; art. 103 | ✅ |
 
 ## Contabilidade Geral e Avançada
 
@@ -48,6 +50,10 @@
 | 06 - Demonstrações Contábeis | `balanco-patrimonial.md` | Estrutura; ativo (circulante, ARLP, investimentos, imobilizado, intangível); passivo | 🔶 |
 | 06 - Demonstrações Contábeis | `patrimonio-liquido.md` | Contas da Lei 6.404; reservas; ações em tesouraria; absorção de prejuízos; exemplo | ✅ |
 | 06 - Demonstrações Contábeis | `demonstracao-do-resultado-do-exercicio.md` | Composição; CMV; participações; estrutura do CPC 26; Lei x CPC; natureza x função; ARE | ✅ |
+| 06 - Demonstrações Contábeis | `demonstracao-dos-lucros-ou-prejuizos-acumulados.md` | Conceito; estrutura; ajustes de exercícios anteriores (política, estimativa, erro); reversões; dividendos | ✅ |
+| 06 - Demonstrações Contábeis | `demonstracao-das-mutacoes-do-patrimonio-liquido.md` | Conceito e exigibilidade; conteúdo; fatos que alteram o PL; estrutura do CPC 26 (com imagem) | ✅ |
+| 07 - Destinação do Resultado | `reservas-de-lucros.md` | Rol; limite (art. 199); reserva legal; estatutária; contingências; incentivos fiscais; retenção; lucros a realizar; especial de dividendo; prêmio de debêntures | 🔶 |
+| 07 - Destinação do Resultado | `dividendos.md` | Dividendo obrigatório e LLA; intermediários; pagamento; dividendos propostos | ✅ |
 
 ## Direito Constitucional
 
@@ -69,6 +75,11 @@
 | 03 - Direitos e Garantias Fundamentais | `intimidade-domicilio-e-comunicacoes.md` | Art. 5º, X a XII: intimidade, sigilo bancário, domicílio, interceptação | 🔶 |
 | 03 - Direitos e Garantias Fundamentais | `profissao-locomocao-reuniao-e-associacao.md` | Art. 5º, XIII a XXI: profissão, informação, locomoção, reunião, associação, representação | ✅ |
 | 03 - Direitos e Garantias Fundamentais | `direito-de-propriedade.md` | Art. 5º, XXII a XXXI: desapropriação, requisição, pequena propriedade, propriedade intelectual, herança | ✅ |
+| 03 - Direitos e Garantias Fundamentais | `consumidor-informacao-peticao-e-acesso-a-justica.md` | Art. 5º, XXXII a XXXV: consumidor, informação, petição e certidões, inafastabilidade da jurisdição | ✅ |
+| 03 - Direitos e Garantias Fundamentais | `seguranca-juridica-juiz-natural-e-juri.md` | Art. 5º, XXXVI a XXXVIII e LIII: direito adquirido, juiz natural, tribunal do júri | ✅ |
+| 03 - Direitos e Garantias Fundamentais | `garantias-penais-e-penas.md` | Art. 5º, XXXIX a L: legalidade e retroatividade penal, racismo, crimes sem graça, penas, presos | ✅ |
+| 03 - Direitos e Garantias Fundamentais | `extradicao-asilo-e-refugio.md` | Art. 5º, LI e LII: extradição, vedações, asilo e refúgio, etapas | 🔶 |
+| 03 - Direitos e Garantias Fundamentais | `devido-processo-legal-e-garantias-processuais.md` | Art. 5º, LIV a LVIII: devido processo, ampla defesa, provas ilícitas, presunção de inocência, identificação criminal | ✅ |
 
 ## Direito Administrativo
 
@@ -84,6 +95,7 @@
 | 03 - Organização Administrativa | `centralizacao-descentralizacao-e-desconcentracao.md` | Entidades políticas e administrativas; tipos de descentralização; desconcentração | ✅ |
 | 03 - Organização Administrativa | `administracao-direta-e-indireta.md` | Direta; órgãos (teorias, capacidade processual, criação, classificações); indireta; instituição das entidades; consórcios; tutela | ✅ |
 | 03 - Organização Administrativa | `autarquias.md` | Conceito; regime jurídico; prerrogativas; foro; conselhos profissionais e OAB; regime especial (com imagem) | 🔶 |
+| 03 - Organização Administrativa | `empresas-estatais.md` | EP x SEM; criação e extinção; subsidiárias; regime; responsabilidade; privilégios; pessoal; dirigentes (art. 17); licitações | ✅ |
 | 03 - Organização Administrativa | `agencias-reguladoras-e-executivas.md` | Origem; rol; características; dirigentes; avocação; agências executivas | ✅ |
 | 04 - Princípios da Administração Pública | `principios-expressos.md` | LIMPE; nepotismo | 🔶 |
 | 04 - Princípios da Administração Pública | `principios-implicitos.md` | Razoabilidade, autotutela, motivação, continuidade, segurança jurídica e demais | ✅ |
@@ -98,3 +110,4 @@
 | 03 - Ortografia | `emprego-das-letras.md` | Ç, S, Z, SS, SC, J, G, X e CH | ✅ |
 | 03 - Ortografia | `maiusculas-siglas-e-abreviacoes.md` | Maiúsculas; siglas; abreviatura x abreviação | ✅ |
 | 03 - Ortografia | `expressoes-problematicas.md` | Mal e mau; há e a; porquês; onde e aonde; senão; pares semelhantes | ✅ |
+| 04 - Morfologia | `substantivos.md` | Classes variáveis e invariáveis; classificações; gênero; formação; número (compostos); grau; sintagma | ✅ |

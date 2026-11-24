@@ -30,6 +30,16 @@
 
 - **Direito Administrativo — imunidade de autarquia em atividade estranha (resumo de 09/11/2026):** o art. 150, §2º, fala em finalidades essenciais ou delas decorrentes; a extensão a atividades estranhas com renda aplicada nas finalidades segue a lógica da SV 52, que é do art. 150, VI, "c". Mantive com ⚠️ em `autarquias.md`. Qual é a fonte?
 
+- **Direito Constitucional — asilo e extradição (resumo de 24/11/2026):** o resumo diz que o asilo político "não impede a extradição", mas a Lei 13.445/2017, art. 82, IX, veda a extradição do beneficiário de refúgio ou de asilo territorial. Mantive o texto com ⚠️ em `extradicao-asilo-e-refugio.md`. A pegadinha sobre refúgio também foi trocada pelo art. 82, IX. Qual é a fonte?
+
+- **Direito Tributário — contribuições sociais (resumo de 24/11/2026):** o resumo diz que a LC regula "contribuições sociais, nos limites para concessão de isenção ou anistia". Interpretei como remissão e anistia das contribuições do empregador e do trabalhador (CF, art. 195, §11) em `fontes-da-legislacao-tributaria.md`. Confere?
+
+- **Contabilidade — reserva de prêmio de debêntures (resumo de 24/11/2026):** o resumo a inclui entre as reservas da Lei 6.404/1976 e diz que pode ultrapassar o capital social, "por analogia" à de incentivos fiscais. A lei não a prevê nos arts. 193 a 197 (vem do CPC 08, item 18), e o art. 199 só exclui três reservas. Mantive com ⚠️ em `reservas-de-lucros.md`. Qual é a fonte?
+
+- **Contabilidade — reserva especial de ágio na incorporação (resumo de 24/11/2026):** o resumo diz que ela é "revertida para o resultado na medida da amortização do ágio". Mantive como "segundo o material" em `demonstracao-dos-lucros-ou-prejuizos-acumulados.md`. Qual é a fonte?
+
+- **Resumo sintético — bloco de estatais sob o título "Direito Tributário" (Sintético (4), de 24/11/2026):** os itens 1.8 a 1.14 (falência, benefícios fiscais, imunidade, prescrição, pessoal, licitações e diferenças) apareceram sob o título de Tributário e se repetem dentro da parte de Administrativo. Salvei como veio (Tributário, parte 07). Quer que eu mova esse bloco para Administrativo, ou prefere corrigir pelo site?
+
 *As quatro pendências da carga inicial foram resolvidas por você em 27/09/2026 (ver `alteracoes.md`, v002).*
 
 - **Direito Tributário — dupla tributação internacional (resumo de 11/11/2026):** o resumo a coloca como "exceção" à bitributação, definida como invasão de competência; a rigor, a tributação por dois países não invade competência interna (cada país tem a sua). Mantive como no resumo, em `competencia-tributaria.md`. Quer uma frase de ressalva no tema?
@@ -57,7 +67,6 @@
   - `taxas.md` (Competência): diz que o exercício da competência é facultativo e, na mesma frase, que a LRF (art. 11) exige instituir todos os tributos.
   - `atos-e-fatos-administrativos.md`: a pegadinha do aluguel diz que o fato contábil ocorre "com a apropriação ou o pagamento"; o pagamento de aluguel já apropriado é permutativo (−A/−P).
   - `escrituracao-e-livros-contabeis.md`: a ITG 2000 (R1) cita o Razão entre os livros obrigatórios, enquanto a legislação comercial o trata como facultativo; as questões evitam o ponto.
-  - `administracao-direta-e-indireta.md`: empresa pública com "capital 100% público" x Lei 13.303/2016, art. 3º, parágrafo único (admite outras entidades públicas, mantida a maioria votante do ente controlador).
   - `regime-juridico-administrativo.md`: autorização legislativa para alienar imóveis (Lei 14.133/2021, art. 76) tem exceções, por exemplo para autarquias e fundações.
   - `classificacao-das-constituicoes.md`: o aviso "em prova prevalece" é orientação de estudo, não conteúdo constitucional.
 - **Pontos dos temas apontados pelos agentes de questões (10/11/2026), para você decidir se ajusto o texto** (as questões evitam esses pontos):
@@ -80,6 +89,6 @@
 ## ⚪ Assuntos mencionados, mas ainda não consolidados (estudar)
 
 - **Tributário:** obrigação tributária (art. 113); impostos em espécie; transação tributária.
-- **Constitucional:** processo legislativo (MP, LC, EC); controle de constitucionalidade (ADI, ADO, mandado de injunção); competências legislativas (art. 22); estado de defesa e de sítio; art. 5º, incisos XXXII em diante; direitos sociais, nacionalidade e direitos políticos.
-- **Administrativo:** fundações públicas, empresas públicas e sociedades de economia mista em detalhe; poderes administrativos (polícia, regulamentar, hierárquico); atos administrativos (anulação, revogação, convalidação); serviços públicos e concessões; agentes públicos (estabilidade, greve); improbidade; processo administrativo (Lei 9.784/99); bens públicos.
-- **Contabilidade:** DFC, DVA, DMPL e DLPA em detalhe (o conjunto, o balanço patrimonial e a DRE já estão consolidados).
+- **Constitucional:** processo legislativo (MP, LC, EC); controle de constitucionalidade (ADI, ADO, mandado de injunção); competências legislativas (art. 22); estado de defesa e de sítio; art. 5º, incisos LIX em diante (remédios constitucionais); direitos sociais, nacionalidade e direitos políticos.
+- **Administrativo:** fundações públicas em detalhe (empresas públicas e sociedades de economia mista já estão no tema próprio); poderes administrativos (polícia, regulamentar, hierárquico); atos administrativos (anulação, revogação, convalidação); serviços públicos e concessões; agentes públicos (estabilidade, greve); improbidade; processo administrativo (Lei 9.784/99); bens públicos.
+- **Contabilidade:** DFC e DVA em detalhe (o conjunto, o balanço patrimonial, a DRE, a DLPA e a DMPL já estão consolidados); o sintético traz a DFC, que ainda não virou tema.

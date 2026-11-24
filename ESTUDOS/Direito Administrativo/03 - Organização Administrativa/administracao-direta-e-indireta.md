@@ -84,7 +84,7 @@ De doutrinadores distintos:
 
 | Empresa pública | Sociedade de economia mista |
 |---|---|
-| Capital **100% público** | Capital **público e privado**, com a maioria do capital **votante** do ente público |
+| Capital **integralmente público** (admite outras entidades públicas e da administração indireta, mantida a **maioria votante** do ente controlador; Lei 13.303/2016, art. 3º) | Capital **público e privado**, com a maioria do capital **votante** do ente público |
 | **Qualquer forma societária** | Obrigatoriamente **sociedade anônima (S.A.)** |
 
 - **Lei cria** autarquia; **lei autoriza a criação** de fundação pública, empresa pública e sociedade de economia mista (CF, art. 37, XIX) — **princípio da especialidade**: a lei define a finalidade específica da entidade.
@@ -125,6 +125,7 @@ De doutrinadores distintos:
 
 - Entidades, centralização, descentralização e desconcentração → `centralizacao-descentralizacao-e-desconcentracao.md`
 - Autarquias → `autarquias.md`
+- Empresas públicas e sociedades de economia mista em detalhe → `empresas-estatais.md`
 - Agências reguladoras e executivas → `agencias-reguladoras-e-executivas.md`
 - Regime jurídico das estatais → `../02 - Regime Jurídico Administrativo/regime-juridico-administrativo.md`
 - Estado, governo, federação e as funções estatais → `estado-e-governo.md`

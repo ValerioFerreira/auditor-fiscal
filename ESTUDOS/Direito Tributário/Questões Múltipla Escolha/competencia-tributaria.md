@@ -2,7 +2,7 @@
 <!-- cobertura
 Conceito = f7c25e68d2
 Competência tributária x competência para legislar sobre Direito Tributário = 19453130b4
-Características = 8c5a719eae
+Características = d778a2c57a
 Classificação = 0a144c7347
 Bis in idem e bitributação = 469d3aab5b
 Quadro geral da competência por espécie = 5a48a023c8
@@ -549,3 +549,14 @@ Está correto o que se afirma em
 - E) I, II e III.
 - Gabarito: E
 - Comentário: I está correta (o imposto seletivo integra os impostos da União, CF, art. 153); II reproduz o art. 148, II; III está correta, pois a CBS (art. 195, V) e as contribuições residuais da seguridade, por lei complementar (art. 195, §4º), são da União.
+
+## M045 · médio · CEBRASPE · Delegação da capacidade tributária ativa
+A respeito da parafiscalidade e das entidades que atuam na fiscalização profissional, assinale a opção correta.
+
+- A) Ocorre parafiscalidade quando o ente atribui a outro a capacidade tributária ativa, mantendo para si os recursos arrecadados.
+- B) Os conselhos profissionais são exemplo de parafiscalidade, e a OAB, segundo o STF (ADI 3.026), não é autarquia, mas entidade *sui generis*.
+- C) Segundo o STF, a OAB é autarquia comum integrante da Administração indireta, assim como os conselhos profissionais.
+- D) A parafiscalidade supõe a delegação da competência tributária, e não apenas da capacidade tributária ativa, ao ente que recebe os recursos.
+- E) A parafiscalidade só é possível com a delegação da capacidade ativa a pessoas jurídicas de direito privado, como o SEBRAE, cuja contribuição é CIDE.
+- Gabarito: B
+- Comentário: a parafiscalidade combina atribuição da capacidade tributária ativa e destinação dos recursos arrecadados ao delegatário; os conselhos profissionais são o exemplo, e a OAB não é autarquia, mas entidade *sui generis* (ADI 3.026). A omite a destinação dos recursos; D confunde capacidade ativa com competência, que é indelegável (CTN, art. 7º); E erra porque a delegação só ocorre entre pessoas jurídicas de direito público, e a contribuição ao SEBRAE, embora seja CIDE (Tema 227), não altera isso.

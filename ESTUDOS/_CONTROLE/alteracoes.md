@@ -486,3 +486,65 @@ Sem alteração de conteúdo nos temas. Questões de múltipla escolha novas em 
 | IMPRECISA | Originalismo: "Não se aplica ao Brasil" | Doutrina norte-americana **não adotada no Brasil**, que admite a interpretação evolutiva e a mutação constitucional |
 | INCOMPLETA | Normativo-estruturante como "teoria concretista" | Mantido; acrescentado que o hermenêutico-concretizador (Hesse) também é concretista, com o critério para separar os dois no quadro "Como não confundir" |
 | REORGANIZAÇÃO | Tabela "Nº \| Método \| Ideia" | Tabela com autor, ponto de partida / o que prevalece, como funciona e palavras que denunciam, mais o quadro "Como não confundir" (cinco pares); todo o conteúdo anterior mantido; aprovada por você antes de gravar |
+
+## v027 — 24/11/2026 (resumos de cinco disciplinas)
+
+### Direito Constitucional
+
+| Classificação | Como estava | Como ficou na base |
+|---|---|---|
+| DIVERGÊNCIA | Asilo político "não impede a extradição" | Mantido como "segundo o material", com ⚠️ e a Lei 13.445/2017, art. 82, IX (beneficiário de refúgio ou de asilo territorial não é extraditado); pendência aberta |
+| INCOMPLETA | Mudança de entendimento: 2ª instância não permite execução provisória | Acrescentada a exceção do júri (STF, Tema 1.068) |
+| INCOMPLETA | "Criação ou aumento de tributos" como caso sem direito adquirido | Acrescentada a isenção onerosa por prazo certo (CTN, art. 178; Súmula 544) |
+| INCOMPLETA | Exclusão de candidato que responde a inquérito ou ação penal | Acrescentado "sem previsão legal" (Tema 22) |
+| IMPRECISA | Limite de comutação da pena perpétua "de 40 anos" | Mantido "segundo o material"; a Lei 13.445/2017, art. 96, fala em limite máximo de cumprimento |
+| INCORRETA | "XIV" e "XII" repetidos; "concrecto"; "requerere"; "Estados Requerentes" | Numeração e grafia corrigidas |
+| REORGANIZAÇÃO | Quadro de imprescritíveis, inafiançáveis e insuscetíveis de graça em imagem | Tabela em texto, com o mesmo conteúdo |
+
+### Direito Tributário
+
+| Classificação | Como estava | Como ficou na base |
+|---|---|---|
+| INCORRETA | Lei delegada "por resolução do legislativo (não somente do SF)" | Resolução do Congresso Nacional (CF, art. 68) |
+| INCORRETA | "Fontes formais" definidas como a relação jurídico-tributária | Definição do CTN, art. 96, mantendo as fontes principais e secundárias do material |
+| IMPRECISA | Contribuições sociais "nos limites para concessão de isenção ou anistia" | Interpretada como remissão e anistia por LC (CF, art. 195, §11); pendência aberta para confirmar |
+| INCOMPLETA | Imposto seletivo entre os que exigem LC | Mantido (LC 214/2025), com a ressalva de que as alíquotas são fixadas por lei ordinária (art. 153, §6º) |
+| IMPRECISA | Convênios do CONFAZ "normas primárias" | Mantido como "segundo o material" |
+| REORGANIZAÇÃO | Duas tabelas em imagem (competência, classificação) | A de competência já estava no tema; as demais, em texto |
+
+### Direito Administrativo
+
+| Classificação | Como estava | Como ficou na base |
+|---|---|---|
+| INCOMPLETA | Empresa pública com "capital 100% público" (tabela do tema de direta e indireta) | "Integralmente público", com participação de outras entidades públicas e da administração indireta, mantida a maioria votante (Lei 13.303/2016, art. 3º); resolvida a pendência 🟡 sobre o ponto |
+| IMPRECISA | Imunidade "se PSP" apenas | Acrescentados os requisitos e os exemplos (Correios, Infraero, SEM de saúde) |
+| INCOMPLETA | Extinção das estatais por autorização genérica | Acrescentadas as ADI 6.241 e 5.624 (venda de matriz x subsidiárias) |
+| INCOMPLETA | Vedações do art. 17 da Lei 13.303/2016 | Acrescentada a ADI 7.331 (constitucionais; nomeações já feitas mantidas) |
+| IMPRECISA | Formas incompatíveis com EP: empresa individual de responsabilidade limitada | EIRELI (extinta pela Lei 14.195/2021) |
+| IMPRECISA | "Estatais prestadoras de serviço público: responsabilidade do ente subsidiária" | Posição majoritária para as PSP; doutrina diverge para as EAE |
+| INCORRETA | "lEI 9.491/97"; "seto"; "estangeiro"; "dispôr"; "órgsão" | Grafia corrigida |
+
+### Contabilidade Geral e Avançada
+
+| Classificação | Como estava | Como ficou na base |
+|---|---|---|
+| INCORRETA | "Reservas previstas na lei 6404/76" incluindo a de prêmio de debêntures | Separada: não está nos arts. 193 a 197; decorre do CPC 08 (R1), item 18, e da legislação tributária |
+| DIVERGÊNCIA | A reserva de prêmio de debêntures pode ultrapassar o capital social | Mantida como "nota do material" com ⚠️: o art. 199 só exclui três reservas; pendência aberta |
+| IMPRECISA | Dividendos intermediários limitados "às RC" | Reservas de capital (art. 204), para não confundir com reserva para contingências |
+| IMPRECISA | "Subscrição" como fato que aumenta o PL | Só a parcela integralizada |
+| DIVERGÊNCIA | Reserva especial de ágio na incorporação revertida para o resultado | Mantida como "segundo o material"; pendência aberta |
+| IMPRECISA | Reserva de reavaliação "quando permitida pela legislação" | Extinta pela Lei 11.638/2007; só subsiste o saldo remanescente |
+| REORGANIZAÇÃO | Estrutura da DLPA em imagem | Tabela em texto; o modelo da DMPL, numérico, ficou em imagem |
+
+### Língua Portuguesa
+
+| Classificação | Como estava | Como ficou na base |
+|---|---|---|
+| IMPRECISA | Epicenos definidos como animais "que possuem somente um gênero" | Nomes de animais com uma só forma para macho e fêmea |
+| INCOMPLETA | Plural dos diminutivos | Regra explicitada (plural da primitiva, sem o "s", mais -zinho/-zito) |
+
+### Resumo sintético
+
+| Classificação | Como estava | Como ficou na base |
+|---|---|---|
+| REORGANIZAÇÃO | Arquivo único com cinco disciplinas | Separado pelos títulos e salvo como a próxima parte de cada disciplina, sem alterar o texto |

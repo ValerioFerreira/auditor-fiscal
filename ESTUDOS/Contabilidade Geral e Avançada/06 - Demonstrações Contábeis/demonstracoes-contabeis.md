@@ -49,6 +49,10 @@
 
 - Balanço patrimonial → `balanco-patrimonial.md`
 - Patrimônio líquido e destinação dos lucros → `patrimonio-liquido.md`
+- Demonstração do resultado do exercício → `demonstracao-do-resultado-do-exercicio.md`
+- DLPA → `demonstracao-dos-lucros-ou-prejuizos-acumulados.md`
+- DMPL → `demonstracao-das-mutacoes-do-patrimonio-liquido.md`
+- Reservas de lucros e dividendos → `../07 - Destinação do Resultado/reservas-de-lucros.md`; `../07 - Destinação do Resultado/dividendos.md`
 - Objetivos e usuários da Contabilidade → `../01 - Noções Introdutórias/nocoes-introdutorias.md`
 - Livros e escrituração (base das demonstrações) → `../05 - Escrituração/escrituracao-e-livros-contabeis.md`
 - Balancete de verificação (apoio, não é demonstração obrigatória) → `../05 - Escrituração/balancete-de-verificacao.md`

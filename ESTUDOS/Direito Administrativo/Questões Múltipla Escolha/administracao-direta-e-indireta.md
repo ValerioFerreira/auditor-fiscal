@@ -2,7 +2,7 @@
 <!-- cobertura
 Administração direta = 03a3849b1c
 Órgãos públicos = c8c0927cc5
-Administração indireta = 3adb2f6486
+Administração indireta = 684ad0c5c6
 Controle (tutela) x hierarquia = 3bc69dbe2f
 Pegadinhas CEBRASPE = c2ef47f3d2
 Base legal / referência = a399999fda
@@ -409,3 +409,16 @@ A respeito da administração direta, assinale a opção correta.
 - E) Segundo o DL nº 200/1967, é composta pelas autarquias e pelas fundações públicas federais.
 - Gabarito: B
 - Comentário: o DL 200/1967, de âmbito federal, mas adotado nos outros níveis da Federação, compõe a administração direta com os serviços integrados na estrutura da Presidência da República e dos ministérios. A e C ignoram que ela existe em todos os Poderes e entes; D e E descrevem a administração indireta.
+
+## M031 · médio · FGV · Administração indireta
+A União, por lei específica, autorizou a criação da Empresa Pública Delta. O capital social será detido pela União e pela Autarquia Épsilon, entidade da Administração indireta federal, sem nenhuma participação de particulares, ficando com a União a maioria do capital votante. Questionada sobre a natureza da entidade, a assessoria jurídica emitiu parecer.
+
+De acordo com a Lei nº 13.303/2016, o parecer correto conclui que
+
+- A) a entidade não é empresa pública, pois o capital deve pertencer exclusivamente ao ente federativo, vedada a participação de entidades da Administração indireta.
+- B) a entidade é sociedade de economia mista, pois seu capital é formado por mais de uma pessoa jurídica, sendo irrelevante que todas sejam públicas.
+- C) a entidade é empresa pública, desde que a autarquia detenha a maioria do capital votante, por ser a executora da atividade.
+- D) a entidade é empresa pública, pois a participação de entidades da Administração indireta é admitida, desde que a maioria do capital votante permaneça com o ente federativo.
+- E) a entidade é autarquia de regime especial, pois o capital integralmente público é característica das entidades de direito público.
+- Gabarito: D
+- Comentário: a empresa pública tem capital integralmente público, admitida a participação de outras pessoas de direito público interno e de entidades da Administração indireta, desde que a maioria do capital votante fique com o ente controlador (Lei nº 13.303/2016, art. 3º). A exige capital exclusivo do ente; B erra, pois a SEM exige capital privado e forma de S.A.; C inverte o controle; E confunde o capital público com a personalidade de direito público.
