@@ -548,3 +548,18 @@ Sem alteração de conteúdo nos temas. Questões de múltipla escolha novas em 
 | Classificação | Como estava | Como ficou na base |
 |---|---|---|
 | REORGANIZAÇÃO | Arquivo único com cinco disciplinas | Separado pelos títulos e salvo como a próxima parte de cada disciplina, sem alterar o texto |
+
+## v028 — 24/11/2026 (ajustes do site e Por aula)
+
+### Resumo sintético (a pedido seu)
+
+| Classificação | Como estava | Como ficou na base |
+|---|---|---|
+| REORGANIZAÇÃO | Itens 1.8 a 1.14 de estatais no começo da parte 07 do sintético de Tributário (idênticos à parte 04 de Administrativo) | Removidos de Tributário; mantidos em Administrativo |
+| REORGANIZAÇÃO | Título "DIREITO ADMINISTRATIVO" no meio da parte 04 do sintético de Constitucional | Título removido; o texto abaixo dele ficou onde estava |
+
+### Contabilidade Geral e Avançada
+
+| Classificação | Como estava | Como ficou na base |
+|---|---|---|
+| DIVERGÊNCIA | Reserva especial de ágio na incorporação, "segundo o material" | Marcada com ⚠️ (fonte a verificar por você) |

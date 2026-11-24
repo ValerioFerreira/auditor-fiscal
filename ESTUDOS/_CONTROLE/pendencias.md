@@ -18,7 +18,6 @@
 
 - **Direito Administrativo — repercussão geral e recursos repetitivos (resumo de 21/10/2026):** o material os trata como jurisprudência (fonte secundária), mas o CPC, art. 927, dá força vinculante a alguns desses precedentes. Quer uma nota no tema?
 
-- **Resumo sintético — parte de 30/10/2026 em pasta errada:** o trecho "DIREITO ADMINISTRATIVO" está dentro da parte 04 (30/10/2026) do resumo sintético de Direito Constitucional (o título veio com negrito partido e não foi separado). No site, ele aparece no sintético de Constitucional, e não no de Administrativo. Autoriza mover esse trecho para uma nova parte de Administrativo?
 
 - **Direito Tributário — imunidade e sanções (resumo de 09/11/2026):** "Esta imunidade também se estende a todas as sanções de natureza tributária, exceto as previdenciárias". Não localizei o julgado. Mantive com ⚠️ em `imunidades-em-especie.md`. Qual é a fonte?
 
@@ -30,21 +29,30 @@
 
 - **Direito Administrativo — imunidade de autarquia em atividade estranha (resumo de 09/11/2026):** o art. 150, §2º, fala em finalidades essenciais ou delas decorrentes; a extensão a atividades estranhas com renda aplicada nas finalidades segue a lógica da SV 52, que é do art. 150, VI, "c". Mantive com ⚠️ em `autarquias.md`. Qual é a fonte?
 
-- **Direito Constitucional — asilo e extradição (resumo de 24/11/2026):** o resumo diz que o asilo político "não impede a extradição", mas a Lei 13.445/2017, art. 82, IX, veda a extradição do beneficiário de refúgio ou de asilo territorial. Mantive o texto com ⚠️ em `extradicao-asilo-e-refugio.md`. A pegadinha sobre refúgio também foi trocada pelo art. 82, IX. Qual é a fonte?
+- **Direito Constitucional — asilo e extradição (resumo de 24/11/2026):** o resumo diz que o asilo político "não impede a extradição", mas a Lei 13.445/2017, art. 82, IX, veda a extradição do beneficiário de refúgio ou de asilo territorial. Mantive o texto com ⚠️ em `extradicao-asilo-e-refugio.md`. A pegadinha sobre refúgio também foi trocada pelo art. 82, IX. Mantido com ⚠️ a seu pedido; você vai verificar.
 
-- **Direito Tributário — contribuições sociais (resumo de 24/11/2026):** o resumo diz que a LC regula "contribuições sociais, nos limites para concessão de isenção ou anistia". Interpretei como remissão e anistia das contribuições do empregador e do trabalhador (CF, art. 195, §11) em `fontes-da-legislacao-tributaria.md`. Confere?
+- **Direito Tributário — contribuições sociais (resumo de 24/11/2026):** não há erro; é só uma conferência de interpretação. Seu resumo diz que a LC regula "contribuições sociais, nos limites para concessão de isenção ou anistia", e a Constituição não tem essa frase. O que existe é o art. 195, §11: remissão e anistia das contribuições do empregador e do trabalhador exigem lei complementar. Escrevi isso em `fontes-da-legislacao-tributaria.md`; se o professor falou de outra regra (por exemplo, a isenção das entidades beneficentes, art. 195, §7º), me diga.
 
-- **Contabilidade — reserva de prêmio de debêntures (resumo de 24/11/2026):** o resumo a inclui entre as reservas da Lei 6.404/1976 e diz que pode ultrapassar o capital social, "por analogia" à de incentivos fiscais. A lei não a prevê nos arts. 193 a 197 (vem do CPC 08, item 18), e o art. 199 só exclui três reservas. Mantive com ⚠️ em `reservas-de-lucros.md`. Qual é a fonte?
+- **Contabilidade — reserva de prêmio de debêntures (resumo de 24/11/2026):** o resumo a inclui entre as reservas da Lei 6.404/1976 e diz que pode ultrapassar o capital social, "por analogia" à de incentivos fiscais. A lei não a prevê nos arts. 193 a 197 (vem do CPC 08, item 18), e o art. 199 só exclui três reservas. Mantido com ⚠️ em `reservas-de-lucros.md` a seu pedido; você vai verificar.
 
-- **Contabilidade — reserva especial de ágio na incorporação (resumo de 24/11/2026):** o resumo diz que ela é "revertida para o resultado na medida da amortização do ágio". Mantive como "segundo o material" em `demonstracao-dos-lucros-ou-prejuizos-acumulados.md`. Qual é a fonte?
+- **Contabilidade — reserva especial de ágio na incorporação (resumo de 24/11/2026):** o resumo diz que ela é "revertida para o resultado na medida da amortização do ágio". Mantive como "segundo o material", agora com ⚠️, em `demonstracao-dos-lucros-ou-prejuizos-acumulados.md`. Você vai verificar a fonte.
 
-- **Resumo sintético — bloco de estatais sob o título "Direito Tributário" (Sintético (4), de 24/11/2026):** os itens 1.8 a 1.14 (falência, benefícios fiscais, imunidade, prescrição, pessoal, licitações e diferenças) apareceram sob o título de Tributário e se repetem dentro da parte de Administrativo. Salvei como veio (Tributário, parte 07). Quer que eu mova esse bloco para Administrativo, ou prefere corrigir pelo site?
 
 *As quatro pendências da carga inicial foram resolvidas por você em 27/09/2026 (ver `alteracoes.md`, v002).*
 
 - **Direito Tributário — dupla tributação internacional (resumo de 11/11/2026):** o resumo a coloca como "exceção" à bitributação, definida como invasão de competência; a rigor, a tributação por dois países não invade competência interna (cada país tem a sua). Mantive como no resumo, em `competencia-tributaria.md`. Quer uma frase de ressalva no tema?
 
 - **Direito Tributário — duas tabelas de impostos por ente:** a tabela "Ente | Impostos" (competência privativa) ficou mantida, e o quadro geral por espécie repete o que ela diz. Posso tirar a tabela antiga?
+- **Por aula — corte entre "Parte I" e "Parte II" de Direitos e deveres individuais e coletivos:** não sei onde o Estratégia divide. Por ora, Parte I = art. 5º, caput e incisos I a XXXI (o sintético de 30/10) e Parte II = incisos XXXII em diante e remédios (o sintético de 24/11). Se o corte for outro, é só mover os temas e o trecho do sintético em `aulas-estrategia.md`.
+- **Auditoria de repetições (24/11/2026), para decidirmos:**
+  - Sintético de Constitucional, parte 04: os incisos V a X do art. 5º (com o título "Incisos do art. 5º") aparecem duas vezes seguidas (blocos 17 a 30 e 31 a 44). Remover a segunda cópia?
+  - Sintético de Constitucional, parte 04: do título "Organização Administrativa (Noções Gerais)" ao fim (autarquias e agências executivas) é conteúdo de Administrativo; na aba Por aula ele já entra na aula 02 de Administrativo. Mover para a pasta de Administrativo?
+  - Sintético de Constitucional, parte 01: "Classificação das Constituições (Este assunto é muito cobrado...)" aparece duas vezes; confira se é repetição.
+  - Sintético de Administrativo, parte 04: a tabela de empresa pública × sociedade de economia mista aparece em 1.2 e em 1.14.
+  - Sintético de Língua Portuguesa, parte 03: o aviso "A partir de agora veremos como a classe da palavra e a função sintática..." aparece duas vezes.
+  - Sintético de Língua Portuguesa, parte 02: a colagem virou títulos ("##") em quase todas as linhas, o que deixa a leitura fragmentada; é questão de formatação, não de conteúdo.
+  - Tributário: as cinco novas diretrizes do art. 145, §3º (simplicidade, transparência, justiça tributária, cooperação e meio ambiente) estão em `fundamentos-do-direito-tributario.md` e em `transparencia-seguranca-juridica-e-novos-principios.md`; no primeiro é uma menção curta. Deixar assim?
+  - Fora esses pontos, não achei temas duplicados nem conteúdo de uma disciplina dentro de outra (a sobreposição de texto entre temas é de no máximo 6%).
 
 ## 🟠 Acompanhar (jurisprudência/legislação em aberto)
 
@@ -85,6 +93,7 @@
 - **Fixação em detalhes — F0720 sem resolução:** o balancete não fecha (débitos superam créditos em 7.900, valor igual a CMV 7.500 + estoque 400), e a DRE montada dá prejuízo de 3.415. O gabarito CERTO só sai tirando o PL de ativo − passivo. Conferir no original antes de resolver.
 - **Fixação em detalhes — F0587/F0588:** o quadro traz "custo da mercadoria vendida 2.178" fora da ordem crescente. O gabarito só fecha com o CMV pelo inventário (7.705) e com a equivalência (480) negativa; a resolução explica a leitura adotada. Conferir no original.
 - **Fixação em detalhes — JCP:** divergência registrada (despesa financeira para o fisco e para Possati; destinação do resultado pela ICPC 08). Confirmar com as resoluções das questões que cobram o tema.
+- **Por aula (v028):** a cada novo tema ou parte do sintético, atribuir à aula em `aulas-estrategia.md` (o gerador avisa quando algo fica sem aula). Auditoria Privada e Direito Civil estão na lista de aulas, mas ainda não têm pasta no site; assunto fora da lista pede a lista da nova matéria.
 
 ## ⚪ Assuntos mencionados, mas ainda não consolidados (estudar)
 

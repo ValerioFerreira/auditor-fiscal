@@ -649,6 +649,28 @@ a.fx-nome:hover { background: color-mix(in srgb, var(--m) 20%, var(--raised)); }
   .fx-subs { width: auto; }
 }
 
+/* Resumos por aula */
+.au-lista { display: grid; gap: 2px; max-width: var(--measure); margin: 0; padding: 0; list-style: none; }
+.au { display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: 12px; align-items: baseline; margin: 0 -8px; padding: 12px 8px; border-radius: 8px; color: var(--ink); text-decoration: none; }
+.au:hover { background: var(--hover); }
+.au-n { grid-row: span 2; font: 700 14px/24px var(--font-ui); color: var(--m); font-variant-numeric: tabular-nums; }
+.au-t { font: 600 16px/24px var(--font-display); text-wrap: pretty; }
+.au-meta { grid-column: 2; font: 500 12px/16px var(--font-ui); color: var(--ink-3); }
+.au-vazia { color: var(--ink-3); }
+.au-vazia .au-n { color: var(--ink-3); }
+.au-vazia .au-t { font-weight: 500; }
+.au-num { margin: 0 0 4px; font: 700 12px/16px var(--font-ui); color: var(--m); }
+.au-nav { display: flex; justify-content: space-between; gap: 16px; max-width: var(--measure); margin: 0 0 24px; font: 600 14px/20px var(--font-ui); }
+.au-nav a { color: var(--ink-2); text-decoration: none; }
+.au-nav a:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+.au-grupo { margin: 2.2em 0 1em; padding-bottom: .5em; border-bottom: 1px solid var(--rule); font: 700 12px/16px var(--font-ui) !important; letter-spacing: .02em; color: var(--ink-2); }
+.au-grupo:first-child { margin-top: 0; }
+.au-bloco + .au-bloco { margin-top: 3em; }
+.au-trecho { margin: 4px 0 0; font: 500 12px/16px var(--font-ui); color: var(--ink-3); }
+.au-nada { color: var(--ink-3); font: 400 14px/20px var(--font-ui); }
+.nav-num { flex: none; min-width: 22px; font: 700 12px/20px var(--font-ui); color: var(--m); font-variant-numeric: tabular-nums; }
+.nav-vazia { opacity: .55; }
+
 /* Resumos por tópico */
 .tp-barra { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 16px; margin: 0 0 8px; }
 .tp-barra .bp { flex: 1 1 260px; max-width: 420px; }
@@ -2102,6 +2124,7 @@ html:not([data-ebook]) .ebook-veu { display: none; }
   const icoLido = id => { const st = estadoLido(id); return `<span class="lido-ico lido-${st}" title="${st === 'sim' ? 'Lido' : st === 'mudou' ? 'Atualizado desde a leitura' : 'Não lido'}">${st === 'sim' ? ICO.check : ''}</span>`; };
   function modoLateral(r) {
     if (r.v === 'mat' && r.aba === 'geral') return 'geral';
+    if (r.v === 'mat' && r.aba === 'aula') return 'aula';
     if ((r.v === 'mat' && (r.aba === 'mapa' || r.aba === 'mapas')) || (r.v === 'doc' && r.mapa)) return 'mapa';
     return 'tema';
   }
@@ -2109,16 +2132,18 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     if (!matAtual) { document.body.classList.add('sem-lateral'); lateral.innerHTML = ''; return; }
     document.body.classList.remove('sem-lateral');
     const m = MAT[matAtual], modo = modoLateral(rota);
-    const rotulo = { geral: 'Sumário do resumo geral', mapa: 'Mapas por tópico', tema: 'Resumos por tópico' }[modo];
+    const rotulo = { geral: 'Sumário do resumo geral', mapa: 'Mapas por tópico', tema: 'Tópicos da disciplina', aula: 'Aulas do curso' }[modo];
     let h = `<a class="nav-topo" href="#inicio">${ICO.voltar}<span>Todas as disciplinas</span></a>
       <div class="lat-mat c-${m.cor}"><span class="aba">${esc(m.sigla)}</span><a class="lat-nome" href="#${m.id}">${esc(m.nome)}</a></div>
       <p class="lat-ult">${esc(ultimoTexto(m))}</p>
       <p class="nav-rot">${rotulo}</p><div class="c-${m.cor}">`;
-    for (const a of m.assuntos) {
+    if (modo === 'aula') {
+      for (const x of aulasDe(m)) h += `<a class="nav-tema nav-aula${temConteudo(x) ? '' : ' nav-vazia'}" href="#${m.id}_aula~${x.n}" data-aula="${x.n}"><span class="nav-num">${esc(numAula(x))}</span><span class="nav-tema-t">${esc(x.t)}</span></a>`;
+    } else for (const a of m.assuntos) {
       if (a.nome) h += `<p class="nav-assunto">${a.num ? `<span class="num">${esc(a.num)}</span>` : ''}${esc(a.nome)}</p>`;
       for (const id of a.temas) {
         const d = docs[id];
-        const href = modo === 'mapa' ? `#${id}_mapa` : modo === 'geral' ? `#${m.id}_geral` : `#${id}`;
+        const href = modo === 'mapa' ? `#${id}_mapa` : modo === 'geral' ? `#${m.id}_geral` : `#${m.id}_geral~t${id}`; // o menu leva sempre ao tópico no resumo geral (24/11/2026)
         h += `<a class="nav-tema" href="${href}" data-doc="${id}"${modo === 'geral' ? ` data-geral="${id}"` : ''}>${icoLido(id)}<span class="nav-tema-t">${esc(d.titulo)}</span>${modo === 'geral' ? `<span class="nav-pg">${d.pag[0]}</span>` : ''}</a>`;
       }
     }
@@ -2135,6 +2160,10 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     if (rota.v === 'pegadinhas' || rota.v === 'questoes') btPeg.setAttribute('aria-current', 'page');
     if (rota.v === 'doc') {
       const a = $(`[data-doc="${rota.doc}"]`, lateral);
+      if (a) { a.setAttribute('aria-current', 'page'); rolarLateral(a); }
+    }
+    if (rota.v === 'mat' && rota.aba === 'aula' && rota.extra) {
+      const a = $(`[data-aula="${rota.extra}"]`, lateral);
       if (a) { a.setAttribute('aria-current', 'page'); rolarLateral(a); }
     }
   }
@@ -3317,7 +3346,7 @@ html:not([data-ebook]) .ebook-veu { display: none; }
 
   // ---------- Rotas ----------
   // #inicio · #busca · #perfil · #questoes · #pegadinhas · #<disciplina>[_aba][~p12] · #<tema>[_mapa][~seção]
-  const ABAS = ['visao', 'geral', 'topicos', 'mapa', 'mapas', 'sintetico', 'questoes', 'marcas', 'fixacao'];
+  const ABAS = ['visao', 'geral', 'topicos', 'aula', 'mapa', 'mapas', 'sintetico', 'questoes', 'marcas', 'fixacao'];
   function lerRota(hash) {
     let t = (hash || '').replace(/^#/, '');
     try { t = decodeURIComponent(t); } catch (e) { /* mantém */ }
@@ -3390,6 +3419,7 @@ html:not([data-ebook]) .ebook-veu { display: none; }
   function renderMateria(m, r, op) {
     if (r.aba === 'geral') renderGeral(m, r.extra, op);
     else if (r.aba === 'topicos') renderTopicos(m);
+    else if (r.aba === 'aula') renderAulas(m, r.extra);
     else if (r.aba === 'mapa') renderMapaGeral(m);
     else if (r.aba === 'mapas') renderMapas(m);
     else if (r.aba === 'sintetico') renderSintetico(m, Object.assign({ doc: r.doc }, op));
@@ -3463,7 +3493,7 @@ html:not([data-ebook]) .ebook-veu { display: none; }
   // Questões e Marcações. Os grupos abrem um menu único, fora da faixa (que rola de lado em tela estreita).
   const ABAS_FAIXA = [
     { k: 'visao', t: 'Visão geral' },
-    { g: 'resumos', t: 'Resumos', filhos: [['geral', 'Geral'], ['topicos', 'Por tópico'], ['sintetico', 'Sintético']] },
+    { g: 'resumos', t: 'Resumos', filhos: [['geral', 'Geral'], ['topicos', 'Por tópico'], ['aula', 'Por aula'], ['sintetico', 'Sintético']] },
     { g: 'mapas', t: 'Mapas mentais', filhos: [['mapa', 'Geral'], ['mapas', 'Por tópico']] },
     { k: 'questoes', t: 'Questões' },
     { k: 'marcas', t: 'Marcações' }
@@ -3596,6 +3626,54 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     vista.innerHTML = `<div class="doc c-${m.cor}"><h1 class="sr">Resumos por tópico · ${esc(m.nome)}</h1>
       <div class="tp-barra">${barraTopicos(m)}<div class="seg" role="group" aria-label="Mostrar"><button type="button" data-filtro-tp="todos" aria-pressed="${filtro !== 'nao'}">Todos</button><button type="button" data-filtro-tp="nao" aria-pressed="${filtro === 'nao'}">Só os não lidos</button></div></div>
       ${h}</div>`;
+    window.scrollTo(0, 0);
+  }
+
+  // ---------- Por aula ----------
+  // Reorganização dos resumos pelas aulas do Estratégia (D.aulas, montado por gerar.py a partir de
+  // _CONTROLE/aulas-estrategia.md): cada aula junta os trechos dos temas próprios e do resumo
+  // sintético que pertencem a ela. Cada item é [documento, início, fim) sobre docs[id].partes.
+  const AULAS = D.aulas || {};
+  const aulasDe = m => AULAS[m.id] || [];
+  const temConteudo = x => x.p.length > 0 || x.s.length > 0;
+  const numAula = x => (x.n === 'extra' ? 'Extra' : x.n);
+  function renderAulas(m, extra) {
+    const lista = aulasDe(m), x = extra && lista.find(y => y.n === extra);
+    if (x) { renderAula(m, x, lista); return; }
+    document.title = `Resumos por aula · ${m.nome} · Missão Fiscal`;
+    const cheias = lista.filter(temConteudo).length;
+    const itens = lista.map(y => {
+      const cheia = temConteudo(y), nT = new Set(y.p.map(z => z[0])).size, nS = y.s.length;
+      const meta = cheia ? [nT ? plural(nT, 'tópico', 'tópicos') : '', nS ? plural(nS, 'trecho do sintético', 'trechos do sintético') : ''].filter(Boolean).join(' · ') : 'Ainda não estudada';
+      return `<li><a class="au${cheia ? '' : ' au-vazia'}" href="#${m.id}_aula~${y.n}"><span class="au-n">${esc(numAula(y))}</span><span class="au-t">${esc(y.t)}</span><span class="au-meta">${esc(meta)}</span></a></li>`;
+    }).join('');
+    vista.innerHTML = `<div class="doc c-${m.cor}"><header class="sec-cab"><h1 class="sec-tit">Resumos por aula${dica('Cada aula reúne, separados, os resumos próprios e os do resumo sintético que pertencem a ela. As aulas em cinza ainda não foram estudadas.')}</h1>
+      <p class="sec-sub">${lista.length ? `${plural(cheias, 'aula com resumo', 'aulas com resumo')} de ${lista.length}` : 'Esta disciplina ainda não tem a lista de aulas.'}</p></header>
+      ${lista.length ? `<ol class="au-lista">${itens}</ol>` : ''}</div>`;
+    window.scrollTo(0, 0);
+  }
+  function renderAula(m, x, lista) {
+    document.title = `Aula ${numAula(x)} · ${m.nome} · Missão Fiscal`;
+    const faixaTxt = z => { const d = docs[z[0]]; return d.partes.slice(z[1], z[2]).join('\n'); };
+    const blocoTema = z => {
+      const d = docs[z[0]], todo = z[1] === 0 && z[2] === d.partes.length;
+      return `<section class="g-tema au-bloco" id="a-${z[0]}" data-texto="${z[0]}"><header class="g-cab"><p class="g-ass"><span>${d.num ? esc(d.num) + ' · ' : ''}${esc(d.assunto)}</span></p><h3 class="g-tit"><a href="#${z[0]}" title="Abrir só este tópico">${esc(d.titulo)}</a></h3>${todo ? '' : '<p class="au-trecho">Trecho do tópico</p>'}</header>${faixaTxt(z)}</section>`;
+    };
+    const blocoSint = z => {
+      const d = docs[z[0]], de = d.materia !== m.id ? ` · sintético de ${esc(MAT[d.materia].nome)}` : '';
+      return `<section class="s-parte au-bloco" data-texto="${z[0]}"><p class="s-div"><span>${esc(d.rotulo)}${de}</span></p>${faixaTxt(z)}</section>`;
+    };
+    const i = lista.indexOf(x);
+    const vizinha = (passo) => { for (let k = i + passo; k >= 0 && k < lista.length; k += passo) if (temConteudo(lista[k])) return lista[k]; return null; };
+    const ant = vizinha(-1), prox = vizinha(1);
+    const nav = `<nav class="au-nav" aria-label="Aulas">${ant ? `<a href="#${m.id}_aula~${ant.n}">← Aula ${esc(numAula(ant))}</a>` : '<span></span>'}<a href="#${m.id}_aula">Todas as aulas</a>${prox ? `<a href="#${m.id}_aula~${prox.n}">Aula ${esc(numAula(prox))} →</a>` : '<span></span>'}</nav>`;
+    const grupo = (rot, itens, vazio) => `<h2 class="au-grupo">${rot}</h2>${itens.length ? itens.join('') : `<p class="au-nada">${vazio}</p>`}`;
+    const corpo = temConteudo(x)
+      ? `<article class="doc-corpo leitura" id="ui-artigo">${grupo('Resumos próprios', x.p.map(blocoTema), 'Nenhum resumo próprio nesta aula ainda.')}${grupo('Resumo sintético', x.s.map(blocoSint), 'Nenhum trecho do resumo sintético nesta aula ainda.')}</article>`
+      : `<div class="vazio"><p><strong>Esta aula ainda não foi estudada.</strong></p><p>Quando um resumo dela entrar na base, ele aparece aqui.</p></div>`;
+    vista.innerHTML = `<div class="doc c-${m.cor}"><header class="sec-cab"><p class="au-num">Aula ${esc(numAula(x))}</p><h1 class="sec-tit">${esc(x.t)}</h1></header>${nav}${corpo}${temConteudo(x) ? nav : ''}</div>`;
+    const artigo = $('#ui-artigo');
+    if (artigo) { pintarMarcas(artigo); prepararFiltros(artigo); configurarDock('tema', m); }
     window.scrollTo(0, 0);
   }
 
@@ -4228,7 +4306,8 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     for (const id of temasDe(m)) {
       const d = docs[id], mk = k => (inicio[id + ':' + k] ? marcador(inicio[id + ':' + k]) : '');
       corpo += mk(-1) + `<section class="g-tema" id="g-${id}" data-texto="${id}"><header class="g-cab"><p class="g-ass"><span>${d.num ? esc(d.num) + ' · ' : ''}${esc(d.assunto)}</span><button class="g-editar so-adm" type="button" data-editar="${id}" title="Editar este tópico">${ICO.lapis}Editar</button></p><h2 class="g-tit"><a href="#${id}" title="Abrir só este tópico">${esc(d.titulo)}</a></h2></header>`;
-      d.partes.forEach((p, k) => { corpo += mk(k) + p; });
+      const fora = d.ocGeral || [];
+      d.partes.forEach((p, k) => { if (!fora.includes(k)) corpo += mk(k) + p; });
       corpo += '</section>';
     }
     vista.innerHTML = `<div class="doc c-${m.cor}">
@@ -4243,8 +4322,9 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     configurarDock('geral', m);
     $('#ui-dg-marcar').innerHTML = `${ICO.check}Marcar lido`;
     $('#ui-dg-editar').innerHTML = `${ICO.lapis}<span>Editar</span>`;
-    const pagina = /^p(\d+)$/.exec(extra || '');
+    const pagina = /^p(\d+)$/.exec(extra || ''), umTema = /^t(.+)$/.exec(extra || '');
     let rolou = posicionar(artigo, op);
+    if (!rolou && umTema) { const alvo = document.getElementById('g-' + umTema[1]); if (alvo) { alvo.scrollIntoView({ block: 'start' }); rolou = true; } }
     if (!rolou && pagina) { const alvo = $('#pag-' + pagina[1]); if (alvo) { alvo.scrollIntoView({ block: 'start' }); rolou = true; } }
     if (!rolou) window.scrollTo(0, 0);
     pagAtual = 0;

@@ -82,6 +82,7 @@ MARCADOR_DADOS = "__DADOS_JSON__"
 CONTROLE = "_CONTROLE"
 ORDEM_CONTROLE = ["diario-de-estudos", "assuntos-estudados", "pendencias", "alteracoes"]
 PASTA_SINTETICO = "Resumo Sintético"
+ARQUIVO_AULAS = "aulas-estrategia"  # _CONTROLE/aulas-estrategia.md: aba "Por aula"
 PASTA_QUESTOES = "Questões Turbo"
 PASTA_QUESTOES_ME = "Questões Múltipla Escolha"
 PASTA_FIXACAO = "Feature Fixação"  # página "Fixação em detalhes" (ver carregar_fixacao)
@@ -2444,6 +2445,8 @@ class Base:
                 d["mapa"] = self.arvore_mapa(d, d["md_mapa"])
                 ligar_mapa(d["mapa"], r)
                 n_nos += contar_nos(d["mapa"])
+            if d["tipo"] == "tema":
+                d["partes"], d["toc"], d["ocGeral"] = ocultar_secoes(d["partes"], d["toc"])
             indice.extend(r.indice)
             if d["tipo"] == "tema":
                 pegadinhas.extend(r.pegadinhas)
@@ -2474,6 +2477,8 @@ class Base:
                 item["mapa"] = d["mapa"]
             if "pag" in d:
                 item["pag"] = d["pag"]
+            if d.get("ocGeral"):
+                item["ocGeral"] = d["ocGeral"]
             if d["tipo"] == "sint":
                 item["rotulo"] = d["rotulo"]
                 item["texto"] = d["md"]  # para copiar/baixar o resumo sintético completo
@@ -2488,7 +2493,123 @@ class Base:
             "pegadinhas": pegadinhas,
             "questoes": self.montar_questoes(),
             "fixacao": self.montar_fixacao(),
+            "aulas": self.montar_aulas(),
         }
+
+    # -- Por aula
+    def montar_aulas(self) -> dict:
+        """Aba "Por aula" (24/11/2026): reorganiza os temas e o resumo sintético pelas aulas do
+        Estratégia. Lê `_CONTROLE/aulas-estrategia.md` (ver o próprio arquivo) e devolve
+        {materia_id: [{n, t, p: [[doc, ini, fim]], s: [[doc, ini, fim]]}]}, em que ini e fim são
+        posições na lista `partes` do documento (já sem as seções ocultas)."""
+        arq = BASE / CONTROLE / f"{ARQUIVO_AULAS}.md"
+        doc_a = {"caminho": f"{CONTROLE}/{ARQUIVO_AULAS}.md"}
+        if not arq.is_file():
+            return {}
+        por_nome = {m["nome"]: m for m in self.materias}
+        sint = {(d["materiaNome"], int(d["assuntoNum"])): d for d in self.sinteticos
+                if d["assuntoNum"]}
+        cobertos: dict[str, set[int]] = {}
+
+        def norm(s: str) -> str:
+            s = sem_acentos(s).lower()
+            s = re.sub(r"^[\d\s.\-–—:)]+", "", s)
+            return re.sub(r"[^a-z0-9]+", " ", s).strip()
+
+        def achar(partes: list[str], ancora: str, a_partir: int = 0) -> int | None:
+            alvo = norm(ancora)
+            for k in range(a_partir, len(partes)):
+                if norm(texto_de_html(partes[k])).startswith(alvo):
+                    return k
+            return None
+
+        def faixa(d: dict, de: str | None, ate: str | None, rot: str) -> list[int] | None:
+            partes = d["partes"]
+            ini = 0
+            if de:
+                ini = achar(partes, de)
+                if ini is None:
+                    self.aviso(doc_a, f"{rot}: início «{de}» não encontrado em {d['caminho']}")
+                    return None
+            fim = len(partes)
+            if ate:
+                fim = achar(partes, ate, ini + 1)
+                if fim is None:
+                    self.aviso(doc_a, f"{rot}: fim «{ate}» não encontrado em {d['caminho']}")
+                    return None
+            ja = cobertos.setdefault(d["id"], set())
+            if any(k in ja for k in range(ini, fim) if texto_de_html(partes[k]).strip()):
+                self.aviso(doc_a, f"{rot}: trecho de {d['caminho']} já está em outra aula")
+            ja.update(range(ini, fim))
+            return [d["id"], ini, fim]
+
+        saida: dict[str, list] = {}
+        materia = None
+        aula = None
+        for linha in arq.read_text(encoding="utf-8").splitlines():
+            m = re.match(r"^## (.+?)\s*$", linha)
+            if m:
+                materia, aula = {"nome": m.group(1), "site": None, "aulas": []}, None
+                continue
+            if materia is None:
+                continue
+            m = re.match(r"^- Disciplina no site:\s*(.+?)\s*$", linha)
+            if m:
+                site = por_nome.get(m.group(1))
+                materia["site"] = site
+                if site:
+                    saida[site["id"]] = materia["aulas"]
+                continue
+            m = re.match(r"^### (\d{2}|Extra) - (.+?)\s*$", linha)
+            if m:
+                aula = {"n": m.group(1).lower(), "t": m.group(2), "p": [], "s": []}
+                materia["aulas"].append(aula)
+                continue
+            m = re.match(r"^- (Tema|Sintético): (.+?)\s*$", linha)
+            if not m or aula is None:
+                continue
+            tipo, resto = m.group(1), m.group(2)
+            rot = f"aula {aula['n']} de {materia['nome']}"
+            de = ate = None
+            mm = re.search(r"\s*·\s*de «([^»]+)»(?:\s*até «([^»]+)»)?\s*$", resto)
+            if mm:
+                de, ate, resto = mm.group(1), mm.group(2), resto[:mm.start()]
+            if materia["site"] is None:
+                self.aviso(doc_a, f"{rot}: a disciplina não existe no site; item ignorado")
+                continue
+            if tipo == "Tema":
+                caminho = resto.strip().strip("`").strip()
+                d = self.por_caminho.get(caminho)
+                if d is None or d["tipo"] != "tema":
+                    self.aviso(doc_a, f"{rot}: tema não encontrado ({caminho})")
+                    continue
+                f = faixa(d, de, ate, rot)
+                if f:
+                    aula["p"].append(f)
+            else:
+                mm = re.match(r"^(.+?), parte (\d+)$", resto.strip())
+                d = sint.get((mm.group(1), int(mm.group(2)))) if mm else None
+                if d is None:
+                    self.aviso(doc_a, f"{rot}: parte do resumo sintético não encontrada ({resto})")
+                    continue
+                f = faixa(d, de, ate, rot)
+                if f:
+                    aula["s"].append(f)
+
+        # Conferências: todo tema e todo bloco com texto do sintético precisa estar numa aula.
+        for d in self.docs:
+            if d["id"] not in cobertos and d["materia"] in saida:
+                self.aviso(doc_a, f"tema sem aula: {d['caminho']}")
+        for d in self.sinteticos:
+            ja = cobertos.get(d["id"], set())
+            soltos = [k for k, p in enumerate(d["partes"]) if k not in ja
+                      and texto_de_html(p).strip()]
+            if soltos:
+                self.aviso(doc_a, f"resumo sintético sem aula: {d['caminho']} (blocos "
+                                  f"{soltos[0]} a {soltos[-1]})")
+            elif d["id"] not in cobertos:
+                self.aviso(doc_a, f"resumo sintético sem aula: {d['caminho']}")
+        return saida
 
     # -- Fixação em detalhes
     def montar_fixacao(self) -> dict:
@@ -2557,6 +2678,8 @@ class Base:
         for d in temas:
             itens.append((d["id"], -1, 200, True))
             for k, parte in enumerate(d["partes"]):
+                if k in d.get("ocGeral", ()):
+                    continue
                 itens.append((d["id"], k, peso_parte(parte), bool(re.match(r"<h[2-6]", parte))))
         if not itens:
             return {"paginas": 0, "quebras": [], "hash": ""}
@@ -2587,6 +2710,40 @@ class Base:
             "quebras": [[itens[i][0], itens[i][1]] for i in inicios],
             "hash": resumo_hash("".join(d["hash"] for d in temas)),
         }
+
+
+# Seções que o site não mostra nos resumos (pedido de 24/11/2026): "Pegadinhas" e "Base legal"
+# saem de todas as leituras; "Relações com outros assuntos" sai só do resumo geral. Os arquivos
+# não mudam (a página de Pegadinhas e as questões continuam lendo o texto completo).
+RE_CABECALHO_HTML = re.compile(r'^<h([2-6]) id="([^"]+)" data-b="\d+">(.*)</h\1>$', re.S)
+SECOES_FORA_DO_RESUMO = ("pegadinha", "base legal")
+SECOES_FORA_DO_GERAL = ("relacoes com outros assuntos",)
+
+
+def ocultar_secoes(partes: list[str], toc: list[dict]) -> tuple[list[str], list[dict], list[int]]:
+    """(partes sem as seções ocultas, toc sem elas, índices das partes que só o geral esconde)."""
+    saida, fora_ids, so_geral = [], set(), []
+    modo = nivel = None
+    for p in partes:
+        m = RE_CABECALHO_HTML.match(p)
+        if m:
+            n = int(m.group(1))
+            if modo and n <= nivel:
+                modo = None
+            if not modo:
+                nome = sem_acentos(texto_de_html(m.group(3))).strip().lower()
+                if any(x in nome for x in SECOES_FORA_DO_RESUMO):
+                    modo, nivel = "fora", n
+                elif any(nome.startswith(x) for x in SECOES_FORA_DO_GERAL):
+                    modo, nivel = "geral", n
+            if modo == "fora":
+                fora_ids.add(m.group(2))
+        if modo == "fora":
+            continue
+        if modo == "geral":
+            so_geral.append(len(saida))
+        saida.append(p)
+    return saida, [x for x in toc if x["id"] not in fora_ids], so_geral
 
 
 def contar_nos(nos: list[dict]) -> int:

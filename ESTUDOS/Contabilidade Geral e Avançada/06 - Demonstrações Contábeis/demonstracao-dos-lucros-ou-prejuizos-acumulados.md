@@ -81,7 +81,7 @@ São os **efeitos da mudança de critério contábil** ou da **retificação de 
 - **Reserva de lucros para expansão:** pode ser revertida se a companhia julgar que reteve parcela maior que a necessária.
 - **Reserva para contingências:** é revertida para lucros acumulados quando **deixar de existir o fundamento** de sua constituição ou no exercício em que ocorrer a perda.
 - As **reservas especiais de lucros** também podem ser revertidas.
-- **Reserva especial de ágio na incorporação:** segundo o material, é revertida **para o resultado** na medida da **amortização do ágio** que lhe deu origem, podendo ser **incorporada ao capital** da incorporadora (ver `pendencias.md`).
+- ⚠️ **Reserva especial de ágio na incorporação:** segundo o material, é revertida **para o resultado** na medida da **amortização do ágio** que lhe deu origem, podendo ser **incorporada ao capital** da incorporadora (ver `pendencias.md`).
 
 ## Dividendos na DLPA
 

@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v027** (24/11/2026)
+> Versão atual da base: **v028** (24/11/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -350,3 +350,11 @@
 
 ### Língua Portuguesa (estudo de 24/11/2026)
 - Substantivos (tema novo, pasta "04 - Morfologia"): classes variáveis e invariáveis, classificações, gênero, formação, número, grau e sintagma.
+
+## 24/11/2026 — Ajustes do site e nova aba Por aula (v028)
+
+- **Sem conteúdo novo de estudo.**
+- **Respostas às pendências:** mantidos com ⚠️ os temas de asilo × extradição e de prêmio de debêntures; posto ⚠️ também na reserva especial de ágio na incorporação (você vai verificar as três fontes); bloco de estatais (itens 1.8 a 1.14) retirado do sintético de Tributário, parte 07, porque é idêntico ao de Administrativo, parte 04; título "DIREITO ADMINISTRATIVO" retirado da parte 04 do sintético de Constitucional (o texto abaixo dele ficou).
+- **Site:** o menu lateral leva ao tópico no resumo geral; as seções "Pegadinhas" e "Base legal" não aparecem mais nos resumos (geral e por tópico) e "Relações com outros assuntos" não aparece no resumo geral (os arquivos não mudaram; a página de Pegadinhas e as questões continuam lendo o texto completo).
+- **Nova aba Por aula** (Resumos ▾ → Por aula): reorganiza os temas e o resumo sintético pelas aulas do Estratégia. A lista de aulas (arquivo "Matérias.txt") e a atribuição ficam em `aulas-estrategia.md`; 27 aulas já têm conteúdo, 122 ficam em branco por ora. Nenhuma questão nova.
+- **Auditoria de repetições e adições indevidas:** feita em leitura, sem alterar nada; achados em `pendencias.md`.
