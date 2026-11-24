@@ -43,7 +43,6 @@
 - **Direito Tributário — dupla tributação internacional (resumo de 11/11/2026):** o resumo a coloca como "exceção" à bitributação, definida como invasão de competência; a rigor, a tributação por dois países não invade competência interna (cada país tem a sua). Mantive como no resumo, em `competencia-tributaria.md`. Quer uma frase de ressalva no tema?
 
 - **Direito Tributário — duas tabelas de impostos por ente:** a tabela "Ente | Impostos" (competência privativa) ficou mantida, e o quadro geral por espécie repete o que ela diz. Posso tirar a tabela antiga?
-- **Por aula — corte entre "Parte I" e "Parte II" de Direitos e deveres individuais e coletivos:** não sei onde o Estratégia divide. Por ora, Parte I = art. 5º, caput e incisos I a XXXI (o sintético de 30/10) e Parte II = incisos XXXII em diante e remédios (o sintético de 24/11). Se o corte for outro, é só mover os temas e o trecho do sintético em `aulas-estrategia.md`.
 - **Auditoria de repetições (24/11/2026), para decidirmos:**
   - Sintético de Constitucional, parte 04: os incisos V a X do art. 5º (com o título "Incisos do art. 5º") aparecem duas vezes seguidas (blocos 17 a 30 e 31 a 44). Remover a segunda cópia?
   - Sintético de Constitucional, parte 04: do título "Organização Administrativa (Noções Gerais)" ao fim (autarquias e agências executivas) é conteúdo de Administrativo; na aba Por aula ele já entra na aula 02 de Administrativo. Mover para a pasta de Administrativo?
