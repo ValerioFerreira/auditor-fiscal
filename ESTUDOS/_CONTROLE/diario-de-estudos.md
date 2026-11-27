@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v028** (24/11/2026)
+> Versão atual da base: **v029** (27/11/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -358,3 +358,10 @@
 - **Site:** o menu lateral leva ao tópico no resumo geral; as seções "Pegadinhas" e "Base legal" não aparecem mais nos resumos (geral e por tópico) e "Relações com outros assuntos" não aparece no resumo geral (os arquivos não mudaram; a página de Pegadinhas e as questões continuam lendo o texto completo).
 - **Nova aba Por aula** (Resumos ▾ → Por aula): reorganiza os temas e o resumo sintético pelas aulas do Estratégia. A lista de aulas (arquivo "Matérias.txt") e a atribuição ficam em `aulas-estrategia.md`; 27 aulas já têm conteúdo, 122 ficam em branco por ora. Nenhuma questão nova.
 - **Auditoria de repetições e adições indevidas:** feita em leitura, sem alterar nada; achados em `pendencias.md`.
+
+## 27/11/2026 — Jogo de Fluxo de caixa (DFC) na Fixação (v029)
+
+- **Sessão de sistema e material de fixação** (sem resumo de estudo).
+- **Novo jogo** em Contabilidade → Fixação → Fluxo de caixa (DFC): 114 fatos e 267 cartas (37 com história), a partir do caderno TecConcursos "DFC - 702" (702 questões), das aulas de DFC e do CPC 03 (R2). Cada carta pede a atividade, o efeito no caixa e o ajuste no método indireto.
+- Juros e dividendos pela regra atual (alternativas do CPC 03 aceitas), com aviso do CPC 51 (01/01/2027).
+- Ficaram fora, à espera da sua resposta: desconto de duplicatas, indenização de seguro e juros capitalizados (ver `pendencias.md`).

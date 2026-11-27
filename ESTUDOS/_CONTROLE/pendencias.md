@@ -53,7 +53,15 @@
   - Tributário: as cinco novas diretrizes do art. 145, §3º (simplicidade, transparência, justiça tributária, cooperação e meio ambiente) estão em `fundamentos-do-direito-tributario.md` e em `transparencia-seguranca-juridica-e-novos-principios.md`; no primeiro é uma menção curta. Deixar assim?
   - Fora esses pontos, não achei temas duplicados nem conteúdo de uma disciplina dentro de outra (a sobreposição de texto entre temas é de no máximo 6%).
 
+- **Contabilidade — jogo de DFC, desconto de duplicatas (27/11/2026):** o CEBRASPE já deu como certo que é fluxo operacional (questões F0453 e F0478 do caderno de DFC); a FGV trata empréstimo garantido por recebíveis como financiamento (F0336), que é também a lógica do CPC 48. A carta de desconto de duplicatas ficou fora do jogo. Qual resposta cobrar?
+
+- **Contabilidade — jogo de DFC, indenização de seguro (27/11/2026):** o CEBRASPE classificou como operacional a indenização recebida por incêndio em unidade fabril (F0456); parte da doutrina leva a investimento a indenização por perda de imobilizado, e o CPC 03 não trata do caso. Ficou fora do jogo. Incluo como operacional?
+
+- **Contabilidade — jogo de DFC, juros capitalizados pagos (27/11/2026):** o CPC 03, item 32, só manda divulgar o total de juros pagos, inclusive os capitalizados, sem fixar a atividade destes. Ficaram fora do jogo. Se o seu material fixar uma atividade, me diga.
+
 ## 🟠 Acompanhar (jurisprudência/legislação em aberto)
+
+- **CPC 51 / IFRS 18 e a DFC (vigência em 01/01/2027, Resolução CVM 237):** nas entidades não financeiras, juros e dividendos pagos passam a financiamento e os recebidos a investimento, sem opção, e o método indireto parte do lucro operacional. Em 2027, revisar o jogo `classificacao-dfc` (hoje cobra o CPC 03 e avisa a mudança) e o tema de Demonstrações Contábeis.
 
 - **STF — ADIs 6.254 e outras (EC 103/2019):** maioria formada (jun/2024) pela inconstitucionalidade do art. 149, §§1º-A, 1º-B e 1º-C (contribuição de inativos acima do salário mínimo e contribuição extraordinária); julgamento suspenso por vista, sem conclusão na última verificação. Progressividade das alíquotas empatada. → atualizar `Direito Tributário/03 - Espécies Tributárias/contribuicoes-sociais-e-previdenciarias.md` quando concluído.
 - **STF — Tema 1.000 (RE 1.133.118): nepotismo em cargos de natureza política.** Em julgamento com repercussão geral, sem tese fixada (último andamento: 19/08/2026, devolução de vista; verificado em 30/09/2026). Hoje vale o entendimento das Turmas (em regra, SV 13 não se aplica, salvo fraude ou falta manifesta de qualificação). → atualizar `Direito Administrativo/04 - Princípios da Administração Pública/principios-expressos.md` (seção Moralidade → Nepotismo) e a Q021 de `Direito Administrativo/Questões Turbo/principios-expressos.md` quando concluído.

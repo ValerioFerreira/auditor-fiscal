@@ -3242,7 +3242,7 @@ html:not([data-ebook]) .ebook-veu { display: none; }
   function resumoBackup(x) {
     const nMarcas = new Set([].concat(...Object.values(x.marcas || {}).map(l => l.map(y => y.g)))).size;
     const nCom = new Set([].concat(...Object.values(x.comentarios || {}).map(l => l.map(y => y.g)))).size;
-    return `${plural(Object.keys(x.lidos || {}).length, 'tópico lido', 'tópicos lidos')}, ${plural(Object.keys(x.geral || {}).length, 'resumo geral com página marcada', 'resumos gerais com página marcada')}, ${plural(nMarcas, 'marcação', 'marcações')}, ${plural(nCom, 'comentário', 'comentários')}, ${plural(Object.keys(x.questoes || {}).length, 'questão respondida', 'questões respondidas')} e ${plural(Object.keys(x.classif || {}).length, 'conta classificada', 'contas classificadas')}.`;
+    return `${plural(Object.keys(x.lidos || {}).length, 'tópico lido', 'tópicos lidos')}, ${plural(Object.keys(x.geral || {}).length, 'resumo geral com página marcada', 'resumos gerais com página marcada')}, ${plural(nMarcas, 'marcação', 'marcações')}, ${plural(nCom, 'comentário', 'comentários')}, ${plural(Object.keys(x.questoes || {}).length, 'questão respondida', 'questões respondidas')} e ${plural(Object.keys(x.classif || {}).length, 'carta classificada', 'cartas classificadas')}.`;
   }
   function exportar() {
     const dados = { app: APP, versao: 3, exportadoEm: new Date().toISOString(), lidos, geral: geralLido, marcas, comentarios, atividade, favoritos, questoes: qResp, qfav: qFav, qrep: qRel, classif };
@@ -7007,9 +7007,10 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     if ('fxfav' in d) { const i = qFav.indexOf(d.fxfav); if (i >= 0) qFav.splice(i, 1); else qFav.push(d.fxfav); guarda.gravar('qfav', qFav); const on = i < 0; t.setAttribute('aria-pressed', on); t.innerHTML = (on ? ICO.estrelaCheia : ICO.estrela) + '<span class="sr">Favorita</span>'; }
   });
 
-  // ---------- Classificação de contas (jogo da Fixação) ----------
-  // Assunto da Fixação com tipo "jogo" (pasta classificacao/, arquivo jogo.md; ver carregar_jogo_classificacao em gerar.py).
-  // Rotas: #<matéria>_fixacao~classificacao (Jogar), ~classificacao.p (Progresso) e ~classificacao.c (Contas).
+  // ---------- Jogos da Fixação (classificação de contas e fluxo de caixa) ----------
+  // Assunto da Fixação com tipo "jogo" (arquivo jogo.md; ver carregar_jogo_classificacao em gerar.py).
+  // O que muda de um jogo para outro (a.jogo) está em JG_JOGOS; o resto é comum.
+  // Rotas: #<matéria>_fixacao~<jogo> (Jogar), ~<jogo>.p (Progresso) e ~<jogo>.c (lista de contas ou fatos).
   // Cada carta (um nome, ou um nome com uma história) tem um registro em "classif": n respostas, a acertos,
   // cx caixa (0 a 6), ult e prox (ms), h últimos resultados ("1" acerto, "0" erro) e d erros por fileira.
   // Agendador (jgEscolher): repetição espaçada por carta (JG_INT), com peso pela taxa de erro recente da conta
@@ -7017,8 +7018,56 @@ html:not([data-ebook]) .ebook-veu { display: none; }
   // mesma conta aparece antes dela. Mistura revisões vencidas, cartas novas e reforço das já dominadas.
   const JG_INT = [0, 20 * 6e4, 864e5, 3 * 864e5, 7 * 864e5, 16 * 864e5, 35 * 864e5];
   const JG_SUB_TIT = { anc: 'Subgrupo do ativo não circulante', pl: 'Subgrupo do PL', dre: 'Linha da DRE' };
-  const JG_FILTROS = [['tudo', 'Todas'], ['patrimonial', 'Patrimoniais'], ['resultado', 'De resultado'], ['retificadora', 'Retificadoras'], ['historia', 'Com história'], ['erros', 'As que mais erro']];
-  const jgEst = { filtro: 'tudo', qtd: 20, busca: '' };
+  const JG_JOGOS = {
+    contas: {
+      Varios: 'Contas', maisErro: 'as que mais erro', tituloErro: 'As contas que você mais erra',
+      busca: 'Buscar uma conta, um nome ou uma classificação', vazio: 'Nenhuma conta encontrada.', rever: 'Contas a rever',
+      dicaFiltro: 'Patrimoniais, de resultado, só as retificadoras, só as cartas com história ou só as que você mais erra.',
+      filtros: [['tudo', 'Todas'], ['patrimonial', 'Patrimoniais'], ['resultado', 'De resultado'], ['retificadora', 'Retificadoras'], ['historia', 'Com história'], ['erros', 'As que mais erro']],
+      cabe: (c, f) => f === 'retificadora' ? c.c.retificadora === 'retificadora' : c.c.tipo === f,
+      // Fileiras visíveis a partir do que o leitor já escolheu: nada da resposta vaza pela tela.
+      visiveis: esc => {
+        const v = ['tipo'];
+        if (esc.tipo) v.push('grupo');
+        v.push('natureza', 'retificadora');
+        if (esc.grupo === 'ativo' || esc.grupo === 'passivo') v.push('prazo');
+        if (jgSubDe(esc.tipo, esc.grupo, esc.prazo)) v.push('subgrupo');
+        return v;
+      },
+      classe: (a, c) => a.dims.map(d => d[0]).filter(d => c.c[d] !== '-').map(d => d === 'retificadora' ? (c.c[d] === 'retificadora' ? 'Retificadora' : '') : jgRot(a, d, c.c[d])).filter(Boolean).join(' · '),
+      semValor: d => `Esta conta não tem ${d === 'prazo' ? 'prazo' : 'subgrupo'}.`,
+      grupo: c => {
+        const x = c.c;
+        if (x.tipo === 'resultado') return x.subgrupo === 'deducoes' ? 'Deduções da receita' : x.grupo === 'receita' ? 'Receitas' : x.subgrupo === 'cmv' ? 'Custos' : 'Despesas';
+        if (x.grupo === 'pl') return 'Patrimônio líquido';
+        if (x.grupo === 'passivo') return x.prazo === 'circulante' ? 'Passivo circulante' : 'Passivo não circulante';
+        if (x.prazo === 'circulante') return 'Ativo circulante';
+        return { rlp: 'Realizável a longo prazo', investimentos: 'Investimentos', imobilizado: 'Imobilizado', intangivel: 'Intangível' }[x.subgrupo] || 'Ativo não circulante';
+      },
+      ordem: ['Ativo circulante', 'Realizável a longo prazo', 'Investimentos', 'Imobilizado', 'Intangível', 'Passivo circulante', 'Passivo não circulante', 'Patrimônio líquido', 'Receitas', 'Deduções da receita', 'Custos', 'Despesas']
+    },
+    dfc: {
+      Varios: 'Fatos', maisErro: 'os que mais erro', tituloErro: 'Os fatos que você mais erra',
+      busca: 'Buscar um fato ou uma classificação', vazio: 'Nenhum fato encontrado.', rever: 'Fatos a rever',
+      dicaFiltro: 'Por atividade, só os que pedem ajuste no método indireto, só as cartas com história ou só as que você mais erra.',
+      filtros: [['tudo', 'Todos'], ['operacional', 'Operacionais'], ['investimento', 'Investimento'], ['financiamento', 'Financiamento'], ['nenhuma', 'Nenhuma das três'], ['ajuste', 'Com ajuste no indireto'], ['historia', 'Com história'], ['erros', 'Os que mais erro']],
+      cabe: (c, f) => f === 'ajuste' ? c.c.ajuste === 'soma' || c.c.ajuste === 'subtrai' : c.c.atividade === f,
+      visiveis: () => ['atividade', 'caixa', 'ajuste'],
+      classe: (a, c) => [c.c.atividade === 'nenhuma' ? 'Nenhuma das três atividades' : jgRot(a, 'atividade', c.c.atividade), `Caixa: ${jgRot(a, 'caixa', c.c.caixa).toLowerCase()}`, c.c.ajuste === '-' ? '' : `Indireto: ${jgRot(a, 'ajuste', c.c.ajuste).toLowerCase()}`].filter(Boolean).join(' · '),
+      semValor: () => 'Este fato, sozinho, não pede ajuste próprio (vai pelo lucro, pela variação das contas ou depende do resultado): não conta nesta carta.',
+      naoConta: true, // fileira com "-" aparece apagada, sem marcar a escolha como errada
+      grupo: c => {
+        const x = c.c, aj = x.ajuste === 'soma' || x.ajuste === 'subtrai';
+        if (x.atividade === 'nenhuma') return aj ? 'Ajustes sem caixa (método indireto)' : 'Sem fluxo: a prazo, sem dinheiro ou entre equivalentes';
+        if (x.atividade === 'operacional') return aj ? 'Variações das contas operacionais' : 'Operacionais';
+        return x.atividade === 'investimento' ? 'Investimento' : 'Financiamento';
+      },
+      ordem: ['Operacionais', 'Investimento', 'Financiamento', 'Variações das contas operacionais', 'Ajustes sem caixa (método indireto)', 'Sem fluxo: a prazo, sem dinheiro ou entre equivalentes']
+    }
+  };
+  const jgDe = a => JG_JOGOS[a.jogo] || JG_JOGOS.contas;
+  const jgEsts = {}; // filtro, quantidade e busca de cada jogo
+  const jgEst = a => jgEsts[a.id] || (jgEsts[a.id] = { filtro: 'tudo', qtd: 20, busca: '' });
   let jgSessao = null;
   const jgMapa = a => a._c || (a._c = Object.fromEntries(a.contas.map(c => [c.id, c])));
   const jgCarta = (a, id) => (a._k || (a._k = Object.fromEntries(a.cartas.map(k => [k.id, k]))))[id];
@@ -7030,21 +7079,12 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     const c = jgMapa(a)[k.k];
     return a.dims.map(d => d[0]).filter(d => c.c[d] !== '-' && !(!k.s && c.dep.includes(d)));
   }
-  // Fileiras visíveis a partir do que o leitor já escolheu: nada da resposta vaza pela tela.
-  function jgVisiveis(esc) {
-    const v = ['tipo'];
-    if (esc.tipo) v.push('grupo');
-    v.push('natureza', 'retificadora');
-    if (esc.grupo === 'ativo' || esc.grupo === 'passivo') v.push('prazo');
-    if (jgSubDe(esc.tipo, esc.grupo, esc.prazo)) v.push('subgrupo');
-    return v;
-  }
   function jgOpcoes(a, dim, esc) {
-    if (dim === 'grupo') return a.ops.grupo.filter(o => (esc.tipo === 'resultado') === (o[0] === 'receita' || o[0] === 'despesa'));
+    if (dim === 'grupo' && a.jogo === 'contas') return a.ops.grupo.filter(o => (esc.tipo === 'resultado') === (o[0] === 'receita' || o[0] === 'despesa'));
     if (dim === 'subgrupo') return a.sub[jgSubDe(esc.tipo, esc.grupo, esc.prazo)] || [];
     return a.ops[dim];
   }
-  const jgClasseTxt = (a, c) => a.dims.map(d => d[0]).filter(d => c.c[d] !== '-').map(d => d === 'retificadora' ? (c.c[d] === 'retificadora' ? 'Retificadora' : '') : jgRot(a, d, c.c[d])).filter(Boolean).join(' · ');
+  const jgClasseTxt = (a, c) => jgDe(a).classe(a, c);
   // Taxa de erro recente de cada conta (últimas respostas de todas as cartas dela) e de cada fileira.
   function jgTaxas(a) {
     const conta = {}, dim = {};
@@ -7061,11 +7101,10 @@ html:not([data-ebook]) .ebook-veu { display: none; }
   function jgPool(a, filtro) {
     return a.cartas.filter(k => {
       const c = jgMapa(a)[k.k], r = classif[k.id];
-      if (filtro === 'patrimonial' || filtro === 'resultado') return c.c.tipo === filtro;
-      if (filtro === 'retificadora') return c.c.retificadora === 'retificadora';
+      if (filtro === 'tudo') return true;
       if (filtro === 'historia') return !!k.s;
       if (filtro === 'erros') return !!(r && r.n && ((r.h || '').includes('0') || r.cx <= 1));
-      return true;
+      return jgDe(a).cabe(c, filtro);
     });
   }
   function jgSorteio(lista) { const tot = lista.reduce((s, x) => s + x.p, 0); let r = Math.random() * tot; for (const x of lista) { r -= x.p; if (r <= 0) return x; } return lista[lista.length - 1]; }
@@ -7107,13 +7146,13 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     return null;
   }
   function jgComecar(m, a, ids) {
-    jgSessao = { mat: m.id, a: a.id, filtro: jgEst.filtro, qtd: ids ? ids.length : jgEst.qtd, ids: ids || null, hist: [], fila: [], esc: {}, res: null, atual: null, seq: 0, melhor: 0, inicio: Date.now() };
+    jgSessao = { mat: m.id, a: a.id, filtro: jgEst(a).filtro, qtd: ids ? ids.length : jgEst(a).qtd, ids: ids || null, hist: [], fila: [], esc: {}, res: null, atual: null, seq: 0, melhor: 0, inicio: Date.now() };
     jgSessao.atual = jgEscolher(a, jgSessao);
     if (!jgSessao.atual) jgSessao.fim = true;
   }
   function jgConferir(m, a) {
     const s = jgSessao, k = jgCarta(a, s.atual), c = jgMapa(a)[k.k];
-    const vis = jgVisiveis(s.esc), pedidas = jgPedidas(a, k), por = {};
+    const vis = jgDe(a).visiveis(s.esc), pedidas = jgPedidas(a, k), por = {};
     pedidas.forEach(d => {
       const v = s.esc[d];
       por[d] = !vis.includes(d) || !v ? 'falta' : v === c.c[d] || (c.ac[d] || []).includes(v) ? 'ok' : 'erro';
@@ -7162,7 +7201,7 @@ html:not([data-ebook]) .ebook-veu { display: none; }
   }
   function renderJogo(m, a, sub) {
     sub = sub === 'p' || sub === 'c' ? sub : 'j';
-    const nomes = { j: 'Jogar', p: 'Progresso', c: 'Contas' };
+    const nomes = { j: 'Jogar', p: 'Progresso', c: jgDe(a).Varios };
     document.title = `${nomes[sub]} · ${a.titulo} · Fixação · Missão Fiscal`;
     const abas = Object.entries(nomes).map(([k, t]) => `<a class="fx-sub" href="#${m.id}_fixacao~${a.id}${k === 'j' ? '' : '.' + k}"${k === sub ? ' aria-current="page"' : ''}>${t}${k === 'c' ? `<span class="n">${a.contas.length}</span>` : ''}</a>`).join('');
     vista.innerHTML = `<div class="doc fx jg c-${m.cor}"><header class="fx-cab"><p class="fx-migalha"><a href="#${m.id}">${esc(m.nome)}</a> · Fixação em detalhes</p><h1 class="sec-tit">${esc(a.titulo)}</h1>
@@ -7181,20 +7220,20 @@ html:not([data-ebook]) .ebook-veu { display: none; }
   function jgTela(m, a, alvo) {
     const s = jgSessao && jgSessao.a === a.id && jgSessao.mat === m.id ? jgSessao : null;
     if (!s) {
-      const n = jgPool(a, jgEst.filtro).length;
+      const n = jgPool(a, jgEst(a).filtro).length;
       alvo.innerHTML = `<section class="jg-ini">${jgNumeros(jgResumo(a), true)}
-        <div class="jg-cfg"><p class="jg-cfg-t">Contas${dica('Patrimoniais, de resultado, só as retificadoras, só as cartas com história ou só as que você mais erra. Em qualquer opção o jogo mistura revisões vencidas, cartas novas e reforço das que você já domina.')}</p><div class="jg-chips">${JG_FILTROS.map(([k, t]) => `<button class="chip" type="button" data-jgfiltro="${k}" aria-pressed="${jgEst.filtro === k}">${t}<span class="n">${jgPool(a, k).length}</span></button>`).join('')}</div></div>
-        <div class="jg-cfg"><p class="jg-cfg-t">Cartas por partida</p><div class="seg" role="radiogroup" aria-label="Cartas por partida">${[10, 20, 30, 0].map(q => `<button type="button" role="radio" data-jgqtd="${q}" aria-checked="${jgEst.qtd === q}">${q || 'Sem fim'}</button>`).join('')}</div></div>
+        <div class="jg-cfg"><p class="jg-cfg-t">${jgDe(a).Varios}${dica(jgDe(a).dicaFiltro + ' Em qualquer opção o jogo mistura revisões vencidas, cartas novas e reforço das que você já domina.')}</p><div class="jg-chips">${jgDe(a).filtros.map(([k, t]) => `<button class="chip" type="button" data-jgfiltro="${k}" aria-pressed="${jgEst(a).filtro === k}">${t}<span class="n">${jgPool(a, k).length}</span></button>`).join('')}</div></div>
+        <div class="jg-cfg"><p class="jg-cfg-t">Cartas por partida</p><div class="seg" role="radiogroup" aria-label="Cartas por partida">${[10, 20, 30, 0].map(q => `<button type="button" role="radio" data-jgqtd="${q}" aria-checked="${jgEst(a).qtd === q}">${q || 'Sem fim'}</button>`).join('')}</div></div>
         <button class="bt bt-p bt-grande" type="button" data-jgcomecar${n ? '' : ' disabled'}>${ICO.raio} Jogar</button></section>`;
       return;
     }
     if (s.fim) { jgFim(m, a, alvo); return; }
     const k = jgCarta(a, s.atual), c = jgMapa(a)[k.k], r = classif[k.id];
-    const vis = jgVisiveis(s.esc), feito = !!s.res, ativa = feito ? null : vis.find(x => !s.esc[x]);
+    const J = jgDe(a), vis = J.visiveis(s.esc), feito = !!s.res, ativa = feito ? null : vis.find(x => !s.esc[x]);
     const fileira = d => {
       const lista = d === 'subgrupo' ? (vis.includes(d) ? jgSubDe(s.esc.tipo, s.esc.grupo, s.esc.prazo) : jgSubDe(c.c.tipo, c.c.grupo, c.c.prazo)) : '';
       const tit = d === 'subgrupo' ? JG_SUB_TIT[lista] : jgDimNome(a, d);
-      const st = feito ? (s.res.por[d] || (c.c[d] === '-' ? 'sobra' : 'dep')) : '';
+      const st = feito ? (s.res.por[d] || (c.c[d] === '-' && !J.naoConta ? 'sobra' : 'dep')) : '';
       const certa = c.c[d], escondida = feito && !vis.includes(d);
       const ops = escondida ? (d === 'subgrupo' ? a.sub[lista] : d === 'grupo' ? a.ops.grupo.filter(o => (c.c.tipo === 'resultado') === (o[0] === 'receita' || o[0] === 'despesa')) : a.ops[d]) : jgOpcoes(a, d, s.esc);
       const bts = ops.map(([v, t], i) => {
@@ -7204,7 +7243,7 @@ html:not([data-ebook]) .ebook-veu { display: none; }
         else if (feito && st === 'sobra' && sel) cls += ' errada';
         return `<button class="jg-op${cls}" type="button" data-jgop="${d}" data-v="${v}"${feito ? ' disabled' : ''}><span class="jg-k">${i + 1}</span>${esc(t)}</button>`;
       }).join('');
-      const nota = !feito ? '' : st === 'dep' ? '<p class="jg-nota">Só o nome não decide: não conta nesta carta.</p>' : st === 'sobra' ? `<p class="jg-nota">Esta conta não tem ${d === 'prazo' ? 'prazo' : 'subgrupo'}.</p>` : st === 'falta' ? `<p class="jg-nota">Fileira que o seu caminho escondeu. Certa: <b>${esc(jgRot(a, d, certa))}</b></p>` : '';
+      const nota = !feito ? '' : st === 'dep' ? `<p class="jg-nota">${c.c[d] === '-' ? J.semValor(d) : 'Só o nome não decide: não conta nesta carta.'}</p>` : st === 'sobra' ? `<p class="jg-nota">${J.semValor(d)}</p>` : st === 'falta' ? `<p class="jg-nota">Fileira que o seu caminho escondeu. Certa: <b>${esc(jgRot(a, d, certa))}</b></p>` : '';
       const marca = feito && (st === 'ok' || st === 'erro' || st === 'falta') ? `<span class="jg-st">${st === 'ok' ? ICO.check : ICO.fechar}</span>` : '';
       return `<div class="jg-fil${feito ? ' jg-' + st : ''}${d === ativa ? ' ativa' : ''}" data-dim="${d}"><p class="jg-fil-t">${marca}${esc(tit)}</p><div class="jg-ops">${bts}</div>${nota}</div>`;
     };
@@ -7214,7 +7253,8 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     const num = s.hist.length + (feito ? 0 : 1), rotProg = s.qtd && num > s.qtd ? 'Revisão das erradas' : `Carta ${num}${s.qtd ? ` de ${s.qtd}` : ''}`;
     const acertos = s.hist.filter(x => x.ok).length;
     const vistosF = new Set();
-    const fs = (k.f || []).concat(k.s ? [] : c.q).filter(x => x[1] && !vistosF.has(x[0]) && vistosF.add(x[0])).slice(0, 8).map(([rot, as, f]) => `<a href="#${m.id}_fixacao~${as}.q" data-jgq="${as}:${f}">${esc(rot)}</a>`).join(', ');
+    // o caderno de DFC não tem página no site: no jogo de DFC as questões aparecem só como número
+    const fs = (k.f || []).concat(k.s ? [] : c.q).filter(x => (x[1] || a.jogo === 'dfc') && !vistosF.has(x[0]) && vistosF.add(x[0])).slice(0, 8).map(([rot, as, f]) => as ? `<a href="#${m.id}_fixacao~${as}.q" data-jgq="${as}:${f}">${esc(rot)}</a>` : esc(rot)).join(', ');
     const lg = c.lg ? c.lg.split(':') : null;
     const selo = r && r.n ? `<span class="jg-ja${(r.h || '').endsWith('0') ? ' err' : ''}">${(r.h || '').endsWith('0') ? 'Errada da última vez' : 'Revisão'}</span>` : '<span class="jg-ja jg-nova">Nova</span>';
     alvo.innerHTML = `<section class="jg-jogo">
@@ -7223,7 +7263,7 @@ html:not([data-ebook]) .ebook-veu { display: none; }
       <article class="jg-carta${k.s ? ' jg-com-h' : ''}">${selo}<p class="jg-nome">${esc(k.n)}</p>${k.s ? `<p class="jg-hist">${k.s}</p>` : ''}</article>
       <div class="jg-fils">${mostrar.map(fileira).join('')}</div>
       ${feito ? `<div class="jg-fb ${s.res.ok ? 'ok' : 'err'}" role="status"><p class="jg-fb-t">${s.res.ok ? ICO.checkC + ' Certo' : ICO.fechar + ' Ainda não'}<span>${esc(c.t)}</span></p><p class="jg-fb-c">${esc(jgClasseTxt(a, c))}</p>${c.pq ? `<p class="jg-fb-p">${c.pq}</p>` : ''}
-        ${lg || fs ? `<div class="jg-fb-l">${lg ? `<a class="bt-texto" href="#${m.id}_fixacao~${lg[0]}" data-jgir="${c.lg}">Ver na estrutura ${ICO.dir}</a>` : ''}${fs ? `<span class="jg-fb-q">Questões: ${fs}</span>` : ''}</div>` : ''}</div>
+        ${lg || fs ? `<div class="jg-fb-l">${lg ? `<a class="bt-texto" href="#${m.id}_fixacao~${lg[0]}" data-jgir="${c.lg}">Ver na estrutura ${ICO.dir}</a>` : ''}${fs ? `<span class="jg-fb-q">${a.jogo === 'dfc' ? 'No caderno DFC' : 'Questões'}: ${fs}</span>` : ''}</div>` : ''}</div>
         <div class="jg-acoes"><button class="bt bt-p" type="button" data-jgprox>Próxima ${ICO.dir}</button></div>`
       : `<div class="jg-acoes"><button class="bt bt-p" type="button" data-jgconferir${completo ? '' : ' disabled'}>Conferir</button>${dica('Teclas: os números escolhem na fileira destacada; Enter confere e passa para a próxima; Backspace desfaz a última escolha.')}</div>`}
     </section>`;
@@ -7239,47 +7279,39 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     alvo.innerHTML = `<section class="jg-fim"><header class="qr-cab"><h2 class="sec-tit">${pct}% de acerto</h2><p class="qr-sub">${plural(n, 'carta', 'cartas')} · ${plural(mins, 'minuto', 'minutos')} · maior sequência ${s.melhor}</p></header>
       <div class="qr-barra" aria-hidden="true"><span class="a" style="width:${pct}%"></span><span class="e" style="width:${100 - pct}%"></span></div>
       <section><h2 class="qt-sec-t">Por fileira</h2><ul class="qt-top-lista">${a.dims.filter(([d]) => dims[d]).map(([d, t]) => { const y = dims[d], p = Math.round(100 * y.a / y.t); return `<li class="qt-top"><div><span class="jg-fim-d">${t}</span><span class="qt-top-meta">${y.a} de ${y.t}</span></div><div class="qt-trilho" aria-hidden="true"><span style="width:${p}%"></span></div><span class="qt-top-pct">${p}%</span></li>`; }).join('')}</ul></section>
-      ${contasErr.length ? `<section><h2 class="qt-sec-t">Contas a rever</h2><ul class="jg-rever">${contasErr.map(c => `<li><strong>${esc(c.t)}</strong><span>${esc(jgClasseTxt(a, c))}</span></li>`).join('')}</ul></section>` : ''}
+      ${contasErr.length ? `<section><h2 class="qt-sec-t">${jgDe(a).rever}</h2><ul class="jg-rever">${contasErr.map(c => `<li><strong>${esc(c.t)}</strong><span>${esc(jgClasseTxt(a, c))}</span></li>`).join('')}</ul></section>` : ''}
       <div class="jg-acoes">${erradas.length ? `<button class="bt bt-p" type="button" data-jgrefazer="${erradas.join(',')}">Refazer as erradas</button>` : ''}<button class="bt${erradas.length ? '' : ' bt-p'}" type="button" data-jgnovo>Jogar de novo</button><a class="bt-texto" href="#${m.id}_fixacao~${a.id}.p">Ver progresso</a></div></section>`;
   }
-  // Grupos do mapa de domínio (onde a conta entra no balanço ou na DRE).
-  function jgGrupoDe(c) {
-    const x = c.c;
-    if (x.tipo === 'resultado') return x.subgrupo === 'deducoes' ? 'Deduções da receita' : x.grupo === 'receita' ? 'Receitas' : x.subgrupo === 'cmv' ? 'Custos' : 'Despesas';
-    if (x.grupo === 'pl') return 'Patrimônio líquido';
-    if (x.grupo === 'passivo') return x.prazo === 'circulante' ? 'Passivo circulante' : 'Passivo não circulante';
-    if (x.prazo === 'circulante') return 'Ativo circulante';
-    return { rlp: 'Realizável a longo prazo', investimentos: 'Investimentos', imobilizado: 'Imobilizado', intangivel: 'Intangível' }[x.subgrupo] || 'Ativo não circulante';
-  }
-  const JG_ORDEM_G = ['Ativo circulante', 'Realizável a longo prazo', 'Investimentos', 'Imobilizado', 'Intangível', 'Passivo circulante', 'Passivo não circulante', 'Patrimônio líquido', 'Receitas', 'Deduções da receita', 'Custos', 'Despesas'];
-  const jgOrdenarG = o => Object.entries(o).sort((x, y) => JG_ORDEM_G.indexOf(x[0]) - JG_ORDEM_G.indexOf(y[0]));
+  // Grupos do mapa de domínio e da lista (cada jogo define os seus).
+  const jgGrupoDe = (a, c) => jgDe(a).grupo(c);
+  const jgOrdenarG = (a, o) => Object.entries(o).sort((x, y) => jgDe(a).ordem.indexOf(x[0]) - jgDe(a).ordem.indexOf(y[0]));
   function jgProgresso(m, a, alvo) {
     const z = jgResumo(a), tx = jgTaxas(a), grupos = {};
-    a.cartas.forEach(k => { const g = jgGrupoDe(jgMapa(a)[k.k]), r = classif[k.id], y = grupos[g] || (grupos[g] = { t: 0, v: 0, d: 0 }); y.t++; if (r && r.n) { y.v++; if (r.cx >= 3) y.d++; } });
+    a.cartas.forEach(k => { const g = jgGrupoDe(a, jgMapa(a)[k.k]), r = classif[k.id], y = grupos[g] || (grupos[g] = { t: 0, v: 0, d: 0 }); y.t++; if (r && r.n) { y.v++; if (r.cx >= 3) y.d++; } });
     const piores = Object.entries(tx.conta).filter(([, v]) => v > 0).sort((x, y) => y[1] - x[1]).slice(0, 10).map(([id, v]) => ({ c: jgMapa(a)[id], v }));
     const linha = (rot, meta, p, nd) => `<li class="qt-top"><div><span class="jg-fim-d">${esc(rot)}</span><span class="qt-top-meta">${meta}</span></div><div class="qt-trilho" aria-hidden="true"><span style="width:${p}%"></span></div><span class="qt-top-pct${nd ? ' nd' : ''}">${nd ? '—' : p + '%'}</span></li>`;
     alvo.innerHTML = `<section class="jg-prog-p">${jgNumeros(z, true)}
       ${Object.keys(tx.dimTot).length ? `<section><h2 class="qt-sec-t">Acerto por fileira</h2><ul class="qt-top-lista">${a.dims.filter(([d]) => tx.dimTot[d]).map(([d, t]) => { const y = tx.dimTot[d]; return linha(t, `${y.t - y.e} de ${y.t}`, Math.round(100 * (1 - y.e / y.t))); }).join('')}</ul></section>` : ''}
-      <section><h2 class="qt-sec-t">Domínio por grupo</h2><ul class="qt-top-lista">${jgOrdenarG(grupos).map(([g, y]) => linha(g, `${y.d} de ${plural(y.t, 'carta dominada', 'cartas dominadas')} · ${y.v} vistas`, Math.round(100 * y.d / y.t), !y.v)).join('')}</ul></section>
-      ${piores.length ? `<section><h2 class="qt-sec-t">As contas que você mais erra</h2><ul class="jg-rever">${piores.map(x => `<li><strong>${esc(x.c.t)}</strong><span>${esc(jgClasseTxt(a, x.c))}</span><em>${Math.round(100 * x.v)}% de erro recente</em></li>`).join('')}</ul><div class="jg-acoes"><button class="bt bt-p" type="button" data-jgerros>${ICO.raio} Jogar só com as que mais erro</button></div></section>` : ''}
+      <section><h2 class="qt-sec-t">Domínio por grupo</h2><ul class="qt-top-lista">${jgOrdenarG(a, grupos).map(([g, y]) => linha(g, `${y.d} de ${plural(y.t, 'carta dominada', 'cartas dominadas')} · ${y.v} vistas`, Math.round(100 * y.d / y.t), !y.v)).join('')}</ul></section>
+      ${piores.length ? `<section><h2 class="qt-sec-t">${jgDe(a).tituloErro}</h2><ul class="jg-rever">${piores.map(x => `<li><strong>${esc(x.c.t)}</strong><span>${esc(jgClasseTxt(a, x.c))}</span><em>${Math.round(100 * x.v)}% de erro recente</em></li>`).join('')}</ul><div class="jg-acoes"><button class="bt bt-p" type="button" data-jgerros>${ICO.raio} Jogar só com ${jgDe(a).maisErro}</button></div></section>` : ''}
     </section>`;
   }
   function jgContas(m, a, alvo) {
-    alvo.innerHTML = `<div class="fx-busca"><label class="fx-busca-in">${ICO.busca}<input type="search" id="ui-jg-busca" placeholder="Buscar uma conta, um nome ou uma classificação" value="${esc(jgEst.busca)}" autocomplete="off"></label></div><div id="ui-jg-lista"></div>`;
+    alvo.innerHTML = `<div class="fx-busca"><label class="fx-busca-in">${ICO.busca}<input type="search" id="ui-jg-busca" placeholder="${jgDe(a).busca}" value="${esc(jgEst(a).busca)}" autocomplete="off"></label></div><div id="ui-jg-lista"></div>`;
     const desenhar = () => {
-      const t = fxNorm(jgEst.busca.trim());
+      const t = fxNorm(jgEst(a).busca.trim());
       const lista = a.contas.filter(c => !t || fxNorm([c.t, jgClasseTxt(a, c)].concat(c.n, c.h.map(id => { const k = jgCarta(a, id); return k ? k.n + ' ' + k.s : ''; })).join(' ')).includes(t));
       const porG = {};
-      lista.forEach(c => (porG[jgGrupoDe(c)] = porG[jgGrupoDe(c)] || []).push(c));
-      $('#ui-jg-lista').innerHTML = lista.length ? jgOrdenarG(porG).map(([g, cs]) => `<section class="jg-cg"><h2 class="qt-sec-t">${esc(g)} <span class="jg-cg-n">${cs.length}</span></h2><ul class="fx-contas">${cs.map(c => {
+      lista.forEach(c => (porG[jgGrupoDe(a, c)] = porG[jgGrupoDe(a, c)] || []).push(c));
+      $('#ui-jg-lista').innerHTML = lista.length ? jgOrdenarG(a, porG).map(([g, cs]) => `<section class="jg-cg"><h2 class="qt-sec-t">${esc(g)} <span class="jg-cg-n">${cs.length}</span></h2><ul class="fx-contas">${cs.map(c => {
         const ks = a.cartas.filter(k => k.k === c.id), dom = ks.filter(k => classif[k.id] && classif[k.id].cx >= 3).length;
         const hs = c.h.map(id => jgCarta(a, id)).filter(Boolean);
         const lg = c.lg ? c.lg.split(':') : null;
         return `<li><div class="fx-c-t">${esc(c.t)} <span class="fx-c-e">${esc(jgClasseTxt(a, c))}</span>${dom ? `<span class="jg-dom">${dom}/${ks.length}</span>` : ''}</div>${c.pq ? `<p class="fx-c-o">${c.pq}</p>` : ''}${c.dep.length ? `<p class="fx-c-o"><b>Depende do contexto:</b> ${esc(c.dep.map(d => jgDimNome(a, d).toLowerCase()).join(', '))}</p>` : ''}${fxCluster({ t: c.t, e: jgClasseTxt(a, c), n: c.n }, t, false)}${hs.length ? `<ul class="jg-hs">${hs.map(k => `<li><b>${esc(k.n)}</b> · ${k.s}</li>`).join('')}</ul>` : ''}${lg ? `<a class="bt-texto" href="#${m.id}_fixacao~${lg[0]}" data-jgir="${c.lg}">Ver na estrutura ${ICO.dir}</a>` : ''}</li>`;
-      }).join('')}</ul></section>`).join('') : '<p class="jg-vazio">Nenhuma conta encontrada.</p>';
+      }).join('')}</ul></section>`).join('') : `<p class="jg-vazio">${jgDe(a).vazio}</p>`;
     };
     desenhar();
-    $('#ui-jg-busca').addEventListener('input', e => { jgEst.busca = e.target.value; desenhar(); });
+    $('#ui-jg-busca').addEventListener('input', e => { jgEst(a).busca = e.target.value; desenhar(); });
   }
   function jgEscolherOp(m, a, d, v) {
     const s = jgSessao;
@@ -7301,7 +7333,7 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     if (!x || x.sub || !jgSessao || jgSessao.fim || jgSessao.a !== x.a.id) return false;
     const { m, a } = x, s = jgSessao, alvo = $('#ui-jg');
     if (s.res) { if (e.key === 'Enter' && !(e.target.closest && e.target.closest('a, button'))) { e.preventDefault(); jgProxima(m, a); jgTela(m, a, alvo); return true; } return false; }
-    const vis = jgVisiveis(s.esc), d = vis.find(y => !s.esc[y]);
+    const vis = jgDe(a).visiveis(s.esc), d = vis.find(y => !s.esc[y]);
     if (e.key === 'Enter') { if (!d) { e.preventDefault(); jgConferir(m, a); jgTela(m, a, alvo); return true; } return false; }
     if (e.key === 'Backspace') { const ult = vis.filter(y => s.esc[y]).pop(); if (ult) { e.preventDefault(); jgEscolherOp(m, a, ult, undefined); return true; } return false; }
     const i = '123456789'.indexOf(e.key);
@@ -7318,8 +7350,8 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     const t = e.target.closest('[data-jgfiltro],[data-jgqtd],[data-jgcomecar],[data-jgop],[data-jgconferir],[data-jgprox],[data-jgencerrar],[data-jgnovo],[data-jgrefazer],[data-jgerros],[data-jgir],[data-jgq]');
     if (!t || t.disabled) return;
     const { m, a } = x, d = t.dataset, alvo = $('#ui-jg');
-    if ('jgfiltro' in d) { jgEst.filtro = d.jgfiltro; jgTela(m, a, alvo); return; }
-    if ('jgqtd' in d) { jgEst.qtd = +d.jgqtd; jgTela(m, a, alvo); return; }
+    if ('jgfiltro' in d) { jgEst(a).filtro = d.jgfiltro; jgTela(m, a, alvo); return; }
+    if ('jgqtd' in d) { jgEst(a).qtd = +d.jgqtd; jgTela(m, a, alvo); return; }
     if ('jgcomecar' in d) { jgComecar(m, a); jgTela(m, a, alvo); window.scrollTo(0, 0); return; }
     if ('jgop' in d) { jgEscolherOp(m, a, d.jgop, d.v); return; }
     if ('jgconferir' in d) { jgConferir(m, a); jgTela(m, a, alvo); return; }
@@ -7327,7 +7359,7 @@ html:not([data-ebook]) .ebook-veu { display: none; }
     if ('jgencerrar' in d) { if (jgSessao) { jgSessao.fim = true; jgTela(m, a, alvo); } return; }
     if ('jgnovo' in d) { jgSessao = null; jgTela(m, a, alvo); return; }
     if ('jgrefazer' in d) { jgComecar(m, a, d.jgrefazer.split(',')); jgTela(m, a, alvo); window.scrollTo(0, 0); return; }
-    if ('jgerros' in d) { jgEst.filtro = 'erros'; jgComecar(m, a); ir({ v: 'mat', mat: m.id, aba: 'fixacao', extra: a.id }); return; }
+    if ('jgerros' in d) { jgEst(a).filtro = 'erros'; jgComecar(m, a); ir({ v: 'mat', mat: m.id, aba: 'fixacao', extra: a.id }); return; }
     if ('jgir' in d) { e.preventDefault(); const [as, g] = d.jgir.split(':'); fxEst.a = as; fxEst.sel = g; fxEst.busca = ''; ir({ v: 'mat', mat: m.id, aba: 'fixacao', extra: as }); const alvoA = fxAssunto(m, as); if (alvoA) fxEscolher(m, alvoA, g); return; }
     if ('jgq' in d) { e.preventDefault(); const [as, f] = d.jgq.split(':'); fxSessao = { a: as, mat: m.id, ids: [`fix.${as}:${f}`], pos: 0, resp: {}, resposta: null, fim: false }; ir({ v: 'mat', mat: m.id, aba: 'fixacao', extra: as + '.q' }); }
   }, true); // captura: os links do jogo agem antes do roteador geral de links (que ignora o clique já tratado)
