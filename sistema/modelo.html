@@ -7059,7 +7059,7 @@ html:not([data-ebook]) .ebook-veu { display: none; }
       grupo: c => {
         const x = c.c, aj = x.ajuste === 'soma' || x.ajuste === 'subtrai';
         if (x.atividade === 'nenhuma') return aj ? 'Ajustes sem caixa (método indireto)' : 'Sem fluxo: a prazo, sem dinheiro ou entre equivalentes';
-        if (x.atividade === 'operacional') return aj ? 'Variações das contas operacionais' : 'Operacionais';
+        if (x.atividade === 'operacional') return /^dfc-(aum|dim)-/.test(c.id) ? 'Variações das contas operacionais' : 'Operacionais';
         return x.atividade === 'investimento' ? 'Investimento' : 'Financiamento';
       },
       ordem: ['Operacionais', 'Investimento', 'Financiamento', 'Variações das contas operacionais', 'Ajustes sem caixa (método indireto)', 'Sem fluxo: a prazo, sem dinheiro ou entre equivalentes']

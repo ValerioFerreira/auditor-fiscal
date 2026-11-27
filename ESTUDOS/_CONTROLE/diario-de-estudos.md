@@ -1,6 +1,6 @@
 # Diário de Estudos
 
-> Versão atual da base: **v029** (27/11/2026)
+> Versão atual da base: **v030** (27/11/2026)
 
 ## 26/09/2026 — Carga inicial (v001)
 
@@ -365,3 +365,8 @@
 - **Novo jogo** em Contabilidade → Fixação → Fluxo de caixa (DFC): 114 fatos e 267 cartas (37 com história), a partir do caderno TecConcursos "DFC - 702" (702 questões), das aulas de DFC e do CPC 03 (R2). Cada carta pede a atividade, o efeito no caixa e o ajuste no método indireto.
 - Juros e dividendos pela regra atual (alternativas do CPC 03 aceitas), com aviso do CPC 51 (01/01/2027).
 - Ficaram fora, à espera da sua resposta: desconto de duplicatas, indenização de seguro e juros capitalizados (ver `pendencias.md`).
+
+## 27/11/2026 — Jogo de DFC: toda carta pede o ajuste (v030)
+
+- **Sessão de material de fixação** (sem resumo de estudo).
+- As cartas que não contavam o ajuste no método indireto foram reescritas com o fato que o decide (período, saldo no fim do ano, ganho ou perda, política de juros e dividendos). São 115 fatos e 259 cartas, todas com as três respostas.
